@@ -1,4 +1,7 @@
 
+source 'git@github.com:iHZW/My_Study.git'
+source 'https://github.com/iHZW/My_Study.git'
+
 platform :ios, '8.0'
 
 inhibit_all_warnings!
