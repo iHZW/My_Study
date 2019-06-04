@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) EOCfamilly *kvcEocFamilly;
 
+@property (nonatomic, strong) UILabel *nameLabel;
 
 @end
 
@@ -33,19 +34,52 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+
+    // Do any additional setup after loading the view.
+    [self loadKVC];
+    
+    [self loadSubViews];
+    
+}
+
+
+- (void)loadSubViews
+{
+//    [self.view addSubview:self.nameLabel];
+    
+}
+
+
+
+
+- (UILabel *)nameLabel
+{
+    if (!_nameLabel) {
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.text = @"类好啊!!!";
+    }
+    return _nameLabel;
+}
+
+
+
+#pragma mark ------------------------------测试KVC------------------------------------
+
+- (void)loadKVC
+{
     /**< 证明类变了 before = EOCfamilly */
-//    NSLog(@"before = %s",object_getClassName(self.eocFamilly));
+    //    NSLog(@"before = %s",object_getClassName(self.eocFamilly));
     
     /**< 证明是子类  before = (
      EOCfamilly
      ) */
-//    NSLog(@"before = %@", [ViewController findSubClass:[self.eocFamilly class]]);
+    //    NSLog(@"before = %@", [ViewController findSubClass:[self.eocFamilly class]]);
     /**< 添加监听者 */
     [self.eocFamilly addObserver:self forKeyPath:kChangeValueKey options:NSKeyValueObservingOptionNew context:nil];
-   
+    
     /**< 证明类变了 after = NSKVONotifying_EOCfamilly*/
-//    NSLog(@"after = %s",object_getClassName(self.eocFamilly));
-   
+    //    NSLog(@"after = %s",object_getClassName(self.eocFamilly));
+    
     /**< 证明是子类  after = (
      EOCfamilly,
      "NSKVONotifying_EOCfamilly"
@@ -53,17 +87,16 @@
     NSLog(@"after = %@", [ViewController findSubClass:[self.eocFamilly class]]);
     
     /**< 手动通知观察者 */
-//    [self.eocFamilly willChangeValueForKey:kChangeValueKey];
+    //    [self.eocFamilly willChangeValueForKey:kChangeValueKey];
     self.eocFamilly.name = @"New_EocName";
-//    [self.eocFamilly didChangeValueForKey:kChangeValueKey];
-
-    [self testKVC];
-    // Do any additional setup after loading the view.
+    //    [self.eocFamilly didChangeValueForKey:kChangeValueKey];
     
+    
+    
+    [self testKVC];
 }
 
 
-#pragma mark ------------------------------测试KVC------------------------------------
 - (void)testKVC
 {
     /**< 取值赋值 */

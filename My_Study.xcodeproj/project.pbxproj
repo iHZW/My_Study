@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -61,6 +61,7 @@
 		7C49F5E0229BDAC300D8D62C /* IQViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQViewModel.m; sourceTree = "<group>"; };
 		7C49F5E2229BDC5100D8D62C /* IQDemoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQDemoView.h; sourceTree = "<group>"; };
 		7C49F5E3229BDC5100D8D62C /* IQDemoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQDemoView.m; sourceTree = "<group>"; };
+		7C57AC7B22A4C13D00D2478F /* MyPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +99,6 @@
 				F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */,
 				C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -139,6 +139,7 @@
 				7C459A322295557400667813 /* LaunchScreen.storyboard */,
 				7C459A352295557400667813 /* Info.plist */,
 				7C459A362295557400667813 /* main.m */,
+				7C57AC7B22A4C13D00D2478F /* MyPrefixHeader.pch */,
 			);
 			path = My_Study;
 			sourceTree = "<group>";
@@ -556,6 +557,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = My_Study/MyPrefixHeader.pch;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -573,6 +576,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = My_Study/MyPrefixHeader.pch;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
