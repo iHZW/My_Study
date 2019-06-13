@@ -19,6 +19,10 @@
 		7C459A5B2295584500667813 /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A5A2295584500667813 /* EOCfamilly.m */; };
 		7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E0229BDAC300D8D62C /* IQViewModel.m */; };
 		7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E3229BDC5100D8D62C /* IQDemoView.m */; };
+		7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309DD22A651BF00C73AAB /* ZWDrawingBase.m */; };
+		7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309E722A6751900C73AAB /* ZWTextDrawing.m */; };
+		7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */; };
+		7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,18 @@
 		7C49F5E2229BDC5100D8D62C /* IQDemoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQDemoView.h; sourceTree = "<group>"; };
 		7C49F5E3229BDC5100D8D62C /* IQDemoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQDemoView.m; sourceTree = "<group>"; };
 		7C57AC7B22A4C13D00D2478F /* MyPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
+		7C6309DC22A651BF00C73AAB /* ZWDrawingBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDrawingBase.h; sourceTree = "<group>"; };
+		7C6309DD22A651BF00C73AAB /* ZWDrawingBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWDrawingBase.m; sourceTree = "<group>"; };
+		7C6309E322A6553700C73AAB /* ZWDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDrawing.h; sourceTree = "<group>"; };
+		7C6309E522A65B6400C73AAB /* DZHDrawingDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZHDrawingDefine.h; sourceTree = "<group>"; };
+		7C6309E622A6751900C73AAB /* ZWTextDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWTextDrawing.h; sourceTree = "<group>"; };
+		7C6309E722A6751900C73AAB /* ZWTextDrawing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWTextDrawing.m; sourceTree = "<group>"; };
+		7C6309EB22A6774500C73AAB /* NSString+Adaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Adaptor.h"; sourceTree = "<group>"; };
+		7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Adaptor.m"; sourceTree = "<group>"; };
+		7C6309EF22A67A4E00C73AAB /* ZWSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWSDK.h; sourceTree = "<group>"; };
+		7C6309F122A67C6800C73AAB /* UIScreen+Suitable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Suitable.h"; sourceTree = "<group>"; };
+		7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Suitable.m"; sourceTree = "<group>"; };
+		7C6309F422A7657B00C73AAB /* ZWDrawingItems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDrawingItems.h; sourceTree = "<group>"; };
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +149,9 @@
 				7C459A2B2295557300667813 /* ViewController.m */,
 				7C459A592295584500667813 /* EOCfamilly.h */,
 				7C459A5A2295584500667813 /* EOCfamilly.m */,
+				7C6309EE22A67A3700C73AAB /* CoreSDK */,
+				7C6309E922A676FE00C73AAB /* Category */,
+				7C6309DA22A6519200C73AAB /* Drawing */,
 				7C49F5DB229BDA9B00D8D62C /* TestMVVM */,
 				7C459A2D2295557300667813 /* Main.storyboard */,
 				7C459A302295557400667813 /* Assets.xcassets */,
@@ -195,6 +214,79 @@
 				7C49F5E3229BDC5100D8D62C /* IQDemoView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7C6309DA22A6519200C73AAB /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309E422A65B5200C73AAB /* Common */,
+				7C6309DF22A653ED00C73AAB /* DrawingProtocol */,
+				7C6309DB22A6519200C73AAB /* Base */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		7C6309DB22A6519200C73AAB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309DC22A651BF00C73AAB /* ZWDrawingBase.h */,
+				7C6309DD22A651BF00C73AAB /* ZWDrawingBase.m */,
+				7C6309E622A6751900C73AAB /* ZWTextDrawing.h */,
+				7C6309E722A6751900C73AAB /* ZWTextDrawing.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7C6309DF22A653ED00C73AAB /* DrawingProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309E322A6553700C73AAB /* ZWDrawing.h */,
+				7C6309F422A7657B00C73AAB /* ZWDrawingItems.h */,
+			);
+			path = DrawingProtocol;
+			sourceTree = "<group>";
+		};
+		7C6309E422A65B5200C73AAB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309E522A65B6400C73AAB /* DZHDrawingDefine.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7C6309E922A676FE00C73AAB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309F022A67BF900C73AAB /* UIScreen */,
+				7C6309EA22A676FE00C73AAB /* NSString */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7C6309EA22A676FE00C73AAB /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309EB22A6774500C73AAB /* NSString+Adaptor.h */,
+				7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		7C6309EE22A67A3700C73AAB /* CoreSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309EF22A67A4E00C73AAB /* ZWSDK.h */,
+			);
+			path = CoreSDK;
+			sourceTree = "<group>";
+		};
+		7C6309F022A67BF900C73AAB /* UIScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7C6309F122A67C6800C73AAB /* UIScreen+Suitable.h */,
+				7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */,
+			);
+			path = UIScreen;
 			sourceTree = "<group>";
 		};
 		A9CF1F70F4E4726AE968C272 /* Frameworks */ = {
@@ -383,7 +475,11 @@
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
 				7C459A5B2295584500667813 /* EOCfamilly.m in Sources */,
 				7C459A2C2295557300667813 /* ViewController.m in Sources */,
+				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
+				7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */,
+				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
+				7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */,
 				7C459A292295557300667813 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

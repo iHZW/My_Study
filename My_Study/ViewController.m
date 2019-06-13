@@ -45,10 +45,13 @@
 
 - (void)loadSubViews
 {
-//    [self.view addSubview:self.nameLabel];
+    [self.view addSubview:self.nameLabel];
+    
+    NSLog(@"ScreenHeight = %f  DBL_EPSILON = %@",[[UIScreen mainScreen] bounds].size.height, @(DBL_EPSILON));
+    
+    
     
 }
-
 
 
 
@@ -56,11 +59,11 @@
 {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.text = @"类好啊!!!";
+        _nameLabel.text = @"嘞好啊!!!";
+        _nameLabel.font = PASFacFont(20);
     }
     return _nameLabel;
 }
-
 
 
 #pragma mark ------------------------------测试KVC------------------------------------
