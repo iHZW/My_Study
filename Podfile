@@ -1,5 +1,7 @@
 
-platform :ios, '7.0'
+platform :ios, '8.0'
+
+source 'https://github.com/iHZW/MyFirstREPO.git'
 
 target 'My_Study' do
 
@@ -12,5 +14,6 @@ pod 'MJExtension','3.0.15.1'
 pod 'MJRefresh','3.1.15.7'
 pod 'PINCache','2.3'
 pod 'SDWebImage','3.8.0'
+pod 'CocoapodsTest','0.1.0'
 
 end
