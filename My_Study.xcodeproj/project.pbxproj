@@ -23,6 +23,7 @@
 		7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309E722A6751900C73AAB /* ZWTextDrawing.m */; };
 		7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */; };
 		7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */; };
+		7CADF41622E70A9200EA5827 /* MyUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF41522E70A9100EA5827 /* MyUIKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		7C6309F122A67C6800C73AAB /* UIScreen+Suitable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Suitable.h"; sourceTree = "<group>"; };
 		7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Suitable.m"; sourceTree = "<group>"; };
 		7C6309F422A7657B00C73AAB /* ZWDrawingItems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDrawingItems.h; sourceTree = "<group>"; };
+		7CADF41422E70A9100EA5827 /* MyUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUIKit.h; sourceTree = "<group>"; };
+		7CADF41522E70A9100EA5827 /* MyUIKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUIKit.m; sourceTree = "<group>"; };
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,8 @@
 				7C459A282295557300667813 /* AppDelegate.m */,
 				7C459A2A2295557300667813 /* ViewController.h */,
 				7C459A2B2295557300667813 /* ViewController.m */,
+				7CADF41422E70A9100EA5827 /* MyUIKit.h */,
+				7CADF41522E70A9100EA5827 /* MyUIKit.m */,
 				7C459A592295584500667813 /* EOCfamilly.h */,
 				7C459A5A2295584500667813 /* EOCfamilly.m */,
 				7C6309EE22A67A3700C73AAB /* CoreSDK */,
@@ -475,6 +480,7 @@
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
 				7C459A5B2295584500667813 /* EOCfamilly.m in Sources */,
 				7C459A2C2295557300667813 /* ViewController.m in Sources */,
+				7CADF41622E70A9200EA5827 /* MyUIKit.m in Sources */,
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */,
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
