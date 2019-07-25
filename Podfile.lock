@@ -14,8 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - CocoapodsTest (0.1.0)
+  - CWLateralSlide (1.6.4)
   - JSONModel (1.5.0)
+  - LookinServer (0.9.3)
   - Masonry (1.1.0)
   - MJExtension (3.0.15.1)
   - MJRefresh (3.1.15.7)
@@ -27,8 +28,9 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - CocoapodsTest (= 0.1.0)
+  - CWLateralSlide (~> 1.6.3)
   - JSONModel (= 1.5.0)
+  - LookinServer
   - Masonry (= 1.1.0)
   - MJExtension (= 3.0.15.1)
   - MJRefresh (= 3.1.15.7)
@@ -37,23 +39,24 @@ DEPENDENCIES:
   - WFUIKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/iHZW/WFPodSpecs.git:
+    - WFUIKit
+  https://mirrors.tuna.tsinghua.edu.cn/git/cocoapods/specs.git:
     - AFNetworking
+    - CWLateralSlide
     - JSONModel
+    - LookinServer
     - Masonry
     - MJExtension
     - MJRefresh
     - PINCache
     - SDWebImage
-  https://github.com/iHZW/MyFirstREPO.git:
-    - CocoapodsTest
-  https://github.com/iHZW/WFPodSpecs.git:
-    - WFUIKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  CocoapodsTest: 9ba6c1468ac49da223072ba3299ba9746ffded54
+  CWLateralSlide: b7933f4a03d652fbec6789bb45dc567011e892ca
   JSONModel: 79b79f8cc6f63b9fd30c7e8ec15aebe9f1a6cc4f
+  LookinServer: 44f1b5f32743dc61068a156ff86b5b47d0a82943
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
@@ -61,6 +64,6 @@ SPEC CHECKSUMS:
   SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
   WFUIKit: 68d34ebf71735e0fcc6720cff8db58f7c9a339ae
 
-PODFILE CHECKSUM: 7cc21a2f39f55bfaa17ee070f17441c4e3b78cfd
+PODFILE CHECKSUM: 9b4a2c777b14b8faecb887239bc27861ebd52a98
 
 COCOAPODS: 1.7.1

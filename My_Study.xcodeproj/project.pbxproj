@@ -23,7 +23,6 @@
 		7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309E722A6751900C73AAB /* ZWTextDrawing.m */; };
 		7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */; };
 		7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */; };
-		7CADF41622E70A9200EA5827 /* MyUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF41522E70A9100EA5827 /* MyUIKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -480,7 +479,6 @@
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
 				7C459A5B2295584500667813 /* EOCfamilly.m in Sources */,
 				7C459A2C2295557300667813 /* ViewController.m in Sources */,
-				7CADF41622E70A9200EA5827 /* MyUIKit.m in Sources */,
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */,
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,

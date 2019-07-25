@@ -35,14 +35,18 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGSize)getTextSize:(id)text andFont:(UIFont *)font;
 
 /**
- 根据固定的宽度和文字内容 获取适合的字体大小
- 
- @param changeString 显示内容
- @param fontSize 当前字体大小
+ 根据固定的宽度和文字内容 获取文本显示size
+
+ @param text 显示内容
+ @param font 当前字体大小
  @param width 固定宽度
- @return 适合的字号
+ @param lineSpacing 间距
+ @return 文本显示size
  */
-+ (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width lineSpacing:(CGFloat)lineSpacing;
++ (CGSize)getSizeWithText:(NSString *)text
+                     font:(UIFont *)font
+                    width:(CGFloat)width
+              lineSpacing:(CGFloat)lineSpacing;
 
 /**
  根据固定的宽度和文字内容 获取适合的字体大小
