@@ -15,7 +15,11 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - CWLateralSlide (1.6.4)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - JSONModel (1.5.0)
+  - KissXML (5.2.3)
   - LookinServer (0.9.3)
   - Masonry (1.1.0)
   - MJExtension (3.0.15.1)
@@ -24,46 +28,56 @@ PODS:
   - SDWebImage (3.8.0):
     - SDWebImage/Core (= 3.8.0)
   - SDWebImage/Core (3.8.0)
+  - SSKeychain (1.2.2)
   - WFUIKit (0.0.2)
 
 DEPENDENCIES:
   - AFNetworking
   - CWLateralSlide (~> 1.6.3)
+  - FMDB (>= 2.7.1)
   - JSONModel (= 1.5.0)
+  - KissXML (= 5.2.3)
   - LookinServer
   - Masonry (= 1.1.0)
   - MJExtension (= 3.0.15.1)
   - MJRefresh (= 3.1.15.7)
   - PINCache (= 2.3)
   - SDWebImage (= 3.8.0)
+  - SSKeychain (= 1.2.2)
   - WFUIKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - CWLateralSlide
+    - FMDB
     - JSONModel
+    - KissXML
     - LookinServer
     - Masonry
     - MJExtension
     - MJRefresh
     - PINCache
     - SDWebImage
+    - SSKeychain
   https://github.com/iHZW/WFPodSpecs.git:
     - WFUIKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CWLateralSlide: b7933f4a03d652fbec6789bb45dc567011e892ca
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   JSONModel: 79b79f8cc6f63b9fd30c7e8ec15aebe9f1a6cc4f
+  KissXML: 09f88ff8161fd058d67b70740b8b516687b52823
   LookinServer: 44f1b5f32743dc61068a156ff86b5b47d0a82943
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
+  SSKeychain: 88767e903ee8d274ed380e364d96b7a101235286
   WFUIKit: 68d34ebf71735e0fcc6720cff8db58f7c9a339ae
 
-PODFILE CHECKSUM: 32ddb92625a6d5f92640c8ffc09ea771e64813a1
+PODFILE CHECKSUM: 38ae8b4d02b07918cf5ad9094fbd79e4ad19bd94
 
 COCOAPODS: 1.7.1

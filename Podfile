@@ -17,6 +17,10 @@ target 'My_Study' do
   pod 'SDWebImage','3.8.0'
   pod 'WFUIKit'
   pod 'CWLateralSlide', '~> 1.6.3'
+  pod 'PINCache','2.3'
+  pod 'KissXML','5.2.3'
+  pod 'FMDB','>=2.7.1'
+  pod 'SSKeychain', '1.2.2'
   pod 'LookinServer', :configurations => ['Debug']
 
 #  require 'fileutils'
