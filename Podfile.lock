@@ -39,9 +39,7 @@ DEPENDENCIES:
   - WFUIKit
 
 SPEC REPOS:
-  https://github.com/iHZW/WFPodSpecs.git:
-    - WFUIKit
-  https://mirrors.tuna.tsinghua.edu.cn/git/cocoapods/specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - CWLateralSlide
     - JSONModel
@@ -51,6 +49,8 @@ SPEC REPOS:
     - MJRefresh
     - PINCache
     - SDWebImage
+  https://github.com/iHZW/WFPodSpecs.git:
+    - WFUIKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -64,6 +64,6 @@ SPEC CHECKSUMS:
   SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
   WFUIKit: 68d34ebf71735e0fcc6720cff8db58f7c9a339ae
 
-PODFILE CHECKSUM: 9b4a2c777b14b8faecb887239bc27861ebd52a98
+PODFILE CHECKSUM: 32ddb92625a6d5f92640c8ffc09ea771e64813a1
 
 COCOAPODS: 1.7.1

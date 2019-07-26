@@ -9,12 +9,12 @@
 #ifndef MyPrefixHeader_pch
 #define MyPrefixHeader_pch
 
+#ifdef __OBJC__  //判断一下OC文件才会到导入下面的文件
 
 #import "Masonry.h"
 #import "ZWSDK.h"
 
+#endif //判断结束
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #endif /* MyPrefixHeader_pch */

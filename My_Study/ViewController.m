@@ -9,6 +9,10 @@
 #import "ViewController.h"
 #import "EOCfamilly.h"
 #import <objc/runtime.h>
+#import "UIAlertUtil.h"
+//#import <WFUIKit/MyUIKit.h>
+//#import <CWLateralSlide/UIViewController+CWLateralSlide.h>
+
 
 //#import "NSObjec+IQDataBinding.h"
 
@@ -40,6 +44,51 @@
     
     [self loadSubViews];
     
+    [self loadNav];
+}
+
+- (void)loadNav
+{
+    self.title = @"My_Study";
+
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, PASFactor(44), PASFactor(30));
+    [btn setTitle:@"试试看" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    [self.navigationItem setRightBarButtonItem:btnItem];
+    
+}
+
+- (void)clickBtn
+{
+    [UIAlertUtil showAlertTitle:@"Lookin使用" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"导出当前UI结构",@"审查元素",@"3D视图"] actionBlock:^(NSInteger index)
+    {
+        switch (index) {
+            case 0:
+                NSLog(@"取消");
+                break;
+                
+            case 1:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_Export" object:nil];
+
+                break;
+                
+            case 2:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_2D" object:nil];
+                break;
+                
+            case 3:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_3D" object:nil];
+                break;
+                
+            default:
+                break;
+        }
+        
+    } superVC:self];
 }
 
 
@@ -162,6 +211,31 @@
         }
     }
     return output;
+}
+
+
+
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+//开始
+-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    NSLog(@"motionBegan");
+}
+
+//结束
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake) {
+        NSLog(@"motionEnded");
+        [self clickBtn];
+    }
+}
+
+//摇晃取消
+-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    
+    
 }
 
 
