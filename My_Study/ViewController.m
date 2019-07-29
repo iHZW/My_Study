@@ -98,7 +98,18 @@
     
     NSLog(@"ScreenHeight = %f  DBL_EPSILON = %@",[[UIScreen mainScreen] bounds].size.height, @(DBL_EPSILON));
     
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor blueColor];
+    label.textColor = [UIColor whiteColor];
+    label.text = @"瞅一瞅";
+    [self.view addSubview:label];
     
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(50);
+        make.right.equalTo(self.view.mas_right).offset(-50);
+        make.top.equalTo(self.view.mas_top).offset(150);
+        make.height.mas_equalTo(200);
+    }];
     
 }
 
