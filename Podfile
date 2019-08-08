@@ -22,18 +22,6 @@ target 'My_Study' do
   pod 'FMDB','>=2.7.1'
   pod 'SSKeychain', '1.2.2'
   pod 'LookinServer', :configurations => ['Debug']
-
-#  require 'fileutils'
-#  post_install do |installer_representation|
-#      installer_representation.pods_project.targets.each do |target|
-#          target.build_configurations.each do |config|
-#          #关闭 Enable Modules
-#          config.build_settings['CLANG_ENABLE_MODULES'] = 'NO'
-#
-#          # 在生成的 Pods 项目文件中加入 CC 参数
-#          config.build_settings['CC'] = '$(SRCROOT)/ccache-clang'
-#          end
-#      end
-#  end
-
+  
 end
+

@@ -17,6 +17,9 @@
 		7C459A412295557500667813 /* My_StudyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A402295557500667813 /* My_StudyTests.m */; };
 		7C459A4C2295557500667813 /* My_StudyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A4B2295557500667813 /* My_StudyUITests.m */; };
 		7C459A5B2295584500667813 /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A5A2295584500667813 /* EOCfamilly.m */; };
+		7C46283C22EE9C01009B1049 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C46283B22EE9C01009B1049 /* UIKit.framework */; };
+		7C46283E22EEA02A009B1049 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C46283D22EEA028009B1049 /* EventKitUI.framework */; };
+		7C46284022EEA03B009B1049 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C46283F22EEA033009B1049 /* EventKit.framework */; };
 		7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E0229BDAC300D8D62C /* IQViewModel.m */; };
 		7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E3229BDC5100D8D62C /* IQDemoView.m */; };
 		7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309DD22A651BF00C73AAB /* ZWDrawingBase.m */; };
@@ -33,7 +36,6 @@
 		7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE3922E984E900589862 /* UIAlertView+Blocks.m */; };
 		7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE4022E9856400589862 /* UIView+FrameSperator.m */; };
 		7C8AAE5122E9856400589862 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE4222E9856400589862 /* UIView+Frame.m */; };
-		7C8AAE5222E9856400589862 /* UIView+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE4522E9856400589862 /* UIView+Util.m */; };
 		7C8AAE5322E9856400589862 /* UIView+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE4922E9856400589862 /* UIView+Create.m */; };
 		7C8AAE5422E9856400589862 /* CAAnimation+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE4C22E9856400589862 /* CAAnimation+Animation.m */; };
 		7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE4D22E9856400589862 /* UIView+Badge.m */; };
@@ -54,6 +56,9 @@
 		7C8AAEB022E98B6200589862 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8AAEAF22E98B6200589862 /* Accelerate.framework */; };
 		7C8AAEB222E98B8B00589862 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8AAEB122E98B8B00589862 /* QuartzCore.framework */; };
 		7C8AAEB422E98BA900589862 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8AAEB322E98BA900589862 /* CoreTelephony.framework */; };
+		7CFB1F6F22EEBE5F000AE2C9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */; };
+		7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */; };
+		7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +97,9 @@
 		7C459A4D2295557500667813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C459A592295584500667813 /* EOCfamilly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCfamilly.h; sourceTree = "<group>"; };
 		7C459A5A2295584500667813 /* EOCfamilly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCfamilly.m; sourceTree = "<group>"; };
-		7C47B68D22E94F1200A1B1B7 /* WFUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WFUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C46283B22EE9C01009B1049 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7C46283D22EEA028009B1049 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		7C46283F22EEA033009B1049 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		7C47B68F22E94F2800A1B1B7 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C49F5DF229BDAC300D8D62C /* IQViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQViewModel.h; sourceTree = "<group>"; };
 		7C49F5E0229BDAC300D8D62C /* IQViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQViewModel.m; sourceTree = "<group>"; };
@@ -107,7 +114,6 @@
 		7C6309E722A6751900C73AAB /* ZWTextDrawing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWTextDrawing.m; sourceTree = "<group>"; };
 		7C6309EB22A6774500C73AAB /* NSString+Adaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Adaptor.h"; sourceTree = "<group>"; };
 		7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Adaptor.m"; sourceTree = "<group>"; };
-		7C6309EF22A67A4E00C73AAB /* ZWSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWSDK.h; sourceTree = "<group>"; };
 		7C6309F122A67C6800C73AAB /* UIScreen+Suitable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Suitable.h"; sourceTree = "<group>"; };
 		7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Suitable.m"; sourceTree = "<group>"; };
 		7C6309F422A7657B00C73AAB /* ZWDrawingItems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDrawingItems.h; sourceTree = "<group>"; };
@@ -168,6 +174,11 @@
 		7C8AAEAF22E98B6200589862 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		7C8AAEB122E98B8B00589862 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7C8AAEB322E98BA900589862 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		7CFB1F7322EEC9C4000AE2C9 /* WFUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WFUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CFB1F7522EECD4B000AE2C9 /* ZWSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWSDK.h; sourceTree = "<group>"; };
+		7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,9 +189,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */,
+				7C46283C22EE9C01009B1049 /* UIKit.framework in Frameworks */,
+				7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */,
+				7C8AAEB022E98B6200589862 /* Accelerate.framework in Frameworks */,
+				7CFB1F6F22EEBE5F000AE2C9 /* CoreFoundation.framework in Frameworks */,
+				7C46284022EEA03B009B1049 /* EventKit.framework in Frameworks */,
+				7C46283E22EEA02A009B1049 /* EventKitUI.framework in Frameworks */,
 				7C8AAEB422E98BA900589862 /* CoreTelephony.framework in Frameworks */,
 				7C8AAEB222E98B8B00589862 /* QuartzCore.framework in Frameworks */,
-				7C8AAEB022E98B6200589862 /* Accelerate.framework in Frameworks */,
 				7C8AAEAE22E98AFB00589862 /* CFNetwork.framework in Frameworks */,
 				7C8AAEAC22E98ACB00589862 /* CoreImage.framework in Frameworks */,
 				7957CF6A9DB8747D5A3589AB /* Pods_My_Study.framework in Frameworks */,
@@ -375,7 +392,7 @@
 		7C6309EE22A67A3700C73AAB /* ZWSDK */ = {
 			isa = PBXGroup;
 			children = (
-				7C6309EF22A67A4E00C73AAB /* ZWSDK.h */,
+				7CFB1F7522EECD4B000AE2C9 /* ZWSDK.h */,
 			);
 			path = ZWSDK;
 			sourceTree = "<group>";
@@ -671,13 +688,19 @@
 		A9CF1F70F4E4726AE968C272 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */,
+				7CFB1F7322EEC9C4000AE2C9 /* WFUIKit.framework */,
+				7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */,
+				7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */,
+				7C46283F22EEA033009B1049 /* EventKit.framework */,
+				7C46283D22EEA028009B1049 /* EventKitUI.framework */,
+				7C46283B22EE9C01009B1049 /* UIKit.framework */,
 				7C8AAEB322E98BA900589862 /* CoreTelephony.framework */,
 				7C8AAEB122E98B8B00589862 /* QuartzCore.framework */,
 				7C8AAEAF22E98B6200589862 /* Accelerate.framework */,
 				7C8AAEAD22E98AFB00589862 /* CFNetwork.framework */,
 				7C8AAEAB22E98ACB00589862 /* CoreImage.framework */,
 				7C47B68F22E94F2800A1B1B7 /* AFNetworking.framework */,
-				7C47B68D22E94F1200A1B1B7 /* WFUIKit.framework */,
 				F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */,
 			);
 			name = Frameworks;
@@ -860,7 +883,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C8AAE5222E9856400589862 /* UIView+Util.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
 				7C8AAE5F22E985ED00589862 /* CALayer+Helper.m in Sources */,
 				7C8AAE6422E9864F00589862 /* GrayCoverBtn.m in Sources */,
@@ -1065,14 +1087,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CC = "";
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = L39WXY5YB3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CWLateralSlide\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/JSONModel\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KissXML\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PINCache\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SSKeychain\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WFUIKit\"",
+					"\"${PODS_ROOT}/LookinServer\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/MyPrefixHeader.pch;
 				INFOPLIST_FILE = My_Study/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1090,14 +1128,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CC = "";
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 36G5GJWS4P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/MyPrefixHeader.pch;
 				INFOPLIST_FILE = My_Study/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

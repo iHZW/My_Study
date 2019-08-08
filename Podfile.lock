@@ -29,7 +29,7 @@ PODS:
     - SDWebImage/Core (= 3.8.0)
   - SDWebImage/Core (3.8.0)
   - SSKeychain (1.2.2)
-  - WFUIKit (0.0.2)
+  - WFUIKit (0.0.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -76,8 +76,8 @@ SPEC CHECKSUMS:
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
   SSKeychain: 88767e903ee8d274ed380e364d96b7a101235286
-  WFUIKit: 68d34ebf71735e0fcc6720cff8db58f7c9a339ae
+  WFUIKit: a0a0eae84bfcc7f9a42b28dcf5dfa9c783843a79
 
-PODFILE CHECKSUM: 38ae8b4d02b07918cf5ad9094fbd79e4ad19bd94
+PODFILE CHECKSUM: 7d6625c3467737f79525dba4a3f06732a1c94c80
 
 COCOAPODS: 1.7.5
