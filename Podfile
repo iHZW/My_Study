@@ -7,6 +7,9 @@ source 'https://github.com/iHZW/WFPodSpecs.git'
 target 'My_Study' do
 
   use_frameworks!
+  
+  # 返回侧滑适配有导航栏和没导航栏的切换
+  pod 'FDFullscreenPopGesture', '~> 1.1'
 
   pod 'AFNetworking'
   pod 'Masonry','1.1.0'
@@ -15,13 +18,19 @@ target 'My_Study' do
   pod 'MJRefresh','3.1.15.7'
   pod 'PINCache','2.3'
   pod 'SDWebImage','3.8.0'
-  pod 'WFUIKit'
+  pod 'WFUIKit', '0.0.3'
   pod 'CWLateralSlide', '~> 1.6.3'
   pod 'PINCache','2.3'
   pod 'KissXML','5.2.3'
   pod 'FMDB','>=2.7.1'
   pod 'SSKeychain', '1.2.2'
+  
   pod 'LookinServer', :configurations => ['Debug']
+
+
   
 end
+
+  flutter_application_path = "../flutter_module"
+  eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
 
