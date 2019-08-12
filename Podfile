@@ -31,6 +31,6 @@ target 'My_Study' do
   
 end
 
-  flutter_application_path = "../flutter_module"
+  flutter_application_path = "../Flutter/flutter_module"
   eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
 

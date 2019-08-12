@@ -3,7 +3,7 @@ ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework
 ${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework
 ${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
-${PODS_ROOT}/../../flutter_module/.ios/Flutter/engine/Flutter.framework
+${PODS_ROOT}/../../Flutter/flutter_module/.ios/Flutter/engine/Flutter.framework
 ${BUILT_PRODUCTS_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework
 ${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework
 ${BUILT_PRODUCTS_DIR}/KissXML/KissXML.framework
