@@ -26,6 +26,11 @@
 		7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309E722A6751900C73AAB /* ZWTextDrawing.m */; };
 		7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */; };
 		7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */; };
+		7C652BFA230171B3007BBDD2 /* BaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C652BF7230171B2007BBDD2 /* BaseCellModel.m */; };
+		7C652BFB230171B3007BBDD2 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C652BF8230171B3007BBDD2 /* BaseTableViewController.m */; };
+		7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C652BFE230171C1007BBDD2 /* UIColor+Tools.m */; };
+		7C652C03230171C1007BBDD2 /* UITableViewCell+DequeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C652C01230171C1007BBDD2 /* UITableViewCell+DequeCell.m */; };
+		7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C652C0523017208007BBDD2 /* HomeViewController.m */; };
 		7C8AAE2722E9808800589862 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7C8AAE2122E9808800589862 /* LICENSE */; };
 		7C8AAE2822E9808800589862 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8AAE2422E9808800589862 /* UIActionSheet+Blocks.m */; };
 		7C8AAE2922E9808800589862 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7C8AAE2522E9808800589862 /* README.md */; };
@@ -120,6 +125,16 @@
 		7C6309F122A67C6800C73AAB /* UIScreen+Suitable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Suitable.h"; sourceTree = "<group>"; };
 		7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Suitable.m"; sourceTree = "<group>"; };
 		7C6309F422A7657B00C73AAB /* ZWDrawingItems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDrawingItems.h; sourceTree = "<group>"; };
+		7C652BF6230171B2007BBDD2 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		7C652BF7230171B2007BBDD2 /* BaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCellModel.m; sourceTree = "<group>"; };
+		7C652BF8230171B3007BBDD2 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		7C652BF9230171B3007BBDD2 /* BaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellModel.h; sourceTree = "<group>"; };
+		7C652BFD230171C1007BBDD2 /* UIColor+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tools.h"; sourceTree = "<group>"; };
+		7C652BFE230171C1007BBDD2 /* UIColor+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tools.m"; sourceTree = "<group>"; };
+		7C652C00230171C1007BBDD2 /* UITableViewCell+DequeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+DequeCell.h"; sourceTree = "<group>"; };
+		7C652C01230171C1007BBDD2 /* UITableViewCell+DequeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+DequeCell.m"; sourceTree = "<group>"; };
+		7C652C0523017208007BBDD2 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7C652C0623017208007BBDD2 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		7C8AAE2122E9808800589862 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7C8AAE2322E9808800589862 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
 		7C8AAE2422E9808800589862 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
@@ -264,6 +279,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				7C652C0423017208007BBDD2 /* Home */,
 				7CA7682422FE95C1009E473E /* Base */,
 				7CA7681A22FE94C5009E473E /* FlutterSection */,
 				7C8AAE9122E988A000589862 /* BaseLib */,
@@ -382,6 +398,8 @@
 		7C6309E922A676FE00C73AAB /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				7C652BFC230171C1007BBDD2 /* UIColor */,
+				7C652BFF230171C1007BBDD2 /* UITableViewCell */,
 				7C8AAE8222E987BE00589862 /* UIImage */,
 				7C8AAE3022E984E900589862 /* Alert */,
 				7C8AAE2022E9808800589862 /* UIActionSheet+Blocks */,
@@ -415,6 +433,33 @@
 				7C6309F222A67C6800C73AAB /* UIScreen+Suitable.m */,
 			);
 			path = UIScreen;
+			sourceTree = "<group>";
+		};
+		7C652BFC230171C1007BBDD2 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				7C652BFD230171C1007BBDD2 /* UIColor+Tools.h */,
+				7C652BFE230171C1007BBDD2 /* UIColor+Tools.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		7C652BFF230171C1007BBDD2 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7C652C00230171C1007BBDD2 /* UITableViewCell+DequeCell.h */,
+				7C652C01230171C1007BBDD2 /* UITableViewCell+DequeCell.m */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		7C652C0423017208007BBDD2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7C652C0623017208007BBDD2 /* HomeViewController.h */,
+				7C652C0523017208007BBDD2 /* HomeViewController.m */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		7C8AAE2022E9808800589862 /* UIActionSheet+Blocks */ = {
@@ -718,6 +763,10 @@
 		7CA7682522FE95C1009E473E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7C652BF9230171B3007BBDD2 /* BaseCellModel.h */,
+				7C652BF7230171B2007BBDD2 /* BaseCellModel.m */,
+				7C652BF6230171B2007BBDD2 /* BaseTableViewController.h */,
+				7C652BF8230171B3007BBDD2 /* BaseTableViewController.m */,
 				7CA7682722FE95C1009E473E /* BaseViewController.h */,
 				7CA7682622FE95C1009E473E /* BaseViewController.m */,
 			);
@@ -957,18 +1006,23 @@
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
 				7CA7682022FE94C6009E473E /* MyFlutterRouter.m in Sources */,
 				7C459A2C2295557300667813 /* ViewController.m in Sources */,
+				7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */,
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
+				7C652BFA230171B3007BBDD2 /* BaseCellModel.m in Sources */,
 				7C8AAE8E22E987BE00589862 /* UIImage+Resize.m in Sources */,
 				7C8AAE8F22E987BE00589862 /* UIImage+ResourcePath.m in Sources */,
 				7C8AAE6C22E986C800589862 /* PASTextField.m in Sources */,
+				7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */,
 				7C8AAE3A22E984E900589862 /* PACustomAlertManage.m in Sources */,
 				7C8AAE9A22E988A100589862 /* SystemInfoFunc.m in Sources */,
+				7C652BFB230171B3007BBDD2 /* BaseTableViewController.m in Sources */,
 				7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */,
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
 				7CA7682822FE95C1009E473E /* BaseViewController.m in Sources */,
 				7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */,
 				7C8AAE8D22E987BE00589862 /* UIImage+Addition.m in Sources */,
+				7C652C03230171C1007BBDD2 /* UITableViewCell+DequeCell.m in Sources */,
 				7C8AAE5122E9856400589862 /* UIView+Frame.m in Sources */,
 				7C8AAE7D22E9872400589862 /* UIColor+Extensions.m in Sources */,
 				7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */,
@@ -1151,6 +1205,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = L39WXY5YB3;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -1192,6 +1247,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 36G5GJWS4P;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/MyPrefixHeader.pch;
 				INFOPLIST_FILE = My_Study/Info.plist;

@@ -4,6 +4,7 @@ import 'TestFlutterJumpFlutter.dart';
 import 'simple_page_widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_module/TestListView.dart';
+import 'package:flutter_module/TotalNavigationPage.dart';
 
 typedef void NativeCallBack(dynamic object);
 final Map<String, NativeCallBack> native_flutter_callbakcs =
@@ -50,6 +51,7 @@ class _MyAppState extends State<MyApp> {
       'second': (pageName, params, _) => SecondRouteWidget(),
       'tab': (pageName, params, _) => TabRouteWidget(),
       'flutterFragment': (pageName, params, _) => FragmentRouteWidget(params),
+      'TotalNavigationPage': (pageName, params, _) => TotalNavigationPage(),
 
       ///可以在native层通过 getContainerParams 来传递参数
       'flutterPage': (pageName, params, _) {
@@ -71,7 +73,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         title: 'Flutter Boost example',
         builder: FlutterBoost.init(postPush: _onRoutePushed),
-        home: Container());
+        home: Container(
+          child: Text("qq2"),
+        ));
   }
 
   void _onRoutePushed(

@@ -45,13 +45,13 @@
 {
     if([params[@"present"] boolValue]){
         MyFlutterViewController *vc = MyFlutterViewController.new;
-//        [vc setName:name params:params];
+        [vc setName:name params:params];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController presentViewController:vc animated:animated completion:^{}];
     }else{
         MyFlutterViewController *vc = MyFlutterViewController.new;
         vc.hidesBottomBarWhenPushed = YES;
-//        [vc setName:name params:params];
+        [vc setName:name params:params];
         [self.navigationController pushViewController:vc animated:animated];
     }
 }

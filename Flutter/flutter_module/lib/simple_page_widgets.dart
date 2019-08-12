@@ -4,18 +4,17 @@ import 'main.dart';
 import 'package:flutter/services.dart';
 
 class FirstRouteWidget extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     return new _FirstRouteWidgetState();
   }
 }
-class _FirstRouteWidgetState extends State<FirstRouteWidget>{
 
+class _FirstRouteWidgetState extends State<FirstRouteWidget> {
   String _changingStatus = "init...";
- String _batteryLevel = "leve";
- String _userInfo = "";
- bool _isShowingNav = false;
+  String _batteryLevel = "leve";
+  String _userInfo = "";
+  bool _isShowingNav = false;
 
   @override
   void initState() {
@@ -23,8 +22,9 @@ class _FirstRouteWidgetState extends State<FirstRouteWidget>{
     //callbakcs["isShowNavBar"]= _responseNative;
 
     super.initState();
-//    _getIsNavShow();
+    _getIsNavShow();
   }
+
 //  void _responseNative(Object event){
 //      setState(() {
 //        _changingStatus  = "${event}";
@@ -35,55 +35,45 @@ class _FirstRouteWidgetState extends State<FirstRouteWidget>{
     return Scaffold(
       appBar: AppBar(
         title: Text('First Route'),
-        leading: IconButton(icon: Icon(Icons.arrow_back),
-          onPressed:(){
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
             FlutterBoost.singleton.closePageForContext(context);
-          } ,
+          },
         ),
       ),
-      body: Column(
-        children: [
-          new RaisedButton(
-          child: Text('Flutter call Native'),
-          onPressed: _getBatteryLevel
-        ),
+      body: Column(children: [
+        new RaisedButton(
+            child: Text('Flutter call Native'), onPressed: _getBatteryLevel),
         new Text(_batteryLevel),
         new RaisedButton(
-        child: Text('Flutter call updateUserInfo'),
-        onPressed: _updateUserInfo
-      ),
-          new Text(_userInfo),
-          new RaisedButton(
-              child: Text(_isShowingNav ? 'hideNav222' : "showNav222"),
-              onPressed: _showOrHideNav
-          ),
-          new RaisedButton(
-              child: Text('hideNav'),
-              onPressed: (){
-                platform.invokeMethod("hideNav");
-              }
-          ),
-
-          new RaisedButton(
+            child: Text('Flutter call updateUserInfo'),
+            onPressed: _updateUserInfo),
+        new Text(_userInfo),
+        new RaisedButton(
+            child: Text(_isShowingNav ? 'hideNav222' : "showNav222"),
+            onPressed: _showOrHideNav),
+        new RaisedButton(
+            child: Text('hideNav'),
+            onPressed: () {
+              platform.invokeMethod("hideNav");
+            }),
+        new RaisedButton(
           child: Text('Open second 3333'),
           onPressed: () {
             FlutterBoost.singleton.openPage("second", {}, animated: true);
           },
         ),
         new Text(_changingStatus)
-      ]
-      ),
+      ]),
     );
   }
 
-
-  Future<Null> _getIsNavShow() async
-  {
-
+  Future<Null> _getIsNavShow() async {
     bool result = false;
-    try{
+    try {
       result = await platform.invokeMethod("isShowNav");
-    } on PlatformException catch(e) {
+    } on PlatformException catch (e) {
       result = false;
     }
 //    Scaffold
@@ -93,29 +83,25 @@ class _FirstRouteWidgetState extends State<FirstRouteWidget>{
       _isShowingNav = result;
     });
   }
-  Future<Null> _showOrHideNav() async
-  {
 
+  Future<Null> _showOrHideNav() async {
     bool result = _isShowingNav;
-    try{
+    try {
       String name = _isShowingNav ? "hideNav" : "showNav";
-      result = await platform.invokeMethod(name,false);
-    } on PlatformException catch(e) {
-
-    }
+      result = await platform.invokeMethod(name, false);
+    } on PlatformException catch (e) {}
 
     setState(() {
       _isShowingNav = result;
     });
   }
 
-  Future<Null> _getBatteryLevel() async
-  {
+  Future<Null> _getBatteryLevel() async {
     String batteryLevel;
-    try{
+    try {
       final String result = await platform.invokeMethod("getBatteryLevel");
       batteryLevel = "Battery level at $result % .";
-    } on PlatformException catch(e) {
+    } on PlatformException catch (e) {
       batteryLevel = "Failed to get battery level: '${e.message}'.";
     }
 
@@ -124,13 +110,13 @@ class _FirstRouteWidgetState extends State<FirstRouteWidget>{
     });
   }
 
-  Future<Null>  _updateUserInfo() async
-  {
+  Future<Null> _updateUserInfo() async {
     String msg;
-    try{
-      final Map result = await platform.invokeMethod("updateUserInfo",{"id":10,"name":"Kusina"});
+    try {
+      final Map result = await platform
+          .invokeMethod("updateUserInfo", {"id": 10, "name": "Kusina"});
       msg = "Battery level at $result % .";
-    } on PlatformException catch(e) {
+    } on PlatformException catch (e) {
       msg = "Failed to get battery level: '${e.message}'.";
     }
 
@@ -216,8 +202,8 @@ class FlutterRouteWidget extends StatelessWidget {
             ///例如：sample://nativePage?aaa=bbb
             onTap: () =>
                 FlutterBoost.singleton.openPage("sample://nativePage", {
-                  "query": {"aaa": "bbb"}
-                }),
+              "query": {"aaa": "bbb"}
+            }),
           ),
           InkWell(
             child: Container(
@@ -233,8 +219,8 @@ class FlutterRouteWidget extends StatelessWidget {
             ///例如：sample://nativePage?aaa=bbb
             onTap: () =>
                 FlutterBoost.singleton.openPage("sample://flutterPage", {
-                  "query": {"aaa": "bbb"}
-                }),
+              "query": {"aaa": "bbb"}
+            }),
           ),
           InkWell(
             child: Container(
@@ -380,6 +366,6 @@ class _PushWidgetState extends State<PushWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return FlutterRouteWidget(message:"Pushed Widget");
+    return FlutterRouteWidget(message: "Pushed Widget");
   }
 }
