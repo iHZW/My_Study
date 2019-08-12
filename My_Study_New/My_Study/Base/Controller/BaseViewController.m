@@ -1,13 +1,12 @@
 //
 //  BaseViewController.m
-//  My_Study
+//  MainSubControllerDemo
 //
-//  Created by HZW on 2019/8/10.
-//  Copyright © 2019 HZW. All rights reserved.
+//  Created by LonelyFlow on 11/05/2019.
+//  Copyright © 2019 Lonely traveller. All rights reserved.
 //
 
 #import "BaseViewController.h"
-
 
 @interface BaseViewController ()
 
@@ -17,8 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor randomColor];
     // Do any additional setup after loading the view.
 }
 

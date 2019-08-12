@@ -1,18 +1,17 @@
 //
 //  BaseViewController.h
-//  My_Study
+//  MainSubControllerDemo
 //
-//  Created by HZW on 2019/8/10.
-//  Copyright © 2019 HZW. All rights reserved.
+//  Created by LonelyFlow on 11/05/2019.
+//  Copyright © 2019 Lonely traveller. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+Tools.h"
+#import "UITableViewCell+DequeCell.h"
 #import "MyFlutterRouter.h"
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
 
 @end
 
-NS_ASSUME_NONNULL_END
