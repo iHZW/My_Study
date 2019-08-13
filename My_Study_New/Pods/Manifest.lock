@@ -20,9 +20,12 @@ PODS:
   - flutter_boost (0.0.1):
     - Flutter
     - xservice_kit
+  - flutter_webview_plugin (0.0.1):
+    - Flutter
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
     - flutter_boost
+    - flutter_webview_plugin
     - xservice_kit
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -48,6 +51,7 @@ DEPENDENCIES:
   - FDFullscreenPopGesture (~> 1.1)
   - Flutter (from `../Flutter/flutter_module/.ios/Flutter/engine`)
   - flutter_boost (from `../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_boost/ios`)
+  - flutter_webview_plugin (from `../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_webview_plugin/ios`)
   - FlutterPluginRegistrant (from `../Flutter/flutter_module/.ios/Flutter/FlutterPluginRegistrant`)
   - FMDB (>= 2.7.1)
   - JSONModel (= 1.5.0)
@@ -85,6 +89,8 @@ EXTERNAL SOURCES:
     :path: "../Flutter/flutter_module/.ios/Flutter/engine"
   flutter_boost:
     :path: "../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_boost/ios"
+  flutter_webview_plugin:
+    :path: "../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_webview_plugin/ios"
   FlutterPluginRegistrant:
     :path: "../Flutter/flutter_module/.ios/Flutter/FlutterPluginRegistrant"
   xservice_kit:
@@ -96,7 +102,8 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
   flutter_boost: 0e85ea37c74ed39ee7b91a35612afa1605557484
-  FlutterPluginRegistrant: 09e35a5c8903bbd46dc4a41f36a0075b6d4714d1
+  flutter_webview_plugin: ed9e8a6a96baf0c867e90e1bce2673913eeac694
+  FlutterPluginRegistrant: 06de8fb8003066c93c1021f73353d30f5dee8395
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   JSONModel: 79b79f8cc6f63b9fd30c7e8ec15aebe9f1a6cc4f
   KissXML: 09f88ff8161fd058d67b70740b8b516687b52823

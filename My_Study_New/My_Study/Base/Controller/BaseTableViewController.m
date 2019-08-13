@@ -2,8 +2,8 @@
 //  BaseTableViewController.m
 //  MainSubControllerDemo
 //
-//  Created by LonelyFlow on 11/05/2019.
-//  Copyright © 2019 Lonely traveller. All rights reserved.
+//  Created by HZW on 2019/5/22.
+//  Copyright © 2019 HZW. All rights reserved.
 //
 
 #import "BaseTableViewController.h"

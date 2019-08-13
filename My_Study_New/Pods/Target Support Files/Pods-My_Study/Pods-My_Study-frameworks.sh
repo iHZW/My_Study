@@ -178,6 +178,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SSKeychain/SSKeychain.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WFUIKit/WFUIKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_boost/flutter_boost.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/xservice_kit/xservice_kit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -197,6 +198,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SSKeychain/SSKeychain.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WFUIKit/WFUIKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/flutter_boost/flutter_boost.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/xservice_kit/xservice_kit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

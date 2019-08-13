@@ -2,8 +2,8 @@
 //  HomeViewController.m
 //  MainSubControllerDemo
 //
-//  Created by LonelyFlow on 11/05/2019.
-//  Copyright © 2019 Lonely traveller. All rights reserved.
+//  Created by HZW on 2019/5/22.
+//  Copyright © 2019 HZW. All rights reserved.
 //
 
 #import "HomeViewController.h"
@@ -33,6 +33,7 @@
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native->Native(Flutter)-Native(flutter)" flutterPageName:@"testList"]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native-Native(Flutter)-Flutter-Native(Flutter)" flutterPageName:@"TestFlutterJumpFlutter"]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native-Flutter(全站导航)" flutterPageName:@"TotalNavigationPage"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native jump Flutter" flutterPageName:@"TestPage"]];
     
 }
 - (void)setupUI

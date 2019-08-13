@@ -2,8 +2,8 @@
 //  UITableViewCell+DequeCell.h
 //  LayerTest
 //
-//  Created by Lonelyflow on 2019/4/19.
-//  Copyright © 2018年 Lonely traveller. All rights reserved.
+//  Created by HZW on 2019/5/22.
+//  Copyright © 2019 HZW. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

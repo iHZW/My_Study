@@ -5,6 +5,8 @@ import 'simple_page_widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_module/TestListView.dart';
 import 'package:flutter_module/TotalNavigationPage.dart';
+import 'package:flutter_module/TestPage.dart';
+import 'routes/Routes.dart';
 
 typedef void NativeCallBack(dynamic object);
 final Map<String, NativeCallBack> native_flutter_callbakcs =
@@ -61,6 +63,7 @@ class _MyAppState extends State<MyApp> {
       },
     });
     FlutterBoost.singleton.registerPageBuilders({
+      'TestPage': (pageName, params, _) => TestPage(),
       'testList': (pageName, params, _) => TestListView(),
       'TestFlutterJumpFlutter': (pageName, params, _) =>
           TestFlutterJumpFlutter()
@@ -73,6 +76,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         title: 'Flutter Boost example',
         builder: FlutterBoost.init(postPush: _onRoutePushed),
+        initialRoute: 'testPage',
+        onGenerateRoute: onGenerateRoute,
         home: Container(
           child: Text("qq2"),
         ));

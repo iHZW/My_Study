@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
+import 'package:flutter_boost/flutter_boost.dart' as prefix0;
 
 class TotalNavigationPage extends StatefulWidget {
   TotalNavigationPage({Key key}) : super(key: key);
@@ -9,6 +10,14 @@ class TotalNavigationPage extends StatefulWidget {
 
 class _TotalNavigationPageState extends State<TotalNavigationPage> {
   @override
+  void initState() {
+    // 接收Native调用
+    //callbakcs["isShowNavBar"]= _responseNative;
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +25,12 @@ class _TotalNavigationPageState extends State<TotalNavigationPage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
-            FlutterBoost.singleton.closePageForContext(context);
+            // prefix0.FlutterBoost.singleton.closeCurPage({});
+            // FlutterBoost.singleton.closePageForContext(context);
+            Navigator.pop(context);
+            // Navigator.of(context).push(route);
+
+            // FlutterBoost.singleton.closePageForContext(context);
           },
         ),
       ),
