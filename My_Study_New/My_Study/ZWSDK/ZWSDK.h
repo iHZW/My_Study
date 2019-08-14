@@ -96,7 +96,9 @@ typedef long long _int64;
 #define kMainTabbarHeight           49
 #define kMainNavHeight              44   // 系统导航栏高度
 #define kSysStatusBarHeight        MIN([UIApplication sharedApplication].statusBarFrame.size.width, [UIApplication sharedApplication].statusBarFrame.size.height)        // 系统状态栏高度
-
+#define kMainContentFrame CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight- (kSysStatusBarHeight + kMainNavHeight))
+#define kMainCenterContentFrame CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight- (kSysStatusBarHeight + kMainNavHeight + kMainTabbarHeight))
+#define SegmentBarHeight        PASFactor(40)   // Segment高度
 
 
 //IPhone5适配项
@@ -155,6 +157,11 @@ typedef long long _int64;
 // IPhoneX 横屏安全区域底部空白
 #define kLANDSCAPE_SAFE_AREA_BOTTOM_SPACE (IS_IPHONE_X?21:0)
 
+#define KLeftNavbarSpace    8
+
+#ifndef dimof
+#define dimof(a)    (sizeof(a) / sizeof(a[0]))
+#endif
 
 
 #endif /* ZWSDK_h */
