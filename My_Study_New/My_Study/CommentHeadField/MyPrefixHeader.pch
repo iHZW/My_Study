@@ -13,6 +13,7 @@
 
 #import "Masonry.h"
 #import "ZWSDK.h"
+#import "PASBaseFramework.h"
 
 #endif //判断结束
 
