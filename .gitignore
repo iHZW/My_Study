@@ -83,8 +83,9 @@ Index
 *.hmap
 *.xccheckout
 *.xcworkspace
-*.xcconfig
 !default.xcworkspace
+*.xcconfig
+
 
 #CocoaPods
 !Podfile
