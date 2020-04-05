@@ -28,6 +28,8 @@ target 'My_Study' do
   
   pod 'LookinServer', :configurations => ['Debug']
   
+  pod 'CocoaAsyncSocket'
+  
   #本地库
 #  pod 'MJUtils', :path => 'LocalLib/MJUtils'
   pod 'WFUtilsLib','0.1.2'

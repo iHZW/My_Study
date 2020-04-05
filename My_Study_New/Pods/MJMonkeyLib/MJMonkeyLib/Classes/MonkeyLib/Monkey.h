@@ -14,6 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Monkey : NSObject
 
+@property (nonatomic, copy) NSString *monkeyName;
+
+/**< 响应式编程 */
+- (Monkey * (^)(NSString *name))work;
+
+- (Monkey * (^)(NSString *name))play;
+
 - (void)sendMessage:(NSString *)msg;
 
 

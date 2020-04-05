@@ -17,6 +17,27 @@ void sendMessage(id self, SEL _cmd, NSString *str){
 
 @implementation Monkey
 
+- (Monkey * _Nonnull (^)(NSString * _Nonnull))work
+{
+    return ^id(NSString *work){
+        NSLog(@"work = %@", work);
+        return self;
+    };
+}
+
+
+- (Monkey * _Nonnull (^)(NSString * _Nonnull))play
+{
+    return ^id(NSString *play){
+        NSLog(@"play = %@", play);
+        return self;
+    };
+    
+}
+
+
+
+
 - (void)monkeyPlayMethod:(NSString *)play
 {
     NSLog(@"play = %@", play);

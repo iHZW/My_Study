@@ -9,6 +9,9 @@
 #import "TwoPageViewController.h"
 #import "Monkey.h"
 #import "Cat.h"
+#import "Monkey+MonkeyValue.h"
+#import <objc/message.h>
+#import "NSObject+WFObserver.h"
 
 /**< BSDSocket 第一步 导入头文件 */
 #import <netinet/in.h>
@@ -31,23 +34,87 @@ struct MonkeyInfo {
 @property (nonatomic, strong) UIButton *tempBtn;
 
 @property (nonatomic, assign) int client_socket;
+/**< 测试KVO变化 */
+@property (nonatomic, strong) NSString *change_name;
+
+@property (nonatomic, assign) NSInteger change_count;
+
+@property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, strong) NSMutableArray *changeArray;
 
 @end
 
 @implementation TwoPageViewController
 
+/**< YES: 自动模式,  NO: 手动模式 */
+//+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key
+//{
+//    BOOL automatical = YES;
+//    if ([key isEqualToString:@"change_name"]) {
+//        automatical = NO;
+//    }
+//    return automatical;
+//}
+/**< 被观察者有多层级可以尝试区分下 */
+//+ (NSSet<NSString *> *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+//{
+//    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+//    if ([key isEqualToString:@"change_name"]) {
+//        keyPaths = [[NSSet alloc] initWithObjects:@"change_name.name",@"change_name.age", nil];
+//    }
+//    return keyPaths;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.change_name = @"默认值";
+    self.name = @"马婧";
     self.title = @"第二界面";
     self.view.backgroundColor = [UIColor whiteColor];
+
+    [self addObserver:self forKeyPath:NSStringFromSelector(@selector(changeArray)) options:(NSKeyValueObservingOptionNew) context:nil];
+    
+//    [self wf_addObserver:self forKeyPath:NSStringFromSelector(@selector(name)) options:(NSKeyValueObservingOptionNew) context:nil];
+    
+//    class_getMethodImplementation([self class], sel);
+
+
     // Do any additional setup after loading the view.
+    
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(change_name))]) {
+        NSLog(@"change_name = %@ \n object = %@", self.change_name, change[NSKeyValueChangeNewKey]);
+    }
+    if ([keyPath isEqualToString:@"name"]) {
+        NSLog(@"name = %@ \n change = %@", self.name, change[NSKeyValueChangeNewKey]);
+    }
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(changeArray))]) {
+        NSLog(@"self.changeArr = %@ change = %@", self.changeArray, change[NSKeyValueChangeNewKey]);
+    }
+}
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    Monkey *monkey = [[Monkey alloc] init];
-//    [monkey sendMessage:@"我是猴孙"];
+    /**< 改变属性 */
+    self.change_count++;
+    self.change_name = [NSString stringWithFormat:@"%@%@", self.change_name, @(self.change_count)];
+    self.name = [NSString stringWithFormat:@"%@%@", self.name, @(self.change_count)];
+    
+    
+    /**< 改变容器 */
+    NSMutableArray *arr = [self mutableArrayValueForKeyPath:NSStringFromSelector(@selector(changeArray))];
+    [arr addObject:self.name];
+    
+    Monkey *monkey = [[Monkey alloc] init];
+    [monkey configWithName:@"我是猴孙"];
+    /**< 响应式编程 */
+    monkey.work(@"猴哥打怪兽").play(@"训练猴孙儿");
 //
 //    Cat *tempCat = [Cat new];
 //    [tempCat sendMessageName:@"我是咪咪" age:05];
@@ -81,6 +148,14 @@ struct MonkeyInfo {
         [_tempBtn  addTarget:self action:@selector(actionTempBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _tempBtn;
+}
+
+- (NSMutableArray *)changeArray
+{
+    if (!_changeArray) {
+        _changeArray = NSMutableArray.array;
+    }
+    return _changeArray;
 }
 
 - (void)actionTempBtn:(id)sender
@@ -167,5 +242,12 @@ struct MonkeyInfo {
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)dealloc
+{
+//    [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(change_name))];
+//    [self removeObserver:self forKeyPath:@"name"];
+    [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(changeArray))];
+}
 
 @end

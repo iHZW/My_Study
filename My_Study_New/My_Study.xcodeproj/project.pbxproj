@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7957CF6A9DB8747D5A3589AB /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */; };
 		7C0DBFFD243819F4003742DA /* TwoPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DBFFC243819F4003742DA /* TwoPageViewController.m */; };
+		7C0DC0B72439C721003742DA /* AppDelegate+Main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0B62439C721003742DA /* AppDelegate+Main.m */; };
+		7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */; };
 		7C459A292295557300667813 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A282295557300667813 /* AppDelegate.m */; };
 		7C459A2C2295557300667813 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A2B2295557300667813 /* ViewController.m */; };
 		7C459A2F2295557300667813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C459A2D2295557300667813 /* Main.storyboard */; };
@@ -132,6 +134,10 @@
 /* Begin PBXFileReference section */
 		7C0DBFFB243819F4003742DA /* TwoPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoPageViewController.h; sourceTree = "<group>"; };
 		7C0DBFFC243819F4003742DA /* TwoPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoPageViewController.m; sourceTree = "<group>"; };
+		7C0DC0B52439C721003742DA /* AppDelegate+Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Main.h"; sourceTree = "<group>"; };
+		7C0DC0B62439C721003742DA /* AppDelegate+Main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Main.m"; sourceTree = "<group>"; };
+		7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WFObserver.h"; sourceTree = "<group>"; };
+		7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WFObserver.m"; sourceTree = "<group>"; };
 		7C459A242295557300667813 /* My_Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C459A272295557300667813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7C459A282295557300667813 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -434,8 +440,12 @@
 				7C49F5DB229BDA9B00D8D62C /* TestMVVM */,
 				7C459A272295557300667813 /* AppDelegate.h */,
 				7C459A282295557300667813 /* AppDelegate.m */,
+				7C0DC0B52439C721003742DA /* AppDelegate+Main.h */,
+				7C0DC0B62439C721003742DA /* AppDelegate+Main.m */,
 				7C459A2A2295557300667813 /* ViewController.h */,
 				7C459A2B2295557300667813 /* ViewController.m */,
+				7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */,
+				7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */,
 				7C0DBFFB243819F4003742DA /* TwoPageViewController.h */,
 				7C0DBFFC243819F4003742DA /* TwoPageViewController.m */,
 				7C459A2D2295557300667813 /* Main.storyboard */,
@@ -1555,12 +1565,14 @@
 				7C4EF0292303A3390040DA7A /* UIViewController+Gesture.m in Sources */,
 				7C8AAE2822E9808800589862 /* UIActionSheet+Blocks.m in Sources */,
 				7C4EF05A2304034B0040DA7A /* CMBaseButton.m in Sources */,
+				7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */,
 				7C4EF04F230402F80040DA7A /* CMSegmentView.m in Sources */,
 				7C4EF0022303948E0040DA7A /* NSObject+UUID.m in Sources */,
 				7C8AAE5322E9856400589862 /* UIView+Create.m in Sources */,
 				7C4EF0012303948E0040DA7A /* NSObject+Customizer.m in Sources */,
 				7C4EF070230405030040DA7A /* UIButton+Custom.m in Sources */,
 				7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */,
+				7C0DC0B72439C721003742DA /* AppDelegate+Main.m in Sources */,
 				7C4F93C02302B11900F2238E /* PASTitleView.m in Sources */,
 				7C4EF043230400640040DA7A /* CMMultiLayerNavigationController.m in Sources */,
 				7C4EEFEF230393450040DA7A /* PASBorderBackgroundView.m in Sources */,

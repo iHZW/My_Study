@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - CocoaAsyncSocket (7.6.3)
   - CWLateralSlide (1.6.4)
   - FDFullscreenPopGesture (1.1)
   - Flutter (1.0.0)
@@ -51,6 +52,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - CocoaAsyncSocket
   - CWLateralSlide (~> 1.6.3)
   - FDFullscreenPopGesture (~> 1.1)
   - Flutter (from `../Flutter/flutter_module/.ios/Flutter/engine`)
@@ -76,6 +78,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - CocoaAsyncSocket
     - CWLateralSlide
     - FDFullscreenPopGesture
     - FMDB
@@ -109,6 +112,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CWLateralSlide: b7933f4a03d652fbec6789bb45dc567011e892ca
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
@@ -131,6 +135,6 @@ SPEC CHECKSUMS:
   WFUtilsLib: f72e4fc453e13d1566dd541e90dd50227a0126e2
   xservice_kit: a2f1b35addc126fce8687aeb183ab0c1ada5b7f3
 
-PODFILE CHECKSUM: 96c7153d5706412f489343dbb046dafca2f9b2dc
+PODFILE CHECKSUM: 0b15e08186bd33320f38ace368f0a9296ae0747e
 
 COCOAPODS: 1.8.4
