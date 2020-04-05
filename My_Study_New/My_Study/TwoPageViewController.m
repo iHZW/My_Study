@@ -115,6 +115,7 @@ struct MonkeyInfo {
     [monkey configWithName:@"我是猴孙"];
     /**< 响应式编程 */
     monkey.work(@"猴哥打怪兽").play(@"训练猴孙儿");
+    
 //
 //    Cat *tempCat = [Cat new];
 //    [tempCat sendMessageName:@"我是咪咪" age:05];
