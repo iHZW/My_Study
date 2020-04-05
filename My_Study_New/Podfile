@@ -3,6 +3,7 @@ platform :ios, '8.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/iHZW/WFPodSpecs.git'
+source 'https://github.com/iHZW/WFLibSpec.git'
 
 target 'My_Study' do
 
@@ -26,9 +27,13 @@ target 'My_Study' do
   pod 'SSKeychain', '1.2.2'
   
   pod 'LookinServer', :configurations => ['Debug']
-
-
   
+  #本地库
+#  pod 'MJUtils', :path => 'LocalLib/MJUtils'
+  pod 'WFUtilsLib','0.1.2'
+  pod 'MJMonkeyLib', '0.1.3'
+  pod 'WFEOCFamilyLib', '0.1.0'
+
 end
 
   flutter_application_path = "../Flutter/flutter_module"

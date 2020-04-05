@@ -11,6 +11,7 @@
 #import "BaseViewController.h"
 #import "HomeViewController.h"
 #import "MyFlutterRouter.h"
+#import "TwoPageViewController.h"
 
 @interface AppDelegate ()
 
@@ -40,7 +41,7 @@
     vc1.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0];
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:vc1];
     
-    BaseViewController *vc2 = [BaseViewController new];
+    TwoPageViewController *vc2 = [TwoPageViewController new];
     vc2.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:vc2];
     

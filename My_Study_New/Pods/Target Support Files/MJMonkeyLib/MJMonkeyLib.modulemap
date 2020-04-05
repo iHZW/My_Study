@@ -1,0 +1,6 @@
+framework module MJMonkeyLib {
+  umbrella header "MJMonkeyLib-umbrella.h"
+
+  export *
+  module * { export * }
+}

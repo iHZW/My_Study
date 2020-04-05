@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7957CF6A9DB8747D5A3589AB /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */; };
+		7C0DBFFD243819F4003742DA /* TwoPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DBFFC243819F4003742DA /* TwoPageViewController.m */; };
 		7C459A292295557300667813 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A282295557300667813 /* AppDelegate.m */; };
 		7C459A2C2295557300667813 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A2B2295557300667813 /* ViewController.m */; };
 		7C459A2F2295557300667813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C459A2D2295557300667813 /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		7C459A372295557400667813 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A362295557400667813 /* main.m */; };
 		7C459A412295557500667813 /* My_StudyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A402295557500667813 /* My_StudyTests.m */; };
 		7C459A4C2295557500667813 /* My_StudyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A4B2295557500667813 /* My_StudyUITests.m */; };
-		7C459A5B2295584500667813 /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A5A2295584500667813 /* EOCfamilly.m */; };
 		7C46283C22EE9C01009B1049 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C46283B22EE9C01009B1049 /* UIKit.framework */; };
 		7C46283E22EEA02A009B1049 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C46283D22EEA028009B1049 /* EventKitUI.framework */; };
 		7C46284022EEA03B009B1049 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C46283F22EEA033009B1049 /* EventKit.framework */; };
@@ -130,6 +130,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C0DBFFB243819F4003742DA /* TwoPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoPageViewController.h; sourceTree = "<group>"; };
+		7C0DBFFC243819F4003742DA /* TwoPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoPageViewController.m; sourceTree = "<group>"; };
 		7C459A242295557300667813 /* My_Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C459A272295557300667813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7C459A282295557300667813 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -146,8 +148,6 @@
 		7C459A472295557500667813 /* My_StudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = My_StudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C459A4B2295557500667813 /* My_StudyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_StudyUITests.m; sourceTree = "<group>"; };
 		7C459A4D2295557500667813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C459A592295584500667813 /* EOCfamilly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCfamilly.h; sourceTree = "<group>"; };
-		7C459A5A2295584500667813 /* EOCfamilly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCfamilly.m; sourceTree = "<group>"; };
 		7C46283B22EE9C01009B1049 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7C46283D22EEA028009B1049 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		7C46283F22EEA033009B1049 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -436,8 +436,8 @@
 				7C459A282295557300667813 /* AppDelegate.m */,
 				7C459A2A2295557300667813 /* ViewController.h */,
 				7C459A2B2295557300667813 /* ViewController.m */,
-				7C459A592295584500667813 /* EOCfamilly.h */,
-				7C459A5A2295584500667813 /* EOCfamilly.m */,
+				7C0DBFFB243819F4003742DA /* TwoPageViewController.h */,
+				7C0DBFFC243819F4003742DA /* TwoPageViewController.m */,
 				7C459A2D2295557300667813 /* Main.storyboard */,
 				7C459A302295557400667813 /* Assets.xcassets */,
 				7C459A322295557400667813 /* LaunchScreen.storyboard */,
@@ -1576,7 +1576,6 @@
 				7C8AAE8122E9876D00589862 /* UIButton+Block.m in Sources */,
 				7C8AAE3B22E984E900589862 /* UIAlertUtil.m in Sources */,
 				7C4EF00D230394FA0040DA7A /* DispatchMessageCenter.m in Sources */,
-				7C459A5B2295584500667813 /* EOCfamilly.m in Sources */,
 				7C4EF0592304034B0040DA7A /* CMView.m in Sources */,
 				7C8AAE5422E9856400589862 /* CAAnimation+Animation.m in Sources */,
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
@@ -1597,6 +1596,7 @@
 				7C8AAE8F22E987BE00589862 /* UIImage+ResourcePath.m in Sources */,
 				7C8AAE6C22E986C800589862 /* PASTextField.m in Sources */,
 				7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */,
+				7C0DBFFD243819F4003742DA /* TwoPageViewController.m in Sources */,
 				7C4EF016230397F60040DA7A /* CommonFileFunc.m in Sources */,
 				7C8AAE3A22E984E900589862 /* PACustomAlertManage.m in Sources */,
 				7C8AAE9A22E988A100589862 /* SystemInfoFunc.m in Sources */,
@@ -1830,6 +1830,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
@@ -1856,6 +1857,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = iosPingAnProfile;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};

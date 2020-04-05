@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+//#import "EOCfamilly.h"
 #import "EOCfamilly.h"
 #import <objc/runtime.h>
 #import "UIAlertUtil.h"
@@ -60,6 +61,7 @@
     
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [self.navigationItem setRightBarButtonItem:btnItem];
+
     
 }
 

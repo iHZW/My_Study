@@ -1,0 +1,1 @@
+../../../../../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_webview_plugin/ios/Classes/WebviewJavaScriptChannelHandler.h

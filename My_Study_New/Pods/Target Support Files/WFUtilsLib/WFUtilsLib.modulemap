@@ -1,0 +1,6 @@
+framework module WFUtilsLib {
+  umbrella header "WFUtilsLib-umbrella.h"
+
+  export *
+  module * { export * }
+}
