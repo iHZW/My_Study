@@ -11,6 +11,7 @@
 #endif
 
 #import "Cat.h"
+#import "Monkey+MonkeyValue.h"
 #import "Monkey.h"
 
 FOUNDATION_EXPORT double MJMonkeyLibVersionNumber;

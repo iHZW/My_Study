@@ -106,8 +106,6 @@
 		7C8AAEB022E98B6200589862 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8AAEAF22E98B6200589862 /* Accelerate.framework */; };
 		7C8AAEB222E98B8B00589862 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8AAEB122E98B8B00589862 /* QuartzCore.framework */; };
 		7C8AAEB422E98BA900589862 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8AAEB322E98BA900589862 /* CoreTelephony.framework */; };
-		7CA7681F22FE94C6009E473E /* MyFlutterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7681B22FE94C5009E473E /* MyFlutterViewController.m */; };
-		7CA7682022FE94C6009E473E /* MyFlutterRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7681C22FE94C5009E473E /* MyFlutterRouter.m */; };
 		7CA7682822FE95C1009E473E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA7682622FE95C1009E473E /* BaseViewController.m */; };
 		7CFB1F6F22EEBE5F000AE2C9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */; };
 		7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */; };
@@ -340,10 +338,6 @@
 		7C8AAEAF22E98B6200589862 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		7C8AAEB122E98B8B00589862 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7C8AAEB322E98BA900589862 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		7CA7681B22FE94C5009E473E /* MyFlutterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlutterViewController.m; sourceTree = "<group>"; };
-		7CA7681C22FE94C5009E473E /* MyFlutterRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlutterRouter.m; sourceTree = "<group>"; };
-		7CA7681D22FE94C5009E473E /* MyFlutterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFlutterViewController.h; sourceTree = "<group>"; };
-		7CA7681E22FE94C5009E473E /* MyFlutterRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFlutterRouter.h; sourceTree = "<group>"; };
 		7CA7682622FE95C1009E473E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		7CA7682722FE95C1009E473E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -431,7 +425,6 @@
 				7C4EF00F230396E60040DA7A /* CommentHeadField */,
 				7C652C0423017208007BBDD2 /* Home */,
 				7CA7682422FE95C1009E473E /* Base */,
-				7CA7681A22FE94C5009E473E /* FlutterSection */,
 				7C8AAE9122E988A000589862 /* BaseLib */,
 				7C8AAE2B22E9811E00589862 /* DevelopMentLibrary */,
 				7C6309EE22A67A3700C73AAB /* ZWSDK */,
@@ -1304,17 +1297,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		7CA7681A22FE94C5009E473E /* FlutterSection */ = {
-			isa = PBXGroup;
-			children = (
-				7CA7681D22FE94C5009E473E /* MyFlutterViewController.h */,
-				7CA7681B22FE94C5009E473E /* MyFlutterViewController.m */,
-				7CA7681E22FE94C5009E473E /* MyFlutterRouter.h */,
-				7CA7681C22FE94C5009E473E /* MyFlutterRouter.m */,
-			);
-			path = FlutterSection;
-			sourceTree = "<group>";
-		};
 		7CA7682422FE95C1009E473E /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1365,11 +1347,12 @@
 			buildConfigurationList = 7C459A502295557500667813 /* Build configuration list for PBXNativeTarget "My_Study" */;
 			buildPhases = (
 				66F3A9EDA4AEE8010DE66B3F /* [CP] Check Pods Manifest.lock */,
+				627665FB339232AB616A9635 /* [CP-User] Run Flutter Build Script */,
 				7C459A202295557300667813 /* Sources */,
 				7C459A212295557300667813 /* Frameworks */,
 				7C459A222295557300667813 /* Resources */,
 				955386C1B8872C8EB231BB4C /* [CP] Embed Pods Frameworks */,
-				7CA7681622FE89B9009E473E /* ShellScript */,
+				7C650CC9243B848000726BA4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1490,6 +1473,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		627665FB339232AB616A9635 /* [CP-User] Run Flutter Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Flutter/flutter_module/.metadata",
+				"${SRCROOT}/../Flutter/flutter_module/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/../Flutter/flutter_module/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/../Flutter/flutter_module/.ios/Flutter/flutter_export_environment.sh",
+			);
+			name = "[CP-User] Run Flutter Build Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../Flutter/flutter_module/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+		};
 		66F3A9EDA4AEE8010DE66B3F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1512,7 +1511,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CA7681622FE89B9009E473E /* ShellScript */ = {
+		7C650CC9243B848000726BA4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1527,7 +1526,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed\n";
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../Flutter/flutter_module/.ios/Flutter/flutter_export_environment.sh\"\n";
 		};
 		955386C1B8872C8EB231BB4C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1558,7 +1557,6 @@
 				7C4EF06C230405030040DA7A /* UIButton+Navigation.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
 				7C8AAE5F22E985ED00589862 /* CALayer+Helper.m in Sources */,
-				7CA7681F22FE94C6009E473E /* MyFlutterViewController.m in Sources */,
 				7C8AAE6422E9864F00589862 /* GrayCoverBtn.m in Sources */,
 				7C4F93BF2302B11900F2238E /* PASTipView.m in Sources */,
 				7C4EF06B230405030040DA7A /* UIButton+CornerBorder.m in Sources */,
@@ -1591,7 +1589,6 @@
 				7C4EF0592304034B0040DA7A /* CMView.m in Sources */,
 				7C8AAE5422E9856400589862 /* CAAnimation+Animation.m in Sources */,
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
-				7CA7682022FE94C6009E473E /* MyFlutterRouter.m in Sources */,
 				7C459A2C2295557300667813 /* ViewController.m in Sources */,
 				7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */,
 				7C4F93E32302B39300F2238E /* PASBorderTableViewCell.m in Sources */,

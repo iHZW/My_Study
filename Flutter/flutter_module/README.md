@@ -1,4 +1,4 @@
-# flutter_module
+# flutter_module_for_ios
 
 A new flutter module project.
 

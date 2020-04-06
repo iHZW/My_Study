@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+Tools.h"
 #import "UITableViewCell+DequeCell.h"
-#import "MyFlutterRouter.h"
 
 @interface BaseViewController : UIViewController
 

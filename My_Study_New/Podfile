@@ -5,6 +5,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/iHZW/WFPodSpecs.git'
 source 'https://github.com/iHZW/WFLibSpec.git'
 
+flutter_application_path = "../Flutter/flutter_module"
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+
+
 target 'My_Study' do
 
   use_frameworks!
@@ -35,9 +39,8 @@ target 'My_Study' do
   pod 'WFUtilsLib','0.1.2'
   pod 'MJMonkeyLib', '0.1.3'
   pod 'WFEOCFamilyLib', '0.1.0'
+  
+  install_all_flutter_pods(flutter_application_path)
 
 end
-
-  flutter_application_path = "../Flutter/flutter_module"
-  eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
 

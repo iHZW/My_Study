@@ -7,6 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import <Flutter/Flutter.h>
+
+
 @interface HomeViewController ()
 @property(nonatomic, strong) NSMutableArray *dataList;
 @end
@@ -61,19 +64,30 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    });
-    BaseCellModel *model = self.dataList[indexPath.row];
-    if(model.isFlutterPage){
-        [MyFlutterRouter.sharedRouter openPage:model.flutterPageName params:@{} animated:YES completion:^(BOOL isFinish){}];
-    }else if(model.clazz != nil){
-        UIViewController *vc = [model.clazz new];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    });
+//    BaseCellModel *model = self.dataList[indexPath.row];
+//    if(model.isFlutterPage){
+////        [MyFlutterRouter.sharedRouter openPage:model.flutterPageName params:@{} animated:YES completion:^(BOOL isFinish){}];
+//    }else if(model.clazz != nil){
+//        UIViewController *vc = [model.clazz new];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
 
+    [self jump_flutterPage];
 }
+
+- (void)jump_flutterPage
+{
+    NewVC *vc = [[NewVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+
 #pragma mark - getter && setter
 - (NSMutableArray *)dataList
 {
@@ -82,4 +96,34 @@
     }
     return _dataList;
 }
+@end
+
+
+@implementation NewVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    FlutterViewController *flutterVC = [[FlutterViewController alloc] initWithProject:nil nibName:nil bundle:nil];
+    [self addChildViewController:flutterVC];
+    flutterVC.view.frame = self.view.bounds;
+    [flutterVC didMoveToParentViewController:self];
+    [self.view addSubview:flutterVC.view];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+}
+
 @end

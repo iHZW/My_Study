@@ -1,6 +1,0 @@
-framework module xservice_kit {
-  umbrella header "xservice_kit-framework-umbrella.h"
-
-  export *
-  module * { export * }
-}

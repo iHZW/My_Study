@@ -18,16 +18,10 @@ PODS:
   - CWLateralSlide (1.6.4)
   - FDFullscreenPopGesture (1.1)
   - Flutter (1.0.0)
-  - flutter_boost (0.0.1):
-    - Flutter
-    - xservice_kit
-  - flutter_webview_plugin (0.0.1):
+  - flutter_module_for_ios (0.0.1):
     - Flutter
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
-    - flutter_boost
-    - flutter_webview_plugin
-    - xservice_kit
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -47,8 +41,6 @@ PODS:
   - WFEOCFamilyLib (0.1.0)
   - WFUIKit (0.0.3)
   - WFUtilsLib (0.1.2)
-  - xservice_kit (0.0.1):
-    - Flutter
 
 DEPENDENCIES:
   - AFNetworking
@@ -56,8 +48,7 @@ DEPENDENCIES:
   - CWLateralSlide (~> 1.6.3)
   - FDFullscreenPopGesture (~> 1.1)
   - Flutter (from `../Flutter/flutter_module/.ios/Flutter/engine`)
-  - flutter_boost (from `../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_boost/ios`)
-  - flutter_webview_plugin (from `../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_webview_plugin/ios`)
+  - flutter_module_for_ios (from `../Flutter/flutter_module/.ios/Flutter`)
   - FlutterPluginRegistrant (from `../Flutter/flutter_module/.ios/Flutter/FlutterPluginRegistrant`)
   - FMDB (>= 2.7.1)
   - JSONModel (= 1.5.0)
@@ -73,7 +64,6 @@ DEPENDENCIES:
   - WFEOCFamilyLib (= 0.1.0)
   - WFUIKit (= 0.0.3)
   - WFUtilsLib (= 0.1.2)
-  - xservice_kit (from `../Flutter/flutter_module/.ios/Flutter/.symlinks/xservice_kit/ios`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -101,24 +91,19 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: "../Flutter/flutter_module/.ios/Flutter/engine"
-  flutter_boost:
-    :path: "../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_boost/ios"
-  flutter_webview_plugin:
-    :path: "../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_webview_plugin/ios"
+  flutter_module_for_ios:
+    :path: "../Flutter/flutter_module/.ios/Flutter"
   FlutterPluginRegistrant:
     :path: "../Flutter/flutter_module/.ios/Flutter/FlutterPluginRegistrant"
-  xservice_kit:
-    :path: "../Flutter/flutter_module/.ios/Flutter/.symlinks/xservice_kit/ios"
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CWLateralSlide: b7933f4a03d652fbec6789bb45dc567011e892ca
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
-  flutter_boost: 0e85ea37c74ed39ee7b91a35612afa1605557484
-  flutter_webview_plugin: ed9e8a6a96baf0c867e90e1bce2673913eeac694
-  FlutterPluginRegistrant: 06de8fb8003066c93c1021f73353d30f5dee8395
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_module_for_ios: 3cb0799e3c2b0f4df39f150148181204571e3ae6
+  FlutterPluginRegistrant: 8855ca2b426d228cb41aa6c26c0c83b8c49e3593
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   JSONModel: 79b79f8cc6f63b9fd30c7e8ec15aebe9f1a6cc4f
   KissXML: 09f88ff8161fd058d67b70740b8b516687b52823
@@ -133,8 +118,7 @@ SPEC CHECKSUMS:
   WFEOCFamilyLib: f44721fa8ef816f85b4bac874db5357ae64afbd6
   WFUIKit: a0a0eae84bfcc7f9a42b28dcf5dfa9c783843a79
   WFUtilsLib: f72e4fc453e13d1566dd541e90dd50227a0126e2
-  xservice_kit: a2f1b35addc126fce8687aeb183ab0c1ada5b7f3
 
-PODFILE CHECKSUM: 0b15e08186bd33320f38ace368f0a9296ae0747e
+PODFILE CHECKSUM: eadcbb3077b344159ab87c67201b7f84d82b615c
 
 COCOAPODS: 1.8.4
