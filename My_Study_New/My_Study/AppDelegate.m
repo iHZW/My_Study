@@ -28,10 +28,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-//    ViewController *ctrl = [[ViewController alloc] init];
-//    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:ctrl];
-//    self.window.rootViewController = navCtrl;
     
     [AppLaunchTime mark];
     
