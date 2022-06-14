@@ -1,0 +1,21 @@
+//
+//  MyPrefixHeader.pch
+//  My_Study
+//
+//  Created by HZW on 2019/6/3.
+//  Copyright © 2019 HZW. All rights reserved.
+//
+
+#ifndef MyPrefixHeader_pch
+#define MyPrefixHeader_pch
+
+#ifdef __OBJC__  //判断一下OC文件才会到导入下面的文件
+
+#import "Masonry.h"
+//#import "ZWSDK.h"
+#import "PASBaseFramework.h"
+
+#endif //判断结束
+
+
+#endif /* MyPrefixHeader_pch */

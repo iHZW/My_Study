@@ -1,0 +1,73 @@
+
+platform :ios, '8.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/iHZW/WFPodSpecs.git'
+#source 'https://github.com/iHZW/WFLibSpec.git'
+
+#flutter_application_path = "../Flutter/flutter_module"
+#load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+
+####  Debug调试相关 ####
+def debugTool
+  # debug工具
+
+  # 查看UI结构
+  pod 'LookinServer', '1.0.0',  :configurations => ['Debug','QA','QA_Dev']
+
+  # DoKit
+  pod 'DoraemonKit/Core', '3.0.2', :configurations => ['Debug','QA','QA_Dev']
+end
+
+
+target 'My_Study' do
+
+  use_frameworks!
+  
+  # 返回侧滑适配有导航栏和没导航栏的切换
+  pod 'FDFullscreenPopGesture', '~> 1.1'
+
+  pod 'AFNetworking'
+  pod 'Masonry','1.1.0'
+  pod 'JSONModel','1.5.0'
+  pod 'MJExtension','3.0.15.1'
+  pod 'MJRefresh','3.1.15.7'
+  pod 'PINCache','2.3'
+  pod 'SDWebImage','3.8.0'
+  pod 'CWLateralSlide', '~> 1.6.3'
+  pod 'PINCache','2.3'
+  pod 'KissXML','5.2.3'
+  pod 'FMDB','>=2.7.1'
+  pod 'SSKeychain', '1.2.2'
+  
+  pod 'CocoaAsyncSocket'
+  
+  #本地库
+#  pod 'MJUtils', :path => 'LocalLib/MJUtils'
+ # pod 'WFUtilsLib','0.1.2'
+  #pod 'MJMonkeyLib', '0.1.3'
+  #pod 'WFEOCFamilyLib', '0.1.0'
+  #pod 'WFUIKit', '0.0.3'
+  
+  pod 'YYKit'
+  
+  pod 'KVOController', '1.2.0'
+  
+  pod 'ReactiveObjC', '3.1.1'
+  
+ #install_all_flutter_pods(flutter_application_path)
+ 
+ pod 'Alamofire'
+
+ debugTool
+
+end
+
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
+  end
+end
