@@ -64,6 +64,7 @@
     
 }
 
+/* 注册调试工具 */
 - (void)registDebugDoKitTool{
 #ifdef DOKIT
     [[DoraemonManager shareInstance] addPluginWithTitle:@"LookinServer" icon:@"doraemon_default" desc:@"LookinServer" pluginName:@"LookinPlugin" atModule:@"业务工具"];
