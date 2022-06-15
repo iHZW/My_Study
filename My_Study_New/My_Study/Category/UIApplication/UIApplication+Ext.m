@@ -2,8 +2,8 @@
 //  UIApplication+Ext.m
 //  StarterApp
 //
-//  Created by js on 2019/6/17.
-//  Copyright © 2019 js. All rights reserved.
+//  Created by Zhiwei Han on 2022/4/22.
+//  Copyright © 2022 Zhiwei Han. All rights reserved.
 //
 
 #import "UIApplication+Ext.h"

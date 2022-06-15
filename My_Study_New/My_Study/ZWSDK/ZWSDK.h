@@ -88,6 +88,11 @@ typedef long long _int64;
 #define PASFacFont(s) PASFont(PASFactor(s))   //适配后的字体
 #define PASFacBFont(s) PASBFont(PASFactor(s)) //适配后的加粗字体
 
+/* block */
+#define BlockSafeRun(block, ...) block ? block(__VA_ARGS__) : nil
+//字符串转换为非空
+#define __String_Not_Nil(str) (str?:@"")
+
 #define kMainScreenSize     ([[UIScreen mainScreen] bounds].size)
 #define kMainScreenBounds  [UIScreen mainScreen].bounds
 #define kMainScreenWidth    MIN([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)

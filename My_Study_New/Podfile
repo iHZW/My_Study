@@ -38,16 +38,19 @@ target 'My_Study' do
   pod 'PINCache','2.3'
   pod 'KissXML','5.2.3'
   pod 'FMDB','>=2.7.1'
-  pod 'SSKeychain', '1.2.2'
+#  钥匙串 和永久保存使用
+  pod 'SAMKeychain', '1.5.3'
+#   播放器
+  pod 'SJBaseVideoPlayer', '3.5.2'
   
   pod 'CocoaAsyncSocket'
   
   #本地库
 #  pod 'MJUtils', :path => 'LocalLib/MJUtils'
- # pod 'WFUtilsLib','0.1.2'
-  #pod 'MJMonkeyLib', '0.1.3'
-  #pod 'WFEOCFamilyLib', '0.1.0'
-  #pod 'WFUIKit', '0.0.3'
+#  pod 'WFUtilsLib','0.1.2'
+#  pod 'MJMonkeyLib', '0.1.3'
+#  pod 'WFEOCFamilyLib', '0.1.0'
+#  pod 'WFUIKit', '0.0.3'
   
   pod 'YYKit'
   

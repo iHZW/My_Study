@@ -13,6 +13,7 @@
 //#import "TwoPageViewController.h"
 #import "CRMViewController.h"
 #import "AppLaunchTime.h"
+#import "VersionUpgradeViewController.h"
 
 #ifdef DOKIT
 #import <DoraemonKit/DoraemonManager.h>
@@ -33,9 +34,31 @@
     
     [self registDebugDoKitTool];
     
-    [self loadSubViewControllers];
+    /* 判断是否加载引导页 */
+    if (![VersionUpgradeViewController isFirstStartApp]) {
+        [self loadGuidePage];
+    } else {
+        [self loadSubViewControllers];
+    }
+    
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)loadGuidePage{
+    VersionUpgradeViewController *vc = [[VersionUpgradeViewController alloc] init];
+    @pas_weakify_self
+    
+//    vc.loadLoginBlock = ^{
+//      @pas_strongify_self
+//        /* 加载登录页 */
+//    };
+    vc.guideCompleteBlock = ^(NSInteger index, GuideActionType type) {
+        @pas_strongify_self
+        /* 引导完成 */
+        [self loadSubViewControllers];
+    };
+    self.window.rootViewController = vc;
 }
 
 - (void)loadSubViewControllers

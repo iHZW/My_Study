@@ -31,13 +31,58 @@ PODS:
   - MJRefresh (3.1.15.7)
   - PINCache (2.3)
   - ReactiveObjC (3.1.1)
+  - SAMKeychain (1.5.3)
   - SDWebImage (3.8.0):
     - SDWebImage/Core (= 3.8.0)
   - SDWebImage/Core (3.8.0)
-  - SSKeychain (1.2.2)
+  - SJBaseVideoPlayer (3.5.2):
+    - Masonry
+    - SJBaseVideoPlayer/AVPlayer (= 3.5.2)
+    - SJBaseVideoPlayer/Common (= 3.5.2)
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/AVPlayer (3.5.2):
+    - Masonry
+    - SJBaseVideoPlayer/Common
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/Common (3.5.2):
+    - Masonry
+    - SJBaseVideoPlayer/ResourceLoader
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJBaseVideoPlayer/ResourceLoader (3.5.2):
+    - Masonry
+    - SJUIKit/AttributesFactory (>= 0.0.0.38)
+    - SJUIKit/ObserverHelper
+    - SJUIKit/Queues
+    - SJUIKit/SQLite3
+  - SJUIKit/AttributesFactory (0.0.0.58):
+    - SJUIKit/AttributesFactory/Deprecated (= 0.0.0.58)
+    - SJUIKit/AttributesFactory/UIKitText (= 0.0.0.58)
+  - SJUIKit/AttributesFactory/Deprecated (0.0.0.58)
+  - SJUIKit/AttributesFactory/UIKitText (0.0.0.58)
+  - SJUIKit/ObserverHelper (0.0.0.58)
+  - SJUIKit/Queues (0.0.0.58)
+  - SJUIKit/SQLite3 (0.0.0.58):
+    - SJUIKit/SQLite3/Core (= 0.0.0.58)
+    - SJUIKit/SQLite3/Protocol (= 0.0.0.58)
+    - YYModel
+  - SJUIKit/SQLite3/Core (0.0.0.58):
+    - SJUIKit/SQLite3/Protocol
+    - YYModel
+  - SJUIKit/SQLite3/Protocol (0.0.0.58):
+    - YYModel
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -56,8 +101,9 @@ DEPENDENCIES:
   - MJRefresh (= 3.1.15.7)
   - PINCache (= 2.3)
   - ReactiveObjC (= 3.1.1)
+  - SAMKeychain (= 1.5.3)
   - SDWebImage (= 3.8.0)
-  - SSKeychain (= 1.2.2)
+  - SJBaseVideoPlayer (= 3.5.2)
   - YYKit
 
 SPEC REPOS:
@@ -78,9 +124,12 @@ SPEC REPOS:
     - MJRefresh
     - PINCache
     - ReactiveObjC
+    - SAMKeychain
     - SDWebImage
-    - SSKeychain
+    - SJBaseVideoPlayer
+    - SJUIKit
     - YYKit
+    - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -99,10 +148,13 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
-  SSKeychain: 88767e903ee8d274ed380e364d96b7a101235286
+  SJBaseVideoPlayer: c8f2fdb374ec2c946c37b1f39eee24f0812a979b
+  SJUIKit: 86d5b16f8b8b17274ef8805acf965e4014629e15
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 1c97e4801eb02f611e101bd03e307a7a755def3f
+PODFILE CHECKSUM: f729d31d26d0b034c1820ba693b17c561a17c353
 
 COCOAPODS: 1.11.2
