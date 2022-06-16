@@ -49,13 +49,12 @@
     
     [self loadSubViews];
     
-    [self loadNav];
 }
 
-- (void)loadNav
+- (void)initRightNav
 {
-    self.title = @"My_Study";
-
+    [super initRightNav];
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, PASFactor(44), PASFactor(30));
     [btn setTitle:@"试试看" forState:UIControlStateNormal];
@@ -64,8 +63,6 @@
     
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [self.navigationItem setRightBarButtonItem:btnItem];
-
-    
 }
 
 - (void)createView

@@ -6,10 +6,10 @@
 //  Copyright © 2019 HZW. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "ZWBaseViewController.h"
 #import "BaseCellModel.h"
 
-@interface BaseTableViewController : BaseViewController <UITableViewDataSource,UITableViewDelegate>
+@interface BaseTableViewController : ZWBaseViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property(nonatomic, assign) UITableViewStyle tableViewStyle;
 @end

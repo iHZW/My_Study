@@ -164,6 +164,9 @@ typedef long long _int64;
 
 #define KLeftNavbarSpace    8
 
+/* 通用的左边距 16 */
+#define kCommonLeftSpace    16
+
 #ifndef dimof
 #define dimof(a)    (sizeof(a) / sizeof(a[0]))
 #endif

@@ -6,13 +6,13 @@
 //  Copyright © 2022 HZW. All rights reserved.
 //
 /* 版本升级引导页 */
-#import "BaseViewController.h"
+#import "ZWBaseViewController.h"
 #import "DHGuidePageHUD.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VersionUpgradeViewController : BaseViewController
+@interface VersionUpgradeViewController : ZWBaseViewController
 
 @property (nonatomic, copy) GuideCompleteBlock guideCompleteBlock;
 

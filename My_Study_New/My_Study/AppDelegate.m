@@ -8,12 +8,14 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "BaseViewController.h"
+#import "ZWBaseViewController.h"
 #import "HomeViewController.h"
 //#import "TwoPageViewController.h"
 #import "CRMViewController.h"
 #import "AppLaunchTime.h"
 #import "VersionUpgradeViewController.h"
+#import "ZWNavigationController.h"
+#import "ModuleContainer.h"
 
 #ifdef DOKIT
 #import <DoraemonKit/DoraemonManager.h>
@@ -31,8 +33,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [AppLaunchTime mark];
-    
+    /* 注册调试工具 */
     [self registDebugDoKitTool];
+    /* 初始化配置信息 */
+    [[ModuleContainer sharedModuleContainer] registerConfig];
     
     /* 判断是否加载引导页 */
     if (![VersionUpgradeViewController isFirstStartApp]) {
@@ -65,23 +69,27 @@
 {
     UITabBarController *tabVC = [[UITabBarController alloc] init];
     
-    HomeViewController *vc1 = [HomeViewController new];
+    HomeViewController *vc1 = [[HomeViewController alloc] init];
+    vc1.isTabVc = YES;
     vc1.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0];
-    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+    UINavigationController *nav1 = [[ZWNavigationController alloc] initWithRootViewController:vc1];
     
     CRMViewController *vc2 = [CRMViewController new];
+    vc2.isTabVc = YES;
     vc2.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
-    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+    UINavigationController *nav2 = [[ZWNavigationController alloc] initWithRootViewController:vc2];
     
     ViewController *vc3 = [ViewController new];
+    vc3.isTabVc = YES;
     vc3.title = @"History";
     vc3.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemHistory tag:2];
-    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+    UINavigationController *nav3 = [[ZWNavigationController alloc] initWithRootViewController:vc3];
     
-    BaseViewController *vc4 = [BaseViewController new];
+    ZWBaseViewController *vc4 = [ZWBaseViewController new];
+    vc4.isTabVc = YES;
     vc4.title = @"Recents";
     vc4.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemRecents tag:3];
-    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:vc4];
+    UINavigationController *nav4 = [[ZWNavigationController alloc] initWithRootViewController:vc4];
     tabVC.viewControllers = @[nav1,nav2,nav3,nav4];
     self.window.rootViewController = tabVC;
     
@@ -91,7 +99,7 @@
 - (void)registDebugDoKitTool{
 #ifdef DOKIT
     [[DoraemonManager shareInstance] addPluginWithTitle:@"LookinServer" icon:@"doraemon_default" desc:@"LookinServer" pluginName:@"LookinPlugin" atModule:@"业务工具"];
-//    [[DoraemonManager shareInstance] addPluginWithTitle:@"开发" icon:@"doraemon_default" desc:@"AppLog" pluginName:@"AppLogPlugin" atModule:@"业务工具"];
+    [[DoraemonManager shareInstance] addPluginWithTitle:@"开发" icon:@"doraemon_default" desc:@"AppLog" pluginName:@"AppLogPlugin" atModule:@"业务工具"];
     [[DoraemonManager shareInstance] install];
 #endif
 }

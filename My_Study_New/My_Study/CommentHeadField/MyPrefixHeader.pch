@@ -14,6 +14,9 @@
 #import "Masonry.h"
 #import "ZWSDK.h"
 #import "PASBaseFramework.h"
+#import "DataFormatter.h"
+#import "UIViewController+ZW.h"
+#import "LogUtil.h"
 
 #endif //判断结束
 

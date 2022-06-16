@@ -6,20 +6,53 @@
 //  Copyright © 2019 HZW. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "ZWBaseViewController.h"
 
-@interface BaseViewController ()
+@interface ZWBaseViewController ()
 
 @end
 
-@implementation BaseViewController
+@implementation ZWBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor randomColor];
+    self.view.backgroundColor = [UIColor whiteColor];// [UIColor randomColor];
     // Do any additional setup after loading the view.
+    
+    /* 默认加载 */
+    if (!self.isTabVc) {
+        [self initLeftNav];
+        [self initRightNav];
+    }
+
 }
 
+- (void)setIsTabVc:(BOOL)isLoadBackBtn
+{
+    _isTabVc = isLoadBackBtn;
+}
+
+
+/* 初始化导航 */
+- (void)initLeftNav{
+    UIButton * backBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 40, 40, 40)];
+    backBtn.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [backBtn setImage:[UIImage imageNamed:@"icon_nav_back"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.titleLabel.font = PASFont(15);
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+- (void)initRightNav
+{
+    
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.navigationBarHidden = YES;
+}
 
 
 

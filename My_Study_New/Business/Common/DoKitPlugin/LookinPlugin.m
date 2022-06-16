@@ -12,6 +12,7 @@
 
 #import <UIKit/UIKit.h>
 #import <DoraemonKit/DoraemonKit.h>
+#import <DoraemonKit/DoraemonHomeWindow.h>
 #import "UIApplication+Ext.h"
 
 

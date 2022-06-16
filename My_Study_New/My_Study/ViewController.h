@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZWBaseViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : ZWBaseViewController
 
 
 - (void)createView;

@@ -9,15 +9,6 @@
 #import "VersionUpgradeViewController.h"
 #import "StoreUtil.h"
 
-#define IS_IPHONE_X (fabs((double)MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width) - (double )812) < DBL_EPSILON )
-
-//IPhone5适配项
-#define IS_IPHONE_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )568) < DBL_EPSILON )
-//IPhone4适配项
-#define IS_IPHONE_4 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )480) < DBL_EPSILON )
-//IPhone6适配项
-#define IS_IPHONE_6 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )667) < DBL_EPSILON )
-
 @interface VersionUpgradeViewController ()
 
 @end

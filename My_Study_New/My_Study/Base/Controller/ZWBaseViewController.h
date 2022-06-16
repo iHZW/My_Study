@@ -10,7 +10,14 @@
 #import "UIColor+Tools.h"
 #import "UITableViewCell+DequeCell.h"
 
-@interface BaseViewController : UIViewController
+@interface ZWBaseViewController : UIViewController
+/* 是否是tab控制器, 默认为NO */
+@property (nonatomic, assign) BOOL isTabVc;
+
+- (void)initLeftNav;
+
+- (void)initRightNav;
+
 
 @end
 
