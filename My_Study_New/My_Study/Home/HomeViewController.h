@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface NewVC : UIViewController
+@interface NewVC : ZWBaseViewController
 
 @end
 

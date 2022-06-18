@@ -51,7 +51,7 @@
     
     [self setupUI];
     [self setupLayout];
-//    [self setupDatas];
+    [self setupDatas];
     
 
 }
@@ -128,9 +128,25 @@
 }
 - (void)setupLayout
 {
-    self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight - kMainNavHeight);
+    self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight- (kSysStatusBarHeight + kMainNavHeight + kMainTabbarHeight + 100));
 }
 #pragma mark - actions
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    NSDictionary *dict = @{@"pageNo": @(1), @"count" : @(20)};
+    [self sendRequestUrl:kClientChatDetailURL dict:dict];
+}
+
+- (void)sendRequestUrl:(NSString *)url dict:(NSDictionary *)dict
+{
+    [ZWM.http requestWithPath:url method:HttpRequestPost paramenters:dict prepareExecute:nil success:^(NSURLSessionDataTask * _Nullable task, id  _Nullable responseObject) {
+ 
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nullable error) {
+            
+        }];
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -151,6 +167,27 @@
 //        [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    });
     BaseCellModel *model = self.dataList[indexPath.row];
+    NSString *url = kClientChatDetailURL;
+    switch (indexPath.row) {
+        case 0:
+            url = kClientChatDetailURL;
+            break;
+        case 1:
+            url = kClientDetailDynamicTab;
+            break;
+        case 2:
+            url = kClueToCustomerPage;
+            break;
+        case 3:
+            url = kClientChatMsgList;
+            break;
+        default:
+            break;
+    }
+    
+    [self sendRequestUrl:url dict:@{}];
+    
+    
     if(model.isFlutterPage){
 //        [MyFlutterRouter.sharedRouter openPage:model.flutterPageName params:@{} animated:YES completion:^(BOOL isFinish){}];
         [self jump_flutterPage];
@@ -199,15 +236,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
-    self.navigationController.navigationBar.hidden = YES;
+//    self.tabBarController.tabBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    self.tabBarController.tabBar.hidden = NO;
-    self.navigationController.navigationBar.hidden = NO;
+//    self.tabBarController.tabBar.hidden = NO;
+//    self.navigationController.navigationBar.hidden = NO;
 }
 
 @end

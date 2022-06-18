@@ -48,7 +48,7 @@
     UIBarButtonItem *copyBarButton = [[UIBarButtonItem alloc] initWithTitle:@"复制" style:UIBarButtonItemStylePlain target:self action:@selector(copyRequestMethod:)];
     self.navigationItem.rightBarButtonItem = copyBarButton;
     
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 88)];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - kPORTRAIT_SAFE_AREA_BOTTOM_SPACE)];
 //    self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
     

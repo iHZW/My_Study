@@ -12,6 +12,13 @@
 #import "ConsoleAppender.h"
 #import "DatabaseAppender.h"
 
+@interface ModuleContainer ()
+
+@property (nonatomic, strong, readwrite) HttpClient *http;
+
+
+@end
+
 
 @implementation ModuleContainer
 DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
@@ -25,7 +32,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
     
     //日志配置
     [self registerLog];
-    
+        
 }
 
 #pragma mark - DB
@@ -44,5 +51,14 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
     [LogUtil configIgnoreFlagsLog:@[@"Socket"]];
 }
 
+
+#pragma mark - lazyLoad
+- (HttpClient *)http
+{
+    if (!_http) {
+        _http = [HttpClient defaultClient];
+    }
+    return _http;
+}
 
 @end

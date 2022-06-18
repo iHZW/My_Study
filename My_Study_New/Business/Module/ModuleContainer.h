@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "SingletonTemplate.h"
+#import "HttpClient.h"
+
+#define ZWM   [ModuleContainer sharedModuleContainer]
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ModuleContainer : NSObject
 DEFINE_SINGLETON_T_FOR_HEADER(ModuleContainer)
 
+@property (nonatomic, strong, readonly) HttpClient *http;
 
 - (void)registerConfig;
 

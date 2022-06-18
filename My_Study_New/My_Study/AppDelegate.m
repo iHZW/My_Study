@@ -38,6 +38,11 @@
     /* 初始化配置信息 */
     [[ModuleContainer sharedModuleContainer] registerConfig];
     
+//    [LogUtil debug:@"====== 开始登录 - Login" flag:@"登录" context:self];
+//    [LogUtil info:@"====== 正在登录 - Login" flag:@"登录" context:self];
+//    [LogUtil warn:@"====== 记得登录 - Login" flag:@"登录" context:self];
+//    [LogUtil error:@"====== 登录失败 - Login" flag:@"登录失败" context:self];
+
     /* 判断是否加载引导页 */
     if (![VersionUpgradeViewController isFirstStartApp]) {
         [self loadGuidePage];
@@ -72,24 +77,24 @@
     HomeViewController *vc1 = [[HomeViewController alloc] init];
     vc1.isTabVc = YES;
     vc1.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0];
-    UINavigationController *nav1 = [[ZWNavigationController alloc] initWithRootViewController:vc1];
+    ZWNavigationController *nav1 = [[ZWNavigationController alloc] initWithRootViewController:vc1];
     
     CRMViewController *vc2 = [CRMViewController new];
     vc2.isTabVc = YES;
     vc2.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
-    UINavigationController *nav2 = [[ZWNavigationController alloc] initWithRootViewController:vc2];
+    ZWNavigationController *nav2 = [[ZWNavigationController alloc] initWithRootViewController:vc2];
     
     ViewController *vc3 = [ViewController new];
     vc3.isTabVc = YES;
     vc3.title = @"History";
     vc3.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemHistory tag:2];
-    UINavigationController *nav3 = [[ZWNavigationController alloc] initWithRootViewController:vc3];
+    ZWNavigationController *nav3 = [[ZWNavigationController alloc] initWithRootViewController:vc3];
     
     ZWBaseViewController *vc4 = [ZWBaseViewController new];
     vc4.isTabVc = YES;
     vc4.title = @"Recents";
     vc4.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemRecents tag:3];
-    UINavigationController *nav4 = [[ZWNavigationController alloc] initWithRootViewController:vc4];
+    ZWNavigationController *nav4 = [[ZWNavigationController alloc] initWithRootViewController:vc4];
     tabVC.viewControllers = @[nav1,nav2,nav3,nav4];
     self.window.rootViewController = tabVC;
     

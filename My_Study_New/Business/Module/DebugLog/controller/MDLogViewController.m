@@ -90,9 +90,9 @@
 }
 
 - (void)clearLogNavAction:(id)sender{
-//    [LogDAO deleteAll:self.context];
+    [LogDAO deleteAll:self.context];
     self.dataSource = @[];
-//    [self.searchDataSource removeAllObjects];
+    [self.searchDataSource removeAllObjects];
     [self.tableView reloadData];
 }
 
@@ -133,7 +133,35 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 75;
+    return self.pageType == FromPageTypeDeault ? 60.0 : 80.0;
+}
+
+- (void)dealWithTitleName:(NSString **)titleName
+             subTitleName:(NSString **)subTitleName
+                 logModel:(LogModel *)logModel
+{
+    switch (self.pageType) {
+        case FromPageTypeDeault:
+        {
+            *titleName = logModel.context;
+            *subTitleName = [NSString stringWithFormat:@"%ld",logModel.count];
+        }
+            break;
+        case FromPageTypeOne:
+        {
+            *titleName = [NSString stringWithFormat:@"%@",logModel.flag];
+            *subTitleName = [NSString stringWithFormat:@"[%@] %@",logModel.level,[DateUtil prettyDateStringForDate:logModel.createTime]];
+        }
+            break;
+        case FromPageTypeTwo:
+        {
+            *titleName = [NSString stringWithFormat:@"[%@] %@",logModel.context,logModel.flag];
+            *subTitleName = [NSString stringWithFormat:@"[%@] %@",logModel.level,[DateUtil prettyDateStringForDate:logModel.createTime]];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,29 +171,29 @@
     LogModel *logModel = [!self.searching ? self.dataSource : self.searchDataSource objectAtIndex:indexPath.row];
     NSString *titleName = @"";
     NSString *subtitleName = @"";
-
-    if (self.pageType == 0){
-        titleName = logModel.context;
-        subtitleName = [NSString stringWithFormat:@"%ld",logModel.count];
-    } else if (self.pageType == 1) {
-        titleName = [NSString stringWithFormat:@"%@",logModel.flag];
-        subtitleName = [NSString stringWithFormat:@"[%@] %@",logModel.level,[DateUtil prettyDateStringForDate:logModel.createTime]];
-    } else if (self.pageType == 2) {
-        titleName = [NSString stringWithFormat:@"[%@] %@",logModel.context,logModel.flag];
-        subtitleName = [NSString stringWithFormat:@"[%@] %@",logModel.level,[DateUtil prettyDateStringForDate:logModel.createTime]];
-    }
+    [self dealWithTitleName:&titleName subTitleName:&subtitleName logModel:logModel];
+//    if (self.pageType == FromPageTypeDeault){
+//        titleName = logModel.context;
+//        subtitleName = [NSString stringWithFormat:@"%ld",logModel.count];
+//    } else if (self.pageType == FromPageTypeOne) {
+//        titleName = [NSString stringWithFormat:@"%@",logModel.flag];
+//        subtitleName = [NSString stringWithFormat:@"[%@] %@",logModel.level,[DateUtil prettyDateStringForDate:logModel.createTime]];
+//    } else if (self.pageType == FromPageTypeTwo) {
+//        titleName = [NSString stringWithFormat:@"[%@] %@",logModel.context,logModel.flag];
+//        subtitleName = [NSString stringWithFormat:@"[%@] %@",logModel.level,[DateUtil prettyDateStringForDate:logModel.createTime]];
+//    }
     cell.titleName = TransToString(titleName);
     cell.subTitleName = TransToString(subtitleName);
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    [[cell.contentView viewWithTag:1001] removeFromSuperview];
-    if (indexPath.row < !self.searching ? self.dataSource.count : self.searchDataSource.count - 1) {
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(20, 74.5, [UIScreen mainScreen].bounds.size.width - 20, 0.5)];
-        lineView.backgroundColor = [UIColor colorFromHexCode:@"e0e0e0"];
-        [cell.contentView addSubview:lineView];
-        lineView.tag = 1001;
-    }
+//    [[cell.contentView viewWithTag:1001] removeFromSuperview];
+//    if (indexPath.row < !self.searching ? self.dataSource.count : self.searchDataSource.count - 1) {
+//        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(20, 74.5, [UIScreen mainScreen].bounds.size.width - 20, 0.5)];
+//        lineView.backgroundColor = [UIColor colorFromHexCode:@"e0e0e0"];
+//        [cell.contentView addSubview:lineView];
+//        lineView.tag = 1001;
+//    }
     
     
     return cell;
@@ -188,9 +216,14 @@
             LogModel *logModel = nil;
             
             if (isUp) {
-                logModel = [!self.searching ? self.dataSource : self.searchDataSource objectAtIndex:index - 1];
+                logModel = PASArrayAtIndex(!self.searching ? self.dataSource : self.searchDataSource, index-1);
+                
+//                [!self.searching ? self.dataSource : self.searchDataSource objectAtIndex:index - 1];
             } else {
-                logModel = [!self.searching ? self.dataSource : self.searchDataSource objectAtIndex:index + 1];
+//                logModel = [!self.searching ? self.dataSource : self.searchDataSource objectAtIndex:index + 1];
+                logModel = PASArrayAtIndex(!self.searching ? self.dataSource : self.searchDataSource, index+1);
+
+                
             }
             
             if (logModel) {
@@ -212,7 +245,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [UIView new];
         [_tableView registerClass:[MDLogTableViewCell class] forCellReuseIdentifier:kLogViewCellIdentifier];
         @pas_weakify_self

@@ -15,7 +15,6 @@
 			dependencies = (
 			);
 			name = LookinServer;
-			productName = LookinServer;
 		};
 /* End PBXAggregateTarget section */
 
@@ -69,7 +68,7 @@
 		09FC0667776E98062FA0DAD1401DEBB0 /* DoraemonDBRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE890BF9A6CBA171713DD46F37FEEF86 /* DoraemonDBRowView.m */; };
 		0A1697BC972A79305AAD442AB838F0EE /* UIButton+YYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC96C3E96CE683732B922CB4C0EB1CF /* UIButton+YYWebImage.m */; };
 		0A45CFB26035F0250F57A3AA31FE52C6 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A59472344D23BAA9D7D215040746CC0 /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A975FE3273EDFCD64EA0E803E4EBF3E /* DoraemonKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */; };
+		0A975FE3273EDFCD64EA0E803E4EBF3E /* DoraemonKit-DoraemonKit in Resources */ = {isa = PBXBuildFile; fileRef = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */; };
 		0AD1D33D09C3B7EE517873F3050C05B2 /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = F039C03BD9B074517E517C2F4167BFF6 /* FBKVOController.m */; };
 		0AD3BB556CEA5B54A93B9C3EA07902E5 /* UISwitch+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 65DBC9147B347C2B06F0A0D658FAF785 /* UISwitch+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AF9EF72F03050B627F02696874D6603 /* UITextView+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 5693D6542D6DB27D0DC2C1F4E8068F97 /* UITextView+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1830,7 +1829,7 @@
 		0C786A13520BFD66BC1863494EA9DE63 /* DoraemonCPUUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonCPUUtil.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/CPU/Function/DoraemonCPUUtil.h; sourceTree = "<group>"; };
 		0D1A053C645872FC16674FEBAF153FD7 /* SJSQLite3+FoundationExtended.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SJSQLite3+FoundationExtended.h"; path = "SJUIKit/SQLite3/SJSQLite3+FoundationExtended.h"; sourceTree = "<group>"; };
 		0D1F16B87FF0E69F54A961C55490CA61 /* ReactiveObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReactiveObjC.debug.xcconfig; sourceTree = "<group>"; };
-		0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoraemonKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "DoraemonKit-DoraemonKit"; path = DoraemonKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D411E34FB5568193B3D1881C4340135 /* NSUserDefaults+RACSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+RACSupport.h"; path = "ReactiveObjC/NSUserDefaults+RACSupport.h"; sourceTree = "<group>"; };
 		0D66A8684DCEBF739E9EC24128F6A595 /* UITableView+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+YYAdd.m"; path = "YYKit/Base/UIKit/UITableView+YYAdd.m"; sourceTree = "<group>"; };
 		0D825F4885F1680862CBAAD6A211F6AD /* doraemon_netflow_list_unselect@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "doraemon_netflow_list_unselect@2x.png"; path = "iOS/DoraemonKit/Resource/doraemon_netflow_list_unselect@2x.png"; sourceTree = "<group>"; };
@@ -2231,7 +2230,7 @@
 		453C14F0907224DD5CA41BC956BB9ED4 /* DoraemonCrashTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonCrashTool.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/Crash/Function/DoraemonCrashTool.h; sourceTree = "<group>"; };
 		45412285565F42F55E404A1BE84AC2EC /* UIColor+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+YYAdd.m"; path = "YYKit/Base/UIKit/UIColor+YYAdd.m"; sourceTree = "<group>"; };
 		45433D0A73E533BCFBB3846CA5A12C68 /* NSObject+MJClass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJClass.h"; path = "MJExtension/NSObject+MJClass.h"; sourceTree = "<group>"; };
-		45509CA4EB6A2CB10116DE995E6F6F07 /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
+		45509CA4EB6A2CB10116DE995E6F6F07 /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
 		45939B9304A2DC7BAC3A7E4EAED234D5 /* DoraemonCellButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonCellButton.m; path = iOS/DoraemonKit/Src/Core/CommonUI/CellBtn/DoraemonCellButton.m; sourceTree = "<group>"; };
 		459A14908092720524844B4101DE9849 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFCompatibilityMacros.h; path = AFNetworking/AFCompatibilityMacros.h; sourceTree = "<group>"; };
 		45CD4446ECFB2E8357FEC1E51151F8E8 /* doraemon_method_use_time@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "doraemon_method_use_time@2x.png"; path = "iOS/DoraemonKit/Resource/doraemon_method_use_time@2x.png"; sourceTree = "<group>"; };
@@ -2325,7 +2324,7 @@
 		51055E12568343FAC391CB59C959B1DB /* RACSerialDisposable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACSerialDisposable.m; path = ReactiveObjC/RACSerialDisposable.m; sourceTree = "<group>"; };
 		510DC68E19F39DE0C253A455B7E151E9 /* UIView+DoraemonSubThreadUICheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+DoraemonSubThreadUICheck.h"; path = "iOS/DoraemonKit/Src/Core/Plugin/Performance/SubThreadUICheck/Function/UIView+DoraemonSubThreadUICheck.h"; sourceTree = "<group>"; };
 		515857329170F165900F1BC9D85964AA /* RACDynamicSequence.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACDynamicSequence.h; path = ReactiveObjC/RACDynamicSequence.h; sourceTree = "<group>"; };
-		517811BBC573BA5C24870086F421AA62 /* doraemon_fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = doraemon_fishhook.c; path = iOS/DoraemonKit/Src/Core/Util/fishhook/doraemon_fishhook.c; sourceTree = "<group>"; };
+		517811BBC573BA5C24870086F421AA62 /* doraemon_fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; name = doraemon_fishhook.c; path = iOS/DoraemonKit/Src/Core/Util/fishhook/doraemon_fishhook.c; sourceTree = "<group>"; };
 		519CBA8CA9C0D84F5E608F3A75CAC948 /* DoraemonKitManagerHeadCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonKitManagerHeadCell.m; path = iOS/DoraemonKit/Src/Core/Entry/Home/Settings/KitManager/View/DoraemonKitManagerHeadCell.m; sourceTree = "<group>"; };
 		51A13D6762AC2435DCFB040C80B1145D /* DoraemonAlertUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonAlertUtil.m; path = iOS/DoraemonKit/Src/Core/CommonUI/Alert/DoraemonAlertUtil.m; sourceTree = "<group>"; };
 		51AD00C551B9BC6A14129708318E2901 /* DoraemonPieChart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonPieChart.h; path = iOS/DoraemonKit/Src/Core/CommonUI/Charts/DoraemonPieChart.h; sourceTree = "<group>"; };
@@ -2813,7 +2812,7 @@
 		9D34CDDB0F7D17FC54B9BF006012AB04 /* SJPlayModelPropertiesObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJPlayModelPropertiesObserver.m; path = SJBaseVideoPlayer/Common/Implements/SJPlayModelPropertiesObserver.m; sourceTree = "<group>"; };
 		9D38A01D60FEF0180308F6EA8EDFC6EB /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		9D5865A9B3CDF16D86AF06633CF4C039 /* Pods-My_Study-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-My_Study-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DF98617BF2E8A75DF01B69DFB4CE2F0 /* UIButton+YYWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+YYWebImage.h"; path = "YYKit/Image/Categories/UIButton+YYWebImage.h"; sourceTree = "<group>"; };
 		9E4DF9F2418F435B95375AFAEB3CED77 /* DoraemonWeakNetworkInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonWeakNetworkInputView.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/WeakNetwork/View/DoraemonWeakNetworkInputView.m; sourceTree = "<group>"; };
 		9E7A48161C741AEC11D3F82A58D27611 /* Pods-My_Study-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-My_Study-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -3105,7 +3104,7 @@
 		CDCAAEEF53E18A49EA9583ACFD9B2481 /* NSAttributedString+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+YYText.m"; path = "YYKit/Text/String/NSAttributedString+YYText.m"; sourceTree = "<group>"; };
 		CDF97DEBD8F2D8E756220318EA8A1300 /* YYWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYWebImageManager.m; path = YYKit/Image/YYWebImageManager.m; sourceTree = "<group>"; };
 		CDFBBA58D73527904F67D1E1B4871A75 /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
-		CE405C0A7E0909A7F8AE083027BC5486 /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
+		CE405C0A7E0909A7F8AE083027BC5486 /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
 		CE5C11D6E8C07712501C06684817F50B /* DoraemonNSUserDefaultsModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNSUserDefaultsModel.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/NSUserDefaults/Model/DoraemonNSUserDefaultsModel.h; sourceTree = "<group>"; };
 		CE66D983F5CE8A6127AA19C4643B9940 /* DoraemonHierarchyPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonHierarchyPickerView.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/UserInterface/View/DoraemonHierarchyPickerView.m; sourceTree = "<group>"; };
 		CE9D26DA1A73DFCF4552A2845D3A81B0 /* NSFileHandle+RACSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSFileHandle+RACSupport.h"; path = "ReactiveObjC/NSFileHandle+RACSupport.h"; sourceTree = "<group>"; };
@@ -3209,7 +3208,7 @@
 		E0971961650B1CCEBBB0C421B8529FA3 /* SJVideoPlayerURLAsset+SJSubtitlesAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SJVideoPlayerURLAsset+SJSubtitlesAdd.h"; path = "SJBaseVideoPlayer/Common/Implements/SJVideoPlayerURLAsset+SJSubtitlesAdd.h"; sourceTree = "<group>"; };
 		E0A78CC572181134EA37BB93F4A23EE5 /* DoraemonLargeImageDetectionListViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonLargeImageDetectionListViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/LargeImageDetection/Detail/DoraemonLargeImageDetectionListViewController.h; sourceTree = "<group>"; };
 		E0B866C7D85A79D38096E08E64B7F523 /* UIFont+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+YYAdd.h"; path = "YYKit/Base/UIKit/UIFont+YYAdd.h"; sourceTree = "<group>"; };
-		E0C6C284ECB324AF1B4582B5B5893F35 /* DoraemonTimeProfilerCore.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = DoraemonTimeProfilerCore.c; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/TimeProfiler/Function/DoraemonTimeProfilerCore.c; sourceTree = "<group>"; };
+		E0C6C284ECB324AF1B4582B5B5893F35 /* DoraemonTimeProfilerCore.c */ = {isa = PBXFileReference; includeInIndex = 1; name = DoraemonTimeProfilerCore.c; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/TimeProfiler/Function/DoraemonTimeProfilerCore.c; sourceTree = "<group>"; };
 		E1022031AA870899C5607194AAC7E347 /* DoraemonNetFlowOscillogramWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNetFlowOscillogramWindow.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/Function/View/DoraemonNetFlowOscillogramWindow.h; sourceTree = "<group>"; };
 		E1180E9A5AB7A4241EA4B087F79EC811 /* UIView+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+YYAdd.h"; path = "YYKit/Base/UIKit/UIView+YYAdd.h"; sourceTree = "<group>"; };
 		E18F557D1E1A6CD6E79831AD3DB750B5 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
@@ -3799,6 +3798,7 @@
 				A881A13493D397988E8F69E707220487 /* no-arc */,
 				5A47B5E44E2DDD21F194D29605C6D315 /* Support Files */,
 			);
+			name = YYKit;
 			path = YYKit;
 			sourceTree = "<group>";
 		};
@@ -3851,6 +3851,7 @@
 				4044548659CD474BB2637CF798E61394 /* Frameworks */,
 				2739AA49F88419BAB7D5DECECE299DC4 /* Support Files */,
 			);
+			name = LookinServer;
 			path = LookinServer;
 			sourceTree = "<group>";
 		};
@@ -3872,6 +3873,7 @@
 				13AFE34F06600831DAF130EF27CD5DA7 /* NSString+DDXML.m */,
 				F8BEA208345D08CAE174FF8EF758735F /* Support Files */,
 			);
+			name = KissXML;
 			path = KissXML;
 			sourceTree = "<group>";
 		};
@@ -3885,6 +3887,7 @@
 				80867BFDD867911CFFDC8200E9A712F2 /* YYModel.h */,
 				E0EEBD11048ECC539F92AA782B16EF6E /* Support Files */,
 			);
+			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -4020,6 +4023,7 @@
 				7F02778C1B311EF5AF097E4117E745A8 /* Validation.swift */,
 				1A24D72CF8C3A97C74EC004F84EFFD17 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -4073,6 +4077,7 @@
 				438AC5BF2B1B7D27EAFFF7EFF29F5753 /* Support Files */,
 				E4108A37F77BB1F4050F7E32223BEB26 /* UIKit */,
 			);
+			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -4304,6 +4309,7 @@
 				35C5310EF54DBD062C14988AFB86E476 /* UITextView+RACSignalSupport.m */,
 				0A22D74C6C47B1359816505283E6095C /* Support Files */,
 			);
+			name = ReactiveObjC;
 			path = ReactiveObjC;
 			sourceTree = "<group>";
 		};
@@ -4330,6 +4336,7 @@
 				E8781B2AF3F6F26F62173B0F7DD82034 /* UIViewController+CWLateralSlide.m */,
 				4EFA2E444633CB33B0D8740D2E9E19F2 /* Support Files */,
 			);
+			name = CWLateralSlide;
 			path = CWLateralSlide;
 			sourceTree = "<group>";
 		};
@@ -4348,6 +4355,7 @@
 				7A25666D8AF9B4490F00E8277D576E0E /* UINavigationController+FDFullscreenPopGesture.m */,
 				DEEF425506C424144FE39FD9812E57B0 /* Support Files */,
 			);
+			name = FDFullscreenPopGesture;
 			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
@@ -4495,6 +4503,7 @@
 				AA055D0DD57C2FFFACA6BADD23C027FF /* PINMemoryCache.m */,
 				D3B213D5C46D926715A7D593438C3E6A /* Support Files */,
 			);
+			name = PINCache;
 			path = PINCache;
 			sourceTree = "<group>";
 		};
@@ -4508,6 +4517,7 @@
 				13DC352F8B5498F0CA69C0AAF4EC920B /* NSObject+FBKVOController.m */,
 				421E31CD55B72F66B48743F3A98CE6C0 /* Support Files */,
 			);
+			name = KVOController;
 			path = KVOController;
 			sourceTree = "<group>";
 		};
@@ -4533,6 +4543,7 @@
 				0A01CECECCA3ABB8D9B658C18E599B5B /* JSONValueTransformer.m */,
 				079082077F80E4B19E458306CC392F98 /* Support Files */,
 			);
+			name = JSONModel;
 			path = JSONModel;
 			sourceTree = "<group>";
 		};
@@ -4626,6 +4637,7 @@
 				BF8A87C343C5D1160C9BF3B18B643C8E /* Resources */,
 				AA091834CC094024812FB12FBF39E504 /* Support Files */,
 			);
+			name = SAMKeychain;
 			path = SAMKeychain;
 			sourceTree = "<group>";
 		};
@@ -4668,6 +4680,7 @@
 				981DC3924EFE3CFAFCBEAA36CFC62A75 /* GCDAsyncUdpSocket.m */,
 				20E26F5F124CDD7EE28FD2E3428AE0A6 /* Support Files */,
 			);
+			name = CocoaAsyncSocket;
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
@@ -4677,6 +4690,7 @@
 				203761D13E146EE0D361EA6A43B82301 /* Core */,
 				4C9A7631750EF9245CE3B90C0FC80977 /* Support Files */,
 			);
+			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -4872,6 +4886,7 @@
 				1D281EB127B2033C5F26ABDD54D2033A /* ResourceLoader */,
 				61052AC0FB5CF17079A59C0F2D6401F0 /* Support Files */,
 			);
+			name = SJBaseVideoPlayer;
 			path = SJBaseVideoPlayer;
 			sourceTree = "<group>";
 		};
@@ -4889,6 +4904,7 @@
 				B57D38CDB69A5456B4B6AC32A3B9C782 /* Core */,
 				05B17CBCC3E4BD7F7E4A8EDD6F145C96 /* Support Files */,
 			);
+			name = DoraemonKit;
 			path = DoraemonKit;
 			sourceTree = "<group>";
 		};
@@ -4977,6 +4993,7 @@
 				02A87C0B275A809F868D66BCD6E52C65 /* ViewController+MASAdditions.m */,
 				9BF63E4787B19DE14851C2B8FF4E65B5 /* Support Files */,
 			);
+			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -5025,6 +5042,7 @@
 				EF7D3915EEC1DAD0833031BFF060863F /* Resources */,
 				7E8B74372120C0866C564B70152F0266 /* Support Files */,
 			);
+			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -5084,6 +5102,7 @@
 				575274C8572C000B0741BBEEAF83B5C6 /* standard */,
 				FC56358F3B745DF070FC425C1CC13232 /* Support Files */,
 			);
+			name = FMDB;
 			path = FMDB;
 			sourceTree = "<group>";
 		};
@@ -5634,6 +5653,7 @@
 				10847E16D6F94BE02EE7FFDC24769574 /* SQLite3 */,
 				60AB39B73EDC303509993E50FFF2BD10 /* Support Files */,
 			);
+			name = SJUIKit;
 			path = SJUIKit;
 			sourceTree = "<group>";
 		};
@@ -5813,6 +5833,7 @@
 				78F9647818526B706A198C9EE7905CDE /* NSString+MJExtension.m */,
 				B350892A9899C9EF8B30F09107973414 /* Support Files */,
 			);
+			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -5862,7 +5883,7 @@
 				6CBEFE4F9E22AFDC6347A739BB35FF8C /* CocoaAsyncSocket */,
 				E08FD7F25B46B7A9E412BFBDEAB4C3C8 /* CWLateralSlide */,
 				D1896D9851F43425DB6409A9170E0354 /* DoraemonKit */,
-				0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */,
+				0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */,
 				85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture */,
 				A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB */,
 				BAACA1BF7AB3DD28402C4F9A7C2FD104 /* JSONModel */,
@@ -7095,7 +7116,7 @@
 			);
 			name = "DoraemonKit-DoraemonKit";
 			productName = DoraemonKit;
-			productReference = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */;
+			productReference = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8FE0EB310F454719A11FBFEAAC09FE3E /* FDFullscreenPopGesture */ = {
@@ -7467,7 +7488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A975FE3273EDFCD64EA0E803E4EBF3E /* DoraemonKit.bundle in Resources */,
+				0A975FE3273EDFCD64EA0E803E4EBF3E /* DoraemonKit-DoraemonKit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
