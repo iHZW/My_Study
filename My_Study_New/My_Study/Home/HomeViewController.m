@@ -153,6 +153,7 @@
 {
     return self.dataList.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [UITableViewCell cellFromCodeWithTableView:tableView];
@@ -161,11 +162,15 @@
     cell.textLabel.text = model.title;
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    });
+    /* 点击效果 */
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
     BaseCellModel *model = self.dataList[indexPath.row];
     NSString *url = kClientChatDetailURL;
     switch (indexPath.row) {

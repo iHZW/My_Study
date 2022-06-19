@@ -7,6 +7,7 @@
 //
 
 #import "HttpClient.h"
+#import "NSString+URLEncode.h"
 
 #define HttpClient_HTTP_StatusCode @"HttpClient_HTTP_StatusCode"
 
@@ -114,6 +115,11 @@
         @pas_strongify_self
 //        NSString *url = task.response.URL.path;
         NSString *logMsg = [NSString stringWithFormat:@"接口: %@ \n-入参: %@ \n-返回: %@", url, [JSONUtil jsonString:params], [JSONUtil jsonString:responseObject]];
+        
+        /* 测试解析URL中的参数方法 */
+//        NSString *testUrl = @"http://127.0.0.1:4523/m1/1102411-0-default/zq/wecomchat/chatrecord/detailList?pageNo=1&count=20&titleName=home";
+//        NSDictionary *dict = [testUrl queryStringToDic];
+//        NSLog(@"http-client-url-dict = %@", dict);
         
         [LogUtil debug:logMsg flag:url context:self];
         BlockSafeRun(success, task, responseObject);

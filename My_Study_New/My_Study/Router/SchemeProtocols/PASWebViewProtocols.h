@@ -13,16 +13,16 @@
  *  内嵌Webview
  */
 @protocol PAS_webv <NSObject>
-
-@property (nonatomic, copy) NSString *requestURL;       //< 内嵌webview要打开的链接地址
-
-@property (nonatomic, copy) NSString *webTitle;         //< 内嵌web view页面导航栏展示的title信息
-
-@property (nonatomic, strong) NSString *htmlContent;    //< 内嵌web view页面显示的html信息
-
-@property (nonatomic, strong) NSString *htmlPath;       //< 内嵌web view页面显示的本地html文件路径
-
-@property (nonatomic) NSInteger strongAcc;              //< 登录类型 0:无需登录1:弱登录 2:强登录
+/* 内嵌web view要打开的链接地址 */
+@property (nonatomic, copy) NSString *requestURL;
+/* 内嵌web view页面导航栏展示的title信息 */
+@property (nonatomic, copy) NSString *webTitle;
+/* 内嵌web view页面显示的html信息 */
+@property (nonatomic, strong) NSString *htmlContent;
+/* 内嵌web view页面显示的本地html文件路径 */
+@property (nonatomic, strong) NSString *htmlPath;
+/* 登录类型 0:无需登录1:弱登录 2:强登录 */
+@property (nonatomic) NSInteger strongAcc;
 
 @end
 
@@ -32,14 +32,14 @@
  */
 
 @protocol PAS_webvns <NSObject>
-
-@property (nonatomic, copy) NSString *requestURL;       //< 内嵌webview要打开的链接地址
-
-@property (nonatomic, copy) NSString *webTitle;         //< 内嵌web view页面导航栏展示的title信息
-
-@property (nonatomic, strong) NSString *htmlContent;    //< 内嵌web view页面显示的html信息
-
-@property (nonatomic) NSInteger strongAcc;              //< 登录类型 0:无需登录1:弱登录 2:强登录
+/* 内嵌webview要打开的链接地址 */
+@property (nonatomic, copy) NSString *requestURL;
+/* 内嵌web view页面导航栏展示的title信息 */
+@property (nonatomic, copy) NSString *webTitle;
+/* 内嵌web view页面显示的html信息 */
+@property (nonatomic, strong) NSString *htmlContent;
+/* 登录类型 0:无需登录1:弱登录 2:强登录 */
+@property (nonatomic) NSInteger strongAcc;
 
 @end
 
@@ -49,8 +49,8 @@
  */
 
 @protocol PAS_gotopdf <PAS_webvns>
-
-@property (nonatomic) NSInteger autorotate;              //< 是否支持横屏  0:不支持  1:支持
+/* 是否支持横屏  0:不支持  1:支持 */
+@property (nonatomic) NSInteger autorotate;
 
 @end
 
