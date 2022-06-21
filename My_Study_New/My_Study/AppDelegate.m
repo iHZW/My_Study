@@ -51,6 +51,9 @@
     }
     
     [self.window makeKeyAndVisible];
+    
+    /* 取消约束警告 */
+//    [[NSUserDefaults standardUserDefaults] setValue:@(false) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
     return YES;
 }
 

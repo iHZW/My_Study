@@ -14,7 +14,6 @@
 #import "PASMarketProtocols.h"
 #import "PASUserServiceProtocols.h"
 #import "PASTransferProtocols.h"
-#import "PASTradeProtocols.h"
 #import "PASMarginTradeProtocols.h"
 #import "PASHKStockProtocol.h"
 #import "PASSZHKStockProtocol.h"

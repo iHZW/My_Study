@@ -12,6 +12,7 @@
 #import <YYKit/YYKit.h>
 #import "WFThread.h"
 #import "RunLoopViewController.h"
+#import "UIViewController+CWLateralSlide.h"
 
 
 @interface HomeViewController ()
@@ -48,12 +49,58 @@
 //    _yyTimer = [YYTimer timerWithTimeInterval:1 target:self selector:@selector(stop) repeats:YES];
 //    [_yyTimer fire];
 //
-    
+    [self initNav];
     [self setupUI];
     [self setupLayout];
     [self setupDatas];
     
+    [self registWaster];
 
+}
+
+- (void)registWaster
+{
+    @pas_weakify_self
+    [self cw_registerShowIntractiveWithEdgeGesture:NO transitionDirectionAutoBlock:^(CWDrawerTransitionDirection direction) {
+        @pas_strongify_self
+        if (direction == CWDrawerTransitionFromLeft) {
+            [self gotoLeftDrawerPage];
+        } else if (direction == CWDrawerTransitionFromRight) {
+            [self gotoRightDrawerPage];
+        }
+    }];
+}
+
+- (void)initNav
+{
+    UIButton * backBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 40, 40, 40)];
+    backBtn.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [backBtn setImage:[UIImage imageNamed:@"icon_nav_edit"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(gotoLeftDrawerPage) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.titleLabel.font = PASFont(15);
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+/* 打开抽屉 */
+- (void)gotoLeftDrawerPage
+{
+    [self cw_showDefaultDrawerViewController:[self getLeftDrawerPage]];
+//    [self cw_showDrawerViewController:[self getLeftDrawerPage] animationType:CWDrawerAnimationTypeDefault configuration:nil];
+}
+
+- (void)gotoRightDrawerPage
+{
+    CWLateralSlideConfiguration *config = [[CWLateralSlideConfiguration alloc] initWithDistance:kMainScreenWidth * 0.5 maskAlpha:0.4 scaleY:1 direction:CWDrawerTransitionFromRight backImage:nil];
+    [self cw_showDrawerViewController:[self getLeftDrawerPage] animationType:CWDrawerAnimationTypeDefault configuration:config];
+}
+
+- (ZWBaseViewController *)getLeftDrawerPage
+{
+    ZWBaseViewController *vc = [[ZWBaseViewController alloc] init];
+    vc.title = @"抽屉";
+    vc.view.backgroundColor = [UIColor whiteColor];
+    return vc;
 }
 
 - (void)keepAlive
@@ -125,10 +172,17 @@
 - (void)setupUI
 {
     [self.view addSubview:self.tableView];
+
+    /* 头部导航   底部tabBar */
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top).offset(SafeAreaTopStatusNavBarHeight);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-kMainTabbarHeight-SafeAreaBottomAreaHeight);
+    }];
 }
 - (void)setupLayout
 {
-    self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight- (kSysStatusBarHeight + kMainNavHeight + kMainTabbarHeight + 100));
+//    self.tableView.frame = CGRectMake(0, 0, kMainScreenWidth, kMainScreenHeight- (kSysStatusBarHeight + kMainNavHeight + kMainTabbarHeight));
 }
 #pragma mark - actions
 
@@ -210,8 +264,6 @@
     NewVC *vc = [[NewVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-
 
 
 #pragma mark - getter && setter

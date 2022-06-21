@@ -30,6 +30,12 @@
 - (NSString *)URLEncodedString;
 
 /**
+ * 判断版本号使用 stringByRemovingPercentEncoding  或者 stringByAddingPercentEscapesUsingEncoding方法，
+ * @returns 编码后的URL
+ */
+- (NSString *)urlNewEncodeString;
+
+/**
  * 给链接添加参数
  * @param parameterName 参数名称
  * @param parameterValue 参数值

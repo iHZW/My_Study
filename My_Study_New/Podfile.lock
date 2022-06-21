@@ -88,7 +88,7 @@ DEPENDENCIES:
   - AFNetworking
   - Alamofire
   - CocoaAsyncSocket
-  - CWLateralSlide (~> 1.6.3)
+  - CWLateralSlide (= 1.6.5)
   - DoraemonKit/Core (= 3.0.2)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
@@ -155,6 +155,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: f729d31d26d0b034c1820ba693b17c561a17c353
+PODFILE CHECKSUM: 7a45c6573fa4502efecf4c6328ca6a6913f30007
 
 COCOAPODS: 1.11.2

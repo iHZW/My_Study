@@ -152,15 +152,15 @@ typedef long long _int64;
 #define SafeAreaBottomAreaHeight        ( iPhoneX_Series ? 34 : 0 )
 
 // IPhoneX 竖屏安全区域顶部空白
-#define kPORTRAIT_SAFE_AREA_TOP_SPACE  (IS_IPHONE_X?44:0)
+#define kPORTRAIT_SAFE_AREA_TOP_SPACE  (iPhoneX_Series?44:0)
 // IPhoneX 竖屏安全区域底部空白
-#define kPORTRAIT_SAFE_AREA_BOTTOM_SPACE (IS_IPHONE_X?34:0)
+#define kPORTRAIT_SAFE_AREA_BOTTOM_SPACE (iPhoneX_Series?34:0)
 // IPhoneX 横屏安全区域左部空白
-#define kLANDSCAPE_SAFE_AREA_LEFT_SPACE (IS_IPHONE_X?44:0)
+#define kLANDSCAPE_SAFE_AREA_LEFT_SPACE (iPhoneX_Series?44:0)
 // IPhoneX 横屏安全区域右部空白
-#define kLANDSCAPE_SAFE_AREA_RIGHT_SPACE (IS_IPHONE_X?44:0)
+#define kLANDSCAPE_SAFE_AREA_RIGHT_SPACE (iPhoneX_Series?44:0)
 // IPhoneX 横屏安全区域底部空白
-#define kLANDSCAPE_SAFE_AREA_BOTTOM_SPACE (IS_IPHONE_X?21:0)
+#define kLANDSCAPE_SAFE_AREA_BOTTOM_SPACE (iPhoneX_Series?21:0)
 
 #define KLeftNavbarSpace    8
 
@@ -171,5 +171,9 @@ typedef long long _int64;
 #define dimof(a)    (sizeof(a) / sizeof(a[0]))
 #endif
 
+/**
+ *  布点适配宏
+ */
+#define __PASBI
 
 #endif /* ZWSDK_h */

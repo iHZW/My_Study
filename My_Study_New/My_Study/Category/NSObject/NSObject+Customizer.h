@@ -57,7 +57,7 @@ typedef NS_OPTIONS(NSInteger, ObjectClassType) {
 /**
  *  SchemeURL检测处理回调方法
  */
-typedef void (^URLParamMapPropertyCheckBlock)();
+typedef void (^URLParamMapPropertyCheckBlock)(void);
 
 @protocol NSObjectEx <NSObject>
 

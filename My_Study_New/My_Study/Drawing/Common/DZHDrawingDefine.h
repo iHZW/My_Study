@@ -23,6 +23,12 @@ static inline CGLine CGLineMake(CGFloat x1, CGFloat y1, CGFloat x2, CGFloat y2)
     return (CGLine){.start = CGPointMake(x1,y1), .end = CGPointMake(x2,y2)};
 }
 
+CG_INLINE CGLine CGLineCreate(CGFloat x1, CGFloat y1, CGFloat x2, CGFloat y2)
+{
+    return (CGLine){.start = CGPointMake(x1, y1), .end = CGPointMake(x2, y2)};
+}
+
+
 typedef NS_ENUM(NSInteger, MarketPriceType)
 {
     MarketPriceTypeRise = 0, //价格涨

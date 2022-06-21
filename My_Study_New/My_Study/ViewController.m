@@ -13,6 +13,8 @@
 #import "UIAlertUtil.h"
 #import "IQViewModel+Eat.h"
 #import "My_Study-Swift.h"
+#import "LeftDrawerViewController.h"
+#import "UIViewController+CWLateralSlide.h"
 
 
 //#import <CWLateralSlide/UIViewController+CWLateralSlide.h>
@@ -49,6 +51,17 @@
     
     [self loadSubViews];
     
+    [self initRightNav];
+    
+    @pas_weakify_self
+    [self cw_registerShowIntractiveWithEdgeGesture:NO transitionDirectionAutoBlock:^(CWDrawerTransitionDirection direction) {
+        @pas_strongify_self
+        if (direction == CWDrawerTransitionFromLeft) { // 左侧滑出
+            [self clickBtn];
+        } else if (direction == CWDrawerTransitionFromRight) { // 右侧滑出
+            [self rightClick];
+        }
+    }];
 }
 
 - (void)initRightNav
@@ -70,9 +83,19 @@
     NSLog(@"Swift 调用");
 }
 
+- (void)rightClick
+{
+    LeftDrawerViewController *leftVc = [LeftDrawerViewController new];
+    CWLateralSlideConfiguration *conf = [CWLateralSlideConfiguration configurationWithDistance:0 maskAlpha:0.4 scaleY:0.8 direction:CWDrawerTransitionFromRight backImage:[UIImage imageNamed:@"icon_nav_back"]];    
+    [self cw_showDrawerViewController:leftVc animationType:CWDrawerAnimationTypeDefault configuration:conf];
+}
 
 - (void)clickBtn
 {
+    LeftDrawerViewController *leftVc = [LeftDrawerViewController new];
+    [self cw_showDefaultDrawerViewController:leftVc];
+//    [self cw_showDrawerViewController:leftVc animationType:0 configuration:nil];
+    return;
     [UIAlertUtil showAlertTitle:@"Lookin使用" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"导出当前UI结构",@"审查元素",@"3D视图"] actionBlock:^(NSInteger index)
     {
         switch (index) {

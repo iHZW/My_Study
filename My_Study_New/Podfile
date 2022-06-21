@@ -34,7 +34,7 @@ target 'My_Study' do
   pod 'MJRefresh','3.1.15.7'
   pod 'PINCache','2.3'
   pod 'SDWebImage','3.8.0'
-  pod 'CWLateralSlide', '~> 1.6.3'
+  pod 'CWLateralSlide', '1.6.5'
   pod 'PINCache','2.3'
   pod 'KissXML','5.2.3'
   pod 'FMDB','>=2.7.1'

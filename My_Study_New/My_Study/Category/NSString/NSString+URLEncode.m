@@ -54,7 +54,25 @@
                                   options:NSLiteralSearch
                                     range:NSMakeRange(0, [outputStr length])];
     
-    return [outputStr stringByRemovingPercentEncoding];
+    NSString *resultStr = @"";
+    // Remove the percent-encoding
+#if (__MAC_OS_X_VERSION_MIN_REQUIRED >= 1090 || __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000 || __WATCH_OS_VERSION_MIN_REQUIRED >= 20000 || __TV_OS_VERSION_MIN_REQUIRED >= 90000)
+    resultStr = outputStr.stringByRemovingPercentEncoding;
+#else
+    // Testing availability of @available (https://stackoverflow.com/a/46927445/1033581)
+#if __clang_major__ < 9
+    // Xcode 8-
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber10_8_4) {
+#else
+    // Xcode 9+
+    if (@available(macOS 10.9, iOS 7.0, watchOS 2.0, tvOS 9.0, *)) {
+#endif
+        resultStr = outputStr.stringByRemovingPercentEncoding;
+    } else {
+        resultStr = [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+#endif
+    return resultStr;
 //    return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -64,6 +82,30 @@
     return encodedString;
 }
 
+- (NSString *)urlNewEncodeString
+{
+    NSString *resultStr = @"";
+    // Remove the percent-encoding
+#if (__MAC_OS_X_VERSION_MIN_REQUIRED >= 1090 || __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000 || __WATCH_OS_VERSION_MIN_REQUIRED >= 20000 || __TV_OS_VERSION_MIN_REQUIRED >= 90000)
+    resultStr = self.stringByRemovingPercentEncoding;
+#else
+    // Testing availability of @available (https://stackoverflow.com/a/46927445/1033581)
+#if __clang_major__ < 9
+    // Xcode 8-
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber10_8_4) {
+#else
+    // Xcode 9+
+    if (@available(macOS 10.9, iOS 7.0, watchOS 2.0, tvOS 9.0, *)) {
+#endif
+        resultStr = self.stringByRemovingPercentEncoding;
+    } else {
+        resultStr = [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+#endif
+    return resultStr;
+}
+
+    
 - (NSString *)urlWithParameters:(NSString *)parameterName value:(NSString *)parameterValue
 {
     NSRange range = [self rangeOfString:@"?"];

@@ -24,6 +24,27 @@
         self.interactivePopGestureRecognizer.delegate = self;
     }
     self.delegate = self;
+    UIColor *bgColor = UIColorFromRGB(0x66CCFF);
+    self.navigationBar.barTintColor = bgColor;
+    self.navigationBar.backgroundColor = bgColor;
+    
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB(0x111111),NSFontAttributeName:PASFont(18)}];
+    self.navigationBar.tintColor = UIColorFromRGB(0x111111);
+
+    
+    //ios 15系统
+    if (@available(iOS 15.0, *)) {
+        UINavigationBarAppearance *appperance = [[UINavigationBarAppearance alloc]init];
+        //添加背景色
+        appperance.backgroundColor = bgColor;
+        appperance.shadowImage = [[UIImage alloc]init];
+        appperance.shadowColor = nil;
+        //设置字体颜色大小
+        [appperance setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB(0x111111),NSFontAttributeName:PASFont(18)}];
+ 
+        self.navigationBar.standardAppearance = appperance;
+        self.navigationBar.scrollEdgeAppearance = appperance;
+    }
 }
 
 
