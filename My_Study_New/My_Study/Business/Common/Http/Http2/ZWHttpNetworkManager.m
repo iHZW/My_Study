@@ -168,7 +168,42 @@ static inline int64_t ZWGetSystemMilTime(void)
     
     // 开启网络指示和网络状态监控
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:NO];
+    
+    [self openNetMonitoring];
 }
+
+
+/* 开启网络状态监听 */
+- (void)openNetMonitoring
+{
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSString *network = [NSString stringWithFormat:@"Network status change to %@", @(status)];
+        [LogUtil debug:network flag:@"监控网络变化" context:self];
+//        switch (status) {
+//            case AFNetworkReachabilityStatusUnknown:
+//                self.isConnect = NO;
+//                break;
+//
+//            case AFNetworkReachabilityStatusNotReachable:
+//                self.isConnect = NO;
+//                break;
+//
+//            case AFNetworkReachabilityStatusReachableViaWWAN:
+//                self.isConnect = YES;
+//                break;
+//
+//            case AFNetworkReachabilityStatusReachableViaWiFi:
+//
+//                break;
+//
+//            default:
+//                break;
+//        }
+    }];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
 
 // 监控网络变化情况
 - (void)monitoringNetworkStatus

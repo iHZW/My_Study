@@ -34,6 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 业务层告警信息 */
 @property (nonatomic, copy) NSArray <ZWWarningItem> *warning;
+/* 响应时间 */
+@property (nonatomic, copy) NSString *time;
+/* 定位请求使用 */
+@property (nonatomic, copy) NSString *globalTicket;
 
 /**< 注册主推的时候 不会返回 pushMessageCode 使用该参数 来确定 是注册主推 还是主推数据返回 */
 @property (nonatomic, copy) NSString *pushMessageCode; //业务推送messagecode

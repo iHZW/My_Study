@@ -1,0 +1,1356 @@
+{
+  "status": 200,
+  "errcode": 0,
+  "globalTicket": "21899-1649820971.403-61.172.242.154-1021-12875920364",
+  "data": {
+    "total": 200,
+    "chatDataInfoList": [
+      {
+        "id": 3318,
+        "fromType": 0,
+        "toType": 1,
+        "from": "",
+        "msgTime": "2022-03-31 21:39:38",
+        "seq": 2167,
+        "msgType": "switch",
+        "roomId": "",
+        "action": "switch",
+        "msgId": "10380431940655513053_1648733978779",
+        "recall": false,
+        "content": ""
+      },
+      {
+        "id": 3317,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-31 19:35:48",
+        "seq": 2166,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "1463203408660196704_1648726548480_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg"
+      },
+      {
+        "id": 3316,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "忆挽南风",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA",
+        "msgTime": "2022-03-31 19:34:41",
+        "seq": 2165,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/sc8lJYpicUaXmxLdWiaI4mTF2CklggNKK2b1KbkKvvNoEEPR3c2WYuLA/0",
+        "action": "send",
+        "msgId": "2552060007447451729_1648726482039_external",
+        "recall": false,
+        "to": "MengXinXin_1"
+      },
+      {
+        "id": 3314,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "999"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-31 19:34:16",
+        "seq": 2163,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "2416776470070969860_1648726456525_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg"
+      },
+      {
+        "id": 3310,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "阳雷",
+        "toType": 1,
+        "content": {
+          "emotion": {
+            "sdkFileid": "CiA1MTQxZjJlMzc2YjcxNTQxMzU5NmU0OTc3NWMyNzMwMBI4TkRkZk56ZzRNVE13TXpJM01EQTVPRFUwTWw4eE9UWTBNelUzTkRFMFh6RTJORGcyT1RZek1qTT0aIDcxNmM3MTcyNzg2NjYxNjU3NDc5NzM2MjYyNzg3NDYy",
+            "height": 360,
+            "md5sum": "96531eee23527cdeea046314a0fcdfc2",
+            "width": 360,
+            "imageSize": 0,
+            "type": 2
+          }
+        },
+        "fileName": "",
+        "from": "wmJ-ORBgAA7oAPezXwQ-HSaw-kG2mWRg",
+        "msgTime": "2022-03-31 11:12:03",
+        "seq": 2159,
+        "msgType": "emotion",
+        "roomId": "",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM7VQee0YpntvhmMhOTcl8otPXOyEfpK6YfrSz8xT5HxnQ/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://image-c-dev.weimobwmc.com/qa-OmdK/fd07bc9474ff43d7b71dfb793a405ca3.png",
+            "sdkfileid": "CiA1MTQxZjJlMzc2YjcxNTQxMzU5NmU0OTc3NWMyNzMwMBI4TkRkZk56ZzRNVE13TXpJM01EQTVPRFUwTWw4eE9UWTBNelUzTkRFMFh6RTJORGcyT1RZek1qTT0aIDcxNmM3MTcyNzg2NjYxNjU3NDc5NzM2MjYyNzg3NDYy"
+          }
+        ],
+        "msgId": "11197150536999329568_1648696323572_external",
+        "recall": false,
+        "to": "MengXinXin_1"
+      },
+      {
+        "id": 3306,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-30 20:30:15",
+        "seq": 2155,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "151689366705898407_1648643416266_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA"
+      },
+      {
+        "id": 3295,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "321"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-23 15:00:09",
+        "seq": 2144,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "16796807012891244850_1648018810003_external",
+        "recall": false,
+        "to": "woJ-ORBgAA8UI41ZwWhT1tktSqMluJDA"
+      },
+      {
+        "id": 3293,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "woJ-ORBgAA8UI41ZwWhT1tktSqMluJDA",
+        "msgTime": "2022-03-23 14:59:52",
+        "seq": 2142,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "12572330489594131695_1648018792720_external",
+        "recall": false,
+        "to": "MengXinXin_1"
+      },
+      {
+        "id": 3284,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "12365的"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-22 18:00:13",
+        "seq": 2133,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "14229706396184066758_1647943214015_external",
+        "recall": false,
+        "to": "woJ-ORBgAA4YkL0ZQI60_WFkhzdi_PSA"
+      },
+      {
+        "id": 3283,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "哈比"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-22 17:59:29",
+        "seq": 2132,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "4481292647457365252_1647943169968_external",
+        "recall": false,
+        "to": "woJ-ORBgAA4YkL0ZQI60_WFkhzdi_PSA"
+      },
+      {
+        "id": 3282,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "123"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-22 17:59:24",
+        "seq": 2131,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "4876756859984701378_1647943165176_external",
+        "recall": false,
+        "to": "woJ-ORBgAA4YkL0ZQI60_WFkhzdi_PSA"
+      },
+      {
+        "id": 3277,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "text": {
+            "content": "123"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-21 23:43:45",
+        "seq": 2123,
+        "msgType": "text",
+        "roomId": "wrJ-ORBgAAhPe00Vg-Dqg4cxvtMjqh7g",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "202747163958233078_1647877425844_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3276,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "woJ-ORBgAA8UI41ZwWhT1tktSqMluJDA",
+        "msgTime": "2022-03-21 23:08:20",
+        "seq": 2122,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "843547977890420672_1647875300886_external",
+        "recall": false,
+        "to": "4464654"
+      },
+      {
+        "id": 3275,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫小号",
+        "toType": 1,
+        "content": {
+          "video": {
+            "sdkFileid": "Cu8DKjEqdTNXMmsvMis3VGlnRjNpZU0ySllXWTEyZkowbSt3ODB6Tzg0Y0lPTkg2WVF2eW8zdnNES2t0ODVNczZ3NU84QTJLNjRCdHBXN0pLVGxLbWp5UVFZY200TTdGS3hsTXgrbm92NVFrU3dTTjJkRXErck5mNitTWmZqYTRqeEtTcXNwYkI3enFUMHI4ODU4R3RVQ1k1RTJXUGN6SEJVYTVrVUVPNFkvMnJ5c2w1ZFU5UU5JY1E4OGJsS01UVUFUejdHekZRclBJQVc1QnhOR0t2cnM5eHFFaWpMNkFlYWlyQ1BRSHhrc3IyNk83TU81Rjc3ZXFJN2I5ZDFEVVBPVXFqL3BKQytGd2Zsb2xPaWRuYjhEcmh6ejQzOUxITzRXSk1GUm1VV2JWNEtxU29XNFdGRUpST0hoU1VFeVRkaTVqSng5R24rY3B4SDNPU1R6dWdvMnhmRXAvR1UzeitRRFlvRzl6Smh5ZkRKcTg0VVpVcUpBenVFNkppeXhzL1UwbUxGQ3FJdVFNdFVkbXVpWmtPK0UzaHNJMTY3anQ3dFV1R3BIMWM4bE11R1EzcDl6cURWV21nWTlQOGZFdHZMSDBGRzd5M0NORmcwRFkwQ0ZkZGk2LzczSWlMd0JXK0lGN2tMVDlFZVFGTnp4NlE9EjhORGRmTVRZNE9EZzFOelkyT0RNek9EY3dNVjh4TVRnMk5ESXdNREF5WHpFMk5EYzROekU0TWprPRogNjE2NzczNmI2NzY1NjI2ZjYzNjI2OTY2NzE2ZTcwNzU=",
+            "playLength": 23,
+            "md5Sum": "431486c919cb694d6103e5b9dd3adac3",
+            "fileSize": 26121787
+          }
+        },
+        "fileName": "",
+        "from": "4464654",
+        "msgTime": "2022-03-21 22:10:29",
+        "seq": 2121,
+        "msgType": "video",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/812240_QyiTat_lQMKJqjp_1649694354/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "",
+            "sdkfileid": "Cu8DKjEqdTNXMmsvMis3VGlnRjNpZU0ySllXWTEyZkowbSt3ODB6Tzg0Y0lPTkg2WVF2eW8zdnNES2t0ODVNczZ3NU84QTJLNjRCdHBXN0pLVGxLbWp5UVFZY200TTdGS3hsTXgrbm92NVFrU3dTTjJkRXErck5mNitTWmZqYTRqeEtTcXNwYkI3enFUMHI4ODU4R3RVQ1k1RTJXUGN6SEJVYTVrVUVPNFkvMnJ5c2w1ZFU5UU5JY1E4OGJsS01UVUFUejdHekZRclBJQVc1QnhOR0t2cnM5eHFFaWpMNkFlYWlyQ1BRSHhrc3IyNk83TU81Rjc3ZXFJN2I5ZDFEVVBPVXFqL3BKQytGd2Zsb2xPaWRuYjhEcmh6ejQzOUxITzRXSk1GUm1VV2JWNEtxU29XNFdGRUpST0hoU1VFeVRkaTVqSng5R24rY3B4SDNPU1R6dWdvMnhmRXAvR1UzeitRRFlvRzl6Smh5ZkRKcTg0VVpVcUpBenVFNkppeXhzL1UwbUxGQ3FJdVFNdFVkbXVpWmtPK0UzaHNJMTY3anQ3dFV1R3BIMWM4bE11R1EzcDl6cURWV21nWTlQOGZFdHZMSDBGRzd5M0NORmcwRFkwQ0ZkZGk2LzczSWlMd0JXK0lGN2tMVDlFZVFGTnp4NlE9EjhORGRmTVRZNE9EZzFOelkyT0RNek9EY3dNVjh4TVRnMk5ESXdNREF5WHpFMk5EYzROekU0TWprPRogNjE2NzczNmI2NzY1NjI2ZjYzNjI2OTY2NzE2ZTcwNzU="
+          }
+        ],
+        "msgId": "5923691396272611121_1647871829764_external",
+        "recall": false,
+        "to": "woJ-ORBgAA8UI41ZwWhT1tktSqMluJDA"
+      },
+      {
+        "id": 3274,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫小号",
+        "toType": 1,
+        "content": {
+          "image": {
+            "fileSize": 145430,
+            "sdkFileid": "CpwCMzA4MThiMDIwMTAyMDQ4MTgzMzA4MTgwMDIwMTAwMDIwNDYyZjIyOTY5MDIwMzBmNDI0MTAyMDQ0N2FkOTczZDAyMDQ2MjM4ODZmYTA0NDQ0ZTQ1NTc0OTQ0MzE1ZjM2MzI2NjMyMzIzOTM2MzkzNDM3NjE2NDM5MzczMzY0MzYzMjMzMzgzODM2NjY2NDVmNjYzNDYxNjEzMDYzNjQ2NjJkMzAzODYxMzIyZDM0NjMzNzYzMmQzOTMxNjYzMDJkMzYzMDYxMzA2NjMzMzIzMjY1MzkzODM2MDIwMTAwMDIwMzAyMzgyMDA0MTAwOWFhNzc0MjM4NzcwOWY2NDgwNTQzOTBmYmI3OTJkOTAyMDEwMTAyMDEwMDA0MDASOE5EZGZNVFk0T0RnMU5UZ3hOVEkyT0RjeE0xOHhOVGc1TVRRMk9UTXlYekUyTkRjNE56RTNOREk9GiAzNDM5MzQzNTMyMzQzNzMzNjQ2NDY1Mzk2MjYxMzczOQ==",
+            "md5Sum": "09aa7742387709f648054390fbb792d9"
+          }
+        },
+        "fileName": "",
+        "from": "woJ-ORBgAA8UI41ZwWhT1tktSqMluJDA",
+        "msgTime": "2022-03-21 22:09:02",
+        "seq": 2120,
+        "msgType": "image",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/812240_QyiTat_lQMKJqjp_1649694354/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "",
+            "sdkfileid": "CpwCMzA4MThiMDIwMTAyMDQ4MTgzMzA4MTgwMDIwMTAwMDIwNDYyZjIyOTY5MDIwMzBmNDI0MTAyMDQ0N2FkOTczZDAyMDQ2MjM4ODZmYTA0NDQ0ZTQ1NTc0OTQ0MzE1ZjM2MzI2NjMyMzIzOTM2MzkzNDM3NjE2NDM5MzczMzY0MzYzMjMzMzgzODM2NjY2NDVmNjYzNDYxNjEzMDYzNjQ2NjJkMzAzODYxMzIyZDM0NjMzNzYzMmQzOTMxNjYzMDJkMzYzMDYxMzA2NjMzMzIzMjY1MzkzODM2MDIwMTAwMDIwMzAyMzgyMDA0MTAwOWFhNzc0MjM4NzcwOWY2NDgwNTQzOTBmYmI3OTJkOTAyMDEwMTAyMDEwMDA0MDASOE5EZGZNVFk0T0RnMU5UZ3hOVEkyT0RjeE0xOHhOVGc1TVRRMk9UTXlYekUyTkRjNE56RTNOREk9GiAzNDM5MzQzNTMyMzQzNzMzNjQ2NDY1Mzk2MjYxMzczOQ=="
+          }
+        ],
+        "msgId": "11518779769822836641_1647871742470_external",
+        "recall": false,
+        "to": "4464654"
+      },
+      {
+        "id": 3273,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫小号",
+        "toType": 1,
+        "content": {
+          "mixed": {
+            "item": [
+              {
+                "type": "image",
+                "content": "{\"md5sum\":\"09aa7742387709f648054390fbb792d9\",\"filesize\":145430,\"sdkfileid\":\"CtYBMzA2OTAyMDEwMjA0NjIzMDYwMDIwMTAwMDIwNDYyZjIyOTY5MDIwMzBmNDI0MTAyMDQ0N2FkOTczZDAyMDQ2MjM4ODZmYTA0MjQ2NjM0NjE2MTMwNjM2NDY2MmQzMDM4NjEzMjJkMzQ2MzM3NjMyZDM5MzE2NjMwMmQzNjMwNjEzMDY2MzMzMjMyNjUzOTM4MzYwMjAxMDAwMjAzMDIzODIwMDQxMDA5YWE3NzQyMzg3NzA5ZjY0ODA1NDM5MGZiYjc5MmQ5MDIwMTAxMDIwMTAwMDQwMBI4TkRkZk1UWTRPRGcxTlRneE5USTJPRGN4TTE4ME1qazRPRFExTmpCZk1UWTBOemczTVRjek9BPT0aIDM0MzkzNDM1MzIzNDM3MzM2NDY0NjUzOTYyNjEzNzM5\"}"
+              },
+              {
+                "type": "text",
+                "content": "{\"content\":\"及撒化肥技术科技复健科\"}"
+              }
+            ]
+          }
+        },
+        "from": "woJ-ORBgAA8UI41ZwWhT1tktSqMluJDA",
+        "msgTime": "2022-03-21 22:08:58",
+        "seq": 2119,
+        "msgType": "mixed",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/812240_QyiTat_lQMKJqjp_1649694354/0",
+        "action": "send",
+        "chatMediaList": [],
+        "msgId": "15052807877461270524_1647871738483_external",
+        "recall": false,
+        "to": "4464654"
+      },
+      {
+        "id": 3272,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫小号",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "4464654",
+        "msgTime": "2022-03-21 22:08:31",
+        "seq": 2118,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/812240_QyiTat_lQMKJqjp_1649694354/0",
+        "action": "send",
+        "msgId": "11360690192836439682_1647871712183_external",
+        "recall": false,
+        "to": "woJ-ORBgAA8UI41ZwWhT1tktSqMluJDA"
+      },
+      {
+        "id": 3270,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫小号",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "您好，您的服务已升级，后续将由我的同事万春@上海销氪信息科技有限公司接替我的工作，继续为您服务。"
+          }
+        },
+        "from": "4464654",
+        "msgTime": "2022-03-21 18:21:42",
+        "seq": 2116,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/812240_QyiTat_lQMKJqjp_1649694354/0",
+        "action": "send",
+        "msgId": "10970499145098859588_1647858103123_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAfVY_KRwp_tfkSxd6TSih-A"
+      },
+      {
+        "id": 3269,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫小号",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "您好，您的服务已升级，后续将由我的同事梅金鑫@上海销氪信息科技有限公司接替我的工作，继续为您服务。"
+          }
+        },
+        "from": "4464654",
+        "msgTime": "2022-03-21 18:20:32",
+        "seq": 2115,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/812240_QyiTat_lQMKJqjp_1649694354/0",
+        "action": "send",
+        "msgId": "16764667842639055293_1647858032934_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAx6JCwoqgyS1xUqZfN4hgAA"
+      },
+      {
+        "id": 3268,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫小号",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "4464654",
+        "msgTime": "2022-03-21 18:17:16",
+        "seq": 2114,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/812240_QyiTat_lQMKJqjp_1649694354/0",
+        "action": "send",
+        "msgId": "8267267467698119324_1647857836444_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAfVY_KRwp_tfkSxd6TSih-A"
+      },
+      {
+        "id": 3267,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "。。。",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "1"
+          }
+        },
+        "from": "wmJ-ORBgAAfVY_KRwp_tfkSxd6TSih-A",
+        "msgTime": "2022-03-21 18:17:08",
+        "seq": 2113,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/fhicotyX5dAeMbclMcIlYTkBEGKGm88Riaiciar7m4ZMXFbdk0dpI2RdQQ/0",
+        "action": "send",
+        "msgId": "4797849438659816170_1647857828459_external",
+        "recall": false,
+        "to": "4464654"
+      },
+      {
+        "id": 3266,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "欣",
+        "toType": 1,
+        "content": {
+          "disagree": {
+            "userId": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg",
+            "disagreeTime": 1647847795878
+          }
+        },
+        "from": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg",
+        "msgTime": "2022-03-21 15:29:55",
+        "seq": 2112,
+        "msgType": "disagree",
+        "roomId": "",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "action": "send",
+        "msgId": "18275768034356144279_1647847795821",
+        "recall": false,
+        "to": "4464654"
+      },
+      {
+        "id": 3265,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣3",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "12394112"
+          }
+        },
+        "from": "17521270946",
+        "msgTime": "2022-03-21 15:29:26",
+        "seq": 2111,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "",
+        "action": "send",
+        "msgId": "12144301928763638436_1647847766715_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA"
+      },
+      {
+        "id": 3264,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣3",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "123"
+          }
+        },
+        "from": "17521270946",
+        "msgTime": "2022-03-21 15:26:06",
+        "seq": 2109,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "",
+        "action": "send",
+        "msgId": "5538695707043643441_1647847566857_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg"
+      },
+      {
+        "id": 3262,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "朱欣旺",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "测试消息"
+          }
+        },
+        "from": "ZXW",
+        "msgTime": "2022-03-21 14:56:18",
+        "seq": 2107,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/Jlt5NZ8KeZpg0INlOgbFhV5wLic4mjMo27Mz4P619iaPw9YGhC8PqGKg/0",
+        "action": "send",
+        "msgId": "16299303418930401457_1647845778250",
+        "recall": false,
+        "to": "WanChun"
+      },
+      {
+        "id": 3261,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "朱欣旺",
+        "toType": 1,
+        "content": {
+          "image": {
+            "fileSize": 712213,
+            "sdkFileid": "CuYCMzA4MWIwMDIwMTAyMDQ4MWE4MzA4MWE1MDIwMTAwMDIwNDNlMWMzOTZmMDIwMzBmNDI0MTAyMDQ5Y2QzNjZiNDAyMDQ2MjM4MjBmMzA0Njk0ZTQ1NTc0OTQ0MzE1ZjMzNjUzMTYzMzMzOTM2NjYzOTYzNjQzMzM2MzY2MjM0MzYzMjMzMzgzMjMxMzg2MTVmMzA2NTMxMzEzMzMyMzE2NTJkNjY2MzY1MzIyZDM0MzE2MjM1MmQ2MTMxNjM2MTJkMzY2MTYyMzYzNjY1NjMzMjYyNjMzMzM1NWY2MTYyMzkzMDMyMzQzMTM4MmQzMzM1NjEzMzJkMzQzODMzMzUyZDYyMzQ2MTM3MmQ2MjY0NjUzMDMxMzYzMzYzMzczMzYyMzAwMjAxMDAwMjAzMGFkZTIwMDQxMDE0YjRmYTdhNmI2OWQ3ZjRlNzRkMjE4ZDFjNzgzZTI4MDIwMTAyMDIwMTAwMDQwMBI4TkRkZk1UWTRPRGcxTlRFNU56STJPRE16TlY4eE5UY3hNelEyTnpGZk1UWTBOemcwTlRjM01RPT0aIDZmZTYyYTI1OWRlODQzODdhNzNkZTAxNTM1ZTkwZDBl",
+            "md5Sum": "14b4fa7a6b69d7f4e74d218d1c783e28"
+          }
+        },
+        "fileName": "",
+        "from": "ZXW",
+        "msgTime": "2022-03-21 14:56:10",
+        "seq": 2106,
+        "msgType": "image",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/Jlt5NZ8KeZpg0INlOgbFhV5wLic4mjMo27Mz4P619iaPw9YGhC8PqGKg/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://image-c-dev.weimobwmc.com/qa-OmdK/0998a23e25754893903183314e7cde27.jpg",
+            "sdkfileid": "CuYCMzA4MWIwMDIwMTAyMDQ4MWE4MzA4MWE1MDIwMTAwMDIwNDNlMWMzOTZmMDIwMzBmNDI0MTAyMDQ5Y2QzNjZiNDAyMDQ2MjM4MjBmMzA0Njk0ZTQ1NTc0OTQ0MzE1ZjMzNjUzMTYzMzMzOTM2NjYzOTYzNjQzMzM2MzY2MjM0MzYzMjMzMzgzMjMxMzg2MTVmMzA2NTMxMzEzMzMyMzE2NTJkNjY2MzY1MzIyZDM0MzE2MjM1MmQ2MTMxNjM2MTJkMzY2MTYyMzYzNjY1NjMzMjYyNjMzMzM1NWY2MTYyMzkzMDMyMzQzMTM4MmQzMzM1NjEzMzJkMzQzODMzMzUyZDYyMzQ2MTM3MmQ2MjY0NjUzMDMxMzYzMzYzMzczMzYyMzAwMjAxMDAwMjAzMGFkZTIwMDQxMDE0YjRmYTdhNmI2OWQ3ZjRlNzRkMjE4ZDFjNzgzZTI4MDIwMTAyMDIwMTAwMDQwMBI4TkRkZk1UWTRPRGcxTlRFNU56STJPRE16TlY4eE5UY3hNelEyTnpGZk1UWTBOemcwTlRjM01RPT0aIDZmZTYyYTI1OWRlODQzODdhNzNkZTAxNTM1ZTkwZDBl"
+          }
+        ],
+        "msgId": "5439493440689375547_1647845771117",
+        "recall": false,
+        "to": "WanChun"
+      },
+      {
+        "id": 3259,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": " https://www.wolai.com/qvCzqKrW24xnHF6aMTqQwr"
+          }
+        },
+        "from": "woJ-ORBgAAn-sVRtcc6PrnPU8D7Ju_XA",
+        "msgTime": "2022-03-21 12:08:07",
+        "seq": 2103,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/371381_7TSpIvs9TKGZSE3_1649814727/0",
+        "action": "send",
+        "msgId": "9744556800660007580_1647835687984_external",
+        "recall": false,
+        "to": "WanChun"
+      },
+      {
+        "id": 3257,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "万春群主名万春群主名万春群主名超出超出超万春群主名修改",
+        "toType": 1,
+        "content": {
+          "video": {
+            "sdkFileid": "CqYCMzA4MTkwMDIwMTAyMDQ4MTg4MzA4MTg1MDIwMTAwMDIwNDJiNTZiMDI0MDIwMzBmNDI0MTAyMDQwOWE0OTczZDAyMDQ2MjM3ZjA0YzA0NDkzNDY2MzYzNzMxNjIzOTM0MmQzMDYyNjMzOTJkMzQ2MTY2NjYyZDM5Mzk2MzMxMmQ2MTYzMzI2NDYxMzM2MzYzNjUzNjM4NjI1ZjMzNjE2MjY1NjYzNDYyMzcyZDYxMzA2NDM5MmQzNDMxMzUzNzJkNjE2MjM5MzcyZDMwMzYzMzMzMzU2NjM3MzYzMTMxMzgzMzAyMDEwMDAyMDMzMWQyMTAwNDEwYTU3ZWRlMGNjOTQ5NGE2Y2I1MWU4Nzg0ODEzOWRiOTIwMjAxMDQwMjAxMDAwNDAwEjhORGRmTVRZNE9EZzFORGc0TWpNek1qY3dPRjh4TmpNNU56WTROVEZmTVRZME56Z3pNekUyTmc9PRogYWU3Yzc4OTMwMjZmNDBmZmExZDgzZDBjYzZmM2I4OGE=",
+            "playLength": 29,
+            "md5Sum": "a57ede0cc9494a6cb51e87848139db92",
+            "fileSize": 3265025
+          }
+        },
+        "fileName": "",
+        "from": "WanChun",
+        "msgTime": "2022-03-21 11:26:05",
+        "seq": 2101,
+        "msgType": "video",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/lK50ia5JgLtmRy6ynlVlhiaib41tsJYEibSa7ALticc0KRNKjYSKUnvLcCw/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://c-dev.weimobwmc.com/qa-OmdK/44b2e90feb8c4e608fa561a9a22c58dd.mp4",
+            "sdkfileid": "CqYCMzA4MTkwMDIwMTAyMDQ4MTg4MzA4MTg1MDIwMTAwMDIwNDJiNTZiMDI0MDIwMzBmNDI0MTAyMDQwOWE0OTczZDAyMDQ2MjM3ZjA0YzA0NDkzNDY2MzYzNzMxNjIzOTM0MmQzMDYyNjMzOTJkMzQ2MTY2NjYyZDM5Mzk2MzMxMmQ2MTYzMzI2NDYxMzM2MzYzNjUzNjM4NjI1ZjMzNjE2MjY1NjYzNDYyMzcyZDYxMzA2NDM5MmQzNDMxMzUzNzJkNjE2MjM5MzcyZDMwMzYzMzMzMzU2NjM3MzYzMTMxMzgzMzAyMDEwMDAyMDMzMWQyMTAwNDEwYTU3ZWRlMGNjOTQ5NGE2Y2I1MWU4Nzg0ODEzOWRiOTIwMjAxMDQwMjAxMDAwNDAwEjhORGRmTVRZNE9EZzFORGc0TWpNek1qY3dPRjh4TmpNNU56WTROVEZmTVRZME56Z3pNekUyTmc9PRogYWU3Yzc4OTMwMjZmNDBmZmExZDgzZDBjYzZmM2I4OGE="
+          }
+        ],
+        "msgId": "1289673520688722094_1647833166054_external",
+        "recall": false,
+        "to": "woJ-ORBgAAn-sVRtcc6PrnPU8D7Ju_XA"
+      },
+      {
+        "id": 3256,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "万春群主名万春群主名万春群主名超出超出超万春群主名修改",
+        "toType": 1,
+        "content": {
+          "image": {
+            "fileSize": 172558,
+            "sdkFileid": "CqYCMzA4MTkwMDIwMTAyMDQ4MTg4MzA4MTg1MDIwMTAwMDIwNDJiNTZiMDI0MDIwMzBmNDI0MTAyMDQzYmE4NmRiNDAyMDQ2MjM3ZWZmYTA0NDk2MjM2NjQ2NjMxNjQzMjMyMmQ2MzY2Mzc2MjJkMzQzNTMzMzIyZDM4NjU2NTY1MmQ2NjMzNjQzMDY2MzMzNjY1MzMzMDY0NjY1ZjM2MzIzNjM5NjM2NDYzNjEyZDYyMzAzMzY2MmQzNDY2MzYzMzJkNjIzMDMxNjYyZDY1NjYzNTY1MzkzNzMxMzI2NTYzNjYzMTAyMDEwMDAyMDMwMmEyMTAwNDEwMTQxOTU5MzA0YmI2YjZhZmU1YWJhMjBlMzlhMTk1MzkwMjAxMDIwMjAxMDAwNDAwEjhORGRmTVRZNE9EZzFORGc0TWpNek1qY3dPRjh4TlRVNU9URXdOamN6WHpFMk5EYzRNek13T0RJPRogYTE5YWI4NDQyMTQ5NDM3OTk0ZDQzMjdiYjc3YmU0NmU=",
+            "md5Sum": "141959304bb6b6afe5aba20e39a19539"
+          }
+        },
+        "fileName": "",
+        "from": "WanChun",
+        "msgTime": "2022-03-21 11:24:42",
+        "seq": 2100,
+        "msgType": "image",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/lK50ia5JgLtmRy6ynlVlhiaib41tsJYEibSa7ALticc0KRNKjYSKUnvLcCw/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://image-c-dev.weimobwmc.com/qa-OmdK/4b3bd0b09d4b4e02ba1425560d2eadbb.jpg",
+            "sdkfileid": "CqYCMzA4MTkwMDIwMTAyMDQ4MTg4MzA4MTg1MDIwMTAwMDIwNDJiNTZiMDI0MDIwMzBmNDI0MTAyMDQzYmE4NmRiNDAyMDQ2MjM3ZWZmYTA0NDk2MjM2NjQ2NjMxNjQzMjMyMmQ2MzY2Mzc2MjJkMzQzNTMzMzIyZDM4NjU2NTY1MmQ2NjMzNjQzMDY2MzMzNjY1MzMzMDY0NjY1ZjM2MzIzNjM5NjM2NDYzNjEyZDYyMzAzMzY2MmQzNDY2MzYzMzJkNjIzMDMxNjYyZDY1NjYzNTY1MzkzNzMxMzI2NTYzNjYzMTAyMDEwMDAyMDMwMmEyMTAwNDEwMTQxOTU5MzA0YmI2YjZhZmU1YWJhMjBlMzlhMTk1MzkwMjAxMDIwMjAxMDAwNDAwEjhORGRmTVRZNE9EZzFORGc0TWpNek1qY3dPRjh4TlRVNU9URXdOamN6WHpFMk5EYzRNek13T0RJPRogYTE5YWI4NDQyMTQ5NDM3OTk0ZDQzMjdiYjc3YmU0NmU="
+          }
+        ],
+        "msgId": "15458131134319466801_1647833082586_external",
+        "recall": false,
+        "to": "woJ-ORBgAAn-sVRtcc6PrnPU8D7Ju_XA"
+      },
+      {
+        "id": 3253,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "万春群主名万春群主名万春群主名超出超出超万春群主名修改",
+        "toType": 1,
+        "content": {
+          "mixed": {
+            "item": [
+              {
+                "type": "text",
+                "content": "{\"content\":\"陌陌陌陌\"}"
+              },
+              {
+                "type": "image",
+                "content": "{\"md5sum\":\"a89f31eeb3704715ea7b0da490d3b4e2\",\"filesize\":13375,\"sdkfileid\":\"CuQCMzA4MWFmMDIwMTAyMDQ4MWE3MzA4MWE0MDIwMTAwMDIwNGU0YTYxZTk1MDIwMzBmNDI0MTAyMDQwOWE0OTczZDAyMDQ2MjMzM2Y1NzA0Njk0ZTQ1NTc0OTQ0MzE1ZjMyNjIzNTM2NjIzMDMyMzQzMDM5NjEzNDM5MzczMzY0MzYzMjMzMzc2NTM3Mzg2MjVmMzU2NTM5MzY2NDMwNjI2MTJkMzMzMDMzNjUyZDM0MzMzMzM2MmQ2MTMzNjQ2NjJkMzc2NDMxMzc2NTM3NjUzOTM1MzkzNzYzNWYzMzM3NjQzODMxMzU2MTYxMmQ2NDM0MzMzOTJkMzQzNjYyNjQyZDM4MzMzODMzMmQzODM0MzMzNzMwNjEzNzYyMzgzNjYyMzMwMjAxMDAwMjAyMzQ0MDA0MTBhODlmMzFlZWIzNzA0NzE1ZWE3YjBkYTQ5MGQzYjRlMjAyMDEwMjAyMDEwMDA0MDASOE5EZGZNVFk0T0RnMU5EZzRNak16TWpjd09GOHhOakE1T0RBek16ZzVYekUyTkRjNE16QTVNalE9GiA0NjgxZmU2OTVjYTc0NTQ4Yjk2ZjRhZDVhN2MzYzFhNg==\"}"
+              }
+            ]
+          }
+        },
+        "from": "WanChun",
+        "msgTime": "2022-03-21 10:48:43",
+        "seq": 2097,
+        "msgType": "mixed",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/lK50ia5JgLtmRy6ynlVlhiaib41tsJYEibSa7ALticc0KRNKjYSKUnvLcCw/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://image-c-dev.weimobwmc.com/qa-OmdK/d2c111975fd3414ab3dfe37609c25225.jpg",
+            "sdkfileid": "CuQCMzA4MWFmMDIwMTAyMDQ4MWE3MzA4MWE0MDIwMTAwMDIwNGU0YTYxZTk1MDIwMzBmNDI0MTAyMDQwOWE0OTczZDAyMDQ2MjMzM2Y1NzA0Njk0ZTQ1NTc0OTQ0MzE1ZjMyNjIzNTM2NjIzMDMyMzQzMDM5NjEzNDM5MzczMzY0MzYzMjMzMzc2NTM3Mzg2MjVmMzU2NTM5MzY2NDMwNjI2MTJkMzMzMDMzNjUyZDM0MzMzMzM2MmQ2MTMzNjQ2NjJkMzc2NDMxMzc2NTM3NjUzOTM1MzkzNzYzNWYzMzM3NjQzODMxMzU2MTYxMmQ2NDM0MzMzOTJkMzQzNjYyNjQyZDM4MzMzODMzMmQzODM0MzMzNzMwNjEzNzYyMzgzNjYyMzMwMjAxMDAwMjAyMzQ0MDA0MTBhODlmMzFlZWIzNzA0NzE1ZWE3YjBkYTQ5MGQzYjRlMjAyMDEwMjAyMDEwMDA0MDASOE5EZGZNVFk0T0RnMU5EZzRNak16TWpjd09GOHhOakE1T0RBek16ZzVYekUyTkRjNE16QTVNalE9GiA0NjgxZmU2OTVjYTc0NTQ4Yjk2ZjRhZDVhN2MzYzFhNg=="
+          }
+        ],
+        "msgId": "16255288211169139950_1647830924246_external",
+        "recall": false,
+        "to": "woJ-ORBgAAn-sVRtcc6PrnPU8D7Ju_XA"
+      },
+      {
+        "id": 3252,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "万春群主名万春群主名万春群主名超出超出超万春群主名修改",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "哒哒哒哒哒哒顾哥哥谷歌"
+          }
+        },
+        "from": "WanChun",
+        "msgTime": "2022-03-21 10:48:30",
+        "seq": 2096,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/lK50ia5JgLtmRy6ynlVlhiaib41tsJYEibSa7ALticc0KRNKjYSKUnvLcCw/0",
+        "action": "send",
+        "msgId": "7546493017804482079_1647830910482_external",
+        "recall": false,
+        "to": "woJ-ORBgAAn-sVRtcc6PrnPU8D7Ju_XA"
+      },
+      {
+        "id": 3251,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "万春群主名万春群主名万春群主名超出超出超万春群主名修改",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "我通过了你的联系人验证请求，现在我们可以开始聊天了"
+          }
+        },
+        "from": "WanChun",
+        "msgTime": "2022-03-21 10:48:23",
+        "seq": 2095,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/lK50ia5JgLtmRy6ynlVlhiaib41tsJYEibSa7ALticc0KRNKjYSKUnvLcCw/0",
+        "action": "send",
+        "msgId": "11165491647993777964_1647830904031_external",
+        "recall": false,
+        "to": "woJ-ORBgAAn-sVRtcc6PrnPU8D7Ju_XA"
+      },
+      {
+        "id": 3249,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "欣",
+        "content": {
+          "file": {
+            "sdkFileid": "CiBlYzlmZTAzODQ2NmJlMjQ5M2RkMDc4NjI2MTFjNWQ5MRI4TkRkZk56ZzRNVE13TWpjeE5qQXlNalkxTVY4ME9ESTBOak0xTlROZk1UWTBOemd6TURNMk1RPT0aIGU4OTYwYWExODU1YzRmNzE1ODJmMDA0NDQzMmU4ZWMy",
+            "fileName": "D.zip",
+            "fileExt": "zip",
+            "md5Sum": "032b8f206895e6d76db162bc9d647fc9",
+            "fileSize": 1517
+          }
+        },
+        "fileName": "D.zip",
+        "from": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg",
+        "msgTime": "2022-03-21 10:39:21",
+        "seq": 2093,
+        "msgType": "file",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://c-dev.weimobwmc.com/qa-OmdK/c4ebedc6940545ba8011cb4fdc432a3f.zip",
+            "sdkfileid": "CiBlYzlmZTAzODQ2NmJlMjQ5M2RkMDc4NjI2MTFjNWQ5MRI4TkRkZk56ZzRNVE13TWpjeE5qQXlNalkxTVY4ME9ESTBOak0xTlROZk1UWTBOemd6TURNMk1RPT0aIGU4OTYwYWExODU1YzRmNzE1ODJmMDA0NDQzMmU4ZWMy"
+          }
+        ],
+        "msgId": "14505738390314064902_1647830361565_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3248,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "欣",
+        "content": {
+          "text": {
+            "content": "123"
+          }
+        },
+        "from": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg",
+        "msgTime": "2022-03-21 10:39:21",
+        "seq": 2092,
+        "msgType": "text",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "action": "send",
+        "msgId": "452014029213611068_1647830361206_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3246,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "欣",
+        "content": {
+          "agree": {
+            "userId": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg",
+            "agreeTime": 1647830342109
+          }
+        },
+        "from": "wmJ-ORBgAAnYljZMxBfC9hiz5eQo1uyg",
+        "msgTime": "2022-03-21 10:39:02",
+        "seq": 2090,
+        "msgType": "agree",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "action": "send",
+        "msgId": "4175848230976078792_1647830342097",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3243,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "忆挽南风",
+        "content": {
+          "sphfeed": {
+            "sphName": "天眼新闻",
+            "feedType": 4,
+            "feedDesc": "疫情速报！上海昨日新增24例本土确诊病例 734例本土无症状感染者"
+          }
+        },
+        "from": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA",
+        "msgTime": "2022-03-21 10:27:59",
+        "seq": 2087,
+        "msgType": "sphfeed",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/sc8lJYpicUaXmxLdWiaI4mTF2CklggNKK2b1KbkKvvNoEEPR3c2WYuLA/0",
+        "action": "send",
+        "msgId": "11361093386089090327_1647829679817_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3241,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "text": {
+            "content": "【未知消息类型】"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:17:26",
+        "seq": 2085,
+        "msgType": "text",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "8875965987101370061_1647685046602_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3240,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "chatrecord": {
+            "title": "群聊",
+            "item": "[{\"from_chatroom\":true,\"msgtime\":1647587303,\"type\":\"ChatRecordText\",\"content\":\"{\\\"content\\\":\\\"2\\\"}\"},{\"from_chatroom\":true,\"msgtime\":1647587327,\"type\":\"ChatRecordText\",\"content\":\"{\\\"content\\\":\\\"3\\\"}\"},{\"from_chatroom\":true,\"msgtime\":1647587817,\"type\":\"ChatRecordText\",\"content\":\"{\\\"content\\\":\\\"45\\\"}\"},{\"from_chatroom\":true,\"msgtime\":1647587840,\"type\":\"ChatRecordText\",\"content\":\"{\\\"content\\\":\\\"67\\\"}\"}]"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:16:49",
+        "seq": 2084,
+        "msgType": "chatrecord",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "17748368940547479843_1647685009206_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3239,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "忆挽南风",
+        "content": {
+          "weapp": {
+            "title": "健康云小程序",
+            "displayName": "健康云Pro",
+            "description": "健康云Pro",
+            "userName": "gh_61831b3152fd@app"
+          }
+        },
+        "from": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA",
+        "msgTime": "2022-03-19 18:16:29",
+        "seq": 2083,
+        "msgType": "weapp",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/sc8lJYpicUaXmxLdWiaI4mTF2CklggNKK2b1KbkKvvNoEEPR3c2WYuLA/0",
+        "action": "send",
+        "msgId": "17638118689408537169_1647684989712_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3238,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "emotion": {
+            "sdkFileid": "CiAyOWViZWE3OWVjNTU2YWFiMGM3ODlkNGMwNzk1ZDk1MRI4TkRkZk1UWTRPRGcxT0RJM05UTXlOVEEyT1Y4ek1qTTVOVE0yTURoZk1UWTBOelk0TkRrM01BPT0aIDY1NzU3MTY2NjY2ZTZjN2E2MzZlNmI2MjY4NjY3YTc2",
+            "height": 240,
+            "md5sum": "1f6ce0b1480761c534f75ab9c8cb34e1",
+            "width": 240,
+            "imageSize": 42320,
+            "type": 1
+          }
+        },
+        "fileName": "",
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:16:10",
+        "seq": 2082,
+        "msgType": "emotion",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://image-c-dev.weimobwmc.com/qa-OmdK/c138b42b1e63434cbc1ce9f731b7cf30.jpg",
+            "sdkfileid": "CiAyOWViZWE3OWVjNTU2YWFiMGM3ODlkNGMwNzk1ZDk1MRI4TkRkZk1UWTRPRGcxT0RJM05UTXlOVEEyT1Y4ek1qTTVOVE0yTURoZk1UWTBOelk0TkRrM01BPT0aIDY1NzU3MTY2NjY2ZTZjN2E2MzZlNmI2MjY4NjY3YTc2"
+          }
+        ],
+        "msgId": "1587490718433827637_1647684970590_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3237,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "emotion": {
+            "sdkFileid": "CiAxZGMzMGYxYzljYWJkNDQ2NjgwYzZmMTQxNjJiMzZjNxI4TkRkZk1UWTRPRGcxT0RJM05UTXlOVEEyT1Y4eE9UY3pPREEwTlRGZk1UWTBOelk0TkRrM01BPT0aIDZiNjY3MTc2N2E3NTcyNjU2ZDZhNjk2YTcxNzQ2MTc4",
+            "height": 240,
+            "md5sum": "91ad37c2ad825844f3908e4c2bd89d62",
+            "width": 240,
+            "imageSize": 911306,
+            "type": 1
+          }
+        },
+        "fileName": "",
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:16:09",
+        "seq": 2081,
+        "msgType": "emotion",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://image-c-dev.weimobwmc.com/qa-OmdK/a8021af660fd49b297e881f663754f30.gif",
+            "sdkfileid": "CiAxZGMzMGYxYzljYWJkNDQ2NjgwYzZmMTQxNjJiMzZjNxI4TkRkZk1UWTRPRGcxT0RJM05UTXlOVEEyT1Y4eE9UY3pPREEwTlRGZk1UWTBOelk0TkRrM01BPT0aIDZiNjY3MTc2N2E3NTcyNjU2ZDZhNjk2YTcxNzQ2MTc4"
+          }
+        ],
+        "msgId": "2033471447735501271_1647684969979_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3236,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "text": {
+            "content": "[得意][得意]"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:15:58",
+        "seq": 2080,
+        "msgType": "text",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "11247242998375379505_1647684958916_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3234,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "card": {
+            "corpName": "15测试企业1",
+            "userAvatar": "https://wx.qlogo.cn/mmhead/sc8lJYpicUaXmxLdWiaI4mTF2CklggNKK2b1KbkKvvNoEEPR3c2WYuLA/0",
+            "userId": "woJ-ORBgAAFonf7F88igBN6nBWDiF0kg",
+            "userName": "孟欣欣"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:14:30",
+        "seq": 2078,
+        "msgType": "card",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "14586465046312830705_1647684870405_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3233,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "text": {
+            "content": "【未知消息类型】"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:14:23",
+        "seq": 2077,
+        "msgType": "text",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "5938537728074857646_1647684863103_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3231,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "calendar": {
+            "remarks": "",
+            "endTime": 1647689400,
+            "creatorName": "孟欣欣",
+            "title": "咳咳咳",
+            "attendeeName": "",
+            "startTime": 1647685800,
+            "place": ""
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:13:25",
+        "seq": 2075,
+        "msgType": "calendar",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "5047411415708422791_1647684805242_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3230,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "忆挽南风",
+        "content": {
+          "location": {
+            "zoom": 15,
+            "title": "新逸仙公寓北区(宝山区逸仙路3458弄)",
+            "latitude": 31,
+            "longitude": 121,
+            "address": "上海市上海市宝山区逸仙路3458弄22号"
+          }
+        },
+        "from": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA",
+        "msgTime": "2022-03-19 18:13:14",
+        "seq": 2074,
+        "msgType": "location",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/sc8lJYpicUaXmxLdWiaI4mTF2CklggNKK2b1KbkKvvNoEEPR3c2WYuLA/0",
+        "action": "send",
+        "msgId": "5072200080242950772_1647684794525_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3228,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "忆挽南风",
+        "content": {
+          "redpacket": {
+            "totalAmount": 1,
+            "wish": "恭喜发财，大吉大利",
+            "totalCnt": 1,
+            "type": 2
+          }
+        },
+        "from": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA",
+        "msgTime": "2022-03-19 18:13:06",
+        "seq": 2072,
+        "msgType": "external_redpacket",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/sc8lJYpicUaXmxLdWiaI4mTF2CklggNKK2b1KbkKvvNoEEPR3c2WYuLA/0",
+        "action": "send",
+        "msgId": "12895961479170950463_1647684786419_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3226,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "text": {
+            "content": "饿"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:12:40",
+        "seq": 2070,
+        "msgType": "text",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "origin",
+        "msgId": "680233307739206228_1647684760675_external",
+        "recall": true,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3224,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "忆挽南风",
+        "content": {
+          "agree": {
+            "userId": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA",
+            "agreeTime": 1647684653966
+          }
+        },
+        "from": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA",
+        "msgTime": "2022-03-19 18:10:53",
+        "seq": 2068,
+        "msgType": "agree",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wx.qlogo.cn/mmhead/sc8lJYpicUaXmxLdWiaI4mTF2CklggNKK2b1KbkKvvNoEEPR3c2WYuLA/0",
+        "action": "send",
+        "msgId": "12772542825864643102_1647684653996",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3223,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toType": 1,
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "content": {
+          "text": {
+            "content": "饿"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:10:39",
+        "seq": 2067,
+        "msgType": "text",
+        "roomId": "wrJ-ORBgAAlyW9wiwWAeqN-_EIDwjpSg",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "4122402160078437560_1647684639389_external",
+        "recall": false,
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0"
+      },
+      {
+        "id": 3222,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "还好"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:08:53",
+        "seq": 2066,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "558003118579038373_1647684533619_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA"
+      },
+      {
+        "id": 3221,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "孟欣欣啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+        "toType": 1,
+        "content": {
+          "text": {
+            "content": "123"
+          }
+        },
+        "from": "MengXinXin_1",
+        "msgTime": "2022-03-19 18:08:51",
+        "seq": 2065,
+        "msgType": "text",
+        "roomId": "",
+        "fromUserAvatar": "http://wework.qpic.cn/bizmail/ZuZnHXfgocvIDBuiatDjOiaDHMLl09JhBzb1gy38De7Q95Tia2eXdm3Xw/0",
+        "action": "send",
+        "msgId": "11926695929744955009_1647684532002_external",
+        "recall": false,
+        "to": "wmJ-ORBgAAayOgo2yhpADhQDrQVutpHA"
+      },
+      {
+        "id": 3219,
+        "fromType": 0,
+        "toUserName": "欣",
+        "toUserAvatar": "http://wx.qlogo.cn/mmhead/Q3auHgzwzM57EicJSxHI7ZgoLlbyj32EZnWjZfAUHbnO6uBNiacsQfmg/0",
+        "fromUserName": "梅金鑫",
+        "toType": 1,
+        "content": {
+          "image": {
+            "fileSize": 57474,
+            "sdkFileid": "CpwCMzA4MThiMDIwMTAyMDQ4MTgzMzA4MTgwMDIwMTAwMDIwNGU0YTYxZTYwMDIwMzBmNDI0MTAyMDRjNWMxNmViNDAyMDQ2MjM1NjYwYTA0NDQ0ZTQ1NTc0OTQ0MzE1ZjY1MzQ2MTM2MzE2NTM2MzA2MzM1NjMzMTM2NjU2MjM0MzYzMjMzMzUzNjM3MzkzODVmMzk2MjM4MzUzMzY2NjI2MjJkMzQzMjY2MzIyZDM0NjM2MzY0MmQzOTMzMzkzNjJkMzQzMTM4Mzc2MzM2NjE2NTY0MzYzMTYyMDIwMTAwMDIwMzAwZTA5MDA0MTA5ZWE1OWQxYjU0YjRhZWE3MGYxM2E5MTZmZDMzMmNlNjAyMDEwMTAyMDEwMDA0MDASNE5EZGZNVFk0T0RnMU56azVNVE15TXpJek1sODFNVFl5T0RBek5WOHhOalEzTmpZM01EazIaIDMzMzczMjY1NjMzMzM5NjMzNTM4MzI2NDY2NjQ2NDM0",
+            "md5Sum": "9ea59d1b54b4aea70f13a916fd332ce6"
+          }
+        },
+        "fileName": "",
+        "from": "woJ-ORBgAAn-sVRtcc6PrnPU8D7Ju_XA",
+        "msgTime": "2022-03-19 13:18:16",
+        "seq": 2045,
+        "msgType": "image",
+        "roomId": "",
+        "fromUserAvatar": "https://wework.qpic.cn/wwpic/371381_7TSpIvs9TKGZSE3_1649814727/0",
+        "action": "send",
+        "chatMediaList": [
+          {
+            "path": "https://image-c-dev.weimobwmc.com/qa-OmdK/71f614ef24fa4b4a971c2519906c4ad2.png",
+            "sdkfileid": "CpwCMzA4MThiMDIwMTAyMDQ4MTgzMzA4MTgwMDIwMTAwMDIwNGU0YTYxZTYwMDIwMzBmNDI0MTAyMDRjNWMxNmViNDAyMDQ2MjM1NjYwYTA0NDQ0ZTQ1NTc0OTQ0MzE1ZjY1MzQ2MTM2MzE2NTM2MzA2MzM1NjMzMTM2NjU2MjM0MzYzMjMzMzUzNjM3MzkzODVmMzk2MjM4MzUzMzY2NjI2MjJkMzQzMjY2MzIyZDM0NjM2MzY0MmQzOTMzMzkzNjJkMzQzMTM4Mzc2MzM2NjE2NTY0MzYzMTYyMDIwMTAwMDIwMzAwZTA5MDA0MTA5ZWE1OWQxYjU0YjRhZWE3MGYxM2E5MTZmZDMzMmNlNjAyMDEwMTAyMDEwMDA0MDASNE5EZGZNVFk0T0RnMU56azVNVE15TXpJek1sODFNVFl5T0RBek5WOHhOalEzTmpZM01EazIaIDMzMzczMjY1NjMzMzM5NjMzNTM4MzI2NDY2NjQ2NDM0"
+          }
+        ],
+        "msgId": "8067572518619781088_1647667096933_external",
+        "recall": false,
+        "to": "17683922682"
+      }
+    ]
+  },
+  "errmsg": "操作成功",
+  "time": "2022-04-13 11:36:29"
+}

@@ -105,10 +105,39 @@
 		4EC6B3982861B12A00F57AAC /* DataFormatterFunc+Market.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B34B2861B12A00F57AAC /* DataFormatterFunc+Market.m */; };
 		4EC6B3992861B12A00F57AAC /* DataFormatterFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B34C2861B12A00F57AAC /* DataFormatterFunc.m */; };
 		4EC6B39A2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B34E2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m */; };
+		4EC6B39F2861BF0800F57AAC /* LeftDrawerDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B39E2861BF0800F57AAC /* LeftDrawerDataLoader.m */; };
+		4EC6B3A32861C91300F57AAC /* ZWSiteAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3A22861C91300F57AAC /* ZWSiteAddressManager.m */; };
+		4EC6B3A72861D26500F57AAC /* ZWUserAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3A62861D26500F57AAC /* ZWUserAccountManager.m */; };
+		4EC6B3AA2861D37500F57AAC /* ZWUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3A92861D37500F57AAC /* ZWUserInfoModel.m */; };
+		4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3AC2861D58500F57AAC /* ZWUserInfoBridgeModule.m */; };
+		4EC6B3B12862B50A00F57AAC /* LeftDrawerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3B02862B50A00F57AAC /* LeftDrawerModel.m */; };
+		4EC6B3B82862B74C00F57AAC /* CacheStringClientChatDetail.json in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3B72862B74C00F57AAC /* CacheStringClientChatDetail.json */; };
 		4ECE436228586E9D00326287 /* UIApplication+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE435E28586E9D00326287 /* UIApplication+Ext.m */; };
 		4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE436028586E9D00326287 /* UIViewController+Child.m */; };
 		4ECE439828598E6200326287 /* StoreUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE439728598E6200326287 /* StoreUtil.m */; };
 		4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE44242859BFAA00326287 /* AppDelegate.m */; };
+		4EDC096D2862C47A001C53CE /* ZWMainAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC096C2862C47A001C53CE /* ZWMainAppDelegateService.m */; };
+		4EDC09732862E8F2001C53CE /* CMBusMediaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC09722862E8F2001C53CE /* CMBusMediaAppDelegate.m */; };
+		4EDC0B5D286308D6001C53CE /* NSSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B35286308D6001C53CE /* NSSet+Safe.m */; };
+		4EDC0B5E286308D6001C53CE /* NSOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B36286308D6001C53CE /* NSOrderedSet+Safe.m */; };
+		4EDC0B5F286308D6001C53CE /* NSCache+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B38286308D6001C53CE /* NSCache+Safe.m */; };
+		4EDC0B60286308D6001C53CE /* NSObject+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B39286308D6001C53CE /* NSObject+Safe.m */; };
+		4EDC0B61286308D6001C53CE /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B3B286308D6001C53CE /* NSObject+Swizzle.m */; };
+		4EDC0B62286308D6001C53CE /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B3D286308D6001C53CE /* NSMutableArray+Safe.m */; };
+		4EDC0B63286308D6001C53CE /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B3E286308D6001C53CE /* NSString+Safe.m */; };
+		4EDC0B64286308D6001C53CE /* WMSafeProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B3F286308D6001C53CE /* WMSafeProxy.m */; };
+		4EDC0B65286308D6001C53CE /* NSMutableAttributedString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B41286308D6001C53CE /* NSMutableAttributedString+Safe.m */; };
+		4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B42286308D6001C53CE /* NSMutableDictionary+Safe.m */; };
+		4EDC0B67286308D6001C53CE /* NSData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B43286308D6001C53CE /* NSData+Safe.m */; };
+		4EDC0B68286308D6001C53CE /* NSAttributedString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B45286308D6001C53CE /* NSAttributedString+Safe.m */; };
+		4EDC0B69286308D6001C53CE /* NSNull+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B47286308D6001C53CE /* NSNull+Safe.m */; };
+		4EDC0B6A286308D6001C53CE /* NSMutableSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B48286308D6001C53CE /* NSMutableSet+Safe.m */; };
+		4EDC0B6B286308D6001C53CE /* NSMutableOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B4A286308D6001C53CE /* NSMutableOrderedSet+Safe.m */; };
+		4EDC0B6C286308D6001C53CE /* NSUserDefaults+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B4E286308D6001C53CE /* NSUserDefaults+Safe.m */; };
+		4EDC0B6D286308D6001C53CE /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B52286308D6001C53CE /* NSMutableString+Safe.m */; };
+		4EDC0B6E286308D6001C53CE /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B55286308D6001C53CE /* NSDictionary+Safe.m */; };
+		4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B59286308D6001C53CE /* NSArray+Safe.m */; };
+		4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B5B286308D6001C53CE /* NSMutableData+Safe.m */; };
 		4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C32859F2CB0047F8B6 /* NSString+MoneyFormat.m */; };
 		4EEC47C82859F2CB0047F8B6 /* NSString+NumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */; };
 		4EEC47CF2859F5300047F8B6 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47CE2859F5300047F8B6 /* BaseTableViewCell.m */; };
@@ -405,6 +434,19 @@
 		4EC6B34C2861B12A00F57AAC /* DataFormatterFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataFormatterFunc.m; sourceTree = "<group>"; };
 		4EC6B34D2861B12A00F57AAC /* DataFormatterFunc+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataFormatterFunc+JSON.h"; sourceTree = "<group>"; };
 		4EC6B34E2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataFormatterFunc+RegularExpression.m"; sourceTree = "<group>"; };
+		4EC6B39D2861BF0800F57AAC /* LeftDrawerDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftDrawerDataLoader.h; sourceTree = "<group>"; };
+		4EC6B39E2861BF0800F57AAC /* LeftDrawerDataLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerDataLoader.m; sourceTree = "<group>"; };
+		4EC6B3A12861C91300F57AAC /* ZWSiteAddressManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWSiteAddressManager.h; sourceTree = "<group>"; };
+		4EC6B3A22861C91300F57AAC /* ZWSiteAddressManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWSiteAddressManager.m; sourceTree = "<group>"; };
+		4EC6B3A52861D26500F57AAC /* ZWUserAccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWUserAccountManager.h; sourceTree = "<group>"; };
+		4EC6B3A62861D26500F57AAC /* ZWUserAccountManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserAccountManager.m; sourceTree = "<group>"; };
+		4EC6B3A82861D37500F57AAC /* ZWUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWUserInfoModel.h; sourceTree = "<group>"; };
+		4EC6B3A92861D37500F57AAC /* ZWUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserInfoModel.m; sourceTree = "<group>"; };
+		4EC6B3AB2861D58500F57AAC /* ZWUserInfoBridgeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWUserInfoBridgeModule.h; sourceTree = "<group>"; };
+		4EC6B3AC2861D58500F57AAC /* ZWUserInfoBridgeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserInfoBridgeModule.m; sourceTree = "<group>"; };
+		4EC6B3AF2862B50A00F57AAC /* LeftDrawerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftDrawerModel.h; sourceTree = "<group>"; };
+		4EC6B3B02862B50A00F57AAC /* LeftDrawerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerModel.m; sourceTree = "<group>"; };
+		4EC6B3B72862B74C00F57AAC /* CacheStringClientChatDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CacheStringClientChatDetail.json; sourceTree = "<group>"; };
 		4ECE435D28586E9D00326287 /* UIApplication+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Ext.h"; sourceTree = "<group>"; };
 		4ECE435E28586E9D00326287 /* UIApplication+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Ext.m"; sourceTree = "<group>"; };
 		4ECE436028586E9D00326287 /* UIViewController+Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Child.m"; sourceTree = "<group>"; };
@@ -412,6 +454,50 @@
 		4ECE439628598E6200326287 /* StoreUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreUtil.h; sourceTree = "<group>"; };
 		4ECE439728598E6200326287 /* StoreUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreUtil.m; sourceTree = "<group>"; };
 		4ECE44242859BFAA00326287 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4EDC096B2862C47A001C53CE /* ZWMainAppDelegateService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMainAppDelegateService.h; sourceTree = "<group>"; };
+		4EDC096C2862C47A001C53CE /* ZWMainAppDelegateService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMainAppDelegateService.m; sourceTree = "<group>"; };
+		4EDC09712862E8F2001C53CE /* CMBusMediaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMBusMediaAppDelegate.h; sourceTree = "<group>"; };
+		4EDC09722862E8F2001C53CE /* CMBusMediaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMBusMediaAppDelegate.m; sourceTree = "<group>"; };
+		4EDC0B35286308D6001C53CE /* NSSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B36286308D6001C53CE /* NSOrderedSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B37286308D6001C53CE /* NSUserDefaults+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B38286308D6001C53CE /* NSCache+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B39286308D6001C53CE /* NSObject+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B3A286308D6001C53CE /* NSMutableOrderedSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableOrderedSet+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B3B286308D6001C53CE /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
+		4EDC0B3C286308D6001C53CE /* NSMutableString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B3D286308D6001C53CE /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B3E286308D6001C53CE /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B3F286308D6001C53CE /* WMSafeProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSafeProxy.m; sourceTree = "<group>"; };
+		4EDC0B40286308D6001C53CE /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B41286308D6001C53CE /* NSMutableAttributedString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B42286308D6001C53CE /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B43286308D6001C53CE /* NSData+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B44286308D6001C53CE /* NSMutableData+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B45286308D6001C53CE /* NSAttributedString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B46286308D6001C53CE /* NSArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B47286308D6001C53CE /* NSNull+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B48286308D6001C53CE /* NSMutableSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B49286308D6001C53CE /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
+		4EDC0B4A286308D6001C53CE /* NSMutableOrderedSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableOrderedSet+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B4B286308D6001C53CE /* NSObject+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B4C286308D6001C53CE /* NSCache+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B4D286308D6001C53CE /* NSOrderedSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B4E286308D6001C53CE /* NSUserDefaults+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B4F286308D6001C53CE /* NSSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B50286308D6001C53CE /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B51286308D6001C53CE /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B52286308D6001C53CE /* NSMutableString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B53286308D6001C53CE /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B54286308D6001C53CE /* NSMutableAttributedString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B55286308D6001C53CE /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B56286308D6001C53CE /* WMSafeProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSafeProxy.h; sourceTree = "<group>"; };
+		4EDC0B57286308D6001C53CE /* NSMutableSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B58286308D6001C53CE /* NSNull+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B59286308D6001C53CE /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B5A286308D6001C53CE /* NSAttributedString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B5B286308D6001C53CE /* NSMutableData+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Safe.m"; sourceTree = "<group>"; };
+		4EDC0B5C286308D6001C53CE /* NSData+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Safe.h"; sourceTree = "<group>"; };
 		4EEC47C32859F2CB0047F8B6 /* NSString+MoneyFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoneyFormat.m"; sourceTree = "<group>"; };
 		4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NumberFormat.m"; sourceTree = "<group>"; };
 		4EEC47C52859F2CB0047F8B6 /* NSString+NumberFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NumberFormat.h"; sourceTree = "<group>"; };
@@ -841,13 +927,17 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		4EC6B293286097BF00F57AAC /* TabsVc */ = {
+		4EC6B293286097BF00F57AAC /* TabsIndexVc */ = {
 			isa = PBXGroup;
 			children = (
-				4EC6B2972860982500F57AAC /* LeftDrawerViewController.h */,
-				4EC6B2982860982500F57AAC /* LeftDrawerViewController.m */,
+				7C652C0623017208007BBDD2 /* HomeViewController.h */,
+				7C652C0523017208007BBDD2 /* HomeViewController.m */,
+				4EA737E127D72E3200422BAE /* CRMViewController.h */,
+				4EA737E227D72E3200422BAE /* CRMViewController.m */,
+				7C459A2A2295557300667813 /* ViewController.h */,
+				7C459A2B2295557300667813 /* ViewController.m */,
 			);
-			path = TabsVc;
+			path = TabsIndexVc;
 			sourceTree = "<group>";
 		};
 		4EC6B2BB2861A84400F57AAC /* LoadingUtil */ = {
@@ -871,6 +961,8 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4EC6B3B22862B69100F57AAC /* LocalCacheFile */,
+				4EC6B39B2861BD9200F57AAC /* DrawerRelated */,
 				4EC6B2C42861B12900F57AAC /* LaunchGuide */,
 				4EC6B2F92861B12A00F57AAC /* Module */,
 				4EC6B31F2861B12A00F57AAC /* Constants */,
@@ -1056,8 +1148,8 @@
 			isa = PBXGroup;
 			children = (
 				4EC6B3202861B12A00F57AAC /* UrlConstants.h */,
-				4EC6B3212861B12A00F57AAC /* PathConstants.m */,
 				4EC6B3222861B12A00F57AAC /* PathConstants.h */,
+				4EC6B3212861B12A00F57AAC /* PathConstants.m */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1065,6 +1157,8 @@
 		4EC6B3232861B12A00F57AAC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4EC6B3A42861D23D00F57AAC /* User */,
+				4EC6B3A02861C8F000F57AAC /* ZWSiteAddressManager */,
 				4EC6B3242861B12A00F57AAC /* Util */,
 				4EC6B3282861B12A00F57AAC /* DoKitPlugin */,
 				4EC6B32D2861B12A00F57AAC /* Http */,
@@ -1113,8 +1207,8 @@
 		4EC6B32E2861B12A00F57AAC /* Http1 */ = {
 			isa = PBXGroup;
 			children = (
-				4EC6B32F2861B12A00F57AAC /* HttpClient.m */,
 				4EC6B3302861B12A00F57AAC /* HttpClient.h */,
+				4EC6B32F2861B12A00F57AAC /* HttpClient.m */,
 			);
 			path = Http1;
 			sourceTree = "<group>";
@@ -1133,8 +1227,8 @@
 				4EC6B33F2861B12A00F57AAC /* ZWHttpNetworkData.m */,
 				4EC6B3422861B12A00F57AAC /* ZWHttpResponseData.h */,
 				4EC6B33B2861B12A00F57AAC /* ZWHttpResponseData.m */,
-				4EC6B3432861B12A00F57AAC /* ZWHttpNetworkManager.m */,
 				4EC6B3392861B12A00F57AAC /* ZWHttpNetworkManager.h */,
+				4EC6B3432861B12A00F57AAC /* ZWHttpNetworkManager.m */,
 				4EC6B33A2861B12A00F57AAC /* ZWDataCache.h */,
 				4EC6B33D2861B12A00F57AAC /* ZWDataParsing.h */,
 				4EC6B3442861B12A00F57AAC /* ZWDataCache.m */,
@@ -1168,6 +1262,65 @@
 			path = DataFormatterFunc;
 			sourceTree = "<group>";
 		};
+		4EC6B39B2861BD9200F57AAC /* DrawerRelated */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6B3AE2862B46E00F57AAC /* model */,
+				4EC6B39C2861BEE400F57AAC /* dataLoader */,
+				4EC6B2972860982500F57AAC /* LeftDrawerViewController.h */,
+				4EC6B2982860982500F57AAC /* LeftDrawerViewController.m */,
+			);
+			path = DrawerRelated;
+			sourceTree = "<group>";
+		};
+		4EC6B39C2861BEE400F57AAC /* dataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6B39D2861BF0800F57AAC /* LeftDrawerDataLoader.h */,
+				4EC6B39E2861BF0800F57AAC /* LeftDrawerDataLoader.m */,
+			);
+			path = dataLoader;
+			sourceTree = "<group>";
+		};
+		4EC6B3A02861C8F000F57AAC /* ZWSiteAddressManager */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6B3A12861C91300F57AAC /* ZWSiteAddressManager.h */,
+				4EC6B3A22861C91300F57AAC /* ZWSiteAddressManager.m */,
+			);
+			path = ZWSiteAddressManager;
+			sourceTree = "<group>";
+		};
+		4EC6B3A42861D23D00F57AAC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6B3A52861D26500F57AAC /* ZWUserAccountManager.h */,
+				4EC6B3A62861D26500F57AAC /* ZWUserAccountManager.m */,
+				4EC6B3A82861D37500F57AAC /* ZWUserInfoModel.h */,
+				4EC6B3A92861D37500F57AAC /* ZWUserInfoModel.m */,
+				4EC6B3AB2861D58500F57AAC /* ZWUserInfoBridgeModule.h */,
+				4EC6B3AC2861D58500F57AAC /* ZWUserInfoBridgeModule.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		4EC6B3AE2862B46E00F57AAC /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6B3AF2862B50A00F57AAC /* LeftDrawerModel.h */,
+				4EC6B3B02862B50A00F57AAC /* LeftDrawerModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4EC6B3B22862B69100F57AAC /* LocalCacheFile */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6B3B72862B74C00F57AAC /* CacheStringClientChatDetail.json */,
+			);
+			path = LocalCacheFile;
+			sourceTree = "<group>";
+		};
 		4ECE435C28586E9D00326287 /* UIApplication */ = {
 			isa = PBXGroup;
 			children = (
@@ -1195,6 +1348,89 @@
 				4ECE439728598E6200326287 /* StoreUtil.m */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		4EDC09692862C43D001C53CE /* PublicComponent */ = {
+			isa = PBXGroup;
+			children = (
+				4EDC096F2862E8D3001C53CE /* CMBusMedia */,
+				4EDC096A2862C45A001C53CE /* AppDelegateManager */,
+			);
+			path = PublicComponent;
+			sourceTree = "<group>";
+		};
+		4EDC096A2862C45A001C53CE /* AppDelegateManager */ = {
+			isa = PBXGroup;
+			children = (
+				4EDC096B2862C47A001C53CE /* ZWMainAppDelegateService.h */,
+				4EDC096C2862C47A001C53CE /* ZWMainAppDelegateService.m */,
+			);
+			name = AppDelegateManager;
+			path = Manager/AppDelegateManager;
+			sourceTree = "<group>";
+		};
+		4EDC096F2862E8D3001C53CE /* CMBusMedia */ = {
+			isa = PBXGroup;
+			children = (
+				4EDC09702862E8EA001C53CE /* CMBusMediaAppDelegate */,
+			);
+			path = CMBusMedia;
+			sourceTree = "<group>";
+		};
+		4EDC09702862E8EA001C53CE /* CMBusMediaAppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4EDC09712862E8F2001C53CE /* CMBusMediaAppDelegate.h */,
+				4EDC09722862E8F2001C53CE /* CMBusMediaAppDelegate.m */,
+			);
+			path = CMBusMediaAppDelegate;
+			sourceTree = "<group>";
+		};
+		4EDC0B34286308D6001C53CE /* Safe */ = {
+			isa = PBXGroup;
+			children = (
+				4EDC0B58286308D6001C53CE /* NSNull+Safe.h */,
+				4EDC0B47286308D6001C53CE /* NSNull+Safe.m */,
+				4EDC0B4B286308D6001C53CE /* NSObject+Safe.h */,
+				4EDC0B39286308D6001C53CE /* NSObject+Safe.m */,
+				4EDC0B50286308D6001C53CE /* NSString+Safe.h */,
+				4EDC0B3E286308D6001C53CE /* NSString+Safe.m */,
+				4EDC0B3C286308D6001C53CE /* NSMutableString+Safe.h */,
+				4EDC0B52286308D6001C53CE /* NSMutableString+Safe.m */,
+				4EDC0B5A286308D6001C53CE /* NSAttributedString+Safe.h */,
+				4EDC0B45286308D6001C53CE /* NSAttributedString+Safe.m */,
+				4EDC0B54286308D6001C53CE /* NSMutableAttributedString+Safe.h */,
+				4EDC0B41286308D6001C53CE /* NSMutableAttributedString+Safe.m */,
+				4EDC0B4F286308D6001C53CE /* NSSet+Safe.h */,
+				4EDC0B35286308D6001C53CE /* NSSet+Safe.m */,
+				4EDC0B57286308D6001C53CE /* NSMutableSet+Safe.h */,
+				4EDC0B48286308D6001C53CE /* NSMutableSet+Safe.m */,
+				4EDC0B46286308D6001C53CE /* NSArray+Safe.h */,
+				4EDC0B59286308D6001C53CE /* NSArray+Safe.m */,
+				4EDC0B51286308D6001C53CE /* NSMutableArray+Safe.h */,
+				4EDC0B3D286308D6001C53CE /* NSMutableArray+Safe.m */,
+				4EDC0B40286308D6001C53CE /* NSDictionary+Safe.h */,
+				4EDC0B55286308D6001C53CE /* NSDictionary+Safe.m */,
+				4EDC0B53286308D6001C53CE /* NSMutableDictionary+Safe.h */,
+				4EDC0B42286308D6001C53CE /* NSMutableDictionary+Safe.m */,
+				4EDC0B5C286308D6001C53CE /* NSData+Safe.h */,
+				4EDC0B43286308D6001C53CE /* NSData+Safe.m */,
+				4EDC0B44286308D6001C53CE /* NSMutableData+Safe.h */,
+				4EDC0B5B286308D6001C53CE /* NSMutableData+Safe.m */,
+				4EDC0B37286308D6001C53CE /* NSUserDefaults+Safe.h */,
+				4EDC0B4E286308D6001C53CE /* NSUserDefaults+Safe.m */,
+				4EDC0B4D286308D6001C53CE /* NSOrderedSet+Safe.h */,
+				4EDC0B36286308D6001C53CE /* NSOrderedSet+Safe.m */,
+				4EDC0B4C286308D6001C53CE /* NSCache+Safe.h */,
+				4EDC0B38286308D6001C53CE /* NSCache+Safe.m */,
+				4EDC0B3A286308D6001C53CE /* NSMutableOrderedSet+Safe.h */,
+				4EDC0B4A286308D6001C53CE /* NSMutableOrderedSet+Safe.m */,
+				4EDC0B49286308D6001C53CE /* NSObject+Swizzle.h */,
+				4EDC0B3B286308D6001C53CE /* NSObject+Swizzle.m */,
+				4EDC0B56286308D6001C53CE /* WMSafeProxy.h */,
+				4EDC0B3F286308D6001C53CE /* WMSafeProxy.m */,
+			);
+			path = Safe;
 			sourceTree = "<group>";
 		};
 		4EEC47D6285AD50E0047F8B6 /* UINavigationController */ = {
@@ -1259,8 +1495,9 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				4EDC09692862C43D001C53CE /* PublicComponent */,
 				4EC6B2C32861B12900F57AAC /* Business */,
-				4EC6B293286097BF00F57AAC /* TabsVc */,
+				4EC6B293286097BF00F57AAC /* TabsIndexVc */,
 				4E7427B2285B85F700DEC9CC /* Util */,
 				7C4EF02B2303FF9F0040DA7A /* Router */,
 				7C4EF00F230396E60040DA7A /* CommentHeadField */,
@@ -1282,8 +1519,6 @@
 				7CAE2ACB26DBD90300100FA0 /* MJClassInfo.h */,
 				7C0DC0B52439C721003742DA /* AppDelegate+Main.h */,
 				7C0DC0B62439C721003742DA /* AppDelegate+Main.m */,
-				7C459A2A2295557300667813 /* ViewController.h */,
-				7C459A2B2295557300667813 /* ViewController.m */,
 				4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */,
 				4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */,
 				7C879B1826E65B260051018B /* MVVM */,
@@ -1852,10 +2087,6 @@
 			children = (
 				7C6A215526E371C300E0CF20 /* locks */,
 				7C18D4A426E10EB300CD1422 /* controller */,
-				7C652C0623017208007BBDD2 /* HomeViewController.h */,
-				7C652C0523017208007BBDD2 /* HomeViewController.m */,
-				4EA737E127D72E3200422BAE /* CRMViewController.h */,
-				4EA737E227D72E3200422BAE /* CRMViewController.m */,
 				4EA737E427D7351400422BAE /* AppLaunchTime.h */,
 				4EA737E527D7351400422BAE /* AppLaunchTime.m */,
 				7C18D4AC26E1145400CD1422 /* RunLoopViewController.h */,
@@ -1940,6 +2171,7 @@
 		7C8AAE2B22E9811E00589862 /* DevelopMentLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				4EDC0B34286308D6001C53CE /* Safe */,
 				4EC6B28C2860807300F57AAC /* Reachability */,
 				4E7427C4285B909800DEC9CC /* SingletonTemplate */,
 				4E899A70285B7F2900B54C89 /* DataBase */,
@@ -2409,23 +2641,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDC0B5E286308D6001C53CE /* NSOrderedSet+Safe.m in Sources */,
 				4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */,
 				7C4EF06E230405030040DA7A /* UIButton+PASEnlargeEdge.m in Sources */,
 				7CB1A2F426E47E3D00D450CE /* PThread_rwLock.m in Sources */,
 				7C4EEFFF2303948E0040DA7A /* CMObject.m in Sources */,
 				7C4EF06C230405030040DA7A /* UIButton+Navigation.m in Sources */,
 				4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */,
+				4EDC0B6A286308D6001C53CE /* NSMutableSet+Safe.m in Sources */,
 				4EC6B3902861B12A00F57AAC /* ZWDataParsing.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
 				4E4D95DE27D6FAFD0019061E /* EOCfamilly.m in Sources */,
 				7C8AAE5F22E985ED00589862 /* CALayer+Helper.m in Sources */,
 				4EC6B2912860807300F57AAC /* Reachability.m in Sources */,
+				4EC6B3A32861C91300F57AAC /* ZWSiteAddressManager.m in Sources */,
 				7C8AAE6422E9864F00589862 /* GrayCoverBtn.m in Sources */,
 				7C4F93BF2302B11900F2238E /* PASTipView.m in Sources */,
+				4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */,
 				7C4EF06B230405030040DA7A /* UIButton+CornerBorder.m in Sources */,
 				7C4EF0292303A3390040DA7A /* UIViewController+Gesture.m in Sources */,
+				4EDC0B62286308D6001C53CE /* NSMutableArray+Safe.m in Sources */,
 				4EC6B28B28607FF400F57AAC /* SystemInfoFunc.m in Sources */,
 				7C6A215426E31CE600E0CF20 /* RunLoopPermanentViewController.m in Sources */,
+				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
 				7C8AAE2822E9808800589862 /* UIActionSheet+Blocks.m in Sources */,
 				7C4EF05A2304034B0040DA7A /* CMBaseButton.m in Sources */,
 				4EEEB867285EBA0100FD49A9 /* NSString+Verify.m in Sources */,
@@ -2433,6 +2671,7 @@
 				4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */,
 				4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */,
 				7C4EF04F230402F80040DA7A /* CMSegmentView.m in Sources */,
+				4EDC0B6D286308D6001C53CE /* NSMutableString+Safe.m in Sources */,
 				4EC6B3852861B12A00F57AAC /* DatabaseAppender.m in Sources */,
 				4EC6B37E2861B12A00F57AAC /* LogModel.m in Sources */,
 				7C6A215826E371F200E0CF20 /* WFBaseDemo.m in Sources */,
@@ -2455,10 +2694,12 @@
 				7C91253526DA67B20030A5F3 /* BlockViewController.m in Sources */,
 				7C0DC0B72439C721003742DA /* AppDelegate+Main.m in Sources */,
 				7C879B1E26E65B860051018B /* MVVMModel.m in Sources */,
+				4EDC09732862E8F2001C53CE /* CMBusMediaAppDelegate.m in Sources */,
 				7C4F93C02302B11900F2238E /* PASTitleView.m in Sources */,
 				7C4EF043230400640040DA7A /* CMMultiLayerNavigationController.m in Sources */,
 				7C4EEFEF230393450040DA7A /* PASBorderBackgroundView.m in Sources */,
 				7C4EF00E230394FA0040DA7A /* CMNotificationCenter.m in Sources */,
+				4EC6B39F2861BF0800F57AAC /* LeftDrawerDataLoader.m in Sources */,
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
 				4EC6B3772861B12A00F57AAC /* UIImage+XYGif.m in Sources */,
 				4EC6B3992861B12A00F57AAC /* DataFormatterFunc.m in Sources */,
@@ -2472,17 +2713,22 @@
 				7C6A216126E3A9C200E0CF20 /* WFDispatchSerialQueueDemo.m in Sources */,
 				7C913E9126E316B10064C549 /* WFPermanentThread.m in Sources */,
 				4EEC47D5285AD4550047F8B6 /* ZWTabBarController.m in Sources */,
+				4EDC0B5D286308D6001C53CE /* NSSet+Safe.m in Sources */,
 				4EA737EA27D7400800422BAE /* bgView.swift in Sources */,
 				7C4F93E42302B39300F2238E /* PASIndicatorTableViewCell.m in Sources */,
 				7C8AAE6022E985ED00589862 /* CATextLayer+Helper.m in Sources */,
 				4EEC47C82859F2CB0047F8B6 /* NSString+NumberFormat.m in Sources */,
 				7CB1A2F726E4826D00D450CE /* DispatchBarrierPage.m in Sources */,
+				4EDC0B6E286308D6001C53CE /* NSDictionary+Safe.m in Sources */,
 				4EC6B38C2861B12A00F57AAC /* LookinPlugin.m in Sources */,
 				4EA7264027D767640060BDBA /* BWNetworkingService.swift in Sources */,
 				7C4F93DC2302B39300F2238E /* PASTwoListView.m in Sources */,
 				4EC6B3962861B12A00F57AAC /* ZWDataCache.m in Sources */,
+				4EDC0B69286308D6001C53CE /* NSNull+Safe.m in Sources */,
 				7C879B1026E64DF10051018B /* TestPresenter.m in Sources */,
+				4EDC0B63286308D6001C53CE /* NSString+Safe.m in Sources */,
 				7C4EF0222303A2C00040DA7A /* PASBaseViewController+PASNavigatorButton.m in Sources */,
+				4EDC0B68286308D6001C53CE /* NSAttributedString+Safe.m in Sources */,
 				7C8AAE8122E9876D00589862 /* UIButton+Block.m in Sources */,
 				7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */,
 				7C8AAE3B22E984E900589862 /* UIAlertUtil.m in Sources */,
@@ -2500,18 +2746,24 @@
 				4EC6B2992860982500F57AAC /* LeftDrawerViewController.m in Sources */,
 				4EC6B2922860807300F57AAC /* Reachability+IPV6Extention.m in Sources */,
 				7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */,
+				4EDC0B5F286308D6001C53CE /* NSCache+Safe.m in Sources */,
 				7C4F93E32302B39300F2238E /* PASBorderTableViewCell.m in Sources */,
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6A216426E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m in Sources */,
+				4EDC0B6C286308D6001C53CE /* NSUserDefaults+Safe.m in Sources */,
 				7C4EF01F2303A2C00040DA7A /* PASSegmentViewController.m in Sources */,
 				4EC6B39A2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m in Sources */,
 				7C652BFA230171B3007BBDD2 /* BaseCellModel.m in Sources */,
 				7C4F93DF2302B39300F2238E /* PASListRightCell.m in Sources */,
 				7C4EF04E230402F80040DA7A /* CMScrollSegmentControl.m in Sources */,
+				4EC6B3B12862B50A00F57AAC /* LeftDrawerModel.m in Sources */,
+				4EDC0B64286308D6001C53CE /* WMSafeProxy.m in Sources */,
 				4EC6B38B2861B12A00F57AAC /* AppLogPlugin.m in Sources */,
 				4EC6B37C2861B12A00F57AAC /* MDFileManager.m in Sources */,
+				4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */,
 				7C4F93DB2302B39300F2238E /* PASBaseTableView.m in Sources */,
 				4EC6B3842861B12A00F57AAC /* MDLogSearchView.m in Sources */,
+				4EC6B3A72861D26500F57AAC /* ZWUserAccountManager.m in Sources */,
 				7C4EF050230402F80040DA7A /* CMSegmentViewController.m in Sources */,
 				7CB1A2FA26E4869B00D450CE /* DisplayLinkViewController.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
@@ -2523,10 +2775,12 @@
 				4EC6B3982861B12A00F57AAC /* DataFormatterFunc+Market.m in Sources */,
 				7C8AAE8E22E987BE00589862 /* UIImage+Resize.m in Sources */,
 				7C8AAE8F22E987BE00589862 /* UIImage+ResourcePath.m in Sources */,
+				4EDC0B6B286308D6001C53CE /* NSMutableOrderedSet+Safe.m in Sources */,
 				7C8AAE6C22E986C800589862 /* PASTextField.m in Sources */,
 				7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */,
 				4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */,
 				7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */,
+				4EC6B3AA2861D37500F57AAC /* ZWUserInfoModel.m in Sources */,
 				4EC6B3752861B12A00F57AAC /* VersionUpgradeViewController.m in Sources */,
 				4EC6B3932861B12A00F57AAC /* CacheDataLoader.m in Sources */,
 				4EC6B37B2861B12A00F57AAC /* DebugLogHelper.m in Sources */,
@@ -2546,7 +2800,10 @@
 				4EC6B3952861B12A00F57AAC /* ZWHttpNetworkManager.m in Sources */,
 				4EC6B3892861B12A00F57AAC /* PathConstants.m in Sources */,
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
+				4EDC0B67286308D6001C53CE /* NSData+Safe.m in Sources */,
+				4EDC0B61286308D6001C53CE /* NSObject+Swizzle.m in Sources */,
 				4EC6B37A2861B12A00F57AAC /* ModuleContainer.m in Sources */,
+				4EDC096D2862C47A001C53CE /* ZWMainAppDelegateService.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
 				7C4EF042230400640040DA7A /* UINavigationItem+iOS7Style.m in Sources */,
 				4ECE439828598E6200326287 /* StoreUtil.m in Sources */,
@@ -2554,18 +2811,21 @@
 				7CA7682822FE95C1009E473E /* ZWBaseViewController.m in Sources */,
 				7C4EF074230405420040DA7A /* CommonStyleFunc.m in Sources */,
 				4EC6B3882861B12A00F57AAC /* ConsoleAppender.m in Sources */,
+				4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */,
 				4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */,
 				7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */,
 				7C4F93E22302B39300F2238E /* PASTableViewHeaderView.m in Sources */,
 				4EEC47CF2859F5300047F8B6 /* BaseTableViewCell.m in Sources */,
 				4EC6B38D2861B12A00F57AAC /* HttpClient.m in Sources */,
 				7C4EF02A2303A3390040DA7A /* CMViewController.m in Sources */,
+				4EC6B3B82862B74C00F57AAC /* CacheStringClientChatDetail.json in Sources */,
 				4EC6B3782861B12A00F57AAC /* DHGuidePageHUD.m in Sources */,
 				4E899A79285B7F2A00B54C89 /* DataBaseManager.m in Sources */,
 				7C8AAE8D22E987BE00589862 /* UIImage+Addition.m in Sources */,
 				4EC6B3912861B12A00F57AAC /* CacheDataLoader+ZWNIO.m in Sources */,
 				7C652C03230171C1007BBDD2 /* UITableViewCell+DequeCell.m in Sources */,
 				4E899A60285AF43700B54C89 /* ZWBaseTableView.m in Sources */,
+				4EDC0B65286308D6001C53CE /* NSMutableAttributedString+Safe.m in Sources */,
 				4EC6B3822861B12A00F57AAC /* MDLogDetailViewController.m in Sources */,
 				4EC6B3872861B12A00F57AAC /* LogUtil.m in Sources */,
 				7C8AAE5122E9856400589862 /* UIView+Frame.m in Sources */,
@@ -2573,6 +2833,7 @@
 				7C8AAE7D22E9872400589862 /* UIColor+Extensions.m in Sources */,
 				7C4F93DE2302B39300F2238E /* PASListRightItem.m in Sources */,
 				7C4EF041230400640040DA7A /* UINavigationController+PASAutorotate.m in Sources */,
+				4EDC0B60286308D6001C53CE /* NSObject+Safe.m in Sources */,
 				7C4F93DD2302B39300F2238E /* PASLineCell.m in Sources */,
 				7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */,
 				4E899A78285B7F2A00B54C89 /* DataBase.m in Sources */,

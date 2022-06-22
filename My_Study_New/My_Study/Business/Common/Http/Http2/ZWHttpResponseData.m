@@ -7,13 +7,25 @@
 //
 
 #import "ZWHttpResponseData.h"
+#import "LogUtil.h"
 
 @implementation ZWHttpResponseData
+
+- (void)setStatus:(NSString *)status
+{
+    if ([status isEqual:@"200"]) {
+        _status = @"1";
+    } else {
+        _status = status;
+    }
+}
+
 
 #pragma mark - handerror
 + (void)BI_restError:(NSString *)url status:(NSString *)status errmsg:(NSString *)errmsg
 {
-    
+    NSString *msg = [NSString stringWithFormat:@"status%@-errmsg%@", status, errmsg];
+    [LogUtil error:msg flag:TransToString(url) context:self];
 }
 
 + (ZWHttpResponseData *)getErrorResponseData:(NSError *)error

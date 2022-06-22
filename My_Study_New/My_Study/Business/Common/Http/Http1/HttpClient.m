@@ -8,6 +8,7 @@
 
 #import "HttpClient.h"
 #import "NSString+URLEncode.h"
+#import "MJExtension.h"
 
 #define HttpClient_HTTP_StatusCode @"HttpClient_HTTP_StatusCode"
 

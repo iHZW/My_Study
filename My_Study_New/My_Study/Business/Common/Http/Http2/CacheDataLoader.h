@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^ResponseLoaderBlock)(NSInteger status,id obj);
+typedef void(^ResponseLoaderBlock)(NSInteger status,id _Nullable obj);
 
 /**
  *  数据加载状态
@@ -111,7 +111,6 @@ typedef NS_ENUM(NSInteger, CacheDataLoaderType){
  *  抽象方法，对返回的数据进行解析处理
  *
  *  @param data     返回二进制数据
- *  @param timeDiff 与服务端的时间差值
  *  @param postDic  post请求参数
  *
  *  @return 如果解析失败返回对应Error值

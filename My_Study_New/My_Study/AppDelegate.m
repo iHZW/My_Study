@@ -16,6 +16,9 @@
 #import "VersionUpgradeViewController.h"
 #import "ZWNavigationController.h"
 #import "ModuleContainer.h"
+#import "CMBusMediaAppDelegate.h"
+#import "ZWMainAppDelegateService.h"
+
 
 #ifdef DOKIT
 #import <DoraemonKit/DoraemonManager.h>
@@ -27,6 +30,13 @@
 
 @implementation AppDelegate
 
++ (void)initialize
+{
+    [super initialize];
+    
+    [CMBusMediaAppDelegate regisertService:[[ZWMainAppDelegateService alloc] init]];    
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -37,6 +47,8 @@
     [self registDebugDoKitTool];
     /* 初始化配置信息 */
     [[ModuleContainer sharedModuleContainer] registerConfig];
+    
+    [CMBusMediaAppDelegate serviceManager:@selector(application:didFinishLaunchingWithOptions:) withParameters:@[application, launchOptions ? : [NSNull null]]];
     
 //    [LogUtil debug:@"====== 开始登录 - Login" flag:@"登录" context:self];
 //    [LogUtil info:@"====== 正在登录 - Login" flag:@"登录" context:self];

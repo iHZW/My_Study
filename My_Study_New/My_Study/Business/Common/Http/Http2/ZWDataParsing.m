@@ -7,7 +7,7 @@
 //
 
 #import "ZWDataParsing.h"
-#import "JSONModel.h"
+#import <JSONModel/JSONModel.h>
 #import "MJExtension.h"
 
 

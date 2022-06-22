@@ -10,10 +10,14 @@
 #import "UIView+Create.h"
 #import "UIViewController+CWLateralSlide.h"
 #import "RunLoopViewController.h"
+#import "LeftDrawerDataLoader.h"
+#import "LeftDrawerModel.h"
 
 @interface LeftDrawerViewController ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong) LeftDrawerDataLoader *dataLoader;
 
 @end
 
@@ -31,9 +35,35 @@
         make.size.mas_equalTo(CGSizeMake(100, 100));
     }];
     
+    NSArray *testArray = @[@"0", @"1", @"2"];
+    NSUInteger index = [testArray indexOfObject:@"3"];
+    if (index == NSNotFound) {
+        index = 0;
+    }
+    PASArrayAtIndex(<#array#>, <#i#>)
     
+    NSLog(@"index = %@", @(index));
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
-    
+    /* 发送请求 */
+    [self.dataLoader sendRequestForInfoNewsHeadBanner:^(NSInteger status, LeftDrawerModel *obj) {
+        
+        if ([obj.status isEqualToString:@"1"]) {
+            /* 成功 */
+            ClientChatDataModel *chatModel = obj.data;
+            NSArray *chatDataInfoList = chatModel.chatDataInfoList;
+            ClientChatReccord *chatRecord = PASArrayAtIndex(chatDataInfoList, 0);
+            NSLog(@"msgtype = %@",chatRecord.msgtype);
+        } else {
+            /* 失败 */
+        }
+        NSLog(@"status = %@, --- obj = %@", @(status), obj);
+        
+    }];
 }
 
 
@@ -55,5 +85,13 @@
     return _titleLabel;
 }
 
+
+- (LeftDrawerDataLoader *)dataLoader
+{
+    if (!_dataLoader) {
+        _dataLoader = [[LeftDrawerDataLoader alloc] init];
+    }
+    return _dataLoader;
+}
 
 @end
