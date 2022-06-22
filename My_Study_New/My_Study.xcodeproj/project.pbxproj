@@ -111,7 +111,6 @@
 		4EC6B3AA2861D37500F57AAC /* ZWUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3A92861D37500F57AAC /* ZWUserInfoModel.m */; };
 		4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3AC2861D58500F57AAC /* ZWUserInfoBridgeModule.m */; };
 		4EC6B3B12862B50A00F57AAC /* LeftDrawerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3B02862B50A00F57AAC /* LeftDrawerModel.m */; };
-		4EC6B3B82862B74C00F57AAC /* CacheStringClientChatDetail.json in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B3B72862B74C00F57AAC /* CacheStringClientChatDetail.json */; };
 		4ECE436228586E9D00326287 /* UIApplication+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE435E28586E9D00326287 /* UIApplication+Ext.m */; };
 		4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE436028586E9D00326287 /* UIViewController+Child.m */; };
 		4ECE439828598E6200326287 /* StoreUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE439728598E6200326287 /* StoreUtil.m */; };
@@ -138,6 +137,8 @@
 		4EDC0B6E286308D6001C53CE /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B55286308D6001C53CE /* NSDictionary+Safe.m */; };
 		4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B59286308D6001C53CE /* NSArray+Safe.m */; };
 		4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B5B286308D6001C53CE /* NSMutableData+Safe.m */; };
+		4EDC0B7428636245001C53CE /* ZWCommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B7328636245001C53CE /* ZWCommonUtil.m */; };
+		4EDC0B7728636A0F001C53CE /* CacheClientChatDetailConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EDC0B7628636A0E001C53CE /* CacheClientChatDetailConfig.json */; };
 		4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C32859F2CB0047F8B6 /* NSString+MoneyFormat.m */; };
 		4EEC47C82859F2CB0047F8B6 /* NSString+NumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */; };
 		4EEC47CF2859F5300047F8B6 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47CE2859F5300047F8B6 /* BaseTableViewCell.m */; };
@@ -446,7 +447,6 @@
 		4EC6B3AC2861D58500F57AAC /* ZWUserInfoBridgeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserInfoBridgeModule.m; sourceTree = "<group>"; };
 		4EC6B3AF2862B50A00F57AAC /* LeftDrawerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftDrawerModel.h; sourceTree = "<group>"; };
 		4EC6B3B02862B50A00F57AAC /* LeftDrawerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerModel.m; sourceTree = "<group>"; };
-		4EC6B3B72862B74C00F57AAC /* CacheStringClientChatDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CacheStringClientChatDetail.json; sourceTree = "<group>"; };
 		4ECE435D28586E9D00326287 /* UIApplication+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Ext.h"; sourceTree = "<group>"; };
 		4ECE435E28586E9D00326287 /* UIApplication+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Ext.m"; sourceTree = "<group>"; };
 		4ECE436028586E9D00326287 /* UIViewController+Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Child.m"; sourceTree = "<group>"; };
@@ -498,6 +498,10 @@
 		4EDC0B5A286308D6001C53CE /* NSAttributedString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Safe.h"; sourceTree = "<group>"; };
 		4EDC0B5B286308D6001C53CE /* NSMutableData+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Safe.m"; sourceTree = "<group>"; };
 		4EDC0B5C286308D6001C53CE /* NSData+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Safe.h"; sourceTree = "<group>"; };
+		4EDC0B7228636245001C53CE /* ZWCommonUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCommonUtil.h; sourceTree = "<group>"; };
+		4EDC0B7328636245001C53CE /* ZWCommonUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCommonUtil.m; sourceTree = "<group>"; };
+		4EDC0B7528636343001C53CE /* ZWCacheDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCacheDefine.h; sourceTree = "<group>"; };
+		4EDC0B7628636A0E001C53CE /* CacheClientChatDetailConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CacheClientChatDetailConfig.json; sourceTree = "<group>"; };
 		4EEC47C32859F2CB0047F8B6 /* NSString+MoneyFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoneyFormat.m"; sourceTree = "<group>"; };
 		4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NumberFormat.m"; sourceTree = "<group>"; };
 		4EEC47C52859F2CB0047F8B6 /* NSString+NumberFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NumberFormat.h"; sourceTree = "<group>"; };
@@ -1083,12 +1087,12 @@
 		4EC6B2FC2861B12A00F57AAC /* other */ = {
 			isa = PBXGroup;
 			children = (
-				4EC6B2FD2861B12A00F57AAC /* DebugLogHelper.m */,
-				4EC6B2FE2861B12A00F57AAC /* MDLogManager.h */,
+				4EC6B3022861B12A00F57AAC /* MDFileManager.h */,
 				4EC6B2FF2861B12A00F57AAC /* MDFileManager.m */,
 				4EC6B3002861B12A00F57AAC /* DebugLogHelper.h */,
+				4EC6B2FD2861B12A00F57AAC /* DebugLogHelper.m */,
+				4EC6B2FE2861B12A00F57AAC /* MDLogManager.h */,
 				4EC6B3012861B12A00F57AAC /* MDLogManager.m */,
-				4EC6B3022861B12A00F57AAC /* MDFileManager.h */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -1097,9 +1101,9 @@
 			isa = PBXGroup;
 			children = (
 				4EC6B3042861B12A00F57AAC /* LogDAO.h */,
-				4EC6B3052861B12A00F57AAC /* LogModel.m */,
-				4EC6B3062861B12A00F57AAC /* LogModel.h */,
 				4EC6B3072861B12A00F57AAC /* LogDAO.m */,
+				4EC6B3062861B12A00F57AAC /* LogModel.h */,
+				4EC6B3052861B12A00F57AAC /* LogModel.m */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -1108,10 +1112,10 @@
 			isa = PBXGroup;
 			children = (
 				4EC6B3092861B12A00F57AAC /* MDDebugViewController.h */,
-				4EC6B30A2861B12A00F57AAC /* MDLogDetailViewController.h */,
-				4EC6B30B2861B12A00F57AAC /* MDLogViewController.m */,
 				4EC6B30C2861B12A00F57AAC /* MDDebugViewController.m */,
 				4EC6B30D2861B12A00F57AAC /* MDLogViewController.h */,
+				4EC6B30B2861B12A00F57AAC /* MDLogViewController.m */,
+				4EC6B30A2861B12A00F57AAC /* MDLogDetailViewController.h */,
 				4EC6B30E2861B12A00F57AAC /* MDLogDetailViewController.m */,
 			);
 			path = controller;
@@ -1121,9 +1125,9 @@
 			isa = PBXGroup;
 			children = (
 				4EC6B3102861B12A00F57AAC /* MDLogSearchView.h */,
-				4EC6B3112861B12A00F57AAC /* MDLogTableViewCell.m */,
 				4EC6B3122861B12A00F57AAC /* MDLogSearchView.m */,
 				4EC6B3132861B12A00F57AAC /* MDLogTableViewCell.h */,
+				4EC6B3112861B12A00F57AAC /* MDLogTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1131,15 +1135,15 @@
 		4EC6B3142861B12A00F57AAC /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				4EC6B3152861B12A00F57AAC /* ConsoleAppender.h */,
 				4EC6B3162861B12A00F57AAC /* LogConstants.h */,
-				4EC6B3172861B12A00F57AAC /* DatabaseAppender.m */,
-				4EC6B3182861B12A00F57AAC /* LogAppender.m */,
-				4EC6B3192861B12A00F57AAC /* LogUtil.m */,
-				4EC6B31A2861B12A00F57AAC /* DatabaseAppender.h */,
-				4EC6B31B2861B12A00F57AAC /* ConsoleAppender.m */,
 				4EC6B31C2861B12A00F57AAC /* LogUtil.h */,
+				4EC6B3192861B12A00F57AAC /* LogUtil.m */,
 				4EC6B31D2861B12A00F57AAC /* LogAppender.h */,
+				4EC6B3182861B12A00F57AAC /* LogAppender.m */,
+				4EC6B31A2861B12A00F57AAC /* DatabaseAppender.h */,
+				4EC6B3172861B12A00F57AAC /* DatabaseAppender.m */,
+				4EC6B3152861B12A00F57AAC /* ConsoleAppender.h */,
+				4EC6B31B2861B12A00F57AAC /* ConsoleAppender.m */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -1148,6 +1152,7 @@
 			isa = PBXGroup;
 			children = (
 				4EC6B3202861B12A00F57AAC /* UrlConstants.h */,
+				4EDC0B7528636343001C53CE /* ZWCacheDefine.h */,
 				4EC6B3222861B12A00F57AAC /* PathConstants.h */,
 				4EC6B3212861B12A00F57AAC /* PathConstants.m */,
 			);
@@ -1170,6 +1175,7 @@
 		4EC6B3242861B12A00F57AAC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4EDC0B712863622C001C53CE /* ZWCommonUtil */,
 				4EC6B3252861B12A00F57AAC /* JSON */,
 			);
 			path = Util;
@@ -1230,8 +1236,8 @@
 				4EC6B3392861B12A00F57AAC /* ZWHttpNetworkManager.h */,
 				4EC6B3432861B12A00F57AAC /* ZWHttpNetworkManager.m */,
 				4EC6B33A2861B12A00F57AAC /* ZWDataCache.h */,
-				4EC6B33D2861B12A00F57AAC /* ZWDataParsing.h */,
 				4EC6B3442861B12A00F57AAC /* ZWDataCache.m */,
+				4EC6B33D2861B12A00F57AAC /* ZWDataParsing.h */,
 				4EC6B3362861B12A00F57AAC /* ZWDataParsing.m */,
 			);
 			path = Http2;
@@ -1316,7 +1322,7 @@
 		4EC6B3B22862B69100F57AAC /* LocalCacheFile */ = {
 			isa = PBXGroup;
 			children = (
-				4EC6B3B72862B74C00F57AAC /* CacheStringClientChatDetail.json */,
+				4EDC0B7628636A0E001C53CE /* CacheClientChatDetailConfig.json */,
 			);
 			path = LocalCacheFile;
 			sourceTree = "<group>";
@@ -1431,6 +1437,15 @@
 				4EDC0B3F286308D6001C53CE /* WMSafeProxy.m */,
 			);
 			path = Safe;
+			sourceTree = "<group>";
+		};
+		4EDC0B712863622C001C53CE /* ZWCommonUtil */ = {
+			isa = PBXGroup;
+			children = (
+				4EDC0B7228636245001C53CE /* ZWCommonUtil.h */,
+				4EDC0B7328636245001C53CE /* ZWCommonUtil.m */,
+			);
+			path = ZWCommonUtil;
 			sourceTree = "<group>";
 		};
 		4EEC47D6285AD50E0047F8B6 /* UINavigationController */ = {
@@ -2290,10 +2305,10 @@
 		7C8AAE4B22E9856400589862 /* UIView+Badge */ = {
 			isa = PBXGroup;
 			children = (
-				7C8AAE4C22E9856400589862 /* CAAnimation+Animation.m */,
-				7C8AAE4D22E9856400589862 /* UIView+Badge.m */,
 				7C8AAE4E22E9856400589862 /* UIView+Badge.h */,
+				7C8AAE4D22E9856400589862 /* UIView+Badge.m */,
 				7C8AAE4F22E9856400589862 /* CAAnimation+Animation.h */,
+				7C8AAE4C22E9856400589862 /* CAAnimation+Animation.m */,
 			);
 			path = "UIView+Badge";
 			sourceTree = "<group>";
@@ -2557,6 +2572,7 @@
 				4EC6B36A2861B12A00F57AAC /* Untitled-8.gif in Resources */,
 				4EC6B35A2861B12A00F57AAC /* launch_guide_2_min.png in Resources */,
 				4EC6B3722861B12A00F57AAC /* guideImage6.gif in Resources */,
+				4EDC0B7728636A0F001C53CE /* CacheClientChatDetailConfig.json in Resources */,
 				4EC6B35B2861B12A00F57AAC /* LaunchImg_one.png in Resources */,
 				4EC6B3532861B12A00F57AAC /* launch_guide_1.png in Resources */,
 				4EC6B3662861B12A00F57AAC /* guideImage3.jpg in Resources */,
@@ -2818,13 +2834,13 @@
 				4EEC47CF2859F5300047F8B6 /* BaseTableViewCell.m in Sources */,
 				4EC6B38D2861B12A00F57AAC /* HttpClient.m in Sources */,
 				7C4EF02A2303A3390040DA7A /* CMViewController.m in Sources */,
-				4EC6B3B82862B74C00F57AAC /* CacheStringClientChatDetail.json in Sources */,
 				4EC6B3782861B12A00F57AAC /* DHGuidePageHUD.m in Sources */,
 				4E899A79285B7F2A00B54C89 /* DataBaseManager.m in Sources */,
 				7C8AAE8D22E987BE00589862 /* UIImage+Addition.m in Sources */,
 				4EC6B3912861B12A00F57AAC /* CacheDataLoader+ZWNIO.m in Sources */,
 				7C652C03230171C1007BBDD2 /* UITableViewCell+DequeCell.m in Sources */,
 				4E899A60285AF43700B54C89 /* ZWBaseTableView.m in Sources */,
+				4EDC0B7428636245001C53CE /* ZWCommonUtil.m in Sources */,
 				4EDC0B65286308D6001C53CE /* NSMutableAttributedString+Safe.m in Sources */,
 				4EC6B3822861B12A00F57AAC /* MDLogDetailViewController.m in Sources */,
 				4EC6B3872861B12A00F57AAC /* LogUtil.m in Sources */,

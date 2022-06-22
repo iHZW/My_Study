@@ -9,7 +9,7 @@
 #import "CMSegmentViewController.h"
 #import "UIColor+Extensions.h"
 #import "PASUIDefine.h"
-#import "masonry.h"
+#import "Masonry.h"
 
 
 @interface CMSegmentViewController () <UIScrollViewDelegate>
@@ -215,7 +215,7 @@
 /**
  *  设置选中Segment Page项
  *
- *  @param index        @param index segment 索引值
+ *  @param index    segment 索引值
  *  @param forceRequest 是否强制刷新数据
  */
 - (void)setCurrentSelectedPage:(NSInteger)index foreceRequest:(BOOL)forceRequest

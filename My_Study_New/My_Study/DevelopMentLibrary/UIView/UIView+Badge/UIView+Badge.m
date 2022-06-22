@@ -23,7 +23,7 @@
  */
 - (void)showBadge
 {
-    [self showBadgeWithStyle:BadgeStyleRedDot value:BadgeStyleRedDot animationType:BadgeAnimTypeNone];
+    [self showBadgeWithStyle:BadgeStyleRedDot value:@"0" animationType:BadgeAnimTypeNone];
 }
 
 /**

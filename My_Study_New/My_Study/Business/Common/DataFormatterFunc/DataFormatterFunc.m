@@ -10,8 +10,7 @@
 
 #define kAlphaNum  @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 #define kAlpha      @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
-#define kNumbers     @"0123456789"
-#define kNumbersPeriod  @"0123456789."
+
 
 @implementation DataFormatterFunc
 
@@ -51,6 +50,16 @@
     BOOL basic = [string isEqualToString:filtered];
     
     return basic;
+}
+
+// 根据过滤规则 过滤文本
++ (NSString *)filterWithString:(NSString *)str formatType:(NSString *)formatType
+{
+    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:formatType];
+    NSCharacterSet *specCharacterSet = [characterSet invertedSet];
+    NSString *string = str;
+    NSArray *strArr = [string componentsSeparatedByCharactersInSet:specCharacterSet];
+    return [strArr componentsJoinedByString:@""];
 }
 
 #pragma mark - public's method

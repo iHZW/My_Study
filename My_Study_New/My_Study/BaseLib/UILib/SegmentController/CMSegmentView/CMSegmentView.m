@@ -169,7 +169,7 @@
 /**
  *  设置选中Segment Page项
  *
- *  @param index        @param index segment 索引值
+ *  @param index   segment 索引值
  *  @param forceRequest 是否强制刷新数据
  */
 - (void)setCurrentSelectedPage:(NSInteger)index foreceRequest:(BOOL)forceRequest

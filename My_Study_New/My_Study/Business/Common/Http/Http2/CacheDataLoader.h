@@ -9,6 +9,7 @@
 #import "CMObject.h"
 #import "CommonFileFunc.h"
 #import "ZWHttpEventInfo.h"
+#import "ZWCacheDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

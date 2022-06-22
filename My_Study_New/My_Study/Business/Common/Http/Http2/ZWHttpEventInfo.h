@@ -95,13 +95,12 @@ typedef void (^ZWAFFormDataBlock)(id <AFMultipartFormData> formData);
 @property (nonatomic) DataParseType parseType; // 数据解析方式 JSON，XML， Data...,
 /** 设置请求的超时时间,默认30s */
 @property (nonatomic) NSTimeInterval timeoutInterval;
-/** 如果此次请求的ContentType不在默认ContentType里面，则需要重新设置（只有不是DataParseTypeJSON是设置才有才生效） */
+/**如果此次请求的ContentType不在默认ContentType里面，则需要重新设置（只有不是DataParseTypeJSON是设置才有才生效) */
 @property (nonatomic, copy) NSString *acceptableContentType;
 /** 发起请求时间(距离1970年耗时多少毫秒) */
 @property (nonatomic) int64_t requestTime;
 /** 数据返回时间(距离1970年耗时多少毫秒) */
 @property (nonatomic) int64_t responseTime;
-
 /** 通道类型 */
 @property (nonatomic) HttpChannelType httpChannelType;
 
@@ -118,10 +117,14 @@ typedef void (^ZWAFFormDataBlock)(id <AFMultipartFormData> formData);
 @property (nonatomic) Class responseClass;
 
 // 缓存相关
-@property (nonatomic) NSURLRequestCachePolicy cachePolicy; // NSUrlRequest属性
-@property (nonatomic) BOOL isUsingSelfCache; /** 是否使用自定义缓存 */
-@property (nonatomic, copy) NSString *requstEventKey; /** 设置请求的key，作为取消联网操作或者自定义缓存的标识 */
-@property (nonatomic, copy) NSString *absoluteCachePath;  /** 设置缓存文件的完整路径，用于需要指定路径缓存的请求 */
+/** NSUrlRequest属性 */
+@property (nonatomic) NSURLRequestCachePolicy cachePolicy;
+/** 是否使用自定义缓存 */
+@property (nonatomic) BOOL isUsingSelfCache;
+/** 设置请求的key，作为取消联网操作或者自定义缓存的标识 */
+@property (nonatomic, copy) NSString *requstEventKey;
+/** 设置缓存文件的完整路径，用于需要指定路径缓存的请求 */
+@property (nonatomic, copy) NSString *absoluteCachePath;
 
 /**
 更新缓存数据依据，适合组合请求，和bolCacheKey 互斥

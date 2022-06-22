@@ -86,8 +86,22 @@
 {
     [super initRightNav];
     
+    UIButton *allBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [allBtn setTitle:@"全部" forState:UIControlStateNormal];
+    [allBtn setTitleColor:UIColorFromRGB(0x6495ED) forState:UIControlStateNormal];
+    [allBtn addTarget:self action:@selector(allContextNavAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *clearBtn =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [clearBtn setTitle:@"清空" forState:UIControlStateNormal];
+    [clearBtn setTitleColor:UIColorFromRGB(0x6495ED) forState:UIControlStateNormal];
+    [clearBtn addTarget:self action:@selector(clearLogNavAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     UIBarButtonItem *allBarButton = [[UIBarButtonItem alloc] initWithTitle:@"全部" style:UIBarButtonItemStylePlain target:self action:@selector(allContextNavAction:)];
+    allBarButton = [[UIBarButtonItem alloc] initWithCustomView:allBtn];
+
     UIBarButtonItem *clearBarButton = [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clearLogNavAction:)];
+    clearBarButton = [[UIBarButtonItem alloc] initWithCustomView:clearBtn];
+
     self.navigationItem.rightBarButtonItems = @[allBarButton,clearBarButton];
 }
 
@@ -136,9 +150,9 @@
 - (void)detailWithSearchNameBlock:(NSString *)searchName
 {
     self.searchKeyword = searchName;
-    if (self.searchKeyword.length > 0) {
+//    if (self.searchKeyword.length > 0) {
         [self dealWithSearchChange];
-    }
+//    }
 }
 
 - (void)detailWithSearchStatusblock:(SearchStatusType)searchStatus
@@ -174,7 +188,8 @@
         } else if (self.pageType == FromPageTypeOne) {
             predicate = [NSPredicate predicateWithFormat:@"SELF.msg CONTAINS[c] %@", searchText];
         } else if (self.pageType == FromPageTypeTwo) {
-            predicate = [NSPredicate predicateWithFormat:@"SELF.msg CONTAINS[c] %@", searchText];
+            /** 多条件筛选 */
+            predicate = [NSPredicate predicateWithFormat:@"SELF.msg CONTAINS[c] %@ || SELF.flag CONTAINS[c] %@", searchText, searchText];
         }
         if (predicate) {
             [self.searchDataSource removeAllObjects];
@@ -255,15 +270,6 @@
     cell.subTitleName = TransToString(subtitleName);
     
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-//    [[cell.contentView viewWithTag:1001] removeFromSuperview];
-//    if (indexPath.row < !self.searching ? self.dataSource.count : self.searchDataSource.count - 1) {
-//        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(20, 74.5, [UIScreen mainScreen].bounds.size.width - 20, 0.5)];
-//        lineView.backgroundColor = [UIColor colorFromHexCode:@"e0e0e0"];
-//        [cell.contentView addSubview:lineView];
-//        lineView.tag = 1001;
-//    }
-    
     
     return cell;
 }

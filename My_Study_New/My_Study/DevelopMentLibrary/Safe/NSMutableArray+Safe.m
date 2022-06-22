@@ -17,7 +17,7 @@
     dispatch_once(&onceToken, ^{
         
         /* __NSArrayM */
-        swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(objectAtIndex:), @selector(hookObjectAtIndex:));
+//        swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(objectAtIndex:), @selector(hookObjectAtIndex:));
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(subarrayWithRange:), @selector(hookSubarrayWithRange:));
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(objectAtIndexedSubscript:), @selector(hookObjectAtIndexedSubscript:));
         
@@ -28,7 +28,7 @@
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(removeObjectsInRange:), @selector(hookRemoveObjectsInRange:));
         
         /* __NSCFArray */
-        swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(objectAtIndex:), @selector(hookObjectAtIndex:));
+//        swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(objectAtIndex:), @selector(hookObjectAtIndex:));
         swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(subarrayWithRange:), @selector(hookSubarrayWithRange:));
         swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(objectAtIndexedSubscript:), @selector(hookObjectAtIndexedSubscript:));
         
@@ -48,15 +48,15 @@
         }
     }
 }
-- (id) hookObjectAtIndex:(NSUInteger)index {
-    @synchronized (self) {
-        if (index < self.count) {
-            return [self hookObjectAtIndex:index];
-        }
-        SFAssert(NO, @"NSArray invalid index:[%@]", @(index));
-        return nil;
-    }
-}
+//- (id) hookObjectAtIndex:(NSUInteger)index {
+//    @synchronized (self) {
+//        if (index < self.count) {
+//            return [self hookObjectAtIndex:index];
+//        }
+//        SFAssert(NO, @"NSArray invalid index:[%@]", @(index));
+//        return nil;
+//    }
+//}
 - (id) hookObjectAtIndexedSubscript:(NSInteger)index {
     @synchronized (self) {
         if (index < self.count) {

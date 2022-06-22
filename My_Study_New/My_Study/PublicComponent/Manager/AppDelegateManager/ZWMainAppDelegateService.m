@@ -8,6 +8,7 @@
 
 #import "ZWMainAppDelegateService.h"
 #import "ZWHttpNetworkManager.h"
+#import "ZWCommonUtil.h"
 
 @implementation ZWMainAppDelegateService
 
@@ -20,6 +21,7 @@
 {
     
     [[ZWHttpNetworkManager sharedHttpManager] initializeData];
+    [ZWCommonUtil checkAndWriteLocalCMSDataToCache];
     return YES;
 }
 

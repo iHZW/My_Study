@@ -92,6 +92,7 @@
 
 - (void)clickBtn
 {
+    [Toast show:@"打开抽屉"];
     LeftDrawerViewController *leftVc = [LeftDrawerViewController new];
     [self cw_showDefaultDrawerViewController:leftVc];
 //    [self cw_showDrawerViewController:leftVc animationType:0 configuration:nil];

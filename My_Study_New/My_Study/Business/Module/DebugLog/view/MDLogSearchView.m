@@ -42,6 +42,7 @@
             make.right.equalTo(self.mas_right).offset(-kContentSideHorizSpace);
         }];
         
+        /** 协助查看约束警告使用  */
         MASAttachKeys(self.textField)
         
         [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {

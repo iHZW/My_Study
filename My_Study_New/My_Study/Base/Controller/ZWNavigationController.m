@@ -24,7 +24,7 @@
         self.interactivePopGestureRecognizer.delegate = self;
     }
     self.delegate = self;
-    UIColor *bgColor = UIColorFromRGB(0x66CCFF);
+    UIColor *bgColor = UIColorFromRGB(0xE9E9E9);
     self.navigationBar.barTintColor = bgColor;
     self.navigationBar.backgroundColor = bgColor;
     

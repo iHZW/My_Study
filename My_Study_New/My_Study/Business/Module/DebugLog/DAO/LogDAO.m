@@ -35,6 +35,7 @@ DB_EXPORT_ID(DB_COMMON_ID)
     [self requeue:resultArray move:@"WMNative"];
     [self requeue:resultArray move:@"Router"];
     [self requeue:resultArray move:@"HttpClient"];
+    [self requeue:resultArray move:@"ZWHttpNetworkManager"];
     
     return resultArray;
 }

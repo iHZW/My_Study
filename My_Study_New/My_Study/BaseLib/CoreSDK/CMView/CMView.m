@@ -65,7 +65,7 @@
 /**
  6.14 当模块控件，重用在其他模块显示时，赋值是否换肤，重调用换肤通知方法；实现相同控件，不同模块换肤功能不一致
 
- @param bolThemeChg
+ @param bolThemeChg  标记模块是否换肤
  */
 - (void)setBolThemeChg:(BOOL)bolThemeChg
 {

@@ -80,6 +80,8 @@
     vc.guideCompleteBlock = ^(NSInteger index, GuideActionType type) {
         @pas_strongify_self
         /* 引导完成 */
+        
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
         [self loadSubViewControllers];
     };
     self.window.rootViewController = vc;

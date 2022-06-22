@@ -86,17 +86,17 @@
     return [super popToRootViewControllerAnimated:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    if (self.viewControllers.count > 0) {
-        return [[self.viewControllers lastObject] shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
-    }
-    
-    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
-    (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) ||
-    (toInterfaceOrientation == UIInterfaceOrientationPortrait) ||
-    (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+//{
+//    if (self.viewControllers.count > 0) {
+//        return [[self.viewControllers lastObject] shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+//    }
+//
+//    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||
+//    (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) ||
+//    (toInterfaceOrientation == UIInterfaceOrientationPortrait) ||
+//    (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
+//}
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
@@ -128,20 +128,20 @@
     }
     return UIStatusBarStyleLightContent;
 }
+//
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    if ([self.viewControllers count] > 0) {
+//        [[self.viewControllers lastObject] willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//    }
+//}
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    if ([self.viewControllers count] > 0) {
-        [[self.viewControllers lastObject] willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    }
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    if ([self.viewControllers count] > 0) {
-        [[self.viewControllers lastObject] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-    }
-}
+//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+//{
+//    if ([self.viewControllers count] > 0) {
+//        [[self.viewControllers lastObject] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+//    }
+//}
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {

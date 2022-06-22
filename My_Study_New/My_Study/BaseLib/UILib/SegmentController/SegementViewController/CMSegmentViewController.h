@@ -119,8 +119,7 @@ typedef void (^ScrollTopControllerWhenClickStatusBarAction)(NSInteger index, UIV
 
 /**
  头部灰线
-
- @return <#return value description#>
+ * 创建头部灰色线
  */
 - (void)createGrayLine;
 

@@ -276,7 +276,7 @@ willShow:(nullable ToastBlock)showBlock
 }
 
 - (void)dealloc{
-    [LogUtil debug:@"Toast释放" flag:nil context:self];
+    [LogUtil debug:@"Toast释放" flag:self.title context:self];
 }
 
 

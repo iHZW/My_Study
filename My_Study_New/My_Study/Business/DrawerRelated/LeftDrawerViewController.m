@@ -40,9 +40,16 @@
     if (index == NSNotFound) {
         index = 0;
     }
-    PASArrayAtIndex(<#array#>, <#i#>)
-    
     NSLog(@"index = %@", @(index));
+    
+    NSString *str = @"下午 2";
+    NSString *filterStr = TransFilterString(str, kNumbers);
+    if ([str containsString:@"下午"] || [str containsString:@"PM"]) {
+        NSUInteger current = [filterStr integerValue] + 12;
+        filterStr = [NSString stringWithFormat:@"%@", @(current)];
+    }
+    NSLog(@"%@", filterStr);
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

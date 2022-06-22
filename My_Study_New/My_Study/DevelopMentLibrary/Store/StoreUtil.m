@@ -8,6 +8,8 @@
 
 #import "StoreUtil.h"
 #import <SAMKeychain/SAMKeychain.h>
+#import "CommonFileFunc.h"
+#import "ZWDataCache.h"
 
 @implementation StoreUtil
 + (void)setString:(NSString *)object forKey:(NSString *)key isPermanent:(BOOL)isPermanent{

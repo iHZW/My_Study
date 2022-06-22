@@ -9,6 +9,7 @@
 #import "HttpClient.h"
 #import "NSString+URLEncode.h"
 #import "MJExtension.h"
+#import "ZWSiteAddressManager.h"
 
 #define HttpClient_HTTP_StatusCode @"HttpClient_HTTP_StatusCode"
 
@@ -110,7 +111,11 @@
                 success:(HttpSuccessBlock)success
                 failure:(HttpFailureBlock)failure
 {
-
+    /* 判断是否存在 http/https  不存在取 baseURL */
+    if (!([url hasPrefix:@"http"]||[url hasPrefix:@"https"])) {
+        url = [NSString stringWithFormat:@"%@%@", [ZWSiteAddressManager getBaseHttpURL], url]  ;
+    }
+    
     @pas_weakify_self
     self.httpSuccessBlock = ^(NSURLSessionDataTask * _Nullable task, id  _Nullable responseObject) {
         @pas_strongify_self

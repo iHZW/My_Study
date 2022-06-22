@@ -75,11 +75,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyStatusBarFrameChange:) name:UIApplicationWillChangeStatusBarFrameNotification object:nil];
 }
 
-- (void)viewDidUnload           // iOS 6 later, the viewDidUnload method is not used
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -112,15 +107,15 @@
     return NO;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
-}
-
-- (BOOL)prefersHomeIndicatorAutoHidden  API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos, tvos)
-{
-    return YES;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+//}
+//
+//- (BOOL)prefersHomeIndicatorAutoHidden  API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos, tvos)
+//{
+//    return YES;
+//}
 
 #pragma mark - Private's methods
 - (void)initData

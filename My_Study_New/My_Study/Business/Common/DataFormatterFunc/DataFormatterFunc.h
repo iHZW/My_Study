@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define kNumbers     @"0123456789"
+#define kNumbersPeriod  @"0123456789."
+
 #define PASArrayAtIndex(array,i) [DataFormatterFunc checkArray:array index:i]
 
 #define TransToString(s)  [DataFormatterFunc validStringValue:s]
@@ -16,11 +19,15 @@
 
 #define TransToDictionary(s) [DataFormatterFunc validDictionaryValue:s]
 
+/* 根据规则过滤文本 */
+#define TransFilterString(s, f) [DataFormatterFunc filterWithString:s formatType:f]
+
 #define ValidString(s) [DataFormatterFunc bolString:s]
 
 #define ValidArray(s) [DataFormatterFunc isValidArray:s]
 
 #define ValidDictionary(s) [DataFormatterFunc isValidDictionary:s]
+
 
 /**
  *  除法返回float精度问题 A/B
@@ -53,6 +60,9 @@
 + (BOOL)isPureAlphaNumber:(NSString *)string;
 
 + (BOOL)isPureNumber:(NSString *)string;
+
+// 根据过滤规则 过滤文本
++ (NSString *)filterWithString:(NSString *)str formatType:(NSString *)formatType;
 
 /**
  判断对象是否是nil或者null

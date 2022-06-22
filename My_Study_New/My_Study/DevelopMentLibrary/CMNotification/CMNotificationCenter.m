@@ -47,7 +47,7 @@
 }
 
 @property (readwrite, strong) NSMutableDictionary *observersDictionary;
-@property (nonatomic) dispatch_queue_t queue;                           //< 指定的dispatch queue
+@property (nonatomic) dispatch_queue_t queue;   /* 指定的dispatch queue */
 
 @end
 
@@ -112,9 +112,9 @@
             [newRecord setObserver:notificationObserver];
             [newRecord setSelector:notificationSelector];
             
-            pthread_mutex_lock(&_mutexLock);
+            pthread_mutex_lock(&self->_mutexLock);
             // There is an array of observer records for each notification name
-            NSMutableDictionary *observers = [_observersDictionary objectForKey:notificationName];
+            NSMutableDictionary *observers = [self->_observersDictionary objectForKey:notificationName];
             
             if (nil != observers) {
                 [observers setObject:newRecord forKey:observerId];
@@ -124,9 +124,9 @@
                 // future observer records for the same notificationName.
                 observers = [NSMutableDictionary dictionaryWithCapacity:0];
                 [observers setObject:newRecord forKey:observerId];
-                [_observersDictionary setObject:observers forKey:notificationName];
+                [self->_observersDictionary setObject:observers forKey:notificationName];
             }
-            pthread_mutex_unlock(&_mutexLock);
+            pthread_mutex_unlock(&self->_mutexLock);
             
 #if !__has_feature(objc_arc)
             [newRecord release];
@@ -189,7 +189,7 @@
     if (!observerId) return;
     
     performBarrierBlock(_queue, YES, ^{
-        pthread_mutex_lock(&_mutexLock);
+        pthread_mutex_lock(&self->_mutexLock);
         
         if (notificationName) {
             NSMutableDictionary *observers = [self.observersDictionary objectForKey:notificationName];
@@ -215,7 +215,7 @@
             }];
         }
         
-        pthread_mutex_unlock(&_mutexLock);
+        pthread_mutex_unlock(&self->_mutexLock);
     });
 }
 

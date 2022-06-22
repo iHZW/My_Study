@@ -25,14 +25,13 @@
 #import "GCDCommon.h"
 #import "DataFormatter.h"
 //#import "PASNavigator.h"
-
+#import "ZWSiteAddressManager.h"
 #include <sys/time.h>
 
 static inline int64_t ZWGetSystemMilTime(void)
 {
     struct timeval tv;
     //获取一个时间结构
-    
     gettimeofday(&tv, NULL);
     int64_t t = tv.tv_sec * 1000 + tv.tv_usec / 1000;
     return t;
@@ -178,7 +177,7 @@ static inline int64_t ZWGetSystemMilTime(void)
 {
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         NSString *network = [NSString stringWithFormat:@"Network status change to %@", @(status)];
-        [LogUtil debug:network flag:@"监控网络变化" context:self];
+//        [LogUtil debug:network flag:@"监控网络变化" context:self];
 //        switch (status) {
 //            case AFNetworkReachabilityStatusUnknown:
 //                self.isConnect = NO;
@@ -234,7 +233,12 @@ static inline int64_t ZWGetSystemMilTime(void)
               completionWithURLResponseBlock:(ZWCompletionWithResponseBlock)completionBlock
 {
     ZWHttpEventInfo *requestEvent = [[ZWHttpEventInfo alloc] init];
-    requestEvent.relativePath = url;
+    NSString *requestUrl = url;
+    /* 判断是否存在 http/https  不存在取 baseURL */
+    if (!([requestUrl hasPrefix:@"http"]||[requestUrl hasPrefix:@"https"])) {
+        requestUrl = [NSString stringWithFormat:@"%@%@", [ZWSiteAddressManager getBaseHttpURL], url]  ;
+    }
+    requestEvent.relativePath = requestUrl;
     requestEvent.httpMethod = httpMethod;
     if (msgDict)
         requestEvent.parameters = [NSDictionary dictionaryWithDictionary:msgDict];
@@ -406,7 +410,6 @@ static inline int64_t ZWGetSystemMilTime(void)
     requestEvent.requestTime = ZWGetSystemMilTime();
     
     // 发送和接收请求
-    
     @pas_weakify_self
     __block NSURLSessionDataTask *dataTask = nil;
     dataTask = [httpManager dataTaskWithRequest:request
@@ -444,12 +447,9 @@ static inline int64_t ZWGetSystemMilTime(void)
                                   @pas_strongify_self
                                   self.trafficStatistics += dataTask.countOfBytesSent + dataTask.countOfBytesReceived;
                                   [self httpResponseAction:requestEvent responseObject:responseObject error:error urlResponse:response completionBlock:completionBlock];
-                                  NSString *url = [NSString stringWithFormat:@"url = %@", response.URL.absoluteString];
-                                  NSString *msg = [NSString stringWithFormat:@"responseObject = %@", responseObject];
-                                  [LogUtil debug:msg flag:url context:self];
-//                                  CMLogDebug(LogBusinessPublicService, @"url = %@",response.URL.absoluteString);
-//                                  CMLogDebug(LogBusinessPublicService, @"responseObject = %@",responseObject);
-                                  
+                                  NSString *url = TransToString(response.URL.absoluteString);
+                                  NSString *logMsg = [NSString stringWithFormat:@"接口: %@ \n-入参: %@ \n-返回: %@", url, [JSONUtil jsonString:requestEvent.parameters], [JSONUtil jsonString:responseObject]];
+                                  [LogUtil debug:logMsg flag:url context:self];
                               }];
     
     // 设置task的key，用于cache或者cancel
