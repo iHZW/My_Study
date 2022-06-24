@@ -7,8 +7,7 @@
 //
 
 #import "BaseTableViewController.h"
-#define Main_Screen_Width [UIScreen mainScreen].bounds.size.width
-#define Main_Screen_Height [UIScreen mainScreen].bounds.size.height
+
 @interface BaseTableViewController ()
 {
     UITableViewStyle _tableViewStyle;
@@ -48,7 +47,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     CGFloat height = [self tableView:tableView heightForHeaderInSection:section];
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, height)];
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, height)];
     return header;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -58,7 +57,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     CGFloat height = [self tableView:tableView heightForFooterInSection:section];
-    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, height)];
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, height)];
     return footer;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

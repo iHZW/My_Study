@@ -6,11 +6,11 @@
 //  Copyright © 2021 HZW. All rights reserved.
 //
 
-#import "PASBaseViewController.h"
+#import "ZWBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RunLoopPermanentViewController : PASBaseViewController
+@interface RunLoopPermanentViewController : ZWBaseViewController
 
 @end
 

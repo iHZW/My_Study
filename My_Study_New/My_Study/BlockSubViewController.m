@@ -34,7 +34,7 @@
             NSString *cls_name = NSStringFromClass(cls);
 
         
-            if ([class_getSuperclass(cls) isSubclassOfClass:[PASBaseViewController class]]) {
+            if ([class_getSuperclass(cls) isSubclassOfClass:[ZWBaseViewController class]]) {
                 [mutArray addObject:cls_name];
             }
                         

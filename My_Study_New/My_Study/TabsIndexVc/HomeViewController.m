@@ -219,9 +219,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    });
     /* 点击效果 */
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
@@ -243,7 +240,6 @@
         default:
             break;
     }
-    
     [self sendRequestUrl:url dict:@{}];
     
     
@@ -251,7 +247,7 @@
 //        [MyFlutterRouter.sharedRouter openPage:model.flutterPageName params:@{} animated:YES completion:^(BOOL isFinish){}];
         [self jump_flutterPage];
     }else if(model.clazz != nil){
-        UIViewController *vc = [model.clazz new];
+        ZWBaseViewController *vc = [model.clazz new];
         vc.hidesBottomBarWhenPushed = YES;
         vc.title = model.title;
         [self.navigationController pushViewController:vc animated:YES];

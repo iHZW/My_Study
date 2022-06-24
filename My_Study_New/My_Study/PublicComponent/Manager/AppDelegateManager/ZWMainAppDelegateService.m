@@ -19,10 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey,id> *)launchOptions
 {
-    
     [[ZWHttpNetworkManager sharedHttpManager] initializeData];
     [ZWCommonUtil checkAndWriteLocalCMSDataToCache];
     return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    
+    [[ZWHttpNetworkManager sharedHttpManager] openNetMonitoring];
 }
 
 @end

@@ -16,6 +16,13 @@
 #import "LeftDrawerViewController.h"
 #import "UIViewController+CWLateralSlide.h"
 
+#include <stdint.h>
+#include <stdio.h>
+#include <sanitizer/coverage_interface.h>
+#import <dlfcn.h>
+// 创建原子队列需要导入头文件
+#import <libkern/OSAtomic.h>
+
 
 //#import <CWLateralSlide/UIViewController+CWLateralSlide.h>
 
@@ -77,6 +84,88 @@
     UIBarButtonItem *btnItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [self.navigationItem setRightBarButtonItem:btnItem];
 }
+
+#pragma mark - Clang
+
+
+void __sanitizer_cov_trace_pc_guard_init(uint32_t *start,
+                                                    uint32_t *stop) {
+    static uint64_t N;  // Counter for the guards.
+    if (start == stop || *start) return;  // Initialize only once.
+    printf("INIT: %p %p\n", start, stop);
+    for (uint32_t *x = start; x < stop; x++)
+        *x = ++N;  // Guards should start from 1.
+}
+
+// 定义原子队列
+static OSQueueHead symbolist = OS_ATOMIC_QUEUE_INIT;
+// 定义符号结构体
+typedef struct {
+    void *pc;
+    void *next;
+} SYNode;
+
+void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
+    void *PC = __builtin_return_address(0);
+
+    SYNode *node = malloc(sizeof(SYNode));
+    // 结构体指针指向 SYNode 结构体(pc属性赋值PC,next赋值NULL)
+    *node = (SYNode){PC,NULL};
+    // 结构体入栈:参数1:链表地址,参数2:存入的节点、参数3:offsetof(类型,参数2的属性)
+    OSAtomicEnqueue(&symbolist, node, offsetof(SYNode, next));
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    NSMutableArray<NSString *> * symbolNames = [NSMutableArray array];
+    while (YES) {
+        SYNode *node = OSAtomicDequeue(&symbolist, offsetof(SYNode, next));
+        if (node == NULL) {
+            break;
+        }
+        Dl_info info;
+        dladdr(node->pc, &info);
+        // 转OC字符串
+        NSString *name = @(info.dli_sname);
+        // 非OC方法添加下划线"_"再加入到数组中
+        BOOL isObjc = [name hasPrefix:@"+["] || [name hasPrefix:@"-["];
+        NSString * symbolName = isObjc ? name : [@"_" stringByAppendingString:name];
+        //去重
+        if (![symbolNames containsObject:symbolName]) {
+            [symbolNames addObject:symbolName];
+        }
+    }
+    // 反向遍历数组
+    //symbolNames = (NSMutableArray<NSString *> *)[[symbolNames reverseObjectEnumerator] allObjects];
+    //NSLog(@"%@",symbolNames);
+
+// 反向遍历迭代器
+    NSEnumerator *em = [symbolNames reverseObjectEnumerator];
+    NSMutableArray *funcs = [NSMutableArray arrayWithCapacity:symbolNames.count];
+    NSString *name;
+    while (name = [em nextObject]) {
+        // 已包含的符号不再入组
+        if (![funcs containsObject:name]) {
+            [funcs addObject:name];
+        }
+    }
+    // 因为是在touchBegan这个方法中实现的功能,但我们启动优化并不需要touchBegan方法,因此去掉
+    [funcs removeObject:[NSString stringWithFormat:@"%s", __func__ ]];
+    
+    
+    // 将数组转换为string字符串
+    NSString *funcStr = [funcs componentsJoinedByString:@"\n"];
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingString:@"/pagefault.order"];
+    NSData *file = [funcStr dataUsingEncoding:NSUTF8StringEncoding];
+    BOOL result = [[NSFileManager defaultManager] createFileAtPath:filePath contents:file attributes:nil];
+    if (result) {
+        NSLog(@"%@",filePath);
+    }else{
+        NSLog(@"文件写入出错");
+    }
+}
+
+
 
 - (void)createView
 {

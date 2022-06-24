@@ -71,6 +71,9 @@ typedef BOOL (^HttpsCertCheckBlock)(void);
  */
 - (void)initializeData;
 
+/** 开启网络状态监听 */
+- (void)openNetMonitoring;
+
 #pragma mark -- 发送请求的方法
 
 /**

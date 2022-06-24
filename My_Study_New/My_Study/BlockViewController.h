@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PASBaseViewController.h"
+#import "ZWBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BlockViewController : PASBaseViewController
+@interface BlockViewController : ZWBaseViewController
 
 @end
 

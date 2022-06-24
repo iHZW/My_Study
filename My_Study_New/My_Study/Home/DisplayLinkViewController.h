@@ -8,11 +8,11 @@
 
 /** 保证调用频率和屏幕的刷新频率一致, 60Hz */
 
-#import "PASBaseViewController.h"
+#import "ZWBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DisplayLinkViewController : PASBaseViewController
+@interface DisplayLinkViewController : ZWBaseViewController
 
 @end
 

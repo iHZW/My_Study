@@ -2988,6 +2988,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3106,6 +3108,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3278,6 +3282,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3315,6 +3321,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
