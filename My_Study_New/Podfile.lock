@@ -16,6 +16,9 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
   - CocoaAsyncSocket (7.6.4)
+  - CocoaLumberjack (3.6.2):
+    - CocoaLumberjack/Core (= 3.6.2)
+  - CocoaLumberjack/Core (3.6.2)
   - CWLateralSlide (1.6.5)
   - DoraemonKit/Core (3.0.2)
   - FDFullscreenPopGesture (1.1)
@@ -79,6 +82,8 @@ PODS:
     - YYModel
   - SJUIKit/SQLite3/Protocol (0.0.0.58):
     - YYModel
+  - SVGKit (2.1.1):
+    - CocoaLumberjack (~> 3.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -104,6 +109,7 @@ DEPENDENCIES:
   - SAMKeychain (= 1.5.3)
   - SDWebImage (= 3.8.0)
   - SJBaseVideoPlayer (= 3.5.2)
+  - SVGKit (= 2.1.1)
   - YYKit
 
 SPEC REPOS:
@@ -111,6 +117,7 @@ SPEC REPOS:
     - AFNetworking
     - Alamofire
     - CocoaAsyncSocket
+    - CocoaLumberjack
     - CWLateralSlide
     - DoraemonKit
     - FDFullscreenPopGesture
@@ -128,6 +135,7 @@ SPEC REPOS:
     - SDWebImage
     - SJBaseVideoPlayer
     - SJUIKit
+    - SVGKit
     - YYKit
     - YYModel
 
@@ -135,6 +143,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
+  CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
   DoraemonKit: 8587e7a9aae0773dfc96707d2369d89d2a21b3d2
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
@@ -152,9 +161,10 @@ SPEC CHECKSUMS:
   SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
   SJBaseVideoPlayer: c8f2fdb374ec2c946c37b1f39eee24f0812a979b
   SJUIKit: 86d5b16f8b8b17274ef8805acf965e4014629e15
+  SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 7a45c6573fa4502efecf4c6328ca6a6913f30007
+PODFILE CHECKSUM: 504575e210d3d55c1f2509f72f5d6f01fa65b79c
 
 COCOAPODS: 1.11.2

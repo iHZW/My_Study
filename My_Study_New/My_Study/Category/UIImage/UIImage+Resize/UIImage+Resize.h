@@ -37,7 +37,7 @@
 /**
  *  缩放图片尺寸到指定Size
  *
- *  @param newSize
+ *  @param newSize 指定size
  *
  *  @return 返回缩放后图片
  */
@@ -46,7 +46,7 @@
 /**
  等比例缩放图片
 
- @param centerResizeImage 缩放比例
+ @param scaleSize  缩放比例
  @return 返回缩放后图片
  */
 - (UIImage *)scaleImageToScale:(CGFloat)scaleSize;
@@ -67,5 +67,8 @@
 + (UIImage *)scaleImage:(UIImage *)image scale:(CGFloat)factor;
 
 + (UIImage *)scaleImageNamed:(NSString *)name scale:(CGFloat)factor;
+
+
+
 
 @end

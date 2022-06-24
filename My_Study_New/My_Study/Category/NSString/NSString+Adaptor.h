@@ -16,6 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Adaptor)
 
 /**
+ 获取指定字体和显示宽度的文本显示size
+ 
+ @param text 要计算的文本内容
+ @param font 字体大小
+ @param width 指定显示宽度
+ @return 显示size
+ */
++ (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width;
+
+/**
  获取指定字体和显示宽度的文本显示高度
  
  @param text 要计算的文本内容

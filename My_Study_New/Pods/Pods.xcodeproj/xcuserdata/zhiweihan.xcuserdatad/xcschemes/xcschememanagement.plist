@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DoraemonKit-DoraemonKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -110,6 +115,11 @@
 			<false/>
 		</dict>
 		<key>SJUIKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SVGKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (Ext)
-+ (UIColor *) colorFromHexCode:(NSString *)hexString;
++ (UIColor *)colorFromHexCode:(NSString *)hexString;
 @end
 
 NS_ASSUME_NONNULL_END

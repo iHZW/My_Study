@@ -3,6 +3,7 @@ ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework
 ${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
+${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
 ${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework
 ${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework
@@ -17,5 +18,6 @@ ${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework
 ${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework
+${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework
 ${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework
 ${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework

@@ -80,6 +80,14 @@ typedef long long _int64;
  */
 #define kNumberFontName     @"ArialMT"         //数字字体名称
 #define kNumberBFontName     @"Arial-BoldMT"   //数字加粗字体名称
+
+#define kPFSemiboldFontName     @"PingFangSC-Semibold" //平方粗体
+#define kPFMediumFontName       @"PingFangSC-Medium" //平方中等字体
+#define kPFRegularFontName      @"PingFangSC-Regular" //平方常规体
+#define kPFLightFontName        @"PingFangSC-Light" //平方细体
+#define kDINABFontName          @"DINAlternate-Bold" //引文粗体
+#define kSFUITFontName          @"SFUIText-Regular" //英文常规格体
+
 #define PASFactor(x) [UIScreen finalScreenValue:x]
 #define PASSuitableFactor(x) [UIScreen suitableScreenValue:x]
 #define PASFont(s) [UIFont systemFontOfSize:s]

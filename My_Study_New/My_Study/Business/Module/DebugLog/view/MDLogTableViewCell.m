@@ -7,6 +7,7 @@
 //
 
 #import "MDLogTableViewCell.h"
+#import "NSString+Adaptor.h"
 
 #define kTitleBetweenSpace       5
 
@@ -69,6 +70,12 @@
 {
     _titleName = titleName;
     self.titleLabel.text = TransToString(titleName);
+    
+    CGFloat width = CGRectGetWidth(self.frame) - kCommonLeftSpace;
+    NSString *testStr = @"你好\n我是";
+    CGFloat twoLineHeight = [NSString getHeightWithText:testStr font:self.titleLabel.font width:width];
+    CGFloat titleLabelHeight = [NSString getHeightWithText:titleName font:self.titleLabel.font width:width];
+    self.titleLabel.numberOfLines = titleLabelHeight > twoLineHeight ? 2 : 1;
 }
 
 - (void)setSubTitleName:(NSString *)subTitleName

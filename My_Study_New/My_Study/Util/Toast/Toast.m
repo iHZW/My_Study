@@ -276,7 +276,8 @@ willShow:(nullable ToastBlock)showBlock
 }
 
 - (void)dealloc{
-    [LogUtil debug:@"Toast释放" flag:self.title context:self];
+    NSString *msg = [NSString stringWithFormat:@"Toast释放--%@", self.title];
+    [LogUtil debug:msg flag:self.title context:self];
 }
 
 

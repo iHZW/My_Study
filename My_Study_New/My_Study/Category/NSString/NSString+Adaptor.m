@@ -14,6 +14,19 @@
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 /**
+ 获取指定字体和显示宽度的文本显示size
+ 
+ @param text 要计算的文本内容
+ @param font 字体大小
+ @param width 指定显示宽度
+ @return 显示size
+ */
++ (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width
+{
+    return [text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil] context:nil].size;
+}
+
+/**
  获取指定字体和显示宽度的文本显示高度
  
  @param text 要计算的文本内容
@@ -23,7 +36,7 @@
  */
 + (CGFloat)getHeightWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width
 {
-    return  [text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil] context:nil].size.height;
+    return  [self getSizeWithText:text font:font width:width].height;
 }
 
 /**

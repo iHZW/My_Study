@@ -180,6 +180,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DoraemonKit/DoraemonKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
@@ -196,6 +197,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
@@ -204,6 +206,7 @@ if [[ "$CONFIGURATION" == "QA" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DoraemonKit/DoraemonKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
@@ -220,6 +223,7 @@ if [[ "$CONFIGURATION" == "QA" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
@@ -228,6 +232,7 @@ if [[ "$CONFIGURATION" == "QA_Dev" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DoraemonKit/DoraemonKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
@@ -244,6 +249,7 @@ if [[ "$CONFIGURATION" == "QA_Dev" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
@@ -252,6 +258,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework"
@@ -266,6 +273,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi

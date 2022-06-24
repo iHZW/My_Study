@@ -53,6 +53,8 @@ target 'My_Study' do
 #  pod 'WFUIKit', '0.0.3'
   
   pod 'YYKit'
+#  加载SVG图片资源使用
+  pod 'SVGKit', '2.1.1'
   
   pod 'KVOController', '1.2.0'
   

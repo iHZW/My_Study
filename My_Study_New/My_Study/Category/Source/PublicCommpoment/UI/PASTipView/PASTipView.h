@@ -16,14 +16,22 @@ typedef void(^PASTipViewBlock)(void);
 
 @interface PASTipView : UIView
 
-@property (nonatomic, assign) CGFloat tipIconHeight;            //< icon图标显示高度
-@property (nonatomic, assign) CGFloat tipInfoViewHeight;        //< 提示文字显示高度
-@property (nonatomic, assign) CGRect tipIconBGRect;             //< icon背景区域
-@property (nonatomic, copy) PASTipViewBlock tipViewBlock;       //< Block回调
-@property (nonatomic, assign) BOOL showIconBorder;              //< 显示icon的边缘
-@property (nonatomic, copy) NSString *tipInfo;      //< iconView的文字
+/** icon图标显示高度  */
+@property (nonatomic, assign) CGFloat tipIconHeight;
+/** 提示文字显示高度 */
+@property (nonatomic, assign) CGFloat tipInfoViewHeight;
+/** icon背景区域  */
+@property (nonatomic, assign) CGRect tipIconBGRect;
+/** Block回调  */
+@property (nonatomic, copy) PASTipViewBlock tipViewBlock;
+/** 显示icon的边缘  */
+@property (nonatomic, assign) BOOL showIconBorder;
+/** iconView的文字  */
+@property (nonatomic, copy) NSString *tipInfo;
+/** iconView  */
 @property (nonatomic, strong) UIImageView *tipIconView;
-@property (nonatomic, strong) UILabel *tipInfoView; /**< 文本view */
+/** 文本view  */
+@property (nonatomic, strong) UILabel *tipInfoView;
 
 - (instancetype)initWithFrame:(CGRect)frame tipImage:(UIImage *)tipImage tipInfo:(NSString *)tipInfo;
 

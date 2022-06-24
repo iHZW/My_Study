@@ -23,8 +23,10 @@
 // 创建原子队列需要导入头文件
 #import <libkern/OSAtomic.h>
 
+#import "AlertHead.h"
+#import "AlertDefaultCustomCenterView.h"
+#import "NSString+Adaptor.h"
 
-//#import <CWLateralSlide/UIViewController+CWLateralSlide.h>
 
 
 //#import "NSObjec+IQDataBinding.h"
@@ -117,6 +119,7 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
+    return;
     NSMutableArray<NSString *> * symbolNames = [NSMutableArray array];
     while (YES) {
         SYNode *node = OSAtomicDequeue(&symbolist, offsetof(SYNode, next));
@@ -164,8 +167,6 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
         NSLog(@"文件写入出错");
     }
 }
-
-
 
 - (void)createView
 {
@@ -224,14 +225,20 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     label.backgroundColor = [UIColor blueColor];
     label.textColor = [UIColor whiteColor];
     label.text = @"瞅一瞅";
+    label.userInteractionEnabled = YES;
     [self.view addSubview:label];
     
+
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(50);
         make.right.equalTo(self.view.mas_right).offset(-50);
         make.top.equalTo(self.view.mas_top).offset(150);
         make.height.mas_equalTo(200);
     }];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    [label addGestureRecognizer:tap];
+    
     
     BGView *subView = [[BGView alloc] initWithFrame:CGRectMake(100, 500, kMainScreenWidth - 200, 100)];
     
@@ -243,6 +250,84 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     
 }
 
+- (void)tapAction
+{
+    /** UIAlertUtil  */
+//    [self showUIAlertUtil];
+    
+    /** PACustomAlertManage  */
+//    UIView *view = [UIView viewForColor:[UIColor greenColor] withFrame:CGRectMake(0, 0, 200, 200)];
+//    [PACustomAlertManage showAlertView:view bolShowNav:NO offseth:100];
+    
+
+    /** AlertView  */
+    [self showAlertView];
+    
+}
+
+- (void)showAlertView
+{
+    BOOL isExistCenterView = YES;
+    AlertView *alertView = [[AlertView alloc] init];
+    alertView.title = @"温馨提示";
+    if (isExistCenterView) {
+        CGFloat popWidth = kMainScreenWidth - 48*2;
+        NSString *titleName = kAlertDefaultTitleString;
+        CGFloat titleHeight = [NSString getHeightWithText:titleName font:kAlertDefaultTitleFont width:popWidth - kAlertTitleLabelLeftSpace*2];
+        NSString *msg = kAlertDefaultMsgString;
+        CGFloat msgHeight = [NSString getHeightWithText:msg font:kAlertDefaultTitleFont width:popWidth - kAlertTitleLabelLeftSpace*2];
+        
+        CGFloat popHeight = 16 + titleHeight + 8 + msgHeight;
+        alertView.customCenterViewBlock = ^UIView * _Nonnull{
+            AlertDefaultCustomCenterView * pop = [[AlertDefaultCustomCenterView alloc] initWithFrame:CGRectMake(0, 0, popWidth, popHeight)];
+            pop.titleName = titleName;
+            pop.titleFont = kAlertDefaultTitleFont;
+            pop.titleColor = UIColorFromRGB(0x333333);
+            pop.msg = msg;
+            pop.msgFont = kAlertDefaultMsgFont;
+            pop.msgColor = UIColorFromRGB(0xFF4266);
+            return pop;
+        };
+    } else {
+        alertView.messageFont = PASFont(12);
+        alertView.message = @"同意<a href='https://www.baidu.com'>《销氪用户协议》</a>、<a href='https://github.com/iHZW'>《销氪个人信息保护政策》</a>和<a href='https://github.com/iHZW/HZWDemo'>《HZWDemo》</a>";
+    }
+
+    @pas_weakify_self
+    alertView.actions = @[
+        [AlertAction defaultCancelAction:@"取消" clickCallback:^{
+            [alertView hidden];
+        }],
+        [AlertAction defaultConfirmAction:@"确认" clickCallback:^{
+            @pas_strongify_self
+
+            [alertView hidden];
+        }]
+    ];
+    [alertView show];
+}
+
+- (void)showUIAlertUtil
+{
+    [UIAlertUtil showAlertTitle:@"温馨提示" message:@"确定删除吗?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] actionBlock:^(NSInteger index) {
+        
+        switch (index) {
+            case 0:
+            {
+                /** 取消  */
+            }
+                break;
+            case 1:
+            {
+                /** 确定  */
+            }
+                break;
+                
+            default:
+                break;
+        }
+    } superVC:self];
+}
 
 
 - (UILabel *)nameLabel
