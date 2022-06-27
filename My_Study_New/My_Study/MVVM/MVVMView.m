@@ -9,9 +9,8 @@
 #import "MVVMView.h"
 #import <KVOController/KVOController.h>
 #import <Masonry/Masonry.h>
-#import <SDWebImage/SDWebImageDecoder.h>
+#import "SDImageCoderHelper.h"
 #import <ReactiveObjC/ReactiveObjC.h>
-#import <SDWebImage/SDWebImageDecoder.h>
 
 @interface MVVMView ()
 
@@ -39,7 +38,7 @@
         
         [RACObserve(self, imageName) subscribeNext:^(id  _Nullable x) {
             @pas_strongify_self
-            self.imageView.image = [UIImage decodedImageWithImage:[UIImage imageNamed:x]];
+            self.imageView.image = [SDImageCoderHelper decodedImageWithImage:[UIImage imageNamed:x]];
         }];
                 
 //        [self.KVOController observe:viewModel keyPath:@"mvvmModel.name" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
@@ -123,7 +122,7 @@
     
     [self.KVOController observe:viewModel keyPath:@"mvvmModel.imageName" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
         NSString *imageName = change[NSKeyValueChangeNewKey];
-        self.imageView.image = [UIImage decodedImageWithImage:[UIImage imageNamed:imageName]];//[[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.imageView.image = [SDImageCoderHelper decodedImageWithImage:[UIImage imageNamed:imageName]];//[[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }];    
     
 }

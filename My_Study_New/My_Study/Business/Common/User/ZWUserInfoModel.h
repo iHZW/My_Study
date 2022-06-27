@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWUserInfoModel : NSObject<NSSecureCoding>
 
+/** 登陆成功的公司id */
+@property (nonatomic, assign) long long pid;
+/** 登陆用户id */
+@property (nonatomic, assign) long long userWid;
+
 @property (nonatomic, copy) NSString *tradeType;
 @property (nonatomic, copy) NSString *account;
 @property (nonatomic, copy) NSString *password;
@@ -46,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *growthValue;//成长值
 
 @property (nonatomic, strong) NSMutableArray *accountMutArray;
+
+// 是否是游客
+- (BOOL)isVisitor;
 
 @end
 

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SingletonTemplate.h"
 #import "HttpClient.h"
+#import "RouterParam.h"
+#import "RouterPageModel.h"
 
 #define ZWM   [ModuleContainer sharedModuleContainer]
 
@@ -21,6 +23,22 @@ DEFINE_SINGLETON_T_FOR_HEADER(ModuleContainer)
 @property (nonatomic, strong, readonly) HttpClient *http;
 
 - (void)registerConfig;
+
+/**
+ *  根据路由查找 RouterParam
+ *
+ *  @param route    路由
+ *
+ */
+- (RouterParam *)findRouterParam:(NSString *)route;
+
+/**
+ *  根据类名查找 RouterPageConfig
+ *
+ *  @param clsName    类名
+ *
+ */
+- (RouterPageConfig *)findRouterPageConfig:(NSString *)clsName;
 
 @end
 

@@ -35,9 +35,9 @@ PODS:
   - PINCache (2.3)
   - ReactiveObjC (3.1.1)
   - SAMKeychain (1.5.3)
-  - SDWebImage (3.8.0):
-    - SDWebImage/Core (= 3.8.0)
-  - SDWebImage/Core (3.8.0)
+  - SDWebImage (5.9.5):
+    - SDWebImage/Core (= 5.9.5)
+  - SDWebImage/Core (5.9.5)
   - SJBaseVideoPlayer (3.5.2):
     - Masonry
     - SJBaseVideoPlayer/AVPlayer (= 3.5.2)
@@ -107,7 +107,7 @@ DEPENDENCIES:
   - PINCache (= 2.3)
   - ReactiveObjC (= 3.1.1)
   - SAMKeychain (= 1.5.3)
-  - SDWebImage (= 3.8.0)
+  - SDWebImage (= 5.9.5)
   - SJBaseVideoPlayer (= 3.5.2)
   - SVGKit (= 2.1.1)
   - YYKit
@@ -158,13 +158,13 @@ SPEC CHECKSUMS:
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
-  SDWebImage: 7d9fe229266696de91eadf840c77ca15efd4bbd2
+  SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
   SJBaseVideoPlayer: c8f2fdb374ec2c946c37b1f39eee24f0812a979b
   SJUIKit: 86d5b16f8b8b17274ef8805acf965e4014629e15
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 504575e210d3d55c1f2509f72f5d6f01fa65b79c
+PODFILE CHECKSUM: b64b405f6b487308b5ecc8002ea084e49b2a2d57
 
 COCOAPODS: 1.11.2

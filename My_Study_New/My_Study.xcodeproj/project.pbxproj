@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0287B228695304003E723E /* RouterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B128695304003E723E /* RouterParam.m */; };
+		4E0287B628695512003E723E /* RouterPageConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B528695512003E723E /* RouterPageConfig.m */; };
+		4E0287BA28698887003E723E /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B928698887003E723E /* ApplicationViewController.m */; };
+		4E0287BD28698899003E723E /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287BC28698899003E723E /* FindViewController.m */; };
+		4E0287C0286988A3003E723E /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287BF286988A3003E723E /* PersonalViewController.m */; };
+		4E0287C328698BC9003E723E /* RouterPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287C228698BC9003E723E /* RouterPageModel.m */; };
+		4E0287C928698ED1003E723E /* NSObject+Params.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287C828698ED1003E723E /* NSObject+Params.m */; };
+		4E0287CC28699383003E723E /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287CB28699383003E723E /* LaunchViewController.m */; };
+		4E0287D0286993C9003E723E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287CF286993C9003E723E /* LoginViewController.m */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -18,6 +27,7 @@
 		4E403F9C2865B172006C0656 /* bg_login.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4E403F9B2865B172006C0656 /* bg_login.svg */; };
 		4E403FA02865B2A1006C0656 /* UIView+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F9F2865B2A1006C0656 /* UIView+SVG.m */; };
 		4E403FA42865C461006C0656 /* UIAlertAction+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA22865C461006C0656 /* UIAlertAction+Ext.m */; };
+		4E403FA92865FA32006C0656 /* CustomTabbarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA82865FA32006C0656 /* CustomTabbarObject.m */; };
 		4E4D95DE27D6FAFD0019061E /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */; };
 		4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B4285B85F700DEC9CC /* DateUtil.m */; };
 		4E7427BA285B864900DEC9CC /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B8285B864900DEC9CC /* Toast.m */; };
@@ -34,6 +44,11 @@
 		4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E227D72E3200422BAE /* CRMViewController.m */; };
 		4EA737E627D7351400422BAE /* AppLaunchTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E527D7351400422BAE /* AppLaunchTime.m */; };
 		4EA737EA27D7400800422BAE /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E927D7400800422BAE /* bgView.swift */; };
+		4EAAD80B2866B82B003D43FF /* UITabBar+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD80A2866B82B003D43FF /* UITabBar+Ext.m */; };
+		4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD80D2866BC5F003D43FF /* TabbarConfig.m */; };
+		4EAAD8112866C39A003D43FF /* TabIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD8102866C39A003D43FF /* TabIndexManager.m */; };
+		4EAAD8182868B208003D43FF /* ZWCommonWebPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD8172868B208003D43FF /* ZWCommonWebPage.m */; };
+		4EAAD81B2868B223003D43FF /* ZWWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD81A2868B223003D43FF /* ZWWebView.m */; };
 		4EC6B28B28607FF400F57AAC /* SystemInfoFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B28928607FF400F57AAC /* SystemInfoFunc.m */; };
 		4EC6B2912860807300F57AAC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B28D2860807300F57AAC /* Reachability.m */; };
 		4EC6B2922860807300F57AAC /* Reachability+IPV6Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B28E2860807300F57AAC /* Reachability+IPV6Extention.m */; };
@@ -160,7 +175,6 @@
 		4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB865285EBA0100FD49A9 /* NSString+URLEncode.m */; };
 		4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */; };
 		7957CF6A9DB8747D5A3589AB /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */; };
-		7C0DC0B72439C721003742DA /* AppDelegate+Main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0B62439C721003742DA /* AppDelegate+Main.m */; };
 		7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */; };
 		7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AA26E10FB400CD1422 /* WFThread.m */; };
 		7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AD26E1145400CD1422 /* RunLoopViewController.m */; };
@@ -278,6 +292,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0287B028695304003E723E /* RouterParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterParam.h; sourceTree = "<group>"; };
+		4E0287B128695304003E723E /* RouterParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterParam.m; sourceTree = "<group>"; };
+		4E0287B3286954DD003E723E /* RouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterConstants.h; sourceTree = "<group>"; };
+		4E0287B428695512003E723E /* RouterPageConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterPageConfig.h; sourceTree = "<group>"; };
+		4E0287B528695512003E723E /* RouterPageConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterPageConfig.m; sourceTree = "<group>"; };
+		4E0287B828698887003E723E /* ApplicationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
+		4E0287B928698887003E723E /* ApplicationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
+		4E0287BB28698899003E723E /* FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		4E0287BC28698899003E723E /* FindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
+		4E0287BE286988A3003E723E /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		4E0287BF286988A3003E723E /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		4E0287C128698BC9003E723E /* RouterPageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterPageModel.h; sourceTree = "<group>"; };
+		4E0287C228698BC9003E723E /* RouterPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterPageModel.m; sourceTree = "<group>"; };
+		4E0287C728698ED1003E723E /* NSObject+Params.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Params.h"; sourceTree = "<group>"; };
+		4E0287C828698ED1003E723E /* NSObject+Params.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Params.m"; sourceTree = "<group>"; };
+		4E0287CA28699383003E723E /* LaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		4E0287CB28699383003E723E /* LaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
+		4E0287CE286993C9003E723E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4E0287CF286993C9003E723E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -299,6 +332,8 @@
 		4E403FA22865C461006C0656 /* UIAlertAction+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertAction+Ext.m"; sourceTree = "<group>"; };
 		4E403FA32865C461006C0656 /* UIAlertAction+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertAction+Ext.h"; sourceTree = "<group>"; };
 		4E403FA52865C51B006C0656 /* AlertHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertHead.h; sourceTree = "<group>"; };
+		4E403FA72865FA32006C0656 /* CustomTabbarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabbarObject.h; sourceTree = "<group>"; };
+		4E403FA82865FA32006C0656 /* CustomTabbarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarObject.m; sourceTree = "<group>"; };
 		4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCfamilly.h; sourceTree = "<group>"; };
 		4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCfamilly.m; sourceTree = "<group>"; };
 		4E7427B4285B85F700DEC9CC /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
@@ -333,6 +368,16 @@
 		4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oc_swift_bridging_header.h; sourceTree = "<group>"; };
 		4EA737E827D7400800422BAE /* My_Study-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "My_Study-Bridging-Header.h"; sourceTree = "<group>"; };
 		4EA737E927D7400800422BAE /* bgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
+		4EAAD8092866B82B003D43FF /* UITabBar+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Ext.h"; sourceTree = "<group>"; };
+		4EAAD80A2866B82B003D43FF /* UITabBar+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Ext.m"; sourceTree = "<group>"; };
+		4EAAD80C2866BC5F003D43FF /* TabbarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarConfig.h; sourceTree = "<group>"; };
+		4EAAD80D2866BC5F003D43FF /* TabbarConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarConfig.m; sourceTree = "<group>"; };
+		4EAAD80F2866C39A003D43FF /* TabIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabIndexManager.h; sourceTree = "<group>"; };
+		4EAAD8102866C39A003D43FF /* TabIndexManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabIndexManager.m; sourceTree = "<group>"; };
+		4EAAD8162868B208003D43FF /* ZWCommonWebPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWCommonWebPage.h; sourceTree = "<group>"; };
+		4EAAD8172868B208003D43FF /* ZWCommonWebPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWCommonWebPage.m; sourceTree = "<group>"; };
+		4EAAD8192868B223003D43FF /* ZWWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWWebView.h; sourceTree = "<group>"; };
+		4EAAD81A2868B223003D43FF /* ZWWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWWebView.m; sourceTree = "<group>"; };
 		4EC6B28928607FF400F57AAC /* SystemInfoFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemInfoFunc.m; sourceTree = "<group>"; };
 		4EC6B28A28607FF400F57AAC /* SystemInfoFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfoFunc.h; sourceTree = "<group>"; };
 		4EC6B28D2860807300F57AAC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -549,8 +594,6 @@
 		4EEEB865285EBA0100FD49A9 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DataTransition.m"; sourceTree = "<group>"; };
 		6673E1F39FAA1E5AC4AD2DD9 /* Pods-My_Study.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa_dev.xcconfig"; sourceTree = "<group>"; };
-		7C0DC0B52439C721003742DA /* AppDelegate+Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Main.h"; sourceTree = "<group>"; };
-		7C0DC0B62439C721003742DA /* AppDelegate+Main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Main.m"; sourceTree = "<group>"; };
 		7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WFObserver.h"; sourceTree = "<group>"; };
 		7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WFObserver.m"; sourceTree = "<group>"; };
 		7C18D4A926E10FB400CD1422 /* WFThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFThread.h; sourceTree = "<group>"; };
@@ -833,6 +876,36 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4E0287AF286952EB003E723E /* router */ = {
+			isa = PBXGroup;
+			children = (
+				4E0287B3286954DD003E723E /* RouterConstants.h */,
+				4E0287B028695304003E723E /* RouterParam.h */,
+				4E0287B128695304003E723E /* RouterParam.m */,
+				4E0287B428695512003E723E /* RouterPageConfig.h */,
+				4E0287B528695512003E723E /* RouterPageConfig.m */,
+				4E0287C128698BC9003E723E /* RouterPageModel.h */,
+				4E0287C228698BC9003E723E /* RouterPageModel.m */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		4E0287C428698E64003E723E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4E0287CD286993C0003E723E /* login */ = {
+			isa = PBXGroup;
+			children = (
+				4E0287CE286993C9003E723E /* LoginViewController.h */,
+				4E0287CF286993C9003E723E /* LoginViewController.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
 		4E403F7D2865A994006C0656 /* HTMLLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,6 +990,21 @@
 				4E403FA22865C461006C0656 /* UIAlertAction+Ext.m */,
 			);
 			path = UIAlertAction;
+			sourceTree = "<group>";
+		};
+		4E403FA62865FA15006C0656 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4E403FA72865FA32006C0656 /* CustomTabbarObject.h */,
+				4E403FA82865FA32006C0656 /* CustomTabbarObject.m */,
+				4EAAD8092866B82B003D43FF /* UITabBar+Ext.h */,
+				4EAAD80A2866B82B003D43FF /* UITabBar+Ext.m */,
+				4EAAD80C2866BC5F003D43FF /* TabbarConfig.h */,
+				4EAAD80D2866BC5F003D43FF /* TabbarConfig.m */,
+				4EAAD80F2866C39A003D43FF /* TabIndexManager.h */,
+				4EAAD8102866C39A003D43FF /* TabIndexManager.m */,
+			);
+			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
 		4E7427B2285B85F700DEC9CC /* Util */ = {
@@ -1018,6 +1106,17 @@
 			path = NSURLRequest;
 			sourceTree = "<group>";
 		};
+		4EAAD8152868B208003D43FF /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				4EAAD8162868B208003D43FF /* ZWCommonWebPage.h */,
+				4EAAD8172868B208003D43FF /* ZWCommonWebPage.m */,
+				4EAAD8192868B223003D43FF /* ZWWebView.h */,
+				4EAAD81A2868B223003D43FF /* ZWWebView.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		4EC6B28828607FF400F57AAC /* SystemInfoLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1048,6 +1147,12 @@
 				4EA737E227D72E3200422BAE /* CRMViewController.m */,
 				7C459A2A2295557300667813 /* ViewController.h */,
 				7C459A2B2295557300667813 /* ViewController.m */,
+				4E0287B828698887003E723E /* ApplicationViewController.h */,
+				4E0287B928698887003E723E /* ApplicationViewController.m */,
+				4E0287BB28698899003E723E /* FindViewController.h */,
+				4E0287BC28698899003E723E /* FindViewController.m */,
+				4E0287BE286988A3003E723E /* PersonalViewController.h */,
+				4E0287BF286988A3003E723E /* PersonalViewController.m */,
 			);
 			path = TabsIndexVc;
 			sourceTree = "<group>";
@@ -1073,6 +1178,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E0287CD286993C0003E723E /* login */,
 				4E403F962865B15F006C0656 /* Resource */,
 				4EC6B39B2861BD9200F57AAC /* DrawerRelated */,
 				4EC6B2C42861B12900F57AAC /* LaunchGuide */,
@@ -1364,14 +1470,14 @@
 		4EC6B3452861B12A00F57AAC /* DataFormatterFunc */ = {
 			isa = PBXGroup;
 			children = (
-				4EC6B3462861B12A00F57AAC /* DataFormatterFunc+Market.h */,
-				4EC6B3472861B12A00F57AAC /* DataFormatterFunc.h */,
 				4EC6B3482861B12A00F57AAC /* DataFormatter.h */,
-				4EC6B3492861B12A00F57AAC /* DataFormatterFunc+RegularExpression.h */,
-				4EC6B34A2861B12A00F57AAC /* DataFormatterFunc+JSON.m */,
+				4EC6B3462861B12A00F57AAC /* DataFormatterFunc+Market.h */,
 				4EC6B34B2861B12A00F57AAC /* DataFormatterFunc+Market.m */,
+				4EC6B3472861B12A00F57AAC /* DataFormatterFunc.h */,
 				4EC6B34C2861B12A00F57AAC /* DataFormatterFunc.m */,
 				4EC6B34D2861B12A00F57AAC /* DataFormatterFunc+JSON.h */,
+				4EC6B34A2861B12A00F57AAC /* DataFormatterFunc+JSON.m */,
+				4EC6B3492861B12A00F57AAC /* DataFormatterFunc+RegularExpression.h */,
 				4EC6B34E2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m */,
 			);
 			path = DataFormatterFunc;
@@ -1575,6 +1681,8 @@
 				7C4EEFFD2303948E0040DA7A /* NSObject+UUID.m */,
 				7C4EEFFC2303948E0040DA7A /* NSObject+KeyedArchiver.h */,
 				7C4EEFF92303948E0040DA7A /* NSObject+KeyedArchiver.m */,
+				4E0287C728698ED1003E723E /* NSObject+Params.h */,
+				4E0287C828698ED1003E723E /* NSObject+Params.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -1611,6 +1719,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				4E0287C428698E64003E723E /* Extension */,
 				4EDC09692862C43D001C53CE /* PublicComponent */,
 				4EC6B2C32861B12900F57AAC /* Business */,
 				4EC6B293286097BF00F57AAC /* TabsIndexVc */,
@@ -1627,14 +1736,14 @@
 				7C49F5DB229BDA9B00D8D62C /* TestMVVM */,
 				7C459A272295557300667813 /* AppDelegate.h */,
 				4ECE44242859BFAA00326287 /* AppDelegate.m */,
+				4E0287CA28699383003E723E /* LaunchViewController.h */,
+				4E0287CB28699383003E723E /* LaunchViewController.m */,
 				4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */,
 				4EA737E927D7400800422BAE /* bgView.swift */,
 				4EA7263D27D75CA60060BDBA /* customerView.swift */,
 				4EA7263F27D767640060BDBA /* BWNetworkingService.swift */,
 				4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */,
 				7CAE2ACB26DBD90300100FA0 /* MJClassInfo.h */,
-				7C0DC0B52439C721003742DA /* AppDelegate+Main.h */,
-				7C0DC0B62439C721003742DA /* AppDelegate+Main.m */,
 				4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */,
 				4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */,
 				7C879B1826E65B260051018B /* MVVM */,
@@ -1810,6 +1919,7 @@
 		7C4EF02B2303FF9F0040DA7A /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				4E0287AF286952EB003E723E /* router */,
 				7C4EF02C2303FFF30040DA7A /* SchemeProtocols */,
 			);
 			path = Router;
@@ -2532,6 +2642,7 @@
 		7CA7682522FE95C1009E473E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4EAAD8152868B208003D43FF /* WebView */,
 				7C652BF6230171B2007BBDD2 /* BaseTableViewController.h */,
 				7C652BF8230171B3007BBDD2 /* BaseTableViewController.m */,
 				7CA7682722FE95C1009E473E /* ZWBaseViewController.h */,
@@ -2540,6 +2651,7 @@
 				4EEC47D1285AD4190047F8B6 /* ZWNavigationController.m */,
 				4EEC47D3285AD4550047F8B6 /* ZWTabBarController.h */,
 				4EEC47D4285AD4550047F8B6 /* ZWTabBarController.m */,
+				4E403FA62865FA15006C0656 /* CustomTabBar */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2745,10 +2857,12 @@
 				7CB1A2F426E47E3D00D450CE /* PThread_rwLock.m in Sources */,
 				7C4EEFFF2303948E0040DA7A /* CMObject.m in Sources */,
 				7C4EF06C230405030040DA7A /* UIButton+Navigation.m in Sources */,
+				4E0287D0286993C9003E723E /* LoginViewController.m in Sources */,
 				4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */,
 				4EDC0B6A286308D6001C53CE /* NSMutableSet+Safe.m in Sources */,
 				4EC6B3902861B12A00F57AAC /* ZWDataParsing.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
+				4E0287C928698ED1003E723E /* NSObject+Params.m in Sources */,
 				4E403FA42865C461006C0656 /* UIAlertAction+Ext.m in Sources */,
 				4E4D95DE27D6FAFD0019061E /* EOCfamilly.m in Sources */,
 				7C8AAE5F22E985ED00589862 /* CALayer+Helper.m in Sources */,
@@ -2787,20 +2901,22 @@
 				7C8AAE5322E9856400589862 /* UIView+Create.m in Sources */,
 				7C4EF0012303948E0040DA7A /* NSObject+Customizer.m in Sources */,
 				4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */,
+				4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */,
 				7C4EF070230405030040DA7A /* UIButton+Custom.m in Sources */,
 				7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
 				7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */,
 				7C91253526DA67B20030A5F3 /* BlockViewController.m in Sources */,
-				7C0DC0B72439C721003742DA /* AppDelegate+Main.m in Sources */,
 				7C879B1E26E65B860051018B /* MVVMModel.m in Sources */,
 				4EDC09732862E8F2001C53CE /* CMBusMediaAppDelegate.m in Sources */,
 				7C4F93C02302B11900F2238E /* PASTitleView.m in Sources */,
 				4E403F922865B024006C0656 /* AlertDefaultCustomCenterView.m in Sources */,
 				7C4EF043230400640040DA7A /* CMMultiLayerNavigationController.m in Sources */,
 				7C4EEFEF230393450040DA7A /* PASBorderBackgroundView.m in Sources */,
+				4EAAD81B2868B223003D43FF /* ZWWebView.m in Sources */,
 				7C4EF00E230394FA0040DA7A /* CMNotificationCenter.m in Sources */,
 				4EC6B39F2861BF0800F57AAC /* LeftDrawerDataLoader.m in Sources */,
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
+				4E0287CC28699383003E723E /* LaunchViewController.m in Sources */,
 				4EC6B3772861B12A00F57AAC /* UIImage+XYGif.m in Sources */,
 				4EC6B3992861B12A00F57AAC /* DataFormatterFunc.m in Sources */,
 				4EC6B38A2861B12A00F57AAC /* JSONUtil.m in Sources */,
@@ -2825,6 +2941,7 @@
 				7C4F93DC2302B39300F2238E /* PASTwoListView.m in Sources */,
 				4EC6B3962861B12A00F57AAC /* ZWDataCache.m in Sources */,
 				4EDC0B69286308D6001C53CE /* NSNull+Safe.m in Sources */,
+				4E0287C0286988A3003E723E /* PersonalViewController.m in Sources */,
 				7C879B1026E64DF10051018B /* TestPresenter.m in Sources */,
 				4EDC0B63286308D6001C53CE /* NSString+Safe.m in Sources */,
 				7C4EF0222303A2C00040DA7A /* PASBaseViewController+PASNavigatorButton.m in Sources */,
@@ -2840,7 +2957,9 @@
 				4EC6B3792861B12A00F57AAC /* XYIntroductionPage.m in Sources */,
 				7C8AAE5422E9856400589862 /* CAAnimation+Animation.m in Sources */,
 				7C8032F826C416A2005F4BF7 /* IQViewModel+Eat.m in Sources */,
+				4E0287B228695304003E723E /* RouterParam.m in Sources */,
 				4EC6B3922861B12A00F57AAC /* ZWHttpResponseData.m in Sources */,
+				4E0287BD28698899003E723E /* FindViewController.m in Sources */,
 				4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */,
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
 				7C459A2C2295557300667813 /* ViewController.m in Sources */,
@@ -2848,6 +2967,8 @@
 				4EC6B2922860807300F57AAC /* Reachability+IPV6Extention.m in Sources */,
 				4E403F932865B024006C0656 /* AlertView.m in Sources */,
 				7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */,
+				4EAAD8112866C39A003D43FF /* TabIndexManager.m in Sources */,
+				4EAAD8182868B208003D43FF /* ZWCommonWebPage.m in Sources */,
 				4E403F952865B024006C0656 /* AlertUtil.m in Sources */,
 				4EDC0B5F286308D6001C53CE /* NSCache+Safe.m in Sources */,
 				7C4F93E32302B39300F2238E /* PASBorderTableViewCell.m in Sources */,
@@ -2857,12 +2978,14 @@
 				7C4EF01F2303A2C00040DA7A /* PASSegmentViewController.m in Sources */,
 				4EC6B39A2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m in Sources */,
 				7C652BFA230171B3007BBDD2 /* BaseCellModel.m in Sources */,
+				4E0287BA28698887003E723E /* ApplicationViewController.m in Sources */,
 				4E403FA02865B2A1006C0656 /* UIView+SVG.m in Sources */,
 				7C4F93DF2302B39300F2238E /* PASListRightCell.m in Sources */,
 				7C4EF04E230402F80040DA7A /* CMScrollSegmentControl.m in Sources */,
 				4EC6B3B12862B50A00F57AAC /* LeftDrawerModel.m in Sources */,
 				4EDC0B64286308D6001C53CE /* WMSafeProxy.m in Sources */,
 				4EC6B38B2861B12A00F57AAC /* AppLogPlugin.m in Sources */,
+				4E403FA92865FA32006C0656 /* CustomTabbarObject.m in Sources */,
 				4EC6B37C2861B12A00F57AAC /* MDFileManager.m in Sources */,
 				4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */,
 				7C4F93DB2302B39300F2238E /* PASBaseTableView.m in Sources */,
@@ -2870,6 +2993,7 @@
 				4EC6B3A72861D26500F57AAC /* ZWUserAccountManager.m in Sources */,
 				7C4EF050230402F80040DA7A /* CMSegmentViewController.m in Sources */,
 				7CB1A2FA26E4869B00D450CE /* DisplayLinkViewController.m in Sources */,
+				4E0287B628695512003E723E /* RouterPageConfig.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
 				4EEC47D2285AD4190047F8B6 /* ZWNavigationController.m in Sources */,
 				7C4EF0002303948E0040DA7A /* NSObject+KeyedArchiver.m in Sources */,
@@ -2917,6 +3041,7 @@
 				7CA7682822FE95C1009E473E /* ZWBaseViewController.m in Sources */,
 				7C4EF074230405420040DA7A /* CommonStyleFunc.m in Sources */,
 				4EC6B3882861B12A00F57AAC /* ConsoleAppender.m in Sources */,
+				4EAAD80B2866B82B003D43FF /* UITabBar+Ext.m in Sources */,
 				4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */,
 				4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */,
 				7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */,
@@ -2947,6 +3072,7 @@
 				4EC6B2C22861A84400F57AAC /* MBProgressHUD.m in Sources */,
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
+				4E0287C328698BC9003E723E /* RouterPageModel.m in Sources */,
 				7C4EF06F230405030040DA7A /* UIButton+Block.m in Sources */,
 				4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */,
 				7C8AAE5922E9859F00589862 /* UIGestureRecognizer+Block.m in Sources */,

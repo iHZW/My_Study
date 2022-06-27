@@ -13,7 +13,6 @@
 //#import "TwoPageViewController.h"
 #import "CRMViewController.h"
 #import "AppLaunchTime.h"
-#import "VersionUpgradeViewController.h"
 #import "ZWNavigationController.h"
 #import "ModuleContainer.h"
 #import "CMBusMediaAppDelegate.h"
@@ -50,42 +49,11 @@
     
     [CMBusMediaAppDelegate serviceManager:@selector(application:didFinishLaunchingWithOptions:) withParameters:@[application, launchOptions ? : [NSNull null]]];
     
-//    [LogUtil debug:@"====== 开始登录 - Login" flag:@"登录" context:self];
-//    [LogUtil info:@"====== 正在登录 - Login" flag:@"登录" context:self];
-//    [LogUtil warn:@"====== 记得登录 - Login" flag:@"登录" context:self];
-//    [LogUtil error:@"====== 登录失败 - Login" flag:@"登录失败" context:self];
-
-    /* 判断是否加载引导页 */
-    if (![VersionUpgradeViewController isFirstStartApp]) {
-        [self loadGuidePage];
-    } else {
-        [self loadSubViewControllers];
-    }
-    
-    [self.window makeKeyAndVisible];
-    
     /* 取消约束警告 */
 //    [[NSUserDefaults standardUserDefaults] setValue:@(false) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
     return YES;
 }
 
-- (void)loadGuidePage{
-    VersionUpgradeViewController *vc = [[VersionUpgradeViewController alloc] init];
-    @pas_weakify_self
-    
-//    vc.loadLoginBlock = ^{
-//      @pas_strongify_self
-//        /* 加载登录页 */
-//    };
-    vc.guideCompleteBlock = ^(NSInteger index, GuideActionType type) {
-        @pas_strongify_self
-        /* 引导完成 */
-        
-        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
-        [self loadSubViewControllers];
-    };
-    self.window.rootViewController = vc;
-}
 
 - (void)loadSubViewControllers
 {

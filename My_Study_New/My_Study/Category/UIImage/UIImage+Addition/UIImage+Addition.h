@@ -29,6 +29,7 @@ typedef enum  {
 + (UIImage*)imageWithColor:(UIColor *)color;
 + (UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size;
 + (UIImage*)imageWithColor:(UIColor *)color size:(CGSize)size alpha:(CGFloat)alpha;
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size andRoundSize:(CGFloat)roundSize;
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 
 + (UIImage*)imageWithPointNum:(NSInteger)num radius:(CGFloat)radius space:(CGFloat)space color:(UIColor*)color;

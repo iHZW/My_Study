@@ -62,13 +62,28 @@
 
 + (UIImage *)retinaImageNamed:(NSString *)name;
 
-+ (UIImage *)scaleImageNamed:(NSString *)name scale:(CGFloat)factor bundle:(NSBundle *)bundle;
++ (UIImage *)scaleImageNamed:(NSString *)name
+                       scale:(CGFloat)factor
+                      bundle:(NSBundle *)bundle;
 
 + (UIImage *)scaleImage:(UIImage *)image scale:(CGFloat)factor;
 
 + (UIImage *)scaleImageNamed:(NSString *)name scale:(CGFloat)factor;
 
 
+/**
+ 压缩图片到指定大小(单位KB)
+ */
++ (NSData *)resetSizeOfImageData:(UIImage *)sourceImage maxSize:(NSInteger)maxSize;
 
+/**
+ 调整图片分辨率/尺寸（等比例缩放）
+ */
++ (UIImage *)newSizeImage:(CGSize)size image:(UIImage *)sourceImage;
+
+/**
+ 调整图片分辨率/尺寸（供tabbar 适用， 从上面newSizeImage 方法修改而来）
+ */
++ (UIImage *)tabbarSizeImage:(CGSize)size image:(UIImage *)sourceImage;
 
 @end

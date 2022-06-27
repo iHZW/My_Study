@@ -33,4 +33,9 @@ MJExtensionCodingImplementation
     return YES;
 }
 
+// 是否是游客
+- (BOOL)isVisitor{
+    return NO;
+}
+
 @end
