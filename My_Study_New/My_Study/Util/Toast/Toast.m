@@ -76,12 +76,13 @@
 + (Toast *)show:(nullable UIImage *)icon
             msg:(NSString *)message
   numberOfLines:(NSInteger)numberOfLines
-duration:(NSTimeInterval)duration
-position:(ToastPosition)position
- adjustY:(CGFloat)adjustY
-  inView:(nullable UIView *)parentView
-willShow:(nullable ToastBlock)showBlock
-         finish:(nullable ToastBlock)finishBlock{
+       duration:(NSTimeInterval)duration
+       position:(ToastPosition)position
+        adjustY:(CGFloat)adjustY
+         inView:(nullable UIView *)parentView
+       willShow:(nullable ToastBlock)showBlock
+         finish:(nullable ToastBlock)finishBlock
+{
     if ((![message isKindOfClass:[NSString class]] || message.length <= 0) && icon == nil) {
            return nil;
        }

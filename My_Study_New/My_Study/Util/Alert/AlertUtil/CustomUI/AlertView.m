@@ -54,6 +54,7 @@
 
 - (void)dealloc{
     NSLog(@"AlertView dealloc");
+    [LogUtil debug:@"AlertView释放" flag:self.title context:self];
 }
 
 #pragma mark - Properties
@@ -143,12 +144,17 @@
         [self.contentView addSubview:lastView];
     } else {
         if (self.message.length > 0){
-            
             HTMLLabel *htmlLabel = [[HTMLLabel alloc] initWithFrame:CGRectMake(horizonMargin, 0, contentWidth - 2 * horizonMargin, CGFLOAT_MAX)];
             htmlLabel.text = self.message;
             htmlLabel.font = messageFont;
             CGSize textSize = [htmlLabel sizeThatFits:CGSizeMake(CGRectGetWidth(htmlLabel.frame), INFINITY)];
             htmlLabel.height = textSize.height;
+
+            @pas_weakify_self
+            htmlLabel.htmlTagClickHandler = ^(NSString *url, NSString *text) {
+                @pas_strongify_self
+                BlockSafeRun(self.htmlTagClickHandler, url, text);
+            };
             
             UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, contentWidth, MIN(textSize.height, maxTextHeight))];
             scrollView.contentSize = CGSizeMake(contentWidth, textSize.height);

@@ -32,6 +32,9 @@
 
 #import "HTMLLabel.h"
 
+/** 添加自建类别  */
+#import "Router+CRM.h"
+
 
 //temporary fix
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -1352,18 +1355,26 @@ NSString *const HTMLTextAlignment = @"textAlignment";
         /** 在这里统一处理html的点击事件  */
         NSURL *URL = [NSURL URLWithString:token.attributes.href];
         NSString *urlStr = [token.attributes.href copy];
-        [self dealithWithAction:urlStr];
         if ([_delegate respondsToSelector:@selector(HTMLLabel:tappedLinkWithURL:bounds:)])
         {
             CGRect frame = [_layout.frames[[_layout.tokens indexOfObject:token]] CGRectValue];
             [_delegate HTMLLabel:self tappedLinkWithURL:URL bounds:frame];
+        } else {
+            [self dealithWithAction:urlStr text:token.text];
         }
-        BOOL openURL = YES;
+        
+        /** 外链  */
+        BOOL openURL = NO;
         if ([_delegate respondsToSelector:@selector(HTMLLabel:shouldOpenURL:)])
         {
             openURL = [_delegate HTMLLabel:self shouldOpenURL:URL];
         }
-        if (openURL) [[UIApplication sharedApplication] openURL:URL];
+        if (openURL) {
+            BOOL canTel = [[UIApplication sharedApplication] canOpenURL:URL];
+            if (canTel) {
+                [[UIApplication sharedApplication] openURL:URL];
+            }
+        };
     }
     [self.nextResponder touchesEnded:touches withEvent:event];
 }
@@ -1387,18 +1398,22 @@ NSString *const HTMLTextAlignment = @"textAlignment";
  *  @param url    跳转链接
  *
  */
-- (void)dealithWithAction:(NSString *)url
+- (void)dealithWithAction:(NSString *)url text:(NSString *)text
 {
-    if ([url hasPrefix:@"http://"] ||
-        [url hasPrefix:@"https://"]) {
-        /** 使用通用的webView打开  */
-        
-        
+    if (self.htmlTagClickHandler) {
+        self.htmlTagClickHandler(url, text);
     } else {
-        /** 使用路由跳转  */
-        
+        if ([url hasPrefix:@"http://"] ||
+            [url hasPrefix:@"https://"]) {
+            /** 使用通用的webView打开  */
+            NSDictionary * param = @{@"url":__String_Not_Nil(url)};
+            NSString * routerUrl = [Router encodeRouterUrl:ZWCommonWebViewPage params:param];
+            [ZWM.router executeURLNoCallBack:routerUrl];
+        } else {
+            /** 使用路由跳转  */
+            [ZWM.router executeURL:url];
+        }
     }
-    
     return;
 }
 

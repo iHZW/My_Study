@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
 #import "ZWBaseViewController.h"
 #import "HomeViewController.h"
 //#import "TwoPageViewController.h"
@@ -51,38 +50,8 @@
     
     /* 取消约束警告 */
 //    [[NSUserDefaults standardUserDefaults] setValue:@(false) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
+    
     return YES;
-}
-
-
-- (void)loadSubViewControllers
-{
-    UITabBarController *tabVC = [[UITabBarController alloc] init];
-    
-    HomeViewController *vc1 = [[HomeViewController alloc] init];
-    vc1.isTabVc = YES;
-    vc1.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0];
-    ZWNavigationController *nav1 = [[ZWNavigationController alloc] initWithRootViewController:vc1];
-    
-    CRMViewController *vc2 = [CRMViewController new];
-    vc2.isTabVc = YES;
-    vc2.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:1];
-    ZWNavigationController *nav2 = [[ZWNavigationController alloc] initWithRootViewController:vc2];
-    
-    ViewController *vc3 = [ViewController new];
-    vc3.isTabVc = YES;
-    vc3.title = @"History";
-    vc3.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemHistory tag:2];
-    ZWNavigationController *nav3 = [[ZWNavigationController alloc] initWithRootViewController:vc3];
-    
-    ZWBaseViewController *vc4 = [ZWBaseViewController new];
-    vc4.isTabVc = YES;
-    vc4.title = @"Recents";
-    vc4.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemRecents tag:3];
-    ZWNavigationController *nav4 = [[ZWNavigationController alloc] initWithRootViewController:vc4];
-    tabVC.viewControllers = @[nav1,nav2,nav3,nav4];
-    self.window.rootViewController = tabVC;
-    
 }
 
 /* 注册调试工具 */

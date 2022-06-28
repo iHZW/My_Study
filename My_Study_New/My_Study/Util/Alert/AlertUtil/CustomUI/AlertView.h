@@ -10,6 +10,8 @@
 #import "AlertAction.h"
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^AlertHtmlTagClickHandler)(NSString *url, NSString *text);
+
 typedef NS_ENUM(NSUInteger, ActionType) {
     ActionTypeAlert = 0,
     ActionTypeActionSheet = 1
@@ -43,6 +45,10 @@ typedef void (^CellDidLoad)(AlertActionCell *);
 @property (nonatomic, strong, nullable) UIFont *messageFont;
 
 @property (nonatomic, copy, nullable) dispatch_block_t didHiddenBlock;
+
+/** html 文本点击事件回调  */
+@property (nonatomic, copy) AlertHtmlTagClickHandler htmlTagClickHandler ;
+
 - (void)show;
 - (void)showInView:(UIView *)parentView;
 - (void)moveToView:(UIView *)parentView;

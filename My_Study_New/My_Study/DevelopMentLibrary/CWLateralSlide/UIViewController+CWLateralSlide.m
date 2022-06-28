@@ -11,6 +11,9 @@
 #import "CWDrawerTransition.h"
 #import <objc/runtime.h>
 
+/** 引入自建类  */
+#import "GCDCommon.h"
+
 @implementation UIViewController (CWLateralSlide)
 
 // 显示默认抽屉
@@ -97,8 +100,12 @@
     transition.subtype = subType;
     [nav.view.layer addAnimation:transition forKey:nil];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [nav pushViewController:vc animated:NO];
+    /** 这里根据业务场景 关闭抽屉之后再做push 操作  */
+    [self dismissViewControllerAnimated:YES completion:^{
+        performBlockDelay(dispatch_get_main_queue(), .1, ^{
+            [nav pushViewController:vc animated:YES];
+        });
+    }];
 }
 
 

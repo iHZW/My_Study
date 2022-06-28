@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString *_Nullable ZWTabIndexHome;
 /** 应用  */
 extern NSString *_Nullable ZWTabIndexApplication;
+/** CRM  */
+extern NSString *_Nullable ZWTabIndexCRM;
 /** 查找  */
 extern NSString *_Nullable ZWTabIndexFind;
 /** 个人中心  */
@@ -30,6 +32,8 @@ extern NSString *_Nullable ZWTabIndexPersonal;
 #pragma mark - log
 /** 日志首页  */
 extern NSString *_Nullable ZWDebugPageHome;
+/** 通用webView  */
+extern NSString *_Nullable ZWCommonWebViewPage;
 
 /* -------------------------------page----------------------------  */
 

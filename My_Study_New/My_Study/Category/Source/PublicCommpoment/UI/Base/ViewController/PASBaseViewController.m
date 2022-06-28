@@ -452,7 +452,7 @@
  6.15.0version 业务功能点（method跳转）  介入静态检查
 
  @param paramDict method跳转参数字典
- @param actionBlock 
+ @param actionBlock
  */
 - (void)checkingServiceStaticMethodParamDict:(NSDictionary *)paramDict actionBlock: (URLParamMapPropertyCheckBlock)actionBlock
 {

@@ -16,6 +16,19 @@
 		4E0287C928698ED1003E723E /* NSObject+Params.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287C828698ED1003E723E /* NSObject+Params.m */; };
 		4E0287CC28699383003E723E /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287CB28699383003E723E /* LaunchViewController.m */; };
 		4E0287D0286993C9003E723E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287CF286993C9003E723E /* LoginViewController.m */; };
+		4E0287D32869B5F3003E723E /* Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287D22869B5F3003E723E /* Router.m */; };
+		4E0287D82869BC13003E723E /* BaseRouterIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287D72869BC13003E723E /* BaseRouterIntercept.m */; };
+		4E0287DB2869BCB0003E723E /* BaseRouterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287DA2869BCB0003E723E /* BaseRouterAction.m */; };
+		4E0287DE2869BF70003E723E /* LogRouterIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287DD2869BF70003E723E /* LogRouterIntercept.m */; };
+		4E028800286AB0CB003E723E /* CWInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287F5286AB0CB003E723E /* CWInteractiveTransition.m */; };
+		4E028801286AB0CB003E723E /* UIViewController+CWLateralSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287F8286AB0CB003E723E /* UIViewController+CWLateralSlide.m */; };
+		4E028802286AB0CB003E723E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E0287FA286AB0CB003E723E /* README.md */; };
+		4E028803286AB0CB003E723E /* CWLateralSlideAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287FC286AB0CB003E723E /* CWLateralSlideAnimator.m */; };
+		4E028804286AB0CB003E723E /* CWDrawerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287FD286AB0CB003E723E /* CWDrawerTransition.m */; };
+		4E028805286AB0CB003E723E /* CWLateralSlideConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287FF286AB0CB003E723E /* CWLateralSlideConfiguration.m */; };
+		4E028808286AFC45003E723E /* Router+CRM.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E028807286AFC44003E723E /* Router+CRM.m */; };
+		4E02880E286B056A003E723E /* URLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880A286B056A003E723E /* URLObject.m */; };
+		4E02880F286B056A003E723E /* URLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880C286B056A003E723E /* URLUtil.m */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -178,7 +191,6 @@
 		7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */; };
 		7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AA26E10FB400CD1422 /* WFThread.m */; };
 		7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AD26E1145400CD1422 /* RunLoopViewController.m */; };
-		7C459A2C2295557300667813 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C459A2B2295557300667813 /* ViewController.m */; };
 		7C459A2F2295557300667813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C459A2D2295557300667813 /* Main.storyboard */; };
 		7C459A312295557400667813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C459A302295557400667813 /* Assets.xcassets */; };
 		7C459A342295557400667813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C459A322295557400667813 /* LaunchScreen.storyboard */; };
@@ -311,6 +323,33 @@
 		4E0287CB28699383003E723E /* LaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		4E0287CE286993C9003E723E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4E0287CF286993C9003E723E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4E0287D12869B5F3003E723E /* Router.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Router.h; sourceTree = "<group>"; };
+		4E0287D22869B5F3003E723E /* Router.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Router.m; sourceTree = "<group>"; };
+		4E0287D42869B6F6003E723E /* RouterLifeCycleDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterLifeCycleDelegate.h; sourceTree = "<group>"; };
+		4E0287D52869B74E003E723E /* RouterNavigateDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterNavigateDelegate.h; sourceTree = "<group>"; };
+		4E0287D62869BC13003E723E /* BaseRouterIntercept.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRouterIntercept.h; sourceTree = "<group>"; };
+		4E0287D72869BC13003E723E /* BaseRouterIntercept.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRouterIntercept.m; sourceTree = "<group>"; };
+		4E0287D92869BCB0003E723E /* BaseRouterAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRouterAction.h; sourceTree = "<group>"; };
+		4E0287DA2869BCB0003E723E /* BaseRouterAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRouterAction.m; sourceTree = "<group>"; };
+		4E0287DC2869BF70003E723E /* LogRouterIntercept.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogRouterIntercept.h; sourceTree = "<group>"; };
+		4E0287DD2869BF70003E723E /* LogRouterIntercept.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogRouterIntercept.m; sourceTree = "<group>"; };
+		4E0287F5286AB0CB003E723E /* CWInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWInteractiveTransition.m; sourceTree = "<group>"; };
+		4E0287F6286AB0CB003E723E /* CWDrawerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDrawerTransition.h; sourceTree = "<group>"; };
+		4E0287F7286AB0CB003E723E /* CWLateralSlideAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLateralSlideAnimator.h; sourceTree = "<group>"; };
+		4E0287F8286AB0CB003E723E /* UIViewController+CWLateralSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWLateralSlide.m"; sourceTree = "<group>"; };
+		4E0287F9286AB0CB003E723E /* CWLateralSlideConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLateralSlideConfiguration.h; sourceTree = "<group>"; };
+		4E0287FA286AB0CB003E723E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4E0287FB286AB0CB003E723E /* CWInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInteractiveTransition.h; sourceTree = "<group>"; };
+		4E0287FC286AB0CB003E723E /* CWLateralSlideAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLateralSlideAnimator.m; sourceTree = "<group>"; };
+		4E0287FD286AB0CB003E723E /* CWDrawerTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWDrawerTransition.m; sourceTree = "<group>"; };
+		4E0287FE286AB0CB003E723E /* UIViewController+CWLateralSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWLateralSlide.h"; sourceTree = "<group>"; };
+		4E0287FF286AB0CB003E723E /* CWLateralSlideConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLateralSlideConfiguration.m; sourceTree = "<group>"; };
+		4E028806286AFC44003E723E /* Router+CRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Router+CRM.h"; sourceTree = "<group>"; };
+		4E028807286AFC44003E723E /* Router+CRM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Router+CRM.m"; sourceTree = "<group>"; };
+		4E02880A286B056A003E723E /* URLObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLObject.m; sourceTree = "<group>"; };
+		4E02880B286B056A003E723E /* URLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLUtil.h; sourceTree = "<group>"; };
+		4E02880C286B056A003E723E /* URLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLUtil.m; sourceTree = "<group>"; };
+		4E02880D286B056A003E723E /* URLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLObject.h; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -602,8 +641,6 @@
 		7C18D4AD26E1145400CD1422 /* RunLoopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLoopViewController.m; sourceTree = "<group>"; };
 		7C459A242295557300667813 /* My_Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C459A272295557300667813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7C459A2A2295557300667813 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7C459A2B2295557300667813 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7C459A2E2295557300667813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C459A302295557400667813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C459A332295557400667813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -879,7 +916,19 @@
 		4E0287AF286952EB003E723E /* router */ = {
 			isa = PBXGroup;
 			children = (
+				4E028806286AFC44003E723E /* Router+CRM.h */,
+				4E028807286AFC44003E723E /* Router+CRM.m */,
 				4E0287B3286954DD003E723E /* RouterConstants.h */,
+				4E0287D12869B5F3003E723E /* Router.h */,
+				4E0287D22869B5F3003E723E /* Router.m */,
+				4E0287D62869BC13003E723E /* BaseRouterIntercept.h */,
+				4E0287D72869BC13003E723E /* BaseRouterIntercept.m */,
+				4E0287DC2869BF70003E723E /* LogRouterIntercept.h */,
+				4E0287DD2869BF70003E723E /* LogRouterIntercept.m */,
+				4E0287D92869BCB0003E723E /* BaseRouterAction.h */,
+				4E0287DA2869BCB0003E723E /* BaseRouterAction.m */,
+				4E0287D42869B6F6003E723E /* RouterLifeCycleDelegate.h */,
+				4E0287D52869B74E003E723E /* RouterNavigateDelegate.h */,
 				4E0287B028695304003E723E /* RouterParam.h */,
 				4E0287B128695304003E723E /* RouterParam.m */,
 				4E0287B428695512003E723E /* RouterPageConfig.h */,
@@ -904,6 +953,35 @@
 				4E0287CF286993C9003E723E /* LoginViewController.m */,
 			);
 			path = login;
+			sourceTree = "<group>";
+		};
+		4E0287F4286AB0CB003E723E /* CWLateralSlide */ = {
+			isa = PBXGroup;
+			children = (
+				4E0287FE286AB0CB003E723E /* UIViewController+CWLateralSlide.h */,
+				4E0287F8286AB0CB003E723E /* UIViewController+CWLateralSlide.m */,
+				4E0287F6286AB0CB003E723E /* CWDrawerTransition.h */,
+				4E0287FD286AB0CB003E723E /* CWDrawerTransition.m */,
+				4E0287FB286AB0CB003E723E /* CWInteractiveTransition.h */,
+				4E0287F5286AB0CB003E723E /* CWInteractiveTransition.m */,
+				4E0287F7286AB0CB003E723E /* CWLateralSlideAnimator.h */,
+				4E0287FC286AB0CB003E723E /* CWLateralSlideAnimator.m */,
+				4E0287F9286AB0CB003E723E /* CWLateralSlideConfiguration.h */,
+				4E0287FF286AB0CB003E723E /* CWLateralSlideConfiguration.m */,
+				4E0287FA286AB0CB003E723E /* README.md */,
+			);
+			path = CWLateralSlide;
+			sourceTree = "<group>";
+		};
+		4E028809286B056A003E723E /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				4E02880B286B056A003E723E /* URLUtil.h */,
+				4E02880C286B056A003E723E /* URLUtil.m */,
+				4E02880D286B056A003E723E /* URLObject.h */,
+				4E02880A286B056A003E723E /* URLObject.m */,
+			);
+			path = URL;
 			sourceTree = "<group>";
 		};
 		4E403F7D2865A994006C0656 /* HTMLLabel */ = {
@@ -1145,8 +1223,6 @@
 				7C652C0523017208007BBDD2 /* HomeViewController.m */,
 				4EA737E127D72E3200422BAE /* CRMViewController.h */,
 				4EA737E227D72E3200422BAE /* CRMViewController.m */,
-				7C459A2A2295557300667813 /* ViewController.h */,
-				7C459A2B2295557300667813 /* ViewController.m */,
 				4E0287B828698887003E723E /* ApplicationViewController.h */,
 				4E0287B928698887003E723E /* ApplicationViewController.m */,
 				4E0287BB28698899003E723E /* FindViewController.h */,
@@ -1390,6 +1466,7 @@
 		4EC6B3242861B12A00F57AAC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4E028809286B056A003E723E /* URL */,
 				4EDC0B712863622C001C53CE /* ZWCommonUtil */,
 				4EC6B3252861B12A00F57AAC /* JSON */,
 			);
@@ -2377,6 +2454,7 @@
 		7C8AAE2B22E9811E00589862 /* DevelopMentLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				4E0287F4286AB0CB003E723E /* CWLateralSlide */,
 				4EDC0B34286308D6001C53CE /* Safe */,
 				4EC6B28C2860807300F57AAC /* Reachability */,
 				4E7427C4285B909800DEC9CC /* SingletonTemplate */,
@@ -2780,6 +2858,7 @@
 				4EC6B3632861B12A00F57AAC /* guideMovie1.mov in Resources */,
 				4EC6B36D2861B12A00F57AAC /* Untitled-6.gif in Resources */,
 				4E403F9A2865B15F006C0656 /* CacheClientChatDetailConfig.json in Resources */,
+				4E028802286AB0CB003E723E /* README.md in Resources */,
 				4EC6B3732861B12A00F57AAC /* Untitled-2.gif in Resources */,
 				4EC6B34F2861B12A00F57AAC /* launch_guide_4_min.png in Resources */,
 			);
@@ -2854,6 +2933,7 @@
 				4EDC0B5E286308D6001C53CE /* NSOrderedSet+Safe.m in Sources */,
 				4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */,
 				7C4EF06E230405030040DA7A /* UIButton+PASEnlargeEdge.m in Sources */,
+				4E028808286AFC45003E723E /* Router+CRM.m in Sources */,
 				7CB1A2F426E47E3D00D450CE /* PThread_rwLock.m in Sources */,
 				7C4EEFFF2303948E0040DA7A /* CMObject.m in Sources */,
 				7C4EF06C230405030040DA7A /* UIButton+Navigation.m in Sources */,
@@ -2873,8 +2953,10 @@
 				7C4F93BF2302B11900F2238E /* PASTipView.m in Sources */,
 				4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */,
 				7C4EF06B230405030040DA7A /* UIButton+CornerBorder.m in Sources */,
+				4E02880F286B056A003E723E /* URLUtil.m in Sources */,
 				7C4EF0292303A3390040DA7A /* UIViewController+Gesture.m in Sources */,
 				4EDC0B62286308D6001C53CE /* NSMutableArray+Safe.m in Sources */,
+				4E0287D32869B5F3003E723E /* Router.m in Sources */,
 				4EC6B28B28607FF400F57AAC /* SystemInfoFunc.m in Sources */,
 				7C6A215426E31CE600E0CF20 /* RunLoopPermanentViewController.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
@@ -2906,6 +2988,7 @@
 				7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
 				7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */,
 				7C91253526DA67B20030A5F3 /* BlockViewController.m in Sources */,
+				4E028805286AB0CB003E723E /* CWLateralSlideConfiguration.m in Sources */,
 				7C879B1E26E65B860051018B /* MVVMModel.m in Sources */,
 				4EDC09732862E8F2001C53CE /* CMBusMediaAppDelegate.m in Sources */,
 				7C4F93C02302B11900F2238E /* PASTitleView.m in Sources */,
@@ -2916,6 +2999,7 @@
 				7C4EF00E230394FA0040DA7A /* CMNotificationCenter.m in Sources */,
 				4EC6B39F2861BF0800F57AAC /* LeftDrawerDataLoader.m in Sources */,
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
+				4E0287D82869BC13003E723E /* BaseRouterIntercept.m in Sources */,
 				4E0287CC28699383003E723E /* LaunchViewController.m in Sources */,
 				4EC6B3772861B12A00F57AAC /* UIImage+XYGif.m in Sources */,
 				4EC6B3992861B12A00F57AAC /* DataFormatterFunc.m in Sources */,
@@ -2956,13 +3040,14 @@
 				7C4EF0592304034B0040DA7A /* CMView.m in Sources */,
 				4EC6B3792861B12A00F57AAC /* XYIntroductionPage.m in Sources */,
 				7C8AAE5422E9856400589862 /* CAAnimation+Animation.m in Sources */,
+				4E028801286AB0CB003E723E /* UIViewController+CWLateralSlide.m in Sources */,
 				7C8032F826C416A2005F4BF7 /* IQViewModel+Eat.m in Sources */,
 				4E0287B228695304003E723E /* RouterParam.m in Sources */,
 				4EC6B3922861B12A00F57AAC /* ZWHttpResponseData.m in Sources */,
+				4E0287DE2869BF70003E723E /* LogRouterIntercept.m in Sources */,
 				4E0287BD28698899003E723E /* FindViewController.m in Sources */,
 				4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */,
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
-				7C459A2C2295557300667813 /* ViewController.m in Sources */,
 				4EC6B2992860982500F57AAC /* LeftDrawerViewController.m in Sources */,
 				4EC6B2922860807300F57AAC /* Reachability+IPV6Extention.m in Sources */,
 				4E403F932865B024006C0656 /* AlertView.m in Sources */,
@@ -2975,6 +3060,7 @@
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6A216426E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m in Sources */,
 				4EDC0B6C286308D6001C53CE /* NSUserDefaults+Safe.m in Sources */,
+				4E028804286AB0CB003E723E /* CWDrawerTransition.m in Sources */,
 				7C4EF01F2303A2C00040DA7A /* PASSegmentViewController.m in Sources */,
 				4EC6B39A2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m in Sources */,
 				7C652BFA230171B3007BBDD2 /* BaseCellModel.m in Sources */,
@@ -2990,8 +3076,10 @@
 				4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */,
 				7C4F93DB2302B39300F2238E /* PASBaseTableView.m in Sources */,
 				4EC6B3842861B12A00F57AAC /* MDLogSearchView.m in Sources */,
+				4E028803286AB0CB003E723E /* CWLateralSlideAnimator.m in Sources */,
 				4EC6B3A72861D26500F57AAC /* ZWUserAccountManager.m in Sources */,
 				7C4EF050230402F80040DA7A /* CMSegmentViewController.m in Sources */,
+				4E02880E286B056A003E723E /* URLObject.m in Sources */,
 				7CB1A2FA26E4869B00D450CE /* DisplayLinkViewController.m in Sources */,
 				4E0287B628695512003E723E /* RouterPageConfig.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
@@ -3015,6 +3103,7 @@
 				7C4EF016230397F60040DA7A /* CommonFileFunc.m in Sources */,
 				7C6A215E26E37F5D00E0CF20 /* WFPThread_mutex.m in Sources */,
 				4E899A59285AF3D900B54C89 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				4E0287DB2869BCB0003E723E /* BaseRouterAction.m in Sources */,
 				4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */,
 				7C8AAE3A22E984E900589862 /* PACustomAlertManage.m in Sources */,
 				7C6A215B26E3741F00E0CF20 /* WFOSSPinLockDemo.m in Sources */,
@@ -3035,6 +3124,7 @@
 				4EDC096D2862C47A001C53CE /* ZWMainAppDelegateService.m in Sources */,
 				4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
+				4E028800286AB0CB003E723E /* CWInteractiveTransition.m in Sources */,
 				7C4EF042230400640040DA7A /* UINavigationItem+iOS7Style.m in Sources */,
 				4ECE439828598E6200326287 /* StoreUtil.m in Sources */,
 				4EC6B38F2861B12A00F57AAC /* ZWHttpEventInfo.m in Sources */,

@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) ZWWebView *webView;
 
+@property (nonatomic, copy) NSString *url;
+
+@property (nonatomic, copy) NSString *titleName;
+
 @end
 
 NS_ASSUME_NONNULL_END

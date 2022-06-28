@@ -11,12 +11,17 @@
 #import "UITableViewCell+DequeCell.h"
 
 @interface ZWBaseViewController : UIViewController
-/* 是否是tab控制器, 默认为NO */
-@property (nonatomic, assign) BOOL isTabVc;
 
+
+#pragma mark - 加载导航控件
+/** 通用返回按钮  */
 - (void)initLeftNav;
 
+/** 加载右侧控件  */
 - (void)initRightNav;
+
+
+
 
 
 @end

@@ -25,10 +25,6 @@
 #import "SDImageCache.h"
 #import "SDWebImageDownloader.h"
 
-//刷新tabbar
-#define NOTIFICATION_TAB_REFRESH    @"NOTIFICATION_TAB_REFRESH"
-
-
 #pragma mark - MainTabSinglelogin
 @implementation MainTabSinglelogin
 
@@ -83,7 +79,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /** 通知刷新tabbar  */
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabRefresh:) name:NOTIFICATION_TAB_REFRESH object:nil];
+    
+    /** 通知切换tabbar  */
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSeletDidChange:) name:TABBAR_SELECT_NOTICE object:nil];
+
+    
     [self loadTabBar];
 }
 
@@ -116,6 +118,48 @@
     [self build];
 }
 
+#pragma mark ---- 通知切换tab方法
+- (void)tabBarSeletDidChange:(NSNotification *)notification{
+    if (self.viewControllers.count == 0){
+        return;
+    }
+    
+    UINavigationController *nav = self.selectedViewController;
+    if ([nav isKindOfClass:[UINavigationController class]]){
+        [nav popToRootViewControllerAnimated:NO];
+    }
+    
+    RouterParam *routerParam = notification.object;
+    NSString *route = routerParam.originUrl;
+    __block NSInteger index = -1;
+    [self.items enumerateObjectsUsingBlock:^(CustomTabbarObject *  _Nonnull itemConfig, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([route hasPrefix:itemConfig.route]) {
+            index = idx;
+            *stop = YES;
+        }
+    }];
+    if (index < 0 || index > self.items.count) {
+        // 特殊处理  坐席改变的时候刷新找客户页面
+        if (self.selectedIndex == 0) {
+            if ([routerParam.params objectForKey:@"reload"] && [[routerParam.params objectForKey:@"reload"] integerValue] == 1) {
+                if ([[self.items objectAtIndex:0].route isEqualToString:@"/h5/treasure/app-home"]) {
+                    UINavigationController *nav = [self.viewControllers objectAtIndex:0];
+                    if (nav && nav.viewControllers.count >= 1) {
+                        UIViewController * vc = [nav.viewControllers objectAtIndex:0];
+                        if (vc) {
+                            [vc viewDidAppear:NO];
+                        }
+                    }
+                }
+            }
+        }else{
+            [self setSelectedIndex:0];
+        }
+        //
+        return;
+    }
+    [self setSelectedIndex:index];
+}
 
 #pragma mark - 初始化tabbar
 - (void)build

@@ -5,15 +5,14 @@
 //  Created by fhkvsou on 2019/1/28.
 //  Copyright © 2019年 weimob. All rights reserved.
 //
-#if APPLOGOPEN
+#if DOKIT
 
 #import "DebugLogHelper.h"
 #import <objc/runtime.h>
 //#import "DebugURLProtocol.h"
 #import "MDLogViewController.h"
 #import "MDDebugViewController.h"
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#import "UIApplication+Ext.h"
 
 @interface DebugLogHelper ()
 
@@ -34,12 +33,13 @@
     self = [super init];
     if (self) {
         self.isSwizzle = NO;
+        
     }
     return self;
 }
 
 - (void)initLogBtn{
-    self.logButton = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 60, kScreenHeight - 200, 60, 60)];
+    self.logButton = [[UIButton alloc]initWithFrame:CGRectMake(kMainScreenWidth - 60, kMainScreenHeight - 200, 60, 60)];
     [self.logButton addTarget:self action:@selector(logBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.logButton setTitle:@"开发" forState:UIControlStateNormal];
     

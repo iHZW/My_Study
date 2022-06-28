@@ -64,6 +64,52 @@
 #endif
 
 
+///**
+// * Creates \c __weak shadow variables for each of the variables provided as
+// * arguments, which can later be made strong again with #strongify.
+// *
+// * This is typically used to weakly reference variables in a block, but then
+// * ensure that the variables stay alive during the actual execution of the block
+// * (if they were live upon entry).
+// *
+// * See #strongify for an example of usage.
+// */
+//#define weakify(...) \
+//    rac_keywordify \
+//    metamacro_foreach_cxt(rac_weakify_,, __weak, __VA_ARGS__)
+//
+//
+///**
+// * Like #weakify, but uses \c __unsafe_unretained instead, for targets or
+// * classes that do not support weak references.
+// */
+//#define unsafeify(...) \
+//    rac_keywordify \
+//    metamacro_foreach_cxt(rac_weakify_,, __unsafe_unretained, __VA_ARGS__)
+//
+//
+//#define strongify(...) \
+//    rac_keywordify \
+//    _Pragma("clang diagnostic push") \
+//    _Pragma("clang diagnostic ignored \"-Wshadow\"") \
+//    metamacro_foreach(rac_strongify_,, __VA_ARGS__) \
+//    _Pragma("clang diagnostic pop")
+//
+//
+//#define rac_weakify_(INDEX, CONTEXT, VAR) \
+//    CONTEXT __typeof__(VAR) metamacro_concat(VAR, _weak_) = (VAR);
+//
+//#define rac_strongify_(INDEX, VAR) \
+//    __strong __typeof__(VAR) VAR = metamacro_concat(VAR, _weak_);
+//
+//#if DEBUG
+//#define rac_keywordify autoreleasepool {}
+//#else
+//#define rac_keywordify try {} @catch (...) {}
+//#endif
+
+
+
 #ifndef __INT64
 #if __LP64__ || (TARGET_OS_EMBEDDED && !TARGET_OS_IPHONE) || TARGET_OS_WIN32
 typedef unsigned long _uint64;

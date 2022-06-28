@@ -5,7 +5,7 @@
 //  Created by WuShiHai on 3/16/16.
 //  Copyright © 2016 WeiMob. All rights reserved.
 //
-#if APPLOGOPEN
+#if DOKIT
 #import "MDFileManager.h"
 
 @implementation MDFileManager

@@ -11,8 +11,18 @@
 #import "HttpClient.h"
 #import "RouterParam.h"
 #import "RouterPageModel.h"
+#import "Router.h"
+
+/** 给 NSObject 添加路由参数  */
+#import "NSObject+Params.h"
+#import "Router+CRM.h"
 
 #define ZWM   [ModuleContainer sharedModuleContainer]
+
+//刷新tabbar
+#define NOTIFICATION_TAB_REFRESH    @"NOTIFICATION_TAB_REFRESH"
+//TabBar切换通知
+#define TABBAR_SELECT_NOTICE        @"TABBAR_SELECT_NOTICE"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 DEFINE_SINGLETON_T_FOR_HEADER(ModuleContainer)
 
 @property (nonatomic, strong, readonly) HttpClient *http;
+
+@property (nonatomic, strong,readonly) Router *router;
+
 
 - (void)registerConfig;
 

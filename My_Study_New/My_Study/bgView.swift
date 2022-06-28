@@ -19,7 +19,7 @@ class BGView: UIView {
     
     var nowColor: UIColor
     func createView() {
-        let vc = ViewController() // 初始化
+        let vc = ApplicationViewController() // 初始化
         vc.createView() // 调用viewcontroller方法
     }
     

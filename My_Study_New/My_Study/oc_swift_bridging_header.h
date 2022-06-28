@@ -11,7 +11,8 @@
 #ifndef Header_h
 #define Header_h
 
-#import "ViewController.h"
+
+#import "ApplicationViewController.h"
 
 
 #endif /* Header_h */

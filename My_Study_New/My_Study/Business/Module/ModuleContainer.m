@@ -14,11 +14,18 @@
 
 #import "TabbarConfig.h"
 #import "CustomTabbarObject.h"
+#import "BaseRouterAction.h"
+
+#import "NSObject+Params.h"
+#import "UIApplication+Ext.h"
+#import "UIViewController+ZW.h"
 
 
-@interface ModuleContainer ()
+@interface ModuleContainer ()<RouterNavigateDelegate>
 
 @property (nonatomic, strong, readwrite) HttpClient *http;
+
+@property (nonatomic, strong,readwrite) Router *router;
 
 @property (nonatomic, strong) NSMutableArray<RouterPageConfig *> *registerRouterConfigs;
 
@@ -115,7 +122,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
                                  };
         RouterParam *routerParam = [[RouterParam alloc] init];
         routerParam.originUrl = url;
-        routerParam.destURL = @"HybridWebViewController";
+        routerParam.destURL = @"ZWCommonWebPage";
         routerParam.params = params;
         
         //因为无法将h5 的url 注册为tab 路由，
@@ -205,7 +212,164 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
         [self.registerRouterConfigs addObject:config];
     }];
     
+    self.router = [[Router alloc] init];
+    self.router.navigateObject = self;
+    @pas_weakify_self
+    self.router.routerParseBlock = ^RouterParam * _Nullable(NSString * _Nonnull routerURL) {
+        @pas_strongify_self
+        return [self findRouterParam:routerURL];
+    };
+    self.router.routerConfigs = self.registerRouterConfigs;
+    
+    /** 配置拦截器  */
+    [self configRouterIntercept];
+    
 }
 
+
+- (void)configRouterIntercept
+{
+    
+}
+
+#pragma mark - RouterNavigateDelegate
+- (void)doAction:(RouterParam *)param {
+    NSObject *cls = [self commonActionRouter:param];
+    if ([cls isKindOfClass:BaseRouterAction.class]) {
+        [(BaseRouterAction *)cls doAction];
+    }
+}
+
+- (void)navigateTo:(RouterParam *)param { 
+    UIViewController *cls = [self commonRouter:param];
+    if ([cls isKindOfClass:UIViewController.class]) {
+        
+        NSDictionary *extraParam = [param.params objectForKey:kExtraParamKey];
+        
+        BOOL animated = YES;
+        BOOL modifyedAni = NO;
+        BOOL hideNavigationBar = NO;
+        
+        if (extraParam){
+            if ([extraParam.allKeys containsObject:@"anim"]){
+                animated = [[extraParam objectForKey:@"anim"] boolValue];
+                modifyedAni = YES;
+            }
+        }
+        
+        if ([[cls class] respondsToSelector:@selector(ss_constantParams)]){
+            NSDictionary *dict = [[cls class] ss_constantParams];
+            if (!modifyedAni){
+                animated = [[dict objectForKey:@"animated"] boolValue];
+            }
+            
+            hideNavigationBar = [[dict objectForKey:@"hideNavigationBar"] boolValue];
+        }
+
+        UIViewController *currentViewController = [self currentViewController:param];
+        cls.disableAnimatePush = !animated;
+        cls.hideNavigationBar = hideNavigationBar;
+        if ([currentViewController isKindOfClass:[UINavigationController class]]){
+            [(UINavigationController *)currentViewController pushViewController:cls animated:animated];
+        } else {
+            [currentViewController.navigationController pushViewController:cls animated:animated];
+        }
+    }
+}
+
+- (void)presentTo:(RouterParam *)param { 
+    NSObject *cls = [self commonRouter:param];
+    if ([cls isKindOfClass:[UIViewController class]]) {
+        
+        
+    }
+
+}
+
+/**
+ *  通知切换tabbar
+ *
+ *  @param param    路由参数
+ */
+- (void)tabTo:(RouterParam *)param { 
+    [[NSNotificationCenter defaultCenter] postNotificationName:TABBAR_SELECT_NOTICE object:param];
+}
+
+
+/**
+ *  获取路由跳转页面
+ *
+ *  @param param    路由参数RouterParam
+ *  @return  路由跳转界面
+ */
+- (id)commonRouter:(RouterParam *)param{
+    NSString *clsName = param.destURL;
+    if (clsName.length == 0){
+        [LogUtil debug:@"路由类名为空" flag:nil context:self];
+        return nil;
+    }
+    
+    Class cls = NSClassFromString(clsName);
+    if (cls == nil){
+        [LogUtil debug:@"路由类名对应类不存在" flag:nil context:self];
+        return nil;
+    }
+    
+    NSObject *instance = [[cls alloc] init];
+    if (![instance isKindOfClass:UIViewController.class]){
+        [LogUtil debug:@"路由类不是页面" flag:nil context:self];
+        return nil;
+    }
+    instance.routerParams = param.params;
+    instance.routerParamObject = param;
+    return instance;;
+}
+
+
+/**
+ *  获取行为路由
+ *
+ *  @param param    路由参数
+ *  @return 行为路由
+ */
+- (id)commonActionRouter:(RouterParam *)param{
+    NSString *clsName = param.destURL;
+    if (clsName.length == 0){
+        [LogUtil debug:@"路由类名为空" flag:nil context:self];
+        return nil;
+    }
+    
+    Class cls = NSClassFromString(clsName);
+    if (cls == nil){
+        [LogUtil debug:@"路由类名对应类不存在" flag:nil context:self];
+        return nil;
+    }
+    
+    NSObject *instance = [[cls alloc] init];
+    if (![instance isKindOfClass:BaseRouterAction.class]){
+        [LogUtil debug:@"行为路由不支持" flag:nil context:self];
+        return nil;
+    }
+    instance.routerParams = param.params;
+    instance.routerParamObject = param;
+    return instance;
+}
+
+/**
+ *  获取当前控制器
+ *
+ *  @param param    路由参数
+ *  @return  当前控制器
+ *
+ */
+- (UIViewController *)currentViewController:(RouterParam *)param{
+    UIViewController *currentViewController = nil;
+    if (param.context && [param.context isKindOfClass:[UIViewController class]]){
+        currentViewController = param.context;
+    } else {
+        currentViewController = [UIApplication displayViewController];
+    }
+    return currentViewController;
+}
 
 @end

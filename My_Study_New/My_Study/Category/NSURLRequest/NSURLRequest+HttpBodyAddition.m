@@ -5,7 +5,7 @@
 //  Created by fhkvsou on 2019/1/28.
 //  Copyright © 2019年 weimob. All rights reserved.
 //
-#if APPLOGOPEN
+#if DOKIT
 #import "NSURLRequest+HttpBodyAddition.h"
 
 @implementation NSURLRequest (HttpBodyAddition)

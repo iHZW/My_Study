@@ -20,16 +20,10 @@
     // Do any additional setup after loading the view.
     
     /* 默认加载 */
-    if (!self.isTabVc) {
+    if (!self.isRootPage) {
         [self initLeftNav];
         [self initRightNav];
     }
-
-}
-
-- (void)setIsTabVc:(BOOL)isLoadBackBtn
-{
-    _isTabVc = isLoadBackBtn;
 }
 
 

@@ -14,6 +14,7 @@
 
 NSString const *ZWTabIndexHome              = @"tab/index/home";
 NSString const *ZWTabIndexApplication       = @"tab/index/application";
+NSString const *ZWTabIndexCRM               = @"tab/index/crm";
 NSString const *ZWTabIndexFind              = @"tab/index/find";
 NSString const *ZWTabIndexPersonal          = @"tab/index/personal";
 
@@ -23,6 +24,7 @@ NSString const *ZWTabIndexPersonal          = @"tab/index/personal";
 /* -------------------------------page----------------------------  */
 
 NSString const *ZWDebugPageHome              = @"debug/log/home";
+NSString const *ZWCommonWebViewPage          = @"common/webView";
 
 
 /* -------------------------------page----------------------------  */
@@ -40,6 +42,7 @@ NSString const *ZWDebugPageHome              = @"debug/log/home";
 {
     NSDictionary *pageDict = @{
         @"configs" : @[
+            /** tabIndex  */
             /** 首页  */
             @{
                 @"url" : ZWTabIndexHome,
@@ -52,6 +55,13 @@ NSString const *ZWDebugPageHome              = @"debug/log/home";
                 @"url" : ZWTabIndexApplication,
                 @"clsName": @"ApplicationViewController",
                 @"type" : @(RouterTypeNavigateTab),
+                @"attachValue" : @{}
+            },
+            /** CRM  */
+            @{
+                @"url" : ZWTabIndexCRM,
+                @"clsName": @"CRMViewController",
+                @"type" : @(0),
                 @"attachValue" : @{}
             },
             /** 查找  */
@@ -69,20 +79,22 @@ NSString const *ZWDebugPageHome              = @"debug/log/home";
                 @"attachValue" : @{}
             },
             
+            /** page  */
             /** 日志 首页  */
             @{
                 @"url" : ZWDebugPageHome,
                 @"clsName": @"MDDebugViewController",
-                @"type" : @(0),
+                @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
-            }
+            },
+            /** 通用webView */
+            @{
+                @"url" : ZWCommonWebViewPage,
+                @"clsName": @"ZWCommonWebPage",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
 //            ,
-//            @{
-//                @"url" : @"",
-//                @"clsName": PASAppSiteCTKey,
-//                @"type" : @(0),
-//                @"attachValue" : @{}
-//            },
 //            @{
 //                @"url" : @"",
 //                @"clsName": PASAppSiteCTKey,

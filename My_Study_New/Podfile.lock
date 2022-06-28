@@ -19,7 +19,6 @@ PODS:
   - CocoaLumberjack (3.6.2):
     - CocoaLumberjack/Core (= 3.6.2)
   - CocoaLumberjack/Core (3.6.2)
-  - CWLateralSlide (1.6.5)
   - DoraemonKit/Core (3.0.2)
   - FDFullscreenPopGesture (1.1)
   - FMDB (2.7.5):
@@ -93,7 +92,6 @@ DEPENDENCIES:
   - AFNetworking
   - Alamofire
   - CocoaAsyncSocket
-  - CWLateralSlide (= 1.6.5)
   - DoraemonKit/Core (= 3.0.2)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
@@ -118,7 +116,6 @@ SPEC REPOS:
     - Alamofire
     - CocoaAsyncSocket
     - CocoaLumberjack
-    - CWLateralSlide
     - DoraemonKit
     - FDFullscreenPopGesture
     - FMDB
@@ -144,7 +141,6 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
-  CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
   DoraemonKit: 8587e7a9aae0773dfc96707d2369d89d2a21b3d2
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -165,6 +161,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: b64b405f6b487308b5ecc8002ea084e49b2a2d57
+PODFILE CHECKSUM: 08e3f72e65b01e3ae5c6cdc54424c831fd6f760e
 
 COCOAPODS: 1.11.2

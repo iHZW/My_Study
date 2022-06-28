@@ -79,13 +79,24 @@
                 @"code":@(1002),
                 @"iconUrl":@"Icon_Find_UnSelect",
                 @"selectedIconUrl":@"Icon_Find_Select",
-                @"title":@"寻找",
+                @"title":@"查找",
                 @"route":ZWTabIndexFind,
                 @"fontColor":@"#D5D5E1",
                 @"selectedFontColor":@"#4F7AFD",
                 @"editingIconUrl":@"Icon_Find_UnSelect"
-            },@{
+            },
+            @{
                 @"code":@(1003),
+                @"iconUrl":@"Icon_CRM_UnSelect",
+                @"selectedIconUrl":@"Icon_CRM_Select",
+                @"title":@"CRM",
+                @"route":ZWTabIndexCRM,
+                @"fontColor":@"#D5D5E1",
+                @"selectedFontColor":@"#4F7AFD",
+                @"editingIconUrl":@"Icon_CRM_UnSelect"
+            },
+            @{
+                @"code":@(1004),
                 @"iconUrl":@"Icon_Application_UnSelect",
                 @"selectedIconUrl":@"Icon_Application_Select",
                 @"title":@"应用",
@@ -95,7 +106,7 @@
                 @"editingIconUrl":@"Icon_Application_UnSelect"
             },
             @{
-                @"code":@(1004),
+                @"code":@(1005),
                 @"title":@"我的",
                 @"iconUrl":@"Icon_Personal_UnSelect",
                 @"selectedIconUrl":@"Icon_Personal_Select",
@@ -130,13 +141,24 @@
                 @"code":@(1002),
                 @"iconUrl":@"Icon_Find_UnSelect",
                 @"selectedIconUrl":@"Icon_Find_Select",
-                @"title":@"寻找",
+                @"title":@"查找",
                 @"route":ZWTabIndexFind,
                 @"fontColor":@"#D5D5E1",
                 @"selectedFontColor":@"#4F7AFD",
                 @"editingIconUrl":@"Icon_Find_UnSelect"
-            },@{
+            },
+            @{
                 @"code":@(1003),
+                @"iconUrl":@"Icon_CRM_UnSelect",
+                @"selectedIconUrl":@"Icon_CRM_Select",
+                @"title":@"CRM",
+                @"route":ZWTabIndexCRM,
+                @"fontColor":@"#D5D5E1",
+                @"selectedFontColor":@"#4F7AFD",
+                @"editingIconUrl":@"Icon_CRM_UnSelect"
+            },
+            @{
+                @"code":@(1004),
                 @"iconUrl":@"Icon_Application_UnSelect",
                 @"selectedIconUrl":@"Icon_Application_Select",
                 @"title":@"应用",
@@ -146,7 +168,7 @@
                 @"editingIconUrl":@"Icon_Application_UnSelect"
             },
             @{
-                @"code":@(1004),
+                @"code":@(1005),
                 @"title":@"我的",
                 @"iconUrl":@"Icon_Personal_UnSelect",
                 @"selectedIconUrl":@"Icon_Personal_Select",

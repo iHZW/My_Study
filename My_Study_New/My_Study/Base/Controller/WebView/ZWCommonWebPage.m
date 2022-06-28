@@ -7,7 +7,7 @@
 //
 
 #import "ZWCommonWebPage.h"
-
+#import "URLUtil.h"
 
 @interface ZWCommonWebPage ()
 
@@ -22,6 +22,8 @@
     [super viewDidLoad];
     
     [self loadSubViews];
+    
+    [self loadData];
 }
 
 - (void)loadSubViews
@@ -32,26 +34,56 @@
         make.left.right.bottom.equalTo(self.view);
         make.top.equalTo(self.view.mas_top).offset(kSysStatusBarHeight + kMainNavHeight);
     }];
-    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setTitleName:(NSString *)titleName
+{
+    _titleName = titleName;
+    self.title = titleName;
 }
-*/
+
+- (void)setUrl:(NSString *)url
+{
+    _url = url;
+}
+
+
+/** 加载数据  */
+- (void)loadData
+{
+    NSString *url = [self getRouterUrl];
+    if (url.length > 0) {
+        if (![url hasPrefix:@"http"]) {
+            url = [NSString stringWithFormat:@"http://%@", url];
+        }
+    } else {
+        url = self.url;
+    }
+    [self loadUrlString:url];
+}
+
+/** 加载url  */
+- (void)loadUrlString:(NSString *)urlString{
+    NSURL *url = [URLUtil formateToGetURL:urlString];
+    if (url){
+        NSURLRequest * request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+    }
+}
 
 
 - (ZWWebView *)webView
 {
     if (!_webView) {
         _webView = [[ZWWebView alloc] initWithFrame:CGRectZero];
+        _webView.backgroundColor = UIColorFromRGB(0xFFFFFF);
     }
     return _webView;
+}
+
+#pragma mark - 获取路由中的参数
+- (NSString *)getRouterUrl{
+    return __String_Not_Nil([self.routerParams objectForKey:@"url"]);
 }
 
 @end

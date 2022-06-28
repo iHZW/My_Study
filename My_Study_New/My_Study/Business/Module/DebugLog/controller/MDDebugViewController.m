@@ -46,6 +46,7 @@
     self.navigationController.navigationBarHidden = NO;
     self.title = @"开发";
     
+    [self initLeftNav];
     [self initData];
     
     [self loadSubViews];
