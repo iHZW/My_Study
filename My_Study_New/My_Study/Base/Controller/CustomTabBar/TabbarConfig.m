@@ -8,7 +8,7 @@
 
 #import "TabbarConfig.h"
 #import "JSONUtil.h"
-#import "RouterPageModel.h"
+#import "RouterPageConfig.h"
 
 @implementation TabbarConfig
 

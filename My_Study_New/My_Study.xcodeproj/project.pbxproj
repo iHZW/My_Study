@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4E0287B228695304003E723E /* RouterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B128695304003E723E /* RouterParam.m */; };
-		4E0287B628695512003E723E /* RouterPageConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B528695512003E723E /* RouterPageConfig.m */; };
+		4E0287B628695512003E723E /* RouterPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B528695512003E723E /* RouterPageItem.m */; };
 		4E0287BA28698887003E723E /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B928698887003E723E /* ApplicationViewController.m */; };
 		4E0287BD28698899003E723E /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287BC28698899003E723E /* FindViewController.m */; };
 		4E0287C0286988A3003E723E /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287BF286988A3003E723E /* PersonalViewController.m */; };
-		4E0287C328698BC9003E723E /* RouterPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287C228698BC9003E723E /* RouterPageModel.m */; };
+		4E0287C328698BC9003E723E /* RouterPageConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287C228698BC9003E723E /* RouterPageConfig.m */; };
 		4E0287C928698ED1003E723E /* NSObject+Params.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287C828698ED1003E723E /* NSObject+Params.m */; };
 		4E0287CC28699383003E723E /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287CB28699383003E723E /* LaunchViewController.m */; };
 		4E0287D0286993C9003E723E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287CF286993C9003E723E /* LoginViewController.m */; };
@@ -307,16 +307,16 @@
 		4E0287B028695304003E723E /* RouterParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterParam.h; sourceTree = "<group>"; };
 		4E0287B128695304003E723E /* RouterParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterParam.m; sourceTree = "<group>"; };
 		4E0287B3286954DD003E723E /* RouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterConstants.h; sourceTree = "<group>"; };
-		4E0287B428695512003E723E /* RouterPageConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterPageConfig.h; sourceTree = "<group>"; };
-		4E0287B528695512003E723E /* RouterPageConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterPageConfig.m; sourceTree = "<group>"; };
+		4E0287B428695512003E723E /* RouterPageItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterPageItem.h; sourceTree = "<group>"; };
+		4E0287B528695512003E723E /* RouterPageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterPageItem.m; sourceTree = "<group>"; };
 		4E0287B828698887003E723E /* ApplicationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		4E0287B928698887003E723E /* ApplicationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		4E0287BB28698899003E723E /* FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
 		4E0287BC28698899003E723E /* FindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		4E0287BE286988A3003E723E /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		4E0287BF286988A3003E723E /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
-		4E0287C128698BC9003E723E /* RouterPageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterPageModel.h; sourceTree = "<group>"; };
-		4E0287C228698BC9003E723E /* RouterPageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterPageModel.m; sourceTree = "<group>"; };
+		4E0287C128698BC9003E723E /* RouterPageConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterPageConfig.h; sourceTree = "<group>"; };
+		4E0287C228698BC9003E723E /* RouterPageConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterPageConfig.m; sourceTree = "<group>"; };
 		4E0287C728698ED1003E723E /* NSObject+Params.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Params.h"; sourceTree = "<group>"; };
 		4E0287C828698ED1003E723E /* NSObject+Params.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Params.m"; sourceTree = "<group>"; };
 		4E0287CA28699383003E723E /* LaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
@@ -931,10 +931,10 @@
 				4E0287D52869B74E003E723E /* RouterNavigateDelegate.h */,
 				4E0287B028695304003E723E /* RouterParam.h */,
 				4E0287B128695304003E723E /* RouterParam.m */,
-				4E0287B428695512003E723E /* RouterPageConfig.h */,
-				4E0287B528695512003E723E /* RouterPageConfig.m */,
-				4E0287C128698BC9003E723E /* RouterPageModel.h */,
-				4E0287C228698BC9003E723E /* RouterPageModel.m */,
+				4E0287B428695512003E723E /* RouterPageItem.h */,
+				4E0287B528695512003E723E /* RouterPageItem.m */,
+				4E0287C128698BC9003E723E /* RouterPageConfig.h */,
+				4E0287C228698BC9003E723E /* RouterPageConfig.m */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -3081,7 +3081,7 @@
 				7C4EF050230402F80040DA7A /* CMSegmentViewController.m in Sources */,
 				4E02880E286B056A003E723E /* URLObject.m in Sources */,
 				7CB1A2FA26E4869B00D450CE /* DisplayLinkViewController.m in Sources */,
-				4E0287B628695512003E723E /* RouterPageConfig.m in Sources */,
+				4E0287B628695512003E723E /* RouterPageItem.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
 				4EEC47D2285AD4190047F8B6 /* ZWNavigationController.m in Sources */,
 				7C4EF0002303948E0040DA7A /* NSObject+KeyedArchiver.m in Sources */,
@@ -3162,7 +3162,7 @@
 				4EC6B2C22861A84400F57AAC /* MBProgressHUD.m in Sources */,
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
-				4E0287C328698BC9003E723E /* RouterPageModel.m in Sources */,
+				4E0287C328698BC9003E723E /* RouterPageConfig.m in Sources */,
 				7C4EF06F230405030040DA7A /* UIButton+Block.m in Sources */,
 				4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */,
 				7C8AAE5922E9859F00589862 /* UIGestureRecognizer+Block.m in Sources */,

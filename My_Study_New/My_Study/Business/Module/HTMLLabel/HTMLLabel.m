@@ -1407,7 +1407,7 @@ NSString *const HTMLTextAlignment = @"textAlignment";
             [url hasPrefix:@"https://"]) {
             /** 使用通用的webView打开  */
             NSDictionary * param = @{@"url":__String_Not_Nil(url)};
-            NSString * routerUrl = [Router encodeRouterUrl:ZWCommonWebViewPage params:param];
+            NSString * routerUrl = [Router encodeRouterUrl:ZWRouterPageCommonWebView params:param];
             [ZWM.router executeURLNoCallBack:routerUrl];
         } else {
             /** 使用路由跳转  */

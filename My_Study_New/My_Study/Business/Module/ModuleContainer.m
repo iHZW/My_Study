@@ -26,8 +26,8 @@
 @property (nonatomic, strong, readwrite) HttpClient *http;
 
 @property (nonatomic, strong,readwrite) Router *router;
-
-@property (nonatomic, strong) NSMutableArray<RouterPageConfig *> *registerRouterConfigs;
+/** 存储页面信息  */
+@property (nonatomic, strong) NSMutableArray<RouterPageItem *> *registerRouterItems;
 
 @end
 
@@ -75,16 +75,16 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
 }
 
 #pragma mark - Router
-+ (RouterPageConfig *)findRouterPageConfig:(NSArray *)routerConfigs url:(NSString *)url{
-    RouterPageConfig *pageConfig = nil;
-    if (routerConfigs && routerConfigs.count > 0) {
-        for (RouterPageConfig *config in routerConfigs){
++ (RouterPageItem *)findRouterPageItem:(NSArray *)routerItems url:(NSString *)url{
+    RouterPageItem *pageItem = nil;
+    if (routerItems && routerItems.count > 0) {
+        for (RouterPageItem *config in routerItems){
             if ([config.url isEqualToString:url]){
-                pageConfig = config;
+                pageItem = config;
             }
         }
     }
-    return pageConfig;
+    return pageItem;
 }
 
 /**
@@ -95,11 +95,11 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
  */
 - (RouterParam *)findRouterParam:(NSString *)route
 {
-    return [ModuleContainer getRouterParam:route routerConfigs:self.registerRouterConfigs];
+    return [ModuleContainer getRouterParam:route routerItems:self.registerRouterItems];
 }
 
 
-+ (RouterParam *)getRouterParam:(NSString *)url routerConfigs:(NSArray *)routerConfigs{
++ (RouterParam *)getRouterParam:(NSString *)url routerItems:(NSArray *)routerItems{
     
     if ([url hasPrefix:@"/h5/"]){
         NSArray *components = [url componentsSeparatedByString:@"?"];
@@ -148,9 +148,9 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
         if (path.length > 0){
             RouterParam *routerParam = [[RouterParam alloc] init];
             routerParam.originUrl = url;
-            RouterPageConfig *routerConfig = [self findRouterPageConfig:routerConfigs url:path];
-            routerParam.destURL = routerConfig.clsName;
-            routerParam.type = routerConfig.type;
+            RouterPageItem *routerItem = [self findRouterPageItem:routerItems url:path];
+            routerParam.destURL = routerItem.clsName;
+            routerParam.type = routerItem.type;
             
             NSString *dataStr = [url substringFromIndex:path.length];
             if ([dataStr hasPrefix:@"?"]){
@@ -169,8 +169,8 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
                 }
             }
             
-            if (routerConfig.attachValue){
-                NSMutableDictionary *mutDict = [NSMutableDictionary dictionaryWithDictionary:routerConfig.attachValue];
+            if (routerItem.attachValue){
+                NSMutableDictionary *mutDict = [NSMutableDictionary dictionaryWithDictionary:routerItem.attachValue];
                 [mutDict addEntriesFromDictionary:routerParam.params];
                 routerParam.params = mutDict;
             }
@@ -182,17 +182,17 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
 }
 
 /**
- *  根据类名查找 RouterPageConfig
+ *  根据类名查找 RouterPageItem
  *
  *  @param clsName    类名
  *
  */
-- (RouterPageConfig *)findRouterPageConfig:(NSString *)clsName
+- (RouterPageItem *)findRouterPageItem:(NSString *)clsName
 {
-    NSArray *registerRouterConfigs = self.registerRouterConfigs;
-    for (RouterPageConfig *pageConfig in registerRouterConfigs){
-        if ([pageConfig.clsName isEqualToString:clsName]){
-            return pageConfig;
+    NSArray *registerRouterItems = self.registerRouterItems;
+    for (RouterPageItem *pageItem in registerRouterItems){
+        if ([pageItem.clsName isEqualToString:clsName]){
+            return pageItem;
         }
     }
     return nil;
@@ -203,13 +203,13 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
  */
 - (void)registerRouter
 {
-    self.registerRouterConfigs = [NSMutableArray array];
-    RouterPageModel *pageModel = [RouterPageModel getDefaultRouterPageModel];
+    self.registerRouterItems = [NSMutableArray array];
+    RouterPageConfig *pageConfig = [RouterPageConfig getDefaultRouterPageConfig];
     
-    [pageModel.configs enumerateObjectsUsingBlock:^(RouterPageConfig * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [pageConfig.pageItems enumerateObjectsUsingBlock:^(RouterPageItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        RouterPageConfig *config = [RouterPageConfig makeWithUrl:TransToString(obj.url) clsName:TransToString(obj.clsName) type:obj.type attachValue:TransToDictionary(obj.attachValue)];
-        [self.registerRouterConfigs addObject:config];
+        RouterPageItem *config = [RouterPageItem makeWithUrl:TransToString(obj.url) clsName:TransToString(obj.clsName) type:obj.type attachValue:TransToDictionary(obj.attachValue)];
+        [self.registerRouterItems addObject:config];
     }];
     
     self.router = [[Router alloc] init];
@@ -219,7 +219,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
         @pas_strongify_self
         return [self findRouterParam:routerURL];
     };
-    self.router.routerConfigs = self.registerRouterConfigs;
+    self.router.routerConfigs = self.registerRouterItems;
     
     /** 配置拦截器  */
     [self configRouterIntercept];

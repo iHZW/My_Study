@@ -19,6 +19,8 @@
 #import "DispatchBarrierPage.h"
 #import "DisplayLinkViewController.h"
 
+/** 测试iOS锁  */
+
 @interface RunLoopViewController ()
 {
     /** 信号量 */
@@ -201,7 +203,8 @@
 {
     [self performSelector:@selector(stop) onThread:self.wf_thread withObject:nil waitUntilDone:NO];
     
-    [self.navigationController pushViewController:[RunLoopPermanentViewController new] animated:YES];
+    [ZWM.router executeURL:ZWTabIndexFind];
+//    [self.navigationController pushViewController:[RunLoopPermanentViewController new] animated:YES];
 }
 
 

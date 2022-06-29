@@ -1,5 +1,5 @@
 //
-//  RouterPageConfig.h
+//  RouterPageModel.h
 //  My_Study
 //
 //  Created by Zhiwei Han on 2022/6/27.
@@ -7,30 +7,44 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RouterConstants.h"
+#import "RouterPageItem.h"
+#import "ZWHttpNetworkData.h"
+
+@class RouterPageItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RouterPageConfig : NSObject
+/* -------------------------------tab----------------------------  */
+/** 首页  */
+extern NSString *_Nullable ZWTabIndexHome;
+/** 应用  */
+extern NSString *_Nullable ZWTabIndexApplication;
+/** CRM  */
+extern NSString *_Nullable ZWTabIndexCRM;
+/** 查找  */
+extern NSString *_Nullable ZWTabIndexFind;
+/** 个人中心  */
+extern NSString *_Nullable ZWTabIndexPersonal;
 
-@property (nonatomic, copy) NSString *url;
+/* -------------------------------tab----------------------------  */
 
-@property (nonatomic, copy) NSString *clsName;
-/**
- * 路由y业务类型
- */
-@property (nonatomic, assign) RouterType type;
-/**
- * 附加值
- * 解决：不同路由跳转到同一个类的时候，可以追加自己需要的参数。
- */
-@property (nonatomic, strong) NSDictionary *attachValue;
+/* -------------------------------page----------------------------  */
+#pragma mark - log
+/** 日志首页  */
+extern NSString *_Nullable ZWRouterPageDebugLogHome;
+/** 通用webView  */
+extern NSString *_Nullable ZWRouterPageCommonWebView;
+/** <#describe#>  */
+
+/* -------------------------------page----------------------------  */
 
 
-+ (instancetype)makeWithUrl:(NSString *)url
-                    clsName:(NSString *)clsName
-                       type:(RouterType)type
-                attachValue:(nullable NSDictionary *)value;
+/** 路由界面配置  */
+@interface RouterPageConfig :ZWHttpNetworkData
+
+@property (nonatomic, copy) NSArray<RouterPageItem *> *pageItems;
+
++ (RouterPageConfig *)getDefaultRouterPageConfig;
 
 @end
 

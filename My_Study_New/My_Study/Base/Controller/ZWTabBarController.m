@@ -105,7 +105,6 @@
         normal.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#D5D5E1"]};
         selected.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#4F7AFD"]};
         self.tabBar.standardAppearance = tabbarAppearance;
-        
     } else {
         self.tabBar.backgroundImage = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(1, 49) andRoundSize:0];
         self.tabBar.shadowImage = [UIImage new];

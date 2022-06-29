@@ -10,14 +10,15 @@
 #import "SingletonTemplate.h"
 #import "HttpClient.h"
 #import "RouterParam.h"
-#import "RouterPageModel.h"
+#import "RouterPageConfig.h"
 #import "Router.h"
 
 /** 给 NSObject 添加路由参数  */
 #import "NSObject+Params.h"
 #import "Router+CRM.h"
 
-#define ZWM   [ModuleContainer sharedModuleContainer]
+/** 单利ZWM 管理容器, 主要包含Router  */
+#define ZWM             [ModuleContainer sharedModuleContainer]
 
 //刷新tabbar
 #define NOTIFICATION_TAB_REFRESH    @"NOTIFICATION_TAB_REFRESH"
@@ -51,7 +52,7 @@ DEFINE_SINGLETON_T_FOR_HEADER(ModuleContainer)
  *  @param clsName    类名
  *
  */
-- (RouterPageConfig *)findRouterPageConfig:(NSString *)clsName;
+- (RouterPageItem *)findRouterPageItem:(NSString *)clsName;
 
 @end
 
