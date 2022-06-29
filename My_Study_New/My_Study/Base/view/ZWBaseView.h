@@ -1,8 +1,8 @@
 //
-//  BaseTableViewCell.h
+//  ZWBaseView.h
 //  My_Study
 //
-//  Created by Zhiwei Han on 2022/6/15.
+//  Created by Zhiwei Han on 2022/6/29.
 //  Copyright © 2022 HZW. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableViewCell : UITableViewCell
+@interface ZWBaseView : UIView
 
 @end
 

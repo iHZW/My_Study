@@ -16,24 +16,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* -------------------------------tab----------------------------  */
 /** 首页  */
-extern NSString *_Nullable ZWTabIndexHome;
+UIKIT_EXTERN NSString *const ZWTabIndexHome;
 /** 应用  */
-extern NSString *_Nullable ZWTabIndexApplication;
+UIKIT_EXTERN NSString *const ZWTabIndexApplication;
 /** CRM  */
-extern NSString *_Nullable ZWTabIndexCRM;
+UIKIT_EXTERN NSString *const ZWTabIndexCRM;
 /** 查找  */
-extern NSString *_Nullable ZWTabIndexFind;
+UIKIT_EXTERN NSString *const ZWTabIndexFind;
 /** 个人中心  */
-extern NSString *_Nullable ZWTabIndexPersonal;
+UIKIT_EXTERN NSString *const ZWTabIndexPersonal;
 
 /* -------------------------------tab----------------------------  */
 
 /* -------------------------------page----------------------------  */
 #pragma mark - log
 /** 日志首页  */
-extern NSString *_Nullable ZWRouterPageDebugLogHome;
+UIKIT_EXTERN NSString *const ZWRouterPageDebugLogHome;
 /** 通用webView  */
-extern NSString *_Nullable ZWRouterPageCommonWebView;
+UIKIT_EXTERN NSString *const ZWRouterPageCommonWebView;
 /** <#describe#>  */
 
 /* -------------------------------page----------------------------  */

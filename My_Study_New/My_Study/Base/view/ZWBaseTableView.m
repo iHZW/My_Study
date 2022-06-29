@@ -82,6 +82,20 @@
     self = [super initWithFrame:frame style:style];
     if (self) {
         self.isSupportoOtherGestureRecognizer = NO;
+        /** 统一设置相关属性  */
+
+        /** 防止页面 reloadData 后， contentOffset 跳动变化  */
+        self.estimatedRowHeight = 0;
+        self.estimatedSectionHeaderHeight = 0;
+        self.estimatedSectionFooterHeight = 0;
+        
+        if (@available(iOS 11.0, *)) {
+            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        
+        if (@available(iOS 15.0, *)) {
+            self.sectionHeaderTopPadding = 0;
+        }
     }
     return self;
 }

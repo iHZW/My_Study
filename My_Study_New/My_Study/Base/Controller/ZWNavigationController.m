@@ -58,7 +58,9 @@
     [super pushViewController:viewController animated:animated];
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated {
     if ([viewController isKindOfClass:[ZWBaseViewController class]]){
         BOOL hidNavBar = viewController.hideNavigationBar;
         [self setNavigationBarHidden:hidNavBar animated:YES];
@@ -103,6 +105,9 @@
 //- (UIInterfaceOrientation)navigationControllerPreferredInterfaceOrientationForPresentation:(UINavigationController *)navigationController{
 //    return [self.topViewController preferredInterfaceOrientationForPresentation];
 //}
+
+
+
 
 
 @end

@@ -64,6 +64,7 @@
     [[UIBarButtonItem appearance] setTitleTextAttributes: barButtonItemAttributes forState:UIControlStateSelected];
     [[UIBarButtonItem appearance] setTitleTextAttributes: barButtonItemAttributes forState:UIControlStateDisabled];
     
+    /** 这个是全局设置 UITableView 的通用属性  */
     if (@available(iOS 11.0, *)) {
         [UITableView appearance].estimatedRowHeight = 0;
         [UITableView appearance].estimatedSectionFooterHeight = 0;

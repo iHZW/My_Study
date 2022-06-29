@@ -12,19 +12,19 @@
 
 /* -------------------------------tab----------------------------  */
 
-NSString const *ZWTabIndexHome              = @"tab/index/home";
-NSString const *ZWTabIndexApplication       = @"tab/index/application";
-NSString const *ZWTabIndexCRM               = @"tab/index/crm";
-NSString const *ZWTabIndexFind              = @"tab/index/find";
-NSString const *ZWTabIndexPersonal          = @"tab/index/personal";
+NSString *const ZWTabIndexHome              = @"tab/index/home";
+NSString *const ZWTabIndexApplication       = @"tab/index/application";
+NSString *const ZWTabIndexCRM               = @"tab/index/crm";
+NSString *const ZWTabIndexFind              = @"tab/index/find";
+NSString *const ZWTabIndexPersonal          = @"tab/index/personal";
 
 /* -------------------------------tab----------------------------  */
 
 
 /* -------------------------------page----------------------------  */
 
-NSString const *ZWRouterPageDebugLogHome           = @"debug/log/home";
-NSString const *ZWRouterPageCommonWebView          = @"common/webView";
+NSString *const ZWRouterPageDebugLogHome           = @"debug/log/home";
+NSString *const ZWRouterPageCommonWebView          = @"common/webView";
 
 
 /* -------------------------------page----------------------------  */

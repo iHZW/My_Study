@@ -42,6 +42,11 @@
 		4E403FA42865C461006C0656 /* UIAlertAction+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA22865C461006C0656 /* UIAlertAction+Ext.m */; };
 		4E403FA92865FA32006C0656 /* CustomTabbarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA82865FA32006C0656 /* CustomTabbarObject.m */; };
 		4E4D95DE27D6FAFD0019061E /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */; };
+		4E4F9CCD286C559C003281B5 /* PersonalCenterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */; };
+		4E4F9CD8286C5D8E003281B5 /* ZWRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CD7286C5D8D003281B5 /* ZWRefreshHeader.m */; };
+		4E4F9CDB286C5E44003281B5 /* ZWBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CDA286C5E44003281B5 /* ZWBaseView.m */; };
+		4E4F9CDE286C5E7F003281B5 /* ZWAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CDD286C5E7F003281B5 /* ZWAnimationView.m */; };
+		4E4F9CE1286C5EBB003281B5 /* ZWAnimationCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */; };
 		4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B4285B85F700DEC9CC /* DateUtil.m */; };
 		4E7427BA285B864900DEC9CC /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B8285B864900DEC9CC /* Toast.m */; };
 		4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427BB285B869400DEC9CC /* UIColor+Ext.m */; };
@@ -57,6 +62,12 @@
 		4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E227D72E3200422BAE /* CRMViewController.m */; };
 		4EA737E627D7351400422BAE /* AppLaunchTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E527D7351400422BAE /* AppLaunchTime.m */; };
 		4EA737EA27D7400800422BAE /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E927D7400800422BAE /* bgView.swift */; };
+		4EA97E4A286C895600C06BE4 /* ZWBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E49286C895600C06BE4 /* ZWBaseViewModel.m */; };
+		4EA97E4D286C922500C06BE4 /* ZWAbstractModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E4C286C922500C06BE4 /* ZWAbstractModule.m */; };
+		4EA97E60286C95A200C06BE4 /* ZWUserHeaderModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E5F286C95A200C06BE4 /* ZWUserHeaderModule.m */; };
+		4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E62286C96BC00C06BE4 /* ZWSettingLogoutModule.m */; };
+		4EA97E67286C9AEC00C06BE4 /* ZWUserContainerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E66286C9AEC00C06BE4 /* ZWUserContainerViewModel.m */; };
+		4EA97E6A286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E69286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m */; };
 		4EAAD80B2866B82B003D43FF /* UITabBar+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD80A2866B82B003D43FF /* UITabBar+Ext.m */; };
 		4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD80D2866BC5F003D43FF /* TabbarConfig.m */; };
 		4EAAD8112866C39A003D43FF /* TabIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD8102866C39A003D43FF /* TabIndexManager.m */; };
@@ -179,7 +190,7 @@
 		4EDC0B7428636245001C53CE /* ZWCommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B7328636245001C53CE /* ZWCommonUtil.m */; };
 		4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C32859F2CB0047F8B6 /* NSString+MoneyFormat.m */; };
 		4EEC47C82859F2CB0047F8B6 /* NSString+NumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */; };
-		4EEC47CF2859F5300047F8B6 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47CE2859F5300047F8B6 /* BaseTableViewCell.m */; };
+		4EEC47CF2859F5300047F8B6 /* ZWBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47CE2859F5300047F8B6 /* ZWBaseTableViewCell.m */; };
 		4EEC47D2285AD4190047F8B6 /* ZWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47D1285AD4190047F8B6 /* ZWNavigationController.m */; };
 		4EEC47D5285AD4550047F8B6 /* ZWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47D4285AD4550047F8B6 /* ZWTabBarController.m */; };
 		4EEC47DD285AD9F90047F8B6 /* UIViewController+ZW.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47DC285AD9F90047F8B6 /* UIViewController+ZW.m */; };
@@ -375,6 +386,17 @@
 		4E403FA82865FA32006C0656 /* CustomTabbarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarObject.m; sourceTree = "<group>"; };
 		4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCfamilly.h; sourceTree = "<group>"; };
 		4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCfamilly.m; sourceTree = "<group>"; };
+		4E4F9CCB286C559C003281B5 /* PersonalCenterConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalCenterConfig.h; sourceTree = "<group>"; };
+		4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterConfig.m; sourceTree = "<group>"; };
+		4E4F9CD1286C590C003281B5 /* ZWTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWTableViewAdapter.h; sourceTree = "<group>"; };
+		4E4F9CD6286C5D8D003281B5 /* ZWRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWRefreshHeader.h; sourceTree = "<group>"; };
+		4E4F9CD7286C5D8D003281B5 /* ZWRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWRefreshHeader.m; sourceTree = "<group>"; };
+		4E4F9CD9286C5E44003281B5 /* ZWBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWBaseView.h; sourceTree = "<group>"; };
+		4E4F9CDA286C5E44003281B5 /* ZWBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWBaseView.m; sourceTree = "<group>"; };
+		4E4F9CDC286C5E7F003281B5 /* ZWAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAnimationView.h; sourceTree = "<group>"; };
+		4E4F9CDD286C5E7F003281B5 /* ZWAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAnimationView.m; sourceTree = "<group>"; };
+		4E4F9CDF286C5EBB003281B5 /* ZWAnimationCircleLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAnimationCircleLayer.h; sourceTree = "<group>"; };
+		4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAnimationCircleLayer.m; sourceTree = "<group>"; };
 		4E7427B4285B85F700DEC9CC /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		4E7427B5285B85F700DEC9CC /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
 		4E7427B8285B864900DEC9CC /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
@@ -407,6 +429,19 @@
 		4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oc_swift_bridging_header.h; sourceTree = "<group>"; };
 		4EA737E827D7400800422BAE /* My_Study-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "My_Study-Bridging-Header.h"; sourceTree = "<group>"; };
 		4EA737E927D7400800422BAE /* bgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
+		4EA97E47286C650900C06BE4 /* ZWViewControllerAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWViewControllerAdapter.h; sourceTree = "<group>"; };
+		4EA97E48286C895600C06BE4 /* ZWBaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWBaseViewModel.h; sourceTree = "<group>"; };
+		4EA97E49286C895600C06BE4 /* ZWBaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWBaseViewModel.m; sourceTree = "<group>"; };
+		4EA97E4B286C922500C06BE4 /* ZWAbstractModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAbstractModule.h; sourceTree = "<group>"; };
+		4EA97E4C286C922500C06BE4 /* ZWAbstractModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAbstractModule.m; sourceTree = "<group>"; };
+		4EA97E5E286C95A200C06BE4 /* ZWUserHeaderModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWUserHeaderModule.h; sourceTree = "<group>"; };
+		4EA97E5F286C95A200C06BE4 /* ZWUserHeaderModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserHeaderModule.m; sourceTree = "<group>"; };
+		4EA97E61286C96BC00C06BE4 /* ZWSettingLogoutModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWSettingLogoutModule.h; sourceTree = "<group>"; };
+		4EA97E62286C96BC00C06BE4 /* ZWSettingLogoutModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWSettingLogoutModule.m; sourceTree = "<group>"; };
+		4EA97E65286C9AEC00C06BE4 /* ZWUserContainerViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWUserContainerViewModel.h; sourceTree = "<group>"; };
+		4EA97E66286C9AEC00C06BE4 /* ZWUserContainerViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserContainerViewModel.m; sourceTree = "<group>"; };
+		4EA97E68286C9FEE00C06BE4 /* ZWSettingContainerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWSettingContainerViewModel.h; sourceTree = "<group>"; };
+		4EA97E69286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWSettingContainerViewModel.m; sourceTree = "<group>"; };
 		4EAAD8092866B82B003D43FF /* UITabBar+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Ext.h"; sourceTree = "<group>"; };
 		4EAAD80A2866B82B003D43FF /* UITabBar+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Ext.m"; sourceTree = "<group>"; };
 		4EAAD80C2866BC5F003D43FF /* TabbarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarConfig.h; sourceTree = "<group>"; };
@@ -616,8 +651,8 @@
 		4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NumberFormat.m"; sourceTree = "<group>"; };
 		4EEC47C52859F2CB0047F8B6 /* NSString+NumberFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NumberFormat.h"; sourceTree = "<group>"; };
 		4EEC47C62859F2CB0047F8B6 /* NSString+MoneyFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MoneyFormat.h"; sourceTree = "<group>"; };
-		4EEC47CD2859F5300047F8B6 /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
-		4EEC47CE2859F5300047F8B6 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		4EEC47CD2859F5300047F8B6 /* ZWBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWBaseTableViewCell.h; sourceTree = "<group>"; };
+		4EEC47CE2859F5300047F8B6 /* ZWBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWBaseTableViewCell.m; sourceTree = "<group>"; };
 		4EEC47D0285AD4190047F8B6 /* ZWNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWNavigationController.h; sourceTree = "<group>"; };
 		4EEC47D1285AD4190047F8B6 /* ZWNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWNavigationController.m; sourceTree = "<group>"; };
 		4EEC47D3285AD4550047F8B6 /* ZWTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWTabBarController.h; sourceTree = "<group>"; };
@@ -1085,6 +1120,36 @@
 			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
+		4E4F9CCA286C5568003281B5 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				4EA97E47286C650900C06BE4 /* ZWViewControllerAdapter.h */,
+				4E4F9CD1286C590C003281B5 /* ZWTableViewAdapter.h */,
+				4E4F9CCB286C559C003281B5 /* PersonalCenterConfig.h */,
+				4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */,
+				4EA97E48286C895600C06BE4 /* ZWBaseViewModel.h */,
+				4EA97E49286C895600C06BE4 /* ZWBaseViewModel.m */,
+				4EA97E4B286C922500C06BE4 /* ZWAbstractModule.h */,
+				4EA97E4C286C922500C06BE4 /* ZWAbstractModule.m */,
+				4EA97E64286C96EB00C06BE4 /* settingInfo */,
+				4EA97E5D286C958E00C06BE4 /* UserInfo */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		4E4F9CD5286C5D7A003281B5 /* PullRefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				4E4F9CD6286C5D8D003281B5 /* ZWRefreshHeader.h */,
+				4E4F9CD7286C5D8D003281B5 /* ZWRefreshHeader.m */,
+				4E4F9CDC286C5E7F003281B5 /* ZWAnimationView.h */,
+				4E4F9CDD286C5E7F003281B5 /* ZWAnimationView.m */,
+				4E4F9CDF286C5EBB003281B5 /* ZWAnimationCircleLayer.h */,
+				4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */,
+			);
+			path = PullRefreshView;
+			sourceTree = "<group>";
+		};
 		4E7427B2285B85F700DEC9CC /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -1135,10 +1200,12 @@
 		4E899A5D285AF43700B54C89 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4EEC47CD2859F5300047F8B6 /* BaseTableViewCell.h */,
-				4EEC47CE2859F5300047F8B6 /* BaseTableViewCell.m */,
+				4EEC47CD2859F5300047F8B6 /* ZWBaseTableViewCell.h */,
+				4EEC47CE2859F5300047F8B6 /* ZWBaseTableViewCell.m */,
 				4E899A5E285AF43700B54C89 /* ZWBaseTableView.h */,
 				4E899A5F285AF43700B54C89 /* ZWBaseTableView.m */,
+				4E4F9CD9286C5E44003281B5 /* ZWBaseView.h */,
+				4E4F9CDA286C5E44003281B5 /* ZWBaseView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1182,6 +1249,28 @@
 				4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */,
 			);
 			path = NSURLRequest;
+			sourceTree = "<group>";
+		};
+		4EA97E5D286C958E00C06BE4 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4EA97E5E286C95A200C06BE4 /* ZWUserHeaderModule.h */,
+				4EA97E5F286C95A200C06BE4 /* ZWUserHeaderModule.m */,
+				4EA97E65286C9AEC00C06BE4 /* ZWUserContainerViewModel.h */,
+				4EA97E66286C9AEC00C06BE4 /* ZWUserContainerViewModel.m */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		4EA97E64286C96EB00C06BE4 /* settingInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4EA97E61286C96BC00C06BE4 /* ZWSettingLogoutModule.h */,
+				4EA97E62286C96BC00C06BE4 /* ZWSettingLogoutModule.m */,
+				4EA97E68286C9FEE00C06BE4 /* ZWSettingContainerViewModel.h */,
+				4EA97E69286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m */,
+			);
+			path = settingInfo;
 			sourceTree = "<group>";
 		};
 		4EAAD8152868B208003D43FF /* WebView */ = {
@@ -1229,6 +1318,7 @@
 				4E0287BC28698899003E723E /* FindViewController.m */,
 				4E0287BE286988A3003E723E /* PersonalViewController.h */,
 				4E0287BF286988A3003E723E /* PersonalViewController.m */,
+				4E4F9CCA286C5568003281B5 /* Personal */,
 			);
 			path = TabsIndexVc;
 			sourceTree = "<group>";
@@ -1254,6 +1344,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E4F9CD5286C5D7A003281B5 /* PullRefreshView */,
 				4E0287CD286993C0003E723E /* login */,
 				4E403F962865B15F006C0656 /* Resource */,
 				4EC6B39B2861BD9200F57AAC /* DrawerRelated */,
@@ -2559,8 +2650,8 @@
 		7C8AAE4422E9856400589862 /* UIView+Util */ = {
 			isa = PBXGroup;
 			children = (
-				7C8AAE4522E9856400589862 /* UIView+Util.m */,
 				7C8AAE4622E9856400589862 /* UIView+Util.h */,
+				7C8AAE4522E9856400589862 /* UIView+Util.m */,
 			);
 			path = "UIView+Util";
 			sourceTree = "<group>";
@@ -2953,15 +3044,19 @@
 				7C4F93BF2302B11900F2238E /* PASTipView.m in Sources */,
 				4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */,
 				7C4EF06B230405030040DA7A /* UIButton+CornerBorder.m in Sources */,
+				4EA97E67286C9AEC00C06BE4 /* ZWUserContainerViewModel.m in Sources */,
 				4E02880F286B056A003E723E /* URLUtil.m in Sources */,
 				7C4EF0292303A3390040DA7A /* UIViewController+Gesture.m in Sources */,
 				4EDC0B62286308D6001C53CE /* NSMutableArray+Safe.m in Sources */,
 				4E0287D32869B5F3003E723E /* Router.m in Sources */,
 				4EC6B28B28607FF400F57AAC /* SystemInfoFunc.m in Sources */,
+				4EA97E4A286C895600C06BE4 /* ZWBaseViewModel.m in Sources */,
 				7C6A215426E31CE600E0CF20 /* RunLoopPermanentViewController.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
 				7C4EF05A2304034B0040DA7A /* CMBaseButton.m in Sources */,
 				4EEEB867285EBA0100FD49A9 /* NSString+Verify.m in Sources */,
+				4EA97E4D286C922500C06BE4 /* ZWAbstractModule.m in Sources */,
+				4EA97E60286C95A200C06BE4 /* ZWUserHeaderModule.m in Sources */,
 				7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */,
 				4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */,
 				4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */,
@@ -2988,6 +3083,7 @@
 				7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
 				7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */,
 				7C91253526DA67B20030A5F3 /* BlockViewController.m in Sources */,
+				4EA97E6A286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m in Sources */,
 				4E028805286AB0CB003E723E /* CWLateralSlideConfiguration.m in Sources */,
 				7C879B1E26E65B860051018B /* MVVMModel.m in Sources */,
 				4EDC09732862E8F2001C53CE /* CMBusMediaAppDelegate.m in Sources */,
@@ -3032,6 +3128,7 @@
 				4EDC0B68286308D6001C53CE /* NSAttributedString+Safe.m in Sources */,
 				7C8AAE8122E9876D00589862 /* UIButton+Block.m in Sources */,
 				7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */,
+				4E4F9CDB286C5E44003281B5 /* ZWBaseView.m in Sources */,
 				7C8AAE3B22E984E900589862 /* UIAlertUtil.m in Sources */,
 				7C4EF00D230394FA0040DA7A /* DispatchMessageCenter.m in Sources */,
 				4E403F802865A994006C0656 /* HTMLLabel.m in Sources */,
@@ -3046,7 +3143,9 @@
 				4EC6B3922861B12A00F57AAC /* ZWHttpResponseData.m in Sources */,
 				4E0287DE2869BF70003E723E /* LogRouterIntercept.m in Sources */,
 				4E0287BD28698899003E723E /* FindViewController.m in Sources */,
+				4E4F9CE1286C5EBB003281B5 /* ZWAnimationCircleLayer.m in Sources */,
 				4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */,
+				4E4F9CD8286C5D8E003281B5 /* ZWRefreshHeader.m in Sources */,
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
 				4EC6B2992860982500F57AAC /* LeftDrawerViewController.m in Sources */,
 				4EC6B2922860807300F57AAC /* Reachability+IPV6Extention.m in Sources */,
@@ -3054,6 +3153,7 @@
 				7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */,
 				4EAAD8112866C39A003D43FF /* TabIndexManager.m in Sources */,
 				4EAAD8182868B208003D43FF /* ZWCommonWebPage.m in Sources */,
+				4E4F9CDE286C5E7F003281B5 /* ZWAnimationView.m in Sources */,
 				4E403F952865B024006C0656 /* AlertUtil.m in Sources */,
 				4EDC0B5F286308D6001C53CE /* NSCache+Safe.m in Sources */,
 				7C4F93E32302B39300F2238E /* PASBorderTableViewCell.m in Sources */,
@@ -3106,6 +3206,7 @@
 				4E0287DB2869BCB0003E723E /* BaseRouterAction.m in Sources */,
 				4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */,
 				7C8AAE3A22E984E900589862 /* PACustomAlertManage.m in Sources */,
+				4E4F9CCD286C559C003281B5 /* PersonalCenterConfig.m in Sources */,
 				7C6A215B26E3741F00E0CF20 /* WFOSSPinLockDemo.m in Sources */,
 				7C879B2426E65C890051018B /* MVVMViewModel.m in Sources */,
 				4E7427BA285B864900DEC9CC /* Toast.m in Sources */,
@@ -3136,7 +3237,7 @@
 				4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */,
 				7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */,
 				7C4F93E22302B39300F2238E /* PASTableViewHeaderView.m in Sources */,
-				4EEC47CF2859F5300047F8B6 /* BaseTableViewCell.m in Sources */,
+				4EEC47CF2859F5300047F8B6 /* ZWBaseTableViewCell.m in Sources */,
 				4EC6B38D2861B12A00F57AAC /* HttpClient.m in Sources */,
 				7C4EF02A2303A3390040DA7A /* CMViewController.m in Sources */,
 				4EC6B3782861B12A00F57AAC /* DHGuidePageHUD.m in Sources */,
@@ -3163,6 +3264,7 @@
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
 				4E0287C328698BC9003E723E /* RouterPageConfig.m in Sources */,
+				4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */,
 				7C4EF06F230405030040DA7A /* UIButton+Block.m in Sources */,
 				4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */,
 				7C8AAE5922E9859F00589862 /* UIGestureRecognizer+Block.m in Sources */,
@@ -3260,9 +3362,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = L39WXY5YB3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3296,10 +3398,10 @@
 				);
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3380,9 +3482,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = L39WXY5YB3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3416,10 +3518,10 @@
 				);
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3554,9 +3656,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = L39WXY5YB3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3590,10 +3692,10 @@
 				);
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = debug_profile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3614,9 +3716,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 36G5GJWS4P;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -3629,10 +3731,10 @@
 				);
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pingan.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = iosPingAnProfile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;

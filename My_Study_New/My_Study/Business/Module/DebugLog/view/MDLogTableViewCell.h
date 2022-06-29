@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewCell.h"
+#import "ZWBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MDLogTableViewCell : BaseTableViewCell
+@interface MDLogTableViewCell : ZWBaseTableViewCell
 
 @property (nonatomic, copy) NSString *titleName;
 
