@@ -12,8 +12,8 @@
 @interface PASTableViewController ()
 
 @property (nonatomic, strong) PASBaseTableView *tableView;
-@property (nonatomic, strong) PASTableViewHeaderView *tableViewHeader;  /** 简单的header直接调用 */
-@property (nonatomic, strong) PASTipView *tipView;  /**   中间无记录的tipView  */
+@property (nonatomic, strong) ZWTableViewHeaderView *tableViewHeader;  /** 简单的header直接调用 */
+@property (nonatomic, strong) ZWTipView *tipView;  /**   中间无记录的tipView  */
 @property (nonatomic, strong) UIButton *refreshBtn; /**   刷新按钮  **/
 
 @end
@@ -61,11 +61,11 @@
     }];
 }
 
-- (PASTableViewHeaderView *)tableViewHeader
+- (ZWTableViewHeaderView *)tableViewHeader
 {
     if (!_tableViewHeader)
     {
-        _tableViewHeader = [[PASTableViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 30)];
+        _tableViewHeader = [[ZWTableViewHeaderView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 30)];
         _tableViewHeader.backgroundColor = [UIColor clearColor];
         [self.view addSubview:_tableViewHeader];
         
@@ -82,10 +82,10 @@
     return _tableViewHeader;
 }
 
-- (PASTipView *)tipView
+- (ZWTipView *)tipView
 {
     if (!_tipView) {
-        _tipView = [[PASTipView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth * 0.8, PASFactor(115)) tipImage:[UIImage imageNamed:@"optional_bg"] tipInfo:@"没有记录"];
+        _tipView = [[ZWTipView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth * 0.8, PASFactor(115)) tipImage:[UIImage imageNamed:@"optional_bg"] tipInfo:@"没有记录"];
         [self.view addSubview:_tipView];
         [_tipView setHidden:YES];
         CGFloat headerViewHeight = self.tableView.tableHeaderView.height;

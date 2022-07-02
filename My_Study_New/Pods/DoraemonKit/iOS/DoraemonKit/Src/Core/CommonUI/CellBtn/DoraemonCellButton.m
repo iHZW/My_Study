@@ -1,6 +1,6 @@
 //
 //  DoraemonCellButton.m
-//  DoraemonKit-DoraemonKit
+//  DoraemonKit
 //
 //  Created by yixiang on 2018/6/15.
 //
@@ -38,7 +38,7 @@
         _downLine.backgroundColor = [UIColor doraemon_line];
         [self addSubview:_downLine];
         
-        _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage doraemon_imageNamed:@"doraemon_more"]];
+        _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_more"]];
         _arrowImageView.frame = CGRectMake(self.doraemon_width-kDoraemonSizeFrom750_Landscape(32)-_arrowImageView.doraemon_width, self.doraemon_height/2-_arrowImageView.doraemon_height/2, _arrowImageView.doraemon_width, _arrowImageView.doraemon_height);
         [self addSubview:_arrowImageView];
         

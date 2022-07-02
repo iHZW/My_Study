@@ -22,7 +22,6 @@
         }];
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            cancelBlock();
             BlockSafeRun(cancelBlock);
         }];
         [alertController addAction:okAction];

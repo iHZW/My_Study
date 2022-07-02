@@ -34,10 +34,16 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        /** 默认显示右侧箭头  */
+        self.isShowRightArrow = YES;
     }
     return self;
+}
+
+- (void)setIsShowRightArrow:(BOOL)isShowRightArrow
+{
+    _isShowRightArrow = isShowRightArrow;
+    self.rightIconImageView.hidden = !self.isShowRightArrow;
 }
 
 #pragma mark -- setter / getter
@@ -61,12 +67,12 @@
 {
     if (!_rightIconImageView)
     {
-        _rightIconImageView = [UIImageView imageViewForImage:nil withFrame:CGRectZero];
+        _rightIconImageView = [UIImageView imageViewForImage:[UIImage imageNamed:@"icon_arrow_right"] withFrame:CGRectZero];
         [self.contentView addSubview:_rightIconImageView];
         
         [_rightIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).offset(-15);
-            make.size.mas_equalTo(CGSizeMake(10, 15));
+            make.size.mas_equalTo(CGSizeMake(25, 25));
             make.centerY.equalTo(self.contentView);
         }];
     }

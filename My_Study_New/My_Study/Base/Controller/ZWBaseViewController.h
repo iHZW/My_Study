@@ -12,7 +12,6 @@
 
 @interface ZWBaseViewController : UIViewController
 
-
 #pragma mark - 加载导航控件
 /** 通用返回按钮  */
 - (void)initLeftNav;
@@ -20,8 +19,20 @@
 /** 加载右侧控件  */
 - (void)initRightNav;
 
+/**
+ *  扩展的初始化数据(子类继承时,子类初始化数据处理可在此函数中进行数据初始化)
+ */
+- (void)initExtendedData;
 
+/**
+ *  界面加载(子类继承时,子类扩展界面加载可在此函数中进行处理)
+ */
+- (void)loadUIData;
 
+/**
+ *  内存告警调用(子类继承时,子类收到内存告警时可在此函数中进行处理)
+ */
+- (void)receiveLowMemoryWarning;
 
 
 @end

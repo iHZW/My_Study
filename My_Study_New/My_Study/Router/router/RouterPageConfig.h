@@ -34,7 +34,10 @@ UIKIT_EXTERN NSString *const ZWTabIndexPersonal;
 UIKIT_EXTERN NSString *const ZWRouterPageDebugLogHome;
 /** 通用webView  */
 UIKIT_EXTERN NSString *const ZWRouterPageCommonWebView;
-/** <#describe#>  */
+/** 设置界面  */
+UIKIT_EXTERN NSString *const ZWRouterPageSettingViewController;
+/** AlertView 使用页  */
+UIKIT_EXTERN NSString *const ZWRouterPageShowAlertViewController;
 
 /* -------------------------------page----------------------------  */
 

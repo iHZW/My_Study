@@ -1,6 +1,6 @@
 //
 //  DoraemonSandboxViewController.m
-//  DoraemonKit-DoraemonKit
+//  DoraemonKit
 //
 //  Created by yixiang on 2017/12/11.
 //
@@ -45,9 +45,9 @@
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
             if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                self.leftModel.image = [UIImage doraemon_imageNamed:@"doraemon_back_dark"];
+                self.leftModel.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back_dark"];
             } else {
-                self.leftModel.image = [UIImage doraemon_imageNamed:@"doraemon_back"];
+                self.leftModel.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back"];
             }
         }
     }
@@ -93,11 +93,11 @@
         self.tableView.frame = CGRectMake(0, IPHONE_NAVIGATIONBAR_HEIGHT, self.view.doraemon_width, self.view.doraemon_height-IPHONE_NAVIGATIONBAR_HEIGHT);
         NSString *dirTitle =  [fm displayNameAtPath:targetPath];
         self.title = dirTitle;
-        UIImage *image = [UIImage doraemon_imageNamed:@"doraemon_back"];
+        UIImage *image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back"];
 #if defined(__IPHONE_13_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0)
         if (@available(iOS 13.0, *)) {
             if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                image = [UIImage doraemon_imageNamed:@"doraemon_back_dark"];
+                image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back_dark"];
             }
         }
 #endif
@@ -130,7 +130,34 @@
         [files addObject:model];
     }
     
-    _dataArray = files.copy;
+    //_dataArray = files.copy;
+    
+    // 按名称排序，并保持文件夹在上
+    _dataArray = [files sortedArrayUsingComparator:^NSComparisonResult(DoraemonSandboxModel * _Nonnull obj1, DoraemonSandboxModel * _Nonnull obj2) {
+        
+        BOOL isObj1Directory = (obj1.type == DoraemonSandboxFileTypeDirectory);
+        BOOL isObj2Directory = (obj2.type == DoraemonSandboxFileTypeDirectory);
+        
+        // 都是目录 或 都不是目录
+        BOOL isSameType = ((isObj1Directory && isObj2Directory) || (!isObj1Directory && !isObj2Directory));
+        
+        if (isSameType) { // 都是目录 或 都不是目录
+            
+            // 按名称排序
+            return [obj1.name.lowercaseString compare:obj2.name.lowercaseString];
+        }
+        
+        // 以下是一个为目录，一个不为目录的情况
+        
+        if (isObj1Directory) { // obj1是目录
+            
+            // 升序，保持文件夹在上
+            return NSOrderedAscending;
+        }
+        
+        // obj2是目录，降序
+        return NSOrderedDescending;
+    }];
     
     [self.tableView reloadData];
 }

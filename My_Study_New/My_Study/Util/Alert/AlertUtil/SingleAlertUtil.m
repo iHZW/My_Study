@@ -29,8 +29,9 @@
 }
 
 + (void)confirm:(nullable NSString*)title
-        msg:(nullable NSString *)msg
-        okBlock:(void(^)(void))okBlock{
+            msg:(nullable NSString *)msg
+            okBlock:(void(^)(void))okBlock
+{
     if (![SingleAlertUtil sharedInstance].isShowed){
         AlertView *alertView = [[AlertView alloc] init];
         alertView.title = title;
@@ -63,7 +64,8 @@
               cancelText:(NSString *)cancelText
              confirmText:(NSString *)confirmText
              cancelBlock:(void(^)(void))cancelBlock
-            confirmBlock:(void(^)(void))okBlock{
+            confirmBlock:(void(^)(void))okBlock
+{
     if (![SingleAlertUtil sharedInstance].isShowed){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
         

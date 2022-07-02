@@ -17,6 +17,8 @@
 #import "MDLogDetailViewController.h"
 #import "MDLogSearchView.h"
 #import "GCDCommon.h"
+#import "NSObject+ZWDeallocExecutor.h"
+
 
 #define kLogViewCellIdentifier      @"kLogViewCellIdentifier"
 
@@ -46,10 +48,20 @@
     
     [self initData];
     [self loadSubViews];
+    @pas_weakify_self
+    [self zw_executeAtDealloc:^{
+        @pas_strongify_self
+        NSLog(@"%@---%s", NSStringFromClass(self.class), __func__);
+    }];
 }
 
 - (void)initData
 {
+    @pas_weakify_self
+    [self zw_executeAtDealloc:^{
+        @pas_strongify_self
+        NSLog(@"%@---%s", NSStringFromClass(self.class), __func__);
+    }];
     switch (self.pageType) {
         case FromPageTypeDeault:
         {
@@ -121,6 +133,11 @@
 
 - (void)loadSubViews
 {
+    @pas_weakify_self
+    [self zw_executeAtDealloc:^{
+        @pas_strongify_self
+        NSLog(@"%@---%s", NSStringFromClass(self.class), __func__);
+    }];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
@@ -128,7 +145,7 @@
     }];
     
     self.tableView.tableHeaderView = self.searchView;
-    
+
     [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(kMainScreenWidth, PASFactor(60)));
     }];
@@ -287,7 +304,9 @@
         MDLogDetailViewController *vc = [[MDLogDetailViewController alloc] init];
         vc.identity = logModel.identifier;
         vc.index = indexPath.row;
+        @pas_weakify_self
         vc.queryIdentityBlock = ^NSUInteger(BOOL isUp,NSUInteger index) {
+            @pas_strongify_self
             LogModel *logModel = nil;
             
             if (isUp) {
@@ -365,6 +384,7 @@
 }
 
 - (void)dealloc {
+    
 //    if (self.dataSource) {
 //        self.dataSource = nil;
 //    }

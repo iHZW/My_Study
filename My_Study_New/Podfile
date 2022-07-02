@@ -13,10 +13,10 @@ def debugTool
   # debug工具
 
   # 查看UI结构
-  pod 'LookinServer', '1.0.0',  :configurations => ['Debug','QA','QA_Dev']
+  pod 'LookinServer', '1.0.4',  :configurations => ['Debug','QA','QA_Dev']
 
   # DoKit
-  pod 'DoraemonKit/Core', '3.0.2', :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit/Core', '3.1.2',  :configurations => ['Debug','QA','QA_Dev']
 end
 
 

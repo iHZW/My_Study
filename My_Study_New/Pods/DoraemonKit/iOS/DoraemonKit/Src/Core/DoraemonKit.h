@@ -10,6 +10,5 @@
 
 #import "DoraemonManager.h"
 #import "DoraemonBaseViewController.h"
-#import "DoraemonHomeWindow.h"
 
 #endif /* DoraemonKit_h */

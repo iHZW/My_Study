@@ -92,29 +92,35 @@
 
 - (void)loadTabBar
 {
-    if(@available(iOS 13.0, *)) {
-        UITabBarAppearance* tabbarAppearance = [self.tabBar.standardAppearance copy];
-        // 官方文档写的是 重置背景和阴影为透明
-        [tabbarAppearance configureWithTransparentBackground];
-        
-        tabbarAppearance.backgroundImage = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(1, 49) andRoundSize:0];
-        tabbarAppearance.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];
+    @pas_weakify_self
+    [self zh_themeUpdateCallback:^(id  _Nonnull target) {
+        @pas_strongify_self
+        if(@available(iOS 13.0, *)) {
+            UITabBarAppearance* tabbarAppearance = [self.tabBar.standardAppearance copy];
+            // 官方文档写的是 重置背景和阴影为透明
+    //        [tabbarAppearance configureWithTransparentBackground];
+            
+            tabbarAppearance.backgroundImage = [UIImage imageWithColor:ThemePickerColorKey(ZWColorKey_p3).color size:CGSizeMake(1, 49) andRoundSize:0];
+            tabbarAppearance.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];
 
-        UITabBarItemStateAppearance * normal = tabbarAppearance.stackedLayoutAppearance.normal;
-        UITabBarItemStateAppearance * selected = tabbarAppearance.stackedLayoutAppearance.selected;
-        normal.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#D5D5E1"]};
-        selected.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#4F7AFD"]};
-        self.tabBar.standardAppearance = tabbarAppearance;
-        
-//        UIView *lineView  = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectMake(0, 0, CGRectGetWidth(self.tabBar.frame), 0.5)];
-//        [self.tabBar addSubview:lineView];
-//        [self.tabBar bringSubviewToFront:lineView];
-        
-    } else {
-        self.tabBar.backgroundImage = [UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(1, 49) andRoundSize:0];
-        self.tabBar.shadowImage = [UIImage new];
-    }
-    
+            UITabBarItemStateAppearance * normal = tabbarAppearance.stackedLayoutAppearance.normal;
+            UITabBarItemStateAppearance * selected = tabbarAppearance.stackedLayoutAppearance.selected;
+            normal.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#D5D5E1"]};
+            selected.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#4F7AFD"]};
+            self.tabBar.standardAppearance = tabbarAppearance;
+            
+            if (@available(iOS 15.0, *)) {
+                self.tabBar.scrollEdgeAppearance = tabbarAppearance;
+            }
+    //        UIView *lineView  = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectMake(0, 0, CGRectGetWidth(self.tabBar.frame), 0.5)];
+    //        [self.tabBar addSubview:lineView];
+    //        [self.tabBar bringSubviewToFront:lineView];
+            
+        } else {
+            self.tabBar.backgroundImage = [UIImage imageWithColor:ThemePickerColorKey(ZWColorKey_p3).color size:CGSizeMake(1, 49) andRoundSize:0];
+            self.tabBar.shadowImage = [UIImage new];
+        }
+    }];
 }
 
 /** 通知刷新tabbar  */

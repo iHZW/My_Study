@@ -25,7 +25,8 @@ NSString *const ZWTabIndexPersonal          = @"tab/index/personal";
 
 NSString *const ZWRouterPageDebugLogHome           = @"debug/log/home";
 NSString *const ZWRouterPageCommonWebView          = @"common/webView";
-
+NSString *const ZWRouterPageSettingViewController  = @"setting/home";
+NSString *const ZWRouterPageShowAlertViewController = @"tools/show/alertview";
 
 /* -------------------------------page----------------------------  */
 
@@ -94,17 +95,39 @@ NSString *const ZWRouterPageCommonWebView          = @"common/webView";
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
-//            ,
+            /** 设置界面  */
+            @{
+                @"url" : ZWRouterPageSettingViewController,
+                @"clsName": @"SettingViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** 展示AlertView的VC  */
+            @{
+                @"url" : ZWRouterPageShowAlertViewController,
+                @"clsName": @"ShowAlertViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+//            /** 展示AlertView的VC  */
 //            @{
-//                @"url" : @"",
-//                @"clsName": PASAppSiteCTKey,
-//                @"type" : @(0),
+//                @"url" : ZWRouterPageShowAlertViewController,
+//                @"clsName": @"ShowAlertViewController",
+//                @"type" : @(RouterTypeNavigate),
 //                @"attachValue" : @{}
 //            },
+//            /** 展示AlertView的VC  */
 //            @{
-//                @"url" : @"",
-//                @"clsName": PASAppSiteCTKey,
-//                @"type" : @(0),
+//                @"url" : ZWRouterPageShowAlertViewController,
+//                @"clsName": @"ShowAlertViewController",
+//                @"type" : @(RouterTypeNavigate),
+//                @"attachValue" : @{}
+//            },
+//            /** 展示AlertView的VC  */
+//            @{
+//                @"url" : ZWRouterPageShowAlertViewController,
+//                @"clsName": @"ShowAlertViewController",
+//                @"type" : @(RouterTypeNavigate),
 //                @"attachValue" : @{}
 //            },
         ]

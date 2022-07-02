@@ -1,6 +1,6 @@
 //
 //  DoraemonEntryWindow.m
-//  DoraemonKitDemo
+//  DoraemonKit
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIButton *entryBtn;
 @property (nonatomic, assign) CGFloat kEntryViewSize;
 @property (nonatomic) CGPoint startingPosition;
+@property (nonatomic, strong) UILabel *entryBtnBlingTextLabel;
 
 @end
 
@@ -29,11 +30,11 @@
     if (!_entryBtn) {
         _entryBtn = [[UIButton alloc] initWithFrame:self.bounds];
         _entryBtn.backgroundColor = [UIColor clearColor];
-        UIImage *image = [UIImage doraemon_imageNamed:@"doraemon_logo"];
+        UIImage *image = [UIImage doraemon_xcassetImageNamed:@"doraemon_logo"];
 #if defined(__IPHONE_13_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0)
         if (@available(iOS 13.0, *)) {
             if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                image = [UIImage doraemon_imageNamed:@"doraemon_logo_dark"];
+                image = [UIImage doraemon_xcassetImageNamed:@"doraemon_logo_dark"];
             }
         }
 #endif
@@ -52,9 +53,9 @@
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
             if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                [self.entryBtn setImage:[UIImage doraemon_imageNamed:@"doraemon_logo_dark"] forState:UIControlStateNormal];
+                [self.entryBtn setImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_logo_dark"] forState:UIControlStateNormal];
             } else {
-                [self.entryBtn setImage:[UIImage doraemon_imageNamed:@"doraemon_logo"] forState:UIControlStateNormal];
+                [self.entryBtn setImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_logo"] forState:UIControlStateNormal];
             }
         }
     }
@@ -88,17 +89,13 @@
         self.backgroundColor = [UIColor clearColor];
         self.windowLevel = UIWindowLevelStatusBar + 100.f;
         self.layer.masksToBounds = YES;
-        NSString *version= [UIDevice currentDevice].systemVersion;
-        if(version.doubleValue >=10.0) {
-            if (!self.rootViewController) {
-                self.rootViewController = [[UIViewController alloc] init];
-            }
-        }else{
-            //iOS9.0的系统中，新建的window设置的rootViewController默认没有显示状态栏
-            if (!self.rootViewController) {
-                self.rootViewController = [[DoraemonStatusBarViewController alloc] init];
-            }
+        
+        // 统一使用 DoraemonStatusBarViewController
+        // 对系统的版本处理放入 DoraemonStatusBarViewController 类中
+        if (!self.rootViewController) {
+            self.rootViewController = [[DoraemonStatusBarViewController alloc] init];
         }
+
         
         [self.rootViewController.view addSubview:self.entryBtn];
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
@@ -112,13 +109,13 @@
 }
 
 - (void)showClose:(NSNotification *)notification{
-    [_entryBtn setImage:[UIImage doraemon_imageNamed:@"doraemon_close"] forState:UIControlStateNormal];
+    [_entryBtn setImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_close"] forState:UIControlStateNormal];
     [_entryBtn removeTarget:self action:@selector(showClose:) forControlEvents:UIControlEventTouchUpInside];
     [_entryBtn addTarget:self action:@selector(closePluginClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)closePluginClick:(UIButton *)btn{
-    [_entryBtn setImage:[UIImage doraemon_imageNamed:@"doraemon_logo"] forState:UIControlStateNormal];
+    [_entryBtn setImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_logo"] forState:UIControlStateNormal];
     [_entryBtn removeTarget:self action:@selector(closePluginClick:) forControlEvents:UIControlEventTouchUpInside];
     [_entryBtn addTarget:self action:@selector(entryClick:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -218,4 +215,42 @@
     }
 }
 
+- (void)configEntryBtnBlingWithText:(NSString *)text backColor:(UIColor *)backColor {
+
+    if (text == nil || text.length == 0) {
+        [self destoryBlingText];
+        return;
+    }
+    backColor = backColor ?: [UIColor whiteColor];
+
+    if (!self.entryBtnBlingTextLabel) {
+        self.entryBtnBlingTextLabel = [[UILabel alloc] initWithFrame:self.entryBtn.bounds];
+        self.entryBtnBlingTextLabel.transform = CGAffineTransformMakeScale(0.6, 0.6);
+        [self.entryBtn addSubview:self.entryBtnBlingTextLabel];
+        self.entryBtnBlingTextLabel.layer.cornerRadius = self.entryBtnBlingTextLabel.bounds.size.width/2.0;
+        self.entryBtnBlingTextLabel.clipsToBounds = YES;
+        self.entryBtnBlingTextLabel.font = [UIFont systemFontOfSize:self.entryBtn.bounds.size.width - 10];
+        self.entryBtnBlingTextLabel.textAlignment = NSTextAlignmentCenter;
+        self.entryBtnBlingTextLabel.textColor = [UIColor whiteColor];
+        CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        animation.fromValue = @1;
+        animation.toValue = @0;
+        animation.duration = 3.0;
+        animation.beginTime = CACurrentMediaTime() + 0;
+        animation.repeatCount = HUGE_VALF ;
+        animation.autoreverses = YES;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseInEaseOut];
+        animation.fillMode = kCAFillModeForwards;
+        [self.entryBtnBlingTextLabel.layer addAnimation:animation forKey:@"bling"];
+    }
+    self.entryBtnBlingTextLabel.backgroundColor = backColor;
+    self.entryBtnBlingTextLabel.text = [text substringToIndex:1];
+    
+}
+
+- (void)destoryBlingText {
+    [self.entryBtnBlingTextLabel.layer removeAllAnimations];
+    [self.entryBtnBlingTextLabel removeFromSuperview];
+    self.entryBtnBlingTextLabel = nil;
+}
 @end

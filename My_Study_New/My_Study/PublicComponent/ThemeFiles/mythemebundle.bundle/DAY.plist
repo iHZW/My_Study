@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>COLOR</key>
+	<dict>
+		<key>p1</key>
+		<string>F2F2F2</string>
+		<key>p2</key>
+		<string>F2F2F2</string>
+		<key>p3</key>
+		<string>FFFFFF</string>
+		<key>p4</key>
+		<string>111111</string>
+		<key>p5</key>
+		<string>333333</string>
+		<key>p6</key>
+		<string>999999</string>
+		<key>p7</key>
+		<string>CCCCCC</string>
+		<key>p8</key>
+		<string>FFFFFF</string>
+		<key>p9</key>
+		<string>EDEDED</string>
+		<key>p10</key>
+		<string>CCCCCC</string>
+		<key>p11</key>
+		<string>EEEEEE</string>
+	</dict>
+	<key>IMAGE</key>
+	<dict>
+		<key>image01</key>
+		<string>day_home</string>
+		<key>image02</key>
+		<string>day_discover</string>
+		<key>image03</key>
+		<string>day_me</string>
+		<key>image04</key>
+		<string>details_dark</string>
+		<key>image05</key>
+		<string>switch_off</string>
+	</dict>
+</dict>
+</plist>

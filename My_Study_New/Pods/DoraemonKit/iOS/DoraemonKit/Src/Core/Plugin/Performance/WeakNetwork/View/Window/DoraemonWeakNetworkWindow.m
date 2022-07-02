@@ -1,6 +1,6 @@
 //
 //  DoraemonWeakNetworkWindow.m
-//  AFNetworking
+//  DoraemonKit
 //
 //  Created by didi on 2020/3/21.
 //
@@ -101,7 +101,7 @@
 
 - (UIButton *)closeBtn{
     _closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.doraemon_width-_height, 0, _height, _height)];
-    [_closeBtn setImage:[UIImage doraemon_imageNamed:@"doraemon_close_white"] forState:UIControlStateNormal];
+    [_closeBtn setImage:[UIImage doraemon_xcassetImageNamed:@"doraemon_close_white"] forState:UIControlStateNormal];
     [_closeBtn addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     _closeBtn.backgroundColor = [UIColor clearColor];
     return _closeBtn;

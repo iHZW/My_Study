@@ -98,4 +98,28 @@
     return ((PASBorderBackgroundView *)self.backgroundView).lineBolder;
 }
 
+- (void)setShortColor:(UIColor *)shortColor
+{
+    if ([self.backgroundView isKindOfClass:[PASBorderBackgroundView class]])
+    {
+        [((PASBorderBackgroundView *)self.backgroundView) setShortColor:shortColor];
+    }
+}
+
+- (void)setLongColor:(UIColor *)longColor
+{
+    if ([self.backgroundView isKindOfClass:[PASBorderBackgroundView class]])
+    {
+        [((PASBorderBackgroundView *)self.backgroundView) setLongColor:longColor];
+    }
+}
+
+- (void)setSeparateColor:(UIColor *)separateColor
+{
+    if ([self.backgroundView isKindOfClass:[PASBorderBackgroundView class]])
+    {
+        [((PASBorderBackgroundView *)self.backgroundView) setSeparateColor:separateColor];
+    }
+}
+
 @end

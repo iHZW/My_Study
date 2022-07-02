@@ -10,6 +10,9 @@
 #define ZWSDK_h
 
 #import "UIScreen+Suitable.h"
+/** RAC  weakify  */
+#import "RACEXTScope.h"
+
 
 /**
  *  强弱引用转换，用于解决代码块（block）与强引用self之间的循环引用问题
@@ -133,6 +136,7 @@ typedef long long _int64;
 #define kPFLightFontName        @"PingFangSC-Light" //平方细体
 #define kDINABFontName          @"DINAlternate-Bold" //引文粗体
 #define kSFUITFontName          @"SFUIText-Regular" //英文常规格体
+#define kPFSemiboldName           @"GillSans-SemiBoldItalic" //导航上字体名称
 
 #define PASFactor(x) [UIScreen finalScreenValue:x]
 #define PASSuitableFactor(x) [UIScreen suitableScreenValue:x]

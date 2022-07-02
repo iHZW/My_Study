@@ -19,15 +19,27 @@ PODS:
   - CocoaLumberjack (3.6.2):
     - CocoaLumberjack/Core (= 3.6.2)
   - CocoaLumberjack/Core (3.6.2)
-  - DoraemonKit/Core (3.0.2)
+  - DoraemonKit/Core (3.1.2):
+    - AFNetworking
+    - FMDB
+    - GCDWebServer
+    - GCDWebServer/WebDAV
+    - GCDWebServer/WebUploader
   - FDFullscreenPopGesture (1.1)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - GCDWebServer (3.5.4):
+    - GCDWebServer/Core (= 3.5.4)
+  - GCDWebServer/Core (3.5.4)
+  - GCDWebServer/WebDAV (3.5.4):
+    - GCDWebServer/Core
+  - GCDWebServer/WebUploader (3.5.4):
+    - GCDWebServer/Core
   - JSONModel (1.5.0)
   - KissXML (5.2.3)
   - KVOController (1.2.0)
-  - LookinServer (1.0.0)
+  - LookinServer (1.0.4)
   - Masonry (1.1.0)
   - MJExtension (3.0.15.1)
   - MJRefresh (3.1.15.7)
@@ -92,13 +104,13 @@ DEPENDENCIES:
   - AFNetworking
   - Alamofire
   - CocoaAsyncSocket
-  - DoraemonKit/Core (= 3.0.2)
+  - DoraemonKit/Core
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
   - JSONModel (= 1.5.0)
   - KissXML (= 5.2.3)
   - KVOController (= 1.2.0)
-  - LookinServer (= 1.0.0)
+  - LookinServer (= 1.0.4)
   - Masonry (= 1.1.0)
   - MJExtension (= 3.0.15.1)
   - MJRefresh (= 3.1.15.7)
@@ -119,6 +131,7 @@ SPEC REPOS:
     - DoraemonKit
     - FDFullscreenPopGesture
     - FMDB
+    - GCDWebServer
     - JSONModel
     - KissXML
     - KVOController
@@ -141,13 +154,14 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
-  DoraemonKit: 8587e7a9aae0773dfc96707d2369d89d2a21b3d2
+  DoraemonKit: 0a040ae24386654e2a2d2c8d029f5ff5837de3c3
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   JSONModel: 79b79f8cc6f63b9fd30c7e8ec15aebe9f1a6cc4f
   KissXML: 09f88ff8161fd058d67b70740b8b516687b52823
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
+  LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
@@ -161,6 +175,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 23e6a26670eaf9c79095b3968bd0f49b27503265
+PODFILE CHECKSUM: fab25a947082d77203c88375aeb92ed6bf2a7761
 
 COCOAPODS: 1.11.2

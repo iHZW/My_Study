@@ -1,5 +1,5 @@
 //
-//  UIView+DoraemonPositioning.m
+//  UIView+Doraemon.m
 //  DoraemonKit
 //
 //  Created by xgb on 2018/11/15.
@@ -114,7 +114,7 @@
     return self.center.y;
 }
 
--(UIViewController*)viewController{
+-(UIViewController *)doraemon_viewController{
     for(UIView *next =self.superview ; next ; next = next.superview){
         UIResponder*nextResponder = [next nextResponder];
         if([nextResponder isKindOfClass:[UIViewController class]]){

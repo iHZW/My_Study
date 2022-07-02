@@ -1,6 +1,6 @@
 //
 //  DoraemonBaseViewController.m
-//  DoraemonKitDemo
+//  DoraemonKit
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
@@ -17,6 +17,7 @@
  
 @property (nonatomic, strong) DoraemonNavBarItemModel *leftModel;
 
+@property (nonatomic, strong) NSArray *leftNavBarItemArray;
 @end
 
 @implementation DoraemonBaseViewController
@@ -42,11 +43,11 @@
         _bigTitleView.delegate = self;
         [self.view addSubview:_bigTitleView];
     } else {
-        UIImage *image = [UIImage doraemon_imageNamed:@"doraemon_back"];
+        UIImage *image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back"];
 #if defined(__IPHONE_13_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0)
         if (@available(iOS 13.0, *)) {
             if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                image = [UIImage doraemon_imageNamed:@"doraemon_back_dark"];
+                image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back_dark"];
             }
         }
 #endif
@@ -80,10 +81,13 @@
     if (@available(iOS 13.0, *)) {
         if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
             if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                self.leftModel.image = [UIImage doraemon_imageNamed:@"doraemon_back_dark"];
+                self.leftModel.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back_dark"];
                 [self.navigationController.navigationBar setShadowImage:[UIImage doraemon_imageWithColor:[UIColor doraemon_black_3] size:CGSizeMake(self.view.frame.size.width, 0.5)]];
             } else {
-                self.leftModel.image = [UIImage doraemon_imageNamed:@"doraemon_back"];
+                self.leftModel.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back"];
+            }
+            if (self.leftNavBarItemArray) {
+                [self setLeftNavBarItems:self.leftNavBarItemArray];
             }
         }
     }
@@ -113,6 +117,7 @@
 }
 
 - (void)setLeftNavBarItems:(NSArray *)items{
+    _leftNavBarItemArray = items;
     NSArray *barItems = [self navigationItems:items];
     if (barItems) {
         self.navigationItem.leftBarButtonItems = barItems;

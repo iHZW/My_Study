@@ -1,6 +1,6 @@
 //
 //  DoraemonKitManagerCell.m
-//  AFNetworking
+//  DoraemonKit
 //
 //  Created by didi on 2020/4/28.
 //
@@ -100,20 +100,26 @@
 
 
 - (void)update:(NSString *)image name:(NSString *)name select:(BOOL)select editStatus:(BOOL)editStatus{
-    self.icon.image = [UIImage doraemon_imageNamed:image];
+    self.icon.image = [UIImage doraemon_xcassetImageNamed:image];
     self.name.text = name;
     if (editStatus) {
         self.select.hidden = NO;
         if (select) {
-            self.select.image = [UIImage doraemon_imageNamed:@"doraemon_check_circle_fill"];
+            self.select.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_check_circle_fill"];
             self.maskView.hidden = YES;
         }else{
-            self.select.image = [UIImage doraemon_imageNamed:@"doraemon_check_circle"];
+            self.select.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_check_circle"];
             self.maskView.hidden = NO;
         }
     }else{
         self.select.hidden = YES;
         self.maskView.hidden = YES;
+    }
+}
+
+- (void)updateImage:(UIImage *)image {
+    if (image) {        
+        self.icon.image = image;
     }
 }
 

@@ -24,4 +24,10 @@
 /** 线的宽度，默认0.5 */
 @property (nonatomic) CGFloat lineBolder;
 
+- (void)setShortColor:(UIColor *)shortColor;
+
+- (void)setLongColor:(UIColor *)longColor;
+
+- (void)setSeparateColor:(UIColor *)separateColor;
+
 @end

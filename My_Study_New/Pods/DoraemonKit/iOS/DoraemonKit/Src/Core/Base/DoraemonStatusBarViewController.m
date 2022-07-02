@@ -1,11 +1,12 @@
 //
 //  DoraemonStatusBarViewController.m
-//  AFNetworking
+//  DoraemonKit
 //
 //  Created by 张伟 on 2019/2/22.
 //
 
 #import "DoraemonStatusBarViewController.h"
+#import "DoraemonManager.h"
 
 @interface DoraemonStatusBarViewController ()
 
@@ -17,14 +18,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-- (BOOL)prefersStatusBarHidden
-{
+
+// iOS9.0的系统中，新建的window设置的rootViewController默认没有显示状态栏
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_9_3
+
+- (BOOL)prefersStatusBarHidden {
     return NO;
 }
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
 }
+
+#endif
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return DoraemonManager.shareInstance.supportedInterfaceOrientations;
+}
+
+
 /*
 #pragma mark - Navigation
 

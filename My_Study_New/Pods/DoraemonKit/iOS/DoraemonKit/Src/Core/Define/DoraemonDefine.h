@@ -1,6 +1,6 @@
 //
 //  DoraemonDefine.h
-//  DoraemonKitDemo
+//  DoraemonKit
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
@@ -18,7 +18,7 @@
 #import "DoraemonAlertUtil.h"
 #import "DoraemonUtil.h"
 
-#define DoKitVersion @"3.0.2"
+#define DoKitVersion @"3.0.8"
 #define DoKitKbChange(x) x * 1000
 
 //#define DoKit_OpenLog
@@ -43,9 +43,11 @@
 //根据750*1334分辨率计算size
 #define kDoraemonSizeFrom750(x) ((x)*DoraemonScreenWidth/750)
 // 如果横屏显示
-#define kDoraemonSizeFrom750_Landscape(x) (kInterfaceOrientationPortrait ? kDoraemonSizeFrom750(x) : ((x)*DoraemonScreenHeight/750))
+#define kDoraemonSizeFrom750_Landscape(x) (kInterfaceOrientationLandscape ? ((x)*DoraemonScreenHeight/750) : kDoraemonSizeFrom750(x))
 
 #define kInterfaceOrientationPortrait UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)
+
+#define kInterfaceOrientationLandscape UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)
 
 
 #define IS_IPHONE_X_Series [DoraemonAppInfoUtil isIPhoneXSeries]

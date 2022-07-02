@@ -14,17 +14,51 @@
 
 @implementation ZWBaseViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        [self initExtendedData];
+    }
+    
+    return self;
+}
+
+
+
+/** 内存告警  */
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    
+    if ([self isViewLoaded] && self.view.window == nil)
+    {
+        [self receiveLowMemoryWarning];
+        self.view = nil;
+//        [[CMNetLayerNotificationCenter defaultCenter] removeObserver:self];
+//        [[CMNotificationCenter defaultCenter] removeObserver:self];
+    }
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];// [UIColor randomColor];
-    // Do any additional setup after loading the view.
+    
+    self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
     
     /* 默认加载 */
     if (!self.isRootPage) {
         [self initLeftNav];
         [self initRightNav];
     }
+    
+    [self loadUIData];
 }
+
+
 
 
 /* 初始化导航 */
@@ -45,8 +79,23 @@
 
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
 }
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.view setNeedsLayout];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+}
+
 
 
 
@@ -88,14 +137,30 @@
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Public's methods
+/**
+ *  扩展的初始化数据(子类继承时,子类初始化数据处理可在此函数中进行数据初始化)
+ */
+- (void)initExtendedData
+{
+    
 }
-*/
+
+/**
+ *  界面加载(子类继承时,子类扩展界面加载可在此函数中进行处理)
+ */
+- (void)loadUIData
+{
+    
+}
+
+/**
+ *  内存告警调用(子类继承时,子类收到内存告警时可在此函数中进行处理)
+ */
+- (void)receiveLowMemoryWarning
+{
+    
+}
 
 @end

@@ -15,6 +15,9 @@
 #import "ZWBaseTableViewCell.h"
 #import "GCDCommon.h"
 #import "LoadingUtil.h"
+#import "UIApplication+Ext.h"
+#import "UIViewController+ZW.h"
+#import "PersonalHeader.h"
 
 NSString  * const context = @"user center context";
 
@@ -35,9 +38,16 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
 
 @property (nonatomic, strong) NSMutableDictionary *modulesViewDidLoadMap;
 
+@property (nonatomic, strong) UIView *topView;
+
 @end
 
 @implementation PersonalViewController
+
++ (NSDictionary *)ss_constantParams
+{
+    return @{@"hideNavigationBar" : @(YES)};
+}
 
 - (void)dealloc
 {
@@ -124,15 +134,24 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
     
     self.title = @"个人中心";
     
-    self.navigationController.navigationBar.hidden = YES;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = UIColorFromRGB(0xF2F2F2);
+    self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p2);
     
+    self.topView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.topView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p2);    
     [self loadSubViews];
 }
 
 - (void)loadSubViews
 {
+
+    [self.view addSubview:self.topView];
+    
+    
+    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.height.mas_equalTo(kSysStatusBarHeight);
+    }];
+    
     [self.view addSubview:self.tableView];
     
     /** 设置刷新头  */
@@ -184,6 +203,7 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+//    self.navigationController.navigationBar.hidden = YES;
 //    [self.navigationViewModel refreshView];
     [self.modules enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj conformsToProtocol:@protocol(ZWViewControllerAdapter)]) {
@@ -205,6 +225,7 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+//    self.navigationController.navigationBar.hidden = YES;
     [self.modules enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj conformsToProtocol:@protocol(ZWViewControllerAdapter)]) {
             if ([obj respondsToSelector:@selector(viewDidAppear:)]) {
@@ -217,6 +238,7 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+//    self.navigationController.navigationBar.hidden = NO;
     [self.modules enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj conformsToProtocol:@protocol(ZWViewControllerAdapter)]) {
             if ([obj respondsToSelector:@selector(viewWillDisappear:)]) {
@@ -229,6 +251,7 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+//    self.navigationController.navigationBar.hidden = NO;
     [self.modules enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj conformsToProtocol:@protocol(ZWViewControllerAdapter)]) {
             if ([obj respondsToSelector:@selector(viewDidDisappear:)]) {
@@ -364,8 +387,8 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
 - (ZWBaseTableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[ZWBaseTableView alloc] initWithFrame:CGRectMake(0, kSysStatusBarHeight, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - kSysStatusBarHeight) style:UITableViewStylePlain];
-        _tableView.backgroundColor = UIColorFromRGB(0xF2F2F2);
+        _tableView = [[ZWBaseTableView alloc] initWithFrame:CGRectMake(0, kSysStatusBarHeight, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - kSysStatusBarHeight - kMainTabbarHeight - SafeAreaBottomAreaHeight) style:UITableViewStylePlain];
+        _tableView.backgroundColor = kPersonalDefaultBGColor;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

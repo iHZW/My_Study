@@ -16,6 +16,7 @@
 #import "ModuleContainer.h"
 #import "CMBusMediaAppDelegate.h"
 #import "ZWMainAppDelegateService.h"
+#import "zhThemeOperator.h"
 
 
 #ifdef DOKIT
@@ -43,6 +44,8 @@
     [AppLaunchTime mark];
     /* 注册调试工具 */
     [self registDebugDoKitTool];
+    // 配置app主题
+    [zhThemeOperator themeConfiguration];
     /* 初始化配置信息 */
     [[ModuleContainer sharedModuleContainer] registerConfig];
     

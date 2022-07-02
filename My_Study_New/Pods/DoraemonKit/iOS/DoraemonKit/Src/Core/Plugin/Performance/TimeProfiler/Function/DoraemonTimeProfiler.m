@@ -1,6 +1,6 @@
 //
 //  DoraemonTimeProfiler.m
-//  AFNetworking
+//  DoraemonKit
 //
 //  Created by yixiang on 2019/7/10.
 //
@@ -68,7 +68,7 @@ static NSTimeInterval stopTime;
 + (void)printRecords {
     NSString *result = [self getRecordsResult];
     [DoraemonHealthManager sharedInstance].costDetail = result;
-    DoKitLog(@"%@",result);
+    NSLog(@"%@",result);
 }
 
 + (NSString *)getRecordsResult {

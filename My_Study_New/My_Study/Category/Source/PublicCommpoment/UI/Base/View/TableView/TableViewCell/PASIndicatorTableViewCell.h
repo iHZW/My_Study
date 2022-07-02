@@ -20,6 +20,8 @@ static NSString *pasIndicatorCellIdentifier = @"pasIndicatorCellIdentifier";
 
 @property (nonatomic, strong, readonly) UIImageView *leftIconImageView; /** 一定要在leftLabel之前调用 */
 @property (nonatomic, strong, readonly) UIImageView *rightIconImageView; /** 一定要在rightLabel之前调用 */
+/** 是否显示右侧箭头(默认显示右侧箭头 )  */
+@property (nonatomic, assign) BOOL isShowRightArrow;
 
 @property (nonatomic, strong, readonly) UILabel *leftLabel; /** 布局需要根据leftIconImageView是否存在调整 */
 @property (nonatomic, strong, readonly) UILabel *middleLabel; /** 布局低优先级居中，可以调整 */
@@ -30,4 +32,5 @@ static NSString *pasIndicatorCellIdentifier = @"pasIndicatorCellIdentifier";
 @property (nonatomic, strong, readonly) UITextField *textField; /** 布局需要依赖leftLabel,据leftLabel是否存在调整 */
 
 @property (nonatomic, strong, readonly) UILabel *statusLabel;   /** 布局默认居中,在middleLabel下方 */
+
 @end

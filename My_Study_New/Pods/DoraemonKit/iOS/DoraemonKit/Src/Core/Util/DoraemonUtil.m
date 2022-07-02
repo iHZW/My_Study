@@ -1,6 +1,6 @@
 //
 //  DoraemonUtil.m
-//  DoraemonKitDemo
+//  DoraemonKit
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
@@ -271,6 +271,8 @@
     if([DoraemonAppInfoUtil isIpad]){
         if ( [controller respondsToSelector:@selector(popoverPresentationController)] ) {
             controller.popoverPresentationController.sourceView = vc.view;
+            controller.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+            controller.popoverPresentationController.sourceRect = CGRectMake(vc.view.frame.size.width/2.0, vc.view.frame.size.height/2.0, 1.0, 1.0);
         }
         [vc presentViewController:controller animated:YES completion:nil];
     }else{
@@ -297,7 +299,13 @@
     if ([[UIApplication sharedApplication].delegate respondsToSelector:@selector(window)]) {
         keyWindow = [[UIApplication sharedApplication].delegate window];
     }else{
-        keyWindow = [UIApplication sharedApplication].windows.firstObject;
+        NSArray *windows = [UIApplication sharedApplication].windows;
+        for (UIWindow *window in windows) {
+            if (!window.hidden) {
+                keyWindow = window;
+                break;
+            }
+        }
     }
     return keyWindow;
 }

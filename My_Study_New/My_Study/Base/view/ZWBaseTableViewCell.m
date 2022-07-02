@@ -7,6 +7,7 @@
 //
 
 #import "ZWBaseTableViewCell.h"
+#import "PersonalHeader.h"
 
 NSString *const emptyCellReuseIdentify = @"emptyCellReuseIdentify";
 
@@ -16,8 +17,7 @@ NSString *const emptyCellReuseIdentify = @"emptyCellReuseIdentify";
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.contentView.backgroundColor = UIColorFromRGB(0xF2F2F2);
-//        self.contentView.backgroundColor = PASFaceColorWithKey2(@"u6", UIColorFromRGB(0xF2F2F2), bolThemeChgUsercenterPage);
+        self.contentView.backgroundColor = kPersonalDefaultBGColor;
     }
     return self;
 }
@@ -53,7 +53,7 @@ NSString *const emptyCellReuseIdentify = @"emptyCellReuseIdentify";
 
 - (void)notifyThemeChange:(NSNotification *)notification
 {
-    self.contentView.backgroundColor = UIColorFromRGB(0xF2F2F2);
+    self.contentView.backgroundColor = kPersonalDefaultBGColor;
 //    self.contentView.backgroundColor = PASFaceColorWithKey2(@"u6", UIColorFromRGB(0xF2F2F2), bolThemeChgUsercenterPage);
 }
 

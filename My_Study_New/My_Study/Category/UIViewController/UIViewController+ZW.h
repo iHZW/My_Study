@@ -27,6 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** 最底层的页面 */
 @property (nonatomic, assign) BOOL isRootPage;
 
+/**
+ *  配置隐藏导航栏信息
+ *
+ *  @"hideNavigationBar"    导航显示状态 默认显示
+ *  @"animated"    动画
+ *
+ */
 + (NSDictionary *)ss_constantParams;
 
 /**

@@ -31,7 +31,8 @@
 #pragma mark - lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
+
     self.title = @"首页";
 //    if (@available(iOS 7.0, *)) {
 //        // 让导航栏不是渐变色，变成没有穿透效果的纯色
@@ -99,7 +100,7 @@
 {
     ZWBaseViewController *vc = [[ZWBaseViewController alloc] init];
     vc.title = @"抽屉";
-    vc.view.backgroundColor = [UIColor whiteColor];
+    self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
     return vc;
 }
 
@@ -208,12 +209,19 @@
     return self.dataList.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [UITableViewCell cellFromCodeWithTableView:tableView];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     BaseCellModel *model = self.dataList[indexPath.row];
     cell.textLabel.text = model.title;
+    cell.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p8);
+    cell.textLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p4);
     return cell;
 }
 
@@ -278,7 +286,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
+    
 //    FlutterViewController *flutterVC = [[FlutterViewController alloc] initWithProject:nil nibName:nil bundle:nil];
 //    [self addChildViewController:flutterVC];
 //    flutterVC.view.frame = self.view.bounds;
@@ -286,18 +295,5 @@
 //    [self.view addSubview:flutterVC.view];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-//    self.tabBarController.tabBar.hidden = YES;
-//    self.navigationController.navigationBar.hidden = YES;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-//    self.tabBarController.tabBar.hidden = NO;
-//    self.navigationController.navigationBar.hidden = NO;
-}
 
 @end

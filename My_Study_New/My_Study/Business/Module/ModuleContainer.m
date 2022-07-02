@@ -259,11 +259,13 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
         
         if ([[cls class] respondsToSelector:@selector(ss_constantParams)]){
             NSDictionary *dict = [[cls class] ss_constantParams];
-            if (!modifyedAni){
-                animated = [[dict objectForKey:@"animated"] boolValue];
+            if (dict) {
+                if (!modifyedAni){
+                    animated = [[dict objectForKey:@"animated"] boolValue];
+                }
+                
+                hideNavigationBar = [[dict objectForKey:@"hideNavigationBar"] boolValue];
             }
-            
-            hideNavigationBar = [[dict objectForKey:@"hideNavigationBar"] boolValue];
         }
 
         UIViewController *currentViewController = [self currentViewController:param];

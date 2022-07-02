@@ -39,6 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
     [self loadSubViews];
     
     [self.accountTextFiled becomeFirstResponder];
@@ -106,6 +107,10 @@
  */
 - (void)loginAction
 {
+    /** 暂时不做校验  */
+    [self loginCheckSuccess];
+    return;
+    
     NSString *showMsg = @"";
     NSString *accountStr = self.accountTextFiled.text;
     NSString *passwordStr = self.passwordTextField.text;
@@ -116,11 +121,7 @@
     } else if ([accountStr isEqualToString:kAccountString]
                && [passwordStr isEqualToString:kPasswordString]) {
         /** 账号&密码正确  */
-        ZWUserInfoModel *infoModel = [ZWUserInfoModel new];
-        infoModel.pid = [kAccountString longLongValue];
-        infoModel.userWid = [kPasswordString longLongValue];;
-        [ZWUserAccountManager sharedZWUserAccountManager].currentUserInfo = infoModel;
-        BlockSafeRun(self.loginCompleted);
+        [self loginCheckSuccess];
     } else {
         showMsg = @"账号或密码输入有误!!!";
     }
@@ -128,6 +129,18 @@
     if (ValidString(showMsg)) {
         [Toast show:showMsg];
     }
+}
+
+/**
+ *   登录校验成功
+ */
+- (void)loginCheckSuccess
+{
+    ZWUserInfoModel *infoModel = [ZWUserInfoModel new];
+    infoModel.pid = [kAccountString longLongValue];
+    infoModel.userWid = [kPasswordString longLongValue];;
+    [ZWUserAccountManager sharedZWUserAccountManager].currentUserInfo = infoModel;
+    BlockSafeRun(self.loginCompleted);
 }
 
 
@@ -167,8 +180,10 @@
 {
     if (textField == self.accountTextFiled) {
         self.accountLineView.backgroundColor = UIColorFromRGB(0xCCCCCC);
+        self.accountLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
     } else if (textField == self.passwordTextField) {
         self.passwordLineView.backgroundColor = UIColorFromRGB(0xCCCCCC);
+        self.passwordLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
     }
 }
 
@@ -176,6 +191,7 @@
 - (UILabel *)getLeftLabel:(NSString *)title
 {
     UILabel *label = [UILabel labelWithFrame:CGRectMake(0, 0, 80, kItemHeight) text:[NSString stringWithFormat:@"%@: ", title] textColor:UIColorFromRGB(0x111111) font:PASFont(18) textAlignment:NSTextAlignmentLeft];
+    label.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p4);
     return label;
 }
 
@@ -194,6 +210,7 @@
 {
     if (!_loginContentView) {
         _loginContentView = [UIView viewForColor:UIColorFromRGB(0xFFFFFF) withFrame:CGRectZero];
+        _loginContentView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
     }
     return _loginContentView;
 }
@@ -208,6 +225,13 @@
         _accountTextFiled.placeholder = @"请输入账号";
         _accountTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
         _accountTextFiled.font = PASFont(18);
+        @pas_weakify_self
+        [_accountTextFiled zh_themeUpdateCallback:^(id  _Nonnull target) {
+            @pas_strongify_self
+            self.accountTextFiled.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.accountTextFiled.placeholder attributes:@{NSForegroundColorAttributeName:ThemePickerColorKey(ZWColorKey_p7).color}];
+            self.accountTextFiled.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
+            self.accountTextFiled.textColor = ThemePickerColorKey(ZWColorKey_p4).color;
+        }];
         [_accountTextFiled addTarget:self action:@selector(valueChange:) forControlEvents:UIControlEventValueChanged];
     }
     return _accountTextFiled;
@@ -224,6 +248,13 @@
         _passwordTextField.placeholder = @"请输入密码";
         _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _passwordTextField.font = PASFont(18);
+        @pas_weakify_self
+        [_accountTextFiled zh_themeUpdateCallback:^(id  _Nonnull target) {
+            @pas_strongify_self
+            self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.passwordTextField.placeholder attributes:@{NSForegroundColorAttributeName:ThemePickerColorKey(ZWColorKey_p7).color}];
+            self.passwordTextField.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
+            self.passwordTextField.textColor = ThemePickerColorKey(ZWColorKey_p4).color;
+        }];
         [_passwordTextField addTarget:self action:@selector(valueChange:) forControlEvents:UIControlEventValueChanged];
     }
     return _passwordTextField;
@@ -248,6 +279,8 @@
 {
     if (!_accountLineView) {
         _accountLineView = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectZero];
+        _accountLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
+
     }
     return _accountLineView;
 }
@@ -256,6 +289,7 @@
 {
     if (!_passwordLineView) {
         _passwordLineView = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectZero];
+        _passwordLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
     }
     return _passwordLineView;
 }

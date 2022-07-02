@@ -9,6 +9,7 @@
 #import "ZWUserHeaderModule.h"
 #import "ZWUserContainerViewModel.h"
 #import "ZWBaseTableViewCell.h"
+#import "PersonalHeader.h"
 
 @interface ZWUserHeaderModule ()
 
@@ -35,8 +36,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndex:(NSInteger)row
 {
-    CGFloat height = [self.viewModel heightView];;
-
+    CGFloat height = [self.viewModel heightView];
+    if (row > 0) {
+        height = 20;
+    }
     return height;
 }
 
@@ -53,7 +56,7 @@
             break;
         default:
             cell = [self tableView:tableView reuseIdentifier:emptyCellReuseIdentify];
-            cell.contentView.backgroundColor = UIColorFromRGB(0xF2F2F2);
+            cell.contentView.backgroundColor = kPersonalDefaultBGColor;
             break;
     }
     

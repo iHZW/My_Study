@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     self.title = @"CRM";
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor whiteColor];
     
     
     // Do any additional setup after loading the view.

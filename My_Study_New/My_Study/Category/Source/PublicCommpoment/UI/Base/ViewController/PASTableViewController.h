@@ -8,8 +8,8 @@
 
 #import "PASBaseViewController.h"
 #import "PASBaseTableView.h"
-#import "PASTableViewHeaderView.h"
-#import "PASTipView.h"
+#import "ZWTableViewHeaderView.h"
+#import "ZWTipView.h"
 
 // 默认的cell重用标签
 static NSString *pasDefaultCellIdentifier = @"pasDefaultCellIdentifier";
@@ -17,8 +17,8 @@ static NSString *pasDefaultCellIdentifier = @"pasDefaultCellIdentifier";
 @interface PASTableViewController : PASBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong, readonly) PASBaseTableView *tableView;
-@property (nonatomic, strong, readonly) PASTableViewHeaderView *tableViewHeader;  /** 简单的header直接调用 */
-@property (nonatomic, strong, readonly) PASTipView *tipView;  /**   中间无记录的tipView  */
+@property (nonatomic, strong, readonly) ZWTableViewHeaderView *tableViewHeader;  /** 简单的header直接调用 */
+@property (nonatomic, strong, readonly) ZWTipView *tipView;  /**   中间无记录的tipView  */
 @property (nonatomic, strong, readonly) UIButton *refreshBtn; /**   刷新按钮  **/
 
 @property (nonatomic) UITableViewStyle style;  /** 设置tableview样式，需要在viewdidload之前 */

@@ -62,8 +62,14 @@
 }
 
 - (void)update:(NSString *)image name:(NSString *)name {
-    self.icon.image = [UIImage doraemon_imageNamed:image];
+    self.icon.image = [UIImage doraemon_xcassetImageNamed:image];
     self.name.text = name;
+}
+
+- (void)updateImage:(UIImage *)image {
+    if (image) {
+        self.icon.image = image;
+    }
 }
 
 @end

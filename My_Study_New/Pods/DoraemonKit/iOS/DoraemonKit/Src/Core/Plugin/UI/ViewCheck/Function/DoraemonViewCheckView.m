@@ -1,6 +1,6 @@
 //
 //  DoraemonViewCheckView.m
-//  DoraemonKit-DoraemonKit
+//  DoraemonKit
 //
 //  Created by yixiang on 2018/3/28.
 //
@@ -36,7 +36,7 @@ static CGFloat const kViewCheckSize = 62;
         self.layer.zPosition = FLT_MAX;
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        imageView.image = [UIImage doraemon_imageNamed:@"doraemon_visual"];
+        imageView.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_visual"];
         [self addSubview:imageView];
         
         _arrViewHit = [[NSMutableArray alloc] initWithCapacity:30];
@@ -152,7 +152,7 @@ static CGFloat const kViewCheckSize = 62;
         //获取属性名
         UIView *tempView = view;
         NSString *ivarName = nil;
-        while(tempView != nil && tempView != self.viewController.view) {
+        while(tempView != nil && tempView != self.doraemon_viewController.view) {
             ivarName =  [self nameWithInstance:view inTarger:tempView.superview];
             if (ivarName) {
                 break;
@@ -160,11 +160,11 @@ static CGFloat const kViewCheckSize = 62;
             tempView = tempView.superview;
         }
         if (!ivarName) {
-            ivarName = [self nameWithInstance:view inTarger:self.viewController.view];
+            ivarName = [self nameWithInstance:view inTarger:self.doraemon_viewController.view];
         }
         
         if (!ivarName) {
-            ivarName = [self nameWithInstance:view inTarger:view.viewController];
+            ivarName = [self nameWithInstance:view inTarger:view.doraemon_viewController];
         }
         
         NSMutableString *showString = [[NSMutableString alloc] init];

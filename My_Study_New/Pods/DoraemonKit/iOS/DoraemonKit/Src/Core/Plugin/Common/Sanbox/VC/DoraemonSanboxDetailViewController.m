@@ -1,6 +1,6 @@
 //
 //  DoraemonSanboxDetailViewController.m
-//  AFNetworking
+//  DoraemonKit
 //
 //  Created by yixiang on 2018/6/20.
 //
@@ -14,9 +14,11 @@
 #import <QuickLook/QuickLook.h>
 #import "DoraemonDBManager.h"
 #import "DoraemonDBTableViewController.h"
+#import "DoraemonManager.h"
 
 @interface DoraemonSanboxDetailViewController ()<QLPreviewControllerDelegate,QLPreviewControllerDataSource,UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, copy) NSArray *tableNameArray;
 @property (nonatomic, strong) UITableView *dbTableNameTableView;
@@ -34,13 +36,22 @@
         if ([path hasSuffix:@".strings"] || [path hasSuffix:@".plist"]) {
             // 文本文件
             [self setContent:[[NSDictionary dictionaryWithContentsOfFile:path] description]];
-        } else if([path hasSuffix:@".DB"] || [path hasSuffix:@".db"] || [path hasSuffix:@".sqlite"] || [path hasSuffix:@".SQLITE"]){
+        } else if ([path hasSuffix:@".DB"] || [path hasSuffix:@".db"] || [path hasSuffix:@".sqlite"] || [path hasSuffix:@".SQLITE"] || [self isSQLiteFile:self.filePath]) {
             // 数据库文件
             self.title = DoraemonLocalizedString(@"数据库预览");
             [self browseDBTable];
+        } else if ([[path lowercaseString] hasSuffix:@".webp"]) {
+            // webp文件
+            DoraemonWebpHandleBlock block = [DoraemonManager shareInstance].webpHandleBlock;
+            if (block) {
+                UIImage *img = [DoraemonManager shareInstance].webpHandleBlock(path);
+                [self setOriginalImage:img];
+            } else {
+                [self setContent:@"webp need implement webpHandleBlock in DoraemonManager"];
+            }
         } else {
             // 其他文件 尝试使用 QLPreviewController 进行打开
-            QLPreviewController *previewController = [[QLPreviewController alloc]init];
+            QLPreviewController *previewController = [[QLPreviewController alloc] init];
             previewController.delegate = self;
             previewController.dataSource = self;
             [self presentViewController:previewController animated:YES completion:nil];
@@ -74,6 +85,37 @@
     }
 #endif
     [self.view addSubview:_textView];
+}
+
+- (void)setOriginalImage:(UIImage *)originalImage{
+    if (!originalImage) {
+        return;
+    }
+    CGFloat viewWidth = self.view.doraemon_width;
+    CGFloat viewHeight = self.view.doraemon_height;
+    CGFloat imageWidth = originalImage.size.width;
+    CGFloat imageHeight = originalImage.size.height;
+    BOOL isPortrait = imageHeight / viewHeight > imageWidth / viewWidth;
+    CGFloat scaledImageWidth, scaledImageHeight;
+    CGFloat x,y;
+    CGFloat imageScale;
+    if (isPortrait) {//图片竖屏分量比较大
+        imageScale = imageHeight / viewHeight;
+        scaledImageHeight = viewHeight;
+        scaledImageWidth = imageWidth / imageScale;
+        x = (viewWidth - scaledImageWidth) / 2;
+        y = 0;
+    }else{//图片横屏分量比较大
+        imageScale = imageWidth / viewWidth;
+        scaledImageWidth = viewWidth;
+        scaledImageHeight = imageHeight / imageScale;
+        x = 0;
+        y = (viewHeight - scaledImageHeight) / 2;
+    }
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, scaledImageWidth, scaledImageHeight)];
+    _imageView.image = originalImage;
+    _imageView.userInteractionEnabled = YES;
+    [self.view addSubview:_imageView];
 }
 
 //浏览数据库中所有数据表
@@ -121,6 +163,22 @@
 }
 - (void)previewControllerDidDismiss:(QLPreviewController *)controller {
     [self leftNavBackClick:nil];
+}
+
+#pragma mark - Private Methods
+- (BOOL)isSQLiteFile:(NSString *)file {
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:file];
+    if (!fileHandle) {
+        return NO;
+    }
+    NSData *data = [fileHandle readDataOfLength:16];
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [fileHandle closeFile];
+    if ([str isEqual:@"SQLite format 3\0"]) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end

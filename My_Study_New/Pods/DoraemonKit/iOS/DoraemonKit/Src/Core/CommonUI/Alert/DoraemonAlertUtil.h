@@ -1,6 +1,6 @@
 //
 //  DoraemonAlertUtil.h
-//  AFNetworking
+//  DoraemonKit
 //
 //  Created by didi on 2019/8/27.
 //
@@ -28,6 +28,20 @@ typedef void (^DoraemonAlertCancleActionBlock)(void);
 + (void)handleAlertActionWithVC:(UIViewController *)vc
                            text:(NSString *)text
                         okBlock:(DoraemonAlertOKActionBlock)okBlock;
+
++ (void)handleAlertActionWithVC:(UIViewController *)vc
+                          title: (NSString *)title
+                           text:(NSString *)text
+                             ok:(NSString *)ok
+                        okBlock:(DoraemonAlertOKActionBlock)okBlock;
+
++ (void)handleAlertActionWithVC:(UIViewController *)vc
+                          title: (NSString *)title
+                           text:(NSString *)text
+                             ok:(NSString *)ok
+                         cancel:(NSString *)cancel
+                        okBlock:(DoraemonAlertOKActionBlock)okBlock
+                    cancleBlock:(DoraemonAlertCancleActionBlock)cancleBlock;
 
 
 

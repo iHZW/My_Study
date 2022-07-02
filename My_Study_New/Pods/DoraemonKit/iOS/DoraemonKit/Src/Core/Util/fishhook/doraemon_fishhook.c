@@ -1,12 +1,13 @@
 //
 //  doraemon_fishhook.c
-//  DoraemonKit-DoraemonKit
+//  DoraemonKit
 //
 //  Created by didi on 2020/3/18.
 //
 
 #include "doraemon_fishhook.h"
 
+#include <assert.h>
 #include <dlfcn.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -96,10 +97,13 @@ static void doraemon_perform_rebinding_with_section(struct doraemon_rebindings_e
   const bool isDataConst = strcmp(section->segname, "__DATA_CONST") == 0;
   uint32_t *indirect_symbol_indices = indirect_symtab + section->reserved1;
   void **indirect_symbol_bindings = (void **)((uintptr_t)slide + section->addr);
-  vm_prot_t oldProtection = VM_PROT_READ;
   if (isDataConst) {
-    oldProtection = doraemon_get_protection(rebindings);
-    mprotect(indirect_symbol_bindings, section->size, PROT_READ | PROT_WRITE);
+      kern_return_t kernelReturn = vm_protect(mach_task_self(), (vm_address_t)indirect_symbol_bindings, section->size, false, VM_PROT_READ | VM_PROT_WRITE | VM_PROT_COPY);
+      if (__builtin_expect(kernelReturn != KERN_SUCCESS, false)) {
+          assert(false && "vm_protect() failure.");
+          
+          return;
+      }
   }
   for (uint i = 0; i < section->size / sizeof(void *); i++) {
     uint32_t symtab_index = indirect_symbol_indices[i];
@@ -121,24 +125,12 @@ static void doraemon_perform_rebinding_with_section(struct doraemon_rebindings_e
           }
           indirect_symbol_bindings[i] = cur->rebindings[j].replacement;
           goto symbol_loop;
+       
         }
       }
       cur = cur->next;
     }
   symbol_loop:;
-  }
-  if (isDataConst) {
-    int protection = 0;
-    if (oldProtection & VM_PROT_READ) {
-      protection |= PROT_READ;
-    }
-    if (oldProtection & VM_PROT_WRITE) {
-      protection |= PROT_WRITE;
-    }
-    if (oldProtection & VM_PROT_EXECUTE) {
-      protection |= PROT_EXEC;
-    }
-    mprotect(indirect_symbol_bindings, section->size, protection);
   }
 }
 
