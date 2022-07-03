@@ -29,6 +29,8 @@
 		4E028808286AFC45003E723E /* Router+CRM.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E028807286AFC44003E723E /* Router+CRM.m */; };
 		4E02880E286B056A003E723E /* URLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880A286B056A003E723E /* URLObject.m */; };
 		4E02880F286B056A003E723E /* URLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880C286B056A003E723E /* URLUtil.m */; };
+		4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02B3E92871B178006E0DE3 /* bgView.swift */; };
+		4E02B3EC2871B178006E0DE3 /* BWNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02B3EA2871B178006E0DE3 /* BWNetworkingService.swift */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -60,10 +62,8 @@
 		4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A7C285B7FA500B54C89 /* NSFileManager+Ext.m */; };
 		4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */; };
 		4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7263D27D75CA60060BDBA /* customerView.swift */; };
-		4EA7264027D767640060BDBA /* BWNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7263F27D767640060BDBA /* BWNetworkingService.swift */; };
 		4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E227D72E3200422BAE /* CRMViewController.m */; };
 		4EA737E627D7351400422BAE /* AppLaunchTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E527D7351400422BAE /* AppLaunchTime.m */; };
-		4EA737EA27D7400800422BAE /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E927D7400800422BAE /* bgView.swift */; };
 		4EA97E4A286C895600C06BE4 /* ZWBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E49286C895600C06BE4 /* ZWBaseViewModel.m */; };
 		4EA97E4D286C922500C06BE4 /* ZWAbstractModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E4C286C922500C06BE4 /* ZWAbstractModule.m */; };
 		4EA97E60286C95A200C06BE4 /* ZWUserHeaderModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E5F286C95A200C06BE4 /* ZWUserHeaderModule.m */; };
@@ -211,7 +211,7 @@
 		4EEEB867285EBA0100FD49A9 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB862285EBA0100FD49A9 /* NSString+Verify.m */; };
 		4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB865285EBA0100FD49A9 /* NSString+URLEncode.m */; };
 		4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */; };
-		7957CF6A9DB8747D5A3589AB /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */; };
+		6244B169A097FFC229A33821 /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648B8FF34789301862B11DE8 /* Pods_My_Study.framework */; };
 		7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */; };
 		7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AA26E10FB400CD1422 /* WFThread.m */; };
 		7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AD26E1145400CD1422 /* RunLoopViewController.m */; };
@@ -373,6 +373,9 @@
 		4E02880B286B056A003E723E /* URLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLUtil.h; sourceTree = "<group>"; };
 		4E02880C286B056A003E723E /* URLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLUtil.m; sourceTree = "<group>"; };
 		4E02880D286B056A003E723E /* URLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLObject.h; sourceTree = "<group>"; };
+		4E02B3E728714924006E0DE3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E02B3E92871B178006E0DE3 /* bgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
+		4E02B3EA2871B178006E0DE3 /* BWNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWNetworkingService.swift; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -437,14 +440,12 @@
 		4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HttpBodyAddition.m"; sourceTree = "<group>"; };
 		4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oc_swift-Swift.h"; sourceTree = "<group>"; };
 		4EA7263D27D75CA60060BDBA /* customerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customerView.swift; sourceTree = "<group>"; };
-		4EA7263F27D767640060BDBA /* BWNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWNetworkingService.swift; sourceTree = "<group>"; };
 		4EA737E127D72E3200422BAE /* CRMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMViewController.h; sourceTree = "<group>"; };
 		4EA737E227D72E3200422BAE /* CRMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMViewController.m; sourceTree = "<group>"; };
 		4EA737E427D7351400422BAE /* AppLaunchTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppLaunchTime.h; sourceTree = "<group>"; };
 		4EA737E527D7351400422BAE /* AppLaunchTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppLaunchTime.m; sourceTree = "<group>"; };
 		4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oc_swift_bridging_header.h; sourceTree = "<group>"; };
 		4EA737E827D7400800422BAE /* My_Study-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "My_Study-Bridging-Header.h"; sourceTree = "<group>"; };
-		4EA737E927D7400800422BAE /* bgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
 		4EA97E47286C650900C06BE4 /* ZWViewControllerAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWViewControllerAdapter.h; sourceTree = "<group>"; };
 		4EA97E48286C895600C06BE4 /* ZWBaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWBaseViewModel.h; sourceTree = "<group>"; };
 		4EA97E49286C895600C06BE4 /* ZWBaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWBaseViewModel.m; sourceTree = "<group>"; };
@@ -705,6 +706,7 @@
 		4EEEB864285EBA0100FD49A9 /* NSString+Verify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Verify.h"; sourceTree = "<group>"; };
 		4EEEB865285EBA0100FD49A9 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DataTransition.m"; sourceTree = "<group>"; };
+		648B8FF34789301862B11DE8 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6673E1F39FAA1E5AC4AD2DD9 /* Pods-My_Study.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WFObserver.h"; sourceTree = "<group>"; };
 		7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WFObserver.m"; sourceTree = "<group>"; };
@@ -947,7 +949,6 @@
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa.xcconfig"; sourceTree = "<group>"; };
 		F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
-		F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -966,7 +967,7 @@
 				7C8AAEB222E98B8B00589862 /* QuartzCore.framework in Frameworks */,
 				7C8AAEAE22E98AFB00589862 /* CFNetwork.framework in Frameworks */,
 				7C8AAEAC22E98ACB00589862 /* CoreImage.framework in Frameworks */,
-				7957CF6A9DB8747D5A3589AB /* Pods_My_Study.framework in Frameworks */,
+				6244B169A097FFC229A33821 /* Pods_My_Study.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2023,9 +2024,9 @@
 				4E0287CA28699383003E723E /* LaunchViewController.h */,
 				4E0287CB28699383003E723E /* LaunchViewController.m */,
 				4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */,
-				4EA737E927D7400800422BAE /* bgView.swift */,
 				4EA7263D27D75CA60060BDBA /* customerView.swift */,
-				4EA7263F27D767640060BDBA /* BWNetworkingService.swift */,
+				4E02B3E92871B178006E0DE3 /* bgView.swift */,
+				4E02B3EA2871B178006E0DE3 /* BWNetworkingService.swift */,
 				4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */,
 				7CAE2ACB26DBD90300100FA0 /* MJClassInfo.h */,
 				4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */,
@@ -2944,6 +2945,7 @@
 		A9CF1F70F4E4726AE968C272 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E02B3E728714924006E0DE3 /* Alamofire.framework */,
 				7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */,
 				7CFB1F7322EEC9C4000AE2C9 /* WFUIKit.framework */,
 				7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */,
@@ -2957,7 +2959,7 @@
 				7C8AAEAD22E98AFB00589862 /* CFNetwork.framework */,
 				7C8AAEAB22E98ACB00589862 /* CoreImage.framework */,
 				7C47B68F22E94F2800A1B1B7 /* AFNetworking.framework */,
-				F6DBDEA2155B210BFB96E164 /* Pods_My_Study.framework */,
+				648B8FF34789301862B11DE8 /* Pods_My_Study.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2973,8 +2975,8 @@
 				7C459A202295557300667813 /* Sources */,
 				7C459A212295557300667813 /* Frameworks */,
 				7C459A222295557300667813 /* Resources */,
-				955386C1B8872C8EB231BB4C /* [CP] Embed Pods Frameworks */,
 				7C650CC9243B848000726BA4 /* ShellScript */,
+				DA224EF94BCAA487DA3D52DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3116,7 +3118,7 @@
 			shellPath = /bin/sh;
 			shellScript = "#set -e\n#set -u\n#source \"${SRCROOT}/../Flutter/flutter_module/.ios/Flutter/flutter_export_environment.sh\"\n";
 		};
-		955386C1B8872C8EB231BB4C /* [CP] Embed Pods Frameworks */ = {
+		DA224EF94BCAA487DA3D52DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3237,14 +3239,12 @@
 				7C913E9126E316B10064C549 /* WFPermanentThread.m in Sources */,
 				4EEC47D5285AD4550047F8B6 /* ZWTabBarController.m in Sources */,
 				4EDC0B5D286308D6001C53CE /* NSSet+Safe.m in Sources */,
-				4EA737EA27D7400800422BAE /* bgView.swift in Sources */,
 				7C4F93E42302B39300F2238E /* PASIndicatorTableViewCell.m in Sources */,
 				7C8AAE6022E985ED00589862 /* CATextLayer+Helper.m in Sources */,
 				4EEC47C82859F2CB0047F8B6 /* NSString+NumberFormat.m in Sources */,
 				7CB1A2F726E4826D00D450CE /* DispatchBarrierPage.m in Sources */,
 				4EDC0B6E286308D6001C53CE /* NSDictionary+Safe.m in Sources */,
 				4EC6B38C2861B12A00F57AAC /* LookinPlugin.m in Sources */,
-				4EA7264027D767640060BDBA /* BWNetworkingService.swift in Sources */,
 				7C4F93DC2302B39300F2238E /* PASTwoListView.m in Sources */,
 				4EC6B3962861B12A00F57AAC /* ZWDataCache.m in Sources */,
 				4EDC0B69286308D6001C53CE /* NSNull+Safe.m in Sources */,
@@ -3345,6 +3345,7 @@
 				4EC6B3952861B12A00F57AAC /* ZWHttpNetworkManager.m in Sources */,
 				4EC6B3892861B12A00F57AAC /* PathConstants.m in Sources */,
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
+				4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */,
 				4EDC0B67286308D6001C53CE /* NSData+Safe.m in Sources */,
 				4EDC0B61286308D6001C53CE /* NSObject+Swizzle.m in Sources */,
 				4EC6B37A2861B12A00F57AAC /* ModuleContainer.m in Sources */,
@@ -3390,6 +3391,7 @@
 				4EC6B37D2861B12A00F57AAC /* MDLogManager.m in Sources */,
 				4EC6B2C22861A84400F57AAC /* MBProgressHUD.m in Sources */,
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,
+				4E02B3EC2871B178006E0DE3 /* BWNetworkingService.swift in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
 				4E0287C328698BC9003E723E /* RouterPageConfig.m in Sources */,
 				4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */,
@@ -3511,6 +3513,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/WFUIKit\"",
 					"\"${PODS_ROOT}/LookinServer\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3633,6 +3636,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/WFUIKit\"",
 					"\"${PODS_ROOT}/LookinServer\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3809,6 +3813,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/WFUIKit\"",
 					"\"${PODS_ROOT}/LookinServer\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3855,6 +3860,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
 				INFOPLIST_FILE = My_Study/Info.plist;

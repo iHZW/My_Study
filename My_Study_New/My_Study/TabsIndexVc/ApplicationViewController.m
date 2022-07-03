@@ -23,14 +23,6 @@
 // 创建原子队列需要导入头文件
 #import <libkern/OSAtomic.h>
 
-#import "AlertHead.h"
-#import "AlertDefaultCustomCenterView.h"
-#import "NSString+Adaptor.h"
-
-#import "HTMLLabel.h"
-
-#import "ZWCommonWebPage.h"
-#import "UIApplication+Ext.h"
 
 #pragma mark ------------------------------KVO底层原理------------------------------------
 /**< 利用运行时,生成一个对象的子类,并生成子类的对象,替换原对象的isa指针,重写set方法 */
@@ -38,15 +30,13 @@
 #define kChangeValueKey             @"name"
 
 
-@interface ApplicationViewController ()<HTMLLabelDelegate>
+@interface ApplicationViewController ()
 
 @property (nonatomic, strong) EOCfamilly *eocFamilly;
 
 @property (nonatomic, strong) EOCfamilly *kvcEocFamilly;
 
 @property (nonatomic, strong) UILabel *nameLabel;
-
-@property (nonatomic, weak) AlertView *privacyAlertView;
 
 @end
 
@@ -189,7 +179,6 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     [Toast show:@"打开抽屉"];
     LeftDrawerViewController *leftVc = [LeftDrawerViewController new];
     [self cw_showDefaultDrawerViewController:leftVc];
-//    [self cw_showDrawerViewController:leftVc animationType:0 configuration:nil];
     return;
     [UIAlertUtil showAlertTitle:@"Lookin使用" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"导出当前UI结构",@"审查元素",@"3D视图"] actionBlock:^(NSInteger index)
     {
@@ -200,7 +189,6 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
                 
             case 1:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_Export" object:nil];
-
                 break;
                 
             case 2:
@@ -269,171 +257,21 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     switch (tagIndex) {
         case 101:
         {
-            /** AlertView  */
-            [self showAlertView:YES];
+
         }
             break;
         case 102:
         {
-            [self showAlertView:NO];
         }
             break;
         case 103:
         {
-            /** 展示sheetAlert  */
-            [self showAlertSheet];
+
         }
             break;
         default:
             break;
     }
-    
-    /** UIAlertUtil  */
-//    [self showUIAlertUtil];
-    
-    /** PACustomAlertManage  */
-//    UIView *view = [UIView viewForColor:[UIColor greenColor] withFrame:CGRectMake(0, 0, 200, 200)];
-//    [PACustomAlertManage showAlertView:view bolShowNav:NO offseth:100];
-    
-    /** AlertView  */
-//    [self showAlertView:YES];
-}
-
-- (void)showAlertSheet
-{
-    NSString *privacyStr = @"同意<a href='https://www.baidu.com'>《销氪用户协议》</a>、<a href='https://github.com/iHZW'>《销氪个人信息保护政策》</a>和<a href='https://github.com/iHZW/HZWDemo'>《HZWDemo》</a>";
-
-    AlertView *alertView = [[AlertView alloc] init];
-    alertView.title = @"温馨提示";
-    alertView.actionType = ActionTypeActionSheet;
-    alertView.message = @"";
-    
-    @weakify(alertView)
-    alertView.customCenterViewBlock = ^UIView * _Nonnull{
-        @strongify(alertView)
-        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 127)];
-        HTMLLabel *htmlLabel = [[HTMLLabel alloc] initWithFrame:CGRectMake(32, 10, kMainScreenWidth - 64, 60)];
-        htmlLabel.numberOfLines = 0;
-        htmlLabel.font = PASFont(12);
-//        htmlLabel.textColor = UIColorFromRGB(0x999999);
-        htmlLabel.text = privacyStr;
-        htmlLabel.delegate = self;
-        
-        htmlLabel.htmlTagClickHandler = ^(NSString *url, NSString *text) {
-            @strongify(alertView)
-            [alertView hidden];
-            ZWCommonWebPage *vc = [[ZWCommonWebPage alloc] init];
-            vc.titleName = __String_Not_Nil(text);
-            vc.url = __String_Not_Nil(url);
-//            vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-//            [self presentViewController:vc animated:YES completion:nil];
-            [[UIApplication displayViewController].navigationController pushViewController:vc animated:YES];
-//            [self.navigationController pushViewController:vc animated:YES];
-        };
-        
-        CGSize textSize = [htmlLabel sizeThatFits:CGSizeMake(CGRectGetWidth(htmlLabel.frame), INFINITY)];
-        htmlLabel.height = textSize.height;
-        [bottomView addSubview:htmlLabel];
-        
-        UIButton *agreeBtn = [UIButton buttonWithFrame:CGRectMake(32, CGRectGetMaxY(htmlLabel.frame) + 20, kMainScreenWidth - 64, 50) title:@"同意并继续" font:PASFont(16) titleColor:UIColorFromRGB(0xFFFFFF) block:^{
-            @strongify(alertView)
-            [alertView hidden];
-        }];
-        [agreeBtn setCornerRadius:8];
-        agreeBtn.backgroundColor = UIColorFromRGB(0x3F5FFD);
-        [bottomView addSubview:agreeBtn];
-        bottomView.frame = CGRectMake(0, 0, kMainScreenWidth, CGRectGetMaxY(agreeBtn.frame) + 20);
-        return bottomView;
-    };
-    
-    alertView.didHiddenBlock = ^{
-        
-    };
-    [alertView show];
-    self.privacyAlertView = alertView;
-}
-
-/** 隐藏隐私协议弹框  */
-- (void)hiddenPrivacyAlertView
-{
-    if (self.privacyAlertView) {
-        [self.privacyAlertView hidden];
-        self.privacyAlertView = nil;
-    }
-}
-
-#pragma mark - HTMLLabelDelegate
-//- (BOOL)HTMLLabel:(HTMLLabel *)label shouldOpenURL:(NSURL *)URL
-//{
-//    return NO;
-//}
-
-//- (void)HTMLLabel:(HTMLLabel *)label tappedLinkWithURL:(NSURL *)URL bounds:(CGRect)bounds
-//{
-//    [self hiddenPrivacyAlertView];
-//    [ZWM.router executeURLNoCallBack:ZWDebugPageHome];
-//}
-
-
-- (void)showAlertView:(BOOL)isExistCenterView
-{
-    AlertView *alertView = [[AlertView alloc] init];
-    alertView.title = @"温馨提示";
-    if (isExistCenterView) {
-        CGFloat popWidth = kMainScreenWidth - 48*2;
-        NSString *titleName = kAlertDefaultTitleString;
-        CGFloat titleHeight = [NSString getHeightWithText:titleName font:kAlertDefaultTitleFont width:popWidth - kAlertTitleLabelLeftSpace*2];
-        NSString *msg = kAlertDefaultMsgString;
-        CGFloat msgHeight = [NSString getHeightWithText:msg font:kAlertDefaultTitleFont width:popWidth - kAlertTitleLabelLeftSpace*2];
-        
-        CGFloat popHeight = 16 + titleHeight + 8 + msgHeight;
-        alertView.customCenterViewBlock = ^UIView * _Nonnull{
-            AlertDefaultCustomCenterView * pop = [[AlertDefaultCustomCenterView alloc] initWithFrame:CGRectMake(0, 0, popWidth, popHeight)];
-            pop.titleName = titleName;
-            pop.titleFont = kAlertDefaultTitleFont;
-            pop.titleColor = UIColorFromRGB(0x333333);
-            pop.msg = msg;
-            pop.msgFont = kAlertDefaultMsgFont;
-            pop.msgColor = UIColorFromRGB(0xFF4266);
-            return pop;
-        };
-    } else {
-        alertView.messageFont = PASFont(12);
-        alertView.message = @"同意<a href='https://www.baidu.com'>《销氪用户协议》</a>、<a href='https://github.com/iHZW'>《销氪个人信息保护政策》</a>和<a href='https://github.com/iHZW/HZWDemo'>《HZWDemo》</a>";
-//        @pas_weakify(alertView)
-        @weakify(alertView)
-        alertView.htmlTagClickHandler = ^(NSString * _Nonnull url, NSString * _Nonnull text) {
-            @strongify(alertView)
-            [alertView hidden];
-            
-            ZWCommonWebPage *vc = [[ZWCommonWebPage alloc] init];
-            vc.titleName = __String_Not_Nil(text);
-            vc.url = __String_Not_Nil(url);
-//            vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-//            [self presentViewController:vc animated:YES completion:nil];
-            [self.navigationController pushViewController:vc animated:YES];
-        };
-    }
-
-    @weakify(alertView)
-    alertView.actions = @[
-        [AlertAction defaultCancelAction:@"取消" clickCallback:^{
-            @strongify(alertView)
-            [alertView hidden];
-        }],
-        [AlertAction defaultConfirmAction:@"确认" clickCallback:^{
-            @strongify(alertView)
-            [alertView hidden];
-        }]
-    ];
-    [alertView show];
-}
-
-
-/** 处理确认按钮点击  */
-- (void)dealWithSureAction
-{
-    [self hiddenPrivacyAlertView];
     
 }
 

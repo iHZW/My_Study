@@ -140,7 +140,7 @@
             [ZWM.router executeURLNoCallBack:ZWRouterPageSettingViewController];
         }];
         [_settingBtn setCornerRadius:kContainerCornerRadius];
-        [_settingBtn setImage:[UIImage imageNamed:@"icon_setting"] forState:UIControlStateNormal];
+        [_settingBtn setImage:[UIImage imageNamed:@"icon_new_setting"] forState:UIControlStateNormal];
         @pas_weakify_self
         [_settingBtn zh_themeUpdateCallback:^(id  _Nonnull target) {
             @pas_strongify_self

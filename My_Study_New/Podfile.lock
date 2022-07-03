@@ -102,9 +102,9 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - Alamofire
+  - Alamofire (= 4.9.1)
   - CocoaAsyncSocket
-  - DoraemonKit/Core
+  - DoraemonKit/Core (= 3.1.2)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
   - JSONModel (= 1.5.0)
@@ -175,6 +175,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: fab25a947082d77203c88375aeb92ed6bf2a7761
+PODFILE CHECKSUM: de4e95187e1adb54f12d33b9d59d7298c26a1505
 
 COCOAPODS: 1.11.2

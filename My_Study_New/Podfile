@@ -63,7 +63,7 @@ target 'My_Study' do
   
  #install_all_flutter_pods(flutter_application_path)
  
- pod 'Alamofire'
+ pod 'Alamofire', '4.9.1'
 
  debugTool
 
