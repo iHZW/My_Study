@@ -177,10 +177,10 @@ typedef long long _int64;
 #define IS_IPHONE_X (fabs((double)MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width) - (double )812) < DBL_EPSILON )
 
 //判断iPhoneX系列
-#define iPhoneX_Series ( MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width) > 811.9 && !isPad )
+#define iPhoneX_Series ( MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width) > 811.9 && !ZWIsPad )
 
 // 判断iPhone iPad
-#define isPad       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define ZWIsPad       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define isPhone     (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
 #define kAppWindow  [[[UIApplication sharedApplication] delegate] window]

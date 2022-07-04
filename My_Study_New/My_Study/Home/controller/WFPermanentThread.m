@@ -10,7 +10,7 @@
 
 #import "WFPermanentThread.h"
 #import "WFThread.h"
-#import <YYKit/YYKit.h>
+#import "YYKit/YYKit.h"
 
 
 @interface WFPermanentThread ()

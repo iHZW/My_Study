@@ -157,19 +157,19 @@
         
         switch (method) {
             case HttpRequestGet:
-                [self.manager GET:url parameters:params progress:nil success:success failure:failure];
+                [self.manager GET:url parameters:params headers:@{} progress:nil success:success failure:failure];
                 break;
                 
             case HttpRequestPost:
-                [self.manager POST:url parameters:params progress:nil success:self.httpSuccessBlock failure:self.httpFailureBlock];
+                [self.manager POST:url parameters:params headers:@{} progress:nil success:self.httpSuccessBlock failure:self.httpFailureBlock];
                 break;
                 
             case HttpRequestPut:
-                [self.manager PUT:url parameters:params success:success failure:failure];
+                [self.manager PUT:url parameters:params headers:@{} success:success failure:failure];
                 break;
                 
             case HttpRequestDelete:
-                [self.manager DELETE:url parameters:params success:success failure:failure];
+                [self.manager DELETE:url parameters:params headers:@{} success:success failure:failure];
                 break;
                 
             default:

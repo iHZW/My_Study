@@ -7,7 +7,7 @@
 //
 
 #import "UIView+SVG.h"
-#import <SVGKit/SVGKit.h>
+#import "SVGKit.h"
 
 @implementation UIImageView (SVG)
 - (void)svg_setImageNamed:(NSString *)svgName{

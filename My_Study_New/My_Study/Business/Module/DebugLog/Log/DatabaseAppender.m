@@ -7,7 +7,7 @@
 //
 
 #import "DatabaseAppender.h"
-#import <FMDB/FMDB.h>
+#import "FMDB.h"
 #import "DBConstants.h"
 
 @implementation DatabaseAppender

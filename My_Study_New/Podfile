@@ -27,7 +27,7 @@ target 'My_Study' do
   # 返回侧滑适配有导航栏和没导航栏的切换
   pod 'FDFullscreenPopGesture', '~> 1.1'
 
-  pod 'AFNetworking'
+  pod 'AFNetworking', '4.0.1'
   pod 'Masonry','1.1.0'
   pod 'JSONModel','1.5.0'
   pod 'MJExtension','3.0.15.1'

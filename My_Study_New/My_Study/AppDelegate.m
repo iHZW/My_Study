@@ -20,7 +20,7 @@
 
 
 #ifdef DOKIT
-#import <DoraemonKit/DoraemonManager.h>
+#import "DoraemonManager.h"
 #endif
 
 @interface AppDelegate ()

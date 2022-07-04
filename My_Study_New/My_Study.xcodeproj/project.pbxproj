@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46499C2DE08804604DDF458D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
 		4E0287B228695304003E723E /* RouterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B128695304003E723E /* RouterParam.m */; };
 		4E0287B628695512003E723E /* RouterPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B528695512003E723E /* RouterPageItem.m */; };
 		4E0287BA28698887003E723E /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B928698887003E723E /* ApplicationViewController.m */; };
@@ -30,7 +31,7 @@
 		4E02880E286B056A003E723E /* URLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880A286B056A003E723E /* URLObject.m */; };
 		4E02880F286B056A003E723E /* URLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880C286B056A003E723E /* URLUtil.m */; };
 		4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02B3E92871B178006E0DE3 /* bgView.swift */; };
-		4E02B3EC2871B178006E0DE3 /* BWNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02B3EA2871B178006E0DE3 /* BWNetworkingService.swift */; };
+		4E0680BB2872CECA00F6728A /* BWNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -211,7 +212,6 @@
 		4EEEB867285EBA0100FD49A9 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB862285EBA0100FD49A9 /* NSString+Verify.m */; };
 		4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB865285EBA0100FD49A9 /* NSString+URLEncode.m */; };
 		4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */; };
-		6244B169A097FFC229A33821 /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648B8FF34789301862B11DE8 /* Pods_My_Study.framework */; };
 		7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */; };
 		7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AA26E10FB400CD1422 /* WFThread.m */; };
 		7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AD26E1145400CD1422 /* RunLoopViewController.m */; };
@@ -375,7 +375,8 @@
 		4E02880D286B056A003E723E /* URLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLObject.h; sourceTree = "<group>"; };
 		4E02B3E728714924006E0DE3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E02B3E92871B178006E0DE3 /* bgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
-		4E02B3EA2871B178006E0DE3 /* BWNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWNetworkingService.swift; sourceTree = "<group>"; };
+		4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWNetworkingService.swift; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -967,7 +968,7 @@
 				7C8AAEB222E98B8B00589862 /* QuartzCore.framework in Frameworks */,
 				7C8AAEAE22E98AFB00589862 /* CFNetwork.framework in Frameworks */,
 				7C8AAEAC22E98ACB00589862 /* CoreImage.framework in Frameworks */,
-				6244B169A097FFC229A33821 /* Pods_My_Study.framework in Frameworks */,
+				46499C2DE08804604DDF458D /* Pods_My_Study.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,6 +1015,7 @@
 		4E0287C428698E64003E723E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4EDC09692862C43D001C53CE /* PublicComponent */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2005,7 +2007,6 @@
 			isa = PBXGroup;
 			children = (
 				4E0287C428698E64003E723E /* Extension */,
-				4EDC09692862C43D001C53CE /* PublicComponent */,
 				4EC6B2C32861B12900F57AAC /* Business */,
 				4EC6B293286097BF00F57AAC /* TabsIndexVc */,
 				4E7427B2285B85F700DEC9CC /* Util */,
@@ -2026,7 +2027,7 @@
 				4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */,
 				4EA7263D27D75CA60060BDBA /* customerView.swift */,
 				4E02B3E92871B178006E0DE3 /* bgView.swift */,
-				4E02B3EA2871B178006E0DE3 /* BWNetworkingService.swift */,
+				4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */,
 				4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */,
 				7CAE2ACB26DBD90300100FA0 /* MJClassInfo.h */,
 				4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */,
@@ -2945,6 +2946,7 @@
 		A9CF1F70F4E4726AE968C272 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */,
 				4E02B3E728714924006E0DE3 /* Alamofire.framework */,
 				7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */,
 				7CFB1F7322EEC9C4000AE2C9 /* WFUIKit.framework */,
@@ -3391,7 +3393,7 @@
 				4EC6B37D2861B12A00F57AAC /* MDLogManager.m in Sources */,
 				4EC6B2C22861A84400F57AAC /* MBProgressHUD.m in Sources */,
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,
-				4E02B3EC2871B178006E0DE3 /* BWNetworkingService.swift in Sources */,
+				4E0680BB2872CECA00F6728A /* BWNetworkingService.swift in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
 				4E0287C328698BC9003E723E /* RouterPageConfig.m in Sources */,
 				4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */,
@@ -3488,31 +3490,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = FM2G6TS6GR;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/CWLateralSlide\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/JSONModel\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/KissXML\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/PINCache\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SSKeychain\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/WFUIKit\"",
-					"\"${PODS_ROOT}/LookinServer\"",
-				);
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -3521,6 +3510,7 @@
 					"DOKIT=1",
 					"COCOAPODS=1",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3528,10 +3518,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3611,31 +3602,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6673E1F39FAA1E5AC4AD2DD9 /* Pods-My_Study.qa_dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = FM2G6TS6GR;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/CWLateralSlide\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/JSONModel\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/KissXML\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/PINCache\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SSKeychain\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/WFUIKit\"",
-					"\"${PODS_ROOT}/LookinServer\"",
-				);
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -3644,6 +3622,7 @@
 					"DOKIT=1",
 					"COCOAPODS=1",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3651,10 +3630,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3788,31 +3768,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = FM2G6TS6GR;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/CWLateralSlide\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/JSONModel\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/KissXML\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJExtension\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/PINCache\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SSKeychain\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/WFUIKit\"",
-					"\"${PODS_ROOT}/LookinServer\"",
-				);
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -3821,6 +3788,7 @@
 					"DOKIT=1",
 					"COCOAPODS=1",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3828,10 +3796,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3851,18 +3820,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = FM2G6TS6GR;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3870,10 +3842,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

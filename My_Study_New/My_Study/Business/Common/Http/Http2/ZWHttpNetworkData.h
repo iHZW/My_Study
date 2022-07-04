@@ -6,7 +6,7 @@
 //  Copyright © 2022 HZW. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "JSONModel/JSONModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

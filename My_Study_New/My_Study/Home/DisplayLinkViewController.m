@@ -7,7 +7,7 @@
 //
 
 #import "DisplayLinkViewController.h"
-#import <YYKit/YYKit.h>
+#import "YYKit.h"
 
 /** 可以查看aotorelease 的入栈情况 */
 //extern void _objc_autoreleasePoolPrint(void)

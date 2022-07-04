@@ -7,10 +7,10 @@
 //
 
 #import "MVVMView.h"
-#import <KVOController/KVOController.h>
-#import <Masonry/Masonry.h>
+#import "KVOController.h"
+#import "Masonry.h"
 #import "SDImageCoderHelper.h"
-#import <ReactiveObjC/ReactiveObjC.h>
+#import "ReactiveObjC.h"
 
 @interface MVVMView ()
 

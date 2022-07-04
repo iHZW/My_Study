@@ -7,7 +7,7 @@
 //
 
 #import "MVVMViewModel.h"
-#import <ReactiveObjC/ReactiveObjC.h>
+#import "ReactiveObjC/ReactiveObjC.h"
 #import "MVVMModel.h"
 
 @interface MVVMViewModel ()

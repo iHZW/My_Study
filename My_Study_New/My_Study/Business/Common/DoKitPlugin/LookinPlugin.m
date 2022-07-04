@@ -11,8 +11,8 @@
 #import "LookinPlugin.h"
 
 #import <UIKit/UIKit.h>
-#import <DoraemonKit/DoraemonKit.h>
-#import <DoraemonKit/DoraemonHomeWindow.h>
+#import "DoraemonKit.h"
+#import "DoraemonHomeWindow.h"
 #import "UIApplication+Ext.h"
 
 

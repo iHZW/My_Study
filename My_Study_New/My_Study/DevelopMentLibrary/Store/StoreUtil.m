@@ -7,7 +7,7 @@
 //
 
 #import "StoreUtil.h"
-#import <SAMKeychain/SAMKeychain.h>
+#import "SAMKeychain.h"
 #import "CommonFileFunc.h"
 #import "ZWDataCache.h"
 

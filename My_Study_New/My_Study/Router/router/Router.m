@@ -38,7 +38,8 @@
            success:(nullable void (^)(id))successBlock
               fail:(nullable void (^)(NSError *))failBlock
 {
-    [LogUtil debug:routerURL flag:@"执行路由URL" context:self];
+    NSString *flagMsg = [NSString stringWithFormat:@"执行路由URL-%@", TransToString(routerURL)];
+    [LogUtil debug:routerURL flag:flagMsg context:self];
     RouterParam * routerParam = BlockSafeRun(self.routerParseBlock,routerURL);
     if (routerParam){
         [self execute:routerParam success:successBlock fail:failBlock];

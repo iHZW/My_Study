@@ -8,7 +8,7 @@
 
 #import "RunLoopViewController.h"
 #import "WFThread.h"
-#import <YYKit/YYKit.h>
+#import "YYKit.h"
 #import "RunLoopPermanentViewController.h"
 #import <libkern/OSAtomic.h> // OSSpinLock 自旋锁需要导入头文件
 #import "WFOSSPinLockDemo.h"

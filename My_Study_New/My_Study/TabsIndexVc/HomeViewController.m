@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 //#import <Flutter/Flutter.h>
 #import "BlockViewController.h"
-#import <YYKit/YYKit.h>
+#import "YYKit.h"
 #import "WFThread.h"
 #import "RunLoopViewController.h"
 #import "UIViewController+CWLateralSlide.h"

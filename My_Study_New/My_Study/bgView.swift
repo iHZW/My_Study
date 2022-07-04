@@ -92,7 +92,7 @@ class BGView: UIView {
     /// Qlamofire 测试
     func requestTest() {
         let url = "https://51237c7d-cc9f-4698-a457-e41200573681.mock.pstmn.io/client/privatesea/operationlogbyid"
-//        let parameters: Parameters = [:]
+        let _: Parameters = [:]
         Alamofire.request(url, method: .post).responseJSON { response in
             debugPrint(response)
         }
