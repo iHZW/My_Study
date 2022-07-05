@@ -50,7 +50,7 @@
     [super loadUIData];
     
     self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
-    self.tableView = [[ZWBaseTableView alloc] initWithFrame:self.view.bounds style:self.style];
+    self.tableView = [[ZWBaseTableView alloc] initWithFrame:self.view.bounds style: self.style ?: UITableViewStylePlain];
     self.tableView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -65,7 +65,8 @@
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.bottom.equalTo(self.view).priority(MASLayoutPriorityDefaultLow);
+        make.top.equalTo(self.view.mas_top).offset(kMainNavHeight + kSysStatusBarHeight).priority(MASLayoutPriorityDefaultLow);
+        make.left.right.bottom.equalTo(self.view).priority(MASLayoutPriorityDefaultLow);
     }];
     
 }

@@ -23,11 +23,11 @@ NSString *const ZWTabIndexPersonal          = @"tab/index/personal";
 
 /* -------------------------------page----------------------------  */
 
-NSString *const ZWRouterPageDebugLogHome           = @"debug/log/home";
-NSString *const ZWRouterPageCommonWebView          = @"common/webView";
-NSString *const ZWRouterPageSettingViewController  = @"setting/home";
-NSString *const ZWRouterPageShowAlertViewController = @"tools/show/alertview";
-
+NSString *const ZWRouterPageDebugLogHome             = @"debug/log/home";
+NSString *const ZWRouterPageCommonWebView            = @"common/webView";
+NSString *const ZWRouterPageSettingViewController    = @"setting/home";
+NSString *const ZWRouterPageShowAlertViewController  = @"tools/show/alertview";
+NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
 /* -------------------------------page----------------------------  */
 
 
@@ -109,13 +109,13 @@ NSString *const ZWRouterPageShowAlertViewController = @"tools/show/alertview";
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
-//            /** 展示AlertView的VC  */
-//            @{
-//                @"url" : ZWRouterPageShowAlertViewController,
-//                @"clsName": @"ShowAlertViewController",
-//                @"type" : @(RouterTypeNavigate),
-//                @"attachValue" : @{}
-//            },
+//            /** 切换环境  */
+            @{
+                @"url" : ZWRouterPageChangeEnvViewController,
+                @"clsName": @"ZWChangeEnvViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
 //            /** 展示AlertView的VC  */
 //            @{
 //                @"url" : ZWRouterPageShowAlertViewController,

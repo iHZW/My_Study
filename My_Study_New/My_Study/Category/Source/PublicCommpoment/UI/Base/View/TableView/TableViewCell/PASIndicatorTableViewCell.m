@@ -189,6 +189,7 @@
     if (!_button)
     {
         _button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_button];
         
         [_button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -226,5 +227,16 @@
     return _textField;
 }
 
+
+- (void)buttonAction:(id)sender
+{
+    if (self.buttonActionBlock) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        if (self.currentIndexPath) {
+            indexPath = self.currentIndexPath;
+        }
+        self.buttonActionBlock(indexPath);
+    }
+}
 
 @end

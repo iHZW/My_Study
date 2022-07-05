@@ -38,6 +38,9 @@ UIKIT_EXTERN NSString *const ZWRouterPageCommonWebView;
 UIKIT_EXTERN NSString *const ZWRouterPageSettingViewController;
 /** AlertView 使用页  */
 UIKIT_EXTERN NSString *const ZWRouterPageShowAlertViewController;
+/** 切换环境  */
+UIKIT_EXTERN NSString *const ZWRouterPageChangeEnvViewController;
+
 
 /* -------------------------------page----------------------------  */
 

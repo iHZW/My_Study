@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>dev</string>
+		<key>envType</key>
+		<string>0</string>
+		<key>bundleID</key>
+		<string>My-StudyDEV</string>
+		<key>canManualChange</key>
+		<true/>
+		<key>AppConfiguration</key>
+		<dict>
+			<key>ALIPAY_SCHEME</key>
+			<string>zwDebug</string>
+			<key>AMAP_KEY</key>
+			<string>b5a84655e2cef54d488e990287d26bb9</string>
+			<key>BUGLY_APPID</key>
+			<string>111111</string>
+			<key>ZW_STATISTICS_URL</key>
+			<string>埋点url</string>
+			<key>GT_APPID</key>
+			<string>个推 appid</string>
+			<key>GT_APPKEY</key>
+			<string>个推 app key</string>
+			<key>GT_APPSECRET</key>
+			<string>个推 app secret</string>
+			<key>HTTP_SERVER_HOST</key>
+			<string>http://127.0.0.1:4523/m1/1102411-0-5ea01a58</string>
+			<key>IM_APPID</key>
+			<string>111111</string>
+			<key>SHANYAN_APPID</key>
+			<string>闪验Appid</string>
+			<key>WX_APPID</key>
+			<string>wx11111111111</string>
+			<key>ZW_SCHEME</key>
+			<string>zwqaapp</string>
+			<key>ZW_HOST</key>
+			<string>zwqa.app</string>
+			<key>SOCKET_URL</key>
+			<string>socket url</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>qa</string>
+		<key>envType</key>
+		<string>1</string>
+		<key>bundleID</key>
+		<string>My-StudyQA</string>
+		<key>canManualChange</key>
+		<true/>
+		<key>AppConfiguration</key>
+		<dict>
+			<key>ALIPAY_SCHEME</key>
+			<string>zwQA</string>
+			<key>AMAP_KEY</key>
+			<string>b5a84655e2cef54d488e990287d26bb9</string>
+			<key>BUGLY_APPID</key>
+			<string>111111</string>
+			<key>ZW_STATISTICS_URL</key>
+			<string>埋点url</string>
+			<key>GT_APPID</key>
+			<string>个推 appid</string>
+			<key>GT_APPKEY</key>
+			<string>个推 app key</string>
+			<key>GT_APPSECRET</key>
+			<string>个推 app secret</string>
+			<key>HTTP_SERVER_HOST</key>
+			<string>http://127.0.0.1:4523/m1/1102411-0-5ea01a58</string>
+			<key>IM_APPID</key>
+			<string>111111</string>
+			<key>SHANYAN_APPID</key>
+			<string>闪验Appid</string>
+			<key>WX_APPID</key>
+			<string>wx11111111111</string>
+			<key>ZW_SCHEME</key>
+			<string>zwqaapp</string>
+			<key>ZW_HOST</key>
+			<string>zwqa.app</string>
+			<key>SOCKET_URL</key>
+			<string>socket url</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>pl</string>
+		<key>envType</key>
+		<string>2</string>
+		<key>bundleID</key>
+		<string>My-Study</string>
+		<key>canManualChange</key>
+		<true/>
+		<key>AppConfiguration</key>
+		<dict>
+			<key>ALIPAY_SCHEME</key>
+			<string>zwRelease</string>
+			<key>AMAP_KEY</key>
+			<string>b5a84655e2cef54d488e990287d26bb9</string>
+			<key>BUGLY_APPID</key>
+			<string>111111</string>
+			<key>ZW_STATISTICS_URL</key>
+			<string>埋点url</string>
+			<key>GT_APPID</key>
+			<string>个推 appid</string>
+			<key>GT_APPKEY</key>
+			<string>个推 app key</string>
+			<key>GT_APPSECRET</key>
+			<string>个推 app secret</string>
+			<key>HTTP_SERVER_HOST</key>
+			<string>http://127.0.0.1:4523/m1/1102411-0-5ea01a58</string>
+			<key>IM_APPID</key>
+			<string>111111</string>
+			<key>SHANYAN_APPID</key>
+			<string>闪验Appid</string>
+			<key>WX_APPID</key>
+			<string>wx11111111111</string>
+			<key>ZW_SCHEME</key>
+			<string>zwqaapp</string>
+			<key>ZW_HOST</key>
+			<string>zwqa.app</string>
+			<key>SOCKET_URL</key>
+			<string>socket url</string>
+		</dict>
+	</dict>
+</array>
+</plist>

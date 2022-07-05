@@ -32,6 +32,11 @@
 		4E02880F286B056A003E723E /* URLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880C286B056A003E723E /* URLUtil.m */; };
 		4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02B3E92871B178006E0DE3 /* bgView.swift */; };
 		4E0680BB2872CECA00F6728A /* BWNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */; };
+		4E0680C02873E4F300F6728A /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680BF2873E4F300F6728A /* Config.m */; };
+		4E0680C428740EA600F6728A /* EnvConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E0680C328740EA600F6728A /* EnvConfig.plist */; };
+		4E0680C728740F3900F6728A /* EnvConfigObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680C628740F3900F6728A /* EnvConfigObject.m */; };
+		4E0680CA28740F8100F6728A /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680C928740F8100F6728A /* Environment.m */; };
+		4E0680D12874202600F6728A /* ZWChangeEnvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680D02874202600F6728A /* ZWChangeEnvViewController.m */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -377,6 +382,17 @@
 		4E02B3E92871B178006E0DE3 /* bgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
 		4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWNetworkingService.swift; sourceTree = "<group>"; };
+		4E0680BE2873E4F300F6728A /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		4E0680BF2873E4F300F6728A /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		4E0680C328740EA600F6728A /* EnvConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnvConfig.plist; sourceTree = "<group>"; };
+		4E0680C528740F3900F6728A /* EnvConfigObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnvConfigObject.h; sourceTree = "<group>"; };
+		4E0680C628740F3900F6728A /* EnvConfigObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnvConfigObject.m; sourceTree = "<group>"; };
+		4E0680C828740F8100F6728A /* Environment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
+		4E0680C928740F8100F6728A /* Environment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Environment.m; sourceTree = "<group>"; };
+		4E0680CB28740FDD00F6728A /* EnvironmentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnvironmentType.h; sourceTree = "<group>"; };
+		4E0680CD28741B6200F6728A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4E0680CF2874202600F6728A /* ZWChangeEnvViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWChangeEnvViewController.h; sourceTree = "<group>"; };
+		4E0680D02874202600F6728A /* ZWChangeEnvViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWChangeEnvViewController.m; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -1057,6 +1073,30 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		4E0680BD2873E4E100F6728A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680C328740EA600F6728A /* EnvConfig.plist */,
+				4E0680CB28740FDD00F6728A /* EnvironmentType.h */,
+				4E0680BE2873E4F300F6728A /* Config.h */,
+				4E0680BF2873E4F300F6728A /* Config.m */,
+				4E0680C528740F3900F6728A /* EnvConfigObject.h */,
+				4E0680C628740F3900F6728A /* EnvConfigObject.m */,
+				4E0680C828740F8100F6728A /* Environment.h */,
+				4E0680C928740F8100F6728A /* Environment.m */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		4E0680CE28741F9400F6728A /* ChangeEnv */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680CF2874202600F6728A /* ZWChangeEnvViewController.h */,
+				4E0680D02874202600F6728A /* ZWChangeEnvViewController.m */,
+			);
+			path = ChangeEnv;
+			sourceTree = "<group>";
+		};
 		4E403F7D2865A994006C0656 /* HTMLLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1507,6 +1547,7 @@
 		4EC6B2F92861B12A00F57AAC /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				4E0680CE28741F9400F6728A /* ChangeEnv */,
 				4E403F7D2865A994006C0656 /* HTMLLabel */,
 				4EC6B31E2861B12A00F57AAC /* ModuleContainer.h */,
 				4EC6B2FA2861B12A00F57AAC /* ModuleContainer.m */,
@@ -1594,6 +1635,7 @@
 		4EC6B31F2861B12A00F57AAC /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				4E0680CD28741B6200F6728A /* Constants.h */,
 				4EC6B3202861B12A00F57AAC /* UrlConstants.h */,
 				4EDC0B7528636343001C53CE /* ZWCacheDefine.h */,
 				4EC6B3222861B12A00F57AAC /* PathConstants.h */,
@@ -2006,6 +2048,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				4E0680BD2873E4E100F6728A /* Configuration */,
 				4EDC09692862C43D001C53CE /* PublicComponent */,
 				4EC6B2C32861B12900F57AAC /* Business */,
 				4EC6B293286097BF00F57AAC /* TabsIndexVc */,
@@ -3066,6 +3109,7 @@
 				7C459A2F2295557300667813 /* Main.storyboard in Resources */,
 				4EC6B3542861B12A00F57AAC /* launch_guide_4.png in Resources */,
 				4EC6B35F2861B12A00F57AAC /* 1.jpg in Resources */,
+				4E0680C428740EA600F6728A /* EnvConfig.plist in Resources */,
 				4EC6B3552861B12A00F57AAC /* launch_guide_1_X.png in Resources */,
 				4EC6B3622861B12A00F57AAC /* 1.mp4 in Resources */,
 				4EC6B3612861B12A00F57AAC /* XYVideo.mp4 in Resources */,
@@ -3242,6 +3286,7 @@
 				4EAAD81B2868B223003D43FF /* ZWWebView.m in Sources */,
 				7C4EF00E230394FA0040DA7A /* CMNotificationCenter.m in Sources */,
 				4EC6B39F2861BF0800F57AAC /* LeftDrawerDataLoader.m in Sources */,
+				4E0680D12874202600F6728A /* ZWChangeEnvViewController.m in Sources */,
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
 				4E0287D82869BC13003E723E /* BaseRouterIntercept.m in Sources */,
 				4E0287CC28699383003E723E /* LaunchViewController.m in Sources */,
@@ -3321,6 +3366,7 @@
 				4E403FA92865FA32006C0656 /* CustomTabbarObject.m in Sources */,
 				4EC6B37C2861B12A00F57AAC /* MDFileManager.m in Sources */,
 				4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */,
+				4E0680C728740F3900F6728A /* EnvConfigObject.m in Sources */,
 				7C4F93DB2302B39300F2238E /* PASBaseTableView.m in Sources */,
 				4EC6B3842861B12A00F57AAC /* MDLogSearchView.m in Sources */,
 				4E028803286AB0CB003E723E /* CWLateralSlideAnimator.m in Sources */,
@@ -3342,6 +3388,7 @@
 				7C8AAE6C22E986C800589862 /* PASTextField.m in Sources */,
 				7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */,
 				4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */,
+				4E0680CA28740F8100F6728A /* Environment.m in Sources */,
 				7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */,
 				4EC6B3AA2861D37500F57AAC /* ZWUserInfoModel.m in Sources */,
 				4EC6B3752861B12A00F57AAC /* VersionUpgradeViewController.m in Sources */,
@@ -3391,6 +3438,7 @@
 				4E899A79285B7F2A00B54C89 /* DataBaseManager.m in Sources */,
 				7C8AAE8D22E987BE00589862 /* UIImage+Addition.m in Sources */,
 				4EC6B3912861B12A00F57AAC /* CacheDataLoader+ZWNIO.m in Sources */,
+				4E0680C02873E4F300F6728A /* Config.m in Sources */,
 				4ED59584286EFBE0002D15F1 /* zhThemeOperator.m in Sources */,
 				4ED5958A286FEBC2002D15F1 /* ZWBaseTableViewController.m in Sources */,
 				7C652C03230171C1007BBDD2 /* UITableViewCell+DequeCell.m in Sources */,
@@ -3488,6 +3536,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"QA=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3508,6 +3557,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */;
 			buildSettings = {
+				ALIPAY_SCHEME = zwQA;
+				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3526,9 +3577,13 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DOKIT=1",
-					"COCOAPODS=1",
 				);
+				GT_APPID = 111111;
+				GT_APPKEY = 111111;
+				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
+				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
+				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3540,10 +3595,12 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyQA";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SHANYAN_APPID = "闪验Appid";
+				SOCKET_URL = "socket url";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3553,6 +3610,10 @@
 					"$(PODS_ROOT)/**",
 					"$(SRCROOT)/**",
 				);
+				WX_APPID = 111111;
+				ZW_HOST = zwqa.app;
+				ZW_SCHEME = zwqaapp;
+				ZW_STATISTICS_URL = "埋点url";
 			};
 			name = QA;
 		};
@@ -3600,6 +3661,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"QA=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3620,6 +3682,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6673E1F39FAA1E5AC4AD2DD9 /* Pods-My_Study.qa_dev.xcconfig */;
 			buildSettings = {
+				ALIPAY_SCHEME = zwQA_Dev;
+				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3640,7 +3704,12 @@
 					"DOKIT=1",
 					"COCOAPODS=1",
 				);
+				GT_APPID = 111111;
+				GT_APPKEY = 111111;
+				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
+				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
+				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3652,10 +3721,12 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyQA";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SHANYAN_APPID = "闪验Appid";
+				SOCKET_URL = "socket url";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3665,6 +3736,10 @@
 					"$(PODS_ROOT)/**",
 					"$(SRCROOT)/**",
 				);
+				WX_APPID = 111111;
+				ZW_HOST = zwqa.app;
+				ZW_SCHEME = zwqaapp;
+				ZW_STATISTICS_URL = "埋点url";
 			};
 			name = QA_Dev;
 		};
@@ -3786,6 +3861,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */;
 			buildSettings = {
+				ALIPAY_SCHEME = zwDebug;
+				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3803,9 +3880,13 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DOKIT=1",
-					"COCOAPODS=1",
 				);
+				GT_APPID = 111111;
+				GT_APPKEY = 111111;
+				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
+				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
+				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3817,10 +3898,12 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyDEV";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SHANYAN_APPID = "闪验Appid";
+				SOCKET_URL = "socket url";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3830,6 +3913,10 @@
 					"$(PODS_ROOT)/**",
 					"$(SRCROOT)/**",
 				);
+				WX_APPID = 111111;
+				ZW_HOST = zwqa.app;
+				ZW_SCHEME = zwqaapp;
+				ZW_STATISTICS_URL = "埋点url";
 			};
 			name = Debug;
 		};
@@ -3837,6 +3924,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */;
 			buildSettings = {
+				ALIPAY_SCHEME = zwRelease;
+				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3851,7 +3940,12 @@
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
+				GT_APPID = 111111;
+				GT_APPKEY = 111111;
+				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
+				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
+				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
@@ -3867,6 +3961,8 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SHANYAN_APPID = "闪验Appid";
+				SOCKET_URL = "socket url";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;
@@ -3875,6 +3971,10 @@
 					"$(PODS_ROOT)/**",
 					"$(SRCROOT)/**",
 				);
+				WX_APPID = 111111;
+				ZW_HOST = zw.app;
+				ZW_SCHEME = zwapp;
+				ZW_STATISTICS_URL = "埋点url";
 			};
 			name = Release;
 		};

@@ -7,7 +7,7 @@
 //
 
 #import "ZWSiteAddressManager.h"
-
+#import "Config.h"
 
 NSString const *PASAppSiteBaseHttpURLKey = @"BaseHttpURL";
 
@@ -24,7 +24,8 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWSiteAddressManager)
 + (NSString *)getBaseHttpURL
 {
     /* 设置根url */
-    return @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
+    return [Config sharedConfig].httpServerHost;
+//    return @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 }
 
 /**

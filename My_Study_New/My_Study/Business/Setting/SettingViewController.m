@@ -88,7 +88,8 @@
                          [ActionModel initWithTitle:@"账户与安全" actionName:@"accountsAndSecurity"]];
    
     NSArray *sec2Arr = @[[ActionModel initWithTitle:@"Alert提示框" actionName:@"alertViewAction"],
-                         [ActionModel initWithTitle:@"切换皮肤" actionName:@"changeTheme"]];
+                         [ActionModel initWithTitle:@"切换皮肤" actionName:@"changeTheme"],
+                         [ActionModel initWithTitle:@"切换环境" actionName:@"changeEnv"]];
     
     NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@""]];
     
@@ -179,6 +180,14 @@
             [zhThemeOperator changeThemeStyleWithKey:themeKey];
         }
     } superVC:self];
+}
+
+/**
+ *  切换环境
+ */
+- (void)changeEnv
+{
+    [ZWM.router executeURLNoCallBack:ZWRouterPageChangeEnvViewController];
 }
 
 /**
