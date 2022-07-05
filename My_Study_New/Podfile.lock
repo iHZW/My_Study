@@ -15,6 +15,13 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
+  - AMap3DMap-NO-IDFA (9.1.0):
+    - AMapFoundation-NO-IDFA (~> 1.6.9)
+  - AMapFoundation-NO-IDFA (1.6.9)
+  - AMapLocation-NO-IDFA (2.8.0):
+    - AMapFoundation-NO-IDFA (~> 1.6.9)
+  - AMapSearch-NO-IDFA (8.1.0):
+    - AMapFoundation-NO-IDFA (~> 1.6.9)
   - CocoaAsyncSocket (7.6.4)
   - CocoaLumberjack (3.6.2):
     - CocoaLumberjack/Core (= 3.6.2)
@@ -103,6 +110,9 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 4.0.1)
   - Alamofire (= 4.9.1)
+  - AMap3DMap-NO-IDFA
+  - AMapLocation-NO-IDFA
+  - AMapSearch-NO-IDFA
   - CocoaAsyncSocket
   - DoraemonKit/Core (= 3.1.2)
   - FDFullscreenPopGesture (~> 1.1)
@@ -126,6 +136,10 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - Alamofire
+    - AMap3DMap-NO-IDFA
+    - AMapFoundation-NO-IDFA
+    - AMapLocation-NO-IDFA
+    - AMapSearch-NO-IDFA
     - CocoaAsyncSocket
     - CocoaLumberjack
     - DoraemonKit
@@ -152,6 +166,10 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AMap3DMap-NO-IDFA: 260caf8337362f7391e109f3eeb6e3d5654f1f3f
+  AMapFoundation-NO-IDFA: cc2ec7a2828ef292358ad594b7ee0ae21a7f097b
+  AMapLocation-NO-IDFA: 9d7ec9b052405356600b59fe0a9a65261bacc54e
+  AMapSearch-NO-IDFA: df1f7c79f251e0ca04b9761593f6453527957ea0
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
   DoraemonKit: 0a040ae24386654e2a2d2c8d029f5ff5837de3c3
@@ -175,6 +193,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 9f7859f33837a194c862234fdbfd423a9f2a3a99
+PODFILE CHECKSUM: a9ac3360a7d2b9f48972bda5bc3ae4affdd4ed33
 
 COCOAPODS: 1.11.2

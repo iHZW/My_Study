@@ -1012,14 +1012,6 @@
 			path = router;
 			sourceTree = "<group>";
 		};
-		4E0287C428698E64003E723E /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				4EDC09692862C43D001C53CE /* PublicComponent */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		4E0287CD286993C0003E723E /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1048,13 @@
 				4E02880A286B056A003E723E /* URLObject.m */,
 			);
 			path = URL;
+			sourceTree = "<group>";
+		};
+		4E0680BC2873E2B600F6728A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		4E403F7D2865A994006C0656 /* HTMLLabel */ = {
@@ -1403,6 +1402,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E0680BC2873E2B600F6728A /* Map */,
 				4ED5958B28708774002D15F1 /* other */,
 				4E4FD806286D4132008EC7E1 /* Setting */,
 				4E4F9CD5286C5D7A003281B5 /* PullRefreshView */,
@@ -2006,7 +2006,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
-				4E0287C428698E64003E723E /* Extension */,
+				4EDC09692862C43D001C53CE /* PublicComponent */,
 				4EC6B2C32861B12900F57AAC /* Business */,
 				4EC6B293286097BF00F57AAC /* TabsIndexVc */,
 				4E7427B2285B85F700DEC9CC /* Util */,
@@ -2979,6 +2979,7 @@
 				7C459A222295557300667813 /* Resources */,
 				7C650CC9243B848000726BA4 /* ShellScript */,
 				DA224EF94BCAA487DA3D52DF /* [CP] Embed Pods Frameworks */,
+				CFC29A3F31482B2BD2C32EAF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3119,6 +3120,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#set -e\n#set -u\n#source \"${SRCROOT}/../Flutter/flutter_module/.ios/Flutter/flutter_export_environment.sh\"\n";
+		};
+		CFC29A3F31482B2BD2C32EAF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		DA224EF94BCAA487DA3D52DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
