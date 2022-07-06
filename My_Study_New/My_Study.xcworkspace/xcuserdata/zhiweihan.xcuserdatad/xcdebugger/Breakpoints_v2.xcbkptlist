@@ -78,6 +78,38 @@
             endingLineNumber = "66"
             landmarkName = "-renderUI"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - 8ad195edd6d02254"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DoraemonMockViewController renderUI]"
+                  moduleName = "DoraemonKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "604">
+               </Location>
+               <Location
+                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - 8ad195edd6d02254"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DoraemonMockViewController renderUI]"
+                  moduleName = "DoraemonKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "338">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,6 +126,38 @@
             endingLineNumber = "113"
             landmarkName = "-showNetFlowDetail"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 7be87ee6fc291b1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
+                  moduleName = "DoraemonKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "604">
+               </Location>
+               <Location
+                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 7be87ee6fc291b1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
+                  moduleName = "DoraemonKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "337">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,8 +218,8 @@
             filePath = "My_Study/Business/Setting/SettingViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-changeTheme"
             landmarkType = "7">
          </BreakpointContent>

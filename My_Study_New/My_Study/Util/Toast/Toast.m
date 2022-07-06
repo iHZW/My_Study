@@ -35,7 +35,7 @@
     return [self show:msg adjustY:0 inView:nil];
 }
 
-+ (Toast *)show:(NSString *)msg adjustY:(CGFloat)adjustY inView:(UIView *)superView{
++ (Toast *)show:(NSString *)msg adjustY:(CGFloat)adjustY inView:(UIView *_Nullable)superView{
     return [self show:nil msg:msg numberOfLines:0 duration:1.5 position:ToastPositionTop adjustY:adjustY inView:superView willShow:nil finish:nil];
 }
 

@@ -245,7 +245,7 @@
         case FromPageTypeDeault:
         {
             *titleName = logModel.context;
-            *subTitleName = [NSString stringWithFormat:@"%ld",logModel.count];
+            *subTitleName = [NSString stringWithFormat:@"%lu",(unsigned long)logModel.count];
         }
             break;
         case FromPageTypeOne:

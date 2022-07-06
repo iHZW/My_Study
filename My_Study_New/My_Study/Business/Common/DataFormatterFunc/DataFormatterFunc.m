@@ -311,8 +311,8 @@
 /**12
  将字典转化为get请求url字符串
  
- @param dict
- @return
+ @param dict 参数
+ @return url 字符串
  */
 + (NSString *)parseDictionaryToUrlStr:(NSDictionary *)dict{
     NSArray *keys;

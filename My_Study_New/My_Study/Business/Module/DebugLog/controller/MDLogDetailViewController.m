@@ -80,7 +80,7 @@
 - (void)reloadData{
     LogModel *logModel = [LogDAO queryLogDetails:self.identity];
 
-    self.title = [NSString stringWithFormat:@"%@ - %ld",logModel.flag,self.identity];
+    self.title = [NSString stringWithFormat:@"%@ - %lu",logModel.flag,(unsigned long)self.identity];
     NSString *htmlString = [NSString stringWithFormat:@"<html> \n"
                             "<head> \n"
                             "<style type=\"text/css\"> \n"

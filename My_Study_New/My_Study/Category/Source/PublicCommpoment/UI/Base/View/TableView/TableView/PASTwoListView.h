@@ -12,10 +12,10 @@
 /**
  *  点击顶部按钮回调
  *
- *  @param NSInteger 索引，从0开始，从左至右
- *  @param BOOL      升降，YES降序
+ *  @param index  索引，从0开始，从左至右
+ *  @param isDown     升降，YES降序
  */
-typedef void(^ListClickTitleBlock)(NSInteger,BOOL);
+typedef void(^ListClickTitleBlock)(NSInteger index,BOOL isDown);
 
 @protocol TwoListDelegate;
 
@@ -85,7 +85,7 @@ typedef void(^ListClickTitleBlock)(NSInteger,BOOL);
 /**
  *  结束加载更多动画
  *
- *  @param isHidden 是否隐藏加载更多
+ *  @param freshBlock  刷新状态回调
  */
 - (void)loadFreshView:(MJRefreshComponentRefreshingBlock)freshBlock;
 

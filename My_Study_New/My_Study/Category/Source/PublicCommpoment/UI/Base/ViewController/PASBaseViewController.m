@@ -185,13 +185,13 @@
     BOOL isHidden = ![self navigationBarStatus];
     [self.navigationController setNavigationBarHidden:isHidden animated:animated];
 //    [[PASNavigator sharedPASNavigator].tabBarController.tabBarView setUserInteractionEnabled:NO];
-    BOOL isHiddenTabBar = ![self tabBarStatus];
+//    BOOL isHiddenTabBar = ![self tabBarStatus];
 //    [[PASNavigator sharedPASNavigator] setTabBarHidden:isHiddenTabBar animated:YES];
     [self loadExtendToolView];
     [self removeStatusBarWithNoNavigation];
     [self customViewWillAppear:animated];
     
-    NSString *paget = [NSString stringWithUTF8String:object_getClassName(self)];
+//    NSString *paget = [NSString stringWithUTF8String:object_getClassName(self)];
 //    [TalkingDataAction trackMethodBegin:paget];
     
     [self.view setNeedsLayout];
@@ -200,7 +200,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    BOOL isHiddenTabBar = ![self tabBarStatus];
+//    BOOL isHiddenTabBar = ![self tabBarStatus];
 //    [[PASNavigator sharedPASNavigator] setTabBarHidden:isHiddenTabBar animated:NO];
 //    [[PASNavigator sharedPASNavigator].tabBarController.tabBarView setUserInteractionEnabled:YES];
     [self customViewDidAppear:animated];
@@ -211,7 +211,7 @@
     [super viewWillDisappear:animated];
     [self customViewWillDisappear:animated];
     
-    NSString *paget = [NSString stringWithUTF8String:object_getClassName(self)];
+//    NSString *paget = [NSString stringWithUTF8String:object_getClassName(self)];
 //    [TalkingDataAction trackMethodEnd:paget];
 }
 
@@ -434,11 +434,13 @@
 /**
  6.15.0version 业务功能点（protocol）  介入静态检查
 
- @param protocol
+ @param protocol  协议
  @param objcet 默认目标vc
- @param actionBlock
+ @param actionBlock 回调
  */
-- (void)checkingServiceStaticUserInfoProtocol:(Protocol *)protocol objcet:(id)objcet actionBlock: (URLParamMapPropertyCheckBlock)actionBlock
+- (void)checkingServiceStaticUserInfoProtocol:(Protocol *)protocol
+                                       objcet:(id)objcet
+                                  actionBlock: (URLParamMapPropertyCheckBlock)actionBlock
 {
 //    [[PASStaticCheckingManager sharedPASStaticCheckingManager] staticCheckURLSchemeProtocol:protocol viewController:objcet resultBlock:^(BOOL bolPassed) {
 //        URLParamMapPropertyCheckBlock completeBlock = [actionBlock copy];
@@ -452,9 +454,10 @@
  6.15.0version 业务功能点（method跳转）  介入静态检查
 
  @param paramDict method跳转参数字典
- @param actionBlock
+ @param actionBlock  回调
  */
-- (void)checkingServiceStaticMethodParamDict:(NSDictionary *)paramDict actionBlock: (URLParamMapPropertyCheckBlock)actionBlock
+- (void)checkingServiceStaticMethodParamDict:(NSDictionary *)paramDict
+                                 actionBlock: (URLParamMapPropertyCheckBlock)actionBlock
 {
 //    [[PASStaticCheckingManager sharedPASStaticCheckingManager] schemeMethodCheckingStaticService:paramDict actionBlock:^(BOOL bolPassed) {
 //        URLParamMapPropertyCheckBlock completeBlock = [actionBlock copy];
@@ -525,8 +528,8 @@
 //    }
 //}
 
-//- (void)showAnimationLayoutView:(UIScrollView *)scrollView
-//{
+- (void)showAnimationLayoutView:(UIScrollView *)scrollView
+{
 //    if (self.suspensionAdV)
 //    {
 //        if (!scrollView.isDragging) {
@@ -537,7 +540,7 @@
 //        }
 //
 //    }
-//}
+}
 //
 //- (void)refreshSuspendViewDataFrom
 //{

@@ -70,10 +70,10 @@ typedef enum  {
 /**
  生成一个渐变色image
 
- @param colors
- @param gradientType
- @param size
- @return
+ @param colors 颜色数组
+ @param gradientType 类型
+ @param size 尺寸
+ @return image
  */
 + (UIImage*)creatImageFromColors:(NSArray*)colors
                     ByGradientType:(GradientType)gradientType
@@ -82,8 +82,8 @@ typedef enum  {
 /**
  红色渐变色
  
- @param size
- @return
+ @param size 尺寸
+ @return image
  */
 + (UIImage *)creatRedGradientImageWithSize:(CGSize)size;
 + (UIImage *)creatDarkRedGradientImageWithSize:(CGSize)size;

@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  创建一个ActionModel
  *
- *  @param name    名称
- *  @param  actionName    方法名
+ *  @param title    名称
+ *  @param actionName    方法名
  *
  */
 + (instancetype)initWithTitle:(NSString *)title actionName:(NSString *)actionName;

@@ -50,6 +50,7 @@ typedef NS_ENUM(NSUInteger,ClientChatType){
 @property (nonatomic, copy) NSString *path;
 
 @property (nonatomic, copy) NSString *sdkfileid;
+
 @end
 
 

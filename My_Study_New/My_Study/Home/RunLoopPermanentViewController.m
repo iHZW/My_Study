@@ -34,7 +34,7 @@
     @pas_weakify_self
     [self.wf_thread executeTask:^(NSInteger index) {
         @pas_strongify_self
-        NSLog(@"执行任务--%@--%@", [NSThread currentThread], @(index));
+        NSLog(@"%@ : 执行任务--%@--%@", NSStringFromClass(self.class), [NSThread currentThread], @(index));
     }];
 
 }

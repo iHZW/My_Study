@@ -8,14 +8,20 @@
 
 #import "WFOSSPinLockDemo.h"
 #import <libkern/OSAtomic.h>
+#import <os/lock.h>
 
 @interface WFOSSPinLockDemo ()
+{
+    os_unfair_lock _ticket_lock;
+}
 
-@property (nonatomic, assign) OSSpinLock osspinLock;
+/** OSSpinLock  不推荐使用了,  被 os_unfair_lock 替换使用  */
 
-@property (nonatomic, assign) OSSpinLock ticketOSSpinLock;
-
-@property (nonatomic, assign) OSSpinLock testOSSpinLock;
+//@property (nonatomic, assign) OSSpinLock osspinLock;
+//
+//@property (nonatomic, assign) OSSpinLock ticketOSSpinLock;
+//
+//@property (nonatomic, assign) OSSpinLock testOSSpinLock;
 
 @end
 
@@ -25,9 +31,10 @@
 {
     self = [super init];
     if (self) {
-        self.osspinLock = OS_SPINLOCK_INIT;
-        self.ticketOSSpinLock = OS_SPINLOCK_INIT;
-        self.testOSSpinLock = OS_SPINLOCK_INIT;
+//        self.osspinLock = OS_SPINLOCK_INIT;
+//        self.ticketOSSpinLock = OS_SPINLOCK_INIT;
+//        self.testOSSpinLock = OS_SPINLOCK_INIT;
+        _ticket_lock = OS_UNFAIR_LOCK_INIT;
     }
     return self;
 }
@@ -43,40 +50,55 @@
 
 - (void)buyTicket
 {
-    OSSpinLockLock(&_ticketOSSpinLock);
+//    OSSpinLockLock(&_ticketOSSpinLock);
+//
+//    [super buyTicket];
+//
+//    OSSpinLockUnlock(&_ticketOSSpinLock);
 
+    os_unfair_lock_lock(&_ticket_lock);
     [super buyTicket];
-
-    OSSpinLockUnlock(&_ticketOSSpinLock);
+    os_unfair_lock_unlock(&_ticket_lock);
 }
 
 
 - (void)saleTicket
 {
-    OSSpinLockLock(&_ticketOSSpinLock);
-
+//    OSSpinLockLock(&_ticketOSSpinLock);
+//
+//    [super saleTicket];
+//
+//    OSSpinLockUnlock(&_ticketOSSpinLock);
+    
+    os_unfair_lock_lock(&_ticket_lock);
     [super saleTicket];
-
-    OSSpinLockUnlock(&_ticketOSSpinLock);
-
+    os_unfair_lock_unlock(&_ticket_lock);
 }
 
 - (void)saveMoney
 {
-    OSSpinLockLock(&_osspinLock);
-
-    [super saveMoney];
+//    OSSpinLockLock(&_osspinLock);
+//
+//    [super saveMoney];
+//
+//    OSSpinLockUnlock(&_osspinLock);
     
-    OSSpinLockUnlock(&_osspinLock);
+    os_unfair_lock_lock(&_ticket_lock);
+    [super saveMoney];
+    os_unfair_lock_unlock(&_ticket_lock);
 }
 
 - (void)fetchMoney
 {
-    OSSpinLockLock(&_osspinLock);
-
-    [super fetchMoney];
+//    OSSpinLockLock(&_osspinLock);
+//
+//    [super fetchMoney];
+//
+//    OSSpinLockUnlock(&_osspinLock);
     
-    OSSpinLockUnlock(&_osspinLock);
+    os_unfair_lock_lock(&_ticket_lock);
+    [super fetchMoney];
+    os_unfair_lock_unlock(&_ticket_lock);
 }
 
 @end

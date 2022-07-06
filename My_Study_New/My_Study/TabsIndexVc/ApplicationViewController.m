@@ -99,7 +99,6 @@ typedef struct {
 
 void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     void *PC = __builtin_return_address(0);
-
     SYNode *node = malloc(sizeof(SYNode));
     // 结构体指针指向 SYNode 结构体(pc属性赋值PC,next赋值NULL)
     *node = (SYNode){PC,NULL};
@@ -109,7 +108,7 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    return;
+//    return;
     NSMutableArray<NSString *> * symbolNames = [NSMutableArray array];
     while (YES) {
         SYNode *node = OSAtomicDequeue(&symbolist, offsetof(SYNode, next));
@@ -144,11 +143,10 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     }
     // 因为是在touchBegan这个方法中实现的功能,但我们启动优化并不需要touchBegan方法,因此去掉
     [funcs removeObject:[NSString stringWithFormat:@"%s", __func__ ]];
-    
-    
+
     // 将数组转换为string字符串
     NSString *funcStr = [funcs componentsJoinedByString:@"\n"];
-    NSString *filePath = [NSTemporaryDirectory() stringByAppendingString:@"/pagefault.order"];
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingString:@"pagefault.order"];
     NSData *file = [funcStr dataUsingEncoding:NSUTF8StringEncoding];
     BOOL result = [[NSFileManager defaultManager] createFileAtPath:filePath contents:file attributes:nil];
     if (result) {
@@ -180,30 +178,30 @@ void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     LeftDrawerViewController *leftVc = [LeftDrawerViewController new];
     [self cw_showDefaultDrawerViewController:leftVc];
     return;
-    [UIAlertUtil showAlertTitle:@"Lookin使用" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"导出当前UI结构",@"审查元素",@"3D视图"] actionBlock:^(NSInteger index)
-    {
-        switch (index) {
-            case 0:
-                NSLog(@"取消");
-                break;
-                
-            case 1:
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_Export" object:nil];
-                break;
-                
-            case 2:
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_2D" object:nil];
-                break;
-                
-            case 3:
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_3D" object:nil];
-                break;
-                
-            default:
-                break;
-        }
-        
-    } superVC:self];
+//    [UIAlertUtil showAlertTitle:@"Lookin使用" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"导出当前UI结构",@"审查元素",@"3D视图"] actionBlock:^(NSInteger index)
+//    {
+//        switch (index) {
+//            case 0:
+//                NSLog(@"取消");
+//                break;
+//
+//            case 1:
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_Export" object:nil];
+//                break;
+//
+//            case 2:
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_2D" object:nil];
+//                break;
+//
+//            case 3:
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_3D" object:nil];
+//                break;
+//
+//            default:
+//                break;
+//        }
+//
+//    } superVC:self];
 }
 
 

@@ -109,9 +109,10 @@ typedef void (^PASLoginActionBlock)(PASLoginStatusType status, NSInteger errCode
 @property (nonatomic, copy) NSString *currentAccount;//当前要显示用户，h5调用
 @property (nonatomic, copy) NSString *referUrl; //h5页面跳转
 @property (nonatomic, assign) NSInteger useclipboard;//是否使用剪切板作为账号
-@property (nonatomic, copy) PASLoginActionBlock loginActionBlock;   //< 登录操作回调
-
-@property (nonatomic) PASLoginStatusType displayType;               //< 登录页面显示类型
+/** 登录操作回调  */
+@property (nonatomic, copy) PASLoginActionBlock loginActionBlock;
+/** 登录页面显示类型  */
+@property (nonatomic) PASLoginStatusType displayType;
 @property (nonatomic, assign) BOOL bolNoDissmissAnimated;//消失时是否没动画
 @property (nonatomic, assign) BOOL bolTokenInvalid;//是否是token失效
 
@@ -126,11 +127,12 @@ typedef void (^PASLoginActionBlock)(PASLoginStatusType status, NSInteger errCode
 
 
 @protocol PAS_secondLogin <NSObject>
-
-@property (nonatomic, copy) PASLoginActionBlock loginActionBlock;   //< 登录操作回调
-@property (nonatomic, copy) NSString *currentAccount;//当前要显示用户，h5调用
-
-@property (nonatomic) PASLoginStatusType displayType;               //< 登录页面显示类型
+/** 登录操作回调  */
+@property (nonatomic, copy) PASLoginActionBlock loginActionBlock;
+/** 当前要显示用户，h5调用  */
+@property (nonatomic, copy) NSString *currentAccount;
+/** 登录页面显示类型  */
+@property (nonatomic) PASLoginStatusType displayType;
 @property (nonatomic, assign) BOOL bolNoDissmissAnimated;//消失时是否没动画
 @property (nonatomic, assign) BOOL bolTokenInvalid;//是否是token失效
 @end

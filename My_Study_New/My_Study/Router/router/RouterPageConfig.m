@@ -28,6 +28,9 @@ NSString *const ZWRouterPageCommonWebView            = @"common/webView";
 NSString *const ZWRouterPageSettingViewController    = @"setting/home";
 NSString *const ZWRouterPageShowAlertViewController  = @"tools/show/alertview";
 NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
+/** 通用单选页  */
+NSString *const ZWRouterPageSelectedViewController   = @"common/selected/page";
+
 /* -------------------------------page----------------------------  */
 
 
@@ -116,13 +119,13 @@ NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
-//            /** 展示AlertView的VC  */
-//            @{
-//                @"url" : ZWRouterPageShowAlertViewController,
-//                @"clsName": @"ShowAlertViewController",
-//                @"type" : @(RouterTypeNavigate),
-//                @"attachValue" : @{}
-//            },
+//            /** 通用单选页  */
+            @{
+                @"url" : ZWRouterPageSelectedViewController,
+                @"clsName": @"SelectedViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
 //            /** 展示AlertView的VC  */
 //            @{
 //                @"url" : ZWRouterPageShowAlertViewController,

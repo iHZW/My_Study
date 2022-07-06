@@ -78,7 +78,7 @@ static char badgeMaxBadgeNumberKey;
  *  @param style BadgeStyle type
  *  @param value (if 'style' is BadgeStyleRedDot or BadgeStyleNew,
  this value will be ignored. In this case, any value will be ok.)
- *   @param aniType
+ *   @param aniType 类型
  */
 - (void)showBadgeWithStyle:(BadgeStyle)style
                      value:(NSString *)value

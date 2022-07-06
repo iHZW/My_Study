@@ -594,14 +594,15 @@
 + (NSInteger)netWorkState
 {
     if (@available(iOS 13.0, *)) {
-         UIApplication *application = [UIApplication sharedApplication];
+        UIApplication *application = [UIApplication sharedApplication];
+        NSLog(@"%@", application);
         return -1;
     } else {
         UIApplication *application = [UIApplication sharedApplication];
         UIView *statusBar          = [application valueForKeyPath:@"statusBar"];
         NSArray *children          = nil;
         NSInteger netType          = -1;
-        NSString *test;
+//        NSString *test;
         
         if ([statusBar isKindOfClass:NSClassFromString(@"UIStatusBar_Modern")]) { // iPhoneX 机型
             UIView *foregroundView = [[statusBar valueForKeyPath:@"statusBar"] valueForKeyPath:@"foregroundView"];
@@ -738,15 +739,16 @@
 {
     if (@available(iOS 13.0, *)) {
          UIApplication *application = [UIApplication sharedApplication];
+        NSLog(@"%@", application);
         return @"-";
     } else {
         UIApplication *application = [UIApplication sharedApplication];
         UIView *statusBar          = [application valueForKeyPath:@"statusBar"];
         NSArray *children          = nil;
-        NSInteger netType          = -1;
-        
-        NSString *dataNetworkItemView = nil;
-        NSString *signalStrengthBars = @"";
+//        NSInteger netType          = -1;
+//
+//        NSString *dataNetworkItemView = nil;
+//        NSString *signalStrengthBars = @"";
         
         NSInteger signalWifi = 0;
         NSInteger signalWAN = 0;

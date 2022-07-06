@@ -144,6 +144,20 @@ static inline int64_t ZWGetSystemMilTime(void)
     return httpNetworkManager;
 }
 
+/**
+ 初始化处理
+ 
+ @param userAgentInfo userAgentIfo信息
+ @return ZWHttpNetworkManager 对象
+ */
+- (instancetype)initWihtCustomUserAgentInfo:(NSString *)userAgentInfo
+{
+    if (self = [super init]) {
+        self.userAgent = userAgentInfo;
+    }
+    return self;
+}
+
 - (void)initializeData
 {
     //调大http每个端口默认的并发session

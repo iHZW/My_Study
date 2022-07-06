@@ -13,6 +13,7 @@
 #import "zhThemeOperator.h"
 #import "PASIndicatorTableViewCell.h"
 #import "ActionModel.h"
+#import "CommonSelectedConfig.h"
 
 
 #define kSectionViewHeight              20
@@ -88,6 +89,7 @@
                          [ActionModel initWithTitle:@"账户与安全" actionName:@"accountsAndSecurity"]];
    
     NSArray *sec2Arr = @[[ActionModel initWithTitle:@"Alert提示框" actionName:@"alertViewAction"],
+                         [ActionModel initWithTitle:@"单选页面" actionName:@"selectedPageAction"],
                          [ActionModel initWithTitle:@"切换皮肤" actionName:@"changeTheme"],
                          [ActionModel initWithTitle:@"切换环境" actionName:@"changeEnv"]];
     
@@ -174,7 +176,7 @@
 - (void)changeTheme
 {
     NSArray *themeAray = @[AppThemeLight, AppThemeNight, AppThemeStyle1, AppThemeStyle2, AppThemeStyle3];
-    [UIAlertUtil showAlertTitle:@"切换皮肤" message:@"" cancelButtonTitle:nil otherButtonTitles:themeAray alertControllerStyle:UIAlertControllerStyleActionSheet actionBlock:^(NSInteger index) {
+    [UIAlertUtil showAlertTitle:@"切换皮肤" message:@"" cancelButtonTitle:@"取消" otherButtonTitles:themeAray alertControllerStyle:UIAlertControllerStyleActionSheet actionBlock:^(NSInteger index) {
         if (index > 0) {
             NSString *themeKey = PASArrayAtIndex(themeAray, index - 1);
             [zhThemeOperator changeThemeStyleWithKey:themeKey];
@@ -219,7 +221,24 @@
  */
 - (void)go2PrivicyAgreement
 {
+    NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
+    mutDict[kIsLoadSureBtn] = @(YES);
+    mutDict[kDataList] = @[@{kSelectName : @"111", @"type": @"1"},
+                           @{kSelectName : @"222", @"type": @"2"},
+                           @{kSelectName : @"333", @"type": @"3"},
+                           @{kSelectName : @"444", @"type": @"4"}];
+    mutDict[kSelectName] = @"111";
     
+    RouterParam *param = [RouterParam makeWith:ZWRouterPageChangeEnvViewController destURL:@"SelectedViewController" params:mutDict.copy type:RouterTypeNavigate context:nil success:^(NSDictionary *result) {
+        if ([result isKindOfClass:NSDictionary.class]){
+            NSLog(@"result = %@", result);
+        }
+        
+    } fail:^(NSError * error) {
+        
+    }];
+    
+    [ZWM.router executeRouterParam:param];
 }
 
 /**
@@ -227,9 +246,51 @@
  */
 - (void)go2TradeRiskTip
 {
+    NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
+    mutDict[kIsLoadSureBtn] = @(NO);
+    mutDict[kDataList] = @[@{kSelectName : @"111", @"type": @"1"},
+                           @{kSelectName : @"222", @"type": @"2"},
+                           @{kSelectName : @"333", @"type": @"3"},
+                           @{kSelectName : @"444", @"type": @"4"}];
+    mutDict[kSelectName] = @"222";
+    mutDict[kTitleName] = @"交易风险提示选择页";
     
+    RouterParam *param = [RouterParam makeWith:ZWRouterPageChangeEnvViewController destURL:@"SelectedViewController" params:mutDict.copy type:RouterTypeNavigate context:nil success:^(NSDictionary *result) {
+        if ([result isKindOfClass:NSDictionary.class]){
+            NSLog(@"result = %@", result);
+        }
+        
+    } fail:^(NSError * error) {
+        
+    }];
+    
+    [ZWM.router executeRouterParam:param];
 }
 
+/**
+ *  单选界面
+ */
+- (void)selectedPageAction
+{
+    NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
+    mutDict[kIsLoadSureBtn] = @(NO);
+    mutDict[kDataList] = @[@{kSelectName : @"111", @"type": @"1"},
+                           @{kSelectName : @"222", @"type": @"2"},
+                           @{kSelectName : @"333", @"type": @"3"},
+                           @{kSelectName : @"444", @"type": @"4"}];
+    mutDict[kSelectName] = @"444";
+    
+    RouterParam *param = [RouterParam makeWith:ZWRouterPageChangeEnvViewController destURL:@"SelectedViewController" params:mutDict.copy type:RouterTypeNavigate context:nil success:^(NSDictionary *result) {
+        if ([result isKindOfClass:NSDictionary.class]){
+            NSLog(@"result = %@", result);
+        }
+        
+    } fail:^(NSError * error) {
+        
+    }];
+    
+    [ZWM.router executeRouterParam:param];
+}
 
 
 @end

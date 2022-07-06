@@ -33,7 +33,9 @@
  *  @param value (if 'style' is BadgeStyleRedDot or BadgeStyleNew,
  *                this value will be ignored. In this case, any value will be ok.)
  */
-- (void)showBadgeWithStyle:(BadgeStyle)style value:(NSString *)value animationType:(BadgeAnimType)aniType
+- (void)showBadgeWithStyle:(BadgeStyle)style
+                     value:(NSString *)value
+             animationType:(BadgeAnimType)aniType
 {
     self.aniType = aniType;
     switch (style) {

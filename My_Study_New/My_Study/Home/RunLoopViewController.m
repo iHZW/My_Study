@@ -18,6 +18,7 @@
 #import "PThread_rwLock.h"
 #import "DispatchBarrierPage.h"
 #import "DisplayLinkViewController.h"
+#import <os/lock.h>
 
 /** 测试iOS锁  */
 
@@ -39,7 +40,15 @@
 
 @property (nonatomic, strong) NSLock *lock2;
 
-@property (nonatomic, assign) OSSpinLock ossLock;
+/**
+ *  OSSpinLock 存在优先级反转问题 导致低优先级的线程无法释放锁
+ *
+ *  如果一个优先级低的线程先去访问某个数据，此时使用自旋锁进行了加锁，然后一个优先级高的线程又去访问这个数据，
+ *  那么优先级高的线程会一直占着CPU资源，优先级低的线程就无法释放锁
+ *
+ *   用 os_unfair_lock  替换
+ */
+//@property (nonatomic, assign) OSSpinLock ossLock;
 
 @property (nonatomic, strong) WFOSSPinLockDemo *osspinLockDemo;
 
@@ -66,7 +75,7 @@
     /** 初始化 */
     _semaphore_lock = dispatch_semaphore_create(1);
     
-    self.ossLock = OS_SPINLOCK_INIT;
+//    self.ossLock = OS_SPINLOCK_INIT;
     // Do any additional setup after loading the view.
     
     self.wf_thread = [[WFThread alloc] initWithTarget:[YYWeakProxy proxyWithTarget:self] selector:@selector(keepAlive) object:nil];

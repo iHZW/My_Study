@@ -15,9 +15,9 @@ static NSString *defaultQueueLabel = @"DefaultAnotherQueue";
 /**
  *  主线程执行操作
  *
- *  @param waitUntilDone=> YES:同步  NO:异步 ^block 执行操作
+ *  @param waitUntilDone  YES:同步  NO:异步 ^block 执行操作
  */
-void performBlockOnMainQueue(BOOL waitUntilDone, void (^block)())
+void performBlockOnMainQueue(BOOL waitUntilDone, void (^block)(void))
 {
     if ([NSThread isMainThread])
     {
@@ -30,9 +30,9 @@ void performBlockOnMainQueue(BOOL waitUntilDone, void (^block)())
 /**
  *  子线程执行操作(如果主线程调用，则dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)队列中调用)
  *
- *  @param ^block 执行操作
+ *  @param block 执行操作
  */
-void performActionBlockOnThread(void (^block)())
+void performActionBlockOnThread(void (^block)(void))
 {
     static int specificKey;
     if ([NSThread isMainThread]) {
@@ -47,9 +47,9 @@ void performActionBlockOnThread(void (^block)())
 /**
  *  异步在DefaultAnotherQueue中执行操作
  *
- *  @param waitUntilDone=> YES:同步  NO:异步 ^block 执行操作
+ *  @param waitUntilDone YES:同步  NO:异步 ^block 执行操作
  */
-void performBlockOnAnotherQueue(BOOL waitUntilDone, void (^block)())
+void performBlockOnAnotherQueue(BOOL waitUntilDone, void (^block)(void))
 {
     static int specificKey;
     dispatch_queue_t queue = dispatch_queue_create([defaultQueueLabel UTF8String], NULL);
@@ -66,9 +66,9 @@ void performBlockOnAnotherQueue(BOOL waitUntilDone, void (^block)())
 /**
  *  在自定义队列中执行操作
  *
- *  @param waitUntilDone=> YES:同步  NO:异步 ^block 执行操作
+ *  @param waitUntilDone YES:同步  NO:异步 ^block 执行操作
  */
-void performBlockOnCustomQueue(dispatch_queue_t queue, const void *key, BOOL waitUntilDone, void (^block)())
+void performBlockOnCustomQueue(dispatch_queue_t queue, const void *key, BOOL waitUntilDone, void (^block)(void))
 {
     CFStringRef retrievedValue = dispatch_get_specific(key);//dispatch_queue_get_specific(queue, key);
     if (key != NULL && retrievedValue)
@@ -91,9 +91,9 @@ void performBlockOnCustomQueue(dispatch_queue_t queue, const void *key, BOOL wai
  *  @param key           The context for the specified key or NULL if no context was found
  *  @param allowNesting  是否允许dispatch_barrier 嵌套执行
  *  @param waitUntilDone YES:同步  NO:异步
- *  @param ^block        回调block
+ *  @param block        回调block
  */
-void performBarrierBlockOnCustomQueue(dispatch_queue_t queue, const void *key, BOOL allowNesting, BOOL waitUntilDone, void (^block)())
+void performBarrierBlockOnCustomQueue(dispatch_queue_t queue, const void *key, BOOL allowNesting, BOOL waitUntilDone, void (^block)(void))
 {
     CFStringRef retrievedValue = dispatch_get_specific(key);//dispatch_queue_get_specific(queue, key);
     if (key != NULL && retrievedValue)
@@ -121,9 +121,9 @@ void performBarrierBlockOnCustomQueue(dispatch_queue_t queue, const void *key, B
  *
  *  @param queue         自定义队列
  *  @param waitUntilDone YES:同步  NO:异步
- *  @param ^block        回调block
+ *  @param block        回调block
  */
-void performBarrierBlock(dispatch_queue_t queue, BOOL waitUntilDone, void (^block)())
+void performBarrierBlock(dispatch_queue_t queue, BOOL waitUntilDone, void (^block)(void))
 {
     performBarrierBlockOnCustomQueue(queue, NULL, YES, waitUntilDone, block);
 }

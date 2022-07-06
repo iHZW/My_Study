@@ -24,7 +24,7 @@ typedef void(^ToastBlock)(Toast *);
 @property (nonatomic, assign,readonly) BOOL isCanceled;
 
 + (Toast *)show:(NSString *)msg;
-+ (Toast *)show:(NSString *)msg adjustY:(CGFloat)adjustY inView:(UIView *)superView;
++ (Toast *)show:(NSString *)msg adjustY:(CGFloat)adjustY inView:(UIView *_Nullable)superView;
 
 + (Toast *)showBlueToast:(nullable UIImage *)icon msg:(nullable NSString *)msg;
 

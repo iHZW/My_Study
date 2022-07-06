@@ -34,6 +34,13 @@
  */
 - (void)receiveLowMemoryWarning;
 
+/**
+ *  解析路由参数
+ *  在viewDidLoad  里解析的,  loadUIData 前可以得到数据
+ *  @param  routerParams   路由参数
+ *
+ */
+- (void)decodeRouterParams:(NSDictionary *)routerParams;
 
 @end
 

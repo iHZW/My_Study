@@ -55,8 +55,6 @@
 /**
  *  校验银行卡luhn算法
  *
- *  @param cardNo 卡号
- *
  *  @return 是否合法
  *
  *  @see http://www.cocoachina.com/bbs/read.php?tid=112021#780419

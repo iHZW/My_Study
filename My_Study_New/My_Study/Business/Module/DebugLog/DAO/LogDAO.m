@@ -7,7 +7,7 @@
 //
 
 #import "LogDAO.h"
-#import "FMDB/FMDB.h"
+#import "FMDB.h"
 #import "DBConstants.h"
 
 @implementation LogDAO

@@ -40,6 +40,7 @@
 //        self.automaticallyAdjustsScrollViewInsets = NO;
 //    }
     __block int count = 0;
+    NSLog(@"%@", @(count));
 //    NSTimer *timer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
 //        count++;
 //        NSLog(@"定时器---%d", count);

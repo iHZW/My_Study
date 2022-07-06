@@ -91,7 +91,7 @@ typedef enum : NSUInteger {
     MarginProtectPriceMovedDown,
 } MarginProtectPriceType;
 
-typedef void (^priceProtectBlock)();
+typedef void (^priceProtectBlock)(void);
 
 /**
  *  两融交易

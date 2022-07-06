@@ -37,6 +37,7 @@
 		4E0680C728740F3900F6728A /* EnvConfigObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680C628740F3900F6728A /* EnvConfigObject.m */; };
 		4E0680CA28740F8100F6728A /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680C928740F8100F6728A /* Environment.m */; };
 		4E0680D12874202600F6728A /* ZWChangeEnvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680D02874202600F6728A /* ZWChangeEnvViewController.m */; };
+		4E0680D52874394C00F6728A /* SelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680D42874394C00F6728A /* SelectedViewController.m */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -393,6 +394,9 @@
 		4E0680CD28741B6200F6728A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4E0680CF2874202600F6728A /* ZWChangeEnvViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWChangeEnvViewController.h; sourceTree = "<group>"; };
 		4E0680D02874202600F6728A /* ZWChangeEnvViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWChangeEnvViewController.m; sourceTree = "<group>"; };
+		4E0680D32874394C00F6728A /* SelectedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedViewController.h; sourceTree = "<group>"; };
+		4E0680D42874394C00F6728A /* SelectedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedViewController.m; sourceTree = "<group>"; };
+		4E0680D62874497100F6728A /* CommonSelectedConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonSelectedConfig.h; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -1097,6 +1101,32 @@
 			path = ChangeEnv;
 			sourceTree = "<group>";
 		};
+		4E0680D22874393F00F6728A /* select */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680D62874497100F6728A /* CommonSelectedConfig.h */,
+				4E0680D32874394C00F6728A /* SelectedViewController.h */,
+				4E0680D42874394C00F6728A /* SelectedViewController.m */,
+			);
+			path = select;
+			sourceTree = "<group>";
+		};
+		4E0680D728748C8400F6728A /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE2ACB26DBD90300100FA0 /* MJClassInfo.h */,
+				4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */,
+				4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */,
+				7C91253326DA67B20030A5F3 /* BlockViewController.h */,
+				7C91253426DA67B20030A5F3 /* BlockViewController.m */,
+				7C77B50326DFD85900A9935F /* BlockSubViewController.h */,
+				7C77B50426DFD85900A9935F /* BlockSubViewController.m */,
+				7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */,
+				7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 		4E403F7D2865A994006C0656 /* HTMLLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1442,6 +1472,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E0680D22874393F00F6728A /* select */,
 				4E0680BC2873E2B600F6728A /* Map */,
 				4ED5958B28708774002D15F1 /* other */,
 				4E4FD806286D4132008EC7E1 /* Setting */,
@@ -2063,6 +2094,9 @@
 				7C6309E922A676FE00C73AAB /* Category */,
 				7C6309DA22A6519200C73AAB /* Drawing */,
 				7C49F5DB229BDA9B00D8D62C /* TestMVVM */,
+				7C879B1826E65B260051018B /* MVVM */,
+				7C879B1726E65ABE0051018B /* MVP */,
+				4E0680D728748C8400F6728A /* Object */,
 				7C459A272295557300667813 /* AppDelegate.h */,
 				4ECE44242859BFAA00326287 /* AppDelegate.m */,
 				4E0287CA28699383003E723E /* LaunchViewController.h */,
@@ -2072,17 +2106,6 @@
 				4E02B3E92871B178006E0DE3 /* bgView.swift */,
 				4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */,
 				4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */,
-				7CAE2ACB26DBD90300100FA0 /* MJClassInfo.h */,
-				4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */,
-				4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */,
-				7C879B1826E65B260051018B /* MVVM */,
-				7C879B1726E65ABE0051018B /* MVP */,
-				7C91253326DA67B20030A5F3 /* BlockViewController.h */,
-				7C91253426DA67B20030A5F3 /* BlockViewController.m */,
-				7C77B50326DFD85900A9935F /* BlockSubViewController.h */,
-				7C77B50426DFD85900A9935F /* BlockSubViewController.m */,
-				7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */,
-				7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */,
 				7C459A2D2295557300667813 /* Main.storyboard */,
 				7C459A302295557400667813 /* Assets.xcassets */,
 				7C459A322295557400667813 /* LaunchScreen.storyboard */,
@@ -3375,6 +3398,7 @@
 				4E02880E286B056A003E723E /* URLObject.m in Sources */,
 				7CB1A2FA26E4869B00D450CE /* DisplayLinkViewController.m in Sources */,
 				4E0287B628695512003E723E /* RouterPageItem.m in Sources */,
+				4E0680D52874394C00F6728A /* SelectedViewController.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
 				4EEC47D2285AD4190047F8B6 /* ZWNavigationController.m in Sources */,
 				7C4EF0002303948E0040DA7A /* NSObject+KeyedArchiver.m in Sources */,
@@ -3593,8 +3617,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyQA";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3719,8 +3743,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyQA";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3896,8 +3920,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyDEV";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3955,8 +3979,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard\n\n";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined\n -sanitize-coverage=func\n-sanitize-coverage=func";
+				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
 				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

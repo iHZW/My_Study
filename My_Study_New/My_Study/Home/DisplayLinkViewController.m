@@ -53,9 +53,7 @@
         });
 
     }
-    
-    NSObject *objc = [NSObject new];
-    
+        
     NSLog(@"%s", __func__);
      
     

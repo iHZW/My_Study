@@ -110,9 +110,9 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 4.0.1)
   - Alamofire (= 4.9.1)
-  - AMap3DMap-NO-IDFA
-  - AMapLocation-NO-IDFA
-  - AMapSearch-NO-IDFA
+  - AMap3DMap-NO-IDFA (= 9.1.0)
+  - AMapLocation-NO-IDFA (= 2.8.0)
+  - AMapSearch-NO-IDFA (= 8.1.0)
   - CocoaAsyncSocket
   - DoraemonKit/Core (= 3.1.2)
   - FDFullscreenPopGesture (~> 1.1)
@@ -193,6 +193,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: a9ac3360a7d2b9f48972bda5bc3ae4affdd4ed33
+PODFILE CHECKSUM: 6d6d1a318ab1fe5718810d0329c02504d5b0834a
 
 COCOAPODS: 1.11.2

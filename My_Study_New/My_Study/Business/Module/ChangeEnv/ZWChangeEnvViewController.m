@@ -78,7 +78,6 @@
 {
     [super initRightNav];
     
-    
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
     [sureBtn setTitleColor:UIColorFromRGB(0x6495ED) forState:UIControlStateNormal];

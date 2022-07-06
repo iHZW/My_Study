@@ -40,7 +40,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageSettingViewController;
 UIKIT_EXTERN NSString *const ZWRouterPageShowAlertViewController;
 /** 切换环境  */
 UIKIT_EXTERN NSString *const ZWRouterPageChangeEnvViewController;
-
+/** 通用单选页  */
+UIKIT_EXTERN NSString *const ZWRouterPageSelectedViewController;
 
 /* -------------------------------page----------------------------  */
 

@@ -615,7 +615,7 @@ unsigned int LunarCalendarTable[199] = {
 + (NSString *)getMoneyFormatStringWith:(float)money isNeedPoint:(BOOL)point
 {
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = kCFNumberFormatterCurrencyStyle;
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     NSString *string = [formatter stringFromNumber:[NSNumber numberWithFloat:ABS(money)]];
     string = [string substringFromIndex:1];
     

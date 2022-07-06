@@ -54,12 +54,12 @@ typedef NS_ENUM(NSInteger, ButtonImageTitleStyle ) {
  *
  *  @param title          必传
  *  @param normalImageStr 必传
- *  @param hightImageStr
+ *  @param hightImageStr 高亮状态图片
  *  @param hspace         图文间隔
  *  @param titleAlign     文字位置
  *  @param block           有按钮参数的block
  *
- *  @return
+ *  @return 带title和image 的button
  */
 + (UIButton *)pas_buttonWithFrame:(NSString *)title
                       normalImage:(NSString *)normalImageStr

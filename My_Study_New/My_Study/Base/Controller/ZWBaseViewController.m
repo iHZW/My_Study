@@ -54,7 +54,7 @@
         [self initLeftNav];
         [self initRightNav];
     }
-    
+    [self decodeRouterParams:self.routerParams];
     [self loadUIData];
 }
 
@@ -95,6 +95,8 @@
     [super viewDidDisappear:animated];
     
 }
+
+
 
 
 
@@ -161,6 +163,17 @@
 - (void)receiveLowMemoryWarning
 {
     
+}
+
+
+/** 解析路由  */
+- (void)decodeRouterParams:(NSDictionary *)routerParams{
+    //各个页面自己解析
+    if (routerParams){
+        if ([routerParams.allKeys containsObject:@"hideNavigationBar"]){
+            self.hideNavigationBar = [[routerParams objectForKey:@"hideNavigationBar"] boolValue];
+        }
+    }
 }
 
 @end

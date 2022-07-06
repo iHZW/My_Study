@@ -36,10 +36,10 @@
     _userPwd = userPwd;
 }
 
-//- (void)test
-//{
-//    NSLog(@"%s", __func__);
-//}
+- (void)test
+{
+    NSLog(@"%s", __func__);
+}
 
 //- (void)play
 //{
