@@ -19,54 +19,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C9DE0088-9123-40A0-8248-10A0382E4519"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Category/NSObject/NSObject+ZWDeallocExecutor.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-dealloc"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5E1D4551-D923-433F-B8F9-F44FB13EEFF6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/Module/DebugLog/controller/MDLogViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "-loadSubViews"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "150411C3-5B79-43D0-ABC6-62A0396ACF47"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/Module/DebugLog/controller/MDLogViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "-loadSubViews"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -78,38 +30,6 @@
             endingLineNumber = "66"
             landmarkName = "-renderUI"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - 8ad195edd6d02254"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonMockViewController renderUI]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "604">
-               </Location>
-               <Location
-                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - 8ad195edd6d02254"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonMockViewController renderUI]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "338">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,38 +46,6 @@
             endingLineNumber = "113"
             landmarkName = "-showNetFlowDetail"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 7be87ee6fc291b1b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "604">
-               </Location>
-               <Location
-                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 7be87ee6fc291b1b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "337">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -211,22 +99,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "03574660-DE7F-4CA1-B918-46BAA54FA5EF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/Setting/SettingViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "-changeTheme"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E32DE529-D430-4BF5-82A5-E90E7D8BE027"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -237,6 +109,22 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "+changeThemeStyleWithKey:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0135E730-8D05-46D4-B614-D3AF6E16C8E9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/Map/DataLoader/LocationTrimDataLoader.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "-onReGeocodeSearchDone:response:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

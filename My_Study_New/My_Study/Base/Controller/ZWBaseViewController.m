@@ -14,6 +14,11 @@
 
 @implementation ZWBaseViewController
 
++ (NSString *)pageName{
+    NSString *pageName = [NSStringFromClass(self) stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+    return pageName;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -54,6 +59,18 @@
         [self initLeftNav];
         [self initRightNav];
     }
+    
+    NSDictionary *dict = [[self class] ss_constantParams];
+    NSInteger navBarStyle = [[dict objectForKey:@"navbarStyle"] integerValue];
+    if (navBarStyle == NavbarStyleNone){
+        self.navBarShadowImage = [UIImage new];
+    } else if (navBarStyle == NavbarStyleLine){
+        self.navBarShadowImage = nil;
+    }
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self decodeRouterParams:self.routerParams];
     [self loadUIData];
 }
@@ -96,6 +113,15 @@
     
 }
 
+/**
+ *  判断该viewcontroller当前是否是可见的，用来在app从后台启前台的时候决定要不要刷新数据或者view
+ *
+ *  @return 可见YES, 否则NO
+ */
+- (BOOL)isVisible
+{
+    return (self.isViewLoaded && self.view.window);
+}
 
 
 
@@ -105,7 +131,7 @@
 //让当前控制器成为第一响应者，只有这样才能接收事件，所以此段代码必须加到控制器中
 - (BOOL)canBecomeFirstResponder
 {
-    return YES;// default is NO
+    return NO;// default is NO
 }
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
@@ -174,6 +200,24 @@
             self.hideNavigationBar = [[routerParams objectForKey:@"hideNavigationBar"] boolValue];
         }
     }
+}
+
+/** 默认不支持旋转  */
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+/** 默认竖屏  */
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+/** 默认竖屏  */
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
 }
 
 @end

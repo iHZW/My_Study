@@ -12,6 +12,16 @@
 
 @interface ZWBaseViewController : UIViewController
 
+/** 获取类名  */
++ (NSString *)pageName;
+
+/**
+ *  判断该viewcontroller当前是否是可见的，用来在app从后台启前台的时候决定要不要刷新数据或者view
+ *
+ *  @return 可见YES, 否则NO
+ */
+- (BOOL)isVisible;
+
 #pragma mark - 加载导航控件
 /** 通用返回按钮  */
 - (void)initLeftNav;

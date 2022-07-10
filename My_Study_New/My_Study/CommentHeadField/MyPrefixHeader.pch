@@ -28,6 +28,9 @@
 /** 配置主题/换肤使用    */
 #import "zhTheme.h"
 
+/** imageName:   传入nil 时 打印一堆log   这个可以解决 */
+#import "UIImage+None.h"
+
 #endif //判断结束
 
 

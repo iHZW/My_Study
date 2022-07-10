@@ -102,7 +102,7 @@
  *
  *  @return 对应理财版本号信息
  */
-+ (NSString *)aneVersion
++ (NSString *)appVersion
 {
     NSString *tmpStr = [ZWSiteAddressManager appVersion];
     return [tmpStr length] > 0 ? tmpStr : @"";

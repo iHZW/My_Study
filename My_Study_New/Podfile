@@ -68,9 +68,9 @@ target 'My_Study' do
  debugTool
  
 # 高德地图
- pod 'AMapLocation-NO-IDFA', '2.8.0'
- pod 'AMap3DMap-NO-IDFA', '9.1.0'
- pod 'AMapSearch-NO-IDFA', '8.1.0'
+ pod 'AMapLocation-NO-IDFA'
+ pod 'AMap3DMap-NO-IDFA'
+ pod 'AMapSearch-NO-IDFA'
  
 # VLC 是一款强大的全平台播放器
  #pod 'MobileVLCKit' #下载不下来，网络不行
@@ -85,4 +85,11 @@ post_install do |installer|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
     end
   end
+  
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
 end
+
+
+

@@ -66,10 +66,8 @@
 {
     [self.view addSubview:self.tableView];
     
-    CGFloat topY = kMainNavHeight + kSysStatusBarHeight;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.view.mas_top).offset(topY);
+        make.top.left.right.bottom.equalTo(self.view);
     }];
 }
 
@@ -130,8 +128,7 @@
 //                TestWebIpViewController *vc = [[TestWebIpViewController alloc] init];
 //                [self.navigationController pushViewController:vc animated:YES];
             } else if (indexPath.row == 3){
-//                MDChangeEnvViewController *vc = [[MDChangeEnvViewController alloc] init];
-//                [self.navigationController pushViewController:vc animated:YES];
+                [ZWM.router executeURLNoCallBack:ZWRouterPageChangeEnvViewController];
             }
             break;
         }

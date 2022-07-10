@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 注入方法导出js的conslog
+
 @interface ZWWebView : WKWebView
+
++ (void)allowDisplayingKeyboardWithoutUserAction;
 
 @end
 

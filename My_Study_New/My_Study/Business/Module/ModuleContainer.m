@@ -19,6 +19,10 @@
 #import "NSObject+Params.h"
 #import "UIApplication+Ext.h"
 #import "UIViewController+ZW.h"
+#import "PermissionIntercept.h"
+#import "Permission.h"
+#import "LocationManager.h"
+#import "Config.h"
 
 
 @interface ModuleContainer ()<RouterNavigateDelegate>
@@ -46,7 +50,17 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
     
     //APP路由
     [self registerRouter];
+    
+    [self configPermissionIntercept];
         
+    //设置地图Key
+    [[LocationManager shareLocationManager] configAMapService:[Config sharedConfig].aMapKey];
+
+}
+
+- (void)configPermissionIntercept{
+    PermissionIntercept *intercept = [[PermissionIntercept alloc] init];
+    [Permission setIntercept:intercept];
 }
 
 #pragma mark - DB

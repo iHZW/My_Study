@@ -30,7 +30,8 @@ NSString *const ZWRouterPageShowAlertViewController  = @"tools/show/alertview";
 NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
 /** 通用单选页  */
 NSString *const ZWRouterPageSelectedViewController   = @"common/selected/page";
-
+/** 地址微调页  */
+NSString *const ZWRouterPageLocationTrimViewController = @"tools/location/trim/page";
 /* -------------------------------page----------------------------  */
 
 
@@ -126,13 +127,13 @@ NSString *const ZWRouterPageSelectedViewController   = @"common/selected/page";
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
-//            /** 展示AlertView的VC  */
-//            @{
-//                @"url" : ZWRouterPageShowAlertViewController,
-//                @"clsName": @"ShowAlertViewController",
-//                @"type" : @(RouterTypeNavigate),
-//                @"attachValue" : @{}
-//            },
+            /** 地址微调页   */
+            @{
+                @"url" : ZWRouterPageLocationTrimViewController,
+                @"clsName": @"LocationTrimViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
         ]
     };
         

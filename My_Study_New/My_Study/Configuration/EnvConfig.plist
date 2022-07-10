@@ -16,7 +16,7 @@
 			<key>ALIPAY_SCHEME</key>
 			<string>zwDebug</string>
 			<key>AMAP_KEY</key>
-			<string>b5a84655e2cef54d488e990287d26bb9</string>
+			<string>5f8e1fdcf0ed1c0ef8dc9cc5af42ec36</string>
 			<key>BUGLY_APPID</key>
 			<string>111111</string>
 			<key>ZW_STATISTICS_URL</key>
@@ -49,7 +49,7 @@
 		<key>envType</key>
 		<string>1</string>
 		<key>bundleID</key>
-		<string>My-StudyQA</string>
+		<string>com.zw.My-Study</string>
 		<key>canManualChange</key>
 		<true/>
 		<key>AppConfiguration</key>
@@ -57,7 +57,7 @@
 			<key>ALIPAY_SCHEME</key>
 			<string>zwQA</string>
 			<key>AMAP_KEY</key>
-			<string>b5a84655e2cef54d488e990287d26bb9</string>
+			<string>5f8e1fdcf0ed1c0ef8dc9cc5af42ec36</string>
 			<key>BUGLY_APPID</key>
 			<string>111111</string>
 			<key>ZW_STATISTICS_URL</key>
@@ -98,7 +98,7 @@
 			<key>ALIPAY_SCHEME</key>
 			<string>zwRelease</string>
 			<key>AMAP_KEY</key>
-			<string>b5a84655e2cef54d488e990287d26bb9</string>
+			<string>5f8e1fdcf0ed1c0ef8dc9cc5af42ec36</string>
 			<key>BUGLY_APPID</key>
 			<string>111111</string>
 			<key>ZW_STATISTICS_URL</key>

@@ -36,9 +36,9 @@
         }
         
         // 设置引导视图的scrollview
-        UIScrollView *guidePageView = [[UIScrollView alloc]initWithFrame:frame];
-        [guidePageView setBackgroundColor:[UIColor lightGrayColor]];
-        [guidePageView setContentSize:CGSizeMake(kMainScreenWidth*imageNameArray.count, kMainScreenHeight)];
+        UIScrollView *guidePageView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
+        [guidePageView setContentSize:CGSizeMake(kMainScreenWidth*imageNameArray.count, 0)];
+        [guidePageView setBackgroundColor:[UIColor blueColor]];
         [guidePageView setBounces:NO];
         [guidePageView setPagingEnabled:YES];
         [guidePageView setShowsHorizontalScrollIndicator:NO];
@@ -57,7 +57,7 @@
         
         // 添加在引导视图上的多张引导图片
         for (int i=0; i<imageNameArray.count; i++) {
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(kMainScreenWidth*i, 0, kMainScreenWidth, kMainScreenHeight)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(frame)*i, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
             if ([[DHGifImageOperation dh_contentTypeForImageData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageNameArray[i] ofType:nil]]] isEqualToString:@"gif"]) {
                 NSData *localData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageNameArray[i] ofType:nil]];
                 imageView = (UIImageView *)[[DHGifImageOperation alloc] initWithFrame:imageView.frame gifImageData:localData];
@@ -81,6 +81,11 @@
         /* 开始自动滚动 */
         [self _refreshOrStop:NO];
         
+        /** 可以解决 滚动 视图受 导航和tabBar的影响 上下便偏移  */
+        if (@available(iOS 11.0, *)) {
+            self.pageScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        
         // 设置引导页上的页面控制器
 //        self.imagePageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(kMainScreenWidth*0.0, kMainScreenHeight*0.9, kMainScreenWidth*1.0, kMainScreenHeight*0.1)];
 //        self.imagePageControl.currentPage = 0;
@@ -88,7 +93,7 @@
 //        self.imagePageControl.pageIndicatorTintColor = [UIColor grayColor];
 //        self.imagePageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
 //        [self addSubview:self.imagePageControl];
-//        
+//
     }
     return self;
 }
@@ -98,11 +103,14 @@
 {
     if (self.imageNameArray.count > 0) {
         CGFloat contentOffsetX = self.pageScrollView.contentOffset.x;
+        NSInteger pageCount = contentOffsetX /CGRectGetWidth(self.pageScrollView.frame);
         CGFloat pageWidth = self.pageScrollView.width;
+        /** 解决滑动过程中 定时器触发滚动,导致滚动超出屏幕  */
+        CGFloat adjustOffsetX = pageCount*pageWidth;
         /* 允许的最大滚动距离 */
         CGFloat maxRollingDistance = pageWidth * (self.imageNameArray.count - 1);
-        if (contentOffsetX < maxRollingDistance) {
-            [self.pageScrollView setContentOffset:CGPointMake(contentOffsetX + pageWidth, 0) animated:YES];
+        if (adjustOffsetX < maxRollingDistance) {
+            [self.pageScrollView setContentOffset:CGPointMake(adjustOffsetX + pageWidth, 0) animated:YES];
         } else {
             [self _refreshOrStop:YES];
         }
@@ -137,7 +145,6 @@
     if (pageIndex >= self.imageNameArray.count - 1) {
         [self _refreshOrStop:YES];
     }
-    
     /* ... 使用UI的切图,不单独写 */
     // 四舍五入,保证pageControl状态跟随手指滑动及时刷新
 //    [self.imagePageControl setCurrentPage:(int)((scrollView.contentOffset.x / scrollView.frame.size.width) + 0.5f)];

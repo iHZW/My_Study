@@ -14,7 +14,6 @@
 #import "RunLoopViewController.h"
 #import "UIViewController+CWLateralSlide.h"
 
-
 @interface HomeViewController ()
 {
     NSTimer *_timer;
@@ -58,6 +57,7 @@
     
     [self registWaster];
 
+    
 }
 
 - (void)registWaster
@@ -177,8 +177,8 @@
 
     /* 头部导航   底部tabBar */
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view.mas_top).offset(SafeAreaTopStatusNavBarHeight);
+        make.top.left.right.equalTo(self.view);
+//        make.top.equalTo(self.view.mas_top).offset(SafeAreaTopStatusNavBarHeight);
         make.bottom.equalTo(self.view.mas_bottom).offset(-kMainTabbarHeight-SafeAreaBottomAreaHeight);
     }];
 }
@@ -295,6 +295,5 @@
 //    [flutterVC didMoveToParentViewController:self];
 //    [self.view addSubview:flutterVC.view];
 }
-
 
 @end

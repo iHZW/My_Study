@@ -74,14 +74,11 @@
             self.navigationBar.scrollEdgeAppearance = appperance;
         }
     }];
-//
-//    [self.navigationBar zh_setBackgroundColorPicker:ThemePickerColorKey(ZWColorKey_p2) forBarMetrics:UIBarMetricsDefault];
 }
 
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-
     if (self.childViewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
         viewController.hideTabbar = YES;
@@ -97,9 +94,9 @@
         [self setNavigationBarHidden:hidNavBar animated:YES];
         viewController.fd_prefersNavigationBarHidden = hidNavBar;
         navigationController.navigationBar.shadowImage = viewController.navBarShadowImage;
-        
-        BOOL hideTabbar = viewController.hideTabbar;
-        navigationController.tabBarController.tabBar.hidden = hideTabbar;
+//
+//        BOOL hideTabbar = viewController.hideTabbar;
+//        navigationController.tabBarController.tabBar.hidden = hideTabbar;
     }
     
 }
@@ -107,6 +104,12 @@
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animate{
+    if ([viewController isKindOfClass:[ZWBaseViewController class]]){
+
+        /** 防止切换页面时  tabbar 出现黑色  */
+        BOOL hideTabbar = viewController.hideTabbar;
+        navigationController.tabBarController.tabBar.hidden = hideTabbar;
+    }
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{

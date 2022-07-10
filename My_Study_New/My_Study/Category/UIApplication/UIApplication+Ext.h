@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LaunchViewController.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -49,6 +51,17 @@ NS_ASSUME_NONNULL_BEGIN
 @return viewController
 */
 + (UIViewController *)topViewController;
+
+
+//当前正在显示的页面的名字
++ (NSString *)currentPageName;
+
+//1.当前页面路由 2.不存在返回pageName
++ (void)asyncGetCurrentPageName:(void (^ _Nullable)( NSString * _Nullable ))completionHandler;
+
++ (LaunchViewController *)rootViewController;
+
++ (NSString *)getCurrentPageRoute;
 
 @end
 

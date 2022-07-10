@@ -134,14 +134,21 @@
 {
     if (self.selectedIndex != NSNotFound) {
         NSDictionary *dict = PASArrayAtIndex(self.dataArray, self.selectedIndex);
-        BlockSafeRun(self.selectedActionBlock, dict);
-        BlockSafeRun(self.routerParamObject.successBlock, dict);
+        [self executeBlock:dict];
     }
     performBlockDelay(dispatch_get_main_queue(), .1, ^{
         [self.navigationController popViewControllerAnimated:YES];
     });
 }
 
+/** 执行回调,  点击 / 确定按钮    */
+- (void)executeBlock:(NSDictionary *)dict
+{
+    /** 当前类选中回调  */
+    BlockSafeRun(self.selectedActionBlock, dict);
+    /** 这个是通过路由挑转, 路由里的successblock  回调  */
+    BlockSafeRun(self.routerParamObject.successBlock, dict);
+}
 
 /**
  *  改变选中selected
@@ -156,8 +163,7 @@
     if (!self.isLoadSureBtn) {
         if (self.selectedIndex != NSNotFound) {
             NSDictionary *dict = PASArrayAtIndex(self.dataArray, self.selectedIndex);
-            BlockSafeRun(self.selectedActionBlock, dict);
-            BlockSafeRun(self.routerParamObject.successBlock, dict);
+            [self executeBlock:dict];
         }
         performBlockDelay(dispatch_get_main_queue(), .1, ^{
             [self.navigationController popViewControllerAnimated:YES];

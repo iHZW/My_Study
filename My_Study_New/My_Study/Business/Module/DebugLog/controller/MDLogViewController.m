@@ -140,8 +140,7 @@
     }];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.mas_equalTo(kMainNavHeight + kSysStatusBarHeight);
+        make.top.left.right.bottom.equalTo(self.view);
     }];
     
     self.tableView.tableHeaderView = self.searchView;

@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 对应理财版本号信息
  */
-+ (NSString *)aneVersion;
++ (NSString *)appVersion;
 
 /**
  *  获取talkingdata 中 deviceID信息

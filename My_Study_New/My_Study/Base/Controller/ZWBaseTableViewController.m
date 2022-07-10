@@ -56,6 +56,7 @@
     self.tableView.dataSource = self;
     /** 默认不显示滚动条  */
     self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.tableView];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -65,8 +66,8 @@
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(kMainNavHeight + kSysStatusBarHeight).priority(MASLayoutPriorityDefaultLow);
-        make.left.right.bottom.equalTo(self.view).priority(MASLayoutPriorityDefaultLow);
+//        make.top.equalTo(self.view.mas_top).offset(kMainNavHeight + kSysStatusBarHeight).priority(MASLayoutPriorityDefaultLow);
+        make.top.left.right.bottom.equalTo(self.view).priority(MASLayoutPriorityDefaultLow);
     }];
     
 }

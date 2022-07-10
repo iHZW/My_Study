@@ -9,7 +9,6 @@
 #import "ZWMainAppDelegateService.h"
 #import "ZWHttpNetworkManager.h"
 #import "ZWCommonUtil.h"
-#import "VersionUpgradeViewController.h"
 #import "LaunchViewController.h"
 #import "ZWNavigationController.h"
 #import "UIColor+Ext.h"
@@ -73,19 +72,6 @@
 //        [UITableView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 //        [UIScrollView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-}
-
-
-/** 加载引导页  */
-- (void)loadGuidePage{
-    VersionUpgradeViewController *vc = [[VersionUpgradeViewController alloc] init];
-    @pas_weakify_self
-    vc.guideCompleteBlock = ^(NSInteger index, GuideActionType type) {
-        @pas_strongify_self
-        /* 引导完成 */
-        [self loadLaunchVC];
-    };
-    [[UIApplication sharedApplication].delegate window].rootViewController = vc;
 }
 
 /** 加载启动页  */

@@ -47,7 +47,8 @@
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(kMainNavHeight + kSysStatusBarHeight);
+        make.top.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-SafeAreaBottomAreaHeight);
     }];
 
     @pas_weakify_self
@@ -79,7 +80,6 @@
             ((void (*)(id, SEL))objc_msgSend)(self,seletor);
         }
     };
-
 }
 
 
@@ -91,7 +91,8 @@
     NSArray *sec2Arr = @[[ActionModel initWithTitle:@"Alert提示框" actionName:@"alertViewAction"],
                          [ActionModel initWithTitle:@"单选页面" actionName:@"selectedPageAction"],
                          [ActionModel initWithTitle:@"切换皮肤" actionName:@"changeTheme"],
-                         [ActionModel initWithTitle:@"切换环境" actionName:@"changeEnv"]];
+                         [ActionModel initWithTitle:@"切换环境" actionName:@"changeEnv"],
+                         [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"]];
     
     NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@""]];
     
@@ -193,6 +194,14 @@
 }
 
 /**
+ *  地址微调
+ */
+- (void)changeAddressTrim
+{
+    [ZWM.router executeURLNoCallBack:ZWRouterPageLocationTrimViewController];
+}
+
+/**
  *  清除缓存
  */
 - (void)cleanCacheData
@@ -221,24 +230,7 @@
  */
 - (void)go2PrivicyAgreement
 {
-    NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
-    mutDict[kIsLoadSureBtn] = @(YES);
-    mutDict[kDataList] = @[@{kSelectName : @"111", @"type": @"1"},
-                           @{kSelectName : @"222", @"type": @"2"},
-                           @{kSelectName : @"333", @"type": @"3"},
-                           @{kSelectName : @"444", @"type": @"4"}];
-    mutDict[kSelectName] = @"111";
-    
-    RouterParam *param = [RouterParam makeWith:ZWRouterPageChangeEnvViewController destURL:@"SelectedViewController" params:mutDict.copy type:RouterTypeNavigate context:nil success:^(NSDictionary *result) {
-        if ([result isKindOfClass:NSDictionary.class]){
-            NSLog(@"result = %@", result);
-        }
-        
-    } fail:^(NSError * error) {
-        
-    }];
-    
-    [ZWM.router executeRouterParam:param];
+
 }
 
 /**
@@ -246,25 +238,7 @@
  */
 - (void)go2TradeRiskTip
 {
-    NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
-    mutDict[kIsLoadSureBtn] = @(NO);
-    mutDict[kDataList] = @[@{kSelectName : @"111", @"type": @"1"},
-                           @{kSelectName : @"222", @"type": @"2"},
-                           @{kSelectName : @"333", @"type": @"3"},
-                           @{kSelectName : @"444", @"type": @"4"}];
-    mutDict[kSelectName] = @"222";
-    mutDict[kTitleName] = @"交易风险提示选择页";
-    
-    RouterParam *param = [RouterParam makeWith:ZWRouterPageChangeEnvViewController destURL:@"SelectedViewController" params:mutDict.copy type:RouterTypeNavigate context:nil success:^(NSDictionary *result) {
-        if ([result isKindOfClass:NSDictionary.class]){
-            NSLog(@"result = %@", result);
-        }
-        
-    } fail:^(NSError * error) {
-        
-    }];
-    
-    [ZWM.router executeRouterParam:param];
+
 }
 
 /**

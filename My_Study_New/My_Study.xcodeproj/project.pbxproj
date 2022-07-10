@@ -38,6 +38,17 @@
 		4E0680CA28740F8100F6728A /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680C928740F8100F6728A /* Environment.m */; };
 		4E0680D12874202600F6728A /* ZWChangeEnvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680D02874202600F6728A /* ZWChangeEnvViewController.m */; };
 		4E0680D52874394C00F6728A /* SelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680D42874394C00F6728A /* SelectedViewController.m */; };
+		4E0680E028758E4400F6728A /* LocationTrimViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680DF28758E4400F6728A /* LocationTrimViewController.m */; };
+		4E0680E628758F5400F6728A /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680E528758F5400F6728A /* POIAnnotation.m */; };
+		4E0680ED287593F300F6728A /* LocationTrimAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680EC287593F300F6728A /* LocationTrimAdapter.m */; };
+		4E0680F02875947000F6728A /* TrimAddressHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680EF2875947000F6728A /* TrimAddressHeadView.m */; };
+		4E0680F32875957B00F6728A /* TrimAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680F22875957B00F6728A /* TrimAddressCell.m */; };
+		4E0680F8287598E500F6728A /* MapTypeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680F7287598E500F6728A /* MapTypeHelper.m */; };
+		4E0680FB287598EF00F6728A /* LocationAuthority.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680FA287598EF00F6728A /* LocationAuthority.m */; };
+		4E0680FE28759DD900F6728A /* LocationTrimDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680FD28759DD800F6728A /* LocationTrimDataLoader.m */; };
+		4E0681002876867E00F6728A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0680FF2876867E00F6728A /* Foundation.framework */; };
+		4E23FE5D2876F9DA009B02D0 /* UIImage+None.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */; };
+		4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5F28781618009B02D0 /* TrimHeaderView.m */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -58,6 +69,20 @@
 		4E4F9CE1286C5EBB003281B5 /* ZWAnimationCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */; };
 		4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
 		4E4FD80D286D4745008EC7E1 /* ThemeWhite.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */; };
+		4E5F2CEE2876B76A00FEC6C2 /* JXLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2CED2876B76A00FEC6C2 /* JXLocation.m */; };
+		4E5F2CF12876B84200FEC6C2 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2CF02876B84200FEC6C2 /* LocationManager.m */; };
+		4E5F2CF72876BA4500FEC6C2 /* PermissionLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2CF62876BA4500FEC6C2 /* PermissionLocation.m */; };
+		4E5F2CFA2876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2CF92876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.m */; };
+		4E5F2CFD2876BB6800FEC6C2 /* PermissionMicrophone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2CFC2876BB6800FEC6C2 /* PermissionMicrophone.m */; };
+		4E5F2D002876BB9800FEC6C2 /* PermissionPhotoLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2CFF2876BB9800FEC6C2 /* PermissionPhotoLibrary.m */; };
+		4E5F2D032876BBD000FEC6C2 /* PermissionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D022876BBD000FEC6C2 /* PermissionCamera.m */; };
+		4E5F2D062876BBFD00FEC6C2 /* PermissionContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D052876BBFD00FEC6C2 /* PermissionContact.m */; };
+		4E5F2D092876BC6400FEC6C2 /* Permission.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D082876BC6400FEC6C2 /* Permission.m */; };
+		4E5F2D0C2876BD3D00FEC6C2 /* PermissionIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D0B2876BD3D00FEC6C2 /* PermissionIntercept.m */; };
+		4E5F2D0F2876C24A00FEC6C2 /* JSWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D0E2876C24A00FEC6C2 /* JSWeakObject.m */; };
+		4E5F2D122876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D112876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m */; };
+		4E5F2D152876C9D000FEC6C2 /* ZWNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D142876C9D000FEC6C2 /* ZWNative.m */; };
+		4E5F2D1B2876CD0400FEC6C2 /* NSString+VersionCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */; };
 		4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B4285B85F700DEC9CC /* DateUtil.m */; };
 		4E7427BA285B864900DEC9CC /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B8285B864900DEC9CC /* Toast.m */; };
 		4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427BB285B869400DEC9CC /* UIColor+Ext.m */; };
@@ -397,6 +422,28 @@
 		4E0680D32874394C00F6728A /* SelectedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedViewController.h; sourceTree = "<group>"; };
 		4E0680D42874394C00F6728A /* SelectedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedViewController.m; sourceTree = "<group>"; };
 		4E0680D62874497100F6728A /* CommonSelectedConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonSelectedConfig.h; sourceTree = "<group>"; };
+		4E0680DE28758E4400F6728A /* LocationTrimViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTrimViewController.h; sourceTree = "<group>"; };
+		4E0680DF28758E4400F6728A /* LocationTrimViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTrimViewController.m; sourceTree = "<group>"; };
+		4E0680E428758F5400F6728A /* POIAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POIAnnotation.h; sourceTree = "<group>"; };
+		4E0680E528758F5400F6728A /* POIAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POIAnnotation.m; sourceTree = "<group>"; };
+		4E0680E92875919900F6728A /* MapHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapHeader.h; sourceTree = "<group>"; };
+		4E0680EB287593F300F6728A /* LocationTrimAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTrimAdapter.h; sourceTree = "<group>"; };
+		4E0680EC287593F300F6728A /* LocationTrimAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTrimAdapter.m; sourceTree = "<group>"; };
+		4E0680EE2875947000F6728A /* TrimAddressHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrimAddressHeadView.h; sourceTree = "<group>"; };
+		4E0680EF2875947000F6728A /* TrimAddressHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrimAddressHeadView.m; sourceTree = "<group>"; };
+		4E0680F12875957B00F6728A /* TrimAddressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrimAddressCell.h; sourceTree = "<group>"; };
+		4E0680F22875957B00F6728A /* TrimAddressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrimAddressCell.m; sourceTree = "<group>"; };
+		4E0680F6287598E500F6728A /* MapTypeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapTypeHelper.h; sourceTree = "<group>"; };
+		4E0680F7287598E500F6728A /* MapTypeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTypeHelper.m; sourceTree = "<group>"; };
+		4E0680F9287598EF00F6728A /* LocationAuthority.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationAuthority.h; sourceTree = "<group>"; };
+		4E0680FA287598EF00F6728A /* LocationAuthority.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationAuthority.m; sourceTree = "<group>"; };
+		4E0680FC28759DD800F6728A /* LocationTrimDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTrimDataLoader.h; sourceTree = "<group>"; };
+		4E0680FD28759DD800F6728A /* LocationTrimDataLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTrimDataLoader.m; sourceTree = "<group>"; };
+		4E0680FF2876867E00F6728A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4E23FE5B2876F9DA009B02D0 /* UIImage+None.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+None.h"; sourceTree = "<group>"; };
+		4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+None.m"; sourceTree = "<group>"; };
+		4E23FE5E28781618009B02D0 /* TrimHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrimHeaderView.h; sourceTree = "<group>"; };
+		4E23FE5F28781618009B02D0 /* TrimHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrimHeaderView.m; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -437,6 +484,36 @@
 		4E4FD808286D4147008EC7E1 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		4E4FD80B286D4705008EC7E1 /* ThemeDarkBlack.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ThemeDarkBlack.strings; sourceTree = "<group>"; };
 		4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ThemeWhite.strings; sourceTree = "<group>"; };
+		4E5F2CEC2876B76A00FEC6C2 /* JXLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXLocation.h; sourceTree = "<group>"; };
+		4E5F2CED2876B76A00FEC6C2 /* JXLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXLocation.m; sourceTree = "<group>"; };
+		4E5F2CEF2876B84200FEC6C2 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		4E5F2CF02876B84200FEC6C2 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		4E5F2CF32876B9B800FEC6C2 /* PermissionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionProtocol.h; sourceTree = "<group>"; };
+		4E5F2CF42876BA0200FEC6C2 /* PermissionTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionTypes.h; sourceTree = "<group>"; };
+		4E5F2CF52876BA4500FEC6C2 /* PermissionLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionLocation.h; sourceTree = "<group>"; };
+		4E5F2CF62876BA4500FEC6C2 /* PermissionLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionLocation.m; sourceTree = "<group>"; };
+		4E5F2CF82876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionLocationWhenInUseHandler.h; sourceTree = "<group>"; };
+		4E5F2CF92876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionLocationWhenInUseHandler.m; sourceTree = "<group>"; };
+		4E5F2CFB2876BB6800FEC6C2 /* PermissionMicrophone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionMicrophone.h; sourceTree = "<group>"; };
+		4E5F2CFC2876BB6800FEC6C2 /* PermissionMicrophone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionMicrophone.m; sourceTree = "<group>"; };
+		4E5F2CFE2876BB9800FEC6C2 /* PermissionPhotoLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionPhotoLibrary.h; sourceTree = "<group>"; };
+		4E5F2CFF2876BB9800FEC6C2 /* PermissionPhotoLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionPhotoLibrary.m; sourceTree = "<group>"; };
+		4E5F2D012876BBD000FEC6C2 /* PermissionCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionCamera.h; sourceTree = "<group>"; };
+		4E5F2D022876BBD000FEC6C2 /* PermissionCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionCamera.m; sourceTree = "<group>"; };
+		4E5F2D042876BBFD00FEC6C2 /* PermissionContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionContact.h; sourceTree = "<group>"; };
+		4E5F2D052876BBFD00FEC6C2 /* PermissionContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionContact.m; sourceTree = "<group>"; };
+		4E5F2D072876BC6400FEC6C2 /* Permission.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Permission.h; sourceTree = "<group>"; };
+		4E5F2D082876BC6400FEC6C2 /* Permission.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Permission.m; sourceTree = "<group>"; };
+		4E5F2D0A2876BD3D00FEC6C2 /* PermissionIntercept.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermissionIntercept.h; sourceTree = "<group>"; };
+		4E5F2D0B2876BD3D00FEC6C2 /* PermissionIntercept.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermissionIntercept.m; sourceTree = "<group>"; };
+		4E5F2D0D2876C24A00FEC6C2 /* JSWeakObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSWeakObject.h; sourceTree = "<group>"; };
+		4E5F2D0E2876C24A00FEC6C2 /* JSWeakObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSWeakObject.m; sourceTree = "<group>"; };
+		4E5F2D102876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebViewConfiguration+Conslog.h"; sourceTree = "<group>"; };
+		4E5F2D112876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebViewConfiguration+Conslog.m"; sourceTree = "<group>"; };
+		4E5F2D132876C9D000FEC6C2 /* ZWNative.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWNative.h; sourceTree = "<group>"; };
+		4E5F2D142876C9D000FEC6C2 /* ZWNative.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWNative.m; sourceTree = "<group>"; };
+		4E5F2D192876CD0400FEC6C2 /* NSString+VersionCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+VersionCompare.h"; sourceTree = "<group>"; };
+		4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+VersionCompare.m"; sourceTree = "<group>"; };
 		4E7427B4285B85F700DEC9CC /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		4E7427B5285B85F700DEC9CC /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
 		4E7427B8285B864900DEC9CC /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
@@ -977,6 +1054,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E0681002876867E00F6728A /* Foundation.framework in Frameworks */,
 				7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */,
 				7C46283C22EE9C01009B1049 /* UIKit.framework in Frameworks */,
 				7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */,
@@ -1073,6 +1151,14 @@
 		4E0680BC2873E2B600F6728A /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				4E5F2CEB2876B73100FEC6C2 /* Location */,
+				4E0680F5287598CF00F6728A /* MapHelp */,
+				4E0680F42875982300F6728A /* DataLoader */,
+				4E0680EA287593DD00F6728A /* Adapter */,
+				4E0680E328758F2500F6728A /* Model */,
+				4E0680E228758F2500F6728A /* View */,
+				4E0680E128758F1B00F6728A /* Controller */,
+				4E0680E92875919900F6728A /* MapHeader.h */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1125,6 +1211,75 @@
 				7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */,
 			);
 			path = Object;
+			sourceTree = "<group>";
+		};
+		4E0680E128758F1B00F6728A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680DE28758E4400F6728A /* LocationTrimViewController.h */,
+				4E0680DF28758E4400F6728A /* LocationTrimViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4E0680E228758F2500F6728A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680EE2875947000F6728A /* TrimAddressHeadView.h */,
+				4E0680EF2875947000F6728A /* TrimAddressHeadView.m */,
+				4E0680F12875957B00F6728A /* TrimAddressCell.h */,
+				4E0680F22875957B00F6728A /* TrimAddressCell.m */,
+				4E23FE5E28781618009B02D0 /* TrimHeaderView.h */,
+				4E23FE5F28781618009B02D0 /* TrimHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E0680E328758F2500F6728A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680E428758F5400F6728A /* POIAnnotation.h */,
+				4E0680E528758F5400F6728A /* POIAnnotation.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4E0680EA287593DD00F6728A /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680EB287593F300F6728A /* LocationTrimAdapter.h */,
+				4E0680EC287593F300F6728A /* LocationTrimAdapter.m */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		4E0680F42875982300F6728A /* DataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680FC28759DD800F6728A /* LocationTrimDataLoader.h */,
+				4E0680FD28759DD800F6728A /* LocationTrimDataLoader.m */,
+			);
+			path = DataLoader;
+			sourceTree = "<group>";
+		};
+		4E0680F5287598CF00F6728A /* MapHelp */ = {
+			isa = PBXGroup;
+			children = (
+				4E0680F6287598E500F6728A /* MapTypeHelper.h */,
+				4E0680F7287598E500F6728A /* MapTypeHelper.m */,
+				4E0680F9287598EF00F6728A /* LocationAuthority.h */,
+				4E0680FA287598EF00F6728A /* LocationAuthority.m */,
+			);
+			path = MapHelp;
+			sourceTree = "<group>";
+		};
+		4E23FE5A2876F9D2009B02D0 /* UIImage+None */ = {
+			isa = PBXGroup;
+			children = (
+				4E23FE5B2876F9DA009B02D0 /* UIImage+None.h */,
+				4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */,
+			);
+			path = "UIImage+None";
 			sourceTree = "<group>";
 		};
 		4E403F7D2865A994006C0656 /* HTMLLabel */ = {
@@ -1278,6 +1433,65 @@
 			path = ThemeDefine;
 			sourceTree = "<group>";
 		};
+		4E5F2CEB2876B73100FEC6C2 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				4E5F2CEC2876B76A00FEC6C2 /* JXLocation.h */,
+				4E5F2CED2876B76A00FEC6C2 /* JXLocation.m */,
+				4E5F2CEF2876B84200FEC6C2 /* LocationManager.h */,
+				4E5F2CF02876B84200FEC6C2 /* LocationManager.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		4E5F2CF22876B9A800FEC6C2 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				4E5F2D072876BC6400FEC6C2 /* Permission.h */,
+				4E5F2D082876BC6400FEC6C2 /* Permission.m */,
+				4E5F2CF32876B9B800FEC6C2 /* PermissionProtocol.h */,
+				4E5F2CF42876BA0200FEC6C2 /* PermissionTypes.h */,
+				4E5F2D012876BBD000FEC6C2 /* PermissionCamera.h */,
+				4E5F2D022876BBD000FEC6C2 /* PermissionCamera.m */,
+				4E5F2D042876BBFD00FEC6C2 /* PermissionContact.h */,
+				4E5F2D052876BBFD00FEC6C2 /* PermissionContact.m */,
+				4E5F2CF52876BA4500FEC6C2 /* PermissionLocation.h */,
+				4E5F2CF62876BA4500FEC6C2 /* PermissionLocation.m */,
+				4E5F2CFB2876BB6800FEC6C2 /* PermissionMicrophone.h */,
+				4E5F2CFC2876BB6800FEC6C2 /* PermissionMicrophone.m */,
+				4E5F2CFE2876BB9800FEC6C2 /* PermissionPhotoLibrary.h */,
+				4E5F2CFF2876BB9800FEC6C2 /* PermissionPhotoLibrary.m */,
+				4E5F2CF82876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.h */,
+				4E5F2CF92876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.m */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		4E5F2D162876C9F900FEC6C2 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				4E5F2D182876CA2200FEC6C2 /* Other */,
+				4E5F2D172876CA0C00FEC6C2 /* Api */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
+		4E5F2D172876CA0C00FEC6C2 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4E5F2D182876CA2200FEC6C2 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4E5F2D132876C9D000FEC6C2 /* ZWNative.h */,
+				4E5F2D142876C9D000FEC6C2 /* ZWNative.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		4E7427B2285B85F700DEC9CC /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -1408,6 +1622,10 @@
 				4EAAD8172868B208003D43FF /* ZWCommonWebPage.m */,
 				4EAAD8192868B223003D43FF /* ZWWebView.h */,
 				4EAAD81A2868B223003D43FF /* ZWWebView.m */,
+				4E5F2D0D2876C24A00FEC6C2 /* JSWeakObject.h */,
+				4E5F2D0E2876C24A00FEC6C2 /* JSWeakObject.m */,
+				4E5F2D102876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.h */,
+				4E5F2D112876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -1472,6 +1690,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E5F2CF22876B9A800FEC6C2 /* Permission */,
 				4E0680D22874393F00F6728A /* select */,
 				4E0680BC2873E2B600F6728A /* Map */,
 				4ED5958B28708774002D15F1 /* other */,
@@ -1492,16 +1711,16 @@
 			isa = PBXGroup;
 			children = (
 				4EC6B2C52861B12900F57AAC /* dataSource */,
-				4EC6B2EF2861B12900F57AAC /* UIImage+XYGif.h */,
+				4EC6B2F62861B12900F57AAC /* VersionUpgradeViewController.h */,
 				4EC6B2F02861B12900F57AAC /* VersionUpgradeViewController.m */,
-				4EC6B2F12861B12900F57AAC /* DHGifImageOperation.m */,
 				4EC6B2F22861B12900F57AAC /* DHGuidePageHUD.h */,
+				4EC6B2F72861B12900F57AAC /* DHGuidePageHUD.m */,
 				4EC6B2F32861B12900F57AAC /* XYIntroductionPage.h */,
+				4EC6B2F82861B12900F57AAC /* XYIntroductionPage.m */,
+				4EC6B2EF2861B12900F57AAC /* UIImage+XYGif.h */,
 				4EC6B2F42861B12900F57AAC /* UIImage+XYGif.m */,
 				4EC6B2F52861B12900F57AAC /* DHGifImageOperation.h */,
-				4EC6B2F62861B12900F57AAC /* VersionUpgradeViewController.h */,
-				4EC6B2F72861B12900F57AAC /* DHGuidePageHUD.m */,
-				4EC6B2F82861B12900F57AAC /* XYIntroductionPage.m */,
+				4EC6B2F12861B12900F57AAC /* DHGifImageOperation.m */,
 			);
 			path = LaunchGuide;
 			sourceTree = "<group>";
@@ -1582,6 +1801,8 @@
 				4E403F7D2865A994006C0656 /* HTMLLabel */,
 				4EC6B31E2861B12A00F57AAC /* ModuleContainer.h */,
 				4EC6B2FA2861B12A00F57AAC /* ModuleContainer.m */,
+				4E5F2D0A2876BD3D00FEC6C2 /* PermissionIntercept.h */,
+				4E5F2D0B2876BD3D00FEC6C2 /* PermissionIntercept.m */,
 				4EC6B2FB2861B12A00F57AAC /* DebugLog */,
 			);
 			path = Module;
@@ -2618,6 +2839,8 @@
 				4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */,
 				7C6309EB22A6774500C73AAB /* NSString+Adaptor.h */,
 				7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */,
+				4E5F2D192876CD0400FEC6C2 /* NSString+VersionCompare.h */,
+				4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -2937,6 +3160,7 @@
 		7C8AAE8222E987BE00589862 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				4E23FE5A2876F9D2009B02D0 /* UIImage+None */,
 				7C8AAE8322E987BE00589862 /* UIImage+Addition */,
 				7C8AAE8622E987BE00589862 /* UIImage+Resize */,
 				7C8AAE8922E987BE00589862 /* UIImage+ResourcePath */,
@@ -2985,6 +3209,7 @@
 		7CA7682422FE95C1009E473E /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				4E5F2D162876C9F900FEC6C2 /* Native */,
 				4E899A61285AF46100B54C89 /* model */,
 				4E899A5D285AF43700B54C89 /* view */,
 				7CA7682522FE95C1009E473E /* Controller */,
@@ -3012,6 +3237,7 @@
 		A9CF1F70F4E4726AE968C272 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E0680FF2876867E00F6728A /* Foundation.framework */,
 				4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */,
 				4E02B3E728714924006E0DE3 /* Alamofire.framework */,
 				7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */,
@@ -3235,11 +3461,13 @@
 				4E028808286AFC45003E723E /* Router+CRM.m in Sources */,
 				7CB1A2F426E47E3D00D450CE /* PThread_rwLock.m in Sources */,
 				7C4EEFFF2303948E0040DA7A /* CMObject.m in Sources */,
+				4E5F2D092876BC6400FEC6C2 /* Permission.m in Sources */,
 				7C4EF06C230405030040DA7A /* UIButton+Navigation.m in Sources */,
 				4E0287D0286993C9003E723E /* LoginViewController.m in Sources */,
 				4ED5957F286EF3DF002D15F1 /* zhTheme+Components.m in Sources */,
 				4ED5958F2870878C002D15F1 /* ShowAlertViewController.m in Sources */,
 				4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */,
+				4E5F2D122876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m in Sources */,
 				4EDC0B6A286308D6001C53CE /* NSMutableSet+Safe.m in Sources */,
 				4EC6B3902861B12A00F57AAC /* ZWDataParsing.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
@@ -3254,6 +3482,7 @@
 				4EB2B015286EC9610029A498 /* NSObject+ZWDeallocExecutor.m in Sources */,
 				7C8AAE6422E9864F00589862 /* GrayCoverBtn.m in Sources */,
 				7C4F93BF2302B11900F2238E /* ZWTipView.m in Sources */,
+				4E23FE5D2876F9DA009B02D0 /* UIImage+None.m in Sources */,
 				4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */,
 				7C4EF06B230405030040DA7A /* UIButton+CornerBorder.m in Sources */,
 				4EA97E67286C9AEC00C06BE4 /* ZWUserContainerViewModel.m in Sources */,
@@ -3272,16 +3501,20 @@
 				7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */,
 				4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */,
 				4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */,
+				4E0680FE28759DD900F6728A /* LocationTrimDataLoader.m in Sources */,
+				4E5F2CF72876BA4500FEC6C2 /* PermissionLocation.m in Sources */,
 				7C4EF04F230402F80040DA7A /* CMSegmentView.m in Sources */,
 				4EDC0B6D286308D6001C53CE /* NSMutableString+Safe.m in Sources */,
 				4EC6B3852861B12A00F57AAC /* DatabaseAppender.m in Sources */,
 				4EC6B37E2861B12A00F57AAC /* LogModel.m in Sources */,
 				4ED59587286F4B9B002D15F1 /* zhThemeKeyConfig.m in Sources */,
+				4E5F2D0F2876C24A00FEC6C2 /* JSWeakObject.m in Sources */,
 				7C6A215826E371F200E0CF20 /* WFBaseDemo.m in Sources */,
 				4EC6B37F2861B12A00F57AAC /* LogDAO.m in Sources */,
 				4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */,
 				4EEC47DD285AD9F90047F8B6 /* UIViewController+ZW.m in Sources */,
 				7C4EF0022303948E0040DA7A /* NSObject+UUID.m in Sources */,
+				4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */,
 				4EC6B3832861B12A00F57AAC /* MDLogTableViewCell.m in Sources */,
 				7C879B2726EC25BB0051018B /* BaseViewModel.m in Sources */,
 				7C77B50526DFD85900A9935F /* BlockSubViewController.m in Sources */,
@@ -3316,6 +3549,7 @@
 				4EC6B3772861B12A00F57AAC /* UIImage+XYGif.m in Sources */,
 				4ED59580286EF3DF002D15F1 /* zhThemePicker.m in Sources */,
 				4EC6B3992861B12A00F57AAC /* DataFormatterFunc.m in Sources */,
+				4E0680F32875957B00F6728A /* TrimAddressCell.m in Sources */,
 				4EC6B38A2861B12A00F57AAC /* JSONUtil.m in Sources */,
 				4EA737E627D7351400422BAE /* AppLaunchTime.m in Sources */,
 				4EC6B3812861B12A00F57AAC /* MDDebugViewController.m in Sources */,
@@ -3334,8 +3568,10 @@
 				4EDC0B6E286308D6001C53CE /* NSDictionary+Safe.m in Sources */,
 				4EC6B38C2861B12A00F57AAC /* LookinPlugin.m in Sources */,
 				7C4F93DC2302B39300F2238E /* PASTwoListView.m in Sources */,
+				4E5F2D152876C9D000FEC6C2 /* ZWNative.m in Sources */,
 				4EC6B3962861B12A00F57AAC /* ZWDataCache.m in Sources */,
 				4EDC0B69286308D6001C53CE /* NSNull+Safe.m in Sources */,
+				4E5F2D032876BBD000FEC6C2 /* PermissionCamera.m in Sources */,
 				4E0287C0286988A3003E723E /* PersonalViewController.m in Sources */,
 				7C879B1026E64DF10051018B /* TestPresenter.m in Sources */,
 				4EDC0B63286308D6001C53CE /* NSString+Safe.m in Sources */,
@@ -3357,6 +3593,8 @@
 				4E0287B228695304003E723E /* RouterParam.m in Sources */,
 				4EC6B3922861B12A00F57AAC /* ZWHttpResponseData.m in Sources */,
 				4E0287DE2869BF70003E723E /* LogRouterIntercept.m in Sources */,
+				4E5F2D002876BB9800FEC6C2 /* PermissionPhotoLibrary.m in Sources */,
+				4E5F2D062876BBFD00FEC6C2 /* PermissionContact.m in Sources */,
 				4E0287BD28698899003E723E /* FindViewController.m in Sources */,
 				4E4F9CE1286C5EBB003281B5 /* ZWAnimationCircleLayer.m in Sources */,
 				4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */,
@@ -3371,13 +3609,16 @@
 				4E4F9CDE286C5E7F003281B5 /* ZWAnimationView.m in Sources */,
 				4E403F952865B024006C0656 /* AlertUtil.m in Sources */,
 				4EDC0B5F286308D6001C53CE /* NSCache+Safe.m in Sources */,
+				4E5F2CF12876B84200FEC6C2 /* LocationManager.m in Sources */,
 				7C4F93E32302B39300F2238E /* PASBorderTableViewCell.m in Sources */,
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6A216426E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m in Sources */,
 				4EDC0B6C286308D6001C53CE /* NSUserDefaults+Safe.m in Sources */,
+				4E5F2CEE2876B76A00FEC6C2 /* JXLocation.m in Sources */,
 				4E028804286AB0CB003E723E /* CWDrawerTransition.m in Sources */,
 				7C4EF01F2303A2C00040DA7A /* PASSegmentViewController.m in Sources */,
 				4EC6B39A2861B12A00F57AAC /* DataFormatterFunc+RegularExpression.m in Sources */,
+				4E0680E628758F5400F6728A /* POIAnnotation.m in Sources */,
 				7C652BFA230171B3007BBDD2 /* BaseCellModel.m in Sources */,
 				4E0287BA28698887003E723E /* ApplicationViewController.m in Sources */,
 				4E403FA02865B2A1006C0656 /* UIView+SVG.m in Sources */,
@@ -3398,6 +3639,7 @@
 				4E02880E286B056A003E723E /* URLObject.m in Sources */,
 				7CB1A2FA26E4869B00D450CE /* DisplayLinkViewController.m in Sources */,
 				4E0287B628695512003E723E /* RouterPageItem.m in Sources */,
+				4E0680ED287593F300F6728A /* LocationTrimAdapter.m in Sources */,
 				4E0680D52874394C00F6728A /* SelectedViewController.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
 				4EEC47D2285AD4190047F8B6 /* ZWNavigationController.m in Sources */,
@@ -3411,6 +3653,7 @@
 				4EDC0B6B286308D6001C53CE /* NSMutableOrderedSet+Safe.m in Sources */,
 				7C8AAE6C22E986C800589862 /* PASTextField.m in Sources */,
 				7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */,
+				4E5F2CFA2876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.m in Sources */,
 				4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */,
 				4E0680CA28740F8100F6728A /* Environment.m in Sources */,
 				7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */,
@@ -3440,10 +3683,12 @@
 				4EDC0B67286308D6001C53CE /* NSData+Safe.m in Sources */,
 				4EDC0B61286308D6001C53CE /* NSObject+Swizzle.m in Sources */,
 				4EC6B37A2861B12A00F57AAC /* ModuleContainer.m in Sources */,
+				4E0680FB287598EF00F6728A /* LocationAuthority.m in Sources */,
 				4EDC096D2862C47A001C53CE /* ZWMainAppDelegateService.m in Sources */,
 				4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
 				4E028800286AB0CB003E723E /* CWInteractiveTransition.m in Sources */,
+				4E0680F8287598E500F6728A /* MapTypeHelper.m in Sources */,
 				7C4EF042230400640040DA7A /* UINavigationItem+iOS7Style.m in Sources */,
 				4ECE439828598E6200326287 /* StoreUtil.m in Sources */,
 				4EC6B38F2861B12A00F57AAC /* ZWHttpEventInfo.m in Sources */,
@@ -3454,13 +3699,17 @@
 				4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */,
 				4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */,
 				7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */,
+				4E5F2D0C2876BD3D00FEC6C2 /* PermissionIntercept.m in Sources */,
 				7C4F93E22302B39300F2238E /* ZWTableViewHeaderView.m in Sources */,
 				4EEC47CF2859F5300047F8B6 /* ZWBaseTableViewCell.m in Sources */,
 				4EC6B38D2861B12A00F57AAC /* HttpClient.m in Sources */,
 				7C4EF02A2303A3390040DA7A /* CMViewController.m in Sources */,
 				4EC6B3782861B12A00F57AAC /* DHGuidePageHUD.m in Sources */,
+				4E5F2D1B2876CD0400FEC6C2 /* NSString+VersionCompare.m in Sources */,
+				4E5F2CFD2876BB6800FEC6C2 /* PermissionMicrophone.m in Sources */,
 				4E899A79285B7F2A00B54C89 /* DataBaseManager.m in Sources */,
 				7C8AAE8D22E987BE00589862 /* UIImage+Addition.m in Sources */,
+				4E0680E028758E4400F6728A /* LocationTrimViewController.m in Sources */,
 				4EC6B3912861B12A00F57AAC /* CacheDataLoader+ZWNIO.m in Sources */,
 				4E0680C02873E4F300F6728A /* Config.m in Sources */,
 				4ED59584286EFBE0002D15F1 /* zhThemeOperator.m in Sources */,
@@ -3489,6 +3738,7 @@
 				4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */,
 				7C4EF06F230405030040DA7A /* UIButton+Block.m in Sources */,
 				4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */,
+				4E0680F02875947000F6728A /* TrimAddressHeadView.m in Sources */,
 				7C8AAE5922E9859F00589862 /* UIGestureRecognizer+Block.m in Sources */,
 				7C8AAE6D22E986C800589862 /* UITextView+CancelPerformAction.m in Sources */,
 			);
@@ -3582,7 +3832,7 @@
 			baseConfigurationReference = C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwQA;
-				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
+				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3618,7 +3868,11 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyQA";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3707,7 +3961,7 @@
 			baseConfigurationReference = 6673E1F39FAA1E5AC4AD2DD9 /* Pods-My_Study.qa_dev.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwQA_Dev;
-				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
+				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3718,7 +3972,7 @@
 				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3744,8 +3998,12 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyQA";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zw.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3886,7 +4144,7 @@
 			baseConfigurationReference = F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwDebug;
-				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
+				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3897,6 +4155,7 @@
 				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3921,8 +4180,12 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
-				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyDEV";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zw.My-StudyDEV";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3949,7 +4212,7 @@
 			baseConfigurationReference = C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwRelease;
-				AMAP_KEY = b5a84655e2cef54d488e990287d26bb9;
+				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -3960,6 +4223,7 @@
 				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3980,7 +4244,11 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -sanitize=undefined -sanitize-coverage=func";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"$(inherited)",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

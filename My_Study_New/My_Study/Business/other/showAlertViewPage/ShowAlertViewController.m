@@ -42,10 +42,6 @@
 {
     [super loadUIData];
     
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(kMainNavHeight + kSysStatusBarHeight);
-    }];
-    
     @pas_weakify_self
     self.cellConfigBlock = ^(NSIndexPath * _Nonnull indexPath, PASIndicatorTableViewCell * _Nonnull cell) {
         @pas_strongify_self

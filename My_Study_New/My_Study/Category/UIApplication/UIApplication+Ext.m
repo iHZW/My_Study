@@ -8,6 +8,9 @@
 
 #import "UIApplication+Ext.h"
 #import "UIViewController+Child.h"
+#import "AppDelegate.h"
+#import "ZWBaseViewController.h"
+#import "ZWCommonWebPage.h"
 
 @implementation UIApplication (Ext)
 
@@ -98,5 +101,60 @@
     }
     return nil;
 }
+
+
++ (NSString *)currentPageName{
+    UIViewController *vc = [self displayViewController];
+    if ([vc isKindOfClass:[ZWBaseViewController class]]){
+        return [[vc class] pageName];
+    }
+    return @"";
+}
+
++ (void)asyncGetCurrentPageName:(void (^ _Nullable)( NSString * _Nullable ))completionHandler{
+    UIViewController *vc = [self displayViewController];
+    if ([vc isKindOfClass:ZWCommonWebPage.class]){
+        ZWCommonWebPage *webVC = (ZWCommonWebPage *)vc;
+//        [webVC getCurrRoutePathCompletionHandler:^(id value, NSError * _Nullable error) {
+//            if ([value isKindOfClass:NSString.class]){
+//                BlockSafeRun(completionHandler,[value stringByReplacingOccurrencesOfString:@"/" withString:@"-"]);
+//            } else {
+//                BlockSafeRun(completionHandler,@"HybridWebViewController");
+//            }
+//        }];
+    } else if ([vc isKindOfClass:[ZWBaseViewController class]]){
+        NSString *clsName = NSStringFromClass(vc.class);
+        for (RouterPageItem *item in ZWM.router.routerConfigs){
+            if ([item.clsName isEqualToString:clsName]){
+                BlockSafeRun(completionHandler,[item.url stringByReplacingOccurrencesOfString:@"/" withString:@"-"]);
+                return;
+            }
+        }
+        BlockSafeRun(completionHandler,clsName);
+    }
+}
+
++ (LaunchViewController *)rootViewController{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UIViewController *vc = appDelegate.window.rootViewController;
+    if ([vc isKindOfClass:[LaunchViewController class]]){
+        return (LaunchViewController *)vc;
+    }
+    return nil;
+}
+
++ (NSString *)getCurrentPageRoute{
+    UIViewController *vc = [self displayViewController];
+    if ([vc isKindOfClass:[ZWBaseViewController class]]){
+        NSString *clsName = NSStringFromClass(vc.class);
+        for (RouterPageItem *item in ZWM.router.routerConfigs){
+            if ([item.clsName isEqualToString:clsName]){
+                return item.url;
+            }
+        }
+    }
+    return NSStringFromClass(vc.class);
+}
+
 
 @end
