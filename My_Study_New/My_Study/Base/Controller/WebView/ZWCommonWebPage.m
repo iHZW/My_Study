@@ -10,6 +10,7 @@
 #import "URLUtil.h"
 #import "ZWNative.h"
 #import "GCDCommon.h"
+#import "UIImage+Addition.h"
 
 
 typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
@@ -173,6 +174,17 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 }
 
 /**
+ *  1: 当 WKWebView 总体内存占用过大，页面即将白屏的时候，
+ *  系统会调用`-webViewWebContentProcessDidTerminate:`回调函数，
+ *  然后在该函数里执行`[webView reload]`去解决白屏问题。
+
+ *
+ *  @param <#parameter#>    <#annotation#>
+ *  @param  <#parameter#>    <#annotation#>
+ *
+ */
+
+/**
  *  检测白屏
  *  1: 判断webView.title 是否存在
  *  2: 截取导航栏以下, tabBar以上内容判断是否95%以上是白色
@@ -213,7 +225,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 - (void)gatherWhiteScreenInfo
 {
     /** 上传  */
-    
+
     
 }
 
@@ -267,6 +279,9 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
             [webview takeSnapshotWithConfiguration:shotConfiguration completionHandler:^(UIImage * _Nullable snapshotImage, NSError * _Nullable error) {
                 if (snapshotImage) {
                     UIImage *scaleImage = [self scaleImage:snapshotImage];
+                    /** 保存图片到相册  */
+                    UIImageWriteToSavedPhotosAlbum(snapshotImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+                    
                     BOOL isWhiteScreen = [self searchEveryPixel:scaleImage];
                     if (isWhiteScreen) {
                        status = WebViewErrorStatus;
@@ -281,6 +296,39 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
         }
     } else {
         /** 处理iOS 11 以下  截屏  */
+        UIImage *screenShot = [self getScreenShot];
+        if (screenShot) {
+            UIImage *scaleImage = [self scaleImage:screenShot];
+            /** 保存图片到相册  */
+            UIImageWriteToSavedPhotosAlbum(screenShot, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            
+            BOOL isWhiteScreen = [self searchEveryPixel:scaleImage];
+            if (isWhiteScreen) {
+               status = WebViewErrorStatus;
+            }else{
+               status = WebViewNormalStatus;
+            }
+        }
+        if (completionBlock) {
+            completionBlock(status);
+        }
+    }
+}
+
+/** 获取截屏  */
+- (UIImage *)getScreenShot
+{
+    return [UIImage screenShotsImageInView:self.webView size:CGSizeMake(CGRectGetWidth(self.webView.frame), CGRectGetHeight(self.webView.frame))];
+}
+
+
+#pragma mark -- <保存到相册>
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSString *msg = nil ;
+    if(error) {
+        msg = @"保存图片失败" ;
+    }else {
+        msg = @"保存图片成功" ;
     }
 }
 
@@ -294,7 +342,12 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     
     CGDataProviderRef dataProvider = CGImageGetDataProvider(cgImage);
     CFDataRef data = CGDataProviderCopyData(dataProvider);
-    UInt8 * buffer = (UInt8*)CFDataGetBytePtr(data);
+    UInt8 * buffer;
+    if (data) {
+        buffer = (UInt8*)CFDataGetBytePtr(data);
+    } else {
+        return NO;
+    }
     
     int whiteCount = 0;
     int totalCount = 0;
@@ -308,7 +361,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 //            UInt8 alpha = *(pt + 3);
         
             totalCount ++;
-            if (red == 255 && green == 255 && blue == 255) {
+            if (red >= 254 && green >= 254 && blue >= 254) {
                 whiteCount ++;
             }
         }

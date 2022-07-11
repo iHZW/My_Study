@@ -286,4 +286,30 @@
     return [self format_stringForPercent:tempString precision:2];
 }
 
+
++ (NSString *)formatSize:(double)size
+{
+    NSString *sizeStr = [NSString stringWithFormat:@"%@B",@(size)];
+    if (size > 1024 * 1024 * 1024) {
+        sizeStr = [NSString stringWithFormat:@"%.2fGB",size/1024/1024/1024];
+    }else if (size > 1024 * 1024) {
+        sizeStr = [NSString stringWithFormat:@"%.2fMB",size/1024/1024];
+    }else if (size > 1024) {
+        sizeStr = [NSString stringWithFormat:@"%.2fKB",size/1024];
+    }
+    if ([sizeStr containsString:@"."] && size > 1024) {// 去掉小数点后面无效的0
+        for (int i = 0; i<2; i++) {
+            NSRange range = NSMakeRange(sizeStr.length-3, 1);
+            if ([[sizeStr substringWithRange:range] isEqualToString:@"0"]) {
+                sizeStr = [sizeStr stringByReplacingCharactersInRange:range withString:@""];
+            }
+        }
+        NSRange range = NSMakeRange(sizeStr.length-3, 1);
+        if ([[sizeStr substringWithRange:range] isEqualToString:@"."]) {
+            sizeStr = [sizeStr stringByReplacingCharactersInRange:range withString:@""];
+        }
+    }
+    return sizeStr;
+}
+
 @end

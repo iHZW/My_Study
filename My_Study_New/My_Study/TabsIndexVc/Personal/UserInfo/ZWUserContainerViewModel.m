@@ -72,6 +72,7 @@
 {
     if (!_titleLabel) {
         _titleLabel = [UILabel labelLeftAlignWithFrame:CGRectMake(0, 0, kMainScreenWidth, 60) text:@"个人中心头部容器" textColor:UIColorFromRGB(0x111111) font:PASFont(20)];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
         [_titleLabel setCornerRadius:kContainerCornerRadius];
         _titleLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p4);
         _titleLabel.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p8);

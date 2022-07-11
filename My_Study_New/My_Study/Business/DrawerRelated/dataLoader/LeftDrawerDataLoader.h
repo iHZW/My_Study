@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)sendRequestForInfoNewsHeadBanner:(ResponseLoaderBlock)block;
 
+- (void)sendRequestDouBan:(ResponseLoaderBlock)block;
+
 
 
 @end

@@ -236,5 +236,15 @@ typedef long long _int64;
  *  @return 返回带%的字符串
  */
 + (NSString *)format_stringForPercent:(NSString *)tempString precision:(int)precision;
+    
+
+/**
+ *   格式化文件大下  KB, MB, G
+ *
+ *  @param size   文件大小
+ *
+ */
++ (NSString *)formatSize:(double)size;
+
 
 @end

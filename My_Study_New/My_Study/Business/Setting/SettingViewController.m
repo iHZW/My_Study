@@ -14,6 +14,8 @@
 #import "PASIndicatorTableViewCell.h"
 #import "ActionModel.h"
 #import "CommonSelectedConfig.h"
+#import "FileSelectManager.h"
+#import "PhotoActionSheetUtil.h"
 
 
 #define kSectionViewHeight              20
@@ -91,7 +93,8 @@
     NSArray *sec2Arr = @[[ActionModel initWithTitle:@"Alert提示框" actionName:@"alertViewAction"],
                          [ActionModel initWithTitle:@"单选页面" actionName:@"selectedPageAction"],
                          [ActionModel initWithTitle:@"切换皮肤" actionName:@"changeTheme"],
-                         [ActionModel initWithTitle:@"切换环境" actionName:@"changeEnv"],
+                         [ActionModel initWithTitle:@"文件选择" actionName:@"fileSelect"],
+                         [ActionModel initWithTitle:@"拍照/相册/文件" actionName:@"photoFileSelect"],
                          [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"]];
     
     NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@""]];
@@ -188,9 +191,31 @@
 /**
  *  切换环境
  */
-- (void)changeEnv
+- (void)fileSelect
 {
-    [ZWM.router executeURLNoCallBack:ZWRouterPageChangeEnvViewController];
+    [ZWM.router executeURLNoCallBack:ZWRouterPageFileSelectViewController];
+}
+
+/**
+ *  拍照/相册/文件
+ */
+- (void)photoFileSelect
+{
+    @pas_weakify_self
+    [PhotoActionSheetUtil showPhotoAlert:9 complete:^(NSArray<PHAssetModel *> * _Nonnull list) {
+        @pas_strongify_self
+        /* 判断是文件 */
+        PHAssetModel *item  = [list firstObject];
+        if (item.isFile || !item) {
+            [self dealWithFile:item];
+            return;
+        }
+        NSMutableArray * paths = [NSMutableArray array];
+        for (PHAssetModel * item in list) {
+            [paths addObject:[item.originalPath substringFromIndex:7]];
+        }
+        NSLog(@"paths = %@", paths);
+    } isShowFile:YES];
 }
 
 /**
@@ -232,6 +257,13 @@
 {
 
 }
+
+- (void)dealWithFile:(PHAssetModel *)fileItem {
+    if (fileItem) {
+
+    }
+}
+
 
 /**
  *  交易风险提示

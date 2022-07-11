@@ -74,7 +74,8 @@ target 'My_Study' do
  
 # VLC 是一款强大的全平台播放器
  #pod 'MobileVLCKit' #下载不下来，网络不行
-
+ 
+# pod 'MBProgressHUD', '1.2.0'
 
 end
 

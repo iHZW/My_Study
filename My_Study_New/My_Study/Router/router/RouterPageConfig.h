@@ -44,6 +44,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageChangeEnvViewController;
 UIKIT_EXTERN NSString *const ZWRouterPageSelectedViewController;
 /** 地址微调页  */
 UIKIT_EXTERN NSString *const ZWRouterPageLocationTrimViewController;
+/** 文件选择界面  */
+UIKIT_EXTERN NSString *const ZWRouterPageFileSelectViewController;
 
 /* -------------------------------page----------------------------  */
 

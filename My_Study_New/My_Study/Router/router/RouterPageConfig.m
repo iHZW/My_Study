@@ -32,6 +32,8 @@ NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
 NSString *const ZWRouterPageSelectedViewController   = @"common/selected/page";
 /** 地址微调页  */
 NSString *const ZWRouterPageLocationTrimViewController = @"tools/location/trim/page";
+/** 文件选择界面  */
+NSString *const ZWRouterPageFileSelectViewController = @"tools/file/selectpage";
 /* -------------------------------page----------------------------  */
 
 
@@ -134,6 +136,14 @@ NSString *const ZWRouterPageLocationTrimViewController = @"tools/location/trim/p
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
+            /** 文件选择界面   */
+            @{
+                @"url" : ZWRouterPageFileSelectViewController,
+                @"clsName": @"FileSelectViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            
         ]
     };
         

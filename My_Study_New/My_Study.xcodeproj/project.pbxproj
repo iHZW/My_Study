@@ -102,6 +102,28 @@
 		4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E62286C96BC00C06BE4 /* ZWSettingLogoutModule.m */; };
 		4EA97E67286C9AEC00C06BE4 /* ZWUserContainerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E66286C9AEC00C06BE4 /* ZWUserContainerViewModel.m */; };
 		4EA97E6A286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA97E69286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m */; };
+		4EA986D4287BC51C0095ECF9 /* FileSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986D3287BC51C0095ECF9 /* FileSelectViewController.m */; };
+		4EA986D7287BC5A70095ECF9 /* FileSelectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986D6287BC5A70095ECF9 /* FileSelectManager.m */; };
+		4EA986DA287BFDAF0095ECF9 /* FileItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986D9287BFDAE0095ECF9 /* FileItemView.m */; };
+		4EA986DD287BFDEE0095ECF9 /* FileItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986DC287BFDEE0095ECF9 /* FileItemCell.m */; };
+		4EA986E0287C00C30095ECF9 /* PHAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986DF287C00C30095ECF9 /* PHAssetModel.m */; };
+		4EA986E6287C338F0095ECF9 /* ZWCameraUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986E5287C338F0095ECF9 /* ZWCameraUtil.m */; };
+		4EA986E9287C33DE0095ECF9 /* ZWCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986E8287C33DE0095ECF9 /* ZWCameraManager.m */; };
+		4EA986ED287C36E30095ECF9 /* ZWCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986EC287C36E30095ECF9 /* ZWCameraViewController.m */; };
+		4EA986F0287C38760095ECF9 /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986EF287C38760095ECF9 /* UIViewController+Additions.m */; };
+		4EA986F4287C39660095ECF9 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986F3287C39660095ECF9 /* ProgressHUD.m */; };
+		4EA986F7287C39A70095ECF9 /* ProgressCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986F6287C39A70095ECF9 /* ProgressCustomView.m */; };
+		4EA986FA287C39B60095ECF9 /* ProgressCustomLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986F9287C39B60095ECF9 /* ProgressCustomLoadingView.m */; };
+		4EA986FE287C3A5E0095ECF9 /* UIImageView+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA986FD287C3A5E0095ECF9 /* UIImageView+Animations.m */; };
+		4EA98701287C3D8F0095ECF9 /* ZWCameraPreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA98700287C3D8F0095ECF9 /* ZWCameraPreViewController.m */; };
+		4EA98705287C565E0095ECF9 /* ZWAlbumCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA98704287C565E0095ECF9 /* ZWAlbumCropViewController.m */; };
+		4EA98708287C56C70095ECF9 /* ZWAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA98707287C56C70095ECF9 /* ZWAlbumManager.m */; };
+		4EA9870C287C590F0095ECF9 /* ZWCropButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9870B287C590F0095ECF9 /* ZWCropButton.m */; };
+		4EA9870F287C5A1F0095ECF9 /* ZWCropButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9870E287C5A1F0095ECF9 /* ZWCropButtonView.m */; };
+		4EA98713287C5C730095ECF9 /* ZWImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA98712287C5C730095ECF9 /* ZWImageUtil.m */; };
+		4EA98716287C5EA90095ECF9 /* ZWImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA98715287C5EA90095ECF9 /* ZWImageView.m */; };
+		4EA9871B287C61F60095ECF9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA98718287C61F60095ECF9 /* MBProgressHUD.m */; };
+		4EA9871C287C61F60095ECF9 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 4EA9871A287C61F60095ECF9 /* README.mdown */; };
 		4EAAD80B2866B82B003D43FF /* UITabBar+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD80A2866B82B003D43FF /* UITabBar+Ext.m */; };
 		4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD80D2866BC5F003D43FF /* TabbarConfig.m */; };
 		4EAAD8112866C39A003D43FF /* TabIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD8102866C39A003D43FF /* TabIndexManager.m */; };
@@ -113,7 +135,6 @@
 		4EC6B2922860807300F57AAC /* Reachability+IPV6Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B28E2860807300F57AAC /* Reachability+IPV6Extention.m */; };
 		4EC6B2992860982500F57AAC /* LeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B2982860982500F57AAC /* LeftDrawerViewController.m */; };
 		4EC6B2C12861A84400F57AAC /* LoadingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B2BD2861A84400F57AAC /* LoadingUtil.m */; };
-		4EC6B2C22861A84400F57AAC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6B2BF2861A84400F57AAC /* MBProgressHUD.m */; };
 		4EC6B34F2861B12A00F57AAC /* launch_guide_4_min.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2C72861B12900F57AAC /* launch_guide_4_min.png */; };
 		4EC6B3502861B12A00F57AAC /* launch_guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2C82861B12900F57AAC /* launch_guide_2.png */; };
 		4EC6B3512861B12A00F57AAC /* launch_guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2C92861B12900F57AAC /* launch_guide_3.png */; };
@@ -200,6 +221,7 @@
 		4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE436028586E9D00326287 /* UIViewController+Child.m */; };
 		4ECE439828598E6200326287 /* StoreUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE439728598E6200326287 /* StoreUtil.m */; };
 		4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE44242859BFAA00326287 /* AppDelegate.m */; };
+		4ED540C8287C6D910070FB8E /* PhotoActionSheetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED540C7287C6D910070FB8E /* PhotoActionSheetUtil.m */; };
 		4ED59574286EF31D002D15F1 /* ThemeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ED59572286EF31D002D15F1 /* ThemeInfo.plist */; };
 		4ED59575286EF31D002D15F1 /* mythemebundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4ED59573286EF31D002D15F1 /* mythemebundle.bundle */; };
 		4ED5957F286EF3DF002D15F1 /* zhTheme+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED59579286EF3DF002D15F1 /* zhTheme+Components.m */; };
@@ -557,6 +579,50 @@
 		4EA97E66286C9AEC00C06BE4 /* ZWUserContainerViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserContainerViewModel.m; sourceTree = "<group>"; };
 		4EA97E68286C9FEE00C06BE4 /* ZWSettingContainerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWSettingContainerViewModel.h; sourceTree = "<group>"; };
 		4EA97E69286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWSettingContainerViewModel.m; sourceTree = "<group>"; };
+		4EA986D2287BC51C0095ECF9 /* FileSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSelectViewController.h; sourceTree = "<group>"; };
+		4EA986D3287BC51C0095ECF9 /* FileSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSelectViewController.m; sourceTree = "<group>"; };
+		4EA986D5287BC5A70095ECF9 /* FileSelectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSelectManager.h; sourceTree = "<group>"; };
+		4EA986D6287BC5A70095ECF9 /* FileSelectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSelectManager.m; sourceTree = "<group>"; };
+		4EA986D8287BFDAE0095ECF9 /* FileItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileItemView.h; sourceTree = "<group>"; };
+		4EA986D9287BFDAE0095ECF9 /* FileItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileItemView.m; sourceTree = "<group>"; };
+		4EA986DB287BFDEE0095ECF9 /* FileItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileItemCell.h; sourceTree = "<group>"; };
+		4EA986DC287BFDEE0095ECF9 /* FileItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileItemCell.m; sourceTree = "<group>"; };
+		4EA986DE287C00C30095ECF9 /* PHAssetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHAssetModel.h; sourceTree = "<group>"; };
+		4EA986DF287C00C30095ECF9 /* PHAssetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHAssetModel.m; sourceTree = "<group>"; };
+		4EA986E4287C338F0095ECF9 /* ZWCameraUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCameraUtil.h; sourceTree = "<group>"; };
+		4EA986E5287C338F0095ECF9 /* ZWCameraUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCameraUtil.m; sourceTree = "<group>"; };
+		4EA986E7287C33DE0095ECF9 /* ZWCameraManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCameraManager.h; sourceTree = "<group>"; };
+		4EA986E8287C33DE0095ECF9 /* ZWCameraManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCameraManager.m; sourceTree = "<group>"; };
+		4EA986EA287C362C0095ECF9 /* CameraHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraHeader.h; sourceTree = "<group>"; };
+		4EA986EB287C36E30095ECF9 /* ZWCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCameraViewController.h; sourceTree = "<group>"; };
+		4EA986EC287C36E30095ECF9 /* ZWCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCameraViewController.m; sourceTree = "<group>"; };
+		4EA986EE287C38760095ECF9 /* UIViewController+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Additions.h"; sourceTree = "<group>"; };
+		4EA986EF287C38760095ECF9 /* UIViewController+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Additions.m"; sourceTree = "<group>"; };
+		4EA986F2287C39660095ECF9 /* ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		4EA986F3287C39660095ECF9 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		4EA986F5287C39A70095ECF9 /* ProgressCustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressCustomView.h; sourceTree = "<group>"; };
+		4EA986F6287C39A70095ECF9 /* ProgressCustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressCustomView.m; sourceTree = "<group>"; };
+		4EA986F8287C39B60095ECF9 /* ProgressCustomLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressCustomLoadingView.h; sourceTree = "<group>"; };
+		4EA986F9287C39B60095ECF9 /* ProgressCustomLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressCustomLoadingView.m; sourceTree = "<group>"; };
+		4EA986FC287C3A5E0095ECF9 /* UIImageView+Animations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Animations.h"; sourceTree = "<group>"; };
+		4EA986FD287C3A5E0095ECF9 /* UIImageView+Animations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Animations.m"; sourceTree = "<group>"; };
+		4EA986FF287C3D8F0095ECF9 /* ZWCameraPreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCameraPreViewController.h; sourceTree = "<group>"; };
+		4EA98700287C3D8F0095ECF9 /* ZWCameraPreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCameraPreViewController.m; sourceTree = "<group>"; };
+		4EA98703287C565E0095ECF9 /* ZWAlbumCropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlbumCropViewController.h; sourceTree = "<group>"; };
+		4EA98704287C565E0095ECF9 /* ZWAlbumCropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAlbumCropViewController.m; sourceTree = "<group>"; };
+		4EA98706287C56C70095ECF9 /* ZWAlbumManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlbumManager.h; sourceTree = "<group>"; };
+		4EA98707287C56C70095ECF9 /* ZWAlbumManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAlbumManager.m; sourceTree = "<group>"; };
+		4EA9870A287C590F0095ECF9 /* ZWCropButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCropButton.h; sourceTree = "<group>"; };
+		4EA9870B287C590F0095ECF9 /* ZWCropButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCropButton.m; sourceTree = "<group>"; };
+		4EA9870D287C5A1F0095ECF9 /* ZWCropButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCropButtonView.h; sourceTree = "<group>"; };
+		4EA9870E287C5A1F0095ECF9 /* ZWCropButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCropButtonView.m; sourceTree = "<group>"; };
+		4EA98711287C5C730095ECF9 /* ZWImageUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWImageUtil.h; sourceTree = "<group>"; };
+		4EA98712287C5C730095ECF9 /* ZWImageUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWImageUtil.m; sourceTree = "<group>"; };
+		4EA98714287C5EA90095ECF9 /* ZWImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWImageView.h; sourceTree = "<group>"; };
+		4EA98715287C5EA90095ECF9 /* ZWImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWImageView.m; sourceTree = "<group>"; };
+		4EA98718287C61F60095ECF9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		4EA98719287C61F60095ECF9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		4EA9871A287C61F60095ECF9 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
 		4EAAD8092866B82B003D43FF /* UITabBar+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Ext.h"; sourceTree = "<group>"; };
 		4EAAD80A2866B82B003D43FF /* UITabBar+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Ext.m"; sourceTree = "<group>"; };
 		4EAAD80C2866BC5F003D43FF /* TabbarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarConfig.h; sourceTree = "<group>"; };
@@ -580,8 +646,6 @@
 		4EC6B2982860982500F57AAC /* LeftDrawerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftDrawerViewController.m; sourceTree = "<group>"; };
 		4EC6B2BC2861A84400F57AAC /* LoadingUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingUtil.h; sourceTree = "<group>"; };
 		4EC6B2BD2861A84400F57AAC /* LoadingUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingUtil.m; sourceTree = "<group>"; };
-		4EC6B2BF2861A84400F57AAC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		4EC6B2C02861A84400F57AAC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4EC6B2C72861B12900F57AAC /* launch_guide_4_min.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_guide_4_min.png; sourceTree = "<group>"; };
 		4EC6B2C82861B12900F57AAC /* launch_guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_guide_2.png; sourceTree = "<group>"; };
 		4EC6B2C92861B12900F57AAC /* launch_guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_guide_3.png; sourceTree = "<group>"; };
@@ -718,6 +782,8 @@
 		4ECE439628598E6200326287 /* StoreUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreUtil.h; sourceTree = "<group>"; };
 		4ECE439728598E6200326287 /* StoreUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreUtil.m; sourceTree = "<group>"; };
 		4ECE44242859BFAA00326287 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4ED540C6287C6D910070FB8E /* PhotoActionSheetUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoActionSheetUtil.h; sourceTree = "<group>"; };
+		4ED540C7287C6D910070FB8E /* PhotoActionSheetUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoActionSheetUtil.m; sourceTree = "<group>"; };
 		4ED59572286EF31D002D15F1 /* ThemeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeInfo.plist; sourceTree = "<group>"; };
 		4ED59573286EF31D002D15F1 /* mythemebundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mythemebundle.bundle; sourceTree = "<group>"; };
 		4ED59578286EF3DF002D15F1 /* zhThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhThemeManager.h; sourceTree = "<group>"; };
@@ -1497,7 +1563,6 @@
 			children = (
 				7C8AAE3022E984E900589862 /* Alert */,
 				4EC6B2BB2861A84400F57AAC /* LoadingUtil */,
-				4EC6B2BE2861A84400F57AAC /* MBProgressHUD */,
 				4E7427B7285B864900DEC9CC /* Toast */,
 				4E7427B3285B85F700DEC9CC /* Date */,
 			);
@@ -1615,6 +1680,116 @@
 			path = settingInfo;
 			sourceTree = "<group>";
 		};
+		4EA986D1287BC5000095ECF9 /* FileSlelect */ = {
+			isa = PBXGroup;
+			children = (
+				4EA986D2287BC51C0095ECF9 /* FileSelectViewController.h */,
+				4EA986D3287BC51C0095ECF9 /* FileSelectViewController.m */,
+				4EA986D5287BC5A70095ECF9 /* FileSelectManager.h */,
+				4EA986D6287BC5A70095ECF9 /* FileSelectManager.m */,
+				4EA986DB287BFDEE0095ECF9 /* FileItemCell.h */,
+				4EA986DC287BFDEE0095ECF9 /* FileItemCell.m */,
+				4EA986D8287BFDAE0095ECF9 /* FileItemView.h */,
+				4EA986D9287BFDAE0095ECF9 /* FileItemView.m */,
+				4EA986DE287C00C30095ECF9 /* PHAssetModel.h */,
+				4EA986DF287C00C30095ECF9 /* PHAssetModel.m */,
+			);
+			path = FileSlelect;
+			sourceTree = "<group>";
+		};
+		4EA986E1287C33500095ECF9 /* CustomCamera */ = {
+			isa = PBXGroup;
+			children = (
+				4EA986EA287C362C0095ECF9 /* CameraHeader.h */,
+				4EA986E3287C33710095ECF9 /* util */,
+				4EA986E7287C33DE0095ECF9 /* ZWCameraManager.h */,
+				4EA986E8287C33DE0095ECF9 /* ZWCameraManager.m */,
+				4EA986EB287C36E30095ECF9 /* ZWCameraViewController.h */,
+				4EA986EC287C36E30095ECF9 /* ZWCameraViewController.m */,
+				4EA986FF287C3D8F0095ECF9 /* ZWCameraPreViewController.h */,
+				4EA98700287C3D8F0095ECF9 /* ZWCameraPreViewController.m */,
+			);
+			path = CustomCamera;
+			sourceTree = "<group>";
+		};
+		4EA986E3287C33710095ECF9 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				4EA986E4287C338F0095ECF9 /* ZWCameraUtil.h */,
+				4EA986E5287C338F0095ECF9 /* ZWCameraUtil.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		4EA986F1287C39520095ECF9 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4EA986F2287C39660095ECF9 /* ProgressHUD.h */,
+				4EA986F3287C39660095ECF9 /* ProgressHUD.m */,
+				4EA986F5287C39A70095ECF9 /* ProgressCustomView.h */,
+				4EA986F6287C39A70095ECF9 /* ProgressCustomView.m */,
+				4EA986F8287C39B60095ECF9 /* ProgressCustomLoadingView.h */,
+				4EA986F9287C39B60095ECF9 /* ProgressCustomLoadingView.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		4EA986FB287C3A4F0095ECF9 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				4EA986FC287C3A5E0095ECF9 /* UIImageView+Animations.h */,
+				4EA986FD287C3A5E0095ECF9 /* UIImageView+Animations.m */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		4EA98702287C56470095ECF9 /* CustomAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				4EA98710287C5C650095ECF9 /* util */,
+				4EA98709287C58F80095ECF9 /* view */,
+				4EA98706287C56C70095ECF9 /* ZWAlbumManager.h */,
+				4EA98707287C56C70095ECF9 /* ZWAlbumManager.m */,
+				4EA98703287C565E0095ECF9 /* ZWAlbumCropViewController.h */,
+				4EA98704287C565E0095ECF9 /* ZWAlbumCropViewController.m */,
+			);
+			path = CustomAlbum;
+			sourceTree = "<group>";
+		};
+		4EA98709287C58F80095ECF9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4EA9870A287C590F0095ECF9 /* ZWCropButton.h */,
+				4EA9870B287C590F0095ECF9 /* ZWCropButton.m */,
+				4EA9870D287C5A1F0095ECF9 /* ZWCropButtonView.h */,
+				4EA9870E287C5A1F0095ECF9 /* ZWCropButtonView.m */,
+				4EA98714287C5EA90095ECF9 /* ZWImageView.h */,
+				4EA98715287C5EA90095ECF9 /* ZWImageView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4EA98710287C5C650095ECF9 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				4EA98711287C5C730095ECF9 /* ZWImageUtil.h */,
+				4EA98712287C5C730095ECF9 /* ZWImageUtil.m */,
+				4ED540C6287C6D910070FB8E /* PhotoActionSheetUtil.h */,
+				4ED540C7287C6D910070FB8E /* PhotoActionSheetUtil.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		4EA98717287C61F60095ECF9 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4EA98719287C61F60095ECF9 /* MBProgressHUD.h */,
+				4EA98718287C61F60095ECF9 /* MBProgressHUD.m */,
+				4EA9871A287C61F60095ECF9 /* README.mdown */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		4EAAD8152868B208003D43FF /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1678,18 +1853,12 @@
 			path = LoadingUtil;
 			sourceTree = "<group>";
 		};
-		4EC6B2BE2861A84400F57AAC /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				4EC6B2C02861A84400F57AAC /* MBProgressHUD.h */,
-				4EC6B2BF2861A84400F57AAC /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4EA98702287C56470095ECF9 /* CustomAlbum */,
+				4EA986E1287C33500095ECF9 /* CustomCamera */,
+				4EA986D1287BC5000095ECF9 /* FileSlelect */,
 				4E5F2CF22876B9A800FEC6C2 /* Permission */,
 				4E0680D22874393F00F6728A /* select */,
 				4E0680BC2873E2B600F6728A /* Map */,
@@ -2070,10 +2239,12 @@
 		4ECE435F28586E9D00326287 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4ECE436028586E9D00326287 /* UIViewController+Child.m */,
 				4ECE436128586E9D00326287 /* UIViewController+Child.h */,
+				4ECE436028586E9D00326287 /* UIViewController+Child.m */,
 				4EEC47DB285AD9F90047F8B6 /* UIViewController+ZW.h */,
 				4EEC47DC285AD9F90047F8B6 /* UIViewController+ZW.m */,
+				4EA986EE287C38760095ECF9 /* UIViewController+Additions.h */,
+				4EA986EF287C38760095ECF9 /* UIViewController+Additions.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -2143,6 +2314,8 @@
 		4EDC09692862C43D001C53CE /* PublicComponent */ = {
 			isa = PBXGroup;
 			children = (
+				4EA98717287C61F60095ECF9 /* MBProgressHUD */,
+				4EA986F1287C39520095ECF9 /* ProgressHUD */,
 				4ED59577286EF3DF002D15F1 /* ThemeManager */,
 				4ED59571286EF31D002D15F1 /* ThemeFiles */,
 				4EDC096F2862E8D3001C53CE /* CMBusMedia */,
@@ -2804,6 +2977,7 @@
 		7C6309E922A676FE00C73AAB /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4EA986FB287C3A4F0095ECF9 /* UIImageView */,
 				4E403FA12865C461006C0656 /* UIAlertAction */,
 				4E403F812865AD5A006C0656 /* UIActionSheet+Blocks */,
 				7C8AAE7E22E9876C00589862 /* UIButton+Block */,
@@ -3160,11 +3334,11 @@
 		7C8AAE8222E987BE00589862 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				7C8AAE8C22E987BE00589862 /* UIImageCategory.h */,
 				4E23FE5A2876F9D2009B02D0 /* UIImage+None */,
 				7C8AAE8322E987BE00589862 /* UIImage+Addition */,
 				7C8AAE8622E987BE00589862 /* UIImage+Resize */,
 				7C8AAE8922E987BE00589862 /* UIImage+ResourcePath */,
-				7C8AAE8C22E987BE00589862 /* UIImageCategory.h */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -3339,6 +3513,7 @@
 				4EC6B35C2861B12A00F57AAC /* 2.jpg in Resources */,
 				4EC6B3702861B12A00F57AAC /* Untitled-1.gif in Resources */,
 				4EC6B36C2861B12A00F57AAC /* Untitled-7.gif in Resources */,
+				4EA9871C287C61F60095ECF9 /* README.mdown in Resources */,
 				4EC6B3742861B12A00F57AAC /* Untitled-3.gif in Resources */,
 				4EC6B3572861B12A00F57AAC /* LaunchImg_one_z.png in Resources */,
 				4EC6B3652861B12A00F57AAC /* guideImage2.jpg in Resources */,
@@ -3466,9 +3641,11 @@
 				4E0287D0286993C9003E723E /* LoginViewController.m in Sources */,
 				4ED5957F286EF3DF002D15F1 /* zhTheme+Components.m in Sources */,
 				4ED5958F2870878C002D15F1 /* ShowAlertViewController.m in Sources */,
+				4EA9870C287C590F0095ECF9 /* ZWCropButton.m in Sources */,
 				4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */,
 				4E5F2D122876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m in Sources */,
 				4EDC0B6A286308D6001C53CE /* NSMutableSet+Safe.m in Sources */,
+				4EA9870F287C5A1F0095ECF9 /* ZWCropButtonView.m in Sources */,
 				4EC6B3902861B12A00F57AAC /* ZWDataParsing.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
 				4E0287C928698ED1003E723E /* NSObject+Params.m in Sources */,
@@ -3492,7 +3669,9 @@
 				4E0287D32869B5F3003E723E /* Router.m in Sources */,
 				4EC6B28B28607FF400F57AAC /* SystemInfoFunc.m in Sources */,
 				4EA97E4A286C895600C06BE4 /* ZWBaseViewModel.m in Sources */,
+				4EA986F7287C39A70095ECF9 /* ProgressCustomView.m in Sources */,
 				7C6A215426E31CE600E0CF20 /* RunLoopPermanentViewController.m in Sources */,
+				4EA98716287C5EA90095ECF9 /* ZWImageView.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
 				7C4EF05A2304034B0040DA7A /* CMBaseButton.m in Sources */,
 				4EEEB867285EBA0100FD49A9 /* NSString+Verify.m in Sources */,
@@ -3532,6 +3711,7 @@
 				7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */,
 				7C91253526DA67B20030A5F3 /* BlockViewController.m in Sources */,
 				4EA97E6A286C9FEE00C06BE4 /* ZWSettingContainerViewModel.m in Sources */,
+				4EA986E6287C338F0095ECF9 /* ZWCameraUtil.m in Sources */,
 				4E028805286AB0CB003E723E /* CWLateralSlideConfiguration.m in Sources */,
 				7C879B1E26E65B860051018B /* MVVMModel.m in Sources */,
 				4EDC09732862E8F2001C53CE /* CMBusMediaAppDelegate.m in Sources */,
@@ -3557,6 +3737,7 @@
 				7C4EF0212303A2C00040DA7A /* PASBaseViewController.m in Sources */,
 				4EC6B3942861B12A00F57AAC /* ZWHttpNetworkData.m in Sources */,
 				7C8AAE2F22E9811E00589862 /* GCDCommon.m in Sources */,
+				4EA986E0287C00C30095ECF9 /* PHAssetModel.m in Sources */,
 				7C6A216126E3A9C200E0CF20 /* WFDispatchSerialQueueDemo.m in Sources */,
 				7C913E9126E316B10064C549 /* WFPermanentThread.m in Sources */,
 				4EEC47D5285AD4550047F8B6 /* ZWTabBarController.m in Sources */,
@@ -3579,6 +3760,7 @@
 				4EDC0B68286308D6001C53CE /* NSAttributedString+Safe.m in Sources */,
 				7C8AAE8122E9876D00589862 /* UIButton+Block.m in Sources */,
 				7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */,
+				4EA986D4287BC51C0095ECF9 /* FileSelectViewController.m in Sources */,
 				4E4F9CDB286C5E44003281B5 /* ZWBaseView.m in Sources */,
 				7C8AAE3B22E984E900589862 /* UIAlertUtil.m in Sources */,
 				7C4EF00D230394FA0040DA7A /* DispatchMessageCenter.m in Sources */,
@@ -3601,6 +3783,7 @@
 				4E4F9CD8286C5D8E003281B5 /* ZWRefreshHeader.m in Sources */,
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
 				4EC6B2992860982500F57AAC /* LeftDrawerViewController.m in Sources */,
+				4EA986FE287C3A5E0095ECF9 /* UIImageView+Animations.m in Sources */,
 				4EC6B2922860807300F57AAC /* Reachability+IPV6Extention.m in Sources */,
 				4E403F932865B024006C0656 /* AlertView.m in Sources */,
 				7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */,
@@ -3614,6 +3797,7 @@
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6A216426E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m in Sources */,
 				4EDC0B6C286308D6001C53CE /* NSUserDefaults+Safe.m in Sources */,
+				4EA986ED287C36E30095ECF9 /* ZWCameraViewController.m in Sources */,
 				4E5F2CEE2876B76A00FEC6C2 /* JXLocation.m in Sources */,
 				4E028804286AB0CB003E723E /* CWDrawerTransition.m in Sources */,
 				7C4EF01F2303A2C00040DA7A /* PASSegmentViewController.m in Sources */,
@@ -3623,6 +3807,7 @@
 				4E0287BA28698887003E723E /* ApplicationViewController.m in Sources */,
 				4E403FA02865B2A1006C0656 /* UIView+SVG.m in Sources */,
 				7C4F93DF2302B39300F2238E /* PASListRightCell.m in Sources */,
+				4EA986D7287BC5A70095ECF9 /* FileSelectManager.m in Sources */,
 				7C4EF04E230402F80040DA7A /* CMScrollSegmentControl.m in Sources */,
 				4EC6B3B12862B50A00F57AAC /* LeftDrawerModel.m in Sources */,
 				4EDC0B64286308D6001C53CE /* WMSafeProxy.m in Sources */,
@@ -3641,6 +3826,7 @@
 				4E0287B628695512003E723E /* RouterPageItem.m in Sources */,
 				4E0680ED287593F300F6728A /* LocationTrimAdapter.m in Sources */,
 				4E0680D52874394C00F6728A /* SelectedViewController.m in Sources */,
+				4EA986DA287BFDAF0095ECF9 /* FileItemView.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
 				4EEC47D2285AD4190047F8B6 /* ZWNavigationController.m in Sources */,
 				7C4EF0002303948E0040DA7A /* NSObject+KeyedArchiver.m in Sources */,
@@ -3649,12 +3835,14 @@
 				4ECE436228586E9D00326287 /* UIApplication+Ext.m in Sources */,
 				4EC6B3982861B12A00F57AAC /* DataFormatterFunc+Market.m in Sources */,
 				7C8AAE8E22E987BE00589862 /* UIImage+Resize.m in Sources */,
+				4ED540C8287C6D910070FB8E /* PhotoActionSheetUtil.m in Sources */,
 				7C8AAE8F22E987BE00589862 /* UIImage+ResourcePath.m in Sources */,
 				4EDC0B6B286308D6001C53CE /* NSMutableOrderedSet+Safe.m in Sources */,
 				7C8AAE6C22E986C800589862 /* PASTextField.m in Sources */,
 				7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */,
 				4E5F2CFA2876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.m in Sources */,
 				4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */,
+				4EA9871B287C61F60095ECF9 /* MBProgressHUD.m in Sources */,
 				4E0680CA28740F8100F6728A /* Environment.m in Sources */,
 				7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */,
 				4EC6B3AA2861D37500F57AAC /* ZWUserInfoModel.m in Sources */,
@@ -3678,6 +3866,8 @@
 				7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */,
 				4EC6B3952861B12A00F57AAC /* ZWHttpNetworkManager.m in Sources */,
 				4EC6B3892861B12A00F57AAC /* PathConstants.m in Sources */,
+				4EA986DD287BFDEE0095ECF9 /* FileItemCell.m in Sources */,
+				4EA986F4287C39660095ECF9 /* ProgressHUD.m in Sources */,
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
 				4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */,
 				4EDC0B67286308D6001C53CE /* NSData+Safe.m in Sources */,
@@ -3687,18 +3877,22 @@
 				4EDC096D2862C47A001C53CE /* ZWMainAppDelegateService.m in Sources */,
 				4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
+				4EA98701287C3D8F0095ECF9 /* ZWCameraPreViewController.m in Sources */,
 				4E028800286AB0CB003E723E /* CWInteractiveTransition.m in Sources */,
 				4E0680F8287598E500F6728A /* MapTypeHelper.m in Sources */,
 				7C4EF042230400640040DA7A /* UINavigationItem+iOS7Style.m in Sources */,
 				4ECE439828598E6200326287 /* StoreUtil.m in Sources */,
+				4EA98705287C565E0095ECF9 /* ZWAlbumCropViewController.m in Sources */,
 				4EC6B38F2861B12A00F57AAC /* ZWHttpEventInfo.m in Sources */,
 				7CA7682822FE95C1009E473E /* ZWBaseViewController.m in Sources */,
+				4EA986E9287C33DE0095ECF9 /* ZWCameraManager.m in Sources */,
 				7C4EF074230405420040DA7A /* CommonStyleFunc.m in Sources */,
 				4EC6B3882861B12A00F57AAC /* ConsoleAppender.m in Sources */,
 				4EAAD80B2866B82B003D43FF /* UITabBar+Ext.m in Sources */,
 				4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */,
 				4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */,
 				7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */,
+				4EA98708287C56C70095ECF9 /* ZWAlbumManager.m in Sources */,
 				4E5F2D0C2876BD3D00FEC6C2 /* PermissionIntercept.m in Sources */,
 				7C4F93E22302B39300F2238E /* ZWTableViewHeaderView.m in Sources */,
 				4EEC47CF2859F5300047F8B6 /* ZWBaseTableViewCell.m in Sources */,
@@ -3721,6 +3915,7 @@
 				4EC6B3822861B12A00F57AAC /* MDLogDetailViewController.m in Sources */,
 				4EC6B3872861B12A00F57AAC /* LogUtil.m in Sources */,
 				7C8AAE5122E9856400589862 /* UIView+Frame.m in Sources */,
+				4EA98713287C5C730095ECF9 /* ZWImageUtil.m in Sources */,
 				7C4EF0202303A2C00040DA7A /* PASTableViewController.m in Sources */,
 				7C8AAE7D22E9872400589862 /* UIColor+Extensions.m in Sources */,
 				7C4F93DE2302B39300F2238E /* PASListRightItem.m in Sources */,
@@ -3730,10 +3925,10 @@
 				7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */,
 				4E899A78285B7F2A00B54C89 /* DataBase.m in Sources */,
 				4EC6B37D2861B12A00F57AAC /* MDLogManager.m in Sources */,
-				4EC6B2C22861A84400F57AAC /* MBProgressHUD.m in Sources */,
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,
 				4E0680BB2872CECA00F6728A /* BWNetworkingService.swift in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
+				4EA986FA287C39B60095ECF9 /* ProgressCustomLoadingView.m in Sources */,
 				4E0287C328698BC9003E723E /* RouterPageConfig.m in Sources */,
 				4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */,
 				7C4EF06F230405030040DA7A /* UIButton+Block.m in Sources */,
@@ -3741,6 +3936,7 @@
 				4E0680F02875947000F6728A /* TrimAddressHeadView.m in Sources */,
 				7C8AAE5922E9859F00589862 /* UIGestureRecognizer+Block.m in Sources */,
 				7C8AAE6D22E986C800589862 /* UITextView+CancelPerformAction.m in Sources */,
+				4EA986F0287C38760095ECF9 /* UIViewController+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

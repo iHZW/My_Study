@@ -88,7 +88,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(Environment)
 
 #pragma mark - Save & Query
 + (NSString *)storeEnvKey{
-    return @"com.weimob.crm.environmenttype";
+    return @"com.zw.crm.environmenttype";
 }
 
 + (void)saveEnv:(EnvironmentType)type{
@@ -121,7 +121,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(Environment)
 }
 
 - (NSString *)imOffLineKey{
-    return @"com.weimob.crm.im.offline";
+    return @"com.zw.crm.im.offline";
 }
 
 - (BOOL)isIMForceOffline{

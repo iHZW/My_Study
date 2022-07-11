@@ -34,16 +34,17 @@ DEFINE_SINGLETON_T_FOR_CLASS(LoadingUtil)
 {
     if (self.loadingView)
     {
-        [self.loadingView hide:YES];
+        [self.loadingView hideAnimated:YES];
+//        [self.loadingView hide:YES];
         self.loadingView = nil;
     }
     self.loadingView = [MBProgressHUD showHUDAddedTo:parentView animated:YES];
-    self.loadingView.yOffset = yOffset;
+//    self.loadingView.offset = CGPointMake(0, yOffset);
     self.loadingView.mode = tipMessage.length ? MBProgressHUDModeText : MBProgressHUDModeForPAS;
     self.loadingView.userInteractionEnabled = actionEnabled;
-    self.loadingView.detailsLabelText = tipMessage;
-    self.loadingView.detailsLabelFont = [UIFont systemFontOfSize:16];
-    [self.loadingView hide:NO afterDelay:delay];
+    self.loadingView.detailsLabel.text = tipMessage;
+    self.loadingView.detailsLabel.font = [UIFont systemFontOfSize:16];
+    [self.loadingView hideAnimated:NO afterDelay:delay];
 }
 
 - (void)addLoadingView:(NSString *)tipMessage parentView:(UIView *)parentView yOffset:(CGFloat)yOffset actionEnabled:(BOOL)actionEnabled
@@ -53,7 +54,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(LoadingUtil)
 
 - (void)removeLoadingView:(BOOL)animated
 {
-    [self.loadingView hide:animated];
+    [self.loadingView hideAnimated:animated];
     self.loadingView = nil;
     
 //    [MBProgressHUD hideHUDForView:view animated:YES];
@@ -242,20 +243,20 @@ DEFINE_SINGLETON_T_FOR_CLASS(LoadingUtil)
             MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view];
             HUD.userInteractionEnabled = NO;
             HUD.tag = hudTag;
-            HUD.yOffset = -45;//view.center.y-rootVC.view.center.y;
+            HUD.offset = CGPointMake(0, -45);//view.center.y-rootVC.view.center.y;
             [view addSubview:HUD];
             if (bgColor) {
-                HUD.color = bgColor;
+                HUD.backgroundColor = bgColor;
             }
-            HUD.detailsLabelText = tipMessage;
+            HUD.detailsLabel.text = tipMessage;
             HUD.mode = imageName.length==0?MBProgressHUDModeText:MBProgressHUDModeCustomView;
             HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-            HUD.detailsLabelFont = [UIFont systemFontOfSize:16];
-            [HUD showAnimated:YES whileExecutingBlock:^{
-                sleep(delay);
-            } completionBlock:^{
+            HUD.detailsLabel.font = [UIFont systemFontOfSize:16];
+           
+            
+            performBlockDelay(dispatch_get_main_queue(), delay, ^{
                 [HUD removeFromSuperview];
-            }];
+            });
         }
     });
 }

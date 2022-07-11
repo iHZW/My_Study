@@ -28,11 +28,11 @@
 #define TALKINGDATA_ENABLED
 
 /**
- *  平安证券域名
+ *  ZW域名
  */
-#define kPASchemeHost   @"stock.pingan.com"
+#define kPASchemeHost   @"zw.scheme.com"
 
-#define kPAAppName      @"平安证券"
+#define kPAAppName      @"ZWApp"
 
 #define SYS_CLIENTVER   [PASSiteAddressManager appVersion]
 
@@ -47,7 +47,7 @@
 /**
  *  新版本Rest接口请求 requestId 定义
  */
-#define kRequestId      [NSString stringWithFormat:@"AYLCAPP%@", [NSObject shortUUIDString]]
+#define kRequestId      [NSString stringWithFormat:@"ZWAPP%@", [NSObject shortUUIDString]]
 
 #define KAccountSaveInfoKey                 @"accountSaveInfoKey"
 #define KNotificationWithLogoutName         @"UserLogoutNotification"
