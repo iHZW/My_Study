@@ -222,6 +222,7 @@
 		4ECE439828598E6200326287 /* StoreUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE439728598E6200326287 /* StoreUtil.m */; };
 		4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE44242859BFAA00326287 /* AppDelegate.m */; };
 		4ED540C8287C6D910070FB8E /* PhotoActionSheetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED540C7287C6D910070FB8E /* PhotoActionSheetUtil.m */; };
+		4ED540CB287C7E620070FB8E /* FileIconNameUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED540CA287C7E620070FB8E /* FileIconNameUtil.m */; };
 		4ED59574286EF31D002D15F1 /* ThemeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ED59572286EF31D002D15F1 /* ThemeInfo.plist */; };
 		4ED59575286EF31D002D15F1 /* mythemebundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4ED59573286EF31D002D15F1 /* mythemebundle.bundle */; };
 		4ED5957F286EF3DF002D15F1 /* zhTheme+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED59579286EF3DF002D15F1 /* zhTheme+Components.m */; };
@@ -784,6 +785,8 @@
 		4ECE44242859BFAA00326287 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4ED540C6287C6D910070FB8E /* PhotoActionSheetUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoActionSheetUtil.h; sourceTree = "<group>"; };
 		4ED540C7287C6D910070FB8E /* PhotoActionSheetUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoActionSheetUtil.m; sourceTree = "<group>"; };
+		4ED540C9287C7E620070FB8E /* FileIconNameUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileIconNameUtil.h; sourceTree = "<group>"; };
+		4ED540CA287C7E620070FB8E /* FileIconNameUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileIconNameUtil.m; sourceTree = "<group>"; };
 		4ED59572286EF31D002D15F1 /* ThemeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeInfo.plist; sourceTree = "<group>"; };
 		4ED59573286EF31D002D15F1 /* mythemebundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mythemebundle.bundle; sourceTree = "<group>"; };
 		4ED59578286EF3DF002D15F1 /* zhThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhThemeManager.h; sourceTree = "<group>"; };
@@ -1693,6 +1696,8 @@
 				4EA986D9287BFDAE0095ECF9 /* FileItemView.m */,
 				4EA986DE287C00C30095ECF9 /* PHAssetModel.h */,
 				4EA986DF287C00C30095ECF9 /* PHAssetModel.m */,
+				4ED540C9287C7E620070FB8E /* FileIconNameUtil.h */,
+				4ED540CA287C7E620070FB8E /* FileIconNameUtil.m */,
 			);
 			path = FileSlelect;
 			sourceTree = "<group>";
@@ -3663,6 +3668,7 @@
 				4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */,
 				7C4EF06B230405030040DA7A /* UIButton+CornerBorder.m in Sources */,
 				4EA97E67286C9AEC00C06BE4 /* ZWUserContainerViewModel.m in Sources */,
+				4ED540CB287C7E620070FB8E /* FileIconNameUtil.m in Sources */,
 				4E02880F286B056A003E723E /* URLUtil.m in Sources */,
 				7C4EF0292303A3390040DA7A /* UIViewController+Gesture.m in Sources */,
 				4EDC0B62286308D6001C53CE /* NSMutableArray+Safe.m in Sources */,
