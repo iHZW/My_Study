@@ -46,6 +46,9 @@ UIKIT_EXTERN NSString *const ZWRouterPageSelectedViewController;
 UIKIT_EXTERN NSString *const ZWRouterPageLocationTrimViewController;
 /** 文件选择界面  */
 UIKIT_EXTERN NSString *const ZWRouterPageFileSelectViewController;
+/** 陀螺仪测试界面 ~ 球  */
+UIKIT_EXTERN NSString *const ZWRouterPageBallViewController;
+
 
 /* -------------------------------page----------------------------  */
 

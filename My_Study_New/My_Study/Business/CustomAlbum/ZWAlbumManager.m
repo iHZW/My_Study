@@ -8,6 +8,8 @@
 
 #import "ZWAlbumManager.h"
 #import "ZWUserInfoBridgeModule.h"
+#import "ZWCacheManager.h"
+
 
 #define kThumWidth 125
 
@@ -40,8 +42,8 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        _mediaType = FvAlbumMediaTypeAllMedia;
-        _selectType = FvAlbumSelectTypeMore;
+        _mediaType = ZWAlbumMediaTypeAllMedia;
+        _selectType = ZWAlbumSelectTypeMore;
         _maxSelectCount = 9;
         _allowPre = YES;
         _isCrop = NO;
@@ -128,15 +130,15 @@
 
 - (void)addPhotoAlbums:(PHFetchResult<PHAssetCollection *> *)sysAlbum{
     for (PHAssetCollection * album in sysAlbum) {
-        if (self.mediaType == FvAlbumMediaTypePhoto) {
+        if (self.mediaType == ZWAlbumMediaTypePhoto) {
             if ([self checkHasPhotoType:album]) {
                 [self.albumlist addObject:album];
             }
-        }else if (self.mediaType == FvAlbumMediaTypeVideo){
+        }else if (self.mediaType == ZWAlbumMediaTypeVideo){
             if ([self checkHasVideoType:album]) {
                 [self.albumlist addObject:album];
             }
-        }else if (self.mediaType == FvAlbumMediaTypeAllMedia){
+        }else if (self.mediaType == ZWAlbumMediaTypeAllMedia){
             [self.albumlist addObject:album];
         }
     }
@@ -167,20 +169,21 @@
     NSMutableArray <PHAssetModel *> * photoList = [NSMutableArray array];
     // 获得某个相簿中的所有PHAsset对象  options 排序  这里设置默认
     PHFetchResult<PHAsset *> *assets = [PHAsset fetchAssetsInAssetCollection:album options:nil];
+    
     for (PHAsset *asset in assets) {
-        if (self.mediaType == FvAlbumMediaTypePhoto) {
+        if (self.mediaType == ZWAlbumMediaTypePhoto) {
             if (asset.mediaType == PHAssetMediaTypeImage) {
                 PHAssetModel * assetModel = [PHAssetModel defaultItem];
                 assetModel.asset = asset;
                 [photoList addObject:assetModel];
             }
-        }else if (self.mediaType == FvAlbumMediaTypeVideo){
+        }else if (self.mediaType == ZWAlbumMediaTypeVideo){
             if (asset.mediaType == PHAssetMediaTypeVideo) {
                 PHAssetModel * assetModel = [PHAssetModel defaultItem];
                 assetModel.asset = asset;
                 [photoList addObject:assetModel];
             }
-        }else if (self.mediaType == FvAlbumMediaTypeAllMedia){
+        }else if (self.mediaType == ZWAlbumMediaTypeAllMedia){
             PHAssetModel * assetModel = [PHAssetModel defaultItem];
             assetModel.asset = asset;
             [photoList addObject:assetModel];
@@ -190,64 +193,64 @@
 }
 
 - (void)thumbnail:(PHAsset *)asset complete:(void(^)(UIImage * result))complete{
-//    [[FVCacheManager shared] requestImageForAsset:asset targetSize:CGSizeMake(kThumWidth, kThumWidth) contentMode:PHImageContentModeAspectFill options:self.thumOption resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//        if (complete) {
-//            complete(result);
-//        }
-//    }];
+    [[ZWCacheManager shared] requestImageForAsset:asset targetSize:CGSizeMake(kThumWidth, kThumWidth) contentMode:PHImageContentModeAspectFill options:self.thumOption resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if (complete) {
+            complete(result);
+        }
+    }];
 }
 
 - (void)thumbnailPre:(PHAsset *)asset complete:(void(^)(UIImage * result))complete{
     CGFloat ratio = (CGFloat)asset.pixelHeight / (CGFloat)asset.pixelWidth;
     CGFloat scale = [UIScreen mainScreen].scale;
-//    [[FVCacheManager shared] requestImageForAsset:asset targetSize:CGSizeMake(kMainScreenWidth * scale, kMainScreenWidth * scale * ratio) contentMode:PHImageContentModeAspectFill options:self.thumPreOption resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//        if (complete) {
-//            complete(result);
-//        }
-//    }];
+    [[ZWCacheManager shared] requestImageForAsset:asset targetSize:CGSizeMake(kMainScreenWidth * scale, kMainScreenWidth * scale * ratio) contentMode:PHImageContentModeAspectFill options:self.thumPreOption resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if (complete) {
+            complete(result);
+        }
+    }];
 }
 
 - (void)originalGraph:(PHAsset *)asset complete:(void(^)(UIImage * result,NSDictionary * info))complete{
     // 获取PHImageManagerMaximumSize 图片打不开  暂时这样获取
     CGFloat ratio = (CGFloat)asset.pixelHeight / (CGFloat)asset.pixelWidth;
     CGFloat scale = [UIScreen mainScreen].scale;
-//    [[FVCacheManager shared] requestImageForAsset:asset targetSize:CGSizeMake(kMainScreenWidth * scale, kMainScreenWidth * scale * ratio) contentMode:PHImageContentModeAspectFill options:self.originalOption resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//        if (complete) {
-//            complete(result,info);
-//        }
-//    }];
+    [[ZWCacheManager shared] requestImageForAsset:asset targetSize:CGSizeMake(kMainScreenWidth * scale, kMainScreenWidth * scale * ratio) contentMode:PHImageContentModeAspectFill options:self.originalOption resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if (complete) {
+            complete(result,info);
+        }
+    }];
 }
 
 - (void)originalGraphData:(PHAsset *)asset complete:(void(^)(NSData * _Nullable result))complete{
-//    [[FVCacheManager shared] requestImageDataForAsset:asset options:self.originalOption resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-//        if (complete) {
-//            complete(imageData);
-//        }
-//    }];
+    [[ZWCacheManager shared] requestImageDataForAsset:asset options:self.originalOption resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        if (complete) {
+            complete(imageData);
+        }
+    }];
 }
 
 - (void)cacheAsset:(PHAsset *)asset option:(PHImageRequestOptions *)option{
     CGFloat ratio = (CGFloat)asset.pixelHeight / (CGFloat)asset.pixelWidth;
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize tagSize = CGSizeMake(kMainScreenWidth * scale, kMainScreenHeight * scale * ratio);
-//    [[FVCacheManager shared] startCachingImagesForAssets:@[asset] targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
+    [[ZWCacheManager shared] startCachingImagesForAssets:@[asset] targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
 }
 
 - (void)stopCacheAsset:(PHAsset *)asset option:(PHImageRequestOptions *)option{
     CGFloat ratio = (CGFloat)asset.pixelHeight / (CGFloat)asset.pixelWidth;
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize tagSize = CGSizeMake(kMainScreenWidth * scale, kMainScreenWidth * scale * ratio);
-//    [[FVCacheManager shared] stopCachingImagesForAssets:@[asset] targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
+    [[ZWCacheManager shared] stopCachingImagesForAssets:@[asset] targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
 }
 
 - (void)cacheAssetList:(NSArray <PHAsset*>*)assets option:(PHImageRequestOptions *)option{
     CGSize tagSize = CGSizeMake(kThumWidth, kThumWidth);
-//    [[FVCacheManager shared] startCachingImagesForAssets:assets targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
+    [[ZWCacheManager shared] startCachingImagesForAssets:assets targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
 }
 
 - (void)stopCacheAssetList:(NSArray <PHAsset*>*)assets option:(PHImageRequestOptions *)option{
     CGSize tagSize = CGSizeMake(kThumWidth, kThumWidth);
-//    [[FVCacheManager shared] stopCachingImagesForAssets:assets targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
+    [[ZWCacheManager shared] stopCachingImagesForAssets:assets targetSize:tagSize contentMode:PHImageContentModeAspectFill options:option];
 }
 
 #pragma mark other

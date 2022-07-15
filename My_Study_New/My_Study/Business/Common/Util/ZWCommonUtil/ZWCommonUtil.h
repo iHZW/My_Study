@@ -12,6 +12,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWCommonUtil : NSObject
 
+#pragma mark - UserDefault
++ (nullable NSString *)getStringWithKey:(nonnull NSString *)key;
++ (void)setObject:(nullable NSObject *)obj forKey:(nonnull NSString *)key;
++ (nullable NSObject *)getObjectWithKey:(nonnull NSString *)key;
+
++ (nullable NSData *)getDataWithKey:(nonnull NSString*)key;
++ (nullable NSArray *)getArrayWithKey:(nonnull NSString*)key;
++ (nullable NSDictionary *)getDicWithKey:(nonnull NSString*)key;
++ (void)removeForKey:(nonnull NSString*)key;
+
+
+
+
+
 #pragma mark - 存本地网络缓存数据
 + (void)checkAndWriteLocalCMSDataToCache;
 

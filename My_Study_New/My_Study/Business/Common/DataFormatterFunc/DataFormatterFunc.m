@@ -11,6 +11,9 @@
 #define kAlphaNum  @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 #define kAlpha      @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
 
+/** 检测是十六进制颜色值  */
+#define kColorNum  @"ABCDEFabcdef0123456789"
+
 
 @implementation DataFormatterFunc
 
@@ -153,6 +156,11 @@
 + (BOOL)isPureNumber:(NSString *)string
 {
     return [[self class] checkInputWithType:string formatType:kNumbers];
+}
+
++ (BOOL)isColorNum:(NSString *)string
+{
+    return [[self class] checkInputWithType:string formatType:kColorNum];
 }
 
 + (BOOL)bolNull:(NSObject *)object

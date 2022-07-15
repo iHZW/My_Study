@@ -61,6 +61,11 @@
 
 + (BOOL)isPureNumber:(NSString *)string;
 
+/**
+ *  判断是颜色十六进制的字符串
+ */
++ (BOOL)isColorNum:(NSString *)string;
+
 // 根据过滤规则 过滤文本
 + (NSString *)filterWithString:(NSString *)str formatType:(NSString *)formatType;
 

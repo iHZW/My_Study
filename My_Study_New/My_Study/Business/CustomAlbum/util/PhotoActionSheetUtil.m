@@ -7,7 +7,7 @@
 //
 
 #import "PhotoActionSheetUtil.h"
-//#import "ZWAlbumDetailsViewController.h"
+#import "ZWAlbumDetailsViewController.h"
 #import "FileSelectManager.h"
 #import "AlertView.h"
 #import "PHAssetModel.h"
@@ -102,22 +102,22 @@
 
 + (void)goCameraAlbum:(NSInteger)maxCount complete:(void(^)(NSArray<PHAssetModel *>*))complete{
     [ZWAlbumManager manager].isCrop = NO;
-    [ZWAlbumManager manager].selectType = FvAlbumSelectTypeMore;
+    [ZWAlbumManager manager].selectType = ZWAlbumSelectTypeMore;
     [ZWAlbumManager manager].allowPre = YES;
     [ZWAlbumManager manager].maxSelectCount = maxCount;
-    [ZWAlbumManager manager].mediaType = FvAlbumMediaTypePhoto;
+    [ZWAlbumManager manager].mediaType = ZWAlbumMediaTypePhoto;
 
     [[ZWAlbumManager manager] setSelectImageComplete:^(NSArray<PHAssetModel *> * _Nonnull obj, BOOL isOriginal) {
         BlockSafeRun(complete,obj);
     }];
       
-//    [[ZWAlbumManager manager] reqCameraRollList:^(PHAssetCollection * _Nonnull list) {
-//        FvAlbumDetailsViewController * vc = [[FvAlbumDetailsViewController alloc]init];
-//        vc.collection = list;
-//        ZWNavigationController * na = [[ZWNavigationController alloc] initWithRootViewController:vc];
-//        na.modalPresentationStyle = UIModalPresentationFullScreen;
-//        [[UIApplication displayViewController] presentViewController:na animated:YES completion:nil];
-//    }];
+    [[ZWAlbumManager manager] reqCameraRollList:^(PHAssetCollection * _Nonnull list) {
+        ZWAlbumDetailsViewController * vc = [[ZWAlbumDetailsViewController alloc]init];
+        vc.collection = list;
+        ZWNavigationController * na = [[ZWNavigationController alloc] initWithRootViewController:vc];
+        na.modalPresentationStyle = UIModalPresentationFullScreen;
+        [[UIApplication displayViewController] presentViewController:na animated:YES completion:nil];
+    }];
 }
 
 /* 选择文件 */

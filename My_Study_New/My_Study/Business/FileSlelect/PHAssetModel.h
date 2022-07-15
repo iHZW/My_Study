@@ -6,12 +6,12 @@
 //  Copyright © 2022 HZW. All rights reserved.
 //
 
-#import "CMObject.h"
+#import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PHAssetModel : CMObject
+@interface PHAssetModel : NSObject
 
 @property (nonatomic ,strong) PHAsset * asset;
 

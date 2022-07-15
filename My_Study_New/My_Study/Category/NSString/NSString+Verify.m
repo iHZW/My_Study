@@ -13,6 +13,8 @@
 #define kTIRegexBankCardNums    @"^[0-9]{8,}$"  // 银行卡
 #define kTIRegexPhoneNums       @"^((\\+86)|(86))?(1)\\d{10}$" // 手机号码
 
+#define kTIRegexColorNum        @"^#[0-9a-fA-F]{6}{1}$" //颜色值  十六进制的  #FFFFFF
+
 @implementation NSString (Verify)
 
 - (BOOL)match:(NSString *)regex
@@ -50,6 +52,11 @@
 - (BOOL)checkMobilePhoneNo
 {
     return [self match:kTIRegexPhoneNums];
+}
+
+- (BOOL)checkColorNo
+{
+    return [self match:kTIRegexColorNum];
 }
 
 /**

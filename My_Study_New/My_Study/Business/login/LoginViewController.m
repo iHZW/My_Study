@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "ZWUserAccountManager.h"
 #import "Toast.h"
+#import "LoginManager.h"
 
 #define kItemHeight             60
 
@@ -107,10 +108,6 @@
  */
 - (void)loginAction
 {
-    /** 暂时不做校验  */
-    [self loginCheckSuccess];
-    return;
-    
     NSString *showMsg = @"";
     NSString *accountStr = self.accountTextFiled.text;
     NSString *passwordStr = self.passwordTextField.text;
@@ -137,9 +134,13 @@
 - (void)loginCheckSuccess
 {
     ZWUserInfoModel *infoModel = [ZWUserInfoModel new];
-    infoModel.pid = [kAccountString longLongValue];
-    infoModel.userWid = [kPasswordString longLongValue];;
+    infoModel.pid = [kAccountString integerValue];
+    infoModel.userWid = [kPasswordString integerValue];
     [ZWUserAccountManager sharedZWUserAccountManager].currentUserInfo = infoModel;
+    
+    /** 登录信息存储本地  */
+    [ZWSharedUserAccountManager saveLoginStatusData];
+    
     BlockSafeRun(self.loginCompleted);
 }
 

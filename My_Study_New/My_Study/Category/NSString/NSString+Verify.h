@@ -22,6 +22,9 @@
 /* 校验银行卡号 */
 - (BOOL)checkBankCardNo;
 
+/** 验证十六进制颜色值  */
+- (BOOL)checkColorNo;
+
 /**
  *  给字符串局部加＊
  *

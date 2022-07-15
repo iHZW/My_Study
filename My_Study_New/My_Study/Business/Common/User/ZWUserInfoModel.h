@@ -12,10 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWUserInfoModel : NSObject<NSSecureCoding>
 
-/** 登陆成功的公司id */
-@property (nonatomic, assign) long long pid;
 /** 登陆用户id */
-@property (nonatomic, assign) long long userWid;
+@property (nonatomic, assign) NSInteger userWid;
+/** 登陆成功的公司id */
+@property (nonatomic, assign) NSInteger pid;
 
 @property (nonatomic, copy) NSString *tradeType;
 @property (nonatomic, copy) NSString *account;

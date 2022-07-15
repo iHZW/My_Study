@@ -80,29 +80,29 @@
 {
     [super viewDidAppear:animated];
     
-    @pas_weakify_self
-    [self.dataLoader sendRequestDouBan:^(NSInteger status, id  _Nullable obj) {
-        @pas_strongify_self
-        NSString *str = (NSString *)obj;
-        NSLog(@"str = %@",str);
-        [self.zwWebPage.webView loadHTMLString:str baseURL:nil];
-    }];
+//    @pas_weakify_self
+//    [self.dataLoader sendRequestDouBan:^(NSInteger status, id  _Nullable obj) {
+//        @pas_strongify_self
+//        NSString *str = (NSString *)obj;
+//        NSLog(@"str = %@",str);
+//        [self.zwWebPage.webView loadHTMLString:str baseURL:nil];
+//    }];
     
     /* 发送请求 */
-//    [self.dataLoader sendRequestForInfoNewsHeadBanner:^(NSInteger status, LeftDrawerModel *obj) {
-//        
-//        if ([obj.status isEqualToString:@"1"]) {
-//            /* 成功 */
-//            ClientChatDataModel *chatModel = obj.data;
-//            NSArray *chatDataInfoList = chatModel.chatDataInfoList;
-//            ClientChatReccord *chatRecord = PASArrayAtIndex(chatDataInfoList, 0);
-//            NSLog(@"msgtype = %@",chatRecord.msgtype);
-//        } else {
-//            /* 失败 */
-//        }
-//        NSLog(@"status = %@, --- obj = %@", @(status), obj);
-//        
-//    }];
+    [self.dataLoader sendRequestForInfoNewsHeadBanner:^(NSInteger status, LeftDrawerModel *obj) {
+        
+        if ([obj.status isEqualToString:@"1"]) {
+            /* 成功 */
+            ClientChatDataModel *chatModel = obj.data;
+            NSArray *chatDataInfoList = chatModel.chatDataInfoList;
+            ClientChatReccord *chatRecord = PASArrayAtIndex(chatDataInfoList, 0);
+            NSLog(@"msgtype = %@",chatRecord.msgtype);
+        } else {
+            /* 失败 */
+        }
+        NSLog(@"status = %@, --- obj = %@", @(status), obj);
+        
+    }];
 }
 
 

@@ -28,6 +28,7 @@
 + (NSString *)tabbarStoreKey{
 //    return [NSString stringWithFormat:@"TAB_LIST_CONFIG_V2_%lld_%lld",Session.userSession.pid,Session.userSession.userWid];
     /** 可以根据不同的用户缓存 不同的tabbar数据  */
+//    return @"TAB_LIST_CONFIG_V2_23123123";
     long long pid = ZWCurrentUserInfo.pid;
     long long userWid = ZWCurrentUserInfo.userWid;
     return [NSString stringWithFormat:@"TAB_LIST_CONFIG_V2_%lld_%lld",pid,userWid];

@@ -9,7 +9,7 @@
 #import "ZWAlbumCropViewController.h"
 #import "PHAssetModel.h"
 #import "ZWAlbumManager.h"
-#import "ZWCropButton.h"
+#import "ZWButton.h"
 #import "ZWCropButtonView.h"
 #import "UIImage+GIF.h"
 #import "ZWImageUtil.h"

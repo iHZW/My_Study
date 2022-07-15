@@ -16,7 +16,7 @@
 #import "CommonSelectedConfig.h"
 #import "FileSelectManager.h"
 #import "PhotoActionSheetUtil.h"
-
+#import "ZWColorPickInfoWindow.h"
 
 #define kSectionViewHeight              20
 
@@ -52,19 +52,16 @@
         make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom).offset(-SafeAreaBottomAreaHeight);
     }];
-
+    
     @pas_weakify_self
     self.cellConfigBlock = ^(NSIndexPath * _Nonnull indexPath, PASIndicatorTableViewCell *cell) {
         @pas_strongify_self
         cell.isShowRightArrow = YES;
-
-//        cell.borderOption = PASBorderOptionBottom | PASBorderOptionRight;
-//        @weakify(cell)
-//        [cell zh_themeUpdateCallback:^(id  _Nonnull target) {
-//            @strongify(cell)
-//            [cell setShortColor:ThemePickerColorKey(ZWColorKey_p9).color];
-//            cell.backgroundColor = ThemePickerColorKey(ZWColorKey_p8).color;
-//        }];
+        
+        /** 设置选中背景色  */
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        UIView *selectedView = [UIView viewForColor:UIColorFromRGB(0x87CEFA) withFrame:cell.frame];
+        cell.selectedBackgroundView = selectedView;
 
         NSArray *tempArray = PASArrayAtIndex(self.dataArray, indexPath.section);
         ActionModel *model = PASArrayAtIndex(tempArray, indexPath.row);
@@ -72,7 +69,7 @@
         cell.leftLabel.font = PASFont(18);
         cell.leftLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p5);
     };
-    
+
     self.cellClickBlock = ^(NSIndexPath * _Nonnull indexPath, id  _Nonnull cell) {
         @pas_strongify_self
         ActionModel *model = self.dataArray[indexPath.section][indexPath.row];
@@ -97,7 +94,8 @@
                          [ActionModel initWithTitle:@"拍照/相册/文件" actionName:@"photoFileSelect"],
                          [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"]];
     
-    NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@""]];
+    NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@"testShowWindow"],
+                         [ActionModel initWithTitle:@"陀螺仪测试界面 ~ 球" actionName:@"testBallViewContorller"]];
     
     NSArray *sec4Arr = @[[ActionModel initWithTitle:@"清除缓存" actionName:@"cleanCacheData"],
                          [ActionModel initWithTitle:@"意见反馈" actionName:@"feedBackDetailInfo"],
@@ -298,5 +296,21 @@
     [ZWM.router executeRouterParam:param];
 }
 
+/**
+ *  打开首页底部广告
+ */
+- (void)testShowWindow
+{
+    [[ZWColorPickInfoWindow shareInstance] showView];
+    
+}
+
+/**
+ *  陀螺仪测试界面 ~ 球
+ */
+- (void)testBallViewContorller
+{
+    [ZWM.router executeURLNoCallBack:ZWRouterPageBallViewController];
+}
 
 @end

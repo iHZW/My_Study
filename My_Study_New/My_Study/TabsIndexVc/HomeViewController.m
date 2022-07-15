@@ -161,6 +161,8 @@
 
 - (void)setupDatas
 {
+    [self.dataList removeAllObjects];
+    
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Native页面" clazz:[RunLoopViewController class]]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native->Flutter-first" flutterPageName:@"first"]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native->Native(Flutter)-Native(flutter)" flutterPageName:@"testList"]];
@@ -174,13 +176,6 @@
 - (void)setupUI
 {
     [self.view addSubview:self.tableView];
-
-    /* 头部导航   底部tabBar */
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
-//        make.top.equalTo(self.view.mas_top).offset(SafeAreaTopStatusNavBarHeight);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-kMainTabbarHeight-SafeAreaBottomAreaHeight);
-    }];
 }
 - (void)setupLayout
 {
@@ -223,13 +218,17 @@
     cell.textLabel.text = model.title;
     cell.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p8);
     cell.textLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p4);
+    
+    UIView *selectedView = [UIView viewForColor:UIColorFromRGB(0x87CEFA) withFrame:cell.frame];
+    cell.selectedBackgroundView = selectedView;
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     /* 点击效果 */
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     BaseCellModel *model = self.dataList[indexPath.row];
     NSString *url = kClientChatDetailURL;

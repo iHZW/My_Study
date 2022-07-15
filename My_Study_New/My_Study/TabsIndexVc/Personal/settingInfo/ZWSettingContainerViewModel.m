@@ -89,6 +89,7 @@
                 /** 确定  */
                 [Toast show:@"退出登录!!!"];
                 [self dealWithLayout];
+                [[ZWUserAccountManager sharedZWUserAccountManager] cleanLoginStatusData];
             }
                 break;
                 

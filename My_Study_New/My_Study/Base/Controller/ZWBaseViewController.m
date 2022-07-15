@@ -10,6 +10,8 @@
 
 @interface ZWBaseViewController ()
 
+@property (nonatomic, strong) UIButton *closeBtn;
+
 @end
 
 @implementation ZWBaseViewController
@@ -30,6 +32,27 @@
     return self;
 }
 
+- (void)initCloseBtn
+{
+    [self.view addSubview:self.closeBtn];
+    [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(60, 40));
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.top.equalTo(self.view.mas_top).offset(kSysStatusBarHeight);
+    }];
+    
+    [self.view bringSubviewToFront:self.closeBtn];
+}
+
+- (UIButton *)closeBtn
+{
+    if (!_closeBtn) {
+        _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_closeBtn setImage:[UIImage imageNamed:@"top_icon_close"] forState:UIControlStateNormal];
+        [_closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _closeBtn;
+}
 
 
 /** 内存告警  */
@@ -68,7 +91,11 @@
         self.navBarShadowImage = nil;
     }
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    if (@available(iOS 11.0, *)) {
+//        self.scrVc.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self decodeRouterParams:self.routerParams];
@@ -94,9 +121,16 @@
     
 }
 
+/** 返回按钮  */
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
 //    self.navigationController.navigationBarHidden = YES;
+}
+
+/** 关闭按钮  */
+- (void)closeAction
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -125,44 +159,42 @@
 
 
 
-
-
 #pragma mark --摇一摇功能 和 LookinServer功能
 //让当前控制器成为第一响应者，只有这样才能接收事件，所以此段代码必须加到控制器中
-- (BOOL)canBecomeFirstResponder
-{
-    return NO;// default is NO
-}
-- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"开始摇动手机");
-}
-
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    NSLog(@"结束");
-    if (motion == UIEventSubtypeMotionShake) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"Lookin功能列表" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"导出为 Lookin 文档" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_Export" object:nil];
-        }]];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"进入 2D 模式" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_2D" object:nil];
-        }]];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"进入 3D 模式" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_3D" object:nil];
-        }]];
-        
-        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-}
-- (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"取消");
-}
+//- (BOOL)canBecomeFirstResponder
+//{
+//    return NO;// default is NO
+//}
+//- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+//{
+//    NSLog(@"开始摇动手机");
+//}
+//
+//-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+//    NSLog(@"结束");
+//    if (motion == UIEventSubtypeMotionShake) {
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"Lookin功能列表" preferredStyle:UIAlertControllerStyleAlert];
+//
+//        [alert addAction:[UIAlertAction actionWithTitle:@"导出为 Lookin 文档" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_Export" object:nil];
+//        }]];
+//
+//        [alert addAction:[UIAlertAction actionWithTitle:@"进入 2D 模式" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_2D" object:nil];
+//        }]];
+//
+//        [alert addAction:[UIAlertAction actionWithTitle:@"进入 3D 模式" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"Lookin_3D" object:nil];
+//        }]];
+//
+//        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//        [self presentViewController:alert animated:YES completion:nil];
+//    }
+//}
+//- (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
+//{
+//    NSLog(@"取消");
+//}
 
 
 
@@ -188,7 +220,7 @@
  */
 - (void)receiveLowMemoryWarning
 {
-    
+    NSLog(@"内存告警");
 }
 
 

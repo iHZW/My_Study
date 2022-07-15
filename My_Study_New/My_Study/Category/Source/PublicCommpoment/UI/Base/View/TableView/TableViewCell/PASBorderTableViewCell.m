@@ -12,10 +12,10 @@
 
 - (void)initInternal
 {
-    PASBorderBackgroundView *backgroundView = [[PASBorderBackgroundView alloc] init];
-    backgroundView.backgroundColor = [UIColor clearColor];
-    self.backgroundView = backgroundView;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    PASBorderBackgroundView *backgroundView = [[PASBorderBackgroundView alloc] init];
+//    backgroundView.backgroundColor = [UIColor clearColor];
+//    self.backgroundView = backgroundView;
+//    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

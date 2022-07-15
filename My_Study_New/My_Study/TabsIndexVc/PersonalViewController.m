@@ -12,7 +12,7 @@
 #import "ZWViewControllerAdapter.h"
 #import "ZWTableViewAdapter.h"
 #import "ZWRefreshHeader.h"
-#import "ZWBaseTableViewCell.h"
+#import "ZWPersonalBaseTableViewCell.h"
 #import "GCDCommon.h"
 #import "LoadingUtil.h"
 #import "UIApplication+Ext.h"

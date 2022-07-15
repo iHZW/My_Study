@@ -14,22 +14,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^SelectImageComplete)(NSArray <PHAssetModel *> * obj,BOOL isOriginal);
 
-typedef NS_ENUM(NSUInteger,FvAlbumMediaType) {
-    FvAlbumMediaTypePhoto = 0, //照片
-    FvAlbumMediaTypeVideo,     //视频
-    FvAlbumMediaTypeAllMedia   //照片和视频
+typedef NS_ENUM(NSUInteger,ZWAlbumMediaType) {
+    ZWAlbumMediaTypePhoto = 0, //照片
+    ZWAlbumMediaTypeVideo,     //视频
+    ZWAlbumMediaTypeAllMedia   //照片和视频
 };
 
-typedef NS_ENUM(NSUInteger,FvAlbumSelectType) {
-    FvAlbumSelectTypeSingle = 0, //单选
-    FvAlbumSelectTypeMore,       //多选
+typedef NS_ENUM(NSUInteger,ZWAlbumSelectType) {
+    ZWAlbumSelectTypeSingle = 0, //单选
+    ZWAlbumSelectTypeMore,       //多选
 };
 
 
-@interface ZWAlbumManager : CMObject
+@interface ZWAlbumManager : NSObject//CMObject
 
 // 相册资源类型
-@property (nonatomic ,assign) FvAlbumMediaType mediaType;
+@property (nonatomic ,assign) ZWAlbumMediaType mediaType;
 
 // 最大可选数
 @property (nonatomic ,assign) NSInteger maxSelectCount;
@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger,FvAlbumSelectType) {
 @property (nonatomic ,assign) CGFloat cropRatio;
 
 // 单选/多选
-@property (nonatomic ,assign) FvAlbumSelectType selectType;
+@property (nonatomic ,assign) ZWAlbumSelectType selectType;
 
 // 是否可预览
 @property (nonatomic ,assign) BOOL allowPre;

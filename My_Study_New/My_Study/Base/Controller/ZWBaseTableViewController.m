@@ -113,7 +113,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:zwDefaultCellIdentifier];
     cell.clipsToBounds = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.contentView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p8);
+    cell.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p8);
     [self setupTableCell:cell atIndexPath:indexPath];
     if (self.cellConfigBlock)
     {
@@ -142,11 +142,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     if (self.cellClickBlock)
     {
         self.cellClickBlock(indexPath, [tableView cellForRowAtIndexPath:indexPath]);
     }
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
