@@ -53,14 +53,18 @@ class BGView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.nowColor = self.downColor
         self.setNeedsDisplay()
         self.requestTest()
+        super.touchesBegan(touches, with:event)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchesEnded")
         self.nowColor = self.upColor
         self.setNeedsDisplay()
+        super.touchesEnded(touches, with: event)
     }
     
 //    override func draw(_ rect: CGRect) {
@@ -91,10 +95,23 @@ class BGView: UIView {
     
     /// Qlamofire 测试
     func requestTest() {
-        let url = "https://51237c7d-cc9f-4698-a457-e41200573681.mock.pstmn.io/client/privatesea/operationlogbyid"
-        let _: Parameters = [:]
-        Alamofire.request(url, method: .post).responseJSON { response in
+        
+        let url = "https://jsonplaceholder.typicode.com/posts?account=tom&password=147258"
+//        let url = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58/zq/wecomchat/chatrecord/detailList"
+        let parameters:Parameters = ["account": "tom", "password": "147258"]
+        Alamofire.request(url, method: .post, parameters:parameters).responseJSON { response in
             debugPrint(response)
+            
+            switch response.result {
+            
+            case .success(let json):
+                print("json:\(json)")
+                break
+               
+            case .failure(let error):
+                print("error:\(error)")
+                break
+            }
         }
     }
 }

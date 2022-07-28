@@ -8,6 +8,7 @@
 
 #import "ZWColorPickInfoView.h"
 #import "UIColor+Ext.h"
+#import "NSString+Verify.h"
 
 @interface ZWColorPickInfoView ()<UITextFieldDelegate>
 
@@ -103,9 +104,13 @@
 {
     NSString *result = [textField.text stringByReplacingCharactersInRange:range withString:string];
     NSString *rawText = [result stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([rawText containsString:@"#"]) {
+        rawText = [result stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    }
     BOOL isCan = YES;
     /** 判断输入的是十六进制颜色值  */
-    BOOL isAble = [DataFormatterFunc isColorNum:string];
+    BOOL isAble = [DataFormatterFunc isColorNum:rawText];
+
     if (rawText.length > 8 || !isAble) {
         isCan = NO;
     }

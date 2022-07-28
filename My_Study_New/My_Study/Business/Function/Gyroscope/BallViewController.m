@@ -34,9 +34,9 @@
     
     [self loadSubViews];
     [self initCloseBtn];
-//    [self playBall];
+    [self playBall];
     
-    [self useGyroPush];
+//    [self useGyroPush];
 }
 
 - (void)loadSubViews
@@ -57,19 +57,18 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    [self useGyroPull];
-//    if (self.manager.deviceMotionActive) {
-//        [self.manager stopDeviceMotionUpdates];
-//        NSLog(@"关闭啦");
-//    }else{
-//        [self playBall];
-//    }
-
-    if (self.manager.gyroActive) {
-        [self.manager stopGyroUpdates];
-    } else {
-        [self useGyroPull];
-//        [self.manager startGyroUpdates];
+    if (self.manager.deviceMotionActive) {
+        [self.manager stopDeviceMotionUpdates];
+        NSLog(@"关闭啦");
+    }else{
+        [self playBall];
     }
+
+//    if (self.manager.gyroActive) {
+//        [self.manager stopGyroUpdates];
+//    } else {
+//        [self useGyroPull];
+//    }
     
 }
 

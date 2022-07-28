@@ -10,6 +10,8 @@
 
 #define kNumbers     @"0123456789"
 #define kNumbersPeriod  @"0123456789."
+/** 检测是十六进制颜色值  */
+#define kCopyColorNum  @"#XxABCDEFabcdef0123456789"
 
 #define PASArrayAtIndex(array,i) [DataFormatterFunc checkArray:array index:i]
 

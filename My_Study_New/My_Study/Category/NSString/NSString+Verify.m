@@ -13,7 +13,8 @@
 #define kTIRegexBankCardNums    @"^[0-9]{8,}$"  // 银行卡
 #define kTIRegexPhoneNums       @"^((\\+86)|(86))?(1)\\d{10}$" // 手机号码
 
-#define kTIRegexColorNum        @"^#[0-9a-fA-F]{6}{1}$" //颜色值  十六进制的  #FFFFFF
+/** OC正则暂时没找到  */
+#define kTIRegexColorNum        @"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" //颜色值  十六进制的  #FFFFFF
 
 @implementation NSString (Verify)
 
@@ -56,8 +57,42 @@
 
 - (BOOL)checkColorNo
 {
-    return [self match:kTIRegexColorNum];
+    return YES;
+//    return [self match:kTIRegexColorNum];
 }
+
+/** 有效的邮箱 */
+- (BOOL)isValidEmail{
+    NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    return [self match:regex];
+}
+
+/** 有效的手机号 */
+- (BOOL)isValidPhone{
+    NSString *regex = @"1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\\d{8}";
+    return [self match:regex];
+}
+/** 有效的URL */
+- (BOOL)isValidUrl{
+    NSString *regex = @"http(s)?:\\/\\/([\\w-]+\\.)+[\\w-]+(\\/[\\w- .\\/?%&=]*)?";
+    return [self match:regex];
+}
+/** 有效的URL(忽略http://) */
+- (BOOL)isValidUrlIgnoreHttp{
+    NSString *regex = @"^www[.]+([\\w\\-\\.,@?^=%&:/~\\+#]*[\\w\\-\\@?^=%&/~\\+#])?";
+    return [self match:regex];
+}
+/** 有效的验证码 (4位数字) */
+- (BOOL)isValidCode{
+    NSString *regex = @"(\\d{4})";
+    return [self match:regex];
+}
+/** 有效密码  */
+- (BOOL)isValidPassword{
+    NSString *regex = @"(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}";
+    return [self match:regex];
+}
+
 
 /**
  *  校验银行卡luhn算法

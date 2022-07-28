@@ -436,7 +436,7 @@ static inline int64_t ZWGetSystemMilTime(void)
                               [self prepareSendDataRequestTask:requestEvent];
                               
                               NSData *certData = nil;
-                              
+//                              
                               if (manager != self.binaryHttpManager) { // AFSSLPinningModeCertificate 使用证书验证模式相关设置
                                   // 先导入证书，找到证书的路径
                                   NSString *cerPath = [[NSBundle mainBundle] pathForResource:[ZWHttpNetworkManager certNameWithHost:request.URL] ofType:nil];
@@ -463,6 +463,18 @@ static inline int64_t ZWGetSystemMilTime(void)
                                   [self httpResponseAction:requestEvent responseObject:responseObject error:error urlResponse:response completionBlock:completionBlock];
                                   NSString *url = TransToString(response.URL.absoluteString);
                                   NSString *logMsg = [NSString stringWithFormat:@"接口: %@ \n-入参: %@ \n-返回: %@", url, [JSONUtil jsonString:requestEvent.parameters], [JSONUtil jsonString:responseObject]];
+        
+                                  if (error) {
+                                      url = [DataFormatterFunc strValueForKey:@"NSErrorFailingURLStringKey" ofDict:error.userInfo];
+                                      NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:error.userInfo];
+                                      NSError *httpError = [[NSError alloc] initWithDomain:error.domain code:error.code userInfo:userInfo];
+                                      NSString *errorMsg = [NSString stringWithFormat:@"%@", httpError];
+                                      logMsg = [NSString stringWithFormat:@"接口: %@ \n-入参: %@ \n-返回: %@", url, [JSONUtil jsonString:requestEvent.parameters], errorMsg];
+
+                                      if (ValidString(errorMsg)) {
+                                          [Toast show:errorMsg];
+                                      }
+                                  }
                                   [LogUtil debug:logMsg flag:url context:self];
                               }];
     

@@ -151,11 +151,19 @@
     if (tempUIPasteboard.changeCount != self.count) {
         self.count = tempUIPasteboard.changeCount;
         NSString *hexString = tempUIPasteboard.string;
+        hexString = [DataFormatterFunc filterWithString:hexString formatType:kCopyColorNum];
         if ([hexString hasPrefix:@"#"]) {
             hexString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
-        } else if ([hexString hasPrefix:@"0x"]) {
+        }
+        
+        if ([hexString hasPrefix:@"0x"]) {
             hexString = [hexString stringByReplacingOccurrencesOfString:@"0x" withString:@""];
         }
+        
+        if ([hexString hasPrefix:@"0X"]) {
+            hexString = [hexString stringByReplacingOccurrencesOfString:@"0X" withString:@""];
+        }
+        
         self.titleName = hexString;
     }
 }

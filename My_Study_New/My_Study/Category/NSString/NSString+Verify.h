@@ -25,6 +25,24 @@
 /** 验证十六进制颜色值  */
 - (BOOL)checkColorNo;
 
+/** 有效的邮箱 */
+- (BOOL)isValidEmail;
+
+/** 有效的URL */
+- (BOOL)isValidUrl;
+
+/** 有效的URL(忽略http://) */
+- (BOOL)isValidUrlIgnoreHttp;
+
+/** 有效的手机号 */
+- (BOOL)isValidPhone;
+
+/** 有效的验证码 */
+- (BOOL)isValidCode;
+
+/** 有效密码  */
+- (BOOL)isValidPassword;
+
 /**
  *  给字符串局部加＊
  *

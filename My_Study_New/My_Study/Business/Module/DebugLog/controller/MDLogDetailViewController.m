@@ -146,16 +146,15 @@
 - (void)copyRequestMethod:(id)sender{
     
     /** 加载白屏  */
-    [self.zwWebView loadUrlString:@"http://people.mozilla.org/~rnewman/fennec/mem.html"];
+//    [self.zwWebView loadUrlString:@"http://people.mozilla.org/~rnewman/fennec/mem.html"];
     
-//    LogModel *logModel = [LogDAO queryLogDetails:self.identity];
-//
-//    NSString *copyString = logModel.msg;
-//    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-//    if (copyString) {
-//        [pasteboard setString:copyString];
-//        [Toast show:@"复制成功"];
-//    }
+    LogModel *logModel = [LogDAO queryLogDetails:self.identity];
+    NSString *copyString = logModel.msg;
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    if (copyString) {
+        [pasteboard setString:copyString];
+        [Toast show:@"复制成功"];
+    }
 }
 
 
