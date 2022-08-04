@@ -245,8 +245,34 @@
  */
 - (void)aboutDetailInfo
 {
-    
+    NSString *format = @"%@_1111_%.2f_3333";
+    ZWDebugLog(format, @"0000", @"22222");
+    NSString *formatStr = ZWDebugLogStr(format, @"666", 888.2);
+    formatStr = ZWFormatterUrl(format, @"777", 0.006);
+    NSLog(@"formatStr = %@", formatStr);
 }
+
+static inline void ZWDebugLog (NSString *format, ...) {
+    va_list args;
+    va_start(args, format);
+    NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
+    NSString *hodoerMessage = [NSString stringWithFormat:@"\n------------WMRemoteLog外部打印:------------\n%@", message];
+    NSLog(@"abc");
+    NSLog(hodoerMessage, args);
+    NSLog(@"def");
+    va_end(args);
+}
+
+static inline NSString * ZWDebugLogStr (NSString *format, ...) {
+    NSString *resultStr = @"";
+    va_list args;
+    va_start(args, format);
+    resultStr = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    return  resultStr;
+}
+
+
 
 /**
  *  用户隐私协议

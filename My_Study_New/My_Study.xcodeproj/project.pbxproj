@@ -129,6 +129,7 @@
 		4EAAD8112866C39A003D43FF /* TabIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD8102866C39A003D43FF /* TabIndexManager.m */; };
 		4EAAD8182868B208003D43FF /* ZWCommonWebPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD8172868B208003D43FF /* ZWCommonWebPage.m */; };
 		4EAAD81B2868B223003D43FF /* ZWWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAD81A2868B223003D43FF /* ZWWebView.m */; };
+		4EAB7FDA289AA6ED00502B97 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB7FD9289AA6ED00502B97 /* NSString+Extension.m */; };
 		4EB2B015286EC9610029A498 /* NSObject+ZWDeallocExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2B014286EC9610029A498 /* NSObject+ZWDeallocExecutor.m */; };
 		4EC47F6F287FFC6400AF4E53 /* BallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC47F6E287FFC6400AF4E53 /* BallViewController.m */; };
 		4EC47F72287FFC7100AF4E53 /* ZWBallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC47F71287FFC7100AF4E53 /* ZWBallView.m */; };
@@ -664,6 +665,8 @@
 		4EAAD8172868B208003D43FF /* ZWCommonWebPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWCommonWebPage.m; sourceTree = "<group>"; };
 		4EAAD8192868B223003D43FF /* ZWWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWWebView.h; sourceTree = "<group>"; };
 		4EAAD81A2868B223003D43FF /* ZWWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWWebView.m; sourceTree = "<group>"; };
+		4EAB7FD8289AA6ED00502B97 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		4EAB7FD9289AA6ED00502B97 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		4EB2B005286D7F960029A498 /* PersonalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalHeader.h; sourceTree = "<group>"; };
 		4EB2B013286EC9610029A498 /* NSObject+ZWDeallocExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZWDeallocExecutor.h"; sourceTree = "<group>"; };
 		4EB2B014286EC9610029A498 /* NSObject+ZWDeallocExecutor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZWDeallocExecutor.m"; sourceTree = "<group>"; };
@@ -3434,6 +3437,8 @@
 		7C6309EA22A676FE00C73AAB /* NSString */ = {
 			isa = PBXGroup;
 			children = (
+				4EAB7FD8289AA6ED00502B97 /* NSString+Extension.h */,
+				4EAB7FD9289AA6ED00502B97 /* NSString+Extension.m */,
 				4EEEB861285EBA0100FD49A9 /* NSString+DataTransition.h */,
 				4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */,
 				4EEEB863285EBA0100FD49A9 /* NSString+URLEncode.h */,
@@ -4120,6 +4125,7 @@
 				7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */,
 				4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */,
 				4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */,
+				4EAB7FDA289AA6ED00502B97 /* NSString+Extension.m in Sources */,
 				4E0680FE28759DD900F6728A /* LocationTrimDataLoader.m in Sources */,
 				4E5F2CF72876BA4500FEC6C2 /* PermissionLocation.m in Sources */,
 				4ED26ADE287EBA6900F0EDFE /* ZWColorPickInfoWindow.m in Sources */,
@@ -4500,7 +4506,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -4536,7 +4542,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "My-StudyQA";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.weimob.My-StudyQA";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

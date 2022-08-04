@@ -2,13 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleAllowMixedLocalizations</key>
-	<true/>
 	<key>AppConfiguration</key>
 	<dict>
 		<key>ZW_HOST</key>
 		<string>$(ZW_HOST)</string>
 	</dict>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -31,14 +31,14 @@
 	<dict>
 		<key>127.0.0.1:4523</key>
 		<dict>
-			<key>NSAllowsArbitraryLoadsInWebContent</key>
-			<true/>
 			<key>NSAllowsArbitraryLoads</key>
 			<true/>
+			<key>NSAllowsArbitraryLoadsInWebContent</key>
+			<true/>
 		</dict>
-		<key>NSAllowsArbitraryLoadsInWebContent</key>
-		<true/>
 		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>

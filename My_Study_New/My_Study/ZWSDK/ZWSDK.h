@@ -151,6 +151,7 @@ typedef long long _int64;
 //字符串转换为非空
 #define __String_Not_Nil(str) (str?:@"")
 
+
 #define kMainScreenSize     ([[UIScreen mainScreen] bounds].size)
 #define kMainScreenBounds  [UIScreen mainScreen].bounds
 #define kMainScreenWidth    MIN([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)
@@ -233,5 +234,23 @@ typedef long long _int64;
  *  布点适配宏
  */
 #define __PASBI
+
+
+/**
+ *  替换url占位符
+ *
+ *  @param format    带占位符的字符串
+ *
+ */
+static inline NSString *ZWFormatterUrl(NSString *format, ...)
+{
+    NSString *resultUrl = @"";
+    va_list argList;
+    va_start(argList, format);
+    resultUrl = [[NSString alloc] initWithFormat:format arguments:argList];
+    va_end(argList);
+    return resultUrl;
+}
+
 
 #endif /* ZWSDK_h */
