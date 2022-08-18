@@ -75,6 +75,7 @@
 {
     self.colorView.backgroundColor = [UIColor colorFromHexCode:hexColor];
     self.titleLabel.text = [NSString stringWithFormat:@"#%@", hexColor];
+    self.titleLabel.textColor = [UIColor colorFromHexCode:hexColor];
 }
 
 

@@ -17,8 +17,12 @@
 #import "FileSelectManager.h"
 #import "PhotoActionSheetUtil.h"
 #import "ZWColorPickInfoWindow.h"
+#import "PathConstants.h"
+#import "SSZipArchive.h"
 
 #define kSectionViewHeight              20
+#define ZWNSLog(...)  printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
 
 @interface SettingViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -229,6 +233,42 @@
  */
 - (void)cleanCacheData
 {
+    BOOL isCrash = NO;
+    /**
+     *  try catch 异常捕获 局限性,只能捕获 数组越界 等异常 其他异常捕获不到
+     */
+    @try {
+        NSMutableArray *data = [NSMutableArray array];
+//        id a = [data objectAtIndex:2];
+        [data addObject:nil];
+    } @catch (NSException *exception) {
+        NSLog(@ "%s\n%@" , __FUNCTION__, exception);
+    } @finally {
+        
+    }
+    NSLog(@"isCrash = %@", @(isCrash));
+    
+    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:@"safe" ofType:@"zip"];
+    NSString *preversionPath = [PathConstants preversionDirectory];
+    NSString *downPath = [PathConstants downLoadDirectory];
+    NSString *fileName = @"safe.zip";
+    NSString *toDownLoadPath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
+    NSString *toPreversionPath = [NSString stringWithFormat:@"%@/%@", preversionPath, fileName];
+
+    @weakify(self)
+    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+        
+    } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
+        @strongify(self)
+        if (succeeded) {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            BOOL isSuccessOne = [fileManager copyItemAtPath:filePath toPath:toDownLoadPath error:&error];
+            BOOL isSuccessTwo = [fileManager copyItemAtPath:filePath toPath:toPreversionPath error:&error];
+            NSLog(@"isSuccessOne = %d\nisSuccessTwo = %d", isSuccessOne, isSuccessTwo);
+        }
+    }];
     
 }
 
@@ -237,7 +277,27 @@
  */
 - (void)feedBackDetailInfo
 {
+    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
+    NSString *downPath = [PathConstants downLoadDirectory];
+    NSString *preversionPath = [PathConstants preversionDirectory];
+    NSString *fileName = @"safe.zip";
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
     
+    @weakify(self)
+    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+        
+    } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
+        @strongify(self)
+        NSLog(@"succeeded = %@", @(succeeded));
+        if (succeeded) {
+            
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            BOOL isSuccessOne = [fileManager removeItemAtPath:downPath error:&error];
+            NSLog(@"isSuccessOne = %d", isSuccessOne);
+        }
+    }];
+        
 }
 
 /**
@@ -245,6 +305,9 @@
  */
 - (void)aboutDetailInfo
 {
+    
+    
+    
     NSString *format = @"%@_1111_%.2f_3333";
     ZWDebugLog(format, @"0000", @"22222");
     NSString *formatStr = ZWDebugLogStr(format, @"666", 888.2);
@@ -257,9 +320,9 @@ static inline void ZWDebugLog (NSString *format, ...) {
     va_start(args, format);
     NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
     NSString *hodoerMessage = [NSString stringWithFormat:@"\n------------WMRemoteLog外部打印:------------\n%@", message];
-    NSLog(@"abc");
-    NSLog(hodoerMessage, args);
-    NSLog(@"def");
+    ZWNSLog(@"abc");
+    ZWNSLog(hodoerMessage, args);
+    ZWNSLog(@"def");
     va_end(args);
 }
 

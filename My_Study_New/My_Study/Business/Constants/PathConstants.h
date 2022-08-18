@@ -36,6 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)gcdWebServerRootDirectory;
 /**
+ * downLoad 目录 「documents/app/downLoad」
+ */
++ (NSString *)downLoadDirectory;
+/**
+ * preversion 目录 「documents/app/preversion」
+ */
++ (NSString *)preversionDirectory;
+/**
  * 本地临时目录，访问本地文件 「temp/hybrid」
  */
 + (NSString *)fileWebServerRootDirectory;

@@ -230,6 +230,23 @@ typedef long long _int64;
 #define dimof(a)    (sizeof(a) / sizeof(a[0]))
 #endif
 
+
+/**
+ *  dispatch_semaphore_t
+ *
+ *  @param 信号量锁
+ *
+ */
+#ifndef ZW_LOCK
+#define ZW_LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#endif
+
+#ifndef ZW_UNLOCK
+#define ZW_UNLOCK(lock) dispatch_semaphore_signal(lock);
+#endif
+
+
+
 /**
  *  布点适配宏
  */

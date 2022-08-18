@@ -62,6 +62,7 @@
 		4E403FA42865C461006C0656 /* UIAlertAction+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA22865C461006C0656 /* UIAlertAction+Ext.m */; };
 		4E403FA92865FA32006C0656 /* CustomTabbarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA82865FA32006C0656 /* CustomTabbarObject.m */; };
 		4E4D95DE27D6FAFD0019061E /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */; };
+		4E4E1CFE28A4142600EC5EBB /* safe.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4E4E1CFD28A4142500EC5EBB /* safe.zip */; };
 		4E4F9CCD286C559C003281B5 /* PersonalCenterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */; };
 		4E4F9CD8286C5D8E003281B5 /* ZWRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CD7286C5D8D003281B5 /* ZWRefreshHeader.m */; };
 		4E4F9CDB286C5E44003281B5 /* ZWBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CDA286C5E44003281B5 /* ZWBaseView.m */; };
@@ -523,6 +524,7 @@
 		4E403FA82865FA32006C0656 /* CustomTabbarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarObject.m; sourceTree = "<group>"; };
 		4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCfamilly.h; sourceTree = "<group>"; };
 		4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCfamilly.m; sourceTree = "<group>"; };
+		4E4E1CFD28A4142500EC5EBB /* safe.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = safe.zip; sourceTree = "<group>"; };
 		4E4F9CCB286C559C003281B5 /* PersonalCenterConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalCenterConfig.h; sourceTree = "<group>"; };
 		4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterConfig.m; sourceTree = "<group>"; };
 		4E4F9CD1286C590C003281B5 /* ZWTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWTableViewAdapter.h; sourceTree = "<group>"; };
@@ -1623,6 +1625,22 @@
 				4EAAD8102866C39A003D43FF /* TabIndexManager.m */,
 			);
 			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		4E4E1CFB28A413F400EC5EBB /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4E4E1CFC28A4140A00EC5EBB /* LocalSource */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		4E4E1CFC28A4140A00EC5EBB /* LocalSource */ = {
+			isa = PBXGroup;
+			children = (
+				4E4E1CFD28A4142500EC5EBB /* safe.zip */,
+			);
+			path = LocalSource;
 			sourceTree = "<group>";
 		};
 		4E4F9CCA286C5568003281B5 /* Personal */ = {
@@ -2909,6 +2927,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				4E4E1CFB28A413F400EC5EBB /* Source */,
 				4E0680BD2873E4E100F6728A /* Configuration */,
 				4EDC09692862C43D001C53CE /* PublicComponent */,
 				4EC6B2C32861B12900F57AAC /* Business */,
@@ -3963,6 +3982,7 @@
 				7C4F93E02302B39300F2238E /* ReadMe.md in Resources */,
 				4EC6B36A2861B12A00F57AAC /* Untitled-8.gif in Resources */,
 				4EC6B35A2861B12A00F57AAC /* launch_guide_2_min.png in Resources */,
+				4E4E1CFE28A4142600EC5EBB /* safe.zip in Resources */,
 				4EC6B3722861B12A00F57AAC /* guideImage6.gif in Resources */,
 				4EC6B35B2861B12A00F57AAC /* LaunchImg_one.png in Resources */,
 				4EC6B3532861B12A00F57AAC /* launch_guide_1.png in Resources */,
@@ -4509,7 +4529,7 @@
 				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

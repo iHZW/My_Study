@@ -8,6 +8,7 @@
 
 #import "LogUtil.h"
 #import "LogAppender.h"
+#import "Logan.h"
 
 @interface LogUtil()
 @property (nonatomic, assign) LogLevel logLevel;
@@ -58,6 +59,22 @@
     return instance;
 }
 
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        
+        NSData *keydata = [@"18516638588" dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *ivdata = [@"15638406026" dataUsingEncoding:NSUTF8StringEncoding];
+        uint64_t file_max = 10 * 1024 * 1024;
+        loganInit(keydata, ivdata, file_max);
+        
+        #if DEBUG
+        loganUseASL(YES);
+        #endif
+    }
+    return self;
+}
 
 - (void)log:(NSString *)msg level:(LogLevel)logLevel flag:(nullable NSString *)flag context:(id)context{
     
