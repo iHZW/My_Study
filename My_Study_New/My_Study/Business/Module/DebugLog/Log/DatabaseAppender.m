@@ -66,16 +66,16 @@ DB_EXPORT_ID(DB_COMMON_ID)
 
 - (NSString *)getFileInfo
 {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *path = [[self class] loganLogDirectory];
-    id data = [NSData dataWithContentsOfFile:path];
-    NSError *error;
-    NSString *dataStr1 = [DataFormatterFunc jsonObjectFromData:data error:&error];
-    NSString *dataStr2 = [DataFormatterFunc parseDataToDict:data];
-    NSDictionary *dict111 = [[NSDictionary alloc] initWithContentsOfFile:path];
-    NSArray *tempArray = [NSArray arrayWithContentsOfFile:path];
-    NSString *dataStr3 = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSString *dataStr4 = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    NSFileManager *fm = [NSFileManager defaultManager];
+//    NSString *path = [[self class] loganLogDirectory];
+//    id data = [NSData dataWithContentsOfFile:path];
+//    NSError *error;
+//    NSString *dataStr1 = [DataFormatterFunc jsonObjectFromData:data error:&error];
+//    NSString *dataStr2 = [DataFormatterFunc parseDataToDict:data];
+//    NSDictionary *dict111 = [[NSDictionary alloc] initWithContentsOfFile:path];
+//    NSArray *tempArray = [NSArray arrayWithContentsOfFile:path];
+//    NSString *dataStr3 = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//    NSString *dataStr4 = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSDictionary *files = loganAllFilesInfo();
 
     NSMutableString *str = [[NSMutableString alloc] init];

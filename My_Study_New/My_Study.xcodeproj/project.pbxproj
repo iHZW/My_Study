@@ -94,6 +94,7 @@
 		4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A77285B7F2900B54C89 /* NSObject+DataBase.m */; };
 		4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A7C285B7FA500B54C89 /* NSFileManager+Ext.m */; };
 		4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */; };
+		4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA59D4628AE4F58002D9759 /* TestWebViewController.m */; };
 		4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7263D27D75CA60060BDBA /* customerView.swift */; };
 		4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E227D72E3200422BAE /* CRMViewController.m */; };
 		4EA737E627D7351400422BAE /* AppLaunchTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E527D7351400422BAE /* AppLaunchTime.m */; };
@@ -592,6 +593,8 @@
 		4E899A7D285B7FA500B54C89 /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
 		4E899A92285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+HttpBodyAddition.h"; sourceTree = "<group>"; };
 		4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HttpBodyAddition.m"; sourceTree = "<group>"; };
+		4EA59D4528AE4F58002D9759 /* TestWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewController.h; sourceTree = "<group>"; };
+		4EA59D4628AE4F58002D9759 /* TestWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewController.m; sourceTree = "<group>"; };
 		4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oc_swift-Swift.h"; sourceTree = "<group>"; };
 		4EA7263D27D75CA60060BDBA /* customerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customerView.swift; sourceTree = "<group>"; };
 		4EA737E127D72E3200422BAE /* CRMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMViewController.h; sourceTree = "<group>"; };
@@ -1855,6 +1858,15 @@
 			path = NSURLRequest;
 			sourceTree = "<group>";
 		};
+		4EA59D4428AE4F46002D9759 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				4EA59D4528AE4F58002D9759 /* TestWebViewController.h */,
+				4EA59D4628AE4F58002D9759 /* TestWebViewController.m */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		4EA97E5D286C958E00C06BE4 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -2203,6 +2215,7 @@
 		4EC6B2F92861B12A00F57AAC /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				4EA59D4428AE4F46002D9759 /* Test */,
 				4E0680CE28741F9400F6728A /* ChangeEnv */,
 				4E403F7D2865A994006C0656 /* HTMLLabel */,
 				4EC6B31E2861B12A00F57AAC /* ModuleContainer.h */,
@@ -4413,6 +4426,7 @@
 				4EDC0B60286308D6001C53CE /* NSObject+Safe.m in Sources */,
 				7C4F93DD2302B39300F2238E /* PASLineCell.m in Sources */,
 				7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */,
+				4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */,
 				4E899A78285B7F2A00B54C89 /* DataBase.m in Sources */,
 				4EC6B37D2861B12A00F57AAC /* MDLogManager.m in Sources */,
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,

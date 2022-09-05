@@ -10,7 +10,7 @@
 #import "MDLogTableViewCell.h"
 #import "MDLogViewController.h"
 #import "ZWBaseTableView.h"
-
+#import "TestWebViewController.h"
 
 #define kLogTabViewCellIdentifier   @"kLogTabViewCellIdentifier"
 
@@ -122,8 +122,8 @@
 //                TestViewController *vc = [[TestViewController alloc] init];
 //                [self.navigationController pushViewController:vc animated:YES];
             } else if (indexPath.row == 1){
-//                TestWebViewController *vc = [[TestWebViewController alloc] init];
-//                [self.navigationController pushViewController:vc animated:YES];
+                TestWebViewController *vc = [[TestWebViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             } else if (indexPath.row == 2){
 //                TestWebIpViewController *vc = [[TestWebIpViewController alloc] init];
 //                [self.navigationController pushViewController:vc animated:YES];
