@@ -84,6 +84,8 @@
 		4E5F2D122876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D112876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m */; };
 		4E5F2D152876C9D000FEC6C2 /* ZWNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D142876C9D000FEC6C2 /* ZWNative.m */; };
 		4E5F2D1B2876CD0400FEC6C2 /* NSString+VersionCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */; };
+		4E68973928CC49E90003CF78 /* CardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68973828CC49E90003CF78 /* CardTableViewCell.m */; };
+		4E68973C28CC6F9A0003CF78 /* TestCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68973B28CC6F9A0003CF78 /* TestCardTableViewCell.m */; };
 		4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B4285B85F700DEC9CC /* DateUtil.m */; };
 		4E7427BA285B864900DEC9CC /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B8285B864900DEC9CC /* Toast.m */; };
 		4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427BB285B869400DEC9CC /* UIColor+Ext.m */; };
@@ -94,6 +96,8 @@
 		4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A77285B7F2900B54C89 /* NSObject+DataBase.m */; };
 		4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A7C285B7FA500B54C89 /* NSFileManager+Ext.m */; };
 		4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */; };
+		4E94EA4628CADA1B007EDEFC /* UITextField+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */; };
+		4E94EA4928CB8C19007EDEFC /* LineTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */; };
 		4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA59D4628AE4F58002D9759 /* TestWebViewController.m */; };
 		4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7263D27D75CA60060BDBA /* customerView.swift */; };
 		4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E227D72E3200422BAE /* CRMViewController.m */; };
@@ -571,6 +575,10 @@
 		4E5F2D142876C9D000FEC6C2 /* ZWNative.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWNative.m; sourceTree = "<group>"; };
 		4E5F2D192876CD0400FEC6C2 /* NSString+VersionCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+VersionCompare.h"; sourceTree = "<group>"; };
 		4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+VersionCompare.m"; sourceTree = "<group>"; };
+		4E68973728CC49E90003CF78 /* CardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardTableViewCell.h; sourceTree = "<group>"; };
+		4E68973828CC49E90003CF78 /* CardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardTableViewCell.m; sourceTree = "<group>"; };
+		4E68973A28CC6F9A0003CF78 /* TestCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCardTableViewCell.h; sourceTree = "<group>"; };
+		4E68973B28CC6F9A0003CF78 /* TestCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCardTableViewCell.m; sourceTree = "<group>"; };
 		4E7427B4285B85F700DEC9CC /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		4E7427B5285B85F700DEC9CC /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
 		4E7427B8285B864900DEC9CC /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
@@ -593,6 +601,10 @@
 		4E899A7D285B7FA500B54C89 /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
 		4E899A92285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+HttpBodyAddition.h"; sourceTree = "<group>"; };
 		4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HttpBodyAddition.m"; sourceTree = "<group>"; };
+		4E94EA4428CADA1B007EDEFC /* UITextField+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Additions.h"; sourceTree = "<group>"; };
+		4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Additions.m"; sourceTree = "<group>"; };
+		4E94EA4728CB8C19007EDEFC /* LineTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		4EA59D4528AE4F58002D9759 /* TestWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewController.h; sourceTree = "<group>"; };
 		4EA59D4628AE4F58002D9759 /* TestWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewController.m; sourceTree = "<group>"; };
 		4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oc_swift-Swift.h"; sourceTree = "<group>"; };
@@ -2268,6 +2280,8 @@
 			children = (
 				4EC6B3092861B12A00F57AAC /* MDDebugViewController.h */,
 				4EC6B30C2861B12A00F57AAC /* MDDebugViewController.m */,
+				4E94EA4728CB8C19007EDEFC /* LineTableViewHeaderFooterView.h */,
+				4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */,
 				4EC6B30D2861B12A00F57AAC /* MDLogViewController.h */,
 				4EC6B30B2861B12A00F57AAC /* MDLogViewController.m */,
 				4EC6B30A2861B12A00F57AAC /* MDLogDetailViewController.h */,
@@ -2283,6 +2297,10 @@
 				4EC6B3122861B12A00F57AAC /* MDLogSearchView.m */,
 				4EC6B3132861B12A00F57AAC /* MDLogTableViewCell.h */,
 				4EC6B3112861B12A00F57AAC /* MDLogTableViewCell.m */,
+				4E68973728CC49E90003CF78 /* CardTableViewCell.h */,
+				4E68973828CC49E90003CF78 /* CardTableViewCell.m */,
+				4E68973A28CC6F9A0003CF78 /* TestCardTableViewCell.h */,
+				4E68973B28CC6F9A0003CF78 /* TestCardTableViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -3772,6 +3790,8 @@
 			children = (
 				7C8AAE6722E986C800589862 /* PASTextField.h */,
 				7C8AAE6822E986C800589862 /* PASTextField.m */,
+				4E94EA4428CADA1B007EDEFC /* UITextField+Additions.h */,
+				4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -4168,6 +4188,7 @@
 				4EC6B37E2861B12A00F57AAC /* LogModel.m in Sources */,
 				4ED59587286F4B9B002D15F1 /* zhThemeKeyConfig.m in Sources */,
 				4E5F2D0F2876C24A00FEC6C2 /* JSWeakObject.m in Sources */,
+				4E68973C28CC6F9A0003CF78 /* TestCardTableViewCell.m in Sources */,
 				7C6A215826E371F200E0CF20 /* WFBaseDemo.m in Sources */,
 				4EC6B37F2861B12A00F57AAC /* LogDAO.m in Sources */,
 				4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */,
@@ -4182,6 +4203,7 @@
 				4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */,
 				4ED59581286EF3DF002D15F1 /* zhThemeManager.m in Sources */,
 				7C8AAE5322E9856400589862 /* UIView+Create.m in Sources */,
+				4E68973928CC49E90003CF78 /* CardTableViewCell.m in Sources */,
 				7C4EF0012303948E0040DA7A /* NSObject+Customizer.m in Sources */,
 				4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */,
 				4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */,
@@ -4226,6 +4248,7 @@
 				4EFECF7A287D201300B137BB /* ZWCacheManager.m in Sources */,
 				7C4F93E42302B39300F2238E /* PASIndicatorTableViewCell.m in Sources */,
 				4EFECFFB287DC47400B137BB /* CRC32.m in Sources */,
+				4E94EA4628CADA1B007EDEFC /* UITextField+Additions.m in Sources */,
 				7C8AAE6022E985ED00589862 /* CATextLayer+Helper.m in Sources */,
 				4EEC47C82859F2CB0047F8B6 /* NSString+NumberFormat.m in Sources */,
 				7CB1A2F726E4826D00D450CE /* DispatchBarrierPage.m in Sources */,
@@ -4246,6 +4269,7 @@
 				7C8AAE8122E9876D00589862 /* UIButton+Block.m in Sources */,
 				7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */,
 				4EA986D4287BC51C0095ECF9 /* FileSelectViewController.m in Sources */,
+				4E94EA4928CB8C19007EDEFC /* LineTableViewHeaderFooterView.m in Sources */,
 				4E4F9CDB286C5E44003281B5 /* ZWBaseView.m in Sources */,
 				7C8AAE3B22E984E900589862 /* UIAlertUtil.m in Sources */,
 				7C4EF00D230394FA0040DA7A /* DispatchMessageCenter.m in Sources */,
@@ -4858,7 +4882,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;

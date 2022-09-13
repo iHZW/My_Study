@@ -87,7 +87,7 @@
  */
 - (void)removeAllObservers
 {
-    [[CMNetLayerNotificationCenter defaultCenter] removeObserver:self];
+//    [[CMNetLayerNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

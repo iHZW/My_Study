@@ -2,8 +2,8 @@
 platform :ios, '9.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/iHZW/WFPodSpecs.git'
-source 'https://github.com/iHZW/WFLibSpec.git'
+#source 'https://github.com/iHZW/WFPodSpecs.git'
+#source 'https://github.com/iHZW/WFLibSpec.git'
 
 #flutter_application_path = "../Flutter/flutter_module"
 #load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
@@ -48,10 +48,10 @@ target 'My_Study' do
   
   #本地库
 #  pod 'MJUtils', :path => 'LocalLib/MJUtils'
-  pod 'WFUtilsLib'
-  pod 'MJMonkeyLib'
-  pod 'WFEOCFamilyLib'
-  pod 'WFUIKit'
+#  pod 'WFUtilsLib'
+#  pod 'MJMonkeyLib'
+#  pod 'WFEOCFamilyLib'
+#  pod 'WFUIKit'
   
   pod 'YYKit'
 #  加载SVG图片资源使用
@@ -81,7 +81,12 @@ target 'My_Study' do
 
   # logan  美团日志
   pod 'Logan'
+  
+  # 骨架屏
+  pod 'TABAnimated', '2.6.3'
 
+  # 富文本
+  pod 'ChainAttributedString''
 
 end
 

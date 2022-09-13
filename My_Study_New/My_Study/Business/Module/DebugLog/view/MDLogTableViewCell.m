@@ -31,38 +31,69 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         [self loadSubViews];
-        self.subTitleName = @"";
+//        self.subTitleName = @"";
     }
     return self;
 }
 
 - (void)loadSubViews
 {
-    [self.contentView addSubview:self.containerView];
-    [self.contentView addSubview:self.iconBtn];
-    [self.containerView addSubview:self.titleLabel];
-    [self.containerView addSubview:self.subTitleLabel];
+//    [self.contentView addSubview:self.containerView];
+//    [self.contentView addSubview:self.iconBtn];
+//    [self.containerView addSubview:self.titleLabel];
+//    [self.containerView addSubview:self.subTitleLabel];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 5, kMainScreenWidth - 10*2 , 50)];
+    view.layer.cornerRadius = 10.0;
+    view.backgroundColor = UIColor.whiteColor;
+    // 给bgView边框设置阴影
+    view.layer.shadowOpacity = 0.1;
+    view.layer.shadowColor = UIColor.blackColor.CGColor;
+    view.layer.shadowRadius = 5;
+    view.layer.shadowOffset = CGSizeMake(1,1);
+    self.containerView = view;
+    
+    [self addSubview:view];
+    [view addSubview:self.titleLabel];
+    [view addSubview:self.subTitleLabel];
+    
+    [view addSubview:self.iconBtn];
+
+
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
     
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.centerY.equalTo(self.contentView);
-        make.right.equalTo(self.contentView.mas_right).offset(-kCommonLeftSpace-40);
+        make.left.mas_offset(10);
+        make.right.mas_offset(-10);
+        make.bottom.mas_offset(-5);
+        make.top.mas_offset(5);
+//        make.left.centerY.mas_equalTo(self.contentView);
+//        make.right.mas_equalTo(self.contentView.mas_right).mas_offset(-kCommonLeftSpace-40);
+//        make.height.mas_equalTo(CGRectGetHeight(self.frame)-20);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.equalTo(self.containerView);
-        make.left.equalTo(self.containerView.mas_left).offset(kCommonLeftSpace);
+        make.top.mas_equalTo(self.containerView);
+        make.left.mas_equalTo(self.containerView.mas_left).mas_offset(kCommonLeftSpace);
+//        make.height.mas_equalTo(25);
+        make.right.mas_equalTo(self.containerView).mas_offset(-kCommonLeftSpace-40);
     }];
     
     [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.titleLabel);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(kTitleBetweenSpace);
-        make.bottom.equalTo(self.containerView.mas_bottom);
+        make.left.mas_equalTo(self.titleLabel);
+        make.right.mas_equalTo(self.titleLabel);
+        make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kTitleBetweenSpace);
+        make.bottom.mas_equalTo(self.containerView.mas_bottom);
     }];
     
     [self.iconBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(self.contentView);
-        make.right.equalTo(self.contentView.mas_right).offset(-kCommonLeftSpace);
-//        make.width.mas_equalTo(80);
+        make.top.bottom.mas_equalTo(self.containerView);
+        make.right.mas_equalTo(self.containerView.mas_right).mas_offset(-kCommonLeftSpace);
+        make.width.mas_equalTo(40);
     }];
 }
 
@@ -85,11 +116,11 @@
     
     if (ValidString(subTitleName)) {
         [self.subTitleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.titleLabel.mas_bottom).offset(kTitleBetweenSpace);
+            make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kTitleBetweenSpace);
         }];
     } else {
         [self.subTitleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.titleLabel.mas_bottom);
+            make.top.mas_equalTo(self.titleLabel.mas_bottom);
         }];
     }
 }
@@ -129,12 +160,22 @@
     return _iconBtn;
 }
 
-- (UIView *)containerView
-{
-    if (!_containerView) {
-        _containerView = [UIView viewForColor:[UIColor clearColor] withFrame:CGRectZero];
-    }
-    return _containerView;
-}
+//- (UIView *)containerView
+//{
+//    if (!_containerView) {
+//
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 5, kMainScreenWidth - 10*2, 60-10)];
+//        view.layer.cornerRadius = 10;
+//        view.backgroundColor = UIColor.greenColor;
+//        // 给bgView边框设置阴影
+//        view.layer.shadowOpacity = 0.1;
+//        view.layer.shadowColor = UIColor.blackColor.CGColor;
+//        view.layer.shadowRadius = 5;
+//        view.layer.shadowOffset = CGSizeMake(1,1);
+//
+//        _containerView = view;
+//    }
+//    return _containerView;
+//}
 
 @end
