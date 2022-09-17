@@ -8,13 +8,11 @@
 #import "DoraemonColorPickInfoView.h"
 #import "DoraemonDefine.h"
 
-@interface DoraemonColorPickInfoView () <UITextFieldDelegate>
+@interface DoraemonColorPickInfoView ()
 
 @property (nonatomic, strong) UIView *colorView;
 @property (nonatomic, strong) UILabel *colorValueLbl;
 @property (nonatomic, strong) UIButton *closeBtn;
-
-@property (nonatomic, strong) UITextField *textField;
 
 @end
 
@@ -53,7 +51,6 @@
     [self addSubview:self.colorView];
     [self addSubview:self.colorValueLbl];
     [self addSubview:self.closeBtn];
-    [self addSubview:self.textField];
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
@@ -84,55 +81,10 @@
     CGFloat colorValueWidth = kDoraemonSizeFrom750_Landscape(150);
     self.colorValueLbl.frame = CGRectMake(self.colorView.doraemon_right + kDoraemonSizeFrom750_Landscape(20), 0, colorValueWidth, self.doraemon_height);
     
-    CGFloat textFieldWidth = self.doraemon_width - kDoraemonSizeFrom750_Landscape(44) - kDoraemonSizeFrom750_Landscape(32) - self.colorValueLbl.doraemon_right - kDoraemonSizeFrom750_Landscape(5);
-    self.textField.frame = CGRectMake(self.colorValueLbl.doraemon_right + kDoraemonSizeFrom750_Landscape(5), 0, textFieldWidth, self.doraemon_height);
-    
     CGFloat closeWidth = kDoraemonSizeFrom750_Landscape(44);
     CGFloat closeHeight = kDoraemonSizeFrom750_Landscape(44);
     self.closeBtn.frame = CGRectMake(self.doraemon_width - closeWidth - kDoraemonSizeFrom750_Landscape(32), (self.doraemon_height - closeHeight) / 2.0, closeWidth, closeHeight);
 }
-
-#pragma mark - textFieldDelegate
-
-- (BOOL)checkInputWithType:(NSString *)string formatType:(NSString *)formatType
-{
-    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:formatType] invertedSet];
-    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
-    BOOL basic = [string isEqualToString:filtered];
-    return basic;
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    NSString *result = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    NSString *rawText = [result stringByReplacingOccurrencesOfString:@" " withString:@""];
-    BOOL isCan = YES;
-    /** 判断输入的是十六进制颜色值  */
-    BOOL isAble = [self checkInputWithType:string formatType:@"ABCDEFabcdef0123456789"];
-    if (rawText.length > 8 || !isAble) {
-        isCan = NO;
-    }
-    return isCan;
-}
-
-- (void)textFieldChange:(UITextField *)textField
-{
-    NSInteger length = textField.text.length;
-    if (length == 3
-        || length == 4
-        || length == 6
-        || length == 8)
-    {
-        [self setCurrentColor:textField.text];
-    }
-}
-
-//- (void)textFieldDidChangeSelection:(UITextField *)textField
-//{
-//    if (textField.text.length >= 3) {
-//        [self setCurrentColor:textField.text];
-//    }
-//}
 
 #pragma mark - Public
 
@@ -182,17 +134,6 @@
         _colorValueLbl.font = [UIFont systemFontOfSize:kDoraemonSizeFrom750_Landscape(28)];
     }
     return _colorValueLbl;
-}
-
-- (UITextField *)textField
-{
-    if (!_textField) {
-        _textField = [[UITextField alloc] initWithFrame:CGRectZero];
-        _textField.placeholder = @"请输入色值";
-        _textField.delegate = self;
-        [_textField addTarget:self action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
-    }
-    return _textField;
 }
 
 - (UIButton *)closeBtn {

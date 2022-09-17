@@ -32,34 +32,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - 8ad195edd6d02254"
+                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - e6cfdd06f35782f2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[DoraemonMockViewController renderUI]"
                   moduleName = "DoraemonKit"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "66"
                   endingLineNumber = "66"
-                  offsetFromSymbolStart = "604">
+                  offsetFromSymbolStart = "758">
                </Location>
                <Location
-                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - 8ad195edd6d02254"
+                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - e6cfdd06f35782f2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[DoraemonMockViewController renderUI]"
                   moduleName = "DoraemonKit"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "66"
                   endingLineNumber = "66"
-                  offsetFromSymbolStart = "772">
+                  offsetFromSymbolStart = "564">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -80,34 +80,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 7be87ee6fc291b1b"
+                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 988759147211e97f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
                   moduleName = "DoraemonKit"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "113"
                   endingLineNumber = "113"
-                  offsetFromSymbolStart = "604">
+                  offsetFromSymbolStart = "758">
                </Location>
                <Location
-                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 7be87ee6fc291b1b"
+                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 988759147211e97f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
                   moduleName = "DoraemonKit"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "113"
                   endingLineNumber = "113"
-                  offsetFromSymbolStart = "772">
+                  offsetFromSymbolStart = "564">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -163,6 +163,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "E32DE529-D430-4BF5-82A5-E90E7D8BE027"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/PublicComponent/ThemeManager/zhThemeOperator.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "+changeThemeStyleWithKey:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "0135E730-8D05-46D4-B614-D3AF6E16C8E9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -173,6 +189,86 @@
             startingLineNumber = "118"
             endingLineNumber = "118"
             landmarkName = "-onReGeocodeSearchDone:response:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C63BAABD-6F02-4920-A799-EF7F37D6402D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/Common/Http/Http2/ZWHttpNetworkManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "-sendRequestWithUrl:msgDict:httpMethod:constructingBlock:completionWithURLResponseBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A775ACDF-4F0A-446B-BCCB-2098E1371A9B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/Common/Http/Http2/ZWHttpNetworkManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
+            landmarkName = "-sendHttpRequest:completionBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C26BF2DD-A6F0-4945-8AF0-4BCDDE5932B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/FileSlelect/FileItemCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-configItemModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B027DB0-B5F2-4A0F-B1EE-5AEEB612C9C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/FileSlelect/FileSelectViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-loadUIData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D1E9700-CF41-4093-B38F-3FC3B7EE7EFA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/FileSlelect/FileItemCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-transFileIconName:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -206,211 +302,6 @@
             endingLineNumber = "902"
             landmarkName = "-drawRect:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "53C9C1A2-CBD7-4EEA-9E88-4985DC48B0AD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/CustomAlbum/ZWAlbumDetailsViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "-toolBarDidClick:index:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
-         <BreakpointContent
-            uuid = "A4AFB90A-D48A-4155-8B4E-E16E832B4749"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            symbolName = ""
-            moduleName = "">
-            <Locations>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BF82FE5D-24BF-49F7-B11E-E52BF4485209"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/Common/Http/Http2/ZWHttpResponseData.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "+handleCompletionErrorWithData:error:block:url:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DA84BA0A-471E-4AC3-A6B2-C370603E3FC7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/bgView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "requestTest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0F31E40D-2E1A-4607-B5CC-683B3606574A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/bgView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "requestTest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5E73692A-1133-4B01-935D-453834113CBC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/CustomCamera/ZWCameraPreViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-confirmAction"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "368BB995-0F93-4DAF-ABD3-00394F6347B8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/Module/DebugLog/other/MDLogManager.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-logFile:request:method:time:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A252BAB1-DFD2-4161-8043-C7E5E2D3B5B6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/Module/DebugLog/other/MDLogManager.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-logFile:request:method:time:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5C9BB7A0-A595-4207-B0D3-EBF20DD16B9A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Logan/Logan/Clogan/clogan_core.c"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "605"
-            endingLineNumber = "605"
-            landmarkName = "write_flush_clogan()"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BE10418B-CFD7-4DF7-899C-B46D1B77577E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/FileSlelect/FileSelectManager.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "-documentPicker:didPickDocumentAtURL:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6AB1C927-14FE-43C2-A1A8-652ADDC32978"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/TABAnimated/TABAnimatedDemo/TABAnimated/Cache/TABAnimatedCacheManager.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-updateCacheModelLoadCountWithFormAnimated:frame:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6AB1C927-14FE-43C2-A1A8-652ADDC32978 - e890d76eb0f59f50"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TABAnimatedCacheManager updateCacheModelLoadCountWithFormAnimated:frame:]"
-                  moduleName = "TABAnimated"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/TABAnimated/TABAnimatedDemo/TABAnimated/Cache/TABAnimatedCacheManager.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "176">
-               </Location>
-               <Location
-                  uuid = "6AB1C927-14FE-43C2-A1A8-652ADDC32978 - e890d76eb0f59f50"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TABAnimatedCacheManager updateCacheModelLoadCountWithFormAnimated:frame:]"
-                  moduleName = "TABAnimated"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/My_Study/My_Study_New/Pods/TABAnimated/TABAnimatedDemo/TABAnimated/Cache/TABAnimatedCacheManager.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "201">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -16,7 +16,9 @@ def debugTool
   pod 'LookinServer', '1.0.4',  :configurations => ['Debug','QA','QA_Dev']
 
   # DoKit
-  pod 'DoraemonKit/Core', '3.1.2',  :configurations => ['Debug','QA','QA_Dev']
+#  pod 'DoraemonKit/Core', '3.1.2',  :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit', '3.1.2',  :configurations => ['Debug','QA','QA_Dev']
+
 end
 
 
@@ -27,13 +29,13 @@ target 'My_Study' do
   # 返回侧滑适配有导航栏和没导航栏的切换
   pod 'FDFullscreenPopGesture', '~> 1.1'
 
-  pod 'AFNetworking', '4.0.1'
+  pod 'AFNetworking', '~> 4.0.1'
   pod 'Masonry','1.1.0'
   pod 'JSONModel','1.5.0'
   pod 'MJExtension','3.0.15.1'
   pod 'MJRefresh','3.1.15.7'
   pod 'PINCache','2.3'
-  pod 'SDWebImage', '5.9.5'
+  pod 'SDWebImage', '~> 5.9.5'
 #  将抽屉控件放到工程里, 稍微做下调整
 #  pod 'CWLateralSlide', '1.6.5'
   pod 'PINCache','2.3'
@@ -53,7 +55,7 @@ target 'My_Study' do
 #  pod 'WFEOCFamilyLib'
 #  pod 'WFUIKit'
   
-  pod 'YYKit'
+  pod 'YYKit', '1.0.9'
 #  加载SVG图片资源使用
   pod 'SVGKit', '2.1.1'
   
@@ -80,13 +82,13 @@ target 'My_Study' do
   # pod 'MBProgressHUD', '1.2.0'
 
   # logan  美团日志
-  pod 'Logan'
+  pod 'Logan', '1.2.7'
   
   # 骨架屏
   pod 'TABAnimated', '2.6.3'
 
   # 富文本
-  pod 'ChainAttributedString''
+#  pod 'ChainAttributedString'
 
 end
 
