@@ -7,6 +7,7 @@
 //
 
 #import "BlockSubViewController.h"
+#import <objc/runtime.h>
 
 @interface BlockSubViewController ()
 

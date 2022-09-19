@@ -3257,14 +3257,14 @@
 		7C4EF05B230405030040DA7A /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				7C4EF05C230405030040DA7A /* UIButton+CornerBorder.m */,
 				7C4EF05D230405030040DA7A /* UIButton+Navigation */,
-				7C4EF063230405030040DA7A /* UIButton+PASEnlargeEdge.m */,
 				7C4EF064230405030040DA7A /* UIButton+Block */,
 				7C4EF067230405030040DA7A /* UIButton+Custom.h */,
 				7C4EF06A230405030040DA7A /* UIButton+Custom.m */,
 				7C4EF068230405030040DA7A /* UIButton+CornerBorder.h */,
+				7C4EF05C230405030040DA7A /* UIButton+CornerBorder.m */,
 				7C4EF069230405030040DA7A /* UIButton+PASEnlargeEdge.h */,
+				7C4EF063230405030040DA7A /* UIButton+PASEnlargeEdge.m */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -3281,8 +3281,8 @@
 		7C4EF064230405030040DA7A /* UIButton+Block */ = {
 			isa = PBXGroup;
 			children = (
-				7C4EF065230405030040DA7A /* UIButton+Block.m */,
 				7C4EF066230405030040DA7A /* UIButton+Block.h */,
+				7C4EF065230405030040DA7A /* UIButton+Block.m */,
 			);
 			path = "UIButton+Block";
 			sourceTree = "<group>";

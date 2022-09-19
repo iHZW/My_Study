@@ -18,6 +18,7 @@
 #import "ZWMainAppDelegateService.h"
 #import "zhThemeOperator.h"
 #import "TABAnimated.h"
+#import <objc/runtime.h>
 
 
 #ifdef DOKIT
@@ -57,6 +58,8 @@
     
     /** 初始化骨架屏  TABAnimated  */
     [self initTABAnimated];
+    Class cls = object_getClass([ZWBaseViewController class]); //[ZWBaseViewController class];
+    printMethodNamesOfClass(cls);
     
     return YES;
 }
@@ -117,6 +120,36 @@
 
     [CMBusMediaAppDelegate serviceManager:@selector(applicationWillTerminate:) withParameters:@[application]];
 }
+
+
+/**
+ * 打印一个类的所有方法
+ */
+void printMethodNamesOfClass(Class cls)
+{
+    unsigned int count;
+    /** 获得方法列表  */
+    Method *methodList = class_copyMethodList(cls, &count);
+    /** 存储方法名称  */
+    NSMutableString *methodNames = [NSMutableString string];
+    /** 遍历所有方法列表  */
+
+    for (int i = 0; i < count; i++) {
+        /** 获得方法  */
+        Method method = methodList[i];
+        /** 获得方法名  */
+        NSString *methodName = NSStringFromSelector(method_getName(method));
+        /** 拼接方法名  */
+        [methodNames appendString:methodName];
+        [methodNames appendString:@", "];
+    }
+    /** 释放  */
+    free(methodList);
+    /** 打印方法  */
+    NSLog(@"%@ %@", cls, methodNames);
+}
+
+
 
 
 @end
