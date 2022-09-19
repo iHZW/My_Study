@@ -59,6 +59,8 @@
     /** 初始化骨架屏  TABAnimated  */
     [self initTABAnimated];
     Class cls = object_getClass([ZWBaseViewController class]); //[ZWBaseViewController class];
+    
+    /** 打印ZWBaseViewController 的类方法  */
     printMethodNamesOfClass(cls);
     
     return YES;
