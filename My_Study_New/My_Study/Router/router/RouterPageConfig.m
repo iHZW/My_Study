@@ -34,6 +34,8 @@ NSString *const ZWRouterPageSelectedViewController   = @"common/selected/page";
 NSString *const ZWRouterPageLocationTrimViewController = @"tools/location/trim/page";
 /** 文件选择界面  */
 NSString *const ZWRouterPageFileSelectViewController = @"tools/file/selectpage";
+/** 陀螺仪测试界面 ~ 球  */
+NSString *const ZWRouterPageBallViewController       = @"test/ball/page";
 /* -------------------------------page----------------------------  */
 
 
@@ -143,7 +145,13 @@ NSString *const ZWRouterPageFileSelectViewController = @"tools/file/selectpage";
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
-            
+            /** 陀螺仪测试界面 ~ 球   */
+            @{
+                @"url" : ZWRouterPageBallViewController,
+                @"clsName": @"BallViewController",
+                @"type" : @(RouterTypeNavigatePresent),
+                @"attachValue" : @{}
+            },
         ]
     };
         

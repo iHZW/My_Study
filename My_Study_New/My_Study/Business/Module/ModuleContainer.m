@@ -257,7 +257,6 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
 - (void)navigateTo:(RouterParam *)param { 
     UIViewController *cls = [self commonRouter:param];
     if ([cls isKindOfClass:UIViewController.class]) {
-        
         NSDictionary *extraParam = [param.params objectForKey:kExtraParamKey];
         
         BOOL animated = YES;
@@ -294,10 +293,29 @@ DEFINE_SINGLETON_T_FOR_CLASS(ModuleContainer)
 }
 
 - (void)presentTo:(RouterParam *)param { 
-    NSObject *cls = [self commonRouter:param];
+    UIViewController *cls = [self commonRouter:param];
     if ([cls isKindOfClass:[UIViewController class]]) {
+        BOOL animated = YES;
+        BOOL hideNavigationBar = NO;
+        if ([[cls class] respondsToSelector:@selector(ss_constantParams)]) {
+            NSDictionary *dict = [[cls class] ss_constantParams];
+            animated = [[DataFormatterFunc numberValueForKey:@"animated" ofDict:dict] boolValue];
+            hideNavigationBar = [[DataFormatterFunc numberValueForKey:@"hideNavigationBar" ofDict:dict] boolValue];
+        }
         
-        
+        UIViewController *currentViewController = [self currentViewController:param];
+        cls.modalPresentationStyle = UIModalPresentationFullScreen;
+        cls.hideNavigationBar = hideNavigationBar;
+                    
+        ZWNavigationController *navVC = [[ZWNavigationController alloc] initWithRootViewController:cls];
+        navVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        if ([param.params.allKeys containsObject:@"modalPresentationStyle"]) {
+            NSNumber *modalPresentationStyle = [param.params objectForKey:@"modalPresentationStyle"];
+            if ([modalPresentationStyle respondsToSelector:@selector(integerValue)]) {
+                navVC.modalPresentationStyle = [modalPresentationStyle integerValue];
+            }
+        }
+        [currentViewController.navigationController presentViewController:navVC animated:animated completion:nil];
     }
 
 }

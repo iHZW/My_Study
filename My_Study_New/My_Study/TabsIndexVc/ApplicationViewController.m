@@ -23,6 +23,8 @@
 // 创建原子队列需要导入头文件
 #import <libkern/OSAtomic.h>
 
+#import "UIView+Create.h"
+
 
 #pragma mark ------------------------------KVO底层原理------------------------------------
 /**< 利用运行时,生成一个对象的子类,并生成子类的对象,替换原对象的isa指针,重写set方法 */
@@ -169,6 +171,26 @@
     
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [view addGestureRecognizer:tap2];
+    
+    
+    /** 带点击效果的按钮  */
+    UIButton *tapBtn = [[UIButton alloc] buildButtonWithTitle:@"测试带点击效果的UIView" frame:CGRectZero cornerRadius:8 target:self action:@selector(btnAction) block:^(UIButton * _Nonnull btn) {
+        btn.tag = 104;
+        btn.titleLabel.numberOfLines = 0;
+        btn.backgroundColor = UIColorFromRGB(0x87CEFA);
+    }];
+    
+    [self.view addSubview:tapBtn];
+    
+    [tapBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(kContentSideHorizSpace);
+        make.size.mas_equalTo(CGSizeMake(200, 60));
+        make.top.equalTo(self.view.mas_top).offset(80);
+    }];
+}
+
+- (void)btnAction
+{
     
 }
 

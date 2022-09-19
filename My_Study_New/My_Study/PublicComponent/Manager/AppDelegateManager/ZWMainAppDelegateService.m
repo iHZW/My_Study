@@ -82,10 +82,13 @@
         [[UIApplication sharedApplication].delegate window].rootViewController = launchVc;
         [launchVc remakePage];
     };
+    
+    
     if (ZWCurrentUserInfo
         && ZWCurrentUserInfo.pid > 0
         && ZWCurrentUserInfo.userWid > 0)
     {
+        block();
         /** 请求tabBar 配置信息  */
 //        [CustomTabPopManager.shared requestTabConfigList:^(BOOL success, TabbarConfig * config) {
 //            if (success && config!= nil){

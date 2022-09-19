@@ -23,11 +23,6 @@ MJExtensionCodingImplementation
 }
 
 
-+(NSArray *)mj_ignoredCodingPropertyNames
-{
-    return @[@"myCardList",@"mainCardItem", @"oldBankTransferModel",@"growthValue",@"haveShowOpenAccount"];
-}
-
 + (BOOL)supportsSecureCoding
 {
     return YES;

@@ -62,7 +62,8 @@
     
     self.cellClickBlock = ^(NSIndexPath * _Nonnull indexPath, FileItemCell * _Nonnull cell) {
         @pas_strongify_self
-
+        PHAssetModel *model = PASArrayAtIndex(self.dataArray, indexPath.row);
+        NSLog(@"fileName = %@",model.fileName);
     };
 }
 

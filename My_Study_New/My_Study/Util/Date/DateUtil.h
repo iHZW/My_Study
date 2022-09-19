@@ -15,6 +15,8 @@ static NSString * const _Nonnull DATE_FORMAT_PRETTY = @"yyyy-MM-dd HH:mm:ss.SSS"
 static NSString * const _Nonnull DATE_FORMAT_NORMAL = @"yyyy-MM-dd HH_mm_ss";
 static NSString * const _Nonnull DATE_FORMAT_DAY = @"yyyy-MM-dd";
 static NSString * const _Nonnull DATE_FORMAT_SLASH = @"yyyy/MM/dd";
+static NSString * const _Nonnull DATE_FORMAT_TIME = @"HH:mm:ss";
+static NSString * const _Nonnull DATE_FORMAT_YEAR = @"yyyy.MM.dd";
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -18,13 +18,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZWUserAccountManager : NSObject
+@interface ZWUserAccountManager : NSObject <NSSecureCoding>
 DEFINE_SINGLETON_T_FOR_HEADER(ZWUserAccountManager)
 
-@property (nonatomic, strong) ZWUserInfoModel *currentUserInfo; //当前用户所有信息
+/** 当前用户所有信息  */
+@property (nonatomic, strong) ZWUserInfoModel *currentUserInfo;
 
+/**
+ *  更新本地登录信息
+ */
+- (void)saveLoginStatusData;
 
-
+/**
+ *  清空本地登录信息
+ */
+- (void)cleanLoginStatusData;
 
 @end
 

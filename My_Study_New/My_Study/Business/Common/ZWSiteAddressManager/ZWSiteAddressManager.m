@@ -23,6 +23,8 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWSiteAddressManager)
  */
 + (NSString *)getBaseHttpURL
 {
+//    return @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
+    return @"https://9e8ea635-5794-4871-b02e-6b8ac50b4d8a.mock.pstmn.io";
     /* 设置根url */
     return [Config sharedConfig].httpServerHost;
 //    return @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58";

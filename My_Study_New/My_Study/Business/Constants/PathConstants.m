@@ -56,6 +56,31 @@
     return [NSString stringWithFormat:@"%@/%@",[self appDirectory],@"hybridserver"];
 }
 
+/**
+ * downLoad 目录 「documents/app/downLoad」
+ */
++ (NSString *)downLoadDirectory
+{
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",[self appDirectory],@"downLoad"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:filePath]) {
+        [fileManager createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return filePath;
+}
+/**
+ * preversion 目录 「documents/app/preversion」
+ */
++ (NSString *)preversionDirectory
+{
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@",[self appDirectory],@"preversion"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:filePath]) {
+        [fileManager createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return filePath;
+}
+
 + (NSString *)fileWebServerRootDirectory{
     return [NSString stringWithFormat:@"%@/%@",NSTemporaryDirectory(),@"hybridserver"];
 }

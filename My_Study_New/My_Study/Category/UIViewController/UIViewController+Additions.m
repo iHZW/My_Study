@@ -8,6 +8,7 @@
 
 #import "UIViewController+Additions.h"
 #import "ProgressHUD.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (Additions)
 

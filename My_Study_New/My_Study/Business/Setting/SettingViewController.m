@@ -16,9 +16,13 @@
 #import "CommonSelectedConfig.h"
 #import "FileSelectManager.h"
 #import "PhotoActionSheetUtil.h"
-
+#import "ZWColorPickInfoWindow.h"
+#import "PathConstants.h"
+#import "SSZipArchive.h"
 
 #define kSectionViewHeight              20
+#define ZWNSLog(...)  printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
 
 @interface SettingViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -52,19 +56,16 @@
         make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom).offset(-SafeAreaBottomAreaHeight);
     }];
-
+    
     @pas_weakify_self
     self.cellConfigBlock = ^(NSIndexPath * _Nonnull indexPath, PASIndicatorTableViewCell *cell) {
         @pas_strongify_self
         cell.isShowRightArrow = YES;
-
-//        cell.borderOption = PASBorderOptionBottom | PASBorderOptionRight;
-//        @weakify(cell)
-//        [cell zh_themeUpdateCallback:^(id  _Nonnull target) {
-//            @strongify(cell)
-//            [cell setShortColor:ThemePickerColorKey(ZWColorKey_p9).color];
-//            cell.backgroundColor = ThemePickerColorKey(ZWColorKey_p8).color;
-//        }];
+        
+        /** 设置选中背景色  */
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        UIView *selectedView = [UIView viewForColor:UIColorFromRGB(0x87CEFA) withFrame:cell.frame];
+        cell.selectedBackgroundView = selectedView;
 
         NSArray *tempArray = PASArrayAtIndex(self.dataArray, indexPath.section);
         ActionModel *model = PASArrayAtIndex(tempArray, indexPath.row);
@@ -72,7 +73,7 @@
         cell.leftLabel.font = PASFont(18);
         cell.leftLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p5);
     };
-    
+
     self.cellClickBlock = ^(NSIndexPath * _Nonnull indexPath, id  _Nonnull cell) {
         @pas_strongify_self
         ActionModel *model = self.dataArray[indexPath.section][indexPath.row];
@@ -97,7 +98,8 @@
                          [ActionModel initWithTitle:@"拍照/相册/文件" actionName:@"photoFileSelect"],
                          [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"]];
     
-    NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@""]];
+    NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@"testShowWindow"],
+                         [ActionModel initWithTitle:@"陀螺仪测试界面 ~ 球" actionName:@"testBallViewContorller"]];
     
     NSArray *sec4Arr = @[[ActionModel initWithTitle:@"清除缓存" actionName:@"cleanCacheData"],
                          [ActionModel initWithTitle:@"意见反馈" actionName:@"feedBackDetailInfo"],
@@ -231,6 +233,42 @@
  */
 - (void)cleanCacheData
 {
+    BOOL isCrash = NO;
+    /**
+     *  try catch 异常捕获 局限性,只能捕获 数组越界 等异常 其他异常捕获不到
+     */
+    @try {
+        NSMutableArray *data = [NSMutableArray array];
+//        id a = [data objectAtIndex:2];
+        [data addObject:nil];
+    } @catch (NSException *exception) {
+        NSLog(@ "%s\n%@" , __FUNCTION__, exception);
+    } @finally {
+        
+    }
+    NSLog(@"isCrash = %@", @(isCrash));
+    
+    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:@"safe" ofType:@"zip"];
+    NSString *preversionPath = [PathConstants preversionDirectory];
+    NSString *downPath = [PathConstants downLoadDirectory];
+    NSString *fileName = @"safe.zip";
+    NSString *toDownLoadPath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
+    NSString *toPreversionPath = [NSString stringWithFormat:@"%@/%@", preversionPath, fileName];
+
+    @weakify(self)
+    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+        
+    } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
+        @strongify(self)
+        if (succeeded) {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            BOOL isSuccessOne = [fileManager copyItemAtPath:filePath toPath:toDownLoadPath error:&error];
+            BOOL isSuccessTwo = [fileManager copyItemAtPath:filePath toPath:toPreversionPath error:&error];
+            NSLog(@"isSuccessOne = %d\nisSuccessTwo = %d", isSuccessOne, isSuccessTwo);
+        }
+    }];
     
 }
 
@@ -239,7 +277,27 @@
  */
 - (void)feedBackDetailInfo
 {
+    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
+    NSString *downPath = [PathConstants downLoadDirectory];
+    NSString *preversionPath = [PathConstants preversionDirectory];
+    NSString *fileName = @"safe.zip";
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
     
+    @weakify(self)
+    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+        
+    } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
+        @strongify(self)
+        NSLog(@"succeeded = %@", @(succeeded));
+        if (succeeded) {
+            
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            BOOL isSuccessOne = [fileManager removeItemAtPath:downPath error:&error];
+            NSLog(@"isSuccessOne = %d", isSuccessOne);
+        }
+    }];
+        
 }
 
 /**
@@ -248,7 +306,36 @@
 - (void)aboutDetailInfo
 {
     
+    
+    
+    NSString *format = @"%@_1111_%.2f_3333";
+    ZWDebugLog(format, @"0000", @"22222");
+    NSString *formatStr = ZWDebugLogStr(format, @"666", 888.2);
+    formatStr = ZWFormatterUrl(format, @"777", 0.006);
+    NSLog(@"formatStr = %@", formatStr);
 }
+
+static inline void ZWDebugLog (NSString *format, ...) {
+    va_list args;
+    va_start(args, format);
+    NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
+    NSString *hodoerMessage = [NSString stringWithFormat:@"\n------------WMRemoteLog外部打印:------------\n%@", message];
+    ZWNSLog(@"abc");
+    ZWNSLog(hodoerMessage, args);
+    ZWNSLog(@"def");
+    va_end(args);
+}
+
+static inline NSString * ZWDebugLogStr (NSString *format, ...) {
+    NSString *resultStr = @"";
+    va_list args;
+    va_start(args, format);
+    resultStr = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    return  resultStr;
+}
+
+
 
 /**
  *  用户隐私协议
@@ -298,5 +385,21 @@
     [ZWM.router executeRouterParam:param];
 }
 
+/**
+ *  打开首页底部广告
+ */
+- (void)testShowWindow
+{
+    [[ZWColorPickInfoWindow shareInstance] showView];
+    
+}
+
+/**
+ *  陀螺仪测试界面 ~ 球
+ */
+- (void)testBallViewContorller
+{
+    [ZWM.router executeURLNoCallBack:ZWRouterPageBallViewController];
+}
 
 @end

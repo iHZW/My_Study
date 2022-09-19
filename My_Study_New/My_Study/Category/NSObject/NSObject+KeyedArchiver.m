@@ -57,7 +57,7 @@
 + (NSUInteger)fileSizeOfArchiverFileWithKey:(NSString *)key
 {
     NSString *path = [NSString stringWithFormat:@"%@/%@",archiverFileDirectory,key];
-    return [CommonFileFunc fileSizeForPath:path];
+    return (NSUInteger)[CommonFileFunc fileSizeForPath:path];
 }
 
 + (NSDate *)fileCreationDateOfArchiverFileWithKey:(NSString *)key

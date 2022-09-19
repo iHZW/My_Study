@@ -13,6 +13,60 @@
 
 @implementation ZWCommonUtil
 
+#pragma mark - UserDefault
+
++ (nullable NSString *)getStringWithKey:(nonnull NSString *)key
+{
+    if (key &&[key isKindOfClass:[NSString class]]) {
+        return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    } else {
+        return @"";
+    }
+}
+
++ (void)setObject:(nullable NSObject *)obj forKey:(nonnull NSString *)key
+{
+    if (![key isKindOfClass:[NSString class]]) {
+        return;
+    }
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    if (obj) {
+        [userDefault setObject:obj forKey:key];
+    } else {
+        [userDefault removeObjectForKey:key];
+    }
+    [userDefault synchronize];
+}
+
++ (nullable NSObject *)getObjectWithKey:(nonnull NSString *)key
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+}
+
++ (nullable NSData *)getDataWithKey:(nonnull NSString *)key
+{
+    return [[NSUserDefaults standardUserDefaults] dataForKey:key];
+}
+
++ (nullable NSArray*)getArrayWithKey:(nonnull NSString*)key
+{
+    return [[NSUserDefaults standardUserDefaults] arrayForKey:key];
+}
+
++ (nullable NSDictionary*)getDicWithKey:(nonnull NSString*)key
+{
+    return [[NSUserDefaults standardUserDefaults] dictionaryForKey:key];
+}
+
++ (void)removeForKey:(nonnull NSString*)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:key];
+    [defaults synchronize];
+}
+
+
+
 /**
  *  读取本地文件数据进网络缓存
  *

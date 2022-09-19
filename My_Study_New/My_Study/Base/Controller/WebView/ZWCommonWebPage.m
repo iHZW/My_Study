@@ -280,7 +280,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
                 if (snapshotImage) {
                     UIImage *scaleImage = [self scaleImage:snapshotImage];
                     /** 保存图片到相册  */
-                    UIImageWriteToSavedPhotosAlbum(snapshotImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+//                    UIImageWriteToSavedPhotosAlbum(snapshotImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
                     
                     BOOL isWhiteScreen = [self searchEveryPixel:scaleImage];
                     if (isWhiteScreen) {
@@ -300,7 +300,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
         if (screenShot) {
             UIImage *scaleImage = [self scaleImage:screenShot];
             /** 保存图片到相册  */
-            UIImageWriteToSavedPhotosAlbum(screenShot, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+//            UIImageWriteToSavedPhotosAlbum(screenShot, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
             
             BOOL isWhiteScreen = [self searchEveryPixel:scaleImage];
             if (isWhiteScreen) {

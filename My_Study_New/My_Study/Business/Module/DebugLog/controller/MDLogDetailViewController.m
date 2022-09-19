@@ -101,7 +101,7 @@
                             "<head> \n"
 //                            "<meta content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\" name=\"viewport\">\n"
                             "<style type=\"text/css\"> \n"
-                            "body {-webkit-text-size-adjust:100%;}\n"
+                            "body {-webkit-text-size-adjust:100%}\n"
                             "textarea {width:100%%; height:100%%;border-width: 0px;font-size: 50px;}\n"
                             "</style> \n"
                             "</head> \n"
@@ -146,16 +146,15 @@
 - (void)copyRequestMethod:(id)sender{
     
     /** 加载白屏  */
-    [self.zwWebView loadUrlString:@"http://people.mozilla.org/~rnewman/fennec/mem.html"];
+//    [self.zwWebView loadUrlString:@"http://people.mozilla.org/~rnewman/fennec/mem.html"];
     
-//    LogModel *logModel = [LogDAO queryLogDetails:self.identity];
-//
-//    NSString *copyString = logModel.msg;
-//    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-//    if (copyString) {
-//        [pasteboard setString:copyString];
-//        [Toast show:@"复制成功"];
-//    }
+    LogModel *logModel = [LogDAO queryLogDetails:self.identity];
+    NSString *copyString = logModel.msg;
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    if (copyString) {
+        [pasteboard setString:copyString];
+        [Toast show:@"复制成功"];
+    }
 }
 
 

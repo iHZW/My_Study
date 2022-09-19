@@ -17,6 +17,8 @@
 #import "CMBusMediaAppDelegate.h"
 #import "ZWMainAppDelegateService.h"
 #import "zhThemeOperator.h"
+#import "TABAnimated.h"
+#import <objc/runtime.h>
 
 
 #ifdef DOKIT
@@ -54,8 +56,30 @@
     /* 取消约束警告 */
 //    [[NSUserDefaults standardUserDefaults] setValue:@(false) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
     
+    /** 初始化骨架屏  TABAnimated  */
+    [self initTABAnimated];
+    Class cls = object_getClass([ZWBaseViewController class]); //[ZWBaseViewController class];
+    printMethodNamesOfClass(cls);
+    
     return YES;
 }
+
+#pragma mark - 初始化骨架屏  TABAnimated
+- (void)initTABAnimated
+{
+    // 初始化TABAnimated，并设置TABAnimated相关属性
+    // 初始化方法仅仅设置的是全局的动画效果
+    // 你可以设置`TABViewAnimated`中局部动画属性`superAnimationType`覆盖全局属性，在工程中兼容多种动画
+    [[TABAnimated sharedAnimated] initWithOnlySkeleton];
+    // 开启日志
+    [TABAnimated sharedAnimated].openLog = NO;
+    // 是否开启动画坐标标记，如果开启，也仅在debug环境下有效。
+    // 开启后，会在每一个动画元素上增加一个红色的数字，该数字表示该动画元素所在下标，方便快速定位某个动画元素。
+    [TABAnimated sharedAnimated].openAnimationTag = YES;
+    // 关闭缓存
+    [TABAnimated sharedAnimated].closeCache = YES;
+}
+
 
 /* 注册调试工具 */
 - (void)registDebugDoKitTool{
@@ -96,6 +120,36 @@
 
     [CMBusMediaAppDelegate serviceManager:@selector(applicationWillTerminate:) withParameters:@[application]];
 }
+
+
+/**
+ * 打印一个类的所有方法
+ */
+void printMethodNamesOfClass(Class cls)
+{
+    unsigned int count;
+    /** 获得方法列表  */
+    Method *methodList = class_copyMethodList(cls, &count);
+    /** 存储方法名称  */
+    NSMutableString *methodNames = [NSMutableString string];
+    /** 遍历所有方法列表  */
+
+    for (int i = 0; i < count; i++) {
+        /** 获得方法  */
+        Method method = methodList[i];
+        /** 获得方法名  */
+        NSString *methodName = NSStringFromSelector(method_getName(method));
+        /** 拼接方法名  */
+        [methodNames appendString:methodName];
+        [methodNames appendString:@", "];
+    }
+    /** 释放  */
+    free(methodList);
+    /** 打印方法  */
+    NSLog(@"%@ %@", cls, methodNames);
+}
+
+
 
 
 @end

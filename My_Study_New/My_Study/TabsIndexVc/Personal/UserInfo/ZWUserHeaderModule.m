@@ -8,7 +8,7 @@
 
 #import "ZWUserHeaderModule.h"
 #import "ZWUserContainerViewModel.h"
-#import "ZWBaseTableViewCell.h"
+#import "ZWPersonalBaseTableViewCell.h"
 #import "PersonalHeader.h"
 
 @interface ZWUserHeaderModule ()
@@ -46,7 +46,7 @@
 //返回需要展示的cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndex:(NSInteger)row
 {
-    ZWBaseTableViewCell *cell;
+    ZWPersonalBaseTableViewCell *cell;
     switch (row) {
         case 0:
             cell = [self tableView:tableView reuseIdentifier:[self.viewModel reuseIdentifier]];
@@ -63,11 +63,11 @@
     return cell;
 }
 
-- (ZWBaseTableViewCell *)tableView:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier
+- (ZWPersonalBaseTableViewCell *)tableView:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier
 {
-    ZWBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    ZWPersonalBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
-        cell = [[ZWBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [[ZWPersonalBaseTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     return cell;
 }

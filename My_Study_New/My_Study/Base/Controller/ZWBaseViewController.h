@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+Tools.h"
 #import "UITableViewCell+DequeCell.h"
+#import "UIViewController+ZW.h"
 
 @interface ZWBaseViewController : UIViewController
 
@@ -25,6 +26,14 @@
 #pragma mark - 加载导航控件
 /** 通用返回按钮  */
 - (void)initLeftNav;
+
+/** 返回按钮点击事件  */
+- (void)goBack;
+
+/**
+ *  present 模态推出的界面 创建叉号
+ */
+- (void)initCloseBtn;
 
 /** 加载右侧控件  */
 - (void)initRightNav;

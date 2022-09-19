@@ -146,7 +146,9 @@
         NSString *logMsg = [NSString stringWithFormat:@"接口: %@ \n-入参: %@ \n-返回: %@", url, [params mj_JSONString], httpError];
 //        [LogUtil debug:logMsg flag:url context:self];
         [LogUtil warn:logMsg flag:url context:self];
-        [Toast show:errorMsg];
+        if (ValidString(errorMsg)) {
+            [Toast show:errorMsg];
+        }
         BlockSafeRun(failure, task, error);
     };
     

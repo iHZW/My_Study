@@ -151,6 +151,7 @@ typedef long long _int64;
 //字符串转换为非空
 #define __String_Not_Nil(str) (str?:@"")
 
+
 #define kMainScreenSize     ([[UIScreen mainScreen] bounds].size)
 #define kMainScreenBounds  [UIScreen mainScreen].bounds
 #define kMainScreenWidth    MIN([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)
@@ -229,9 +230,44 @@ typedef long long _int64;
 #define dimof(a)    (sizeof(a) / sizeof(a[0]))
 #endif
 
+
+/**
+ *  dispatch_semaphore_t
+ *
+ *  @param 信号量锁
+ *
+ */
+#ifndef ZW_LOCK
+#define ZW_LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#endif
+
+#ifndef ZW_UNLOCK
+#define ZW_UNLOCK(lock) dispatch_semaphore_signal(lock);
+#endif
+
+
+
 /**
  *  布点适配宏
  */
 #define __PASBI
+
+
+/**
+ *  替换url占位符
+ *
+ *  @param format    带占位符的字符串
+ *
+ */
+static inline NSString *ZWFormatterUrl(NSString *format, ...)
+{
+    NSString *resultUrl = @"";
+    va_list argList;
+    va_start(argList, format);
+    resultUrl = [[NSString alloc] initWithFormat:format arguments:argList];
+    va_end(argList);
+    return resultUrl;
+}
+
 
 #endif /* ZWSDK_h */

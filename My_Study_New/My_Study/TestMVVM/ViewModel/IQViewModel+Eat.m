@@ -7,6 +7,7 @@
 //
 
 #import "IQViewModel+Eat.h"
+#import <objc/runtime.h>
 
 static const char kWFNameKey;
 

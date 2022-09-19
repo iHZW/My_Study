@@ -18,6 +18,9 @@
 #import "ZWCommonWebPage.h"
 #import "HTMLLabel.h"
 #import "UIApplication+Ext.h"
+#import "TABAnimated.h"
+#import "GCDCommon.h"
+#import "TrimAddressCell.h"
 
 @interface ShowAlertViewController () <HTMLLabelDelegate>
 
@@ -30,7 +33,7 @@
 {
     [super initExtendedData];
     
-    self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
+//    self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
     self.tableCellClass = [PASIndicatorTableViewCell class];
     self.style = UITableViewStylePlain;
     self.cellHeight = 60;
@@ -41,6 +44,27 @@
 - (void)loadUIData
 {
     [super loadUIData];
+    
+    // 设置tabAnimated相关属性
+    // 可以不进行手动初始化，将使用默认属性
+    self.tableView.tabAnimated = [TABTableAnimated animatedWithCellClass:[TrimAddressCell class] cellHeight:100];
+    self.tableView.tabAnimated.canLoadAgain = YES;
+    [TABAnimated sharedAnimated].closeCache = YES;
+    self.tableView.tabAnimated.superAnimationType = TABViewSuperAnimationTypeShimmer;
+//    self.tableView.tabAnimated.adjustBlock = ^(TABComponentManager * _Nonnull manager) {
+//        manager.animation(0).up(10).left(20).radius(10).width(40).height(40);
+//        manager.create(1).left(-15).down(10).radius(5).width(200).height(25).reducedWidth(20).toLongAnimation();
+//        manager.create(2).leftEqualTo(1).topEqualToBottom_offset(1, 5).radius(5).width(100).height(15).reducedWidth(-10).toShortAnimation();
+//    };
+    
+    self.tableView.tabAnimated.adjustBlock = ^(TABComponentManager * _Nonnull manager) {
+//        manager.animation(1).width(200).height(20).reducedWidth(30).toShortAnimation();
+//        manager.animation(2).width(150).height(20).reducedWidth(20).toLongAnimation();
+        manager.animation(1).width(200).height(20);
+        manager.animation(2).width(150).height(20);
+    };
+    
+//    [self.tableView setEditing:YES animated:YES];
     
     @pas_weakify_self
     self.cellConfigBlock = ^(NSIndexPath * _Nonnull indexPath, PASIndicatorTableViewCell * _Nonnull cell) {
@@ -73,6 +97,47 @@
                         [ActionModel initWithTitle:@"底部弹出AlertSheet多选项,通用样式" actionName:@"showComonAlertSheetView"]];
     
     return secArr;
+}
+
+
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//
+//    [self.tableView tab_startAnimation];
+//
+//}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView tab_startAnimationWithCompletion:^{
+        NSLog(@"000000");
+
+        [self handleData];
+    }];
+    
+    
+//    for (int i = 0; i < 100000 ; i++) {
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            NSLog(@"currentThread = %@", [NSThread currentThread]);
+//        });
+////        performBlockOnCustomQueue(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), NULL, NO, ^{
+////            NSLog(@"currentThread = %@", [NSThread currentThread]);
+////        });
+//    }
+   
+}
+
+- (void)handleData
+{
+    NSLog(@"-----start------");
+    performBlockDelay(dispatch_get_main_queue(), 3.0, ^{
+        NSLog(@"-----end------");
+        [self.tableView tab_endAnimationEaseOut];
+        self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
+        [self.tableView reloadData];
+    });
 }
 
 

@@ -10,6 +10,8 @@
 
 #define kNumbers     @"0123456789"
 #define kNumbersPeriod  @"0123456789."
+/** 检测是十六进制颜色值  */
+#define kCopyColorNum  @"#XxABCDEFabcdef0123456789"
 
 #define PASArrayAtIndex(array,i) [DataFormatterFunc checkArray:array index:i]
 
@@ -60,6 +62,11 @@
 + (BOOL)isPureAlphaNumber:(NSString *)string;
 
 + (BOOL)isPureNumber:(NSString *)string;
+
+/**
+ *  判断是颜色十六进制的字符串
+ */
++ (BOOL)isColorNum:(NSString *)string;
 
 // 根据过滤规则 过滤文本
 + (NSString *)filterWithString:(NSString *)str formatType:(NSString *)formatType;
