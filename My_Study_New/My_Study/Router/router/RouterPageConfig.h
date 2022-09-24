@@ -48,6 +48,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageLocationTrimViewController;
 UIKIT_EXTERN NSString *const ZWRouterPageFileSelectViewController;
 /** 陀螺仪测试界面 ~ 球  */
 UIKIT_EXTERN NSString *const ZWRouterPageBallViewController;
+/** RunLoopPermanentPage  */
+UIKIT_EXTERN NSString *const ZWRouterRunLoopPermanentViewController;
 
 
 /* -------------------------------page----------------------------  */

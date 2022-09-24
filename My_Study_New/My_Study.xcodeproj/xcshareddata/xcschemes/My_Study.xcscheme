@@ -86,13 +86,18 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
+            key = "DYLD_PRINT_STATISTICS_DETAILS"
+            value = "1"
             isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "DYLD_PRINT_STATISTICS_DETAILS"
+            key = "DYLD_PRINT_APIS"
             value = "1"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
             isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>

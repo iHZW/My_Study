@@ -349,6 +349,10 @@ static inline NSString * ZWDebugLogStr (NSString *format, ...) {
     if (fileItem) {
 
     }
+    
+//    弱引用表
+//    NSMapTable
+    
 }
 
 
@@ -357,7 +361,7 @@ static inline NSString * ZWDebugLogStr (NSString *format, ...) {
  */
 - (void)go2TradeRiskTip
 {
-
+    [ZWM.router executeURLNoCallBack:ZWRouterRunLoopPermanentViewController];
 }
 
 /**
@@ -392,6 +396,12 @@ static inline NSString * ZWDebugLogStr (NSString *format, ...) {
 {
     [[ZWColorPickInfoWindow shareInstance] showView];
     
+    CALayer *layer = [[CALayer alloc] init];
+    layer.shouldRasterize = YES; //可以光栅化
+    
+    layer.cornerRadius = 10;
+    layer.masksToBounds = YES;
+//    layer.mask
 }
 
 /**

@@ -13,6 +13,10 @@
 #import "WFThread.h"
 #import "RunLoopViewController.h"
 #import "UIViewController+CWLateralSlide.h"
+#import "HomeDataLoader.h"
+#import "ZWHomeModel.h"
+#import "HomeViewModel.h"
+#import "HomeRefreshView.h";
 
 @interface HomeViewController ()
 {
@@ -24,6 +28,10 @@
 @property (nonatomic, assign) int count;
 
 @property (nonatomic, strong) WFThread *wf_thread;
+
+@property (nonatomic, strong) HomeDataLoader *dataLoader;
+
+@property (nonatomic, strong) HomeViewModel *viewModel;
 @end
 
 @implementation HomeViewController
@@ -31,6 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
+
+    self.viewModel = [[HomeViewModel alloc] init];
 
     self.title = @"首页";
 //    if (@available(iOS 7.0, *)) {
@@ -57,6 +67,7 @@
     
     [self registWaster];
 
+    self.dataLoader = [[HomeDataLoader alloc] init];
     
 }
 
@@ -82,12 +93,54 @@
     backBtn.titleLabel.font = PASFont(15);
     UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = leftItem;
+    
+    [self initRightNav];
+}
+
+- (void)initRightNav
+{
+    HomeRefreshView *refreView = [[HomeRefreshView alloc] initWithFrame:CGRectMake(0, 0, 80, 35)];
+//    refreView.viewModel = self.viewModel;
+    @pas_weakify_self
+    refreView.actinBlock = ^{
+        @pas_strongify_self
+        [self.viewModel sendReauestForHomeRefresh];
+    };
+    
+    
+//    UIButton * refreshBtn = [UIButton buttonWithFrame:CGRectMake(0, 0, 60, 35) title:@"刷新" font:PASBFont(18) titleColor:UIColor.whiteColor block:nil];
+//    refreshBtn.layer.cornerRadius = 8;
+//    refreshBtn.backgroundColor = UIColor.blueColor;
+//    
+////    backBtn.imageView.contentMode = UIViewContentModeScaleAspectFill;
+////    [backBtn setImage:[UIImage imageNamed:@"icon_nav_edit"] forState:UIControlStateNormal];
+//    [refreshBtn addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithCustomView:refreView];
+    self.navigationItem.rightBarButtonItem = leftItem;
+    
+    refreView.viewModel = self.viewModel;
+
+}
+
+/**
+ * 刷新
+ */
+- (void)refreshAction
+{
+    [self.dataLoader sendRequestTest:^(NSInteger status, id  _Nullable obj) {
+        if ([obj isKindOfClass:[ZWHomeModel class]] && status == 1)
+        {
+            ZWHomeModel *model = obj;
+            NSLog(@"obj = %@", obj);
+        }
+    }];
 }
 
 /* 打开抽屉 */
 - (void)gotoLeftDrawerPage
 {
     [self cw_showDefaultDrawerViewController:[self getLeftDrawerPage]];
+    
 //    [self cw_showDrawerViewController:[self getLeftDrawerPage] animationType:CWDrawerAnimationTypeDefault configuration:nil];
 }
 

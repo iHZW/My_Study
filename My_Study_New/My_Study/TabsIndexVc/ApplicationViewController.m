@@ -15,6 +15,7 @@
 #import "My_Study-Swift.h"
 #import "LeftDrawerViewController.h"
 #import "UIViewController+CWLateralSlide.h"
+#import "RunLoopViewController.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -178,6 +179,18 @@
         btn.tag = 104;
         btn.titleLabel.numberOfLines = 0;
         btn.backgroundColor = UIColorFromRGB(0x87CEFA);
+//        btn.layer.shadowColor = UIColor.redColor.CGColor;
+//        btn.layer.shadowOpacity = 2.0;
+//        btn.layer.shadowOffset = CGSizeMake(10, 10);
+        
+//        CGMutablePathRef path = CGPathCreateMutable();
+////        CGRect rect = CGRectInset(CGRectMake(0, 0, 100, 60), 30, 30);
+////        CGPathCloseSubpath(path);
+//
+        // 如果设置了 shadowPath  就不会导致离屏渲染
+//        btn.layer.shadowPath = path;
+        
+//        CGPathRelease(path);
     }];
     
     [self.view addSubview:tapBtn];
@@ -191,6 +204,10 @@
 
 - (void)btnAction
 {
+    /** 跳转测试  */
+    RunLoopViewController *vc = [RunLoopViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+    
     
 }
 

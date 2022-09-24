@@ -160,7 +160,8 @@
             @pas_strongify_self
             [self dealWithlogoutAction];
         }];
-        [_logoutBtn setCornerRadius:kContainerCornerRadius];
+        _logoutBtn.layer.cornerRadius = kContainerCornerRadius;
+//        [_logoutBtn setCornerRadius:kContainerCornerRadius];
         [_logoutBtn setImage:[UIImage imageNamed:@"icon_logout"] forState:UIControlStateNormal];
         [_logoutBtn setButtonImageTitleStyle:ButtonImageTitleStyleLeft padding:0];
         [_logoutBtn zh_themeUpdateCallback:^(id  _Nonnull target) {

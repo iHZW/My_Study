@@ -13,7 +13,8 @@
 void WMSafeLog(const char* file, const char* func, int line, NSString* fmt, ...)
 {
     NSString *reason = @"";
-    va_list args; va_start(args, fmt);
+    va_list args;
+    va_start(args, fmt);
     reason = [[NSString alloc] initWithFormat:fmt arguments:args];
     va_end(args);
     

@@ -31,6 +31,7 @@
 {
     if (!_coverView) {
         _coverView = [[UIView alloc] initWithFrame:self.bounds];
+        _coverView.layer.cornerRadius = self.layer.cornerRadius;
         _coverView.userInteractionEnabled = NO;
         if (self.actionColor) {
             _coverView.backgroundColor = self.actionColor;

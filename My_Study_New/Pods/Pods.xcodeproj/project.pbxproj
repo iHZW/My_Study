@@ -16,6 +16,7 @@
 				D98BFBFC551FD6C9E7223D6B1B08F6D0 /* PBXTargetDependency */,
 			);
 			name = "AMapLocation-NO-IDFA";
+			productName = "AMapLocation-NO-IDFA";
 		};
 		4F1379598302C9160590B3650C10E1A5 /* AMapSearch-NO-IDFA */ = {
 			isa = PBXAggregateTarget;
@@ -26,6 +27,7 @@
 				C746FDA5E5DB9CE20F3FF2144674253A /* PBXTargetDependency */,
 			);
 			name = "AMapSearch-NO-IDFA";
+			productName = "AMapSearch-NO-IDFA";
 		};
 		9B182CB4E1716E9070813D3C59736001 /* AMapFoundation-NO-IDFA */ = {
 			isa = PBXAggregateTarget;
@@ -35,6 +37,7 @@
 			dependencies = (
 			);
 			name = "AMapFoundation-NO-IDFA";
+			productName = "AMapFoundation-NO-IDFA";
 		};
 		B44FB02BD2D3FEAD1F36808AD405A543 /* AMap3DMap-NO-IDFA */ = {
 			isa = PBXAggregateTarget;
@@ -45,6 +48,7 @@
 				C123BFBF54E5F7646CE06DCCA3A903FC /* PBXTargetDependency */,
 			);
 			name = "AMap3DMap-NO-IDFA";
+			productName = "AMap3DMap-NO-IDFA";
 		};
 /* End PBXAggregateTarget section */
 
@@ -2071,7 +2075,7 @@
 		E3B996453700B54351DD0530BBB201F6 /* DoraemonUIProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8EA13B1526C8291E0465F54C17B470 /* DoraemonUIProfileManager.m */; };
 		E3CA496FEA974D24C9641615ED6A5473 /* SJPresentationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C5F6B45C81A4923DB993B1EE62F3230E /* SJPresentationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3DE15F852D67317E1B76E7F564CF31A /* RACMulticastConnection+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 45A5DBE2EAA8FB7A62B3660352EFFEF2 /* RACMulticastConnection+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		E4064925B1D4488B30CF299AB0A7598B /* DoraemonKit-DoraemonKit in Resources */ = {isa = PBXBuildFile; fileRef = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */; };
+		E4064925B1D4488B30CF299AB0A7598B /* DoraemonKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */; };
 		E44968A0DB4C98DE9D79CEE05608A4BA /* WKWebView+Doraemon.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F869BFE2D42FA6BB05A13FC8081D7C9 /* WKWebView+Doraemon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E473FF277CD66095EB6BAFDAF15DA408 /* DoraemonHealthStartingTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B3ACB7C92148D1C4B678C2A1A4C123 /* DoraemonHealthStartingTitle.m */; };
 		E47CD35625E7366A204B56369F5AA129 /* mz_crypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 582E314E22762212C72FE8685DA47716 /* mz_crypt.c */; };
@@ -2628,7 +2632,7 @@
 		00196BCA54CE7219D2529B75BD674FBE /* SVGRect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGRect.m; path = "Source/DOM classes/SVG-DOM/SVGRect.m"; sourceTree = "<group>"; };
 		004F5548F365DB899438AAEEB8F6A015 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJKeyValue.h"; path = "MJExtension/NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
 		00583140071149F0C07F6FBCE81CDC18 /* SDImageAWebPCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageAWebPCoder.m; path = SDWebImage/Core/SDImageAWebPCoder.m; sourceTree = "<group>"; };
-		005BD016183A1C900B594098DD635F7E /* sha256.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sha256.c; path = Logan/mbedtls/library/sha256.c; sourceTree = "<group>"; };
+		005BD016183A1C900B594098DD635F7E /* sha256.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = sha256.c; path = Logan/mbedtls/library/sha256.c; sourceTree = "<group>"; };
 		006082662FE80E4361D9B716ECD95FFF /* SJPlayModelPropertiesObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJPlayModelPropertiesObserver.m; path = SJBaseVideoPlayer/Common/Implements/SJPlayModelPropertiesObserver.m; sourceTree = "<group>"; };
 		007AEA7DE395D8C7FF6F723916E0F07B /* NSObject+YYAddForKVO.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYAddForKVO.h"; path = "YYKit/Base/Foundation/NSObject+YYAddForKVO.h"; sourceTree = "<group>"; };
 		008B4148996A4FB4EF108E150510EBFB /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImageRep.h; path = SDWebImage/Core/SDAnimatedImageRep.h; sourceTree = "<group>"; };
@@ -2647,7 +2651,7 @@
 		01A319119CD01FCD76498C44FB78B3F9 /* YYMemoryCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYMemoryCache.m; path = YYKit/Cache/YYMemoryCache.m; sourceTree = "<group>"; };
 		01AC867E879F685FD5FA97341478D449 /* DoraemonViewCheckView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonViewCheckView.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ViewCheck/Function/DoraemonViewCheckView.h; sourceTree = "<group>"; };
 		01B3897AE614627952B73D1ED1281338 /* LookinDisplayItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinDisplayItem.h; path = Src/Shared/LookinDisplayItem.h; sourceTree = "<group>"; };
-		01DCE1261656AAFA8C7CC69AA5680EC9 /* pk.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pk.c; path = Logan/mbedtls/library/pk.c; sourceTree = "<group>"; };
+		01DCE1261656AAFA8C7CC69AA5680EC9 /* pk.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pk.c; path = Logan/mbedtls/library/pk.c; sourceTree = "<group>"; };
 		01E7D71EFF1A39AEB82D718170941A94 /* DoraemonTimeProfilerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonTimeProfilerViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/TimeProfiler/DoraemonTimeProfilerViewController.m; sourceTree = "<group>"; };
 		020F9603CCF19CF13437A7B1A6F9F0D7 /* DoraemonJavaScriptPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonJavaScriptPlugin.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/JavaScript/DoraemonJavaScriptPlugin.h; sourceTree = "<group>"; };
 		021970094593814C05857930F2911E03 /* MAOverlayRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAOverlayRenderer.h; path = MAMapKit.framework/Headers/MAOverlayRenderer.h; sourceTree = "<group>"; };
@@ -2693,7 +2697,7 @@
 		06CEC33B580DE22321F7A48F7F51B6F8 /* SJBaseVideoPlayerConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJBaseVideoPlayerConst.m; path = SJBaseVideoPlayer/Common/Const/SJBaseVideoPlayerConst.m; sourceTree = "<group>"; };
 		06E8526EE9F558F5F7D209C46D98400B /* SVGKParserDOM.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKParserDOM.h; path = "Source/Parsers/Parser Extensions/SVGKParserDOM.h"; sourceTree = "<group>"; };
 		06ED3229206F195E9A199F69C3802AFF /* RACEXTKeyPathCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACEXTKeyPathCoding.h; path = ReactiveObjC/extobjc/RACEXTKeyPathCoding.h; sourceTree = "<group>"; };
-		06EE46F529FE9D8F810C7B0E9AF14680 /* timing.c */ = {isa = PBXFileReference; includeInIndex = 1; name = timing.c; path = Logan/mbedtls/library/timing.c; sourceTree = "<group>"; };
+		06EE46F529FE9D8F810C7B0E9AF14680 /* timing.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = timing.c; path = Logan/mbedtls/library/timing.c; sourceTree = "<group>"; };
 		070404A786903BE369652B59AD83B712 /* RACSubscriptionScheduler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACSubscriptionScheduler.h; path = ReactiveObjC/RACSubscriptionScheduler.h; sourceTree = "<group>"; };
 		071569360F7E15D3D1E2986F81955AB6 /* DoraemonHierarchyHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonHierarchyHeaderView.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/UserInterface/View/DoraemonHierarchyHeaderView.m; sourceTree = "<group>"; };
 		073653616CB5C67C59757C9B71CA608E /* SVGKParserPatternsAndGradients.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKParserPatternsAndGradients.m; path = "Source/Parsers/Parser Extensions/SVGKParserPatternsAndGradients.m"; sourceTree = "<group>"; };
@@ -2745,8 +2749,8 @@
 		0CE7E34FAA5F24A4D24FC95D2ABF63F6 /* LKS_PerspectiveItemLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_PerspectiveItemLayer.h; path = Src/Server/Perspective/LKS_PerspectiveItemLayer.h; sourceTree = "<group>"; };
 		0CEAFCBC6B0AABE20F8F85AD0B7A809D /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		0CF1484BC11CE2EECD4D8431749066EA /* SDImageIOAnimatedCoderInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOAnimatedCoderInternal.h; path = SDWebImage/Private/SDImageIOAnimatedCoderInternal.h; sourceTree = "<group>"; };
-		0D24CB8836C91A31383C9391A74D5854 /* havege.c */ = {isa = PBXFileReference; includeInIndex = 1; name = havege.c; path = Logan/mbedtls/library/havege.c; sourceTree = "<group>"; };
-		0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "DoraemonKit-DoraemonKit"; path = DoraemonKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D24CB8836C91A31383C9391A74D5854 /* havege.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = havege.c; path = Logan/mbedtls/library/havege.c; sourceTree = "<group>"; };
+		0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoraemonKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D3F7FA9203BB178B1B9BD3746EDA393 /* SJPlaybackRecordSaveHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJPlaybackRecordSaveHandler.h; path = SJBaseVideoPlayer/SJPlaybackRecordSaveHandler.h; sourceTree = "<group>"; };
 		0D528C0E7F2B7B039C4682ACE2EEC705 /* CSSStyleSheet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSStyleSheet.h; path = "Source/DOM classes/Core DOM/CSSStyleSheet.h"; sourceTree = "<group>"; };
 		0D679F12D80B443C2439E6D963707A48 /* SVGKSourceLocalFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKSourceLocalFile.h; path = Source/Sources/SVGKSourceLocalFile.h; sourceTree = "<group>"; };
@@ -2756,10 +2760,10 @@
 		0DA28599D887819AD0F685ABBDD55138 /* SVGKPattern.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKPattern.h; path = Source/Utils/SVGKPattern.h; sourceTree = "<group>"; };
 		0DB3FAC67E67D1247A373F1696C5883B /* TABAnimated-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TABAnimated-Info.plist"; sourceTree = "<group>"; };
 		0E431D187291D9EBFF4F2EEE2EA966FB /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Vendor/WebP.framework; sourceTree = "<group>"; };
-		0E6A6393D2135FF3B080D0A24066A647 /* cJSON.c */ = {isa = PBXFileReference; includeInIndex = 1; name = cJSON.c; path = Logan/Clogan/cJSON.c; sourceTree = "<group>"; };
+		0E6A6393D2135FF3B080D0A24066A647 /* cJSON.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cJSON.c; path = Logan/Clogan/cJSON.c; sourceTree = "<group>"; };
 		0E8AE5ED33EC90DD38D5E4EA05A545B5 /* YYSpriteSheetImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYSpriteSheetImage.m; path = YYKit/Image/YYSpriteSheetImage.m; sourceTree = "<group>"; };
 		0E8EA13B1526C8291E0465F54C17B470 /* DoraemonUIProfileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonUIProfileManager.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/UIProfile/Function/DoraemonUIProfileManager.m; sourceTree = "<group>"; };
-		0E960B9DBC42ACCA2517FECAF668E925 /* pkwrite.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkwrite.c; path = Logan/mbedtls/library/pkwrite.c; sourceTree = "<group>"; };
+		0E960B9DBC42ACCA2517FECAF668E925 /* pkwrite.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pkwrite.c; path = Logan/mbedtls/library/pkwrite.c; sourceTree = "<group>"; };
 		0E9C8ABDA2DED0F536F57DA2F4AE74B6 /* DoraemonMockDetailSwitch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMockDetailSwitch.m; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/List/DoraemonMockDetailSwitch.m; sourceTree = "<group>"; };
 		0EA3367487D8AF39CE45AB5BD5E28D5D /* RACReturnSignal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACReturnSignal.m; path = ReactiveObjC/RACReturnSignal.m; sourceTree = "<group>"; };
 		0EB6E54D5016A31ABB1BEB2D5E2FA505 /* DoraemonANRListViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonANRListViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/ANR/List/DoraemonANRListViewController.m; sourceTree = "<group>"; };
@@ -2767,7 +2771,7 @@
 		0ECD6BA37683A6635FCD117DDDAF14F5 /* DoraemonDBShowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonDBShowView.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/Sanbox/VC/DB/DoraemonDBShowView.h; sourceTree = "<group>"; };
 		0ED540EC53A37024E92DA6F1C596CFB0 /* UIViewController+DoraemonHierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+DoraemonHierarchy.h"; path = "iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/Function/Category/UIViewController+DoraemonHierarchy.h"; sourceTree = "<group>"; };
 		0F148683370D741232D5A6C8111519A6 /* SDImageTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageTransformer.h; path = SDWebImage/Core/SDImageTransformer.h; sourceTree = "<group>"; };
-		0F3E0FD4C132492AB72F61EDE97FCBFB /* memory_buffer_alloc.c */ = {isa = PBXFileReference; includeInIndex = 1; name = memory_buffer_alloc.c; path = Logan/mbedtls/library/memory_buffer_alloc.c; sourceTree = "<group>"; };
+		0F3E0FD4C132492AB72F61EDE97FCBFB /* memory_buffer_alloc.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = memory_buffer_alloc.c; path = Logan/mbedtls/library/memory_buffer_alloc.c; sourceTree = "<group>"; };
 		0F5D773CA001B4B5C0DC1870A6B4C9D2 /* SVGTextElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGTextElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGTextElement.m"; sourceTree = "<group>"; };
 		0F8138ED9AA2E1FCB81DBDA97429C2DE /* UIPasteboard+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPasteboard+YYText.m"; path = "YYKit/Text/String/UIPasteboard+YYText.m"; sourceTree = "<group>"; };
 		0F96ED5A1F17BB41C9760FEA7358FEB7 /* SDImageFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageFrame.h; path = SDWebImage/Core/SDImageFrame.h; sourceTree = "<group>"; };
@@ -2792,8 +2796,8 @@
 		11B2E6AB85B2B61E092B3018BA93060B /* SVGKSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKSource.m; path = Source/SVGKSource.m; sourceTree = "<group>"; };
 		11C8BAC771BBE1CBF41E3DEDB9313BD3 /* KVOController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KVOController.modulemap; sourceTree = "<group>"; };
 		11CB17F085E05B3C57C435B7380828E7 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		121F18E1DA09CF259FAE3689EA0950C3 /* oid.c */ = {isa = PBXFileReference; includeInIndex = 1; name = oid.c; path = Logan/mbedtls/library/oid.c; sourceTree = "<group>"; };
-		122411A8CD109D22034DF7CE1CEB25B3 /* x509write_csr.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509write_csr.c; path = Logan/mbedtls/library/x509write_csr.c; sourceTree = "<group>"; };
+		121F18E1DA09CF259FAE3689EA0950C3 /* oid.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = oid.c; path = Logan/mbedtls/library/oid.c; sourceTree = "<group>"; };
+		122411A8CD109D22034DF7CE1CEB25B3 /* x509write_csr.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509write_csr.c; path = Logan/mbedtls/library/x509write_csr.c; sourceTree = "<group>"; };
 		125197559CD2A4AE6D84570C01EB9222 /* AVAsset+SJAVMediaExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AVAsset+SJAVMediaExport.h"; path = "SJBaseVideoPlayer/AVPlayer/Core/AVAsset+SJAVMediaExport.h"; sourceTree = "<group>"; };
 		125EE33E42C36E4438903CBF03129968 /* ssl_ticket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl_ticket.h; path = Logan/mbedtls/include/mbedtls/ssl_ticket.h; sourceTree = "<group>"; };
 		127ADC91242EA26F5AFB97AECCA7C753 /* DoraemonMockFilterTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMockFilterTableCell.m; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/Filter/DoraemonMockFilterTableCell.m; sourceTree = "<group>"; };
@@ -2817,7 +2821,7 @@
 		144BE47090FCCED73BAFDAADC4C4A9F1 /* NSString+DDXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+DDXML.m"; path = "KissXML/Categories/NSString+DDXML.m"; sourceTree = "<group>"; };
 		145C61DDAF205BD331280EB775CB5592 /* SJAVMediaPlaybackController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJAVMediaPlaybackController.m; path = SJBaseVideoPlayer/AVPlayer/SJAVMediaPlaybackController.m; sourceTree = "<group>"; };
 		145F8FEC8F2A590A84409F11BE41254F /* SJSQLite3+QueryExtended.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SJSQLite3+QueryExtended.m"; path = "SJUIKit/SQLite3/SJSQLite3+QueryExtended.m"; sourceTree = "<group>"; };
-		146EBD49AE1BE92B3F42A06D576DA7F8 /* ripemd160.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ripemd160.c; path = Logan/mbedtls/library/ripemd160.c; sourceTree = "<group>"; };
+		146EBD49AE1BE92B3F42A06D576DA7F8 /* ripemd160.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ripemd160.c; path = Logan/mbedtls/library/ripemd160.c; sourceTree = "<group>"; };
 		14BFB22F5ACC45240492E218B636B67A /* UIApplication+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+YYAdd.m"; path = "YYKit/Base/UIKit/UIApplication+YYAdd.m"; sourceTree = "<group>"; };
 		14C4EE5DA6836F83B8635DC31D8338EB /* DoraemonNetFlowListViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonNetFlowListViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/List/DoraemonNetFlowListViewController.m; sourceTree = "<group>"; };
 		14DE8C60B0E5D26197C4E7C20CD3574F /* RACUnit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACUnit.m; path = ReactiveObjC/RACUnit.m; sourceTree = "<group>"; };
@@ -2869,7 +2873,7 @@
 		1A62636AAB603499FDD4AC9B3F30CD25 /* UITableViewHeaderFooterView+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableViewHeaderFooterView+RACSignalSupport.m"; path = "ReactiveObjC/UITableViewHeaderFooterView+RACSignalSupport.m"; sourceTree = "<group>"; };
 		1A8123843D4DB7BBE9B93BE9B01785F0 /* DoraemonHomeHeadCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonHomeHeadCell.m; path = iOS/DoraemonKit/Src/Core/Entry/Home/Cell/DoraemonHomeHeadCell.m; sourceTree = "<group>"; };
 		1A91E7AFCA654F23FF156EAF2D8A38B8 /* UIViewController+DoraemonVCProfiler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+DoraemonVCProfiler.m"; path = "iOS/DoraemonKit/Src/Core/Plugin/Performance/VCProfiler/UIViewController+DoraemonVCProfiler.m"; sourceTree = "<group>"; };
-		1A9568E86B935A40C7C457196D3BEE78 /* blowfish.c */ = {isa = PBXFileReference; includeInIndex = 1; name = blowfish.c; path = Logan/mbedtls/library/blowfish.c; sourceTree = "<group>"; };
+		1A9568E86B935A40C7C457196D3BEE78 /* blowfish.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = blowfish.c; path = Logan/mbedtls/library/blowfish.c; sourceTree = "<group>"; };
 		1AC9A647E769AF6809D007F52D0A4AD0 /* doraemon_fishhook.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = doraemon_fishhook.h; path = iOS/DoraemonKit/Src/Core/Util/fishhook/doraemon_fishhook.h; sourceTree = "<group>"; };
 		1ACED35F8FD787B114994D6ADF996C4F /* NSObject+RACSelectorSignal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+RACSelectorSignal.h"; path = "ReactiveObjC/NSObject+RACSelectorSignal.h"; sourceTree = "<group>"; };
 		1AD541580C7B816453BB4E3D9A80701B /* SJTimerControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJTimerControl.h; path = SJBaseVideoPlayer/Common/Utils/SJTimerControl.h; sourceTree = "<group>"; };
@@ -2878,7 +2882,7 @@
 		1C31B1A10B56C74B2CA4F976BF7E5207 /* AMapLocationCommonObj.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMapLocationCommonObj.h; path = AMapLocationKit.framework/Headers/AMapLocationCommonObj.h; sourceTree = "<group>"; };
 		1C37C645000B2E296ECE9B819DFB092E /* SVGMatrix.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGMatrix.m; path = "Source/DOM classes/SVG-DOM/SVGMatrix.m"; sourceTree = "<group>"; };
 		1C53422EF9D0AA1A1CDF90190BECECEF /* NSData+NSInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+NSInputStream.m"; path = "Source/Foundation additions/NSData+NSInputStream.m"; sourceTree = "<group>"; };
-		1C5B81B10D2C780C1ECD672E7E2FFBBC /* pk_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pk_wrap.c; path = Logan/mbedtls/library/pk_wrap.c; sourceTree = "<group>"; };
+		1C5B81B10D2C780C1ECD672E7E2FFBBC /* pk_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pk_wrap.c; path = Logan/mbedtls/library/pk_wrap.c; sourceTree = "<group>"; };
 		1CC58E97F2D427C85ACF5954E32F6DFF /* DoraemonManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonManager.m; path = iOS/DoraemonKit/Src/Core/Manager/DoraemonManager.m; sourceTree = "<group>"; };
 		1CD6211B40E914AF1357DA078AA23B84 /* GCDWebServerConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerConnection.m; path = GCDWebServer/Core/GCDWebServerConnection.m; sourceTree = "<group>"; };
 		1CEB06B206C8CAA8FA18615CE5ED3217 /* DoraemonNSURLProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNSURLProtocol.h; path = iOS/DoraemonKit/Src/Core/Network/Interceptor/DoraemonNSURLProtocol.h; sourceTree = "<group>"; };
@@ -2887,7 +2891,7 @@
 		1D0DD43B72BB7852CBD486120FF70F83 /* DoraemonQRScanView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonQRScanView.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/H5/QRCode/DoraemonQRScanView.h; sourceTree = "<group>"; };
 		1D1C6B4EAA4966C6DF2C34E52B3B3EA5 /* DoraemonEntryWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonEntryWindow.m; path = iOS/DoraemonKit/Src/Core/Entry/Entry/DoraemonEntryWindow.m; sourceTree = "<group>"; };
 		1D1FFDE080410817D59F32EBA01FC77B /* UIDatePicker+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIDatePicker+RACSignalSupport.m"; path = "ReactiveObjC/UIDatePicker+RACSignalSupport.m"; sourceTree = "<group>"; };
-		1D36C1669873A4ACFE36079DF24FBF64 /* base_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = base_util.c; path = Logan/Clogan/base_util.c; sourceTree = "<group>"; };
+		1D36C1669873A4ACFE36079DF24FBF64 /* base_util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = base_util.c; path = Logan/Clogan/base_util.c; sourceTree = "<group>"; };
 		1D58D5FF46E90747DB2CB8890B391054 /* DoraemonColorPickPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonColorPickPlugin.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ColorPick/DoraemonColorPickPlugin.m; sourceTree = "<group>"; };
 		1D5D66B1D7573083A392FD0B354846A2 /* TABAnimated */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TABAnimated; path = TABAnimated.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5E0620AF4F1858D5352035C6871EA9 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
@@ -2905,7 +2909,7 @@
 		1E8274B102FDBDCE77B98312517F572C /* SJBarrageItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJBarrageItem.m; path = SJBaseVideoPlayer/Common/Implements/SJBarrageItem.m; sourceTree = "<group>"; };
 		1EF51933AA27BAD593699936C1F2D126 /* RACTestScheduler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACTestScheduler.m; path = ReactiveObjC/RACTestScheduler.m; sourceTree = "<group>"; };
 		1F032D704807134DD1C152631EF74ECA /* DoraemonNSLogModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNSLogModel.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/NSLog/Function/DoraemonNSLogModel.h; sourceTree = "<group>"; };
-		1F083104F5EEE1F4D48BF752C24DC8D3 /* ssl_cookie.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_cookie.c; path = Logan/mbedtls/library/ssl_cookie.c; sourceTree = "<group>"; };
+		1F083104F5EEE1F4D48BF752C24DC8D3 /* ssl_cookie.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ssl_cookie.c; path = Logan/mbedtls/library/ssl_cookie.c; sourceTree = "<group>"; };
 		1F2A6CD45C1B1A06EAA23674066A381F /* DoraemonAppSettingPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonAppSettingPlugin.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/AppSetting/DoraemonAppSettingPlugin.h; sourceTree = "<group>"; };
 		1F3BC8A8E29F9947D1452A8BE113F601 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
 		1F45347F15F831DD06DBD075A52ECA23 /* DoraemonNetFlowManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNetFlowManager.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/Function/DoraemonNetFlowManager.h; sourceTree = "<group>"; };
@@ -2920,7 +2924,7 @@
 		20277295739623336C1F02FF46FCE81A /* KissXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KissXML.modulemap; sourceTree = "<group>"; };
 		20598A7C4C37577F4E2D7F78F1FB7AF3 /* ReactiveObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReactiveObjC.release.xcconfig; sourceTree = "<group>"; };
 		2069F00135C9E333DFD03F9FCF187C61 /* CGPathAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGPathAdditions.m; path = "Source/QuartzCore additions/CGPathAdditions.m"; sourceTree = "<group>"; };
-		207747046B79EA6202BB8E5AB5003790 /* pkparse.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkparse.c; path = Logan/mbedtls/library/pkparse.c; sourceTree = "<group>"; };
+		207747046B79EA6202BB8E5AB5003790 /* pkparse.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pkparse.c; path = Logan/mbedtls/library/pkparse.c; sourceTree = "<group>"; };
 		20A1B629019528BBCAAD773502B133C3 /* DoraemonMockFilterTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonMockFilterTableCell.h; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/Filter/DoraemonMockFilterTableCell.h; sourceTree = "<group>"; };
 		20B0FAA7D37959CC56AFBA2B3FB8FFB0 /* AMapLocationVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMapLocationVersion.h; path = AMapLocationKit.framework/Headers/AMapLocationVersion.h; sourceTree = "<group>"; };
 		20B1F667E82D1B394F4C488F1446F8CA /* FMDB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FMDB.modulemap; sourceTree = "<group>"; };
@@ -2968,7 +2972,7 @@
 		2470F0965EAAC98694E66BDE97F52401 /* UIButton+YYWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+YYWebImage.h"; path = "YYKit/Image/Categories/UIButton+YYWebImage.h"; sourceTree = "<group>"; };
 		2485570D74A93B724B420B855E345A44 /* SVGTextElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGTextElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGTextElement.h"; sourceTree = "<group>"; };
 		2493264CD0AD89F8C6A440A6534C6FE7 /* SJBaseVideoPlayer+TestLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SJBaseVideoPlayer+TestLog.m"; path = "SJBaseVideoPlayer/SJBaseVideoPlayer+TestLog.m"; sourceTree = "<group>"; };
-		24BD1EA930E20D05457B3450CDD0B782 /* aes_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aes_util.c; path = Logan/Clogan/aes_util.c; sourceTree = "<group>"; };
+		24BD1EA930E20D05457B3450CDD0B782 /* aes_util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aes_util.c; path = Logan/Clogan/aes_util.c; sourceTree = "<group>"; };
 		24C272A512A72F83FB71554D81FEDD94 /* SJUTRangeHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJUTRangeHandler.m; path = SJUIKit/AttributesFactory/UIKitText/SJUTRangeHandler.m; sourceTree = "<group>"; };
 		24FF2E9AD24B9D514B7380F7F4A74A71 /* GCDWebDAVServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebDAVServer.m; path = GCDWebDAVServer/GCDWebDAVServer.m; sourceTree = "<group>"; };
 		251BC0DE5192267B79A328CBC5D4DA1A /* LKS_PerspectiveLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_PerspectiveLayer.m; path = Src/Server/Perspective/LKS_PerspectiveLayer.m; sourceTree = "<group>"; };
@@ -2987,7 +2991,7 @@
 		26B70F5717E820AF45F788871F43DDC9 /* DoraemonNSLogViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNSLogViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/NSLog/DoraemonNSLogViewController.h; sourceTree = "<group>"; };
 		26BBA9C44A6DE84F81E0F069009836EF /* DoraemonCopyLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonCopyLabel.m; path = iOS/DoraemonKit/Src/Core/CommonUI/Label/DoraemonCopyLabel.m; sourceTree = "<group>"; };
 		26C620ED3CF2413C527A12C8589747B3 /* SJPromptDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJPromptDefines.h; path = SJBaseVideoPlayer/Common/Interfaces/SJPromptDefines.h; sourceTree = "<group>"; };
-		26DD36F71291E98B015D726DBD1B20DC /* mz_strm_buf.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm_buf.c; path = SSZipArchive/minizip/mz_strm_buf.c; sourceTree = "<group>"; };
+		26DD36F71291E98B015D726DBD1B20DC /* mz_strm_buf.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm_buf.c; path = SSZipArchive/minizip/mz_strm_buf.c; sourceTree = "<group>"; };
 		26E16629BBF7218C3F1C9FE780163BAF /* SVGKFastImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKFastImageView.h; path = "Source/UIKit additions/SVGKFastImageView.h"; sourceTree = "<group>"; };
 		2706064DDBEEB277753371D38D22F742 /* SJSQLiteCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJSQLiteCore.h; path = SJUIKit/SQLite3/Core/SJSQLiteCore.h; sourceTree = "<group>"; };
 		271D2D0EC3C7FF68238A04E271644268 /* DoraemonDefaultWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonDefaultWebViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Common/H5/DoraemonDefaultWebViewController.m; sourceTree = "<group>"; };
@@ -3059,7 +3063,7 @@
 		2CAF6527FB576772A2439D9DD526EDB4 /* SJSQLite3ColumnOrder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJSQLite3ColumnOrder.m; path = SJUIKit/SQLite3/Core/SJSQLite3ColumnOrder.m; sourceTree = "<group>"; };
 		2CB63FD8641B61802AD88CF89E620F72 /* TABComponentLayer+TABDropAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TABComponentLayer+TABDropAnimation.h"; path = "TABAnimatedDemo/TABAnimated/Decorate/Animation/Drop/TABComponentLayer+TABDropAnimation.h"; sourceTree = "<group>"; };
 		2CE14AD466632F880B8FF22C00798815 /* DoraemonXAxis.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonXAxis.h; path = iOS/DoraemonKit/Src/Core/CommonUI/Charts/DoraemonXAxis.h; sourceTree = "<group>"; };
-		2D59CFAFF5B1CEBD5A3A6C2D8D690433 /* directory_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = directory_util.c; path = Logan/Clogan/directory_util.c; sourceTree = "<group>"; };
+		2D59CFAFF5B1CEBD5A3A6C2D8D690433 /* directory_util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = directory_util.c; path = Logan/Clogan/directory_util.c; sourceTree = "<group>"; };
 		2D68C76B31C98279AE663C1E923A350B /* LKS_EventHandlerMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_EventHandlerMaker.h; path = Src/Server/Others/LKS_EventHandlerMaker.h; sourceTree = "<group>"; };
 		2D74CB3C59CD42244E2AE0EA67606268 /* SJSQLite3+RemoveExtended.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SJSQLite3+RemoveExtended.h"; path = "SJUIKit/SQLite3/SJSQLite3+RemoveExtended.h"; sourceTree = "<group>"; };
 		2D7C393C78394A8530F5201281CB49FD /* DDLegacyMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLegacyMacros.h; path = "Sources/CocoaLumberjack/Supporting Files/DDLegacyMacros.h"; sourceTree = "<group>"; };
@@ -3082,15 +3086,15 @@
 		2F763B5F9C28039C50FBD2F632A64DA5 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		2FA564ABDEC19C9C27F87B2816280EBB /* NSString+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+YYAdd.m"; path = "YYKit/Base/Foundation/NSString+YYAdd.m"; sourceTree = "<group>"; };
 		2FB5B5ABE629129B74A41BD6E445E128 /* DoraemonVisualMagnifierWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonVisualMagnifierWindow.m; path = iOS/DoraemonKit/Src/Core/CommonUI/Visual/DoraemonVisualMagnifierWindow.m; sourceTree = "<group>"; };
-		2FD7C3C46591B0322D4D1D401C4C1629 /* ecdh.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ecdh.c; path = Logan/mbedtls/library/ecdh.c; sourceTree = "<group>"; };
+		2FD7C3C46591B0322D4D1D401C4C1629 /* ecdh.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ecdh.c; path = Logan/mbedtls/library/ecdh.c; sourceTree = "<group>"; };
 		2FDBFE0CAB2F24785CC043901B719A1A /* RACScheduler+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RACScheduler+Private.h"; path = "ReactiveObjC/RACScheduler+Private.h"; sourceTree = "<group>"; };
 		30225E47881E647576B5871B34075C53 /* MJPropertyKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyKey.h; path = MJExtension/MJPropertyKey.h; sourceTree = "<group>"; };
 		30268A297CD31761993C40F1B999B9CE /* MATerrainOverlayRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MATerrainOverlayRenderer.h; path = MAMapKit.framework/Headers/MATerrainOverlayRenderer.h; sourceTree = "<group>"; };
 		302AE87EDEFD954D67DAE5DF1A1FA141 /* SJPromptPopupControllerDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJPromptPopupControllerDefines.h; path = SJBaseVideoPlayer/Common/Interfaces/SJPromptPopupControllerDefines.h; sourceTree = "<group>"; };
 		3037B20F6AD2322106A5E051FDBDF25D /* UIScrollView+TABExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TABExtension.h"; path = "TABAnimatedDemo/TABAnimated/Util/UIScrollView+TABExtension.h"; sourceTree = "<group>"; };
-		305C99FAD7622A0E930D2503F9A73DA9 /* arc4.c */ = {isa = PBXFileReference; includeInIndex = 1; name = arc4.c; path = Logan/mbedtls/library/arc4.c; sourceTree = "<group>"; };
+		305C99FAD7622A0E930D2503F9A73DA9 /* arc4.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = arc4.c; path = Logan/mbedtls/library/arc4.c; sourceTree = "<group>"; };
 		3074646A59ADEDDBF9FDC1ED67191A72 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/Core/UIImage+GIF.m"; sourceTree = "<group>"; };
-		307510976422D985402BAAFE3D5FADE2 /* ssl_ciphersuites.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_ciphersuites.c; path = Logan/mbedtls/library/ssl_ciphersuites.c; sourceTree = "<group>"; };
+		307510976422D985402BAAFE3D5FADE2 /* ssl_ciphersuites.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ssl_ciphersuites.c; path = Logan/mbedtls/library/ssl_ciphersuites.c; sourceTree = "<group>"; };
 		30976B97AEA58720E68B82A2449A85CB /* PINCacheObjectSubscripting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINCacheObjectSubscripting.h; path = PINCache/PINCacheObjectSubscripting.h; sourceTree = "<group>"; };
 		30C9DDF6897FE552166CACA3EABD063D /* UIImage+Doraemon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Doraemon.h"; path = "iOS/DoraemonKit/Src/Core/Category/UIImage+Doraemon.h"; sourceTree = "<group>"; };
 		3199BB2424A8CD6562BE9EF36422191B /* Logan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Logan.h; path = Logan/iOS/Logan.h; sourceTree = "<group>"; };
@@ -3160,9 +3164,9 @@
 		379B5C5B1EB4A71AAF8CAFF3F81DA17F /* YYKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYKit.release.xcconfig; sourceTree = "<group>"; };
 		37A9C4F8F8ACC72ED92DA9E50CCA6DCB /* MAPolylineRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAPolylineRenderer.h; path = MAMapKit.framework/Headers/MAPolylineRenderer.h; sourceTree = "<group>"; };
 		37BF5BA0DA8C59E162980CEB38268024 /* SVGStyleCatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGStyleCatcher.h; path = "Source/DOM classes/Unported or Partial DOM/SVGStyleCatcher.h"; sourceTree = "<group>"; };
-		37C5D9790D50DBC1DAE4F6827F8E4BF4 /* padlock.c */ = {isa = PBXFileReference; includeInIndex = 1; name = padlock.c; path = Logan/mbedtls/library/padlock.c; sourceTree = "<group>"; };
-		37E1FC5A04433AAD4C970E44CA7820D9 /* ecjpake.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ecjpake.c; path = Logan/mbedtls/library/ecjpake.c; sourceTree = "<group>"; };
-		37EA5A30C0E13417109709BAEDCF9B76 /* ssl_cache.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_cache.c; path = Logan/mbedtls/library/ssl_cache.c; sourceTree = "<group>"; };
+		37C5D9790D50DBC1DAE4F6827F8E4BF4 /* padlock.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = padlock.c; path = Logan/mbedtls/library/padlock.c; sourceTree = "<group>"; };
+		37E1FC5A04433AAD4C970E44CA7820D9 /* ecjpake.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ecjpake.c; path = Logan/mbedtls/library/ecjpake.c; sourceTree = "<group>"; };
+		37EA5A30C0E13417109709BAEDCF9B76 /* ssl_cache.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ssl_cache.c; path = Logan/mbedtls/library/ssl_cache.c; sourceTree = "<group>"; };
 		37EEF39F99AC5C8AE88C82005EEF69F5 /* TABComponentLayerClassicSerializationImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABComponentLayerClassicSerializationImpl.h; path = TABAnimatedDemo/TABAnimated/Decorate/Animation/Classic/TABComponentLayerClassicSerializationImpl.h; sourceTree = "<group>"; };
 		381F30B68EB8C1FF4F77D2FE6091EC03 /* DocumentFragment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DocumentFragment.h; path = "Source/DOM classes/Core DOM/DocumentFragment.h"; sourceTree = "<group>"; };
 		3832F2378ED3852A82335A3FBAC5FF0F /* FDFullscreenPopGesture-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDFullscreenPopGesture-umbrella.h"; sourceTree = "<group>"; };
@@ -3178,7 +3182,7 @@
 		392F2415B4C7B910B56032C63062ADB1 /* SVGMatrix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGMatrix.h; path = "Source/DOM classes/SVG-DOM/SVGMatrix.h"; sourceTree = "<group>"; };
 		39408750A20339176EE23D5C0FAC8CC0 /* DDXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDXMLNode.m; path = KissXML/DDXMLNode.m; sourceTree = "<group>"; };
 		399EC9508E73C0D54D9BBD8741FBA137 /* KVOController */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KVOController; path = KVOController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		39B8CFA05F279F1423B4FCED1AD668D3 /* mz_strm_split.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm_split.c; path = SSZipArchive/minizip/mz_strm_split.c; sourceTree = "<group>"; };
+		39B8CFA05F279F1423B4FCED1AD668D3 /* mz_strm_split.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm_split.c; path = SSZipArchive/minizip/mz_strm_split.c; sourceTree = "<group>"; };
 		39C82E80AB9EA72DA69E4A00DEC2AD26 /* DoraemonUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonUtil.h; path = iOS/DoraemonKit/Src/Core/Util/DoraemonUtil.h; sourceTree = "<group>"; };
 		39E533952CBAB20F36F00CB111FDD9CA /* SJUTRegexHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJUTRegexHandler.h; path = SJUIKit/AttributesFactory/UIKitText/SJUTRegexHandler.h; sourceTree = "<group>"; };
 		3A2CD9561F231651661B662AEF39AE13 /* RACDisposable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACDisposable.m; path = ReactiveObjC/RACDisposable.m; sourceTree = "<group>"; };
@@ -3197,7 +3201,7 @@
 		3B7EEF11139743548A4C5C31741EB96E /* SJVideoPlayerURLAsset+SJSubtitlesAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SJVideoPlayerURLAsset+SJSubtitlesAdd.m"; path = "SJBaseVideoPlayer/Common/Implements/SJVideoPlayerURLAsset+SJSubtitlesAdd.m"; sourceTree = "<group>"; };
 		3B8E05311F42C16E9A27103FB0D350DA /* AMapSearchAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMapSearchAPI.h; path = AMapSearchKit.framework/Headers/AMapSearchAPI.h; sourceTree = "<group>"; };
 		3BA744AC404007157F43FEE3DF7D5F9C /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/Core/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
-		3BC48CBD9F927C4A3B873EAD5A3BC947 /* cmac.c */ = {isa = PBXFileReference; includeInIndex = 1; name = cmac.c; path = Logan/mbedtls/library/cmac.c; sourceTree = "<group>"; };
+		3BC48CBD9F927C4A3B873EAD5A3BC947 /* cmac.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cmac.c; path = Logan/mbedtls/library/cmac.c; sourceTree = "<group>"; };
 		3BC608BE12E3058800612D958976B47F /* SVGPolylineElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGPolylineElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGPolylineElement.m"; sourceTree = "<group>"; };
 		3BE6A43456D66EB3FFC62A2643B24255 /* NSArray+RACSequenceAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+RACSequenceAdditions.h"; path = "ReactiveObjC/NSArray+RACSequenceAdditions.h"; sourceTree = "<group>"; };
 		3BED4F9DD7B20C01BBCF91F9C5EC4FD4 /* RACScopedDisposable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACScopedDisposable.m; path = ReactiveObjC/RACScopedDisposable.m; sourceTree = "<group>"; };
@@ -3219,10 +3223,10 @@
 		3D6731DE50B3865A1583DACB0ECF6412 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 		3D75ACD92538D3068B66C48A4492D857 /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
 		3D867EBD35EA26A77BDA77F3C4BAE452 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/Core/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
-		3DB3C285D6F38448622539057AF1100E /* doraemon_fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; name = doraemon_fishhook.c; path = iOS/DoraemonKit/Src/Core/Util/fishhook/doraemon_fishhook.c; sourceTree = "<group>"; };
+		3DB3C285D6F38448622539057AF1100E /* doraemon_fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = doraemon_fishhook.c; path = iOS/DoraemonKit/Src/Core/Util/fishhook/doraemon_fishhook.c; sourceTree = "<group>"; };
 		3DB841EABD6B09359465BCE9FAC1EE7C /* UISwitch+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISwitch+RACSignalSupport.h"; path = "ReactiveObjC/UISwitch+RACSignalSupport.h"; sourceTree = "<group>"; };
 		3DBD5C33F41513DD25393F5E6BA89863 /* CDATASection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CDATASection.h; path = "Source/DOM classes/Core DOM/CDATASection.h"; sourceTree = "<group>"; };
-		3DCEE3A573227CF054B2E67D1011C33F /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
+		3DCEE3A573227CF054B2E67D1011C33F /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
 		3DD54AAAFD6CA328180344C5A00E22F3 /* DoraemonAppInfoPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonAppInfoPlugin.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/AppInfo/DoraemonAppInfoPlugin.h; sourceTree = "<group>"; };
 		3DD7F9D84507451937A127EC952FDC97 /* CocoaAsyncSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-prefix.pch"; sourceTree = "<group>"; };
 		3DF76489078AABD29C901BC774304198 /* KVOController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KVOController.release.xcconfig; sourceTree = "<group>"; };
@@ -3239,7 +3243,7 @@
 		3EB462DC79FB41790802E00A239D4F2E /* UIScreen+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScreen+YYAdd.m"; path = "YYKit/Base/UIKit/UIScreen+YYAdd.m"; sourceTree = "<group>"; };
 		3EB5468C885AABCD303C6E0918AADB0F /* CocoaAsyncSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaAsyncSocket-dummy.m"; sourceTree = "<group>"; };
 		3EBCC2FE2618FCAC2E529F36453EE2AC /* SDDeviceHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDDeviceHelper.h; path = SDWebImage/Private/SDDeviceHelper.h; sourceTree = "<group>"; };
-		3ED0FB4C102CE4B1C1147631CBC8DDAF /* ctr_drbg.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ctr_drbg.c; path = Logan/mbedtls/library/ctr_drbg.c; sourceTree = "<group>"; };
+		3ED0FB4C102CE4B1C1147631CBC8DDAF /* ctr_drbg.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ctr_drbg.c; path = Logan/mbedtls/library/ctr_drbg.c; sourceTree = "<group>"; };
 		3EFC8470032E174B78100616C67D9E25 /* DoraemonViewCheckPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonViewCheckPlugin.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ViewCheck/DoraemonViewCheckPlugin.h; sourceTree = "<group>"; };
 		3F0876B8624CB146A98F747AC32D6BE6 /* SVGTitleElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGTitleElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGTitleElement.h"; sourceTree = "<group>"; };
 		3F217A84CBBCFE338C7372B44C39E4A8 /* DoraemonSubThreadUICheckManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonSubThreadUICheckManager.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/SubThreadUICheck/Function/DoraemonSubThreadUICheckManager.m; sourceTree = "<group>"; };
@@ -3257,13 +3261,13 @@
 		403B2B55E427A269FB0EAA565286AB65 /* DoraemonKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DoraemonKit.release.xcconfig; sourceTree = "<group>"; };
 		4085C51C3E8B513611AC2DBA6243B918 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
 		40AF7E3FCE6225B742BCE6D1C94FAF5E /* SVGKParserSVG.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKParserSVG.h; path = "Source/Parsers/Parser Extensions/SVGKParserSVG.h"; sourceTree = "<group>"; };
-		40C71C06DB1C246CBDA67CFBFE0B9981 /* hmac_drbg.c */ = {isa = PBXFileReference; includeInIndex = 1; name = hmac_drbg.c; path = Logan/mbedtls/library/hmac_drbg.c; sourceTree = "<group>"; };
+		40C71C06DB1C246CBDA67CFBFE0B9981 /* hmac_drbg.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = hmac_drbg.c; path = Logan/mbedtls/library/hmac_drbg.c; sourceTree = "<group>"; };
 		40DF60428F769D314302A011C88D8949 /* StyleSheetList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = StyleSheetList.h; path = "Source/DOM classes/Core DOM/StyleSheetList.h"; sourceTree = "<group>"; };
 		4112726457463A5D6C2562E25D33F5E3 /* LKS_ExportManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_ExportManager.m; path = Src/Server/Others/LKS_ExportManager.m; sourceTree = "<group>"; };
 		411C04454A4A05918DB82D9420809883 /* YYModel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-umbrella.h"; sourceTree = "<group>"; };
 		4126825D130F20407BCFAB9265EBEC07 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		4146F30980249C4E639F4817E16560BB /* DoraemonHierarchyCellModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonHierarchyCellModel.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/UserInterface/Model/DoraemonHierarchyCellModel.h; sourceTree = "<group>"; };
-		4153AD5057D39CD3DF84FF2B5C43A19C /* md4.c */ = {isa = PBXFileReference; includeInIndex = 1; name = md4.c; path = Logan/mbedtls/library/md4.c; sourceTree = "<group>"; };
+		4153AD5057D39CD3DF84FF2B5C43A19C /* md4.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = md4.c; path = Logan/mbedtls/library/md4.c; sourceTree = "<group>"; };
 		417CBF1771AFCF0E5B315FA06C8C44E6 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		41AA019C1EE0FAB5C8B4CF1669B088AB /* SVGAnimatedPreserveAspectRatio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGAnimatedPreserveAspectRatio.h; path = "Source/DOM classes/SVG-DOM/SVGAnimatedPreserveAspectRatio.h"; sourceTree = "<group>"; };
 		41AB0A1AE969EEDCEC7B01A585D9952E /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
@@ -3271,7 +3275,7 @@
 		41D64240F0FE594DDA48C37112B4DD33 /* SDImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOCoder.h; path = SDWebImage/Core/SDImageIOCoder.h; sourceTree = "<group>"; };
 		42211B5CC372CA82D721E1A6719E54B5 /* NSObject+DoraemonHierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+DoraemonHierarchy.h"; path = "iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/Function/Category/NSObject+DoraemonHierarchy.h"; sourceTree = "<group>"; };
 		4280B0BC9B6549076A5089CDC9F02D90 /* DoraemonChartDataItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonChartDataItem.m; path = iOS/DoraemonKit/Src/Core/CommonUI/Charts/DoraemonChartDataItem.m; sourceTree = "<group>"; };
-		42A8DF05EC87DD9821AD74C491C25473 /* asn1write.c */ = {isa = PBXFileReference; includeInIndex = 1; name = asn1write.c; path = Logan/mbedtls/library/asn1write.c; sourceTree = "<group>"; };
+		42A8DF05EC87DD9821AD74C491C25473 /* asn1write.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = asn1write.c; path = Logan/mbedtls/library/asn1write.c; sourceTree = "<group>"; };
 		42A9E68B34EF948FB3B656502ECC46E1 /* console_util.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = console_util.h; path = Logan/Clogan/console_util.h; sourceTree = "<group>"; };
 		42CD427080F52BF3979E60C0F2D7D2A4 /* SVGAngle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGAngle.m; path = "Source/DOM classes/SVG-DOM/SVGAngle.m"; sourceTree = "<group>"; };
 		42F9405EC9D1DD17B30AF92E5AE2F804 /* xtea.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = xtea.h; path = Logan/mbedtls/include/mbedtls/xtea.h; sourceTree = "<group>"; };
@@ -3311,7 +3315,7 @@
 		4646EBAEB2E20F9C4AAF5C5B70A7E2CA /* DDASLLogCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogCapture.m; path = Sources/CocoaLumberjack/DDASLLogCapture.m; sourceTree = "<group>"; };
 		464DD4C18A73E61300D98AE7B2E3889B /* Logan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Logan.m; path = Logan/iOS/Logan.m; sourceTree = "<group>"; };
 		4650C8E67F1393C39DCE7F174BDB2FC5 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDAbstractDatabaseLogger.m; path = Sources/CocoaLumberjack/DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		465AE5F0BB60214100C5E994794B07EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = Logan/iOS/README.md; sourceTree = "<group>"; };
+		465AE5F0BB60214100C5E994794B07EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Logan/iOS/README.md; sourceTree = "<group>"; };
 		465F16355C0D2B2FD5CC4EAA05539CF0 /* DoraemonCrashPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonCrashPlugin.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/Crash/DoraemonCrashPlugin.h; sourceTree = "<group>"; };
 		468A830E36E3CEB50F021343308553A8 /* UIAlertView+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+RACSignalSupport.h"; path = "ReactiveObjC/UIAlertView+RACSignalSupport.h"; sourceTree = "<group>"; };
 		469C613118A6BAE1917D493DB1C3059E /* mz.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mz.h; path = SSZipArchive/minizip/mz.h; sourceTree = "<group>"; };
@@ -3341,7 +3345,7 @@
 		48A80292F68B08DDB4C41FB9E2A79459 /* YYKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYKit.debug.xcconfig; sourceTree = "<group>"; };
 		48A8F074CDF4352C260EC4C40993D31D /* DoraemonHomeWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonHomeWindow.h; path = iOS/DoraemonKit/Src/Core/Entry/Home/DoraemonHomeWindow.h; sourceTree = "<group>"; };
 		48AA5E1C434B83B40FB0C894C4ED1C4C /* DoraemonCrashSignalExceptionHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonCrashSignalExceptionHandler.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/Crash/Function/DoraemonCrashSignalExceptionHandler.m; sourceTree = "<group>"; };
-		48BA0EB797C9CF852DB6DA591D6A69F2 /* mz_strm_wzaes.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm_wzaes.c; path = SSZipArchive/minizip/mz_strm_wzaes.c; sourceTree = "<group>"; };
+		48BA0EB797C9CF852DB6DA591D6A69F2 /* mz_strm_wzaes.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm_wzaes.c; path = SSZipArchive/minizip/mz_strm_wzaes.c; sourceTree = "<group>"; };
 		48D6B2D878EBB503F3992AF958714A02 /* RACEagerSequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACEagerSequence.m; path = ReactiveObjC/RACEagerSequence.m; sourceTree = "<group>"; };
 		48D76DE6E7C1DE140072D7A77403048A /* YYTextParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextParser.m; path = YYKit/Text/String/YYTextParser.m; sourceTree = "<group>"; };
 		48F07F2F9B0013719DFD46ECD40DF054 /* LKS_MethodTraceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_MethodTraceManager.m; path = Src/Server/Others/LKS_MethodTraceManager.m; sourceTree = "<group>"; };
@@ -3361,7 +3365,7 @@
 		4A62BC8D08E63A0C65F5073B36C590FB /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = iOS/DoraemonKit/Resource/Assets.xcassets; sourceTree = "<group>"; };
 		4A85DCF8125E89938C33018FE7EF9644 /* TABComponentLayerClassicSerializationImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABComponentLayerClassicSerializationImpl.m; path = TABAnimatedDemo/TABAnimated/Decorate/Animation/Classic/TABComponentLayerClassicSerializationImpl.m; sourceTree = "<group>"; };
 		4A89EB7E46190C57E2D7B517A119460D /* DoraemonNetFlowDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNetFlowDetailViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/Detail/DoraemonNetFlowDetailViewController.h; sourceTree = "<group>"; };
-		4A89F1AC7D6FD143B1906823B94903DD /* mz_strm_zlib.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm_zlib.c; path = SSZipArchive/minizip/mz_strm_zlib.c; sourceTree = "<group>"; };
+		4A89F1AC7D6FD143B1906823B94903DD /* mz_strm_zlib.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm_zlib.c; path = SSZipArchive/minizip/mz_strm_zlib.c; sourceTree = "<group>"; };
 		4AB20966869D27F8141A1B3F2C86F696 /* UISegmentedControl+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISegmentedControl+RACSignalSupport.h"; path = "ReactiveObjC/UISegmentedControl+RACSignalSupport.h"; sourceTree = "<group>"; };
 		4AB5EA2503701A24C53E21182CB70B38 /* KVOController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVOController-dummy.m"; sourceTree = "<group>"; };
 		4B09B1C39174E661BA51AE69D22869D9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
@@ -3371,8 +3375,8 @@
 		4B735A84491E3ED47D9209F9F43D1578 /* RACEmptySequence.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACEmptySequence.h; path = ReactiveObjC/RACEmptySequence.h; sourceTree = "<group>"; };
 		4B7532D100CB5B73E69E2C3FF41DB4CA /* SSZipArchive-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SSZipArchive-Info.plist"; sourceTree = "<group>"; };
 		4B80917D1FAF45CB878A943A20614A62 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
-		4B8592CDC64017F0F93993D35E64F67D /* ecdsa.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ecdsa.c; path = Logan/mbedtls/library/ecdsa.c; sourceTree = "<group>"; };
-		4B878F4753A6A8F4FEA9106C2C05F167 /* console_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = console_util.c; path = Logan/Clogan/console_util.c; sourceTree = "<group>"; };
+		4B8592CDC64017F0F93993D35E64F67D /* ecdsa.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ecdsa.c; path = Logan/mbedtls/library/ecdsa.c; sourceTree = "<group>"; };
+		4B878F4753A6A8F4FEA9106C2C05F167 /* console_util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = console_util.c; path = Logan/Clogan/console_util.c; sourceTree = "<group>"; };
 		4B8AEA473944B4C8B16AF10518DAEB0F /* DoraemonKitManagerHeadCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonKitManagerHeadCell.h; path = iOS/DoraemonKit/Src/Core/Entry/Home/Settings/KitManager/View/DoraemonKitManagerHeadCell.h; sourceTree = "<group>"; };
 		4BC4154D1751CB965975AAD7EAB2A956 /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYKit/Model/YYClassInfo.m; sourceTree = "<group>"; };
 		4BEBE419EA1A2A6D8F9E7645640DAF47 /* LookinAutoLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAutoLayoutConstraint.h; path = Src/Shared/LookinAutoLayoutConstraint.h; sourceTree = "<group>"; };
@@ -3397,8 +3401,8 @@
 		4DC4F8813C10D97F5565CFA0C8B35616 /* SDImageAWebPCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageAWebPCoder.h; path = SDWebImage/Core/SDImageAWebPCoder.h; sourceTree = "<group>"; };
 		4DD5B49077A2F2FA6A8F5642FB607E9F /* aes_util.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes_util.h; path = Logan/Clogan/aes_util.h; sourceTree = "<group>"; };
 		4DEA7847A0AA71262468F4431DB8D884 /* TABAnimatedCacheModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABAnimatedCacheModel.m; path = TABAnimatedDemo/TABAnimated/Cache/TABAnimatedCacheModel.m; sourceTree = "<group>"; };
-		4DFEAA98FE6039E2983CCB2D4A354F83 /* error.c */ = {isa = PBXFileReference; includeInIndex = 1; name = error.c; path = Logan/mbedtls/library/error.c; sourceTree = "<group>"; };
-		4E1B2FECBDCC9B83FFAF3D0267264A60 /* x509_crt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509_crt.c; path = Logan/mbedtls/library/x509_crt.c; sourceTree = "<group>"; };
+		4DFEAA98FE6039E2983CCB2D4A354F83 /* error.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = error.c; path = Logan/mbedtls/library/error.c; sourceTree = "<group>"; };
+		4E1B2FECBDCC9B83FFAF3D0267264A60 /* x509_crt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509_crt.c; path = Logan/mbedtls/library/x509_crt.c; sourceTree = "<group>"; };
 		4E2334B5CB6C2ECB59243FB87134829B /* AMapLocation-NO-IDFA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AMapLocation-NO-IDFA.debug.xcconfig"; sourceTree = "<group>"; };
 		4E4713AF7FA78008834811E68806562D /* LKS_Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_Helper.h; path = Src/Server/Others/LKS_Helper.h; sourceTree = "<group>"; };
 		4E4DDEBAFB34C360E08E69AA8B04155B /* _YYWebImageSetter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _YYWebImageSetter.h; path = YYKit/Image/Categories/_YYWebImageSetter.h; sourceTree = "<group>"; };
@@ -3407,7 +3411,7 @@
 		4E8AAB10D7981D062B48266B7365A3BC /* DoraemonMockAPIModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMockAPIModel.m; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/Model/DoraemonMockAPIModel.m; sourceTree = "<group>"; };
 		4E9056D205693C1BD2D9905131F905D6 /* DoraemonViewAlignManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonViewAlignManager.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ViewAlign/Function/DoraemonViewAlignManager.h; sourceTree = "<group>"; };
 		4EA38D8A43C4C9A16C8F66B3262E5C7D /* SJSQLite3Condition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJSQLite3Condition.m; path = SJUIKit/SQLite3/Core/SJSQLite3Condition.m; sourceTree = "<group>"; };
-		4EDD4C334DC3BBBC5A85514B8BCF993A /* dhm.c */ = {isa = PBXFileReference; includeInIndex = 1; name = dhm.c; path = Logan/mbedtls/library/dhm.c; sourceTree = "<group>"; };
+		4EDD4C334DC3BBBC5A85514B8BCF993A /* dhm.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = dhm.c; path = Logan/mbedtls/library/dhm.c; sourceTree = "<group>"; };
 		4EE1B8546CB95CCAC64464A40C4121AF /* CSSStyleDeclaration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSStyleDeclaration.h; path = "Source/DOM classes/Core DOM/CSSStyleDeclaration.h"; sourceTree = "<group>"; };
 		4EEF80AB51DB85D39D32A1E9EEF39049 /* DDLogMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogMacros.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDLogMacros.h; sourceTree = "<group>"; };
 		4EF0BC16A3B5CF89533B6E2DF5762794 /* DDXMLPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDXMLPrivate.h; path = KissXML/Private/DDXMLPrivate.h; sourceTree = "<group>"; };
@@ -3417,7 +3421,7 @@
 		4F91A7E8E22057828AFC2B6BEDB37654 /* RACTuple.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACTuple.m; path = ReactiveObjC/RACTuple.m; sourceTree = "<group>"; };
 		4FB2A8914D405D7B812A8D348B3F7136 /* _YYWebImageSetter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _YYWebImageSetter.m; path = YYKit/Image/Categories/_YYWebImageSetter.m; sourceTree = "<group>"; };
 		4FEFB170B3EA35AAEE56E02403B17175 /* YYTextRunDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextRunDelegate.h; path = YYKit/Text/String/YYTextRunDelegate.h; sourceTree = "<group>"; };
-		501274DA43AA2E1EC6D6C6A4F5A10BB6 /* construct_data.c */ = {isa = PBXFileReference; includeInIndex = 1; name = construct_data.c; path = Logan/Clogan/construct_data.c; sourceTree = "<group>"; };
+		501274DA43AA2E1EC6D6C6A4F5A10BB6 /* construct_data.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = construct_data.c; path = Logan/Clogan/construct_data.c; sourceTree = "<group>"; };
 		502C139E3B4B73B344AE7D3166E42C70 /* LookinAppInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinAppInfo.m; path = Src/Shared/LookinAppInfo.m; sourceTree = "<group>"; };
 		50402B340BC47ABFC5DC3CE5725AF4E1 /* LookinServer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LookinServer.debug.xcconfig; sourceTree = "<group>"; };
 		506E5CAAB3FEDBB7DCE4E5FD80558719 /* SJAVMediaPlayerLayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJAVMediaPlayerLayerView.h; path = SJBaseVideoPlayer/AVPlayer/Core/SJAVMediaPlayerLayerView.h; sourceTree = "<group>"; };
@@ -3433,7 +3437,7 @@
 		516BA1F0A65FEA36662C928296FA4F0E /* SVGElement_ForParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGElement_ForParser.h; path = "Source/DOM classes/Unported or Partial DOM/SVGElement_ForParser.h"; sourceTree = "<group>"; };
 		517E4CB5E59259EF1352D5C4F8D45922 /* SVGKParserStyles.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKParserStyles.h; path = "Source/Parsers/Parser Extensions/SVGKParserStyles.h"; sourceTree = "<group>"; };
 		5183B6A6BA25D6B7A1346DD17B2E68CB /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYSpriteSheetImage.h; path = YYKit/Image/YYSpriteSheetImage.h; sourceTree = "<group>"; };
-		5192C786CBCA332B8C3F576338215208 /* x509.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509.c; path = Logan/mbedtls/library/x509.c; sourceTree = "<group>"; };
+		5192C786CBCA332B8C3F576338215208 /* x509.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509.c; path = Logan/mbedtls/library/x509.c; sourceTree = "<group>"; };
 		519A70A367379373B3EFDBB8617A4435 /* Doraemoni18NUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Doraemoni18NUtil.m; path = iOS/DoraemonKit/Src/Core/Util/Doraemoni18NUtil.m; sourceTree = "<group>"; };
 		51A0EFDE4BB6D8CA0051980F7A974C7B /* DoraemonKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DoraemonKit-prefix.pch"; sourceTree = "<group>"; };
 		51AF23CB92C8BB88C0B20DB5A47901DE /* SJBaseVideoPlayer */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SJBaseVideoPlayer; path = SJBaseVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3480,7 +3484,7 @@
 		563BCBA5012ACD1788F7A663741324E2 /* DoraemonMockUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMockUtil.m; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/Function/DoraemonMockUtil.m; sourceTree = "<group>"; };
 		563E48A4F58CAC1804CAC38229186B41 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextKeyboardManager.h; path = YYKit/Text/Component/YYTextKeyboardManager.h; sourceTree = "<group>"; };
 		5657EE81BF206850964982E2CBDF2F66 /* MAHeatMapTileOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAHeatMapTileOverlay.h; path = MAMapKit.framework/Headers/MAHeatMapTileOverlay.h; sourceTree = "<group>"; };
-		56A667D96AD8CB071E26BAB1023B23A2 /* pkcs12.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkcs12.c; path = Logan/mbedtls/library/pkcs12.c; sourceTree = "<group>"; };
+		56A667D96AD8CB071E26BAB1023B23A2 /* pkcs12.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pkcs12.c; path = Logan/mbedtls/library/pkcs12.c; sourceTree = "<group>"; };
 		56BFDC78CD605AA72A87596FE1D9A320 /* DoraemonHierarchyTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonHierarchyTableViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/UserInterface/DoraemonHierarchyTableViewController.m; sourceTree = "<group>"; };
 		5730862F389FF6036722AAE6E282C304 /* SDWebImageDownloaderRequestModifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderRequestModifier.m; path = SDWebImage/Core/SDWebImageDownloaderRequestModifier.m; sourceTree = "<group>"; };
 		573E90321991E38624D278E32D743C5A /* CLIColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLIColor.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/CLIColor.h; sourceTree = "<group>"; };
@@ -3493,7 +3497,7 @@
 		57B4E1C5D4F9385A3E73E35B70F39369 /* SJSQLite3+FoundationExtended.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SJSQLite3+FoundationExtended.m"; path = "SJUIKit/SQLite3/SJSQLite3+FoundationExtended.m"; sourceTree = "<group>"; };
 		58025AEE056799D1183C2771F5FBAEF5 /* TABAnimatedDarkModeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABAnimatedDarkModeDefines.h; path = TABAnimatedDemo/TABAnimated/Decorate/DarkMode/Include/TABAnimatedDarkModeDefines.h; sourceTree = "<group>"; };
 		58043570FEB409EDB8D46F9BB525D18E /* GCDWebServerMultiPartFormRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDWebServerMultiPartFormRequest.m; path = GCDWebServer/Requests/GCDWebServerMultiPartFormRequest.m; sourceTree = "<group>"; };
-		582E314E22762212C72FE8685DA47716 /* mz_crypt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_crypt.c; path = SSZipArchive/minizip/mz_crypt.c; sourceTree = "<group>"; };
+		582E314E22762212C72FE8685DA47716 /* mz_crypt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_crypt.c; path = SSZipArchive/minizip/mz_crypt.c; sourceTree = "<group>"; };
 		58353066DD213DF45D8D0EE424876BE3 /* CALayer+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+YYAdd.h"; path = "YYKit/Base/Quartz/CALayer+YYAdd.h"; sourceTree = "<group>"; };
 		583545E16F445EB00BA08C08498FCCD2 /* NamedNodeMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NamedNodeMap.h; path = "Source/DOM classes/Core DOM/NamedNodeMap.h"; sourceTree = "<group>"; };
 		583C687C94A639BDA74175658E8BFBC3 /* NSDictionary+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+YYAdd.m"; path = "YYKit/Base/Foundation/NSDictionary+YYAdd.m"; sourceTree = "<group>"; };
@@ -3516,7 +3520,7 @@
 		5A0CCBF5531DC4D26CC311E04AD4CCB1 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		5A30DA681CA8065BA07BB47B6939F421 /* SDImageAPNGCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageAPNGCoder.h; path = SDWebImage/Core/SDImageAPNGCoder.h; sourceTree = "<group>"; };
 		5A34986BA1FDEE285A1F367FDC46B815 /* SAMKeychain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAMKeychain-prefix.pch"; sourceTree = "<group>"; };
-		5A452EB1DB1E51B5732535812A92F87C /* x509write_crt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509write_crt.c; path = Logan/mbedtls/library/x509write_crt.c; sourceTree = "<group>"; };
+		5A452EB1DB1E51B5732535812A92F87C /* x509write_crt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509write_crt.c; path = Logan/mbedtls/library/x509write_crt.c; sourceTree = "<group>"; };
 		5A629C07B28AFC709D3F24C96343E780 /* DoraemonHierarchyDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonHierarchyDetailViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/UserInterface/DoraemonHierarchyDetailViewController.h; sourceTree = "<group>"; };
 		5A7C8D855B30828F98D21A52674A8BE7 /* DoraemonNSLogManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNSLogManager.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/NSLog/Function/DoraemonNSLogManager.h; sourceTree = "<group>"; };
 		5A8904A1667B5C1455711D319C51576B /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
@@ -3631,7 +3635,7 @@
 		673E9C237D818D8BEF5B77AE1DAA70B9 /* DoraemonColorPickInfoView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonColorPickInfoView.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ColorPick/Function/DoraemonColorPickInfoView.m; sourceTree = "<group>"; };
 		674CFC918DFE2E1422250DB3B21D6628 /* SJControlLayerAppearManagerDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJControlLayerAppearManagerDefines.h; path = SJBaseVideoPlayer/Common/Interfaces/SJControlLayerAppearManagerDefines.h; sourceTree = "<group>"; };
 		6752EDEB32B7C06BE29083B9A279DDDB /* DoraemonKitManagerResetCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonKitManagerResetCell.m; path = iOS/DoraemonKit/Src/Core/Entry/Home/Settings/KitManager/View/DoraemonKitManagerResetCell.m; sourceTree = "<group>"; };
-		6766430B45CFCA9FD7872CA586A0B7EE /* ssl_tls.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_tls.c; path = Logan/mbedtls/library/ssl_tls.c; sourceTree = "<group>"; };
+		6766430B45CFCA9FD7872CA586A0B7EE /* ssl_tls.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ssl_tls.c; path = Logan/mbedtls/library/ssl_tls.c; sourceTree = "<group>"; };
 		67717B2AAF539185148F346799E3EAFB /* SJUIKitTextMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJUIKitTextMaker.h; path = SJUIKit/AttributesFactory/UIKitText/SJUIKitTextMaker.h; sourceTree = "<group>"; };
 		6775EB31614FAE51E28ADFF7E77611C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		678F74261D106EB22F4470F2BE2CA6D3 /* SVGGradientStop.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGGradientStop.h; path = "Source/DOM classes/Unported or Partial DOM/SVGGradientStop.h"; sourceTree = "<group>"; };
@@ -3685,7 +3689,7 @@
 		6C89BA46DE08B0FB187753FB522518C3 /* SVGKSourceURL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKSourceURL.m; path = Source/Sources/SVGKSourceURL.m; sourceTree = "<group>"; };
 		6C93EE04421C4DF0C1788ED7273CD39F /* LookinMsgAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinMsgAttribute.h; path = Src/Shared/Message/LookinMsgAttribute.h; sourceTree = "<group>"; };
 		6CA3D417C6D92F6F0FFFB4ED1A97FD3E /* TABAnimatedDocumentMethod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABAnimatedDocumentMethod.h; path = TABAnimatedDemo/TABAnimated/Cache/TABAnimatedDocumentMethod.h; sourceTree = "<group>"; };
-		6CAD01B3F807E46E2EAECE64991B8C20 /* json_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = json_util.c; path = Logan/Clogan/json_util.c; sourceTree = "<group>"; };
+		6CAD01B3F807E46E2EAECE64991B8C20 /* json_util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = json_util.c; path = Logan/Clogan/json_util.c; sourceTree = "<group>"; };
 		6CBEFE4F9E22AFDC6347A739BB35FF8C /* CocoaAsyncSocket */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaAsyncSocket; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC387BB1CA3E3CD45996D0C33C3A948 /* YYKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YYKit-Info.plist"; sourceTree = "<group>"; };
 		6CD5F17C840A9444A76353466428C2D8 /* NSData+NSInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+NSInputStream.h"; path = "Source/Foundation additions/NSData+NSInputStream.h"; sourceTree = "<group>"; };
@@ -3760,7 +3764,7 @@
 		73EED758E6D41ED49AEC58425E85C15C /* CALayer+Lookin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+Lookin.h"; path = "Src/Shared/Category/CALayer+Lookin.h"; sourceTree = "<group>"; };
 		744766C90F5AC7E9CF1F63DBF16CC82B /* DoraemonToastUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonToastUtil.h; path = iOS/DoraemonKit/Src/Core/CommonUI/Toast/DoraemonToastUtil.h; sourceTree = "<group>"; };
 		744D40CDF13733EA1E90FDCFB2A81903 /* SJBaseVideoPlayerResourceLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJBaseVideoPlayerResourceLoader.h; path = SJBaseVideoPlayer/ResourceLoader/SJBaseVideoPlayerResourceLoader.h; sourceTree = "<group>"; };
-		744F541640530281402D1BDE4BAF818C /* md.c */ = {isa = PBXFileReference; includeInIndex = 1; name = md.c; path = Logan/mbedtls/library/md.c; sourceTree = "<group>"; };
+		744F541640530281402D1BDE4BAF818C /* md.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = md.c; path = Logan/mbedtls/library/md.c; sourceTree = "<group>"; };
 		746360E25343D4FDF72B6EA97B5F7F6E /* LookinWeakContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinWeakContainer.h; path = Src/Shared/LookinWeakContainer.h; sourceTree = "<group>"; };
 		74AA33F776A0CB8FB322857B67C04300 /* CALayer+RecursiveClone.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+RecursiveClone.m"; path = "Source/QuartzCore additions/CALayer+RecursiveClone.m"; sourceTree = "<group>"; };
 		74B0C2108E08DDAB28C5FD17D0391797 /* DoraemonMockBaseCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonMockBaseCell.h; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/List/Cell/DoraemonMockBaseCell.h; sourceTree = "<group>"; };
@@ -3830,7 +3834,7 @@
 		7ACBBE9121EF1D0212271BDB50B085A0 /* FDFullscreenPopGesture-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FDFullscreenPopGesture-Info.plist"; sourceTree = "<group>"; };
 		7AD3AEC273E9C036B47B033E4EDB0DFD /* TABAnimatedPullLoadingComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABAnimatedPullLoadingComponent.m; path = TABAnimatedDemo/TABAnimated/PullLoading/TABAnimatedPullLoadingComponent.m; sourceTree = "<group>"; };
 		7ADB788EC711B69225BF73B033AF3403 /* UIViewController+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+LookinServer.m"; path = "Src/Server/Category/UIViewController+LookinServer.m"; sourceTree = "<group>"; };
-		7B5B8DB7E034AD34EA0DA1FC452F7D3A /* mz_crypt_apple.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_crypt_apple.c; path = SSZipArchive/minizip/mz_crypt_apple.c; sourceTree = "<group>"; };
+		7B5B8DB7E034AD34EA0DA1FC452F7D3A /* mz_crypt_apple.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_crypt_apple.c; path = SSZipArchive/minizip/mz_crypt_apple.c; sourceTree = "<group>"; };
 		7B7D3F469DF5532E6790CAB9A6CB2D77 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		7B84D5C4329CAD766989FA5B290A3549 /* RACSignalSequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACSignalSequence.m; path = ReactiveObjC/RACSignalSequence.m; sourceTree = "<group>"; };
 		7BC73DC4A89B8A6B13A81418EF67511A /* LKS_AttrModificationPatchHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_AttrModificationPatchHandler.h; path = Src/Server/Connection/RequestHandler/LKS_AttrModificationPatchHandler.h; sourceTree = "<group>"; };
@@ -3876,7 +3880,7 @@
 		807D8A4BB2DDBADF2D27A0FE00C009D4 /* CSSRuleList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSRuleList.h; path = "Source/DOM classes/Core DOM/CSSRuleList.h"; sourceTree = "<group>"; };
 		807F6F537160E31EA285C3E43FD2F396 /* UITextField+RACSignalSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+RACSignalSupport.m"; path = "ReactiveObjC/UITextField+RACSignalSupport.m"; sourceTree = "<group>"; };
 		8084095284B2E04ADC09D4C8CBC66025 /* DoraemonNSUserDefaultsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonNSUserDefaultsViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Common/NSUserDefaults/ViewControllers/DoraemonNSUserDefaultsViewController.m; sourceTree = "<group>"; };
-		808B5C78212715DCB4F8F6786CD6C8DD /* mmap_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mmap_util.c; path = Logan/Clogan/mmap_util.c; sourceTree = "<group>"; };
+		808B5C78212715DCB4F8F6786CD6C8DD /* mmap_util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mmap_util.c; path = Logan/Clogan/mmap_util.c; sourceTree = "<group>"; };
 		809C5DD997CFD2A5CEFECFAF52874185 /* SJSQLite3+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SJSQLite3+Private.h"; path = "SJUIKit/SQLite3/SJSQLite3+Private.h"; sourceTree = "<group>"; };
 		8117FC79B3C84671593AF2FCDE7C7F71 /* UIView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCache.h"; path = "SDWebImage/Core/UIView+WebCache.h"; sourceTree = "<group>"; };
 		813CE8CFEE4EAEFC88F1651F7722EAEF /* DoraemonQRScanView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonQRScanView.m; path = iOS/DoraemonKit/Src/Core/Plugin/Common/H5/QRCode/DoraemonQRScanView.m; sourceTree = "<group>"; };
@@ -3893,8 +3897,8 @@
 		833E9A0C4F0D8C10086F93E96C1FBAF5 /* UIImageView+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+LookinServer.m"; path = "Src/Server/Category/UIImageView+LookinServer.m"; sourceTree = "<group>"; };
 		834EC2830E95DF7BC882B708E4B5261A /* DoraemonJavaScriptDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonJavaScriptDetailViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/JavaScript/DoraemonJavaScriptDetailViewController.h; sourceTree = "<group>"; };
 		835961AAEE4EB8980F1327B83A9F4F3F /* NSString+RACSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+RACSupport.h"; path = "ReactiveObjC/NSString+RACSupport.h"; sourceTree = "<group>"; };
-		837E35A4B6229E1159DF8960C88D7ADB /* cipher_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; name = cipher_wrap.c; path = Logan/mbedtls/library/cipher_wrap.c; sourceTree = "<group>"; };
-		8395F4801BC28DFEFB3B67B7A1ABA4DE /* debug.c */ = {isa = PBXFileReference; includeInIndex = 1; name = debug.c; path = Logan/mbedtls/library/debug.c; sourceTree = "<group>"; };
+		837E35A4B6229E1159DF8960C88D7ADB /* cipher_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cipher_wrap.c; path = Logan/mbedtls/library/cipher_wrap.c; sourceTree = "<group>"; };
+		8395F4801BC28DFEFB3B67B7A1ABA4DE /* debug.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = debug.c; path = Logan/mbedtls/library/debug.c; sourceTree = "<group>"; };
 		83AEABC3FF90CE0C1CAEE2D0D5745AAD /* LKS_ConnectionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_ConnectionManager.h; path = Src/Server/Connection/LKS_ConnectionManager.h; sourceTree = "<group>"; };
 		83C4F55F82B8E005775D2ED512B5902A /* NSDictionary+RACSequenceAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+RACSequenceAdditions.h"; path = "ReactiveObjC/NSDictionary+RACSequenceAdditions.h"; sourceTree = "<group>"; };
 		83D2B69D98180C8800C7CBC34A3AF52D /* RACStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACStream.m; path = ReactiveObjC/RACStream.m; sourceTree = "<group>"; };
@@ -3919,7 +3923,7 @@
 		85740500D9131F522A116EE031D486DB /* DoraemonNSUserDefaultsEditViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNSUserDefaultsEditViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/NSUserDefaults/ViewControllers/DoraemonNSUserDefaultsEditViewController.h; sourceTree = "<group>"; };
 		857C0B1D2A6551588668082F84FB4497 /* RACSequence.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACSequence.h; path = ReactiveObjC/RACSequence.h; sourceTree = "<group>"; };
 		8594B6AB2BD03325DF54575F67BBF85C /* JSONModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSONModel-prefix.pch"; sourceTree = "<group>"; };
-		85AC6A4889933D1024E3626A22CCF9F2 /* md5.c */ = {isa = PBXFileReference; includeInIndex = 1; name = md5.c; path = Logan/mbedtls/library/md5.c; sourceTree = "<group>"; };
+		85AC6A4889933D1024E3626A22CCF9F2 /* md5.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = md5.c; path = Logan/mbedtls/library/md5.c; sourceTree = "<group>"; };
 		85BB45B1BEBAB4B1B824824BEDB86C7B /* aesni.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aesni.h; path = Logan/mbedtls/include/mbedtls/aesni.h; sourceTree = "<group>"; };
 		85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FDFullscreenPopGesture; path = FDFullscreenPopGesture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E486742AA0B4CBD5E78B4A8865507A /* DoraemonNetFlowViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonNetFlowViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m; sourceTree = "<group>"; };
@@ -3971,7 +3975,7 @@
 		8AAB2F722637F09BF9542A16D1A650EE /* TABAnimatedDarkModeManagerImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABAnimatedDarkModeManagerImpl.m; path = TABAnimatedDemo/TABAnimated/Decorate/DarkMode/TABAnimatedDarkModeManagerImpl.m; sourceTree = "<group>"; };
 		8AB16610DAF215750607961195E2597A /* SVGKImage+CGContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SVGKImage+CGContext.h"; path = "Source/Exporters/SVGKImage+CGContext.h"; sourceTree = "<group>"; };
 		8ABBC09E5641A3F270AFE36F81FB59A1 /* DDFileLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDFileLogger.m; path = Sources/CocoaLumberjack/DDFileLogger.m; sourceTree = "<group>"; };
-		8AC52DF346283C63DDECD05C710B4C28 /* md2.c */ = {isa = PBXFileReference; includeInIndex = 1; name = md2.c; path = Logan/mbedtls/library/md2.c; sourceTree = "<group>"; };
+		8AC52DF346283C63DDECD05C710B4C28 /* md2.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = md2.c; path = Logan/mbedtls/library/md2.c; sourceTree = "<group>"; };
 		8AE3FF5439FBE400F72C44B7AD7BF9F1 /* AMap3DMap-NO-IDFA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "AMap3DMap-NO-IDFA.release.xcconfig"; sourceTree = "<group>"; };
 		8AEB6B079FCE0B78F57DFF91E3E63FB8 /* DoraemonMockApiListView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMockApiListView.m; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/List/ListView/DoraemonMockApiListView.m; sourceTree = "<group>"; };
 		8AF412EAAB76D65AC6D63B28AF9A7583 /* DoraemonViewAlignManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonViewAlignManager.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ViewAlign/Function/DoraemonViewAlignManager.m; sourceTree = "<group>"; };
@@ -4016,7 +4020,7 @@
 		8E9EBAC6729E7E9B212CA25C98DB7A5C /* SJUIKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SJUIKit-prefix.pch"; sourceTree = "<group>"; };
 		8E9ECF208CA50D6D5995F0CAAB6E0E72 /* DoraemonColorPickView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonColorPickView.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ColorPick/Function/DoraemonColorPickView.m; sourceTree = "<group>"; };
 		8EB82AF5B6A984080699DAAE644329AC /* MAOfflineCity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAOfflineCity.h; path = MAMapKit.framework/Headers/MAOfflineCity.h; sourceTree = "<group>"; };
-		8EB88DD326FB89A35F1B0E6E3664408A /* mz_strm_pkcrypt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm_pkcrypt.c; path = SSZipArchive/minizip/mz_strm_pkcrypt.c; sourceTree = "<group>"; };
+		8EB88DD326FB89A35F1B0E6E3664408A /* mz_strm_pkcrypt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm_pkcrypt.c; path = SSZipArchive/minizip/mz_strm_pkcrypt.c; sourceTree = "<group>"; };
 		8ED475A8AA75F1EACFE68EB162F1B63C /* SSZipArchive-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSZipArchive-prefix.pch"; sourceTree = "<group>"; };
 		8EEDC2D8CC26224FCA57D7BB53E09B7C /* DoraemonMetricsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMetricsViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ViewMetrics/DoraemonMetricsViewController.m; sourceTree = "<group>"; };
 		8F0147528B12333B82F30FE33121EDBC /* SVGPolylineElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGPolylineElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGPolylineElement.h"; sourceTree = "<group>"; };
@@ -4028,7 +4032,7 @@
 		8F92E867A84FD18BDBCFB2AFB732E201 /* DoraemonANRDetailViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonANRDetailViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/ANR/Detail/DoraemonANRDetailViewController.m; sourceTree = "<group>"; };
 		8F963C81A1B3358D48DE0B88EACF9738 /* DoraemonChart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonChart.h; path = iOS/DoraemonKit/Src/Core/CommonUI/Charts/DoraemonChart.h; sourceTree = "<group>"; };
 		8FA2FAD0C56547800569126C1A6DB7EF /* LookinConnectionAttachment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LookinConnectionAttachment.m; path = Src/Shared/LookinConnectionAttachment.m; sourceTree = "<group>"; };
-		8FB294CD6C79057E23D1FDB33ADE9E24 /* pkcs11.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkcs11.c; path = Logan/mbedtls/library/pkcs11.c; sourceTree = "<group>"; };
+		8FB294CD6C79057E23D1FDB33ADE9E24 /* pkcs11.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pkcs11.c; path = Logan/mbedtls/library/pkcs11.c; sourceTree = "<group>"; };
 		8FBFC93CF9120E7F7891BD58D0F9EB8A /* SJVideoPlayerURLAsset.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJVideoPlayerURLAsset.m; path = SJBaseVideoPlayer/Common/Implements/SJVideoPlayerURLAsset.m; sourceTree = "<group>"; };
 		8FCB3A5338EB6C220F9B77D853DE223F /* mz_strm_pkcrypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mz_strm_pkcrypt.h; path = SSZipArchive/minizip/mz_strm_pkcrypt.h; sourceTree = "<group>"; };
 		8FD02D8F829A0C8218EAE9299E5C4CB0 /* TABAnimated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABAnimated.h; path = TABAnimatedDemo/TABAnimated/TABAnimated.h; sourceTree = "<group>"; };
@@ -4060,7 +4064,7 @@
 		9202DCC0104D301B656ED791DA4AC3A3 /* RACSignal+Operations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RACSignal+Operations.h"; path = "ReactiveObjC/RACSignal+Operations.h"; sourceTree = "<group>"; };
 		9228E93FE98B2C8421C6CC6745B2CFD4 /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
 		923BC89A869E2DA6B2168C176E37A562 /* CALayerWithChildHitTest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CALayerWithChildHitTest.m; path = "Source/QuartzCore additions/CALayerWithChildHitTest.m"; sourceTree = "<group>"; };
-		923BC9A4E0D775DF2602E6508D76C847 /* DoraemonTimeProfilerCore.c */ = {isa = PBXFileReference; includeInIndex = 1; name = DoraemonTimeProfilerCore.c; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/TimeProfiler/Function/DoraemonTimeProfilerCore.c; sourceTree = "<group>"; };
+		923BC9A4E0D775DF2602E6508D76C847 /* DoraemonTimeProfilerCore.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = DoraemonTimeProfilerCore.c; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/TimeProfiler/Function/DoraemonTimeProfilerCore.c; sourceTree = "<group>"; };
 		9243010EB89B8A7BB67C8527E8662741 /* NSArray+TABAnimatedChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+TABAnimatedChain.m"; path = "TABAnimatedDemo/TABAnimated/Decorate/Chain/NSArray+TABAnimatedChain.m"; sourceTree = "<group>"; };
 		925CD654DC5720BA57D406355E0E29FD /* MAUserLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAUserLocation.h; path = MAMapKit.framework/Headers/MAUserLocation.h; sourceTree = "<group>"; };
 		9265060E55A7F7E8BCF7D8E81F0E21A5 /* SDDiskCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDDiskCache.m; path = SDWebImage/Core/SDDiskCache.m; sourceTree = "<group>"; };
@@ -4113,9 +4117,9 @@
 		97D3D3A7C27B668491DED55244C0B474 /* SVGEllipseElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGEllipseElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGEllipseElement.m"; sourceTree = "<group>"; };
 		97FB34EADCF6CC409A84B9E9CCAF858C /* UIImage+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+LookinServer.h"; path = "Src/Server/Category/UIImage+LookinServer.h"; sourceTree = "<group>"; };
 		981847D6B41302591FF406159A282876 /* DoraemonImageDetectionCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonImageDetectionCell.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/LargeImageDetection/Detail/DoraemonImageDetectionCell.m; sourceTree = "<group>"; };
-		982A46BFF28B7F1F932F9A170AFF05E6 /* base64.c */ = {isa = PBXFileReference; includeInIndex = 1; name = base64.c; path = Logan/mbedtls/library/base64.c; sourceTree = "<group>"; };
+		982A46BFF28B7F1F932F9A170AFF05E6 /* base64.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = base64.c; path = Logan/mbedtls/library/base64.c; sourceTree = "<group>"; };
 		983E78D7923D887A57878C102B1D4C62 /* UICollectionReusableView+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UICollectionReusableView+RACSignalSupport.h"; path = "ReactiveObjC/UICollectionReusableView+RACSignalSupport.h"; sourceTree = "<group>"; };
-		9861C4EB5E27806660F3786A9CCF8942 /* platform.c */ = {isa = PBXFileReference; includeInIndex = 1; name = platform.c; path = Logan/mbedtls/library/platform.c; sourceTree = "<group>"; };
+		9861C4EB5E27806660F3786A9CCF8942 /* platform.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = platform.c; path = Logan/mbedtls/library/platform.c; sourceTree = "<group>"; };
 		9872F8CA53249D451030AA723C0852B4 /* UIImageView+LookinServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+LookinServer.h"; path = "Src/Server/Category/UIImageView+LookinServer.h"; sourceTree = "<group>"; };
 		9884B42DDC733DCDDBA1BF8E9EF94412 /* DoraemonManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonManager.h; path = iOS/DoraemonKit/Src/Core/Manager/DoraemonManager.h; sourceTree = "<group>"; };
 		989422E76B07CE06B542101BEDD1AC48 /* SVGKSourceString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKSourceString.h; path = Source/Sources/SVGKSourceString.h; sourceTree = "<group>"; };
@@ -4155,16 +4159,16 @@
 		9CEBD242E287393F2C34497F0F243B14 /* MJExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJExtension.debug.xcconfig; sourceTree = "<group>"; };
 		9D47553AE24ABAD7EE5BB3CD98820BD9 /* DoraemonHomeHeadCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonHomeHeadCell.h; path = iOS/DoraemonKit/Src/Core/Entry/Home/Cell/DoraemonHomeHeadCell.h; sourceTree = "<group>"; };
 		9D4C2B080D7E86958DBA0EEB4CB39D21 /* DDAssertMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDAssertMacros.h; path = Sources/CocoaLumberjack/include/CocoaLumberjack/DDAssertMacros.h; sourceTree = "<group>"; };
-		9D5C565F896812453EE1B1006B62C2A4 /* aesni.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aesni.c; path = Logan/mbedtls/library/aesni.c; sourceTree = "<group>"; };
+		9D5C565F896812453EE1B1006B62C2A4 /* aesni.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aesni.c; path = Logan/mbedtls/library/aesni.c; sourceTree = "<group>"; };
 		9D63D96E2DB8CB06C7A6EB01FCC8A880 /* directory_util.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = directory_util.h; path = Logan/Clogan/directory_util.h; sourceTree = "<group>"; };
 		9D78A47187FD01C0DFD86537428C55EC /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DA1502D78CAA598931D8B2FEE3FF274 /* NSSet+RACSequenceAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSSet+RACSequenceAdditions.m"; path = "ReactiveObjC/NSSet+RACSequenceAdditions.m"; sourceTree = "<group>"; };
 		9DEDB36C5552792A20EC8DFDCD7BBE4D /* SVGTransformable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGTransformable.h; path = "Source/DOM classes/SVG-DOM/SVGTransformable.h"; sourceTree = "<group>"; };
 		9E12157DC2DA476200D20256C1A6E344 /* GCDWebUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebUploader.h; path = GCDWebUploader/GCDWebUploader.h; sourceTree = "<group>"; };
-		9E1EE5D3E6836C0970618D171AD762D7 /* entropy_poll.c */ = {isa = PBXFileReference; includeInIndex = 1; name = entropy_poll.c; path = Logan/mbedtls/library/entropy_poll.c; sourceTree = "<group>"; };
+		9E1EE5D3E6836C0970618D171AD762D7 /* entropy_poll.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = entropy_poll.c; path = Logan/mbedtls/library/entropy_poll.c; sourceTree = "<group>"; };
 		9E333347E0BDEE54582979FD6685F726 /* YYTextInput.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextInput.m; path = YYKit/Text/Component/YYTextInput.m; sourceTree = "<group>"; };
-		9E5E9D8EF7D2926F6730C215A8B58EB3 /* mz_strm.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm.c; path = SSZipArchive/minizip/mz_strm.c; sourceTree = "<group>"; };
+		9E5E9D8EF7D2926F6730C215A8B58EB3 /* mz_strm.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm.c; path = SSZipArchive/minizip/mz_strm.c; sourceTree = "<group>"; };
 		9E8B7C3EDAA0A9CAC594A3D2A16078CE /* TABAnimationManagerImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABAnimationManagerImpl.h; path = TABAnimatedDemo/TABAnimated/Decorate/Animation/TABAnimationManagerImpl.h; sourceTree = "<group>"; };
 		9EA8E5DDBB1040D604E824D110BF6F37 /* NSArray+TABDropAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+TABDropAnimation.m"; path = "TABAnimatedDemo/TABAnimated/Decorate/Animation/Drop/NSArray+TABDropAnimation.m"; sourceTree = "<group>"; };
 		9EC3AD885A1D32BA9CEDE2EA027B8751 /* Doraemoni18NUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Doraemoni18NUtil.h; path = iOS/DoraemonKit/Src/Core/Util/Doraemoni18NUtil.h; sourceTree = "<group>"; };
@@ -4198,7 +4202,7 @@
 		A0DFD6E917BBEA6EB4D8402A9E4EFF70 /* MJExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJExtension-prefix.pch"; sourceTree = "<group>"; };
 		A0F331C05F62833531C735273E541067 /* DoraemonMockSearchView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonMockSearchView.h; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/Search/DoraemonMockSearchView.h; sourceTree = "<group>"; };
 		A109E419D9849AA0469C0649016D23FE /* SVGUseElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGUseElement.m; path = "Source/DOM classes/SVG-DOM/SVGUseElement.m"; sourceTree = "<group>"; };
-		A11F5922D6754ED3E6D5A4788849F908 /* asn1parse.c */ = {isa = PBXFileReference; includeInIndex = 1; name = asn1parse.c; path = Logan/mbedtls/library/asn1parse.c; sourceTree = "<group>"; };
+		A11F5922D6754ED3E6D5A4788849F908 /* asn1parse.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = asn1parse.c; path = Logan/mbedtls/library/asn1parse.c; sourceTree = "<group>"; };
 		A13F8441BC8CDF7F294F21440726275B /* PTUSBHub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PTUSBHub.h; path = Src/Shared/Peertalk/PTUSBHub.h; sourceTree = "<group>"; };
 		A1455AE621D153F01AA4E59A3CC56A84 /* SVGKImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKImageView.h; path = "Source/UIKit additions/SVGKImageView.h"; sourceTree = "<group>"; };
 		A19E1C7B990FC9BE25AD2567ED18D845 /* SJFlipTransitionManagerDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJFlipTransitionManagerDefines.h; path = SJBaseVideoPlayer/Common/Interfaces/SJFlipTransitionManagerDefines.h; sourceTree = "<group>"; };
@@ -4224,7 +4228,7 @@
 		A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMDB; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CCE0E1577E09F199363A4EE8E4F75D /* NSData+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+YYAdd.m"; path = "YYKit/Base/Foundation/NSData+YYAdd.m"; sourceTree = "<group>"; };
 		A3F95C4DB5169F7054D523B0E55B39AC /* NSImage+Compatibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Compatibility.m"; path = "SDWebImage/Core/NSImage+Compatibility.m"; sourceTree = "<group>"; };
-		A3FC849FF8AD25D72FC51D7184A61C25 /* README-zh.md */ = {isa = PBXFileReference; includeInIndex = 1; name = "README-zh.md"; path = "Logan/iOS/README-zh.md"; sourceTree = "<group>"; };
+		A3FC849FF8AD25D72FC51D7184A61C25 /* README-zh.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = "README-zh.md"; path = "Logan/iOS/README-zh.md"; sourceTree = "<group>"; };
 		A40EEF5DB8AE6163A7C47F46B4DB05EB /* ecdh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecdh.h; path = Logan/mbedtls/include/mbedtls/ecdh.h; sourceTree = "<group>"; };
 		A442D50F8DC0EA2E4AF0F2A8F1FBDAE6 /* LookinAppInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinAppInfo.h; path = Src/Shared/LookinAppInfo.h; sourceTree = "<group>"; };
 		A44865E7D332913F79114CAE1F9EFBD3 /* SVGSwitchElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGSwitchElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGSwitchElement.m"; sourceTree = "<group>"; };
@@ -4279,13 +4283,13 @@
 		A95B4BC1BA04AF6D01C8CC2A43D4A40E /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		A960B01874F3BA1762805C9466BF45D2 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
 		A96D75D5F13181916C3CB8D66CA81674 /* Logan-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Logan-umbrella.h"; sourceTree = "<group>"; };
-		A99083B9CFC1C7203EA8BA729E5DBA07 /* ecp.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ecp.c; path = Logan/mbedtls/library/ecp.c; sourceTree = "<group>"; };
+		A99083B9CFC1C7203EA8BA729E5DBA07 /* ecp.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ecp.c; path = Logan/mbedtls/library/ecp.c; sourceTree = "<group>"; };
 		A9AFE157BC875804ED11CAB1DB61CBFE /* FBKVOController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBKVOController.m; path = FBKVOController/FBKVOController.m; sourceTree = "<group>"; };
 		A9BC29618492603A1211F9E8CE2F2119 /* SDWebImageDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDefine.h; path = SDWebImage/Core/SDWebImageDefine.h; sourceTree = "<group>"; };
 		A9E1ABC7B12DD4F02D3FB5C02B82DCAD /* Pods-My_Study-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-My_Study-umbrella.h"; sourceTree = "<group>"; };
 		A9E21B9B0973571062F76F09CD4EB962 /* DoraemonDeleteLocalDataViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonDeleteLocalDataViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/DeleteLocalData/DoraemonDeleteLocalDataViewController.h; sourceTree = "<group>"; };
 		AA35F6E801E9C4F9FDF688F789122C6B /* RACErrorSignal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACErrorSignal.m; path = ReactiveObjC/RACErrorSignal.m; sourceTree = "<group>"; };
-		AA3D32D76ED5475D691C0A630861FEBA /* gcm.c */ = {isa = PBXFileReference; includeInIndex = 1; name = gcm.c; path = Logan/mbedtls/library/gcm.c; sourceTree = "<group>"; };
+		AA3D32D76ED5475D691C0A630861FEBA /* gcm.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = gcm.c; path = Logan/mbedtls/library/gcm.c; sourceTree = "<group>"; };
 		AA53039A62394F71A821D72E6AED0BBB /* SSZipArchive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSZipArchive.release.xcconfig; sourceTree = "<group>"; };
 		AA5413657A2483F3FCFE376B4F1FEE66 /* SVGElementInstanceList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGElementInstanceList.m; path = "Source/DOM classes/SVG-DOM/SVGElementInstanceList.m"; sourceTree = "<group>"; };
 		AA57D0DFA447EEE2EEDA74CF24F3F577 /* MAOfflineItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAOfflineItem.h; path = MAMapKit.framework/Headers/MAOfflineItem.h; sourceTree = "<group>"; };
@@ -4348,7 +4352,7 @@
 		B032E791DA0DD4572BFAB33467968D9D /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
 		B054B2B2F967F8A06CE7743B2FC8524E /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		B059703634114D848BB0B353FE519B00 /* SJFloatSmallViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJFloatSmallViewController.m; path = SJBaseVideoPlayer/Common/Implements/SJFloatSmallViewController.m; sourceTree = "<group>"; };
-		B0612D371DE7969F2F95F1CB750A4E36 /* md_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; name = md_wrap.c; path = Logan/mbedtls/library/md_wrap.c; sourceTree = "<group>"; };
+		B0612D371DE7969F2F95F1CB750A4E36 /* md_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = md_wrap.c; path = Logan/mbedtls/library/md_wrap.c; sourceTree = "<group>"; };
 		B078A7F760B9268B4B925DA7234F3AAB /* SVGRectElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGRectElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGRectElement.m"; sourceTree = "<group>"; };
 		B07DB8033FA3DC9642918279FA2C4EB4 /* DoraemonNetFlowSummaryMethodDataView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonNetFlowSummaryMethodDataView.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/Summary/View/DoraemonNetFlowSummaryMethodDataView.m; sourceTree = "<group>"; };
 		B08437DCFA1B82110797858586126E40 /* SJSQLite3+QueryExtended.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SJSQLite3+QueryExtended.h"; path = "SJUIKit/SQLite3/SJSQLite3+QueryExtended.h"; sourceTree = "<group>"; };
@@ -4377,7 +4381,7 @@
 		B2A27D25C617E30857D040BA24314E02 /* DoraemonCellInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonCellInput.h; path = iOS/DoraemonKit/Src/Core/CommonUI/CellInput/DoraemonCellInput.h; sourceTree = "<group>"; };
 		B2CD62A817007A8BBF91797687A94459 /* SVGTransform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGTransform.m; path = "Source/DOM classes/SVG-DOM/SVGTransform.m"; sourceTree = "<group>"; };
 		B2E0E42B17673CD3D35AB8C1CB4A45C7 /* TABFormAnimated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABFormAnimated.m; path = TABAnimatedDemo/TABAnimated/Control/TABFormAnimated.m; sourceTree = "<group>"; };
-		B2F195A894AA378CF609BE33BC4CEA47 /* mz_zip_rw.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_zip_rw.c; path = SSZipArchive/minizip/mz_zip_rw.c; sourceTree = "<group>"; };
+		B2F195A894AA378CF609BE33BC4CEA47 /* mz_zip_rw.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_zip_rw.c; path = SSZipArchive/minizip/mz_zip_rw.c; sourceTree = "<group>"; };
 		B30192E00B5AC3F19C8100F2D75C1D6D /* DDASLLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = Sources/CocoaLumberjack/DDASLLogger.m; sourceTree = "<group>"; };
 		B30BAA36E86D80E199EB514A2BBEEB31 /* ReactiveObjC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ReactiveObjC.h; path = ReactiveObjC/ReactiveObjC.h; sourceTree = "<group>"; };
 		B317F3A1E47144BEFE6104F77B743233 /* SVGKParserExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKParserExtension.h; path = Source/Parsers/SVGKParserExtension.h; sourceTree = "<group>"; };
@@ -4386,8 +4390,8 @@
 		B33B471B2A87A15F99AC178ECC0EB76B /* des.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = des.h; path = Logan/mbedtls/include/mbedtls/des.h; sourceTree = "<group>"; };
 		B355EB9104938AAF61F3B82ECC53D572 /* SDInternalMacros.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDInternalMacros.m; path = SDWebImage/Private/SDInternalMacros.m; sourceTree = "<group>"; };
 		B36BAC08A3C3EB3AA763B7A61A098C30 /* NSArray+TABAnimated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+TABAnimated.h"; path = "TABAnimatedDemo/TABAnimated/Util/NSArray+TABAnimated.h"; sourceTree = "<group>"; };
-		B36BC7EA9299A5C54D34CA304656ACBB /* sha512.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sha512.c; path = Logan/mbedtls/library/sha512.c; sourceTree = "<group>"; };
-		B3788F1D03551A8E4108B623138B3A0D /* pkcs5.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkcs5.c; path = Logan/mbedtls/library/pkcs5.c; sourceTree = "<group>"; };
+		B36BC7EA9299A5C54D34CA304656ACBB /* sha512.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = sha512.c; path = Logan/mbedtls/library/sha512.c; sourceTree = "<group>"; };
+		B3788F1D03551A8E4108B623138B3A0D /* pkcs5.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pkcs5.c; path = Logan/mbedtls/library/pkcs5.c; sourceTree = "<group>"; };
 		B384F3328080559453197ACC6E799B1D /* SJSubtitleItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJSubtitleItem.m; path = SJBaseVideoPlayer/Common/Implements/SJSubtitleItem.m; sourceTree = "<group>"; };
 		B386127DCED223E4309705E98AC1C0E3 /* LKS_PerspectiveLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LKS_PerspectiveLayer.h; path = Src/Server/Perspective/LKS_PerspectiveLayer.h; sourceTree = "<group>"; };
 		B3882C5D0CBE3AD62ECC81A719965605 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
@@ -4420,7 +4424,7 @@
 		B6D59F133CF479B6744361AAE75DF845 /* SDDisplayLink.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDDisplayLink.m; path = SDWebImage/Private/SDDisplayLink.m; sourceTree = "<group>"; };
 		B6D9B2CE53EF63759F5D334E105D22C7 /* UIViewController+DoraemonUIProfile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+DoraemonUIProfile.m"; path = "iOS/DoraemonKit/Src/Core/Plugin/Performance/UIProfile/Function/UIViewController+DoraemonUIProfile.m"; sourceTree = "<group>"; };
 		B70EE36A5CEAFE6B0DD377290E5E7601 /* NSString+DDXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+DDXML.h"; path = "KissXML/Categories/NSString+DDXML.h"; sourceTree = "<group>"; };
-		B7167070CCEE2486447A08658E39CE41 /* zlib_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = zlib_util.c; path = Logan/Clogan/zlib_util.c; sourceTree = "<group>"; };
+		B7167070CCEE2486447A08658E39CE41 /* zlib_util.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = zlib_util.c; path = Logan/Clogan/zlib_util.c; sourceTree = "<group>"; };
 		B735A21605BD59F6A96EB00F9A7552EA /* DoraemonThreadSafeMutableDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonThreadSafeMutableDictionary.m; path = iOS/DoraemonKit/Src/Core/Util/DoraemonThreadSafeMutableDictionary.m; sourceTree = "<group>"; };
 		B7547068302B32D1FB88A7FBEA422126 /* UIViewController+Doraemon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Doraemon.h"; path = "iOS/DoraemonKit/Src/Core/Category/UIViewController+Doraemon.h"; sourceTree = "<group>"; };
 		B75D5C073ECA14273B9E349B506469F9 /* KissXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KissXML.h; path = KissXML/KissXML.h; sourceTree = "<group>"; };
@@ -4498,14 +4502,14 @@
 		BE6DC9EAA9BB576D8409100BCF4689E5 /* AFNetworking-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AFNetworking-Info.plist"; sourceTree = "<group>"; };
 		BE91C84977CC2E06CB8CFED345A0C4AC /* SJBaseVideoPlayerResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SJBaseVideoPlayerResources.bundle; path = SJBaseVideoPlayer/ResourceLoader/SJBaseVideoPlayerResources.bundle; sourceTree = "<group>"; };
 		BE9B4E79C5D17638914D2D03D173713A /* SJUIKitTextMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJUIKitTextMaker.m; path = SJUIKit/AttributesFactory/UIKitText/SJUIKitTextMaker.m; sourceTree = "<group>"; };
-		BEB6A887C02D948F7B8B78F9B157E347 /* des.c */ = {isa = PBXFileReference; includeInIndex = 1; name = des.c; path = Logan/mbedtls/library/des.c; sourceTree = "<group>"; };
+		BEB6A887C02D948F7B8B78F9B157E347 /* des.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = des.c; path = Logan/mbedtls/library/des.c; sourceTree = "<group>"; };
 		BECF76936B35FA84E00C70CA6EB6ECA2 /* DoraemonHomeCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonHomeCell.m; path = iOS/DoraemonKit/Src/Core/Entry/Home/Cell/DoraemonHomeCell.m; sourceTree = "<group>"; };
 		BF13D631ACF86BC8FEA60CC152AD0992 /* DoraemonViewMetricsConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonViewMetricsConfig.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/ViewMetrics/Function/DoraemonViewMetricsConfig.h; sourceTree = "<group>"; };
 		BF65B210A1A1D69A7F26724C52495B67 /* TABCollectionAnimated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABCollectionAnimated.m; path = TABAnimatedDemo/TABAnimated/Control/TABCollectionAnimated.m; sourceTree = "<group>"; };
 		BF78CA4785649F576068B8D7F8824368 /* NSString+RACSequenceAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+RACSequenceAdditions.h"; path = "ReactiveObjC/NSString+RACSequenceAdditions.h"; sourceTree = "<group>"; };
 		BF7DC0833B62602DC30CB53E9F727FB7 /* camellia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = camellia.h; path = Logan/mbedtls/include/mbedtls/camellia.h; sourceTree = "<group>"; };
 		BFA93AA65764946F91A8DE001BDC1A5A /* DoraemonMockFilterListView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMockFilterListView.m; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/Filter/DoraemonMockFilterListView.m; sourceTree = "<group>"; };
-		BFE5D206F1D6F139AAFF82DBEED506AB /* pem.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pem.c; path = Logan/mbedtls/library/pem.c; sourceTree = "<group>"; };
+		BFE5D206F1D6F139AAFF82DBEED506AB /* pem.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pem.c; path = Logan/mbedtls/library/pem.c; sourceTree = "<group>"; };
 		C02BCBD45830D4223B21DA1263C3433C /* YYModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.debug.xcconfig; sourceTree = "<group>"; };
 		C048CD1095B128FF9D8699221848B127 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/Core/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		C07351E3D554C754810C4386E3AD4E44 /* YYTextLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextLine.m; path = YYKit/Text/Component/YYTextLine.m; sourceTree = "<group>"; };
@@ -4547,7 +4551,7 @@
 		C43A1A02A7CBC27BD13A5A4B45FD5A00 /* NSUserDefaults+RACSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+RACSupport.m"; path = "ReactiveObjC/NSUserDefaults+RACSupport.m"; sourceTree = "<group>"; };
 		C43A2A117540A7751DA975F94D9B81F5 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		C46D1DD16A52C2C60265F670E73E40AD /* DoraemonUIProfilePlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonUIProfilePlugin.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/UIProfile/DoraemonUIProfilePlugin.h; sourceTree = "<group>"; };
-		C477C42CB4F3DD712A8F5BB748FB7D26 /* net_sockets.c */ = {isa = PBXFileReference; includeInIndex = 1; name = net_sockets.c; path = Logan/mbedtls/library/net_sockets.c; sourceTree = "<group>"; };
+		C477C42CB4F3DD712A8F5BB748FB7D26 /* net_sockets.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = net_sockets.c; path = Logan/mbedtls/library/net_sockets.c; sourceTree = "<group>"; };
 		C49275465C00BE42432D62AAEA838BF7 /* LookinDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinDefines.h; path = Src/Shared/LookinDefines.h; sourceTree = "<group>"; };
 		C4A6DE09CB201E9AD16A117518DCBF2D /* SVGLinearGradientElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGLinearGradientElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGLinearGradientElement.h"; sourceTree = "<group>"; };
 		C4B10B22A51BDE0FCD68931C77406316 /* SSZipArchive.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SSZipArchive.modulemap; sourceTree = "<group>"; };
@@ -4617,7 +4621,7 @@
 		CB5E4AFEE543BD49CDAE9DBC401686B1 /* LookinServer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LookinServer-prefix.pch"; sourceTree = "<group>"; };
 		CB69637ABCCF0431822D9941CDFA3BE3 /* AFNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-umbrella.h"; sourceTree = "<group>"; };
 		CB8005183F5712217B52853F8F56785C /* DoraemonJavaScriptManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonJavaScriptManager.m; path = iOS/DoraemonKit/Src/Core/Plugin/Common/JavaScript/Function/DoraemonJavaScriptManager.m; sourceTree = "<group>"; };
-		CB9D0F2762B0059FB55524282FD82E36 /* ecp_curves.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ecp_curves.c; path = Logan/mbedtls/library/ecp_curves.c; sourceTree = "<group>"; };
+		CB9D0F2762B0059FB55524282FD82E36 /* ecp_curves.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ecp_curves.c; path = Logan/mbedtls/library/ecp_curves.c; sourceTree = "<group>"; };
 		CBA33A1AA0D72376FDC1B9FE138E6472 /* YYTextLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextLine.h; path = YYKit/Text/Component/YYTextLine.h; sourceTree = "<group>"; };
 		CBAC538E3487F36C0F54E955108EC8FD /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
 		CBC6737BCA2A49EF7053B169279B8B21 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
@@ -4637,7 +4641,7 @@
 		CCB6218E25C19C89B15E3266EE58D179 /* logan_config.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = logan_config.h; path = Logan/Clogan/logan_config.h; sourceTree = "<group>"; };
 		CCB9694A52C2F81B8261F698B207292F /* DDContextFilterLogFormatter+Deprecated.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DDContextFilterLogFormatter+Deprecated.m"; path = "Sources/CocoaLumberjack/Extensions/DDContextFilterLogFormatter+Deprecated.m"; sourceTree = "<group>"; };
 		CCC44FD3651BF7E062E6D87F31A3BC2B /* NSDate+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+YYAdd.h"; path = "YYKit/Base/Foundation/NSDate+YYAdd.h"; sourceTree = "<group>"; };
-		CCD6669D1D3619FBDACC02E92E2B4A29 /* entropy.c */ = {isa = PBXFileReference; includeInIndex = 1; name = entropy.c; path = Logan/mbedtls/library/entropy.c; sourceTree = "<group>"; };
+		CCD6669D1D3619FBDACC02E92E2B4A29 /* entropy.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = entropy.c; path = Logan/mbedtls/library/entropy.c; sourceTree = "<group>"; };
 		CCDCA7BEEA08B5924447C2B288EEAE55 /* DoraemonNSUserDefaultsPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNSUserDefaultsPlugin.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/NSUserDefaults/DoraemonNSUserDefaultsPlugin.h; sourceTree = "<group>"; };
 		CCF806B4E2E555E3B579EEFB6C123BAE /* UIView+SJBaseVideoPlayerExtended.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+SJBaseVideoPlayerExtended.h"; path = "SJBaseVideoPlayer/Common/UIKit/UIView+SJBaseVideoPlayerExtended.h"; sourceTree = "<group>"; };
 		CCFCAB73186EAA62424FD4702AFE77DC /* SDWebImageDownloaderRequestModifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderRequestModifier.h; path = SDWebImage/Core/SDWebImageDownloaderRequestModifier.h; sourceTree = "<group>"; };
@@ -4669,7 +4673,7 @@
 		CEF22F963ADD3F2F44B2A3D7EDEFA88C /* RACEXTScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACEXTScope.h; path = ReactiveObjC/extobjc/RACEXTScope.h; sourceTree = "<group>"; };
 		CEFFDD0CC94796170E64470EC9134408 /* NSSet+Lookin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSSet+Lookin.m"; path = "Src/Shared/Category/NSSet+Lookin.m"; sourceTree = "<group>"; };
 		CF13603FE9AA43AC5B0553127AC6FFCF /* TABAnimated-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TABAnimated-dummy.m"; sourceTree = "<group>"; };
-		CF4AE3D9A49BEB427AD4D22BD462440E /* threading.c */ = {isa = PBXFileReference; includeInIndex = 1; name = threading.c; path = Logan/mbedtls/library/threading.c; sourceTree = "<group>"; };
+		CF4AE3D9A49BEB427AD4D22BD462440E /* threading.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = threading.c; path = Logan/mbedtls/library/threading.c; sourceTree = "<group>"; };
 		CF517D80D3F9C5AD60984E408762364F /* CSSRuleList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSRuleList.m; path = "Source/DOM classes/Core DOM/CSSRuleList.m"; sourceTree = "<group>"; };
 		CF854B96E026DB7CA717C4E6B597D4FB /* NSArray+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+YYAdd.h"; path = "YYKit/Base/Foundation/NSArray+YYAdd.h"; sourceTree = "<group>"; };
 		CF86D16AD7FCF2526F583873D78730EB /* NSUserDefaults+RACSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+RACSupport.h"; path = "ReactiveObjC/NSUserDefaults+RACSupport.h"; sourceTree = "<group>"; };
@@ -4686,7 +4690,7 @@
 		D0E3E3230FE22C4EB5D3661C39084743 /* YYModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.release.xcconfig; sourceTree = "<group>"; };
 		D139E82B3F2CB72BFE05E98CB4AABFF3 /* UIColor+LookinServer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+LookinServer.m"; path = "Src/Server/Category/UIColor+LookinServer.m"; sourceTree = "<group>"; };
 		D14E008E9BFE085CA2AC8D4E035C2AA9 /* DoraemonHierarchyHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonHierarchyHelper.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/Function/DoraemonHierarchyHelper.h; sourceTree = "<group>"; };
-		D18393B2F0716C8560792FC602F93EEA /* version_features.c */ = {isa = PBXFileReference; includeInIndex = 1; name = version_features.c; path = Logan/mbedtls/library/version_features.c; sourceTree = "<group>"; };
+		D18393B2F0716C8560792FC602F93EEA /* version_features.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = version_features.c; path = Logan/mbedtls/library/version_features.c; sourceTree = "<group>"; };
 		D1896D9851F43425DB6409A9170E0354 /* DoraemonKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DoraemonKit; path = DoraemonKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18D771A36B1F51D51AC5CB6AB7E461D /* NSNumber+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+YYAdd.m"; path = "YYKit/Base/Foundation/NSNumber+YYAdd.m"; sourceTree = "<group>"; };
 		D1B26167F5654A2085017A2FF50593D0 /* DoraemonMockUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonMockUtil.h; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/Function/DoraemonMockUtil.h; sourceTree = "<group>"; };
@@ -4701,7 +4705,7 @@
 		D260CED8CD503DD03F6677B61902D6AE /* NSObject+MJProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJProperty.m"; path = "MJExtension/NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		D275282B4B4427F04436A09BBE1A7A4F /* RACSubscriber+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RACSubscriber+Private.h"; path = "ReactiveObjC/RACSubscriber+Private.h"; sourceTree = "<group>"; };
 		D27E6CBB4CC7C045D58F24BDC62B52AC /* DoraemonEnumDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonEnumDescription.h; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/Function/DoraemonEnumDescription.h; sourceTree = "<group>"; };
-		D28D5A8EB96562BBA85F052129F7EDA4 /* mz_strm_os_posix.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm_os_posix.c; path = SSZipArchive/minizip/mz_strm_os_posix.c; sourceTree = "<group>"; };
+		D28D5A8EB96562BBA85F052129F7EDA4 /* mz_strm_os_posix.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm_os_posix.c; path = SSZipArchive/minizip/mz_strm_os_posix.c; sourceTree = "<group>"; };
 		D2A590BEB3607B3CA59A6D9DEF2AA607 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
 		D2AE723CB49521A2D4AEB4AF0B2514DA /* YYCGUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYCGUtilities.m; path = YYKit/Base/Quartz/YYCGUtilities.m; sourceTree = "<group>"; };
 		D2CE72CC97D550B4AB52C90E8303E7B4 /* TABComponentLayerSerializationInterface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABComponentLayerSerializationInterface.h; path = TABAnimatedDemo/TABAnimated/Product/Include/TABComponentLayerSerializationInterface.h; sourceTree = "<group>"; };
@@ -4711,7 +4715,7 @@
 		D3136D2989D6DE6DCC825871E9350E0D /* SDAsyncBlockOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAsyncBlockOperation.m; path = SDWebImage/Private/SDAsyncBlockOperation.m; sourceTree = "<group>"; };
 		D31BD912B271D0CF0E71CC494D213EB4 /* YYDiskCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYDiskCache.h; path = YYKit/Cache/YYDiskCache.h; sourceTree = "<group>"; };
 		D32A96E3F0B658ADCB959F6C8E4792F1 /* SVGKParserStyles.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKParserStyles.m; path = "Source/Parsers/Parser Extensions/SVGKParserStyles.m"; sourceTree = "<group>"; };
-		D35C0F5D669A3BB6D6CB2E7D9ACD5C10 /* mz_os_posix.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_os_posix.c; path = SSZipArchive/minizip/mz_os_posix.c; sourceTree = "<group>"; };
+		D35C0F5D669A3BB6D6CB2E7D9ACD5C10 /* mz_os_posix.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_os_posix.c; path = SSZipArchive/minizip/mz_os_posix.c; sourceTree = "<group>"; };
 		D35CEBE3F6AA574AC6E4826432537496 /* ssl_ciphersuites.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl_ciphersuites.h; path = Logan/mbedtls/include/mbedtls/ssl_ciphersuites.h; sourceTree = "<group>"; };
 		D3634A7FF9BAF346CF704C7793F7ABED /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
 		D38A349DCB1541FAE318EBEFA1EC68A0 /* SJFitOnScreenManagerDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJFitOnScreenManagerDefines.h; path = SJBaseVideoPlayer/Common/Interfaces/SJFitOnScreenManagerDefines.h; sourceTree = "<group>"; };
@@ -4726,7 +4730,7 @@
 		D572908B16A76017FC91DC3824A1C7D4 /* UIRefreshControl+RACCommandSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+RACCommandSupport.m"; path = "ReactiveObjC/UIRefreshControl+RACCommandSupport.m"; sourceTree = "<group>"; };
 		D585894B29A9D8CF859F2D9BF8C1B49C /* DoraemonKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonKit.h; path = iOS/DoraemonKit/Src/Core/DoraemonKit.h; sourceTree = "<group>"; };
 		D58BD008A8BF870AB3863CC66AFFB2B1 /* TABBinAnimationImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABBinAnimationImpl.m; path = TABAnimatedDemo/TABAnimated/Decorate/Animation/Bin/TABBinAnimationImpl.m; sourceTree = "<group>"; };
-		D5AFAC3F7483334AD804544540AA655A /* ssl_ticket.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_ticket.c; path = Logan/mbedtls/library/ssl_ticket.c; sourceTree = "<group>"; };
+		D5AFAC3F7483334AD804544540AA655A /* ssl_ticket.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ssl_ticket.c; path = Logan/mbedtls/library/ssl_ticket.c; sourceTree = "<group>"; };
 		D5C961574AB9B5DA16FCD786AFC73B22 /* LKS_AttrModificationPatchHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_AttrModificationPatchHandler.m; path = Src/Server/Connection/RequestHandler/LKS_AttrModificationPatchHandler.m; sourceTree = "<group>"; };
 		D5E331E283D9A36C6D0030FCC98338AF /* RACStringSequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACStringSequence.m; path = ReactiveObjC/RACStringSequence.m; sourceTree = "<group>"; };
 		D5F21EBF4507C6D365C0CAA5EEFC067A /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
@@ -4743,7 +4747,7 @@
 		D6F2CC0F3CF9119D1934EF94E5415BF4 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/Core/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D6FC8C3EF41624CB601A9DC0BE5D2BEF /* SVGSVGElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGSVGElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGSVGElement.h"; sourceTree = "<group>"; };
 		D7174CEB90C1147A55A700EC7E38DCEC /* CSSValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSValue.h; path = "Source/DOM classes/Core DOM/CSSValue.h"; sourceTree = "<group>"; };
-		D73217AE147FEB9AB3118BE281C86387 /* clogan_core.c */ = {isa = PBXFileReference; includeInIndex = 1; name = clogan_core.c; path = Logan/Clogan/clogan_core.c; sourceTree = "<group>"; };
+		D73217AE147FEB9AB3118BE281C86387 /* clogan_core.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = clogan_core.c; path = Logan/Clogan/clogan_core.c; sourceTree = "<group>"; };
 		D744EBB882EF89249A37408077B3C7D9 /* DoraemonVisualInfoWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonVisualInfoWindow.m; path = iOS/DoraemonKit/Src/Core/CommonUI/Visual/DoraemonVisualInfoWindow.m; sourceTree = "<group>"; };
 		D79C5BFC11D8AB5786198D2E0A3A4101 /* NSString+SJBaseVideoPlayerExtended.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+SJBaseVideoPlayerExtended.h"; path = "SJBaseVideoPlayer/Common/Foundation/NSString+SJBaseVideoPlayerExtended.h"; sourceTree = "<group>"; };
 		D7C067F306E647F948A47CCA80288BA4 /* DoraemonEnumDescription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonEnumDescription.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/Function/DoraemonEnumDescription.m; sourceTree = "<group>"; };
@@ -4754,7 +4758,7 @@
 		D846B7D416B738836B966C0FA2FFB65C /* TABAnimationMethod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABAnimationMethod.h; path = TABAnimatedDemo/TABAnimated/Util/TABAnimationMethod.h; sourceTree = "<group>"; };
 		D86BF8E029953086A4ABBFF8CF9F9BA9 /* SJDeviceVolumeAndBrightnessManagerDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJDeviceVolumeAndBrightnessManagerDefines.h; path = SJBaseVideoPlayer/Common/Interfaces/SJDeviceVolumeAndBrightnessManagerDefines.h; sourceTree = "<group>"; };
 		D878A559C198446FE5E53478D6A2F6C3 /* MJExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MJExtension-Info.plist"; sourceTree = "<group>"; };
-		D87C79BE68669AF13BC15468AF66D794 /* xtea.c */ = {isa = PBXFileReference; includeInIndex = 1; name = xtea.c; path = Logan/mbedtls/library/xtea.c; sourceTree = "<group>"; };
+		D87C79BE68669AF13BC15468AF66D794 /* xtea.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = xtea.c; path = Logan/mbedtls/library/xtea.c; sourceTree = "<group>"; };
 		D89C05D6F7B369FDAA2533D50E77F552 /* debug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = debug.h; path = Logan/mbedtls/include/mbedtls/debug.h; sourceTree = "<group>"; };
 		D8B220F85A22AAF05F4CCE97E9202467 /* PTUSBHub.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PTUSBHub.m; path = Src/Shared/Peertalk/PTUSBHub.m; sourceTree = "<group>"; };
 		D8F56780BC21E3359A3754EC07E63107 /* DoraemonSubThreadUICheckListViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonSubThreadUICheckListViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/SubThreadUICheck/List/DoraemonSubThreadUICheckListViewController.h; sourceTree = "<group>"; };
@@ -4774,7 +4778,7 @@
 		DB3664DFCA77C1F2335A836CFC1D83E0 /* NSTimer+SJAssetAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+SJAssetAdd.m"; path = "SJBaseVideoPlayer/Common/Foundation/NSTimer+SJAssetAdd.m"; sourceTree = "<group>"; };
 		DB6C901CB42775FA2C1D2ED797585C6E /* RACIndexSetSequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACIndexSetSequence.m; path = ReactiveObjC/RACIndexSetSequence.m; sourceTree = "<group>"; };
 		DB7069D872A958A0089BD80F0A082F4F /* DoraemonANRListCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonANRListCell.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/ANR/List/DoraemonANRListCell.m; sourceTree = "<group>"; };
-		DB73C67E1ADA969A37C3B1EAAEAD94B3 /* camellia.c */ = {isa = PBXFileReference; includeInIndex = 1; name = camellia.c; path = Logan/mbedtls/library/camellia.c; sourceTree = "<group>"; };
+		DB73C67E1ADA969A37C3B1EAAEAD94B3 /* camellia.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = camellia.c; path = Logan/mbedtls/library/camellia.c; sourceTree = "<group>"; };
 		DB83A861261EA6F5B167127E00832E9A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		DB975ED4D321F9BBD042A8CCA1D6BB4F /* BaseClassForAllSVGBasicShapes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BaseClassForAllSVGBasicShapes.h; path = "Source/DOM classes/Unported or Partial DOM/BaseClassForAllSVGBasicShapes.h"; sourceTree = "<group>"; };
 		DBA2CFF712081F1E4F68D22D35200FA0 /* JSONValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONValueTransformer.m; path = JSONModel/JSONModelTransformations/JSONValueTransformer.m; sourceTree = "<group>"; };
@@ -4804,7 +4808,7 @@
 		DDC752683230716E646BE599A08FAB33 /* YYImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYImageCache.h; path = YYKit/Image/YYImageCache.h; sourceTree = "<group>"; };
 		DDDB6F0C137D0AA54861B7DFCA1B7779 /* SVGRect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGRect.h; path = "Source/DOM classes/SVG-DOM/SVGRect.h"; sourceTree = "<group>"; };
 		DE4BCA99C0325C44AB123A1D9C88A654 /* TABBaseComponent+TABClassicAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TABBaseComponent+TABClassicAnimation.m"; path = "TABAnimatedDemo/TABAnimated/Decorate/Animation/Classic/TABBaseComponent+TABClassicAnimation.m"; sourceTree = "<group>"; };
-		DE6491F3A583954ECD29D9F0D6F48D1C /* ssl_srv.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_srv.c; path = Logan/mbedtls/library/ssl_srv.c; sourceTree = "<group>"; };
+		DE6491F3A583954ECD29D9F0D6F48D1C /* ssl_srv.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ssl_srv.c; path = Logan/mbedtls/library/ssl_srv.c; sourceTree = "<group>"; };
 		DE804125E80C5638F5ED6862D78017B9 /* net_sockets.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = net_sockets.h; path = Logan/mbedtls/include/mbedtls/net_sockets.h; sourceTree = "<group>"; };
 		DEC9F5EEF6659BC3706F28130E473C1F /* SVGKSourceNSData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGKSourceNSData.m; path = Source/Sources/SVGKSourceNSData.m; sourceTree = "<group>"; };
 		DED711007D395EB0E61EE77A6F5804BA /* SVGKExporterUIImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKExporterUIImage.h; path = Source/Exporters/SVGKExporterUIImage.h; sourceTree = "<group>"; };
@@ -4816,7 +4820,7 @@
 		DF78B755661E2235F4DED09834B60025 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		DFA3428057578FB1ADFA0DBB7F5BB89A /* YYMemoryCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYMemoryCache.h; path = YYKit/Cache/YYMemoryCache.h; sourceTree = "<group>"; };
 		DFA486FDEB6099DCEB6661506A91EBAA /* SJMediaPlaybackController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJMediaPlaybackController.m; path = SJBaseVideoPlayer/Common/Implements/SJMediaPlaybackController.m; sourceTree = "<group>"; };
-		DFDE515A90E1726B5CC6F63C65E60486 /* sha1.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sha1.c; path = Logan/mbedtls/library/sha1.c; sourceTree = "<group>"; };
+		DFDE515A90E1726B5CC6F63C65E60486 /* sha1.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = sha1.c; path = Logan/mbedtls/library/sha1.c; sourceTree = "<group>"; };
 		DFF3E1814A55D57999B7B996C6D80EE4 /* UIScrollView+ListViewAutoplaySJAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+ListViewAutoplaySJAdd.h"; path = "SJBaseVideoPlayer/UIScrollView+ListViewAutoplaySJAdd.h"; sourceTree = "<group>"; };
 		DFF70232BB0BD567814F361379A586D1 /* DoraemonNetFlowSummaryViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNetFlowSummaryViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/Summary/DoraemonNetFlowSummaryViewController.h; sourceTree = "<group>"; };
 		E00B9EEDD5ED2908A8AE3E9B430D5443 /* SJQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJQueue.h; path = SJUIKit/Queues/SJQueue.h; sourceTree = "<group>"; };
@@ -4854,7 +4858,7 @@
 		E2E3401EB40AF4F4D2A1336B7823E080 /* DoraemonCacheManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonCacheManager.m; path = iOS/DoraemonKit/Src/Core/Cache/DoraemonCacheManager.m; sourceTree = "<group>"; };
 		E2EB1E15AF0BEFDE166AFA5DA4304382 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		E2F95D9DE386018E91A7A85F781AF4CD /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
-		E2FF27E238ACB63983A666478C0874E9 /* certs.c */ = {isa = PBXFileReference; includeInIndex = 1; name = certs.c; path = Logan/mbedtls/library/certs.c; sourceTree = "<group>"; };
+		E2FF27E238ACB63983A666478C0874E9 /* certs.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = certs.c; path = Logan/mbedtls/library/certs.c; sourceTree = "<group>"; };
 		E31BAFBC56C9A8C4175189E8F30BFABF /* MAPolygonRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAPolygonRenderer.h; path = MAMapKit.framework/Headers/MAPolygonRenderer.h; sourceTree = "<group>"; };
 		E31DB5C54C785C013C484BF93D054DBC /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/Core/SDWebImageCompat.m; sourceTree = "<group>"; };
 		E31EC270F1B7A49D5DEA2D5C4DD64182 /* UIBarButtonItem+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+YYAdd.m"; path = "YYKit/Base/UIKit/UIBarButtonItem+YYAdd.m"; sourceTree = "<group>"; };
@@ -4881,7 +4885,7 @@
 		E52A44661A07E91D220AF06C2560C21C /* FDFullscreenPopGesture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDFullscreenPopGesture.debug.xcconfig; sourceTree = "<group>"; };
 		E52D57040C426D86B1E346157BB2A57F /* KissXML.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KissXML.release.xcconfig; sourceTree = "<group>"; };
 		E5387CF8A7640A254EECE272DCEC4112 /* NSKeyedUnarchiver+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSKeyedUnarchiver+YYAdd.h"; path = "YYKit/Base/Foundation/NSKeyedUnarchiver+YYAdd.h"; sourceTree = "<group>"; };
-		E5431BC9F6861A1F51784E0E8F43DF82 /* ssl_cli.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_cli.c; path = Logan/mbedtls/library/ssl_cli.c; sourceTree = "<group>"; };
+		E5431BC9F6861A1F51784E0E8F43DF82 /* ssl_cli.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ssl_cli.c; path = Logan/mbedtls/library/ssl_cli.c; sourceTree = "<group>"; };
 		E545D3469B56A6C39AD3150A68EFE709 /* SVGKParserDefsAndUse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKParserDefsAndUse.h; path = "Source/Parsers/Parser Extensions/SVGKParserDefsAndUse.h"; sourceTree = "<group>"; };
 		E595950FD5AD72AC79E356DE6D7A14E3 /* DDMultiFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDMultiFormatter.m; path = Sources/CocoaLumberjack/Extensions/DDMultiFormatter.m; sourceTree = "<group>"; };
 		E5BE4703EBF9B0688670668371BACDBB /* asn1write.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn1write.h; path = Logan/mbedtls/include/mbedtls/asn1write.h; sourceTree = "<group>"; };
@@ -4901,11 +4905,11 @@
 		E729F8BD6CA1923DAF9E7FB1F29332FA /* SVGDefsElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGDefsElement.h; path = "Source/DOM classes/SVG-DOM/SVGDefsElement.h"; sourceTree = "<group>"; };
 		E75A29B1584FEDDF2AE43B88BA1874A1 /* DoraemonHealthFooterView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonHealthFooterView.h; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Health/View/DoraemonHealthFooterView.h; sourceTree = "<group>"; };
 		E760B494D3ABA956FF727D77FA515679 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
-		E760CCE376A60AC5A72162C3E9F3F09C /* bignum.c */ = {isa = PBXFileReference; includeInIndex = 1; name = bignum.c; path = Logan/mbedtls/library/bignum.c; sourceTree = "<group>"; };
+		E760CCE376A60AC5A72162C3E9F3F09C /* bignum.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = bignum.c; path = Logan/mbedtls/library/bignum.c; sourceTree = "<group>"; };
 		E77CB57BBE38D36AFC6EF63E6BF3804D /* SVGKDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGKDefine.h; path = Source/SVGKDefine.h; sourceTree = "<group>"; };
 		E79B230C122FB0F7E0C758A5476E7D6A /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
 		E7B233A3BBF25265C842362252E9580A /* GCDWebServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServer.h; path = GCDWebServer/Core/GCDWebServer.h; sourceTree = "<group>"; };
-		E7D74E35E9BB68C355109C0B0BE0C663 /* ccm.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ccm.c; path = Logan/mbedtls/library/ccm.c; sourceTree = "<group>"; };
+		E7D74E35E9BB68C355109C0B0BE0C663 /* ccm.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ccm.c; path = Logan/mbedtls/library/ccm.c; sourceTree = "<group>"; };
 		E7E8A2B9FD6EB8113C1ECBAD3C18FDAD /* TABAnimatedChainManagerInterface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABAnimatedChainManagerInterface.h; path = TABAnimatedDemo/TABAnimated/Decorate/Chain/Include/TABAnimatedChainManagerInterface.h; sourceTree = "<group>"; };
 		E7F120B6BBC983C9D096FEE7FEF443E7 /* RACEXTRuntimeExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACEXTRuntimeExtensions.h; path = ReactiveObjC/extobjc/RACEXTRuntimeExtensions.h; sourceTree = "<group>"; };
 		E81FE86B107E7163D906E57EE36F935A /* mz_strm_zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mz_strm_zlib.h; path = SSZipArchive/minizip/mz_strm_zlib.h; sourceTree = "<group>"; };
@@ -4915,7 +4919,7 @@
 		E87F9EA9E5573E6A3E1361E050BCB1B0 /* GCDWebServer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GCDWebServer-umbrella.h"; sourceTree = "<group>"; };
 		E885E3E49C26D80B4E72DEF0C8EBACE0 /* SVGElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGElement.h; path = "Source/DOM classes/Unported or Partial DOM/SVGElement.h"; sourceTree = "<group>"; };
 		E8CCC51DA15FFB3E5FF181FCA280850E /* LKS_AttrModificationHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_AttrModificationHandler.m; path = Src/Server/Connection/RequestHandler/LKS_AttrModificationHandler.m; sourceTree = "<group>"; };
-		E8E4FB0899A7757F3ABBC03AA4A87449 /* mz_strm_mem.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_strm_mem.c; path = SSZipArchive/minizip/mz_strm_mem.c; sourceTree = "<group>"; };
+		E8E4FB0899A7757F3ABBC03AA4A87449 /* mz_strm_mem.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_strm_mem.c; path = SSZipArchive/minizip/mz_strm_mem.c; sourceTree = "<group>"; };
 		E8F6E996EB16889A6114E2D3F147CB9D /* SJBaseVideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SJBaseVideoPlayer.release.xcconfig; sourceTree = "<group>"; };
 		E8F8C8844BCD76DD699CDB63D3592CC2 /* DoraemonCrashListViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonCrashListViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/Crash/List/DoraemonCrashListViewController.m; sourceTree = "<group>"; };
 		E8FC9D80C3896B1BE5A83B72F79596A6 /* DoraemonTimeProfilerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonTimeProfilerPlugin.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/TimeProfiler/DoraemonTimeProfilerPlugin.m; sourceTree = "<group>"; };
@@ -4926,7 +4930,7 @@
 		E9CB0DBF8F0BAAA0EEC1407B8E91FB20 /* CSSStyleSheet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSStyleSheet.m; path = "Source/DOM classes/Core DOM/CSSStyleSheet.m"; sourceTree = "<group>"; };
 		E9EF22FF16246013F80F2C39610342EB /* DoraemonKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DoraemonKit-umbrella.h"; sourceTree = "<group>"; };
 		EA007438C595AC9E662E112F3C88C37B /* PINCache-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PINCache-umbrella.h"; sourceTree = "<group>"; };
-		EA1078ABC2DA958FB1110746BA5A2E30 /* version.c */ = {isa = PBXFileReference; includeInIndex = 1; name = version.c; path = Logan/mbedtls/library/version.c; sourceTree = "<group>"; };
+		EA1078ABC2DA958FB1110746BA5A2E30 /* version.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = version.c; path = Logan/mbedtls/library/version.c; sourceTree = "<group>"; };
 		EA1464B701C8961C6F4B5CE2B9E71131 /* GCDWebServerPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDWebServerPrivate.h; path = GCDWebServer/Core/GCDWebServerPrivate.h; sourceTree = "<group>"; };
 		EA2C86A6D0B1ABC48B6CAB04AF53E574 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		EA3BCCA97EB1BC7624B4CFEC7D851937 /* NSData+YYAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+YYAdd.h"; path = "YYKit/Base/Foundation/NSData+YYAdd.h"; sourceTree = "<group>"; };
@@ -4974,7 +4978,7 @@
 		EF47F237B16FE5C0242B31AA44AB5FFD /* NSKeyedUnarchiver+YYAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSKeyedUnarchiver+YYAdd.m"; path = "YYKit/Base/Foundation/NSKeyedUnarchiver+YYAdd.m"; sourceTree = "<group>"; };
 		EF4FAC5617004195BCE1AB4B978F8A4E /* SDWebImage-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SDWebImage-Info.plist"; sourceTree = "<group>"; };
 		EF8789A138F343C482384A6F3D89FAC9 /* Attr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Attr.m; path = "Source/DOM classes/Core DOM/Attr.m"; sourceTree = "<group>"; };
-		EFA7F3EB6FB8994DE5606DA6D7D91E5C /* x509_crl.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509_crl.c; path = Logan/mbedtls/library/x509_crl.c; sourceTree = "<group>"; };
+		EFA7F3EB6FB8994DE5606DA6D7D91E5C /* x509_crl.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509_crl.c; path = Logan/mbedtls/library/x509_crl.c; sourceTree = "<group>"; };
 		EFAA41436F2FCC243ECBA27CB99A9616 /* SVGElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGElement.m"; sourceTree = "<group>"; };
 		EFADF9D9B7D57ED3F30AD96DBF86E67F /* DoraemonMockApiCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonMockApiCell.m; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/View/List/Cell/DoraemonMockApiCell.m; sourceTree = "<group>"; };
 		EFBE54474B2038CECC0EED8E54E2ADF6 /* UITableViewCell+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+RACSignalSupport.h"; path = "ReactiveObjC/UITableViewCell+RACSignalSupport.h"; sourceTree = "<group>"; };
@@ -4988,7 +4992,7 @@
 		F0707E17DA5F45436DE52B5D0F37FBF7 /* CocoaAsyncSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-umbrella.h"; sourceTree = "<group>"; };
 		F07284B7649E0F88EC54C107497AC000 /* TABWeakDelegateManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABWeakDelegateManager.h; path = TABAnimatedDemo/TABAnimated/Util/TABWeakDelegateManager.h; sourceTree = "<group>"; };
 		F0C64A1D402B0A70CC53B3B61A94B356 /* NSObject+RACDeallocating.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+RACDeallocating.h"; path = "ReactiveObjC/NSObject+RACDeallocating.h"; sourceTree = "<group>"; };
-		F0D57E1C35CA217D69CAF26193B3232F /* x509_csr.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509_csr.c; path = Logan/mbedtls/library/x509_csr.c; sourceTree = "<group>"; };
+		F0D57E1C35CA217D69CAF26193B3232F /* x509_csr.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509_csr.c; path = Logan/mbedtls/library/x509_csr.c; sourceTree = "<group>"; };
 		F0DAA95B1BDE2D3471DBCAD5FCEB5AFD /* UIView+TABControlModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+TABControlModel.h"; path = "TABAnimatedDemo/TABAnimated/Control/UIView+TABControlModel.h"; sourceTree = "<group>"; };
 		F0EF18D9304E325A0736578E5044E36B /* DoraemonBuriedPointManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonBuriedPointManager.m; path = iOS/DoraemonKit/Src/Core/Util/BuriedPoint/DoraemonBuriedPointManager.m; sourceTree = "<group>"; };
 		F0F648718CD1438232F335451F3B6AA7 /* UIView+Doraemon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Doraemon.h"; path = "iOS/DoraemonKit/Src/Core/Category/UIView+Doraemon.h"; sourceTree = "<group>"; };
@@ -5016,7 +5020,7 @@
 		F2652A5E5CA52596501D6121C66937C4 /* DKHierarchyPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DKHierarchyPickerView.m; path = iOS/DoraemonKit/Src/Core/Plugin/UI/Hierarchy/UserInterface/View/DKHierarchyPickerView.m; sourceTree = "<group>"; };
 		F266BA4794643A243B51F3BA99EAF495 /* TABDropAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABDropAnimation.h; path = TABAnimatedDemo/TABAnimated/Decorate/Animation/Drop/TABDropAnimation.h; sourceTree = "<group>"; };
 		F28BAE957D775F9A7451E476ABF110B0 /* DoraemonAlertUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonAlertUtil.m; path = iOS/DoraemonKit/Src/Core/CommonUI/Alert/DoraemonAlertUtil.m; sourceTree = "<group>"; };
-		F2A0679F7BACC341F58313CA14A2C49B /* mz_zip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_zip.c; path = SSZipArchive/minizip/mz_zip.c; sourceTree = "<group>"; };
+		F2A0679F7BACC341F58313CA14A2C49B /* mz_zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_zip.c; path = SSZipArchive/minizip/mz_zip.c; sourceTree = "<group>"; };
 		F2A61152CC21B81584B2F5D9A3C434B3 /* SJBaseVideoPlayer+TestLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SJBaseVideoPlayer+TestLog.h"; path = "SJBaseVideoPlayer/SJBaseVideoPlayer+TestLog.h"; sourceTree = "<group>"; };
 		F2AB2275D5A1427C73E71BA956E6BBD1 /* MAHeatMapVectorOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAHeatMapVectorOverlay.h; path = MAMapKit.framework/Headers/MAHeatMapVectorOverlay.h; sourceTree = "<group>"; };
 		F2B0BA100D8993B7C655B1C625BA4446 /* TABAnimatedDecorateInterface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TABAnimatedDecorateInterface.h; path = TABAnimatedDemo/TABAnimated/Decorate/Animation/Include/TABAnimatedDecorateInterface.h; sourceTree = "<group>"; };
@@ -5026,7 +5030,7 @@
 		F385CE6DC69BFC852BB9DA488FCCC70E /* DoraemonCellSwitch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonCellSwitch.h; path = iOS/DoraemonKit/Src/Core/CommonUI/CellSwitch/DoraemonCellSwitch.h; sourceTree = "<group>"; };
 		F39B2610F0478B792D81A895B74BC3F6 /* SJFloatSmallViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJFloatSmallViewController.h; path = SJBaseVideoPlayer/Common/Implements/SJFloatSmallViewController.h; sourceTree = "<group>"; };
 		F3A7363CD6E69CABAEF8C38A79D76533 /* JSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModel.m; path = JSONModel/JSONModel/JSONModel.m; sourceTree = "<group>"; };
-		F3A9CED5AA8B1F2CC305CC10BBF602E2 /* mz_compat.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_compat.c; path = SSZipArchive/minizip/mz_compat.c; sourceTree = "<group>"; };
+		F3A9CED5AA8B1F2CC305CC10BBF602E2 /* mz_compat.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_compat.c; path = SSZipArchive/minizip/mz_compat.c; sourceTree = "<group>"; };
 		F3D6F6F2EAA48F78AE07F7F84FB149D0 /* DoraemonFPSUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonFPSUtil.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/FPS/Function/DoraemonFPSUtil.h; sourceTree = "<group>"; };
 		F3E559A2061C4C603757E4C9C94AB4A4 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		F3F15DA7ACE39F54FA1D82BF0A5CA32B /* MJExtensionConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJExtensionConst.h; path = MJExtension/MJExtensionConst.h; sourceTree = "<group>"; };
@@ -5046,7 +5050,7 @@
 		F5B4841323735F3EAE88916F9C8EB72B /* MAMultiPolyline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAMultiPolyline.h; path = MAMapKit.framework/Headers/MAMultiPolyline.h; sourceTree = "<group>"; };
 		F5B833E3B7B97B82AD07D5557BB77B12 /* AMapNearbySearchManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMapNearbySearchManager.h; path = AMapSearchKit.framework/Headers/AMapNearbySearchManager.h; sourceTree = "<group>"; };
 		F5BFE5435E5502FCDC195CF4AAABD77E /* DoraemonHealthManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonHealthManager.h; path = iOS/DoraemonKit/Src/Core/Plugin/Platform/Health/Function/DoraemonHealthManager.h; sourceTree = "<group>"; };
-		F5DC049F6343D7DC1300D3E9B326CE59 /* x509_create.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509_create.c; path = Logan/mbedtls/library/x509_create.c; sourceTree = "<group>"; };
+		F5DC049F6343D7DC1300D3E9B326CE59 /* x509_create.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = x509_create.c; path = Logan/mbedtls/library/x509_create.c; sourceTree = "<group>"; };
 		F5EEE0D5C44E9873571BDE62FC814DBD /* Attr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Attr.h; path = "Source/DOM classes/Core DOM/Attr.h"; sourceTree = "<group>"; };
 		F5F6E9268C0915ECA5BE73A27FE2FF2D /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		F5F77866ACDC52BDB1C9BCE5D7D77FF1 /* MJExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJExtension-umbrella.h"; sourceTree = "<group>"; };
@@ -5062,7 +5066,7 @@
 		F66858A5B5B7E92DCF549F6D7CC8B879 /* DoraemonLargeImageDetectionListViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonLargeImageDetectionListViewController.m; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/LargeImageDetection/Detail/DoraemonLargeImageDetectionListViewController.m; sourceTree = "<group>"; };
 		F684BE4506F9D1F5EB62F7A0308860EE /* SJBaseVideoPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SJBaseVideoPlayer-dummy.m"; sourceTree = "<group>"; };
 		F6A17669635AEC8159E86BCEF97BCCC9 /* SVGHelperUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGHelperUtilities.m; path = "Source/DOM classes/SVG-DOM/SVGHelperUtilities.m"; sourceTree = "<group>"; };
-		F6DFE9539B5FCAC5AE3C0AA2C30B9C8F /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
+		F6DFE9539B5FCAC5AE3C0AA2C30B9C8F /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
 		F6E38C1CCA28E4C696E7D85D25840E2C /* DoraemonSubThreadUICheckDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonSubThreadUICheckDetailViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/SubThreadUICheck/Detail/DoraemonSubThreadUICheckDetailViewController.h; sourceTree = "<group>"; };
 		F6E654B19862AFAD3EA87D7F6B6FFD4F /* pem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pem.h; path = Logan/mbedtls/include/mbedtls/pem.h; sourceTree = "<group>"; };
 		F6F4548279FBE195F17AD2AAA74AC91B /* LookinCodingValueType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LookinCodingValueType.h; path = Src/Shared/LookinCodingValueType.h; sourceTree = "<group>"; };
@@ -5078,14 +5082,14 @@
 		F8839C04795C35BA7FE8820DE0DB1CB7 /* LKS_RequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_RequestHandler.m; path = Src/Server/Connection/LKS_RequestHandler.m; sourceTree = "<group>"; };
 		F8927DAD548D276CAB31AE44B2783C71 /* NSOrderedSet+RACSequenceAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSOrderedSet+RACSequenceAdditions.m"; path = "ReactiveObjC/NSOrderedSet+RACSequenceAdditions.m"; sourceTree = "<group>"; };
 		F89D372C38B9FA8D6752BFB43BDC80D9 /* RACScopedDisposable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACScopedDisposable.h; path = ReactiveObjC/RACScopedDisposable.h; sourceTree = "<group>"; };
-		F8CB3B10FC2551C1B1C341C3CFD26F86 /* cipher.c */ = {isa = PBXFileReference; includeInIndex = 1; name = cipher.c; path = Logan/mbedtls/library/cipher.c; sourceTree = "<group>"; };
+		F8CB3B10FC2551C1B1C341C3CFD26F86 /* cipher.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = cipher.c; path = Logan/mbedtls/library/cipher.c; sourceTree = "<group>"; };
 		F8E106D696ACC13DF8913F1363C2E462 /* pkcs12.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pkcs12.h; path = Logan/mbedtls/include/mbedtls/pkcs12.h; sourceTree = "<group>"; };
 		F8E69FC6EE01BE9C2049E3A694ABDF98 /* LKS_PerspectiveManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LKS_PerspectiveManager.m; path = Src/Server/Perspective/LKS_PerspectiveManager.m; sourceTree = "<group>"; };
 		F8F08B5FB84BD5C62108A6837E84BB16 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		F8F42C8CA6EC05104AA928EDCDF81F5E /* DoraemonAppInfoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonAppInfoViewController.h; path = iOS/DoraemonKit/Src/Core/Plugin/Common/AppInfo/DoraemonAppInfoViewController.h; sourceTree = "<group>"; };
 		F8FF109CB43173E4ADF229113EB4958A /* SVGPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVGPoint.h; path = "Source/DOM classes/SVG-DOM/SVGPoint.h"; sourceTree = "<group>"; };
 		F9154B1702D42C3A66F9886AD9ABB7AB /* json_util.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = json_util.h; path = Logan/Clogan/json_util.h; sourceTree = "<group>"; };
-		F921386C56FEAEEB0AFE15A652BF30C4 /* aes.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aes.c; path = Logan/mbedtls/library/aes.c; sourceTree = "<group>"; };
+		F921386C56FEAEEB0AFE15A652BF30C4 /* aes.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aes.c; path = Logan/mbedtls/library/aes.c; sourceTree = "<group>"; };
 		F9399739BB67788EB26A87B93526BA66 /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYKit/Model/NSObject+YYModel.h"; sourceTree = "<group>"; };
 		F954490951A1837D28A7CF060E61E614 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
 		F96369C9A71DDA2E7AD9A7953E85255D /* DoraemonNetFlowSummaryTypeDataView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DoraemonNetFlowSummaryTypeDataView.h; path = iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/Summary/View/DoraemonNetFlowSummaryTypeDataView.h; sourceTree = "<group>"; };
@@ -5100,7 +5104,7 @@
 		FA5BB8245A6A9A2022420E74151A5AC1 /* DoraemonHomeWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DoraemonHomeWindow.m; path = iOS/DoraemonKit/Src/Core/Entry/Home/DoraemonHomeWindow.m; sourceTree = "<group>"; };
 		FA683AF2212A07EEADF696B0CF7617BE /* ReactiveObjC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReactiveObjC-dummy.m"; sourceTree = "<group>"; };
 		FA745939059A9CD104376E48D17C9E38 /* md_internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = md_internal.h; path = Logan/mbedtls/include/mbedtls/md_internal.h; sourceTree = "<group>"; };
-		FA932A3287BAA29EE9398AFF7B29EA72 /* rsa.c */ = {isa = PBXFileReference; includeInIndex = 1; name = rsa.c; path = Logan/mbedtls/library/rsa.c; sourceTree = "<group>"; };
+		FA932A3287BAA29EE9398AFF7B29EA72 /* rsa.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = rsa.c; path = Logan/mbedtls/library/rsa.c; sourceTree = "<group>"; };
 		FABA643D544A796BEBB4B3FF247F487C /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		FAC4C06ABBD002CFD5E47E7BE5180BE3 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelClassProperty.m; path = JSONModel/JSONModel/JSONModelClassProperty.m; sourceTree = "<group>"; };
 		FAD21E0E91C069A7652641F53DB41C59 /* CSSValue_ForSubclasses.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSValue_ForSubclasses.h; path = "Source/DOM classes/Core DOM/CSSValue_ForSubclasses.h"; sourceTree = "<group>"; };
@@ -5123,7 +5127,7 @@
 		FC22224FCB7376FD3AFFC04D9AE2B615 /* YYTextKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextKeyboardManager.m; path = YYKit/Text/Component/YYTextKeyboardManager.m; sourceTree = "<group>"; };
 		FC4B61D7C9A318F1632791B6F4D43D08 /* SJSubtitlesPromptControllerDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJSubtitlesPromptControllerDefines.h; path = SJBaseVideoPlayer/Common/Interfaces/SJSubtitlesPromptControllerDefines.h; sourceTree = "<group>"; };
 		FC541131F4BF20046EA5C8B4FD55C89B /* SVGGroupElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVGGroupElement.m; path = "Source/DOM classes/Unported or Partial DOM/SVGGroupElement.m"; sourceTree = "<group>"; };
-		FCC7ACECF4D6E06289EAFA152F3B7C30 /* mz_os.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mz_os.c; path = SSZipArchive/minizip/mz_os.c; sourceTree = "<group>"; };
+		FCC7ACECF4D6E06289EAFA152F3B7C30 /* mz_os.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mz_os.c; path = SSZipArchive/minizip/mz_os.c; sourceTree = "<group>"; };
 		FCDEE75ACF01B2C63E2CE5B32D36E124 /* KissXML-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KissXML-umbrella.h"; sourceTree = "<group>"; };
 		FCFDEA496851B4916EE0A2BE36039262 /* SJBaseVideoPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJBaseVideoPlayer.m; path = SJBaseVideoPlayer/SJBaseVideoPlayer.m; sourceTree = "<group>"; };
 		FD0D0E63383BCCE7E4DB1B813EE5DD88 /* MAOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MAOverlay.h; path = MAMapKit.framework/Headers/MAOverlay.h; sourceTree = "<group>"; };
@@ -5420,7 +5424,6 @@
 				6BE539A0D63A6BDC4AE49679533459ED /* Core */,
 				9BE1BEBBE5CE7050F8A2FB1A841FB624 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -5442,7 +5445,6 @@
 				4CC73731AF18C57150E6D4CD8EDE9ECC /* ResourceLoader */,
 				BD235AE2972B8674C94A9BF42731F762 /* Support Files */,
 			);
-			name = SJBaseVideoPlayer;
 			path = SJBaseVideoPlayer;
 			sourceTree = "<group>";
 		};
@@ -5565,7 +5567,6 @@
 				9C05C36F1EEB14B18974DF9EC6D3B6F7 /* UIView+TABExtension.m */,
 				D50866FA60B21111ED03473233A8C8C7 /* Support Files */,
 			);
-			name = TABAnimated;
 			path = TABAnimated;
 			sourceTree = "<group>";
 		};
@@ -5590,7 +5591,6 @@
 				77184DE9256687FB3797042497B1C8C9 /* Core */,
 				C14B879A768AB8BED27E2AEC6DB8330C /* Support Files */,
 			);
-			name = DoraemonKit;
 			path = DoraemonKit;
 			sourceTree = "<group>";
 		};
@@ -5711,7 +5711,6 @@
 				B2D01DA4214A13DA9C27B37A71AF0F86 /* Resources */,
 				93E5763AD275BF538677CBBC95824884 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -5773,7 +5772,6 @@
 				D0EA959BB174F23CA0AB67263D928C02 /* mbedtls */,
 				64EE3F0587E4A2EA3A655C1F218F3A66 /* Support Files */,
 			);
-			name = Logan;
 			path = Logan;
 			sourceTree = "<group>";
 		};
@@ -5783,7 +5781,6 @@
 				E3E03955966DBD9C355E58A9AEDCA7F4 /* standard */,
 				11A480127DF865EF709EB38214F8C0A2 /* Support Files */,
 			);
-			name = FMDB;
 			path = FMDB;
 			sourceTree = "<group>";
 		};
@@ -5795,7 +5792,7 @@
 				6CBEFE4F9E22AFDC6347A739BB35FF8C /* CocoaAsyncSocket */,
 				C261436D14052AE3C35F240BCD155CAC /* CocoaLumberjack */,
 				D1896D9851F43425DB6409A9170E0354 /* DoraemonKit */,
-				0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */,
+				0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */,
 				85D03BEC2CA9B2DB28398618379E7744 /* FDFullscreenPopGesture */,
 				A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB */,
 				B68C1052A3B51DBCF7D960F898AAFA95 /* GCDWebServer */,
@@ -5860,7 +5857,6 @@
 				EABCBB8FBD9ECABACB3A0614A90381E3 /* NSObject+FBKVOController.m */,
 				526D95D3EB7A61A897CF7E655E9CE7BA /* Support Files */,
 			);
-			name = KVOController;
 			path = KVOController;
 			sourceTree = "<group>";
 		};
@@ -6015,7 +6011,6 @@
 				D83121395503CC79BF3B5433EC4A94E5 /* UIVisualEffectView+LookinServer.m */,
 				74EE7545C5C2B8C4FC4D8B7F147D41B3 /* Support Files */,
 			);
-			name = LookinServer;
 			path = LookinServer;
 			sourceTree = "<group>";
 		};
@@ -6250,7 +6245,6 @@
 				9DFC77323935B049E7F272CBE1C24873 /* Resources */,
 				94CC5CDB89F24A7D1C613112FE73F7DD /* Support Files */,
 			);
-			name = "AMap3DMap-NO-IDFA";
 			path = "AMap3DMap-NO-IDFA";
 			sourceTree = "<group>";
 		};
@@ -6268,7 +6262,6 @@
 				561D08A7CD0280868511F8064217CF48 /* Frameworks */,
 				BC6D1BEC42B7D924C73F55D79971B6FA /* Support Files */,
 			);
-			name = "AMapLocation-NO-IDFA";
 			path = "AMapLocation-NO-IDFA";
 			sourceTree = "<group>";
 		};
@@ -6473,7 +6466,6 @@
 				976793BAE43FB9F2F52DB80FF1EFEE62 /* UINavigationController+FDFullscreenPopGesture.m */,
 				32966BA45E931C0C1F731E44526A9559 /* Support Files */,
 			);
-			name = FDFullscreenPopGesture;
 			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
@@ -6536,7 +6528,6 @@
 				8A49CD42E2EA473E281D8A271A5D641B /* GCDAsyncUdpSocket.m */,
 				F3BC1CE0E122D1A246D73A37F108C06E /* Support Files */,
 			);
-			name = CocoaAsyncSocket;
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
@@ -6562,7 +6553,6 @@
 				74EF5947C4131E62C13C40AB9BF816F8 /* Validation.swift */,
 				B772BE2DCB662B6F73387B05E3B65070 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -6584,7 +6574,6 @@
 				144BE47090FCCED73BAFDAADC4C4A9F1 /* NSString+DDXML.m */,
 				1F0CB62FBDB5FE9C43F954C5DC4CA9BE /* Support Files */,
 			);
-			name = KissXML;
 			path = KissXML;
 			sourceTree = "<group>";
 		};
@@ -7146,7 +7135,6 @@
 				C7F9647D509E3BB062A9B22AE51DE59B /* Frameworks */,
 				D16468C30AC77CF63D4A0138C68CC32A /* Support Files */,
 			);
-			name = "AMapSearch-NO-IDFA";
 			path = "AMapSearch-NO-IDFA";
 			sourceTree = "<group>";
 		};
@@ -7207,7 +7195,6 @@
 				DBA2CFF712081F1E4F68D22D35200FA0 /* JSONValueTransformer.m */,
 				6B6EC7DB8CE94006B527278044E50AE3 /* Support Files */,
 			);
-			name = JSONModel;
 			path = JSONModel;
 			sourceTree = "<group>";
 		};
@@ -7275,7 +7262,6 @@
 				88A799DEE273DEE664AD6B71785D4A45 /* NSString+MJExtension.m */,
 				3C4CEF6C32E73837A3E9B2F2B14D3020 /* Support Files */,
 			);
-			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -7293,7 +7279,6 @@
 				99418199AE8CE3F6C2EDD60F8CC796EF /* Frameworks */,
 				53A0DF7AF5BEF44EB8FCA7ABA851C631 /* Support Files */,
 			);
-			name = "AMapFoundation-NO-IDFA";
 			path = "AMapFoundation-NO-IDFA";
 			sourceTree = "<group>";
 		};
@@ -7404,7 +7389,6 @@
 				50B5722C4E6E1A0CA721067672906CE3 /* PINMemoryCache.m */,
 				91D8FA3F40A66D55787DBD47F52970C9 /* Support Files */,
 			);
-			name = PINCache;
 			path = PINCache;
 			sourceTree = "<group>";
 		};
@@ -7725,7 +7709,6 @@
 				DD27E1D09DE585485E3FE730EC6ED779 /* TinySVGTextAreaElement.m */,
 				4DFF7336ECC2625B9856509E7B00FE27 /* Support Files */,
 			);
-			name = SVGKit;
 			path = SVGKit;
 			sourceTree = "<group>";
 		};
@@ -7923,7 +7906,6 @@
 				2E4C46FBF4EB09B83E3959B85317CD4A /* UITextView+RACSignalSupport.m */,
 				0AA1509227E4C2062153906796026F60 /* Support Files */,
 			);
-			name = ReactiveObjC;
 			path = ReactiveObjC;
 			sourceTree = "<group>";
 		};
@@ -7986,7 +7968,6 @@
 				9D78A47187FD01C0DFD86537428C55EC /* ViewController+MASAdditions.m */,
 				86B116D5D9DE7898486EBE8866C28408 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -8027,7 +8008,6 @@
 				179252C0215301FA8B7C698CE33F334D /* SQLite3 */,
 				67AB52620A977CB1F25BAA2D8E716E44 /* Support Files */,
 			);
-			name = SJUIKit;
 			path = SJUIKit;
 			sourceTree = "<group>";
 		};
@@ -8039,7 +8019,6 @@
 				95D2BF0DC928AE6876C9AE2B1C324CE6 /* WebDAV */,
 				41F4DB0786DF1811A41F851AA6BD50D7 /* WebUploader */,
 			);
-			name = GCDWebServer;
 			path = GCDWebServer;
 			sourceTree = "<group>";
 		};
@@ -8053,7 +8032,6 @@
 				C01503D3D24BF0C4576381B8E6A42EA8 /* Resources */,
 				3D7EFED560DC567F9AB2A946251C1A5A /* Support Files */,
 			);
-			name = SAMKeychain;
 			path = SAMKeychain;
 			sourceTree = "<group>";
 		};
@@ -8105,7 +8083,6 @@
 				EDC456C124EEA816EC6ECE3D7151B851 /* YYModel.h */,
 				C1BE6023B18C3889B39E1199D2B8141B /* Support Files */,
 			);
-			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -8115,7 +8092,6 @@
 				6F02616965A95D99E7109022A1B97DA3 /* Core */,
 				E3AFF2E4380D2E6E7766B267DC47C21B /* Support Files */,
 			);
-			name = CocoaLumberjack;
 			path = CocoaLumberjack;
 			sourceTree = "<group>";
 		};
@@ -8491,7 +8467,6 @@
 				BB0832C10A60AE9E1991F709E79E5F89 /* no-arc */,
 				9D16DB46B8AB6CF9110423E8317A42E2 /* Support Files */,
 			);
-			name = YYKit;
 			path = YYKit;
 			sourceTree = "<group>";
 		};
@@ -8506,7 +8481,6 @@
 				E18DD288B0408DF30CA2C32D6335D9A7 /* Support Files */,
 				21709CC921C37CF76B450D90AC0E88FB /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -8744,7 +8718,6 @@
 				EC80EE966FB9A407705F4EB88C60CDEA /* ZipArchive.h */,
 				DF8AF72240D6640BF89B4EA45517561D /* Support Files */,
 			);
-			name = SSZipArchive;
 			path = SSZipArchive;
 			sourceTree = "<group>";
 		};
@@ -10598,7 +10571,7 @@
 			);
 			name = "DoraemonKit-DoraemonKit";
 			productName = DoraemonKit;
-			productReference = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit-DoraemonKit */;
+			productReference = 0D3F3B6C7D4AD810C6DDF4A69D741EE2 /* DoraemonKit.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8FE0EB310F454719A11FBFEAAC09FE3E /* FDFullscreenPopGesture */ = {
@@ -10871,7 +10844,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4064925B1D4488B30CF299AB0A7598B /* DoraemonKit-DoraemonKit in Resources */,
+				E4064925B1D4488B30CF299AB0A7598B /* DoraemonKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12645,6 +12618,7 @@
 			baseConfigurationReference = 403B2B55E427A269FB0EAA565286AB65 /* DoraemonKit.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DoraemonKit";
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				IBSC_MODULE = DoraemonKit;
 				INFOPLIST_FILE = "Target Support Files/DoraemonKit/ResourceBundle-DoraemonKit-DoraemonKit-Info.plist";
@@ -16705,6 +16679,7 @@
 			baseConfigurationReference = 403B2B55E427A269FB0EAA565286AB65 /* DoraemonKit.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DoraemonKit";
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				IBSC_MODULE = DoraemonKit;
 				INFOPLIST_FILE = "Target Support Files/DoraemonKit/ResourceBundle-DoraemonKit-DoraemonKit-Info.plist";
@@ -16915,6 +16890,7 @@
 			baseConfigurationReference = A870573C03155A91C090548FBEDB5189 /* DoraemonKit.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DoraemonKit";
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				IBSC_MODULE = DoraemonKit;
 				INFOPLIST_FILE = "Target Support Files/DoraemonKit/ResourceBundle-DoraemonKit-DoraemonKit-Info.plist";
@@ -17094,6 +17070,7 @@
 			baseConfigurationReference = 403B2B55E427A269FB0EAA565286AB65 /* DoraemonKit.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/DoraemonKit";
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				IBSC_MODULE = DoraemonKit;
 				INFOPLIST_FILE = "Target Support Files/DoraemonKit/ResourceBundle-DoraemonKit-DoraemonKit-Info.plist";

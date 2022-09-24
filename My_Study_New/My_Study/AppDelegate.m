@@ -25,17 +25,28 @@
 #import "DoraemonManager.h"
 #endif
 
+#import "TestBlock.h"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+
+/**
+ * 尽可能使用 initialize + dispatch_once  来替代 +load 方法 , C++静态构造器
+ */
 + (void)initialize
 {
     [super initialize];
     
-    [CMBusMediaAppDelegate regisertService:[[ZWMainAppDelegateService alloc] init]];    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"----AppDelegate---initialize--onceToken--");
+        [CMBusMediaAppDelegate regisertService:[[ZWMainAppDelegateService alloc] init]];
+    });
+    NSLog(@"----AppDelegate---initialize----");
 }
 
 
@@ -43,15 +54,17 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    [AppLaunchTime mark];
     /* 注册调试工具 */
-    [self registDebugDoKitTool];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self registeredDebugDoKitTool];
+    });
+    
     // 配置app主题
     [zhThemeOperator themeConfiguration];
     /* 初始化配置信息 */
     [[ModuleContainer sharedModuleContainer] registerConfig];
     
-    [CMBusMediaAppDelegate serviceManager:@selector(application:didFinishLaunchingWithOptions:) withParameters:@[application, launchOptions ? : [NSNull null]]];
+    [CMBusMediaAppDelegate serviceManager:@selector(application:didFinishLaunchingWithOptions:) withParameters:@[application, launchOptions ?: [NSDictionary dictionary]]];
     
     /* 取消约束警告 */
 //    [[NSUserDefaults standardUserDefaults] setValue:@(false) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
@@ -62,9 +75,17 @@
     
     /** 打印ZWBaseViewController 的类方法  */
     printMethodNamesOfClass(cls);
-    
+        
+    /** 测试消息转发   实现了methodSignatureForSelector 方法签名, 拦截crash  */
+//    [[[TestBlock alloc] init] methodName:10];
+//    TestBlock *test = [[TestBlock alloc] init];
+
+    /** 统计启动耗时  */
+    [AppLaunchTime mark];
     return YES;
 }
+
+
 
 #pragma mark - 初始化骨架屏  TABAnimated
 - (void)initTABAnimated
@@ -84,7 +105,7 @@
 
 
 /* 注册调试工具 */
-- (void)registDebugDoKitTool{
+- (void)registeredDebugDoKitTool{
 #ifdef DOKIT
     [[DoraemonManager shareInstance] addPluginWithTitle:@"LookinServer" icon:@"doraemon_default" desc:@"LookinServer" pluginName:@"LookinPlugin" atModule:@"业务工具"];
     [[DoraemonManager shareInstance] addPluginWithTitle:@"开发" icon:@"doraemon_default" desc:@"AppLog" pluginName:@"AppLogPlugin" atModule:@"业务工具"];

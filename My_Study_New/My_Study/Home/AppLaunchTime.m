@@ -74,7 +74,9 @@ double __t3; // didfinsh
         NSLog(@"----------App启动---------耗时:didfinish:%f",didfinish);
 
         NSLog(@"----------App启动---------耗时:total:%f",total);
-
+        
+        NSString *appLaunchMsg = [NSString stringWithFormat:@"pre-main:%f\ndidfinish:%f\ntotal:%f\n", pret, didfinish, total];
+        [Toast show:appLaunchMsg];
     });
 }
 
@@ -82,7 +84,7 @@ double __t3; // didfinsh
 /// 获取pre-main()阶段的结束时间点相对容易，可以直接取main()主函数的开始执行时间点.推荐使用__attribute__((constructor)) 构建器函数的被调用时间点作为pre-main()阶段结束时间点：__t2能最大程度实现解耦：
 
 
-void static __attribute__((constructor)) before_main() {
+ __attribute__((constructor)) static void before_main() {
 
     if (__t2 == 0) {
 
@@ -90,6 +92,11 @@ void static __attribute__((constructor)) before_main() {
 
     }
 
+}
+
+void static __attribute__((constructor)) after_main() {
+    
+    printf("after main\n");
 }
 
 @end

@@ -36,6 +36,10 @@ NSString *const ZWRouterPageLocationTrimViewController = @"tools/location/trim/p
 NSString *const ZWRouterPageFileSelectViewController = @"tools/file/selectpage";
 /** 陀螺仪测试界面 ~ 球  */
 NSString *const ZWRouterPageBallViewController       = @"test/ball/page";
+/** RunLoopPermanentPage  */
+NSString *const ZWRouterRunLoopPermanentViewController  = @"test/runloop/page";
+
+
 /* -------------------------------page----------------------------  */
 
 
@@ -150,6 +154,13 @@ NSString *const ZWRouterPageBallViewController       = @"test/ball/page";
                 @"url" : ZWRouterPageBallViewController,
                 @"clsName": @"BallViewController",
                 @"type" : @(RouterTypeNavigatePresent),
+                @"attachValue" : @{}
+            },
+            /** 陀螺仪测试界面 ~ 球   */
+            @{
+                @"url" : ZWRouterRunLoopPermanentViewController,
+                @"clsName": @"RunLoopPermanentViewController",
+                @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
         ]

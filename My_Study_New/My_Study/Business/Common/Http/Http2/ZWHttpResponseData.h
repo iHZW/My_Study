@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 接口返回状态 1:成功 0:失败 998:tradesso重新登录 999:tradesso服务报错 6:非交易时间 */
 @property (nonatomic, copy) NSString *status;
 
+/** 错误码为0 代表成功  否则失败 */
+@property (nonatomic, assign) NSInteger errcode;
+
 /** 接口返回错误信息 */
 @property (nonatomic, copy) NSString *errmsg;
 

@@ -30,53 +30,6 @@
             endingLineNumber = "66"
             landmarkName = "-renderUI"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - e6cfdd06f35782f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonMockViewController renderUI]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "758">
-               </Location>
-               <Location
-                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - e6cfdd06f35782f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonMockViewController renderUI]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "564">
-               </Location>
-               <Location
-                  uuid = "1310CAA3-F978-4DBC-928B-0433213BD44B - b53d2f9fe1cfea44"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonMockViewController renderUI]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Platform/Mock/DoraemonMockViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "758">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -93,53 +46,6 @@
             endingLineNumber = "113"
             landmarkName = "-showNetFlowDetail"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 988759147211e97f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "758">
-               </Location>
-               <Location
-                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 988759147211e97f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study./My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "564">
-               </Location>
-               <Location
-                  uuid = "9766A4C9-41DD-411C-B8E6-D8ED7577221F - 288a845e40ba6940"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[DoraemonNetFlowViewController showNetFlowDetail]"
-                  moduleName = "DoraemonKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/NetFlow/DoraemonNetFlowViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "758">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -299,6 +205,70 @@
             startingLineNumber = "902"
             endingLineNumber = "902"
             landmarkName = "-drawRect:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "600CC5A4-7C64-4201-89A4-AFD3F02138D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Home/controller/WFPermanentThread.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "-dealloc"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F408EAB4-8D06-4ECD-848B-4F50E86713D9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Home/controller/TestBlock.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
+            landmarkName = "+testGCDGroup"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0BDD8AB-03F8-495C-9C96-431E858B0E47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Router/router/Router.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-_execute:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38A87C20-61A6-47C7-90B2-DA7135A6004C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/Module/ModuleContainer.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "-navigateTo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

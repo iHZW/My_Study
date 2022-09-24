@@ -61,6 +61,8 @@
 		4E403FA02865B2A1006C0656 /* UIView+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F9F2865B2A1006C0656 /* UIView+SVG.m */; };
 		4E403FA42865C461006C0656 /* UIAlertAction+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA22865C461006C0656 /* UIAlertAction+Ext.m */; };
 		4E403FA92865FA32006C0656 /* CustomTabbarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403FA82865FA32006C0656 /* CustomTabbarObject.m */; };
+		4E47502F28D8B8E600A5ED12 /* TestBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E47502E28D8B8E600A5ED12 /* TestBlock.m */; };
+		4E47503528DAA02100A5ED12 /* TestLLVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E47503428DAA02100A5ED12 /* TestLLVM.m */; };
 		4E4D95DE27D6FAFD0019061E /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */; };
 		4E4E1CFE28A4142600EC5EBB /* safe.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4E4E1CFD28A4142500EC5EBB /* safe.zip */; };
 		4E4F9CCD286C559C003281B5 /* PersonalCenterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */; };
@@ -96,6 +98,8 @@
 		4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A77285B7F2900B54C89 /* NSObject+DataBase.m */; };
 		4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A7C285B7FA500B54C89 /* NSFileManager+Ext.m */; };
 		4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */; };
+		4E90577628DDD7F900265E7B /* HomeDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E90577528DDD7F900265E7B /* HomeDataLoader.m */; };
+		4E90577928DDDCE100265E7B /* ZWHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E90577828DDDCE100265E7B /* ZWHomeModel.m */; };
 		4E94EA4628CADA1B007EDEFC /* UITextField+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */; };
 		4E94EA4928CB8C19007EDEFC /* LineTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */; };
 		4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA59D4628AE4F58002D9759 /* TestWebViewController.m */; };
@@ -267,6 +271,8 @@
 		4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B59286308D6001C53CE /* NSArray+Safe.m */; };
 		4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B5B286308D6001C53CE /* NSMutableData+Safe.m */; };
 		4EDC0B7428636245001C53CE /* ZWCommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B7328636245001C53CE /* ZWCommonUtil.m */; };
+		4EE758E528DE93F400CECA64 /* HomeRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE758E428DE93F400CECA64 /* HomeRefreshView.m */; };
+		4EE758E828DE940400CECA64 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE758E728DE940400CECA64 /* HomeViewModel.m */; };
 		4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C32859F2CB0047F8B6 /* NSString+MoneyFormat.m */; };
 		4EEC47C82859F2CB0047F8B6 /* NSString+NumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */; };
 		4EEC47CF2859F5300047F8B6 /* ZWPersonalBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC47CE2859F5300047F8B6 /* ZWPersonalBaseTableViewCell.m */; };
@@ -527,6 +533,12 @@
 		4E403FA52865C51B006C0656 /* AlertHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertHead.h; sourceTree = "<group>"; };
 		4E403FA72865FA32006C0656 /* CustomTabbarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabbarObject.h; sourceTree = "<group>"; };
 		4E403FA82865FA32006C0656 /* CustomTabbarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarObject.m; sourceTree = "<group>"; };
+		4E47502D28D8B8E600A5ED12 /* TestBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBlock.h; sourceTree = "<group>"; };
+		4E47502E28D8B8E600A5ED12 /* TestBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBlock.m; sourceTree = "<group>"; };
+		4E47503028D8BA1C00A5ED12 /* TestBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestBlock.cpp; sourceTree = "<group>"; };
+		4E47503328DAA02100A5ED12 /* TestLLVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLLVM.h; sourceTree = "<group>"; };
+		4E47503428DAA02100A5ED12 /* TestLLVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLLVM.m; sourceTree = "<group>"; };
+		4E47503628DAA03900A5ED12 /* TestLLVM.ll */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.llvm; path = TestLLVM.ll; sourceTree = "<group>"; };
 		4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCfamilly.h; sourceTree = "<group>"; };
 		4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCfamilly.m; sourceTree = "<group>"; };
 		4E4E1CFD28A4142500EC5EBB /* safe.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = safe.zip; sourceTree = "<group>"; };
@@ -601,6 +613,10 @@
 		4E899A7D285B7FA500B54C89 /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
 		4E899A92285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+HttpBodyAddition.h"; sourceTree = "<group>"; };
 		4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HttpBodyAddition.m"; sourceTree = "<group>"; };
+		4E90577428DDD7F900265E7B /* HomeDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDataLoader.h; sourceTree = "<group>"; };
+		4E90577528DDD7F900265E7B /* HomeDataLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDataLoader.m; sourceTree = "<group>"; };
+		4E90577728DDDCE100265E7B /* ZWHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWHomeModel.h; sourceTree = "<group>"; };
+		4E90577828DDDCE100265E7B /* ZWHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWHomeModel.m; sourceTree = "<group>"; };
 		4E94EA4428CADA1B007EDEFC /* UITextField+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Additions.h"; sourceTree = "<group>"; };
 		4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Additions.m"; sourceTree = "<group>"; };
 		4E94EA4728CB8C19007EDEFC /* LineTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineTableViewHeaderFooterView.h; sourceTree = "<group>"; };
@@ -911,6 +927,10 @@
 		4EDC0B7228636245001C53CE /* ZWCommonUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCommonUtil.h; sourceTree = "<group>"; };
 		4EDC0B7328636245001C53CE /* ZWCommonUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCommonUtil.m; sourceTree = "<group>"; };
 		4EDC0B7528636343001C53CE /* ZWCacheDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCacheDefine.h; sourceTree = "<group>"; };
+		4EE758E328DE93F400CECA64 /* HomeRefreshView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRefreshView.h; sourceTree = "<group>"; };
+		4EE758E428DE93F400CECA64 /* HomeRefreshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRefreshView.m; sourceTree = "<group>"; };
+		4EE758E628DE940400CECA64 /* HomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
+		4EE758E728DE940400CECA64 /* HomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
 		4EEC47C32859F2CB0047F8B6 /* NSString+MoneyFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoneyFormat.m"; sourceTree = "<group>"; };
 		4EEC47C42859F2CB0047F8B6 /* NSString+NumberFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NumberFormat.m"; sourceTree = "<group>"; };
 		4EEC47C52859F2CB0047F8B6 /* NSString+NumberFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NumberFormat.h"; sourceTree = "<group>"; };
@@ -1870,6 +1890,17 @@
 			path = NSURLRequest;
 			sourceTree = "<group>";
 		};
+		4E90577328DDD77A00265E7B /* dataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				4E90577428DDD7F900265E7B /* HomeDataLoader.h */,
+				4E90577528DDD7F900265E7B /* HomeDataLoader.m */,
+				4E90577728DDDCE100265E7B /* ZWHomeModel.h */,
+				4E90577828DDDCE100265E7B /* ZWHomeModel.m */,
+			);
+			path = dataLoader;
+			sourceTree = "<group>";
+		};
 		4EA59D4428AE4F46002D9759 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -2686,6 +2717,24 @@
 			path = ZWCommonUtil;
 			sourceTree = "<group>";
 		};
+		4EE758E128DE93DA00CECA64 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4EE758E628DE940400CECA64 /* HomeViewModel.h */,
+				4EE758E728DE940400CECA64 /* HomeViewModel.m */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		4EE758E228DE93DA00CECA64 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4EE758E328DE93F400CECA64 /* HomeRefreshView.h */,
+				4EE758E428DE93F400CECA64 /* HomeRefreshView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		4EEC47D6285AD50E0047F8B6 /* UINavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2933,6 +2982,12 @@
 				7C18D4AA26E10FB400CD1422 /* WFThread.m */,
 				7C913E8F26E316B10064C549 /* WFPermanentThread.h */,
 				7C913E9026E316B10064C549 /* WFPermanentThread.m */,
+				4E47502D28D8B8E600A5ED12 /* TestBlock.h */,
+				4E47502E28D8B8E600A5ED12 /* TestBlock.m */,
+				4E47503028D8BA1C00A5ED12 /* TestBlock.cpp */,
+				4E47503328DAA02100A5ED12 /* TestLLVM.h */,
+				4E47503428DAA02100A5ED12 /* TestLLVM.m */,
+				4E47503628DAA03900A5ED12 /* TestLLVM.ll */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -3548,6 +3603,9 @@
 		7C652C0423017208007BBDD2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4EE758E228DE93DA00CECA64 /* view */,
+				4EE758E128DE93DA00CECA64 /* viewModel */,
+				4E90577328DDD77A00265E7B /* dataLoader */,
 				7C6A215526E371C300E0CF20 /* locks */,
 				7C18D4A426E10EB300CD1422 /* controller */,
 				4EA737E427D7351400422BAE /* AppLaunchTime.h */,
@@ -4133,7 +4191,10 @@
 				7C4EF06C230405030040DA7A /* UIButton+Navigation.m in Sources */,
 				4E0287D0286993C9003E723E /* LoginViewController.m in Sources */,
 				4ED5957F286EF3DF002D15F1 /* zhTheme+Components.m in Sources */,
+				4EE758E528DE93F400CECA64 /* HomeRefreshView.m in Sources */,
 				4ED5958F2870878C002D15F1 /* ShowAlertViewController.m in Sources */,
+				4E90577928DDDCE100265E7B /* ZWHomeModel.m in Sources */,
+				4E90577628DDD7F900265E7B /* HomeDataLoader.m in Sources */,
 				4EA9870C287C590F0095ECF9 /* ZWButton.m in Sources */,
 				4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */,
 				4E5F2D122876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m in Sources */,
@@ -4331,6 +4392,7 @@
 				4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */,
 				4E0680C728740F3900F6728A /* EnvConfigObject.m in Sources */,
 				7C4F93DB2302B39300F2238E /* PASBaseTableView.m in Sources */,
+				4E47502F28D8B8E600A5ED12 /* TestBlock.m in Sources */,
 				4EC6B3842861B12A00F57AAC /* MDLogSearchView.m in Sources */,
 				4E028803286AB0CB003E723E /* CWLateralSlideAnimator.m in Sources */,
 				4EC6B3A72861D26500F57AAC /* ZWUserAccountManager.m in Sources */,
@@ -4386,6 +4448,7 @@
 				4EC6B3892861B12A00F57AAC /* PathConstants.m in Sources */,
 				4EA986DD287BFDEE0095ECF9 /* FileItemCell.m in Sources */,
 				4EA986F4287C39660095ECF9 /* ProgressHUD.m in Sources */,
+				4E47503528DAA02100A5ED12 /* TestLLVM.m in Sources */,
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
 				4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */,
 				4EFECFF9287DC47400B137BB /* NSString+Base64.m in Sources */,
@@ -4433,6 +4496,7 @@
 				4E0680C02873E4F300F6728A /* Config.m in Sources */,
 				4ED59584286EFBE0002D15F1 /* zhThemeOperator.m in Sources */,
 				4EFECF60287D16E100B137BB /* ZWPreTabView.m in Sources */,
+				4EE758E828DE940400CECA64 /* HomeViewModel.m in Sources */,
 				4ED5958A286FEBC2002D15F1 /* ZWBaseTableViewController.m in Sources */,
 				7C652C03230171C1007BBDD2 /* UITableViewCell+DequeCell.m in Sources */,
 				4E899A60285AF43700B54C89 /* ZWBaseTableView.m in Sources */,
@@ -4559,16 +4623,23 @@
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -4594,7 +4665,10 @@
 					"$(PROJECT_DIR)/My_Study/DevelopMentLibrary/EncryptionLib/openssl",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_CFLAGS = (
+					"-fsanitize-coverage=func,trace-pc-guard",
+					"-fno-exceptions",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"$(inherited)",
@@ -4606,6 +4680,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHANYAN_APPID = "闪验Appid";
 				SOCKET_URL = "socket url";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4691,16 +4768,23 @@
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 i386";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -4727,7 +4811,10 @@
 					"$(PROJECT_DIR)/My_Study/DevelopMentLibrary/EncryptionLib/openssl",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_CFLAGS = (
+					"-fsanitize-coverage=func,trace-pc-guard",
+					"-fno-exceptions",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"$(inherited)",
@@ -4739,6 +4826,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHANYAN_APPID = "闪验Appid";
 				SOCKET_URL = "socket url";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4877,16 +4967,23 @@
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FM2G6TS6GR;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -4903,6 +5000,7 @@
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4912,7 +5010,10 @@
 					"$(PROJECT_DIR)/My_Study/DevelopMentLibrary/EncryptionLib/openssl",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_CFLAGS = (
+					"-fsanitize-coverage=func,trace-pc-guard",
+					"-fno-exceptions",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"$(inherited)",
@@ -4924,6 +5025,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHANYAN_APPID = "闪验Appid";
 				SOCKET_URL = "socket url";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4948,8 +5052,12 @@
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -4958,6 +5066,8 @@
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = My_Study/CommentHeadField/MyPrefixHeader.pch;
@@ -4979,7 +5089,10 @@
 					"$(PROJECT_DIR)/My_Study/DevelopMentLibrary/EncryptionLib/openssl",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "-fsanitize-coverage=func,trace-pc-guard";
+				OTHER_CFLAGS = (
+					"-fsanitize-coverage=func,trace-pc-guard",
+					"-fno-exceptions",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"$(inherited)",
@@ -4991,6 +5104,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHANYAN_APPID = "闪验Appid";
 				SOCKET_URL = "socket url";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/My_Study/oc_swift_bridging_header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;

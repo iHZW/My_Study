@@ -57,7 +57,11 @@
     NSLog(@"%s", __func__);
      
     
-//
+
+    /**
+     * 保证调用频率和屏幕的刷帧频率, 60FPS;
+     * CADisplayLink 会对target 强引用
+     */
 //    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkAction)];
 //    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
@@ -104,7 +108,9 @@
 - (void)displayLinkAction
 {
     NSLog(@"%s", __func__);
+    
 }
+
 
 - (void)timerAction{
     
@@ -114,9 +120,11 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     /** 取消GCDTimer */
-    dispatch_source_cancel(self.sourceTimer);
+    if (self.sourceTimer) {
+        dispatch_source_cancel(self.sourceTimer);
+    }
     
-    
+
     NSNumber *number1 = @1;
     NSNumber *number2 = @2;
     NSNumber *number3 = @(4);
@@ -139,19 +147,73 @@
 - (void)loadGCDTimer
 {
     NSLog(@"%s -- %@", __func__, [NSThread currentThread]);
+}
+
+
+
+- (void)testNSProxy
+{
+    /**
+     * NSProxy 和 NSObject 都是基类
+     * NSProxy 对象不需要调用init方法,  本身没有init方法
+     * NSProxy 是专门用来做消息转发使用的, 效率会高很多, 不需要查找,直接转发给调用对象
+     * 
+     *
+     *
+     *
+        @interface NSObject <NSObject> {
+            Class isa;
+        }
+        
+        @interface NSProxy <NSObject> {
+            Class isa;
+        }
+     */
+}
+
+- (void)testGCDTimer
+{
+    // 创建队列(自建队列)
+    dispatch_queue_t queue = dispatch_queue_create("GCDTimer", DISPATCH_QUEUE_CONCURRENT);
+    // 主队类
+//    dispatch_queue_t queue = dispatch_get_main_queue();
+    // 创建定时器,  需要控制器强引用 timer 不然不会执行
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    // 设置时间,  start: 几秒后开始  interval: 时间间隔
+    uint64_t start = 1.0; //1秒后执行
+    uint64_t interval = 1.0; // 间隔1秒
+    dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, (int64_t)(start * NSEC_PER_SEC)), (uint64_t)(interval *NSEC_PER_SEC), 0);
+    // 设置回调
+    dispatch_source_set_event_handler(timer, ^{
+        // todo....
+    });
+    // 传入一个函数
+    dispatch_source_set_event_handler_f(timer, handlerGCDTimerTask);
     
+    // 启动定时器
+    dispatch_resume(timer);
+    
+    // 取消定时器
+    dispatch_source_cancel(timer);
+}
 
+void handlerGCDTimerTask(void *param)
+{
+    NSLog(@"---%s---", __func__);
+    
+    
 }
 
 
-/*
-#pragma mark - Navigation
+//iOS平台 (指针的最高有效位是1, 就是tagged pointer)
+#define _OBJC_TAG_MASK (1UL << 63)
+//Mac 平台 (指针的最低有效位是1, 就是tagged pointer)
+#define _OBJC_TAG_MASK (1UL)
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+//BOOL isTaggedPointer(id pointer)
+//{
+//    return (pointer & _OBJC_TAG_MASK) == _OBJC_TAG_MASK;
+//}
 
 @end

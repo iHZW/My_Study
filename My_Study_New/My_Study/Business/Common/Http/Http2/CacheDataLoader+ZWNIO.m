@@ -97,7 +97,8 @@
 //                return ;
 //            }
         }
-        block([tempData.status integerValue],tempData);
+        NSInteger status = ValidString(tempData.status) ? [tempData.status integerValue] : (tempData.errcode == 0 ? 1 : 0);
+        block(status,tempData);
     } else if (block) {
         block(KJsonModelFailedErrorNo,data);
     }

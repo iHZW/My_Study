@@ -11,6 +11,8 @@
 #import "CWDrawerTransition.h"
 #import <objc/runtime.h>
 
+#import "UIApplication+Ext.h"
+
 /** 引入自建类  */
 #import "GCDCommon.h"
 
@@ -103,7 +105,15 @@
     /** 这里根据业务场景 关闭抽屉之后再做push 操作  */
     [self dismissViewControllerAnimated:YES completion:^{
         performBlockDelay(dispatch_get_main_queue(), .1, ^{
-            [nav pushViewController:vc animated:YES];
+            UIViewController *currentVc = [UIApplication displayViewController];
+            BOOL animated = YES;
+            if ([currentVc isKindOfClass:[UINavigationController class]]){
+                [(UINavigationController *)currentVc pushViewController:vc animated:animated];
+            } else {
+                [currentVc.navigationController pushViewController:vc animated:animated];
+            }
+//            [nav.navigationController pushViewController:vc animated:YES];
+//            [ZWM.router executeURLNoCallBack:ZWRouterPageFileSelectViewController];
         });
     }];
 }
