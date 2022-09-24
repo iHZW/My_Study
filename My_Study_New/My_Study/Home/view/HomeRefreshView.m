@@ -38,7 +38,6 @@
 
     self.refreshBtn = refreshBtn;
     
-    
     self.iconBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
     
     self.iconBtn.frame = CGRectMake(55, 0, 25, CGRectGetHeight(self.frame));
