@@ -218,7 +218,7 @@
     switch (tagIndex) {
         case 101:
         {
-
+            [self test101];
         }
             break;
         case 102:
@@ -233,6 +233,30 @@
         default:
             break;
     }
+    
+}
+
+- (void)test101
+{
+//    dispatch_queue_t
+//    dispatch_queue_create(const char *label, dispatch_queue_attr_t attr)
+//    {
+//        return _dispatch_lane_create_with_target(label, attr, DISPATCH_TARGET_QUEUE_DEFAULT, true);
+//    }
+    
+//    dispatch_queue_attr_t userInitiatedAttr = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_CONCURRENT,
+                                                                                      
+                                                                                     
+    dispatch_queue_attr_t userInitiatedAttr = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_CONCURRENT,QOS_CLASS_USER_INITIATED,-1);
+    dispatch_queue_create_with_target("123", userInitiatedAttr, DISPATCH_TARGET_QUEUE_DEFAULT);
+    UITapGestureRecognizer *tag = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test101)];
+    [self.view addGestureRecognizer:tag];
+    
+//    [UIGestureRecognizer aspect_hookSelector:@selector(initWithTarget:action:)
+//                                 withOptions:AspectPositionAfter
+//                                  usingBlock:^(id<AspectInfo> instance, id target, SEL action) {
+//                                  } error:NULL];
+    
     
 }
 

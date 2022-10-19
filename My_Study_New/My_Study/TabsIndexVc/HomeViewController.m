@@ -16,7 +16,7 @@
 #import "HomeDataLoader.h"
 #import "ZWHomeModel.h"
 #import "HomeViewModel.h"
-#import "HomeRefreshView.h";
+#import "HomeRefreshView.h"
 
 @interface HomeViewController ()
 {
@@ -243,6 +243,9 @@
     [self sendRequestUrl:kClientChatDetailURL dict:dict];
 }
 
+
+
+
 - (void)sendRequestUrl:(NSString *)url dict:(NSDictionary *)dict
 {
     [ZWM.http requestWithPath:url method:HttpRequestPost paramenters:dict prepareExecute:nil success:^(NSURLSessionDataTask * _Nullable task, id  _Nullable responseObject) {
@@ -280,6 +283,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self testGCD];
+    return;
     /* 点击效果 */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
@@ -321,6 +326,22 @@
     NewVC *vc = [[NewVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
+
+- (void)testGCD {
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("1", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t serialQueue = dispatch_queue_create("2", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSLog(@"1");
+    });
+//    dispatch_async(serialQueue, ^{
+//        NSLog(@"1");
+//    });
+    NSLog(@"2---%@\n\n",@(20*89*90*123+1010));
+}
+
+
 
 
 #pragma mark - getter && setter

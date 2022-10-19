@@ -2101,8 +2101,7 @@
 				4EC6B28A28607FF400F57AAC /* SystemInfoFunc.h */,
 				4EC6B28928607FF400F57AAC /* SystemInfoFunc.m */,
 			);
-			name = SystemInfoLib;
-			path = ../DevelopMentLibrary/SystemInfoLib;
+			path = SystemInfoLib;
 			sourceTree = "<group>";
 		};
 		4EC6B28C2860807300F57AAC /* Reachability */ = {

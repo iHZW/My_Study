@@ -90,6 +90,9 @@ target 'My_Study' do
   # 富文本
 #  pod 'ChainAttributedString'
 
+#  pod 'Aspects', '1.4.1'
+pod 'HookLib', :path => './LocalPodsLib/BasicLib/HookLib/'
+
 end
 
 

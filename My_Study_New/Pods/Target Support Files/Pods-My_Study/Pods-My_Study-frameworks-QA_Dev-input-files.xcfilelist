@@ -7,6 +7,7 @@ ${BUILT_PRODUCTS_DIR}/DoraemonKit/DoraemonKit.framework
 ${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework
 ${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework
+${BUILT_PRODUCTS_DIR}/HookLib/HookLib.framework
 ${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework
 ${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework
 ${BUILT_PRODUCTS_DIR}/KissXML/KissXML.framework
