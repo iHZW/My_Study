@@ -37,7 +37,7 @@
       self.tableCellClass = [PASIndicatorTableViewCell class];
       self.style = UITableViewStylePlain;
     self.cellHeight = 60  ;
-    self.title = @"展示Alert";
+      self.title = @"展示Alert";
 }
 
 
