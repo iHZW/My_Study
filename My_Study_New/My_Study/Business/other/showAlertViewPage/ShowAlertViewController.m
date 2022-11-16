@@ -31,7 +31,7 @@
 
 - (void)initExtendedData
 {
-    [super initExtendedData];
+        [super initExtendedData];
     
 //    self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
     self.tableCellClass = [PASIndicatorTableViewCell class];
