@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /* 默认title字体大小 */
-#define kAlertDefaultTitleFont   PASFont(13)
+#define kAlertDefaultTitleFont   PASFont(15)
 #define kAlertDefaultMsgFont    PASFont(13)
 
 #define kAlertDefaultTitleString @"你确定要删除记录吗？"

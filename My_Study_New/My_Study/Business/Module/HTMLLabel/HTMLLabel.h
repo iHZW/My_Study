@@ -80,7 +80,7 @@ UIKIT_EXTERN NSString *const HTMLTextAlignment; // textAlignment
 @end
 
 
-typedef void(^HtmlTagClickHandler)(NSString *url, NSString *text);
+typedef void(^HtmlLabeTagClickHandler)(NSString *url, NSString *text);
 @interface HTMLLabel : UILabel
 
 @property (nonatomic, weak_delegate) id<HTMLLabelDelegate> delegate;
@@ -88,7 +88,7 @@ typedef void(^HtmlTagClickHandler)(NSString *url, NSString *text);
 @property (nonatomic, copy) NSDictionary *stylesheet;
 
 /** 点击事件单独处理  */
-@property (nonatomic, copy) HtmlTagClickHandler htmlTagClickHandler;
+@property (nonatomic, copy) HtmlLabeTagClickHandler htmlLabelTagClickHandler;
 
 
 @end

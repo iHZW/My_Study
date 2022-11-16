@@ -8,7 +8,8 @@
 
 #import "AlertView.h"
 #import "UIView+SVG.h"
-#import "HTMLLabel.h"
+//#import "HTMLLabel.h"
+#import "HtmlUtilLabel.h"
 #import "NSString+Adaptor.h"
 #import "UIColor+Ext.h"
 #import "NSObject+RACPropertySubscribing.h"
@@ -71,7 +72,7 @@
     if (!_bgImageView){
         _bgImageView = [[UIImageView alloc] init];
         _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
-        _bgImageView.image = [UIImage svg_imageNamed:@"bg_login" scaleToFitInside:CGSizeMake(94.5, 97.5)];
+//        _bgImageView.image = [UIImage svg_imageNamed:@"bg_login" scaleToFitInside:CGSizeMake(94.5, 97.5)];
     }
     return _bgImageView;
 }
@@ -143,21 +144,49 @@
         lastView = self.centerView;
         [self.contentView addSubview:lastView];
     } else {
+//        if (self.message.length > 0){
+//            HTMLLabel *htmlLabel = [[HTMLLabel alloc] initWithFrame:CGRectMake(horizonMargin, 0, contentWidth - 2 * horizonMargin, CGFLOAT_MAX)];
+//            htmlLabel.text = self.message;
+//            htmlLabel.font = messageFont;
+//            CGSize textSize = [htmlLabel sizeThatFits:CGSizeMake(CGRectGetWidth(htmlLabel.frame), INFINITY)];
+//            htmlLabel.height = textSize.height;
+//
+//            @pas_weakify_self
+//            htmlLabel.htmlLabelTagClickHandler = ^(NSString *url, NSString *text) {
+//                @pas_strongify_self
+//                BlockSafeRun(self.htmlTagClickHandler, url, text);
+//            };
+//
+//            UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, contentWidth, MIN(textSize.height, maxTextHeight))];
+//            scrollView.contentSize = CGSizeMake(contentWidth, textSize.height);
+//            [scrollView addSubview:htmlLabel];
+//
+//            CGFloat originY = lastView ? CGRectGetMaxY(lastView.frame) + 16 : verticalMargin;
+//            CGRect frame = CGRectMake(0, originY, contentWidth, MIN(textSize.height, maxTextHeight));
+//            self.centerView = [[UIView alloc] initWithFrame:frame];
+//            [self.centerView addSubview:scrollView];
+//
+//            lastView = self.centerView;
+//            [self.contentView addSubview:lastView];
+//        }
+        
+        
         if (self.message.length > 0){
-            HTMLLabel *htmlLabel = [[HTMLLabel alloc] initWithFrame:CGRectMake(horizonMargin, 0, contentWidth - 2 * horizonMargin, CGFLOAT_MAX)];
-            htmlLabel.text = self.message;
-            htmlLabel.font = messageFont;
-            CGSize textSize = [htmlLabel sizeThatFits:CGSizeMake(CGRectGetWidth(htmlLabel.frame), INFINITY)];
-            htmlLabel.height = textSize.height;
-
-            @pas_weakify_self
-            htmlLabel.htmlTagClickHandler = ^(NSString *url, NSString *text) {
-                @pas_strongify_self
-                BlockSafeRun(self.htmlTagClickHandler, url, text);
-            };
+            HtmlParser *htmlParser = [[HtmlParser alloc] init];
+            htmlParser.numberOfLines = 0;
+            htmlParser.lineBreakMode = NSLineBreakByTruncatingTail;
+            htmlParser.font = messageFont;
+            CGSize textSize = [htmlParser calcSize:self.message maxSize:CGSizeMake(contentWidth - 2 * horizonMargin, CGFLOAT_MAX)];
             
             UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, contentWidth, MIN(textSize.height, maxTextHeight))];
             scrollView.contentSize = CGSizeMake(contentWidth, textSize.height);
+            HtmlUtilLabel *htmlLabel = [[HtmlUtilLabel alloc] initWithFrame:CGRectMake(horizonMargin, 0, textSize.width, textSize.height)];
+            htmlLabel.textColor = [UIColor colorFromHexString:@"#333333"];
+            htmlLabel.font = messageFont;
+            htmlLabel.numberOfLines = 0;
+            htmlLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+            [htmlLabel setHtmlString:self.message];
+            
             [scrollView addSubview:htmlLabel];
             
             CGFloat originY = lastView ? CGRectGetMaxY(lastView.frame) + 16 : verticalMargin;
@@ -168,6 +197,8 @@
             lastView = self.centerView;
             [self.contentView addSubview:lastView];
         }
+        
+        
     }
     
     if (self.customBottomViewBlock){

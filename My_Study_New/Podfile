@@ -26,6 +26,25 @@ target 'My_Study' do
 
   use_frameworks!
   
+  #常用引入pod方式
+  #0、指定版本号
+  #pod 'xxxx', '~> 1.1.2'     //使用大于等于1.1.2但小于1.2的版本
+  #pod 'xxxx', '> 1.1.2'        //使用高于1.1.2的版本
+  #pod 'xxxx', '1.1.2'          //只使用1.1.2版本
+  
+  #1、指定导入库的podspec文件路径
+  #pod 'xxxx', :podspec => 'podspec文件路径'
+  
+  #2、指定导入库的源码git地址
+  #pod 'xxxx', :git => '源码git地址'
+  
+  #3、指定导入库的Tag分支
+  #pod 'xxxx', :tag => 'tag名'
+  
+  #4、指定本地的某个库,文件夹中要有podspec文件
+  #pod 'xxxx', :path => '~/Documents/AFNetworking'
+
+  
   # 返回侧滑适配有导航栏和没导航栏的切换
   pod 'FDFullscreenPopGesture', '~> 1.1'
 
@@ -90,8 +109,20 @@ target 'My_Study' do
   # 富文本
 #  pod 'ChainAttributedString'
 
-#  pod 'Aspects', '1.4.1'
-pod 'HookLib', :path => './LocalPodsLib/BasicLib/HookLib/'
+  #  pod 'Aspects', '1.4.1'
+  pod 'HookLib', :path => './LocalPodsLib/BasicLib/HookLib/'
+
+  # 微信SDK
+  pod 'WechatOpenSDK'
+  
+  #腾讯QMUI框架
+  pod 'QMUIKit'
+  
+  # 组件化路由
+  pod 'MGJRouter', :git => 'https://github.com/lyujunwei/MGJRouter'
+  
+  # 保护App不闪退
+  pod 'JJException', '0.2.12'
 
 end
 

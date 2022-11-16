@@ -243,33 +243,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A0BDD8AB-03F8-495C-9C96-431E858B0E47"
+            uuid = "4F77BA10-B1FC-43C1-AE0E-888E99D9466E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "My_Study/Router/router/Router.m"
+            filePath = "Pods/QMUIKit/QMUIKit/QMUIComponents/QMUIModalPresentationViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "-_execute:"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
+            landmarkName = "-hideWithAnimated:completion:sender:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "38A87C20-61A6-47C7-90B2-DA7135A6004C"
+            uuid = "13D42487-41BA-49BD-BED6-D41C49D32588"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/Module/ModuleContainer.m"
+            filePath = "Pods/YYKit/YYKit/Text/YYLabel.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "-navigateTo:"
-            landmarkType = "7">
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
