@@ -32,10 +32,10 @@
     [super initExtendedData];
 
     // self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
-    self.tableCellClass = [PASIndicatorTableViewCell class];
-    self.style          = UITableViewStylePlain;
-    self.cellHeight     = 60;
-    self.title          = @"展示Alert";
+     self.tableCellClass = [PASIndicatorTableViewCell class];
+     self.style          = UITableViewStylePlain;
+     self.cellHeight     = 60;
+       self.title          = @"展示Alert";
 }
 
 - (void)loadUIData {
