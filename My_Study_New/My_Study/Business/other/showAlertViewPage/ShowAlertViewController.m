@@ -29,16 +29,16 @@
 @implementation ShowAlertViewController
 
 
--  (void)initExtendedData
+ -   (void)initExtendedData
     {
-     [super initExtendedData];
+      [super initExtendedData];
     
- // self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
-   self.tableCellClass = [PASIndicatorTableViewCell class];
-         self.style = UITableViewStylePlain;
- self.cellHeight = 60  ;
-         self.title = @"展示Alert";
-     }
+  // self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
+    self.tableCellClass = [PASIndicatorTableViewCell class];
+          self.style = UITableViewStylePlain;
+  self.cellHeight = 60  ;
+          self.title = @"展示Alert";
+      }
 
 
 - (void)loadUIData
