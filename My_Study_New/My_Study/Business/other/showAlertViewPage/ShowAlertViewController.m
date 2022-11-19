@@ -6,10 +6,10 @@
 //  Copyright © 2022 HZW. All rights reserved.
 //
 
+#import "ShowAlertViewController.h"
 #import "ActionModel.h"
 #import "NSString+Adaptor.h"
 #import "PASIndicatorTableViewCell.h"
-#import "ShowAlertViewController.h"
 #import <objc/runtime.h>
 /** alert头文件  */
 #import "AlertDefaultCustomCenterView.h"
@@ -32,10 +32,10 @@
     [super initExtendedData];
 
     // self.dataArray = [NSMutableArray arrayWithArray:[self getDataArray]];
-     self.tableCellClass = [PASIndicatorTableViewCell class];
-     self.style          = UITableViewStylePlain;
-     self.cellHeight     = 60;
-       self.title          = @"展示Alert";
+    self.tableCellClass = [PASIndicatorTableViewCell class];
+    self.style          = UITableViewStylePlain;
+    self.cellHeight     = 60;
+    self.title          = @"展示Alert";
 }
 
 - (void)loadUIData {

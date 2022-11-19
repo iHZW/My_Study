@@ -29,7 +29,14 @@
 
 #import "TestBlock.h"
 
-@interface AppDelegate () <WXApiDelegate>
+/** 添加防崩溃三方库  */
+#if __has_include(<JJException/JJException.h>)
+#import <JJException/JJException.h>
+#else
+#import "JJException.h"
+#endif
+
+@interface AppDelegate () <WXApiDelegate, JJExceptionHandle>
 
 @end
 
@@ -110,6 +117,22 @@
     [[DoraemonManager shareInstance] addPluginWithTitle:@"开发" icon:@"doraemon_default" desc:@"AppLog" pluginName:@"AppLogPlugin" atModule:@"业务工具"];
     [[DoraemonManager shareInstance] install];
 #endif
+}
+
+#pragma mark - 加载放崩溃框架JJException
+- (void)registeredJJException {
+    [JJException configExceptionCategory:JJExceptionGuardAll];
+    [JJException startGuardException];
+}
+
+/**
+ * 需要收集日志:  1: 遵守协议(JJExceptionHandle)  2: 实现协议方法,记录数据
+ *
+ * @param exceptionMessage 异常信息
+ * @param info 额外信息
+ */
+- (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary *)info {
+    NSLog(@"exceptionMessage:%@ \n info:%@", exceptionMessage, info);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -88,4 +88,24 @@
 }
 
 
+/**
+ * 获取地址信息列表
+ * @param block 回调
+ */
+- (void)sendRequestAddressList:(ResponseLoaderBlock)block {
+    
+    NSString *url = AddressAreaList;
+    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+//    [paramDic setObject:@"IOS" forKey:@"channelType"];
+    
+    @pas_weakify_self
+    [self sendRequest:url params:paramDic httpMethod:HttpMethodPOST constructingBlock:^(ZWHttpEventInfo *eventInfo) {
+        @pas_strongify_self
+//        eventInfo.responseClass = [LeftDrawerModel class];
+        /** 设置请求Key,   后期可做取消请求使用 */
+        eventInfo.progressMaskType = HttpProgressMaskTypeDefault;
+    } responseBlock:block];
+}
+
+
 @end

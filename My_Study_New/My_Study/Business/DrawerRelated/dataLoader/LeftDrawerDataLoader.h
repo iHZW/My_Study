@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendRequestDouBan:(ResponseLoaderBlock)block;
 
 
+/**
+ * 获取地址信息列表
+ * @param block 回调
+ */
+- (void)sendRequestAddressList:(ResponseLoaderBlock)block;
 
 @end
 

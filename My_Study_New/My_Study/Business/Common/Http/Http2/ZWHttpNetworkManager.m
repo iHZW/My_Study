@@ -689,9 +689,7 @@ static inline int64_t ZWGetSystemMilTime(void)
     // 添加hud
     if (requestEvent.progressMaskType != HttpProgressMaskTypeNone)
     {
-        performBlockOnMainQueue(YES, ^{
-            [LoadingUtil show];
-        });
+        [LoadingUtil show];
         //        UIView *targetView = requestEvent.progressTargetView;
         //        if (targetView) // app启动时，target为空，不处理
         //        {
@@ -707,9 +705,7 @@ static inline int64_t ZWGetSystemMilTime(void)
 {
     // 移除hud
     if (requestEvent.progressMaskType != HttpProgressMaskTypeNone) {
-        performBlockOnMainQueue(YES, ^{
-            [LoadingUtil hide];
-        });
+        [LoadingUtil hide];
         //        UIView *targetView = requestEvent.progressTargetView;
         //        if (targetView) // app启动时，target为空，不处理
         //        {
