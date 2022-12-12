@@ -21,6 +21,7 @@
 #import "TrimAddressCell.h"
 #import "UIApplication+Ext.h"
 #import "ZWCommonWebPage.h"
+#import "UIColor+Extensions.h"
 
 @interface ShowAlertViewController () <HTMLLabelDelegate>
 
@@ -221,10 +222,10 @@
 
     @weakify(alertView)
         alertView.actions = @[
-        //        [AlertAction defaultCancelAction:@"取消" clickCallback:^{
-        //            @strongify(alertView)
-        //            [alertView hidden];
-        //        }],
+        [AlertAction defaultCancelAction:@"取消" clickCallback:^{
+            @strongify(alertView)
+            [alertView hidden];
+        }],
         [AlertAction defaultConfirmAction:@"确认" clickCallback:^{
             @strongify(alertView)
                 [alertView hidden];
@@ -239,49 +240,34 @@
 
     AlertView *alertView  = [[AlertView alloc] init];
     alertView.title       = @"温馨提示";
-    alertView.actionType  = ActionTypeAlert;
+    /** 设置AlertView 的类型为ActionSheet  */
+    alertView.actionType  = ActionTypeActionSheet;
     alertView.messageFont = PASFont(12);
-    alertView.message     = privacyStr;
-
-    //    @weakify(alertView)
-    //    alertView.customCenterViewBlock = ^UIView * _Nonnull{
-    //        @strongify(alertView)
-    //        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 127)];
-    //        HTMLLabel *htmlLabel = [[HTMLLabel alloc] initWithFrame:CGRectMake(32, 10, kMainScreenWidth - 64, 60)];
-    //        htmlLabel.numberOfLines = 0;
-    //        htmlLabel.font = PASFont(12);
-    ////        htmlLabel.textColor = UIColorFromRGB(0x999999);
-    //        htmlLabel.text = privacyStr;
-    //        htmlLabel.delegate = self;
-    //
-    //        htmlLabel.htmlTagClickHandler = ^(NSString *url, NSString *text) {
-    //            @strongify(alertView)
-    //            [alertView hidden];
-    //            ZWCommonWebPage *vc = [[ZWCommonWebPage alloc] init];
-    //            vc.titleName = __String_Not_Nil(text);
-    //            vc.url = __String_Not_Nil(url);
-    ////            vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    ////            [self presentViewController:vc animated:YES completion:nil];
-    //            [[UIApplication displayViewController].navigationController pushViewController:vc animated:YES];
-    //        };
-    //
-    //        CGSize textSize = [htmlLabel sizeThatFits:CGSizeMake(CGRectGetWidth(htmlLabel.frame), INFINITY)];
-    //        htmlLabel.height = textSize.height;
-    //        [bottomView addSubview:htmlLabel];
-    //
-    //        UIButton *agreeBtn = [UIButton buttonWithFrame:CGRectMake(32, CGRectGetMaxY(htmlLabel.frame) + 20, kMainScreenWidth - 64, 50) title:@"同意并继续" font:PASFont(16) titleColor:UIColorFromRGB(0xFFFFFF) block:^{
-    //            @strongify(alertView)
-    //            [alertView hidden];
-    //        }];
-    //        [agreeBtn setCornerRadius:8];
-    //        agreeBtn.backgroundColor = UIColorFromRGB(0x3F5FFD);
-    //        [bottomView addSubview:agreeBtn];
-    //        bottomView.frame = CGRectMake(0, 0, kMainScreenWidth, CGRectGetMaxY(agreeBtn.frame) + 20);
-    //        return bottomView;
-    //    };
-
+    alertView.message = privacyStr;
+    @weakify(alertView)
+    alertView.actions = @[
+        [AlertAction action:@"相册" textColor:[UIColor colorFromHexString:@"#333333"] backgroudColor:[UIColor whiteColor] clickCallback:^{
+            @strongify(alertView)
+            [alertView hidden];
+        }],
+        [AlertAction action:@"拍照" textColor:[UIColor colorFromHexString:@"#333333"] backgroudColor:[UIColor whiteColor] clickCallback:^{
+            @strongify(alertView)
+            [alertView hidden];
+        }],
+        [AlertAction action:@"从本地文件选择" textColor:[UIColor colorFromHexString:@"#333333"] backgroudColor:[UIColor whiteColor] clickCallback:^{
+            @strongify(alertView)
+            [alertView hidden];
+        }]
+     ];
+    
+    /** 设置ActionSheet底部按钮  */
+    alertView.footerAction = [AlertAction action:@"取消" textColor:[UIColor colorFromHexString:@"#999999"] backgroudColor:[UIColor whiteColor] clickCallback:^{
+        @strongify(alertView)
+        [alertView hidden];
+    }];
+    
+    /** alert 隐藏回调  */
     alertView.didHiddenBlock = ^{
-
     };
     [alertView show];
 }

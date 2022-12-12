@@ -12,12 +12,11 @@ const CGFloat DefaultTimeoutInterval = 15.0; // 默认超时时间
 
 @implementation ZWHttpEventInfo
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.timeoutInterval = DefaultTimeoutInterval;
-        self.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+        self.timeoutInterval  = DefaultTimeoutInterval;
+        self.cachePolicy      = NSURLRequestReloadIgnoringCacheData;
         self.progressMaskType = HttpProgressMaskTypeNone;
     }
     return self;

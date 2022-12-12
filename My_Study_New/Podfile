@@ -123,6 +123,15 @@ target 'My_Study' do
   
   # 保护App不闪退
   pod 'JJException', '0.2.12'
+  
+  # 主流转场动画
+  pod 'HHTransition', '3.1.0'
+  
+  # 网络层封装（配合VM）
+  pod 'YTKNetwork', '3.0.6'
+  
+  # 组件化路由库
+  pod 'JLRoutes', '2.1'
 
 end
 

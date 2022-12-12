@@ -42,6 +42,7 @@ PODS:
     - GCDWebServer/Core
   - GCDWebServer/WebUploader (3.5.4):
     - GCDWebServer/Core
+  - HHTransition (3.1.0)
   - HookLib (0.1.2):
     - HookLib/Aspects (= 0.1.2)
     - HookLib/DynamicRun (= 0.1.2)
@@ -67,6 +68,7 @@ PODS:
     - JJException/Main
     - JJException/Swizzle
   - JJException/Swizzle (0.2.12)
+  - JLRoutes (2.1)
   - JSONModel (1.5.0)
   - KissXML (5.2.3)
   - KVOController (1.2.0)
@@ -441,6 +443,8 @@ PODS:
     - CocoaLumberjack (~> 3.0)
   - TABAnimated (2.6.3)
   - WechatOpenSDK (1.9.7)
+  - YTKNetwork (3.0.6):
+    - AFNetworking/NSURLSession (~> 4.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -456,8 +460,10 @@ DEPENDENCIES:
   - DoraemonKit/Core (= 3.1.3)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
+  - HHTransition (= 3.1.0)
   - HookLib (from `./LocalPodsLib/BasicLib/HookLib/`)
   - JJException (= 0.2.12)
+  - JLRoutes (= 2.1)
   - JSONModel (= 1.5.0)
   - KissXML (= 5.2.3)
   - KVOController (= 1.2.0)
@@ -477,6 +483,7 @@ DEPENDENCIES:
   - SVGKit (= 2.1.1)
   - TABAnimated (= 2.6.3)
   - WechatOpenSDK
+  - YTKNetwork (= 3.0.6)
   - YYKit (= 1.0.9)
 
 SPEC REPOS:
@@ -493,7 +500,9 @@ SPEC REPOS:
     - FDFullscreenPopGesture
     - FMDB
     - GCDWebServer
+    - HHTransition
     - JJException
+    - JLRoutes
     - JSONModel
     - KissXML
     - KVOController
@@ -513,6 +522,7 @@ SPEC REPOS:
     - SVGKit
     - TABAnimated
     - WechatOpenSDK
+    - YTKNetwork
     - YYKit
     - YYModel
 
@@ -540,8 +550,10 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
+  HHTransition: 7a3e1348fd111641138626c5529455e492d7e19f
   HookLib: 71a18907904c2abd5aba1b9417e7292957ddec58
   JJException: e0e36bf51b5680c4d3e33afffa21c0f7fb692b9c
+  JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   JSONModel: 79b79f8cc6f63b9fd30c7e8ec15aebe9f1a6cc4f
   KissXML: 09f88ff8161fd058d67b70740b8b516687b52823
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
@@ -562,9 +574,10 @@ SPEC CHECKSUMS:
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   TABAnimated: 2503f43b82bfeaf4e78c4922630284a46d8108f5
   WechatOpenSDK: 2f0ae448c7525cb5c27db5f7aa0f568de0988fa4
+  YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: e2ac16f76b4f89e0e8ea74ae144ee52cedb2c7c9
+PODFILE CHECKSUM: 4cbc33ac77550d33365dcea24882cf75d8de6a28
 
 COCOAPODS: 1.11.3

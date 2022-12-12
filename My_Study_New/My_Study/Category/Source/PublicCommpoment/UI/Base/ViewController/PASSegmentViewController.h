@@ -11,7 +11,7 @@
 
 @interface PASSegmentViewController : PASBaseViewController
 
-@property (nonatomic, strong) CMSegmentViewController *segmentCtrl;
+@property (nonatomic, strong, readonly) CMSegmentViewController *segmentCtrl;
 
 /**
  *  提前设置SegmentControl的类型

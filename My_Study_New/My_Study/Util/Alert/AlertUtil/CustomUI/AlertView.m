@@ -115,8 +115,9 @@
             CGRect frame = CGRectMake(0, verticalMargin, contentWidth, size.height);
             self.topView = [[UIView alloc] initWithFrame:frame];
             
-            frame = CGRectMake(horizonMargin, 0, size.width, size.height);
+            frame = CGRectMake(0, 0, contentWidth, size.height);
             UILabel *label = [[UILabel alloc] initWithFrame:frame];
+            label.textAlignment = NSTextAlignmentCenter;
             label.numberOfLines = 0;
             label.font = titleFont;
             label.textColor = [UIColor colorFromHexCode:@"#CCCCCC"];
@@ -144,33 +145,6 @@
         lastView = self.centerView;
         [self.contentView addSubview:lastView];
     } else {
-//        if (self.message.length > 0){
-//            HTMLLabel *htmlLabel = [[HTMLLabel alloc] initWithFrame:CGRectMake(horizonMargin, 0, contentWidth - 2 * horizonMargin, CGFLOAT_MAX)];
-//            htmlLabel.text = self.message;
-//            htmlLabel.font = messageFont;
-//            CGSize textSize = [htmlLabel sizeThatFits:CGSizeMake(CGRectGetWidth(htmlLabel.frame), INFINITY)];
-//            htmlLabel.height = textSize.height;
-//
-//            @pas_weakify_self
-//            htmlLabel.htmlLabelTagClickHandler = ^(NSString *url, NSString *text) {
-//                @pas_strongify_self
-//                BlockSafeRun(self.htmlTagClickHandler, url, text);
-//            };
-//
-//            UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, contentWidth, MIN(textSize.height, maxTextHeight))];
-//            scrollView.contentSize = CGSizeMake(contentWidth, textSize.height);
-//            [scrollView addSubview:htmlLabel];
-//
-//            CGFloat originY = lastView ? CGRectGetMaxY(lastView.frame) + 16 : verticalMargin;
-//            CGRect frame = CGRectMake(0, originY, contentWidth, MIN(textSize.height, maxTextHeight));
-//            self.centerView = [[UIView alloc] initWithFrame:frame];
-//            [self.centerView addSubview:scrollView];
-//
-//            lastView = self.centerView;
-//            [self.contentView addSubview:lastView];
-//        }
-        
-        
         if (self.message.length > 0){
             HtmlParser *htmlParser = [[HtmlParser alloc] init];
             htmlParser.numberOfLines = 0;
