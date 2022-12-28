@@ -127,6 +127,15 @@
 		4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A77285B7F2900B54C89 /* NSObject+DataBase.m */; };
 		4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A7C285B7FA500B54C89 /* NSFileManager+Ext.m */; };
 		4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */; };
+		4E89AFD3295C3D5500E7A40C /* PASShortVideoAgreeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFC5295C3D5500E7A40C /* PASShortVideoAgreeResponse.m */; };
+		4E89AFD4295C3D5500E7A40C /* PASShortVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFC7295C3D5500E7A40C /* PASShortVideoPlayerViewController.m */; };
+		4E89AFD5295C3D5500E7A40C /* PASShortVideoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFCE295C3D5500E7A40C /* PASShortVideoItemView.m */; };
+		4E89AFD6295C3D5500E7A40C /* PASShortVideoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFCF295C3D5500E7A40C /* PASShortVideoResponse.m */; };
+		4E89AFD7295C3D5500E7A40C /* PASShortVideoAgreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFD0295C3D5500E7A40C /* PASShortVideoAgreeView.m */; };
+		4E89AFD8295C3D5500E7A40C /* PASShortVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFD1295C3D5500E7A40C /* PASShortVideoPlayerView.m */; };
+		4E89AFD9295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFD2295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m */; };
+		4E89AFDD295C3EBF00E7A40C /* PASShortVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFDC295C3EBF00E7A40C /* PASShortVideoModel.m */; };
+		4E89AFE1295C424400E7A40C /* ZYWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFE0295C424400E7A40C /* ZYWeakObject.m */; };
 		4E90577628DDD7F900265E7B /* HomeDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E90577528DDD7F900265E7B /* HomeDataLoader.m */; };
 		4E90577928DDDCE100265E7B /* ZWHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E90577828DDDCE100265E7B /* ZWHomeModel.m */; };
 		4E94EA4628CADA1B007EDEFC /* UITextField+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */; };
@@ -704,6 +713,24 @@
 		4E899A7D285B7FA500B54C89 /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
 		4E899A92285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+HttpBodyAddition.h"; sourceTree = "<group>"; };
 		4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HttpBodyAddition.m"; sourceTree = "<group>"; };
+		4E89AFC5295C3D5500E7A40C /* PASShortVideoAgreeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoAgreeResponse.m; sourceTree = "<group>"; };
+		4E89AFC6295C3D5500E7A40C /* PASShortVideoItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASShortVideoItemView.h; sourceTree = "<group>"; };
+		4E89AFC7295C3D5500E7A40C /* PASShortVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoPlayerViewController.m; sourceTree = "<group>"; };
+		4E89AFC8295C3D5500E7A40C /* PASShortVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASShortVideoPlayerView.h; sourceTree = "<group>"; };
+		4E89AFC9295C3D5500E7A40C /* PASShortVideoAgreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASShortVideoAgreeView.h; sourceTree = "<group>"; };
+		4E89AFCA295C3D5500E7A40C /* PASShortVideoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASShortVideoResponse.h; sourceTree = "<group>"; };
+		4E89AFCB295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASShortVideoAgreeAnimationView.h; sourceTree = "<group>"; };
+		4E89AFCC295C3D5500E7A40C /* PASShortVideoAgreeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASShortVideoAgreeResponse.h; sourceTree = "<group>"; };
+		4E89AFCD295C3D5500E7A40C /* PASShortVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PASShortVideoPlayerViewController.h; sourceTree = "<group>"; };
+		4E89AFCE295C3D5500E7A40C /* PASShortVideoItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoItemView.m; sourceTree = "<group>"; };
+		4E89AFCF295C3D5500E7A40C /* PASShortVideoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoResponse.m; sourceTree = "<group>"; };
+		4E89AFD0295C3D5500E7A40C /* PASShortVideoAgreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoAgreeView.m; sourceTree = "<group>"; };
+		4E89AFD1295C3D5500E7A40C /* PASShortVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoPlayerView.m; sourceTree = "<group>"; };
+		4E89AFD2295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoAgreeAnimationView.m; sourceTree = "<group>"; };
+		4E89AFDB295C3EBF00E7A40C /* PASShortVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASShortVideoModel.h; sourceTree = "<group>"; };
+		4E89AFDC295C3EBF00E7A40C /* PASShortVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoModel.m; sourceTree = "<group>"; };
+		4E89AFDF295C424400E7A40C /* ZYWeakObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYWeakObject.h; sourceTree = "<group>"; };
+		4E89AFE0295C424400E7A40C /* ZYWeakObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeakObject.m; sourceTree = "<group>"; };
 		4E90577428DDD7F900265E7B /* HomeDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDataLoader.h; sourceTree = "<group>"; };
 		4E90577528DDD7F900265E7B /* HomeDataLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDataLoader.m; sourceTree = "<group>"; };
 		4E90577728DDDCE100265E7B /* ZWHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWHomeModel.h; sourceTree = "<group>"; };
@@ -1999,6 +2026,7 @@
 		4E7427B2285B85F700DEC9CC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4E89AFDE295C424400E7A40C /* ZYWeakObjet */,
 				7C8AAE3022E984E900589862 /* Alert */,
 				4EC6B2BB2861A84400F57AAC /* LoadingUtil */,
 				4E7427B7285B864900DEC9CC /* Toast */,
@@ -2098,6 +2126,46 @@
 				4E899A93285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m */,
 			);
 			path = NSURLRequest;
+			sourceTree = "<group>";
+		};
+		4E89AFC4295C3D5500E7A40C /* ShortVideo */ = {
+			isa = PBXGroup;
+			children = (
+				4E89AFCB295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.h */,
+				4E89AFD2295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m */,
+				4E89AFCC295C3D5500E7A40C /* PASShortVideoAgreeResponse.h */,
+				4E89AFC5295C3D5500E7A40C /* PASShortVideoAgreeResponse.m */,
+				4E89AFC9295C3D5500E7A40C /* PASShortVideoAgreeView.h */,
+				4E89AFD0295C3D5500E7A40C /* PASShortVideoAgreeView.m */,
+				4E89AFC6295C3D5500E7A40C /* PASShortVideoItemView.h */,
+				4E89AFCE295C3D5500E7A40C /* PASShortVideoItemView.m */,
+				4E89AFC8295C3D5500E7A40C /* PASShortVideoPlayerView.h */,
+				4E89AFD1295C3D5500E7A40C /* PASShortVideoPlayerView.m */,
+				4E89AFCD295C3D5500E7A40C /* PASShortVideoPlayerViewController.h */,
+				4E89AFC7295C3D5500E7A40C /* PASShortVideoPlayerViewController.m */,
+				4E89AFCA295C3D5500E7A40C /* PASShortVideoResponse.h */,
+				4E89AFCF295C3D5500E7A40C /* PASShortVideoResponse.m */,
+				4E89AFDA295C3E9100E7A40C /* model */,
+			);
+			path = ShortVideo;
+			sourceTree = "<group>";
+		};
+		4E89AFDA295C3E9100E7A40C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4E89AFDB295C3EBF00E7A40C /* PASShortVideoModel.h */,
+				4E89AFDC295C3EBF00E7A40C /* PASShortVideoModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4E89AFDE295C424400E7A40C /* ZYWeakObjet */ = {
+			isa = PBXGroup;
+			children = (
+				4E89AFDF295C424400E7A40C /* ZYWeakObject.h */,
+				4E89AFE0295C424400E7A40C /* ZYWeakObject.m */,
+			);
+			path = ZYWeakObjet;
 			sourceTree = "<group>";
 		};
 		4E90577328DDD77A00265E7B /* dataLoader */ = {
@@ -2383,6 +2451,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E89AFC4295C3D5500E7A40C /* ShortVideo */,
 				4E668176292734E600C635BF /* CitySelector */,
 				4EC6B3232861B12A00F57AAC /* Common */,
 				4EC6B31F2861B12A00F57AAC /* Constants */,
@@ -4479,6 +4548,7 @@
 				4EA986F7287C39A70095ECF9 /* ProgressCustomView.m in Sources */,
 				7C6A215426E31CE600E0CF20 /* RunLoopPermanentViewController.m in Sources */,
 				4EA98716287C5EA90095ECF9 /* ZWImageView.m in Sources */,
+				4E89AFD9295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
 				7C4EF05A2304034B0040DA7A /* CMBaseButton.m in Sources */,
 				4EEEB867285EBA0100FD49A9 /* NSString+Verify.m in Sources */,
@@ -4507,6 +4577,7 @@
 				4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */,
 				4EC6B3832861B12A00F57AAC /* MDLogTableViewCell.m in Sources */,
 				7C879B2726EC25BB0051018B /* BaseViewModel.m in Sources */,
+				4E89AFE1295C424400E7A40C /* ZYWeakObject.m in Sources */,
 				7C77B50526DFD85900A9935F /* BlockSubViewController.m in Sources */,
 				4EC6B3972861B12A00F57AAC /* DataFormatterFunc+JSON.m in Sources */,
 				7C879B2126E65BAE0051018B /* MVVMView.m in Sources */,
@@ -4631,6 +4702,7 @@
 				7C4F93E32302B39300F2238E /* PASBorderTableViewCell.m in Sources */,
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6A216426E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m in Sources */,
+				4E89AFD5295C3D5500E7A40C /* PASShortVideoItemView.m in Sources */,
 				4EDC0B6C286308D6001C53CE /* NSUserDefaults+Safe.m in Sources */,
 				4EA986ED287C36E30095ECF9 /* ZWCameraViewController.m in Sources */,
 				4E5F2CEE2876B76A00FEC6C2 /* JXLocation.m in Sources */,
@@ -4653,6 +4725,7 @@
 				4E6681AB2927350F00C635BF /* EHIndexViewConfiguration.m in Sources */,
 				4EC6B38B2861B12A00F57AAC /* AppLogPlugin.m in Sources */,
 				4E403FA92865FA32006C0656 /* CustomTabbarObject.m in Sources */,
+				4E89AFDD295C3EBF00E7A40C /* PASShortVideoModel.m in Sources */,
 				4EFECF7D287D20C800B137BB /* ZWAlbumPreViewController.m in Sources */,
 				4EC6B37C2861B12A00F57AAC /* MDFileManager.m in Sources */,
 				4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */,
@@ -4714,6 +4787,7 @@
 				7C879B1626E64E850051018B /* TestMVPModel.m in Sources */,
 				7C6309DE22A651BF00C73AAB /* ZWDrawingBase.m in Sources */,
 				4EC6B3952861B12A00F57AAC /* ZWHttpNetworkManager.m in Sources */,
+				4E89AFD7295C3D5500E7A40C /* PASShortVideoAgreeView.m in Sources */,
 				4EC6B3892861B12A00F57AAC /* PathConstants.m in Sources */,
 				4EA986DD287BFDEE0095ECF9 /* FileItemCell.m in Sources */,
 				4E6681A1292734E600C635BF /* JFCSData.m in Sources */,
@@ -4731,15 +4805,18 @@
 				4EFECF80287D488A00B137BB /* ZWNavCountButton.m in Sources */,
 				4EFECF70287D1C9800B137BB /* ZWImageCell.m in Sources */,
 				4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */,
+				4E89AFD8295C3D5500E7A40C /* PASShortVideoPlayerView.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
 				4EFECFF7287DC47400B137BB /* NSData+MD5.m in Sources */,
 				4EA98701287C3D8F0095ECF9 /* ZWCameraPreViewController.m in Sources */,
 				4E028800286AB0CB003E723E /* CWInteractiveTransition.m in Sources */,
+				4E89AFD3295C3D5500E7A40C /* PASShortVideoAgreeResponse.m in Sources */,
 				4E0680F8287598E500F6728A /* MapTypeHelper.m in Sources */,
 				7C4EF042230400640040DA7A /* UINavigationItem+iOS7Style.m in Sources */,
 				4ECE439828598E6200326287 /* StoreUtil.m in Sources */,
 				4EFECFDF287DC3FE00B137BB /* RSAEncryption.m in Sources */,
 				4EA98705287C565E0095ECF9 /* ZWAlbumCropViewController.m in Sources */,
+				4E89AFD4295C3D5500E7A40C /* PASShortVideoPlayerViewController.m in Sources */,
 				4EC6B38F2861B12A00F57AAC /* ZWHttpEventInfo.m in Sources */,
 				4EFECFF8287DC47400B137BB /* NSString+MD5.m in Sources */,
 				7CA7682822FE95C1009E473E /* ZWBaseViewController.m in Sources */,
@@ -4785,6 +4862,7 @@
 				4EDC0B60286308D6001C53CE /* NSObject+Safe.m in Sources */,
 				7C4F93DD2302B39300F2238E /* PASLineCell.m in Sources */,
 				4E66819C292734E600C635BF /* JFCSConfiguration.m in Sources */,
+				4E89AFD6295C3D5500E7A40C /* PASShortVideoResponse.m in Sources */,
 				7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */,
 				4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */,
 				4E899A78285B7F2A00B54C89 /* DataBase.m in Sources */,

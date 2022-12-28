@@ -39,6 +39,8 @@ NSString *const ZWRouterPageBallViewController       = @"test/ball/page";
 /** RunLoopPermanentPage  */
 NSString *const ZWRouterRunLoopPermanentViewController  = @"test/runloop/page";
 
+/** PASShortVideoPlayerViewController  */
+NSString *const ZWRouterPageShortVideoPlayerViewController  = @"test/runloop/page";
 
 /* -------------------------------page----------------------------  */
 
@@ -160,6 +162,13 @@ NSString *const ZWRouterRunLoopPermanentViewController  = @"test/runloop/page";
             @{
                 @"url" : ZWRouterRunLoopPermanentViewController,
                 @"clsName": @"RunLoopPermanentViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** 视频控制器  */
+            @{
+                @"url" : ZWRouterPageShortVideoPlayerViewController,
+                @"clsName": @"PASShortVideoPlayerViewController",
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },

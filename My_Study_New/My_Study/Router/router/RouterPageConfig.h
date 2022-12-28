@@ -51,6 +51,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageBallViewController;
 /** RunLoopPermanentPage  */
 UIKIT_EXTERN NSString *const ZWRouterRunLoopPermanentViewController;
 
+/** PASShortVideoPlayerViewController  */
+UIKIT_EXTERN NSString *const ZWRouterPageShortVideoPlayerViewController;
 
 /* -------------------------------page----------------------------  */
 

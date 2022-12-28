@@ -26,6 +26,8 @@
 
 #import "UIView+Create.h"
 
+#import "DoraemonCopyLabel.h"
+
 
 #pragma mark ------------------------------KVO底层原理------------------------------------
 /**< 利用运行时,生成一个对象的子类,并生成子类的对象,替换原对象的isa指针,重写set方法 */
@@ -157,6 +159,12 @@
     [label addGestureRecognizer:tap];
     
     
+    DoraemonCopyLabel *copyLabel = [[DoraemonCopyLabel alloc] initWithFrame:CGRectMake(50, 360, 200, 50)];
+    copyLabel.text = @"复制文本111";
+    copyLabel.backgroundColor = UIColor.cyanColor;
+    [self.view addSubview:copyLabel];
+    
+    
     BGView *subView = [[BGView alloc] initWithFrame:CGRectMake(100, 500, kMainScreenWidth - 200, 100)];
     subView.tag = 102;
     subView.backgroundColor = [UIColor blueColor];
@@ -223,6 +231,7 @@
             break;
         case 102:
         {
+            [ZWM.router executeURLNoCallBack:ZWRouterPageShortVideoPlayerViewController];
         }
             break;
         case 103:
