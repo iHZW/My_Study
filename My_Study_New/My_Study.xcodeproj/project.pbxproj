@@ -136,6 +136,7 @@
 		4E89AFD9295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFD2295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m */; };
 		4E89AFDD295C3EBF00E7A40C /* PASShortVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFDC295C3EBF00E7A40C /* PASShortVideoModel.m */; };
 		4E89AFE1295C424400E7A40C /* ZYWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFE0295C424400E7A40C /* ZYWeakObject.m */; };
+		4E89AFE7295D3E7D00E7A40C /* MMCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E89AFE6295D3E7D00E7A40C /* MMCopyLabel.m */; };
 		4E90577628DDD7F900265E7B /* HomeDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E90577528DDD7F900265E7B /* HomeDataLoader.m */; };
 		4E90577928DDDCE100265E7B /* ZWHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E90577828DDDCE100265E7B /* ZWHomeModel.m */; };
 		4E94EA4628CADA1B007EDEFC /* UITextField+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */; };
@@ -731,6 +732,8 @@
 		4E89AFDC295C3EBF00E7A40C /* PASShortVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASShortVideoModel.m; sourceTree = "<group>"; };
 		4E89AFDF295C424400E7A40C /* ZYWeakObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYWeakObject.h; sourceTree = "<group>"; };
 		4E89AFE0295C424400E7A40C /* ZYWeakObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeakObject.m; sourceTree = "<group>"; };
+		4E89AFE5295D3E7D00E7A40C /* MMCopyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCopyLabel.h; sourceTree = "<group>"; };
+		4E89AFE6295D3E7D00E7A40C /* MMCopyLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCopyLabel.m; sourceTree = "<group>"; };
 		4E90577428DDD7F900265E7B /* HomeDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDataLoader.h; sourceTree = "<group>"; };
 		4E90577528DDD7F900265E7B /* HomeDataLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDataLoader.m; sourceTree = "<group>"; };
 		4E90577728DDDCE100265E7B /* ZWHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWHomeModel.h; sourceTree = "<group>"; };
@@ -2428,6 +2431,8 @@
 				4EA737E227D72E3200422BAE /* CRMViewController.m */,
 				4E0287B828698887003E723E /* ApplicationViewController.h */,
 				4E0287B928698887003E723E /* ApplicationViewController.m */,
+				4E89AFE5295D3E7D00E7A40C /* MMCopyLabel.h */,
+				4E89AFE6295D3E7D00E7A40C /* MMCopyLabel.m */,
 				4E0287BB28698899003E723E /* FindViewController.h */,
 				4E0287BC28698899003E723E /* FindViewController.m */,
 				4E64B6E52923D9A300A718AD /* Two555ViewController.h */,
@@ -4764,6 +4769,7 @@
 				4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */,
 				4EFECF63287D189800B137BB /* ZWAlbumPopView.m in Sources */,
 				4EA9871B287C61F60095ECF9 /* MBProgressHUD.m in Sources */,
+				4E89AFE7295D3E7D00E7A40C /* MMCopyLabel.m in Sources */,
 				4E0680CA28740F8100F6728A /* Environment.m in Sources */,
 				7C652C0723017209007BBDD2 /* HomeViewController.m in Sources */,
 				4EFECF77287D1D9A00B137BB /* UploadItem.m in Sources */,

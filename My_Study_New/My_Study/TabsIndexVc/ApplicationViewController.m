@@ -26,7 +26,7 @@
 
 #import "UIView+Create.h"
 
-#import "DoraemonCopyLabel.h"
+#import "MMCopyLabel.h"
 
 
 #pragma mark ------------------------------KVO底层原理------------------------------------
@@ -159,7 +159,7 @@
     [label addGestureRecognizer:tap];
     
     
-    DoraemonCopyLabel *copyLabel = [[DoraemonCopyLabel alloc] initWithFrame:CGRectMake(50, 360, 200, 50)];
+    MMCopyLabel *copyLabel = [[MMCopyLabel alloc] initWithFrame:CGRectMake(50, 360, 200, 50)];
     copyLabel.text = @"复制文本111";
     copyLabel.backgroundColor = UIColor.cyanColor;
     [self.view addSubview:copyLabel];
