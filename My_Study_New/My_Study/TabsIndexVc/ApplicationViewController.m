@@ -25,8 +25,10 @@
 #import <libkern/OSAtomic.h>
 
 #import "UIView+Create.h"
-
+/** 可复制的label  */
 #import "MMCopyLabel.h"
+/** 点赞view  */
+#import "GiveLikeView.h"
 
 
 #pragma mark ------------------------------KVO底层原理------------------------------------
@@ -42,6 +44,8 @@
 @property (nonatomic, strong) EOCfamilly *kvcEocFamilly;
 
 @property (nonatomic, strong) UILabel *nameLabel;
+
+@property (nonatomic, strong) GiveLikeView *giveLike;
 
 @end
 
@@ -208,6 +212,18 @@
         make.size.mas_equalTo(CGSizeMake(200, 60));
         make.top.equalTo(self.view.mas_top).offset(80);
     }];
+    
+    self.giveLike = [[GiveLikeView alloc] initWithFrame:CGRectMake(260, 360, 60, 60)];
+    self.giveLike.likeDuration = 0.5;
+    self.giveLike.zanFillColor = [UIColor redColor];
+    self.giveLike.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:self.giveLike];
+    
+//    [self.giveLike mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view.mas_left).offset(kContentSideHorizSpace*2);
+//        make.size.mas_equalTo(CGSizeMake(60, 60));
+//        make.top.equalTo(self.view.mas_top).offset(0);
+//    }];
 }
 
 - (void)btnAction

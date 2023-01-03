@@ -78,6 +78,15 @@
 //    } notMatchRightsBlock:nil setProperty:^(id<CMPTUserAccount_login> destinationViewController) {
 //    }];
     
+    if(!btn.selected) {
+        self.animationView.hidden = NO;
+        [self.animationView startAnimationWithCompletion:nil];
+    }
+    btn.selected = !btn.selected;
+    if (self.block) {
+        self.block(btn.selected);
+    }
+    
 }
 
 - (void)setImageName:(NSString *)imageName selectImageName:(NSString *)selectImageName

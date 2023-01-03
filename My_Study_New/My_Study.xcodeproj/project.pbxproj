@@ -141,6 +141,7 @@
 		4E90577928DDDCE100265E7B /* ZWHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E90577828DDDCE100265E7B /* ZWHomeModel.m */; };
 		4E94EA4628CADA1B007EDEFC /* UITextField+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */; };
 		4E94EA4928CB8C19007EDEFC /* LineTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */; };
+		4E9D55DC295ED5ED00B004FB /* GiveLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D55DB295ED5ED00B004FB /* GiveLikeView.m */; };
 		4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA59D4628AE4F58002D9759 /* TestWebViewController.m */; };
 		4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7263D27D75CA60060BDBA /* customerView.swift */; };
 		4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E227D72E3200422BAE /* CRMViewController.m */; };
@@ -742,6 +743,8 @@
 		4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Additions.m"; sourceTree = "<group>"; };
 		4E94EA4728CB8C19007EDEFC /* LineTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		4E9D55DA295ED5ED00B004FB /* GiveLikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiveLikeView.h; sourceTree = "<group>"; };
+		4E9D55DB295ED5ED00B004FB /* GiveLikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiveLikeView.m; sourceTree = "<group>"; };
 		4EA59D4528AE4F58002D9759 /* TestWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewController.h; sourceTree = "<group>"; };
 		4EA59D4628AE4F58002D9759 /* TestWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewController.m; sourceTree = "<group>"; };
 		4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oc_swift-Swift.h"; sourceTree = "<group>"; };
@@ -2134,6 +2137,7 @@
 		4E89AFC4295C3D5500E7A40C /* ShortVideo */ = {
 			isa = PBXGroup;
 			children = (
+				4E9D55D9295ED5A600B004FB /* view */,
 				4E89AFCB295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.h */,
 				4E89AFD2295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m */,
 				4E89AFCC295C3D5500E7A40C /* PASShortVideoAgreeResponse.h */,
@@ -2180,6 +2184,15 @@
 				4E90577828DDDCE100265E7B /* ZWHomeModel.m */,
 			);
 			path = dataLoader;
+			sourceTree = "<group>";
+		};
+		4E9D55D9295ED5A600B004FB /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4E9D55DA295ED5ED00B004FB /* GiveLikeView.h */,
+				4E9D55DB295ED5ED00B004FB /* GiveLikeView.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		4EA59D4428AE4F46002D9759 /* Test */ = {
@@ -4612,6 +4625,7 @@
 				4EAAD81B2868B223003D43FF /* ZWWebView.m in Sources */,
 				7C4EF00E230394FA0040DA7A /* CMNotificationCenter.m in Sources */,
 				4EC6B39F2861BF0800F57AAC /* LeftDrawerDataLoader.m in Sources */,
+				4E9D55DC295ED5ED00B004FB /* GiveLikeView.m in Sources */,
 				4E0680D12874202600F6728A /* ZWChangeEnvViewController.m in Sources */,
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
 				4E0287D82869BC13003E723E /* BaseRouterIntercept.m in Sources */,
