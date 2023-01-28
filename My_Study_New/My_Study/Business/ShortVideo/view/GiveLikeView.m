@@ -134,7 +134,9 @@ static const NSInteger kFavoriteViewLikeAfterTag   = 0x02;
                               delay:0.0f
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
-                             self.likeAfter.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(-M_PI_4), 0.1f, 0.1f);
+//                             self.likeAfter.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(-M_PI_4), 0.1f, 0.1f);
+            self.likeAfter.transform = CGAffineTransformScale(CGAffineTransformMakeRotation(0), 0.1f, 0.1f);
+
                          }
                          completion:^(BOOL finished) {
                              [self.likeAfter setHidden:YES];

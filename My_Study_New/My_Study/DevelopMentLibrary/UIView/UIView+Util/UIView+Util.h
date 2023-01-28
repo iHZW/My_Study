@@ -21,4 +21,14 @@ typedef void (^UIViewActionBlock)(UIView *view);
 
 - (void)endRolling;
 
+/**
+ * 移除所有子视图
+ */
+- (void)removeAllSubViews;
+
+/**
+ * 截图
+ */
+- (UIImage *)renderImage;
+
 @end

@@ -195,7 +195,8 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
                                @"牛牛影院",
                                @"豌豆影院",
                                @"鸭奈飞影视",
-                               @"电影导航网"];
+                               @"电影导航网",
+                               @"万能搜"];
         _nameArray         = nameArray;
     }
     return _nameArray;
@@ -211,7 +212,8 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
                               @"http://www.yhmjt.com/",
                               @"http://www.283bt.com/",
                               @"https://yanetflix.com/",
-                              @"http://www.sody123.com/"];
+                              @"http://www.sody123.com/",
+                              @"https://www.ahhhhfs.com/"];
         _urlArray         = urlArray;
     }
     return _urlArray;

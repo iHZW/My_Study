@@ -21,6 +21,9 @@
 #import "zhThemeOperator.h"
 #import <objc/runtime.h>
 
+#import <CL_ShanYanSDK/CL_ShanYanSDK.h>
+#import "OneKeyLogin.h"
+
 #ifdef DOKIT
 
 #import "DoraemonManager.h"
@@ -35,6 +38,12 @@
 #else
 #import "JJException.h"
 #endif
+
+
+/** 闪验appId  */
+#define kCLShanYanAppId                 @"MMTFuKONCXID"
+//#define kCLShanYanAppId                 @"TFuKONCX"
+
 
 @interface AppDelegate () <WXApiDelegate, JJExceptionHandle>
 
@@ -72,6 +81,8 @@
     [zhThemeOperator themeConfiguration];
     /* 初始化配置信息 */
     [[ModuleContainer sharedModuleContainer] registerConfig];
+    /** 加载闪验SDK  */
+    [self loadShanYanSDK];
 
     [CMBusMediaAppDelegate serviceManager:@selector(application:didFinishLaunchingWithOptions:) withParameters:@[application, launchOptions ?: [NSDictionary dictionary]]];
 
@@ -93,6 +104,16 @@
     [AppLaunchTime mark];
     return YES;
 }
+
+/**
+ * 加载闪验SDK
+ */
+- (void)loadShanYanSDK {
+    //初始化
+    [[OneKeyLogin sharedOneKeyLogin] config:kCLShanYanAppId];
+}
+
+
 
 #pragma mark - 初始化骨架屏  TABAnimated
 

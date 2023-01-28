@@ -7,6 +7,7 @@
 //
 
 #import "ZWBaseViewController.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 @interface ZWBaseViewController ()
 
@@ -27,6 +28,7 @@
     if (self)
     {
         [self initExtendedData];
+//        self.pop
     }
     
     return self;

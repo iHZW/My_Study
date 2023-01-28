@@ -132,6 +132,17 @@ target 'My_Study' do
   
   # 组件化路由库
   pod 'JLRoutes', '2.1'
+  
+  #全屏返回
+  pod 'FDFullscreenPopGesture', '1.1'
+  
+  pod 'TZScrollViewPopGesture', '1.0.6'
+  
+  #闪验
+  pod 'CL_ShanYanSDK', '2.3.5.9'
+  
+  #键盘
+  pod 'IQKeyboardManager', '6.5.10'
 
 end
 

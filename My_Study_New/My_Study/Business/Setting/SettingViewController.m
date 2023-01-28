@@ -4,7 +4,7 @@
 //
 //  Created by Zhiwei Han on 2022/6/30.
 //  Copyright © 2022 HZW. All rights reserved.
-//
+//``
 
 #import "SettingViewController.h"
 #import "ZWBaseTableView.h"
@@ -19,6 +19,7 @@
 #import "ZWColorPickInfoWindow.h"
 #import "PathConstants.h"
 #import "SSZipArchive.h"
+#import "LoginViewController.h"
 
 /** 导入other城市选择器  */
 #import "EHAddressCompHelper.h"
@@ -313,18 +314,18 @@
     NSString *filePath         = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
 
     @weakify(self)
-        [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString *_Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString *_Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
 
-        } completionHandler:^(NSString *_Nonnull path, BOOL succeeded, NSError *_Nullable error) {
-            @strongify(self)
-                NSLog(@"succeeded = %@", @(succeeded));
-            if (succeeded) {
-                NSFileManager *fileManager = [NSFileManager defaultManager];
-                NSError *error;
-                BOOL isSuccessOne = [fileManager removeItemAtPath:downPath error:&error];
-                NSLog(@"isSuccessOne = %d", isSuccessOne);
-            }
-        }];
+    } completionHandler:^(NSString *_Nonnull path, BOOL succeeded, NSError *_Nullable error) {
+        @strongify(self)
+            NSLog(@"succeeded = %@", @(succeeded));
+        if (succeeded) {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            BOOL isSuccessOne = [fileManager removeItemAtPath:downPath error:&error];
+            NSLog(@"isSuccessOne = %d", isSuccessOne);
+        }
+    }];
 }
 
 /**
@@ -336,6 +337,12 @@
     NSString *formatStr = ZWDebugLogStr(format, @"666", 888.2);
     formatStr           = ZWFormatterUrl(format, @"777", 0.006);
     NSLog(@"formatStr = %@", formatStr);
+    
+    LoginViewController *oneKeyLoginVc = [[LoginViewController alloc] init];
+    oneKeyLoginVc.oneKeyLogin = YES;
+    [self presentViewController:oneKeyLoginVc animated:YES completion:nil];
+//    [self.navigationController pushViewController:oneKeyLoginVc animated:YES];
+    
 }
 
 static inline void ZWDebugLog(NSString *format, ...) {
