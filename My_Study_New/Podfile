@@ -139,7 +139,7 @@ target 'My_Study' do
   pod 'TZScrollViewPopGesture', '1.0.6'
   
   #闪验
-  pod 'CL_ShanYanSDK', '2.3.5.9'
+  pod 'CL_ShanYanSDK', '2.3.5.8'
   
   #键盘
   pod 'IQKeyboardManager', '6.5.10'

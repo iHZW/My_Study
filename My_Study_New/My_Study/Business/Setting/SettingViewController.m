@@ -31,6 +31,8 @@
 #import "JFCitySelector.h"
 #endif
 
+#import "ZWUserManager.h"
+
 
 #define kSectionViewHeight              20
 #define ZWNSLog(...)  printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
@@ -166,6 +168,15 @@
  *  个人信息
  */
 - (void)accountInfoSetting {
+    ZWUserManager *user     = [ZWUserManager sharedInstance];
+    user.name = @"user";
+    ZWUserManager *manager  = [[ZWUserManager alloc] init];
+    manager.age = 32;
+    ZWUserManager *manager1 = [ZWUserManager new];
+    manager1.gender = 1;
+    ZWUserManager *manager2 = [ZWUserManager copy];
+    manager2.nichName = @"manager2";
+    NSLog(@"\nuser = %p\nmanager = %p\nmanager1 = %p\nmanager2 = %p", user, manager, manager1, manager2);
 }
 
 /**

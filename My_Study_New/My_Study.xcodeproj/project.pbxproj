@@ -47,6 +47,7 @@
 		4E0680FB287598EF00F6728A /* LocationAuthority.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680FA287598EF00F6728A /* LocationAuthority.m */; };
 		4E0680FE28759DD900F6728A /* LocationTrimDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680FD28759DD800F6728A /* LocationTrimDataLoader.m */; };
 		4E0681002876867E00F6728A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0680FF2876867E00F6728A /* Foundation.framework */; };
+		4E149692299D2EA000D305EF /* ZWUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E149691299D2EA000D305EF /* ZWUserManager.m */; };
 		4E23FE5D2876F9DA009B02D0 /* UIImage+None.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */; };
 		4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5F28781618009B02D0 /* TrimHeaderView.m */; };
 		4E2FC10E292757E70014C00E /* EHAddressCompHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */; };
@@ -558,6 +559,9 @@
 		4E0680FC28759DD800F6728A /* LocationTrimDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTrimDataLoader.h; sourceTree = "<group>"; };
 		4E0680FD28759DD800F6728A /* LocationTrimDataLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTrimDataLoader.m; sourceTree = "<group>"; };
 		4E0680FF2876867E00F6728A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4E149690299D2EA000D305EF /* ZWUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWUserManager.h; sourceTree = "<group>"; };
+		4E149691299D2EA000D305EF /* ZWUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserManager.m; sourceTree = "<group>"; };
+		4E207AE0299BDAB20086F640 /* My_Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = My_Study.entitlements; sourceTree = "<group>"; };
 		4E23FE5B2876F9DA009B02D0 /* UIImage+None.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+None.h"; sourceTree = "<group>"; };
 		4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+None.m"; sourceTree = "<group>"; };
 		4E23FE5E28781618009B02D0 /* TrimHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrimHeaderView.h; sourceTree = "<group>"; };
@@ -1894,6 +1898,8 @@
 			children = (
 				4E4FD807286D4147008EC7E1 /* SettingViewController.h */,
 				4E4FD808286D4147008EC7E1 /* SettingViewController.m */,
+				4E149690299D2EA000D305EF /* ZWUserManager.h */,
+				4E149691299D2EA000D305EF /* ZWUserManager.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -3371,6 +3377,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				4E207AE0299BDAB20086F640 /* My_Study.entitlements */,
 				4E4E1CFB28A413F400EC5EBB /* Source */,
 				4E0680BD2873E4E100F6728A /* Configuration */,
 				4EDC09692862C43D001C53CE /* PublicComponent */,
@@ -4819,6 +4826,7 @@
 				7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */,
 				4E5F2CFA2876BAB500FEC6C2 /* PermissionLocationWhenInUseHandler.m in Sources */,
 				4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */,
+				4E149692299D2EA000D305EF /* ZWUserManager.m in Sources */,
 				4EFECF63287D189800B137BB /* ZWAlbumPopView.m in Sources */,
 				4EA9871B287C61F60095ECF9 /* MBProgressHUD.m in Sources */,
 				4E89AFE7295D3E7D00E7A40C /* MMCopyLabel.m in Sources */,
@@ -5040,6 +5048,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -5185,6 +5194,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -5384,6 +5394,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -5469,6 +5480,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;

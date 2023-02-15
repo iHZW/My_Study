@@ -256,34 +256,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - e2622d01500e6f13"
+                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - ca8eb2247858502f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[LoadingUtil showLoadingInView:parentView:yOffset:actionEnabled:]"
                   moduleName = "My_Study"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/hzw/git/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "156">
+                  offsetFromSymbolStart = "162">
                </Location>
                <Location
-                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - 8ad8668b7fa904a3"
+                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - a234f9ae57ff3b9f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__66+[LoadingUtil showLoadingInView:parentView:yOffset:actionEnabled:]_block_invoke"
                   moduleName = "My_Study"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/hzw/git/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -318,6 +318,38 @@
             endingLineNumber = "88"
             landmarkName = "-setTitleColor:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "54ECAB15-907A-495A-B31C-70E8B15C49DA - 10bbb408b8c58491"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[QMUIPopupMenuButtonItem setTitleColor:]"
+                  moduleName = "QMUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/Pods/QMUIKit/QMUIKit/QMUIComponents/QMUIPopupMenuView/QMUIPopupMenuButtonItem.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  uuid = "54ECAB15-907A-495A-B31C-70E8B15C49DA - 10bbb408b8c58491"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[QMUIPopupMenuButtonItem setTitleColor:]"
+                  moduleName = "QMUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/Pods/QMUIKit/QMUIKit/QMUIComponents/QMUIPopupMenuView/QMUIPopupMenuButtonItem.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,6 +366,38 @@
             endingLineNumber = "53"
             landmarkName = "+itemWithImage:title:titleColor:handler:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FC480133-D64C-41B2-AC86-598AAF129EAA - 1ea31df8819b27ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[QMUIPopupMenuButtonItem itemWithImage:title:titleColor:handler:]"
+                  moduleName = "QMUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/Pods/QMUIKit/QMUIKit/QMUIComponents/QMUIPopupMenuView/QMUIPopupMenuButtonItem.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "157">
+               </Location>
+               <Location
+                  uuid = "FC480133-D64C-41B2-AC86-598AAF129EAA - 1ea31df8819b27ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[QMUIPopupMenuButtonItem itemWithImage:title:titleColor:handler:]"
+                  moduleName = "QMUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/Pods/QMUIKit/QMUIKit/QMUIComponents/QMUIPopupMenuView/QMUIPopupMenuButtonItem.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -6,12 +6,11 @@
 //  Copyright © 2022 HZW. All rights reserved.
 //
 
+#import "AlertHead.h"
 #import "FindViewController.h"
+#import "LoadingUtil.h"
 #import "ZWWebView.h"
 #import <QMUIKit/QMUIKit.h>
-#import "AlertHead.h"
-#import "LoadingUtil.h"
-
 
 typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     UIBorderSideTypeAll    = 0,
@@ -35,7 +34,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
 /** 显示popup 视图  */
 @property (nonatomic, strong) QMUIPopupMenuView *popupAtBarButtonItem;
 /** 使用方法 2，以 UIWindow 的形式显示到界面上，这种无需默认隐藏，也无需 add 到某个 UIView 上  */
-@property(nonatomic, strong) QMUIPopupMenuView *popupByWindow;
+@property (nonatomic, strong) QMUIPopupMenuView *popupByWindow;
 
 @property (nonatomic, strong) UIBarButtonItem *backForwardItem;
 
@@ -68,17 +67,17 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     /** 切换网站  */
     UIImage *image           = [[UIImage imageNamed:@"icon_nav_switch"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *btnItem = [UIBarButtonItem qmui_itemWithImage:image target:self action:@selector(rightAction)];
-//    [self.navigationItem setRightBarButtonItem:btnItem];
+    //    [self.navigationItem setRightBarButtonItem:btnItem];
     /** 前进后退  */
-    UIImage *backForward = [[UIImage imageNamed:@"icon_nav_switch_back_forward"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *backForward     = [[UIImage imageNamed:@"icon_nav_switch_back_forward"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIButton *backForwardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backForwardBtn setImage:backForward forState:UIControlStateNormal];
     [backForwardBtn addTarget:self action:@selector(backForwardAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backForwardItem = [[UIBarButtonItem alloc] initWithCustomView:backForwardBtn];
 
-//    UIBarButtonItem *backForwardItem = [UIBarButtonItem qmui_itemWithImage:image target:self action:@selector(backForwardAction)];
+    //    UIBarButtonItem *backForwardItem = [UIBarButtonItem qmui_itemWithImage:image target:self action:@selector(backForwardAction)];
     self.backForwardItem = backForwardItem;
-    self.backForwardBtn = backForwardBtn;
+    self.backForwardBtn  = backForwardBtn;
     [self.navigationItem setRightBarButtonItems:@[backForwardItem, btnItem]];
 }
 
@@ -87,9 +86,9 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     /** 显示系统的actionsheet  */
     //    [self loadAlertSheet];
     /** 显示自定义的actionsheet  */
-//    [self showAlertView];
+    //    [self showAlertView];
     /** 显示popview  */
-        [self showPopView];
+    [self showPopView];
 }
 
 - (void)backForwardAction {
@@ -253,50 +252,48 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     return _popupAtBarButtonItem;
 }
 
-- (QMUIPopupMenuView *)popupByWindow
-{
+- (QMUIPopupMenuView *)popupByWindow {
     if (!_popupByWindow) {
         @pas_weakify_self
-        _popupByWindow = [[QMUIPopupMenuView alloc] init];
-        _popupByWindow = [[QMUIPopupMenuView alloc] init];
-        _popupByWindow.automaticallyHidesWhenUserTap = YES;// 点击空白地方消失浮层
-        _popupByWindow.tintColor = [UIColor colorFromHexString:@"#FFFFFF"];
-        _popupByWindow.maskViewBackgroundColor = UIColorFromRGBA(0x111111, 0.45);// 使用方法 2 并且打开了 automaticallyHidesWhenUserTap 的情况下，可以修改背景遮罩的颜色
-        _popupByWindow.shouldShowItemSeparator = YES;
-        _popupByWindow.itemConfigurationHandler = ^(QMUIPopupMenuView *aMenuView, QMUIPopupMenuButtonItem *aItem, NSInteger section, NSInteger index) {
+            _popupByWindow                           = [[QMUIPopupMenuView alloc] init];
+        _popupByWindow                               = [[QMUIPopupMenuView alloc] init];
+        _popupByWindow.automaticallyHidesWhenUserTap = YES; // 点击空白地方消失浮层
+        _popupByWindow.tintColor                     = [UIColor colorFromHexString:@"#FFFFFF"];
+        _popupByWindow.maskViewBackgroundColor       = UIColorFromRGBA(0x111111, 0.45); // 使用方法 2 并且打开了 automaticallyHidesWhenUserTap 的情况下，可以修改背景遮罩的颜色
+        _popupByWindow.shouldShowItemSeparator       = YES;
+        _popupByWindow.itemConfigurationHandler      = ^(QMUIPopupMenuView *aMenuView, QMUIPopupMenuButtonItem *aItem, NSInteger section, NSInteger index) {
             // 利用 itemConfigurationHandler 批量设置所有 item 的样式
             aItem.button.highlightedBackgroundColor = UIColorFromRGBA(0xFFFFFF, 0.2);
         };
         _popupByWindow.items = @[
-            
-            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem * _Nonnull aItem) {
+
+            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *_Nonnull aItem) {
                 [aItem.menuView hideWithAnimated:YES];
-                @pas_strongify_self
-                if (self.webView.canGoForward) {
+                @pas_strongify_self if (self.webView.canGoForward) {
                     [self.webView goForward];
                 }
             }],
-//            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *aItem) {
-//                [aItem.menuView hideWithAnimated:YES];
-//                @pas_strongify_self
-//                if (self.webView.canGoForward) {
-//                    [self.webView goForward];
-//                }
-//            }],
+            //            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *aItem) {
+            //                [aItem.menuView hideWithAnimated:YES];
+            //                @pas_strongify_self
+            //                if (self.webView.canGoForward) {
+            //                    [self.webView goForward];
+            //                }
+            //            }],
             [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_excel_icon"] title:@"后退网页" handler:^(QMUIPopupMenuButtonItem *aItem) {
                 [aItem.menuView hideWithAnimated:YES];
-                @pas_strongify_self
-                if (self.webView.canGoBack) {
+                @pas_strongify_self if (self.webView.canGoBack) {
                     [self.webView goBack];
                 }
-            }]];
+            }]
+        ];
 
         _popupByWindow.didHideBlock = ^(BOOL hidesByUserTap) {
             @pas_strongify_self
-            /** NO: 用户点击浮层被隐藏   YES: 用户点击空白浮层被隐藏 */
-            NSLog(@"hidesByUserTap = %@", @(hidesByUserTap));
+                /** NO: 用户点击浮层被隐藏   YES: 用户点击空白浮层被隐藏 */
+                NSLog(@"hidesByUserTap = %@", @(hidesByUserTap));
         };
-        _popupByWindow.sourceView = self.backForwardBtn;// 相对于 button4 布局
+        _popupByWindow.sourceView = self.backForwardBtn; // 相对于 button4 布局
     }
     return _popupByWindow;
 }
