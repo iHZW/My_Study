@@ -40,14 +40,14 @@
 - (void)showPrivacyAlert:(UIView *)inView clickResult:(PrivacyButtonClick)clickResult {
     [self showPrivacyAlert:inView
                      title:@"用户协议与隐私协议提示"
-                   message:@"尊敬的销氪用户，为了更好地保障您的合法权益，我们非常重视您的隐私保护和个人信息保护，特别提醒仔细阅读销氪服务协议与隐私协议。<br/>我们会严格按照法律规定存储和使用您的个人信息，未经您同意，我们不会提供给任何第三方使用<br/>第三方产品或服务如何获得您的个人信息<br/>您同意并理解，为了更好地提供服务，我们的产品可能会集成或接入第三方服务，如SDK、API或H5等。这些第三方服务商独立运营，单独获得您的授权同意，直接收集您的个人信息，并独立承担相关的责任和义务。<br/>当您所使用微信账号登录销氪CRM时，微信SDK会收集微信账号的唯一ID、名称、头像。当您通过销氪CRM进行支付结算时，微信SDK、支付宝SDK收集您设备信息、系统版本、订单信息、交易状态。其余SDK包括：腾讯bugly SDK监控APP崩溃；创蓝闪验SDK实现App一键登录；TrackingIO（热云SDK）设备状态信息包括iOS广告标识符（IDFA和IDFV）、安卓广告主标识符（Android ID）、网卡地址（MAC）、IP地址、国际移动设备识别码（IMEI）、移动设备识别码（MEID）、匿名设备标识码（OAID）、设备型号、终端制造厂商、终端设备操作系统版本IP地址；高德地图SDK集您的位置信息，访问网络用于获取地图服务；个推SDK、华为push SDK、小米push SDK帮助用户接收推送消息；友盟SDK用于数据统计及分析、神策SDK检测App业务功能，界面点击情况。"
+                   message:@"尊敬的企业之家用户，为了更好地保障您的合法权益，我们非常重视您的隐私保护和个人信息保护，特别提醒仔细阅读企业之家服务协议与隐私协议。<br/>我们会严格按照法律规定存储和使用您的个人信息，未经您同意，我们不会提供给任何第三方使用<br/>第三方产品或服务如何获得您的个人信息<br/>您同意并理解，为了更好地提供服务，我们的产品可能会集成或接入第三方服务，如SDK、API或H5等。这些第三方服务商独立运营，单独获得您的授权同意，直接收集您的个人信息，并独立承担相关的责任和义务。<br/>当您所使用微信账号登录企业之家时，微信SDK会收集微信账号的唯一ID、名称、头像。当您通过企业之家进行支付结算时，微信SDK、支付宝SDK收集您设备信息、系统版本、订单信息、交易状态。其余SDK包括：腾讯bugly SDK监控APP崩溃；创蓝闪验SDK实现App一键登录；TrackingIO（热云SDK）设备状态信息包括iOS广告标识符（IDFA和IDFV）、安卓广告主标识符（Android ID）、网卡地址（MAC）、IP地址、国际移动设备识别码（IMEI）、移动设备识别码（MEID）、匿名设备标识码（OAID）、设备型号、终端制造厂商、终端设备操作系统版本IP地址；高德地图SDK集您的位置信息，访问网络用于获取地图服务；个推SDK、华为push SDK、小米push SDK帮助用户接收推送消息；友盟SDK用于数据统计及分析、神策SDK检测App业务功能，界面点击情况。"
                clickResult:clickResult];
 }
 
 - (void)showPrivacyUpgradeAlert:(UIView *)inView clickResult:(PrivacyButtonClick)clickResult {
     [self showPrivacyAlert:inView
                      title:@"协议更新提示"
-                   message:@"为了让您在安全、放心的环境下使用销氪，建议仔细阅读销氪服务协议与隐私协议的更新"
+                   message:@"为了让您在安全、放心的环境下使用企业之家，建议仔细阅读企业之家服务协议与隐私协议的更新"
                clickResult:clickResult];
 }
 
@@ -133,7 +133,7 @@
 }
 
 + (NSString *)_AppPrivacyShowedKey {
-    return @"CRM_Privacy_Showed_Key_V1";
+    return @"EHome_Privacy_Showed_Key_V1";
 }
 
 - (BOOL)hasShowedAppPrivacy {
