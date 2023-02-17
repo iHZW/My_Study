@@ -135,7 +135,7 @@ target 'My_Study' do
   
   #全屏返回
   pod 'FDFullscreenPopGesture', '1.1'
-  
+  # 滚动视图返回
   pod 'TZScrollViewPopGesture', '1.0.6'
   
   #闪验
@@ -143,6 +143,10 @@ target 'My_Study' do
   
   #键盘
   pod 'IQKeyboardManager', '6.5.10'
+  # 个推
+  pod 'GTSDK', '2.7.1.0'
+  # TabBar
+  pod 'CYLTabBarController', '1.29.2'
 
 end
 
@@ -158,6 +162,17 @@ post_install do |installer|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
   end
 end
+
+
+
+target 'My_StudyNotificationService' do
+  platform :ios, "10.0"
+  
+  use_frameworks! :linkage =>:static
+  pod 'GTExtensionSDK', '3.0.1'
+  
+end
+
 
 
 

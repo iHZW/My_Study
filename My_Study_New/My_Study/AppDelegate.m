@@ -16,14 +16,14 @@
 #import "ModuleContainer.h"
 #import "TABAnimated.h"
 #import "WXApi.h"
-#import "ZWMainAppDelegateService.h"
+// #import "ZWMainAppDelegateService.h"
 #import "ZWNavigationController.h"
 #import "zhThemeOperator.h"
 #import <objc/runtime.h>
 
-#import <CL_ShanYanSDK/CL_ShanYanSDK.h>
 #import "OneKeyLogin.h"
 #import "ZWOneKey.h"
+#import <CL_ShanYanSDK/CL_ShanYanSDK.h>
 
 #ifdef DOKIT
 
@@ -40,15 +40,20 @@
 #import "JJException.h"
 #endif
 
-
 #import "MMShareManager.h"
 
-/** 闪验appId  */
-#define kCLShanYanAppId                 @"MMTFuKONCXID"
-//#define kCLShanYanAppId                 @"TFuKONCX"
+#import "MMPushManager.h"
+#import "MMPushUtil.h"
 
+#import "ZWPrivacyPolicyManager.h"
+
+/** 闪验appId  */
+#define kCLShanYanAppId @"MMTFuKONCXID"
+// #define kCLShanYanAppId                 @"TFuKONCX"
 
 @interface AppDelegate () <WXApiDelegate, JJExceptionHandle>
+
+@property (nonatomic, strong) ZWPrivacyPolicyManager *privacyPolicyManager; // 隐私协议首次安装弹窗管理器
 
 @end
 
@@ -63,7 +68,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSLog(@"----AppDelegate---initialize--onceToken--");
-        [CMBusMediaAppDelegate regisertService:[[ZWMainAppDelegateService alloc] init]];
+        [ZWPrivacyPolicyManager initializeAction];
+        //        [CMBusMediaAppDelegate regisertService:[[ZWMainAppDelegateService alloc] init]];
     });
     NSLog(@"----AppDelegate---initialize----");
 }
@@ -73,9 +79,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     /** 注册AppID  */
-//    [WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@""];
-    
-    NSString *link = [NSString stringWithFormat:@"https://%@/",@"m-qa.xiaoke.cn"];
+    //    [WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@""];
+
+    NSString *link = [NSString stringWithFormat:@"https://%@/", @"m-qa.xiaoke.cn"];
     [MMShareManager registerWechat:@"wx77dab3119a53889a" universalLink:link];
 
     /* 注册调试工具 */
@@ -90,7 +96,7 @@
     /** 加载闪验SDK  */
     [self loadShanYanSDK];
 
-    [CMBusMediaAppDelegate serviceManager:@selector(application:didFinishLaunchingWithOptions:) withParameters:@[application, launchOptions ?: [NSDictionary dictionary]]];
+    [ZWPrivacyPolicyManager application:application didFinishLaunchingWithOptions:launchOptions];
 
     /* 取消约束警告 */
     //    [[NSUserDefaults standardUserDefaults] setValue:@(false) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
@@ -108,6 +114,10 @@
 
     /** 统计启动耗时  */
     [AppLaunchTime mark];
+
+    /** 初始化个推SDK  */
+    [[MMPushManager sharedInstance] startGTSDKOptions:launchOptions];
+
     return YES;
 }
 
@@ -115,13 +125,11 @@
  * 加载闪验SDK
  */
 - (void)loadShanYanSDK {
-    //初始化
-//    [[OneKeyLogin sharedOneKeyLogin] config:kCLShanYanAppId];
-    
+    // 初始化
+    //    [[OneKeyLogin sharedOneKeyLogin] config:kCLShanYanAppId];
+
     [ZWOneKey staticInstance];
 }
-
-
 
 #pragma mark - 初始化骨架屏  TABAnimated
 
@@ -155,36 +163,6 @@
 }
 
 /**
- * 需要收集日志:  1: 遵守协议(JJExceptionHandle)  2: 实现协议方法,记录数据
- *
- * @param exceptionMessage 异常信息
- * @param info 额外信息
- */
-- (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary *)info {
-    NSLog(@"exceptionMessage:%@ \n info:%@", exceptionMessage, info);
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    [CMBusMediaAppDelegate serviceManager:@selector(applicationWillResignActive:) withParameters:@[application]];
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [CMBusMediaAppDelegate serviceManager:@selector(applicationDidEnterBackground:) withParameters:@[application]];
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [CMBusMediaAppDelegate serviceManager:@selector(applicationWillEnterForeground:) withParameters:@[application]];
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [CMBusMediaAppDelegate serviceManager:@selector(applicationDidBecomeActive:) withParameters:@[application]];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    [CMBusMediaAppDelegate serviceManager:@selector(applicationWillTerminate:) withParameters:@[application]];
-}
-
-/**
  * 打印一个类的所有方法
  */
 void printMethodNamesOfClass(Class cls) {
@@ -213,6 +191,83 @@ void printMethodNamesOfClass(Class cls) {
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
     /*  微信登录和分享    */
     return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [ZWPrivacyPolicyManager application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    [ZWPrivacyPolicyManager applicationWillResignActive:application];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [ZWPrivacyPolicyManager applicationDidEnterBackground:application];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [ZWPrivacyPolicyManager applicationWillEnterForeground:application];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [ZWPrivacyPolicyManager applicationDidBecomeActive:application];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [ZWPrivacyPolicyManager applicationWillTerminate:application];
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    [ZWPrivacyPolicyManager application:application performActionForShortcutItem:shortcutItem completionHandler:completionHandler];
+}
+
+#pragma mark-- Notifications
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [ZWPrivacyPolicyManager application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    [ZWPrivacyPolicyManager application:application didFailToRegisterForRemoteNotificationsWithError:error];
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [ZWPrivacyPolicyManager application:application didRegisterUserNotificationSettings:notificationSettings];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [ZWPrivacyPolicyManager application:application didReceiveRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [ZWPrivacyPolicyManager application:application didReceiveLocalNotification:notification];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+    [ZWPrivacyPolicyManager application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+
+#pragma mark - ----------------------iWatch回调--------------------
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(nullable NSDictionary *)userInfo reply:(nonnull void (^)(NSDictionary *_Nullable))reply {
+    [ZWPrivacyPolicyManager application:application handleWatchKitExtensionRequest:userInfo reply:reply];
+}
+
+#pragma mark - universal link
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *_Nullable))restorationHandler {
+    return [ZWPrivacyPolicyManager application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+
+#pragma mark - JJExceptionHandle
+- (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary *)info {
+    NSLog(@"exceptionMessage = %@\ninfo = %@", exceptionMessage, info);
 }
 
 @end

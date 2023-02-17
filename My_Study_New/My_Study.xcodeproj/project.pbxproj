@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215329C904B1CE318EEFC5B2 /* Pods_My_StudyNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E19B3FA299FAF7C00122CC1 /* Pods_My_StudyNotificationService.framework */; };
 		46499C2DE08804604DDF458D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
 		4E0287B228695304003E723E /* RouterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B128695304003E723E /* RouterParam.m */; };
 		4E0287B628695512003E723E /* RouterPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B528695512003E723E /* RouterPageItem.m */; };
@@ -48,6 +49,8 @@
 		4E0680FE28759DD900F6728A /* LocationTrimDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680FD28759DD800F6728A /* LocationTrimDataLoader.m */; };
 		4E0681002876867E00F6728A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0680FF2876867E00F6728A /* Foundation.framework */; };
 		4E149692299D2EA000D305EF /* ZWUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E149691299D2EA000D305EF /* ZWUserManager.m */; };
+		4E19B3F8299FA89300122CC1 /* MMPushUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E19B3F5299FA89300122CC1 /* MMPushUtil.m */; };
+		4E19B3F9299FA89300122CC1 /* MMPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E19B3F6299FA89300122CC1 /* MMPushManager.m */; };
 		4E23FE5D2876F9DA009B02D0 /* UIImage+None.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */; };
 		4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5F28781618009B02D0 /* TrimHeaderView.m */; };
 		4E2FC10E292757E70014C00E /* EHAddressCompHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */; };
@@ -126,6 +129,8 @@
 		4E68973928CC49E90003CF78 /* CardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68973828CC49E90003CF78 /* CardTableViewCell.m */; };
 		4E68973C28CC6F9A0003CF78 /* TestCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E68973B28CC6F9A0003CF78 /* TestCardTableViewCell.m */; };
 		4E6EEDE329694726009B5414 /* MMLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EEDE229694726009B5414 /* MMLoginModel.m */; };
+		4E734CC0299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E734CBF299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m */; };
+		4E734CC3299FC62B005EF1C9 /* ZWPushAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E734CC2299FC62B005EF1C9 /* ZWPushAppDelegateService.m */; };
 		4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B4285B85F700DEC9CC /* DateUtil.m */; };
 		4E7427BA285B864900DEC9CC /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B8285B864900DEC9CC /* Toast.m */; };
 		4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427BB285B869400DEC9CC /* UIColor+Ext.m */; };
@@ -356,6 +361,8 @@
 		4EEEB867285EBA0100FD49A9 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB862285EBA0100FD49A9 /* NSString+Verify.m */; };
 		4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB865285EBA0100FD49A9 /* NSString+URLEncode.m */; };
 		4EEEB869285EBA0100FD49A9 /* NSString+DataTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */; };
+		4EF9F912299FB125003D19A3 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF9F911299FB125003D19A3 /* NotificationService.m */; };
+		4EF9F916299FB125003D19A3 /* My_StudyNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4EF9F90E299FB121003D19A3 /* My_StudyNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4EFECF5A287D130F00B137BB /* ZWAlbumDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECF59287D130F00B137BB /* ZWAlbumDetailsViewController.m */; };
 		4EFECF5D287D14F800B137BB /* ZWToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECF5C287D14F800B137BB /* ZWToolBar.m */; };
 		4EFECF60287D16E100B137BB /* ZWPreTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECF5F287D16E100B137BB /* ZWPreTabView.m */; };
@@ -496,6 +503,30 @@
 		7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4EF9F914299FB125003D19A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C459A1C2295557300667813 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EF9F90D299FB121003D19A3;
+			remoteInfo = My_StudyNotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4E19B3F2299FA7F200122CC1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4EF9F916299FB125003D19A3 /* My_StudyNotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4E0287B028695304003E723E /* RouterParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterParam.h; sourceTree = "<group>"; };
 		4E0287B128695304003E723E /* RouterParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterParam.m; sourceTree = "<group>"; };
@@ -581,6 +612,11 @@
 		4E0680FF2876867E00F6728A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4E149690299D2EA000D305EF /* ZWUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWUserManager.h; sourceTree = "<group>"; };
 		4E149691299D2EA000D305EF /* ZWUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWUserManager.m; sourceTree = "<group>"; };
+		4E19B3F4299FA89300122CC1 /* MMPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPushManager.h; sourceTree = "<group>"; };
+		4E19B3F5299FA89300122CC1 /* MMPushUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPushUtil.m; sourceTree = "<group>"; };
+		4E19B3F6299FA89300122CC1 /* MMPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPushManager.m; sourceTree = "<group>"; };
+		4E19B3F7299FA89300122CC1 /* MMPushUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPushUtil.h; sourceTree = "<group>"; };
+		4E19B3FA299FAF7C00122CC1 /* Pods_My_StudyNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_My_StudyNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E207AE0299BDAB20086F640 /* My_Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = My_Study.entitlements; sourceTree = "<group>"; };
 		4E23FE5B2876F9DA009B02D0 /* UIImage+None.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+None.h"; sourceTree = "<group>"; };
 		4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+None.m"; sourceTree = "<group>"; };
@@ -738,6 +774,10 @@
 		4E68973B28CC6F9A0003CF78 /* TestCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCardTableViewCell.m; sourceTree = "<group>"; };
 		4E6EEDE129694726009B5414 /* MMLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMLoginModel.h; sourceTree = "<group>"; };
 		4E6EEDE229694726009B5414 /* MMLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMLoginModel.m; sourceTree = "<group>"; };
+		4E734CBE299FC35C005EF1C9 /* ZWPrivacyPolicyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWPrivacyPolicyManager.h; sourceTree = "<group>"; };
+		4E734CBF299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWPrivacyPolicyManager.m; sourceTree = "<group>"; };
+		4E734CC1299FC62B005EF1C9 /* ZWPushAppDelegateService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWPushAppDelegateService.h; sourceTree = "<group>"; };
+		4E734CC2299FC62B005EF1C9 /* ZWPushAppDelegateService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWPushAppDelegateService.m; sourceTree = "<group>"; };
 		4E7427B4285B85F700DEC9CC /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		4E7427B5285B85F700DEC9CC /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
 		4E7427B8285B864900DEC9CC /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
@@ -1159,6 +1199,11 @@
 		4EEEB864285EBA0100FD49A9 /* NSString+Verify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Verify.h"; sourceTree = "<group>"; };
 		4EEEB865285EBA0100FD49A9 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		4EEEB866285EBA0100FD49A9 /* NSString+DataTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DataTransition.m"; sourceTree = "<group>"; };
+		4EF9F90E299FB121003D19A3 /* My_StudyNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = My_StudyNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EF9F910299FB125003D19A3 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		4EF9F911299FB125003D19A3 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		4EF9F913299FB125003D19A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EF9F91C299FB174003D19A3 /* My_StudyNotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = My_StudyNotificationService.entitlements; sourceTree = "<group>"; };
 		4EFECF58287D130F00B137BB /* ZWAlbumDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlbumDetailsViewController.h; sourceTree = "<group>"; };
 		4EFECF59287D130F00B137BB /* ZWAlbumDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAlbumDetailsViewController.m; sourceTree = "<group>"; };
 		4EFECF5B287D14F800B137BB /* ZWToolBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWToolBar.h; sourceTree = "<group>"; };
@@ -1526,12 +1571,25 @@
 		7CFB1F7322EEC9C4000AE2C9 /* WFUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WFUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFB1F7522EECD4B000AE2C9 /* ZWSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWSDK.h; sourceTree = "<group>"; };
 		7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8491116BF43F55B8098363F7 /* Pods_My_StudyNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_StudyNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41D77928AAACFC7B7D57690 /* Pods-My_StudyNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa.xcconfig"; sourceTree = "<group>"; };
+		CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.release.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa.xcconfig"; sourceTree = "<group>"; };
+		E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4EF9F90B299FB121003D19A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				215329C904B1CE318EEFC5B2 /* Pods_My_StudyNotificationService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C459A212295557300667813 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1573,6 +1631,10 @@
 				C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */,
 				C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */,
 				6673E1F39FAA1E5AC4AD2DD9 /* Pods-My_Study.qa_dev.xcconfig */,
+				A41D77928AAACFC7B7D57690 /* Pods-My_StudyNotificationService.debug.xcconfig */,
+				DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */,
+				E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */,
+				CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1776,6 +1838,17 @@
 				4E0680FA287598EF00F6728A /* LocationAuthority.m */,
 			);
 			path = MapHelp;
+			sourceTree = "<group>";
+		};
+		4E19B3F3299FA89300122CC1 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				4E19B3F4299FA89300122CC1 /* MMPushManager.h */,
+				4E19B3F6299FA89300122CC1 /* MMPushManager.m */,
+				4E19B3F7299FA89300122CC1 /* MMPushUtil.h */,
+				4E19B3F5299FA89300122CC1 /* MMPushUtil.m */,
+			);
+			path = Push;
 			sourceTree = "<group>";
 		};
 		4E23FE5A2876F9D2009B02D0 /* UIImage+None */ = {
@@ -2632,6 +2705,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E19B3F3299FA89300122CC1 /* Push */,
 				4E79BCB32992624F00C522BF /* ShareSDK */,
 				4E89AFC4295C3D5500E7A40C /* ShortVideo */,
 				4E668176292734E600C635BF /* CitySelector */,
@@ -3133,6 +3207,8 @@
 			children = (
 				4EDC096B2862C47A001C53CE /* ZWMainAppDelegateService.h */,
 				4EDC096C2862C47A001C53CE /* ZWMainAppDelegateService.m */,
+				4E734CC1299FC62B005EF1C9 /* ZWPushAppDelegateService.h */,
+				4E734CC2299FC62B005EF1C9 /* ZWPushAppDelegateService.m */,
 			);
 			name = AppDelegateManager;
 			path = Manager/AppDelegateManager;
@@ -3142,6 +3218,8 @@
 			isa = PBXGroup;
 			children = (
 				4EDC09702862E8EA001C53CE /* CMBusMediaAppDelegate */,
+				4E734CBE299FC35C005EF1C9 /* ZWPrivacyPolicyManager.h */,
+				4E734CBF299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m */,
 			);
 			path = CMBusMedia;
 			sourceTree = "<group>";
@@ -3253,6 +3331,17 @@
 				4EB2B014286EC9610029A498 /* NSObject+ZWDeallocExecutor.m */,
 			);
 			path = NSObject;
+			sourceTree = "<group>";
+		};
+		4EF9F90F299FB125003D19A3 /* My_StudyNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				4EF9F91C299FB174003D19A3 /* My_StudyNotificationService.entitlements */,
+				4EF9F910299FB125003D19A3 /* NotificationService.h */,
+				4EF9F911299FB125003D19A3 /* NotificationService.m */,
+				4EF9F913299FB125003D19A3 /* Info.plist */,
+			);
+			path = My_StudyNotificationService;
 			sourceTree = "<group>";
 		};
 		4EFECF64287D19C100B137BB /* cell */ = {
@@ -3483,6 +3572,7 @@
 			children = (
 				4EBCFB622986486F009105BD /* DXSDK */,
 				7C459A262295557300667813 /* My_Study */,
+				4EF9F90F299FB125003D19A3 /* My_StudyNotificationService */,
 				7C459A252295557300667813 /* Products */,
 				26ADD455649E43FEE84D55E4 /* Pods */,
 				A9CF1F70F4E4726AE968C272 /* Frameworks */,
@@ -3493,6 +3583,7 @@
 			isa = PBXGroup;
 			children = (
 				7C459A242295557300667813 /* My_Study.app */,
+				4EF9F90E299FB121003D19A3 /* My_StudyNotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4450,6 +4541,7 @@
 		A9CF1F70F4E4726AE968C272 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E19B3FA299FAF7C00122CC1 /* Pods_My_StudyNotificationService.framework */,
 				4EBCFB7329864984009105BD /* SystemConfiguration.framework */,
 				4EBCFB712986496F009105BD /* libz.tbd */,
 				4EBCFB6F2986495E009105BD /* libresolv.9.tbd */,
@@ -4473,6 +4565,7 @@
 				7C8AAEAB22E98ACB00589862 /* CoreImage.framework */,
 				7C47B68F22E94F2800A1B1B7 /* AFNetworking.framework */,
 				648B8FF34789301862B11DE8 /* Pods_My_Study.framework */,
+				8491116BF43F55B8098363F7 /* Pods_My_StudyNotificationService.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4480,6 +4573,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4EF9F90D299FB121003D19A3 /* My_StudyNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EF9F917299FB12A003D19A3 /* Build configuration list for PBXNativeTarget "My_StudyNotificationService" */;
+			buildPhases = (
+				58537B8A779F29826F520682 /* [CP] Check Pods Manifest.lock */,
+				4EF9F90A299FB121003D19A3 /* Sources */,
+				4EF9F90B299FB121003D19A3 /* Frameworks */,
+				4EF9F90C299FB121003D19A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = My_StudyNotificationService;
+			productName = My_StudyNotificationService;
+			productReference = 4EF9F90E299FB121003D19A3 /* My_StudyNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		7C459A232295557300667813 /* My_Study */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C459A502295557500667813 /* Build configuration list for PBXNativeTarget "My_Study" */;
@@ -4491,10 +4602,12 @@
 				7C650CC9243B848000726BA4 /* ShellScript */,
 				DA224EF94BCAA487DA3D52DF /* [CP] Embed Pods Frameworks */,
 				CFC29A3F31482B2BD2C32EAF /* [CP] Copy Pods Resources */,
+				4E19B3F2299FA7F200122CC1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4EF9F915299FB125003D19A3 /* PBXTargetDependency */,
 			);
 			name = My_Study;
 			productName = My_Study;
@@ -4510,6 +4623,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = HZW;
 				TargetAttributes = {
+					4EF9F90D299FB121003D19A3 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					7C459A232295557300667813 = {
 						CreatedOnToolsVersion = 10.2;
 						LastSwiftMigration = 1310;
@@ -4530,11 +4646,19 @@
 			projectRoot = "";
 			targets = (
 				7C459A232295557300667813 /* My_Study */,
+				4EF9F90D299FB121003D19A3 /* My_StudyNotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4EF9F90C299FB121003D19A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C459A222295557300667813 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4601,6 +4725,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		58537B8A779F29826F520682 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-My_StudyNotificationService-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		66F3A9EDA4AEE8010DE66B3F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4677,6 +4823,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4EF9F90A299FB121003D19A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EF9F912299FB125003D19A3 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C459A202295557300667813 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4699,6 +4853,7 @@
 				4EE758E528DE93F400CECA64 /* HomeRefreshView.m in Sources */,
 				4ED5958F2870878C002D15F1 /* ShowAlertViewController.m in Sources */,
 				4E90577928DDDCE100265E7B /* ZWHomeModel.m in Sources */,
+				4E734CC3299FC62B005EF1C9 /* ZWPushAppDelegateService.m in Sources */,
 				4E90577628DDD7F900265E7B /* HomeDataLoader.m in Sources */,
 				4EA9870C287C590F0095ECF9 /* ZWButton.m in Sources */,
 				4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */,
@@ -4742,6 +4897,7 @@
 				4EA986F7287C39A70095ECF9 /* ProgressCustomView.m in Sources */,
 				7C6A215426E31CE600E0CF20 /* RunLoopPermanentViewController.m in Sources */,
 				4EA98716287C5EA90095ECF9 /* ZWImageView.m in Sources */,
+				4E19B3F9299FA89300122CC1 /* MMPushManager.m in Sources */,
 				4E89AFD9295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
 				7C4EF05A2304034B0040DA7A /* CMBaseButton.m in Sources */,
@@ -4933,6 +5089,7 @@
 				4EDC0B66286308D6001C53CE /* NSMutableDictionary+Safe.m in Sources */,
 				4E6681C52927574400C635BF /* SPArea.m in Sources */,
 				4E0680C728740F3900F6728A /* EnvConfigObject.m in Sources */,
+				4E734CC0299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m in Sources */,
 				7C4F93DB2302B39300F2238E /* PASBaseTableView.m in Sources */,
 				4E47502F28D8B8E600A5ED12 /* TestBlock.m in Sources */,
 				4EC6B3842861B12A00F57AAC /* MDLogSearchView.m in Sources */,
@@ -5012,6 +5169,7 @@
 				4E89AFD8295C3D5500E7A40C /* PASShortVideoPlayerView.m in Sources */,
 				7C459A372295557400667813 /* main.m in Sources */,
 				4EFECFF7287DC47400B137BB /* NSData+MD5.m in Sources */,
+				4E19B3F8299FA89300122CC1 /* MMPushUtil.m in Sources */,
 				4EA98701287C3D8F0095ECF9 /* ZWCameraPreViewController.m in Sources */,
 				4E028800286AB0CB003E723E /* CWInteractiveTransition.m in Sources */,
 				4E89AFD3295C3D5500E7A40C /* PASShortVideoAgreeResponse.m in Sources */,
@@ -5092,6 +5250,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4EF9F915299FB125003D19A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4EF9F90D299FB121003D19A3 /* My_StudyNotificationService */;
+			targetProxy = 4EF9F914299FB125003D19A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7C459A2D2295557300667813 /* Main.storyboard */ = {
@@ -5218,7 +5384,7 @@
 				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5370,7 +5536,7 @@
 				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5415,6 +5581,126 @@
 				ZW_STATISTICS_URL = "埋点url";
 			};
 			name = QA_Dev;
+		};
+		4EF9F918299FB12A003D19A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A41D77928AAACFC7B7D57690 /* Pods-My_StudyNotificationService.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = My_StudyNotificationService/My_StudyNotificationService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 82MDUB8B2X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "My-Study.My-StudyNotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4EF9F919299FB12A003D19A3 /* QA */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = My_StudyNotificationService/My_StudyNotificationService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 82MDUB8B2X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zw.My-Study-QA.NotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = QA;
+		};
+		4EF9F91A299FB12A003D19A3 /* QA_Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = My_StudyNotificationService/My_StudyNotificationService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "My-Study.My-StudyNotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = QA_Dev;
+		};
+		4EF9F91B299FB12A003D19A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = My_StudyNotificationService/My_StudyNotificationService.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "My-Study.My-StudyNotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
 		};
 		7C459A4E2295557500667813 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -5574,7 +5860,7 @@
 				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5660,7 +5946,7 @@
 				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5708,6 +5994,17 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4EF9F917299FB12A003D19A3 /* Build configuration list for PBXNativeTarget "My_StudyNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EF9F918299FB12A003D19A3 /* Debug */,
+				4EF9F919299FB12A003D19A3 /* QA */,
+				4EF9F91A299FB12A003D19A3 /* QA_Dev */,
+				4EF9F91B299FB12A003D19A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7C459A1F2295557300667813 /* Build configuration list for PBXProject "My_Study" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

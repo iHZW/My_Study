@@ -27,6 +27,9 @@ PODS:
   - CocoaLumberjack (3.7.4):
     - CocoaLumberjack/Core (= 3.7.4)
   - CocoaLumberjack/Core (3.7.4)
+  - CYLTabBarController (1.29.2):
+    - CYLTabBarController/Core (= 1.29.2)
+  - CYLTabBarController/Core (1.29.2)
   - DoraemonKit/Core (3.1.3):
     - FMDB
     - GCDWebServer
@@ -43,6 +46,9 @@ PODS:
     - GCDWebServer/Core
   - GCDWebServer/WebUploader (3.5.4):
     - GCDWebServer/Core
+  - GTExtensionSDK (3.0.1)
+  - GTSDK (2.7.1.0):
+    - ZXSDK
   - HHTransition (3.1.0)
   - HookLib (0.1.2):
     - HookLib/Aspects (= 0.1.2)
@@ -452,6 +458,7 @@ PODS:
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
   - YYModel (1.0.4)
+  - ZXSDK (3.2.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 4.0.1)
@@ -461,10 +468,13 @@ DEPENDENCIES:
   - AMapSearch-NO-IDFA
   - CL_ShanYanSDK (= 2.3.5.8)
   - CocoaAsyncSocket
+  - CYLTabBarController (= 1.29.2)
   - DoraemonKit/Core (= 3.1.3)
   - FDFullscreenPopGesture (= 1.1)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
+  - GTExtensionSDK (= 3.0.1)
+  - GTSDK (= 2.7.1.0)
   - HHTransition (= 3.1.0)
   - HookLib (from `./LocalPodsLib/BasicLib/HookLib/`)
   - IQKeyboardManager (= 6.5.10)
@@ -504,10 +514,13 @@ SPEC REPOS:
     - CL_ShanYanSDK
     - CocoaAsyncSocket
     - CocoaLumberjack
+    - CYLTabBarController
     - DoraemonKit
     - FDFullscreenPopGesture
     - FMDB
     - GCDWebServer
+    - GTExtensionSDK
+    - GTSDK
     - HHTransition
     - IQKeyboardManager
     - JJException
@@ -535,6 +548,7 @@ SPEC REPOS:
     - YTKNetwork
     - YYKit
     - YYModel
+    - ZXSDK
 
 EXTERNAL SOURCES:
   HookLib:
@@ -557,10 +571,13 @@ SPEC CHECKSUMS:
   CL_ShanYanSDK: 25b9220aa2b0df960a006d06e3a4ba725fa6c2f1
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
+  CYLTabBarController: db44b5901a28693a8a4279e4721b3aafdd36c178
   DoraemonKit: 7448814a80d9ca56bc8db9105c464b7ec2e62623
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
+  GTExtensionSDK: ddf0dd4e985ace31c2e86b13a3d47c4b4705f23e
+  GTSDK: 6499e3a1717bf07acf89cc9cef8625ae46c81b1b
   HHTransition: 7a3e1348fd111641138626c5529455e492d7e19f
   HookLib: 71a18907904c2abd5aba1b9417e7292957ddec58
   IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
@@ -590,7 +607,8 @@ SPEC CHECKSUMS:
   YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  ZXSDK: abe4ef2002d42d51cdfab14256b8492bbeed2190
 
-PODFILE CHECKSUM: b5db167994f8f7fad9fd3ee9f9b79de88ca4e891
+PODFILE CHECKSUM: dd68519b6b5ccb42b9946ad961d5703487340168
 
 COCOAPODS: 1.11.3

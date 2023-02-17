@@ -144,6 +144,10 @@
 - (void)showCommonAlertViewMut {
     [UIAlertUtil showAlertTitle:@"温馨提示" message:@"描述信息" cancelButtonTitle:@"取消" otherButtonTitles:@[@"选项一", @"选项二", @"选项三"] alertControllerStyle:UIAlertControllerStyleAlert actionBlock:^(NSInteger index) {
         NSLog(@"%@", @(index));
+        
+        if (index == 1) {
+            exit(0);
+        }
     } superVC:self];
 }
 

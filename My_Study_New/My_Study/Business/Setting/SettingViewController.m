@@ -136,7 +136,8 @@
                          [ActionModel initWithTitle:@"关于" actionName:@"aboutDetailInfo"]];
 
     NSArray *sec5Arr = @[[ActionModel initWithTitle:@"用户隐私协议" actionName:@"go2PrivicyAgreement"],
-                         [ActionModel initWithTitle:@"交易风险提示" actionName:@"go2TradeRiskTip"]];
+                         [ActionModel initWithTitle:@"交易风险提示" actionName:@"go2TradeRiskTip"],
+                         [ActionModel initWithTitle:@"推送测试" actionName:@"push_test"]];
 
     return @[sec1Arr, sec2Arr, sec3Arr, sec4Arr, sec5Arr];
 }
@@ -514,6 +515,46 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
     [ZWM.router executeURLNoCallBack:ZWRouterPageBallViewController];
 }
 
+
+/**
+ * 测试推送
+ */
+- (void)push_test {
+    [self pushLocalNotification:@"测试本地推送使用"];
+}
+
+- (void)pushLocalNotification:(NSString *)title {
+    // 创建本地通知时，清理之前所有的本地通知，注意：根据App具体的功能自行修改
+    // 清理所有本地通知，程序启动时清理，注意：根据App具体功能需求自行修改，如果App内有其他本地通知，更加需要注意是否要清理所有通知
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+
+    NSString *gmid                   = nil;
+    UILocalNotification *localNotify = [[UILocalNotification alloc] init];
+    NSDate *pushDate                 = [NSDate dateWithTimeIntervalSinceNow:1];
+
+    localNotify.fireDate                   = pushDate;
+    localNotify.timeZone                   = [NSTimeZone defaultTimeZone];
+    localNotify.repeatInterval             = kCFCalendarUnitDay;
+    localNotify.soundName                  = UILocalNotificationDefaultSoundName;
+    localNotify.alertBody                  = [NSString stringWithFormat:@"Payload : %@\ntime : %@", title, [self formateTime:[NSDate date]]];
+    localNotify.alertAction                = NSLocalizedString(@"View Details", nil);
+    NSArray *notifyArray                   = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    int count                              = (int)[notifyArray count];
+    localNotify.applicationIconBadgeNumber = count + 1;
+    // 备注：点击统计需要
+    if (gmid != nil) {
+        NSDictionary *userInfoDict = @{@"_gmid_": gmid};
+        localNotify.userInfo       = userInfoDict;
+    }
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotify];
+}
+
+- (NSString *)formateTime:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateTime = [formatter stringFromDate:date];
+    return dateTime;
+}
 
 
 #pragma mark-- JFCSTableViewControllerDelegate
