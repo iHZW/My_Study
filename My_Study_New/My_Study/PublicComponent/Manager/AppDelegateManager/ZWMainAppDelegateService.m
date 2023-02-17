@@ -79,7 +79,7 @@
     dispatch_block_t block = ^{
         LaunchViewController *launchVc                                         = [[LaunchViewController alloc] init];
         [[UIApplication sharedApplication].delegate window].rootViewController = launchVc;
-        [launchVc remakePage];
+        [launchVc loadPrivacy];
     };
 
     if (ZWCurrentUserInfo &&

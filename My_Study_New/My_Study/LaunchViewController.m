@@ -11,6 +11,8 @@
 #import "VersionUpgradeViewController.h"
 #import "ZWTabBarController.h"
 #import "ZWUserAccountManager.h"
+#import "MMPrivacyManager.h"
+#import <CYLTabBarController/CYLTabBarController.h>
 
 
 @interface LaunchViewController ()
@@ -22,9 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-
-    
+    self.view.backgroundColor = UIColor.whiteColor;
     
 }
 
@@ -56,6 +56,24 @@
         [self loadComponent];
     }
 }
+
+
+- (void)loadPrivacy {
+    
+    if (![MMPrivacyManager.sharedInstance hasShowedAppPrivacy]) {
+        [MMPrivacyManager.sharedInstance showPrivacyAlert:self.view clickResult:^(NSInteger index) {
+            if (index == 1) {
+                //点击同意
+                //回到首页
+                [self remakePage];
+            }
+        }];
+    } else {
+        [self remakePage];
+    }
+}
+
+
 
 /**
  *  加载登录页

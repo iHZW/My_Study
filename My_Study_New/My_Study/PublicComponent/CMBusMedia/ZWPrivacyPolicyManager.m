@@ -28,7 +28,7 @@
 + (BOOL)checkShowPrivacyPolicy {
     //    BOOL val = ![[PASCommonUtil getStringWithKey:kAgreePrivacyPolicy] boolValue];
     //    return val;
-    return YES;
+    return NO;
 }
 
 + (void)initializeAction {

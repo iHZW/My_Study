@@ -131,6 +131,8 @@
 		4E6EEDE329694726009B5414 /* MMLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EEDE229694726009B5414 /* MMLoginModel.m */; };
 		4E734CC0299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E734CBF299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m */; };
 		4E734CC3299FC62B005EF1C9 /* ZWPushAppDelegateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E734CC2299FC62B005EF1C9 /* ZWPushAppDelegateService.m */; };
+		4E734CC7299FCE48005EF1C9 /* MMPrivacyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E734CC6299FCE48005EF1C9 /* MMPrivacyManager.m */; };
+		4E734CCA299FD004005EF1C9 /* MMPrivacyLinksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E734CC9299FD004005EF1C9 /* MMPrivacyLinksView.m */; };
 		4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B4285B85F700DEC9CC /* DateUtil.m */; };
 		4E7427BA285B864900DEC9CC /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B8285B864900DEC9CC /* Toast.m */; };
 		4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427BB285B869400DEC9CC /* UIColor+Ext.m */; };
@@ -778,6 +780,10 @@
 		4E734CBF299FC35C005EF1C9 /* ZWPrivacyPolicyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWPrivacyPolicyManager.m; sourceTree = "<group>"; };
 		4E734CC1299FC62B005EF1C9 /* ZWPushAppDelegateService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWPushAppDelegateService.h; sourceTree = "<group>"; };
 		4E734CC2299FC62B005EF1C9 /* ZWPushAppDelegateService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWPushAppDelegateService.m; sourceTree = "<group>"; };
+		4E734CC5299FCE48005EF1C9 /* MMPrivacyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMPrivacyManager.h; sourceTree = "<group>"; };
+		4E734CC6299FCE48005EF1C9 /* MMPrivacyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMPrivacyManager.m; sourceTree = "<group>"; };
+		4E734CC8299FD004005EF1C9 /* MMPrivacyLinksView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMPrivacyLinksView.h; sourceTree = "<group>"; };
+		4E734CC9299FD004005EF1C9 /* MMPrivacyLinksView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMPrivacyLinksView.m; sourceTree = "<group>"; };
 		4E7427B4285B85F700DEC9CC /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		4E7427B5285B85F700DEC9CC /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
 		4E7427B8285B864900DEC9CC /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
@@ -2216,6 +2222,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4E734CC4299FCE12005EF1C9 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				4E734CC5299FCE48005EF1C9 /* MMPrivacyManager.h */,
+				4E734CC6299FCE48005EF1C9 /* MMPrivacyManager.m */,
+				4E734CC8299FD004005EF1C9 /* MMPrivacyLinksView.h */,
+				4E734CC9299FD004005EF1C9 /* MMPrivacyLinksView.m */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
 		4E7427B2285B85F700DEC9CC /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -2705,6 +2722,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E734CC4299FCE12005EF1C9 /* Privacy */,
 				4E19B3F3299FA89300122CC1 /* Push */,
 				4E79BCB32992624F00C522BF /* ShareSDK */,
 				4E89AFC4295C3D5500E7A40C /* ShortVideo */,
@@ -4999,6 +5017,7 @@
 				4E5F2D152876C9D000FEC6C2 /* ZWNative.m in Sources */,
 				4EC6B3962861B12A00F57AAC /* ZWDataCache.m in Sources */,
 				4EDC0B69286308D6001C53CE /* NSNull+Safe.m in Sources */,
+				4E734CC7299FCE48005EF1C9 /* MMPrivacyManager.m in Sources */,
 				4E5F2D032876BBD000FEC6C2 /* PermissionCamera.m in Sources */,
 				4E0287C0286988A3003E723E /* PersonalViewController.m in Sources */,
 				7C879B1026E64DF10051018B /* TestPresenter.m in Sources */,
@@ -5115,6 +5134,7 @@
 				4EC6B3982861B12A00F57AAC /* DataFormatterFunc+Market.m in Sources */,
 				7C8AAE8E22E987BE00589862 /* UIImage+Resize.m in Sources */,
 				4ED540C8287C6D910070FB8E /* PhotoActionSheetUtil.m in Sources */,
+				4E734CCA299FD004005EF1C9 /* MMPrivacyLinksView.m in Sources */,
 				7C8AAE8F22E987BE00589862 /* UIImage+ResourcePath.m in Sources */,
 				4EDC0B6B286308D6001C53CE /* NSMutableOrderedSet+Safe.m in Sources */,
 				7C8AAE6C22E986C800589862 /* PASTextField.m in Sources */,
