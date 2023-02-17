@@ -23,6 +23,7 @@
 
 #import <CL_ShanYanSDK/CL_ShanYanSDK.h>
 #import "OneKeyLogin.h"
+#import "ZWOneKey.h"
 
 #ifdef DOKIT
 
@@ -39,6 +40,8 @@
 #import "JJException.h"
 #endif
 
+
+#import "MMShareManager.h"
 
 /** 闪验appId  */
 #define kCLShanYanAppId                 @"MMTFuKONCXID"
@@ -70,7 +73,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     /** 注册AppID  */
-    [WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@""];
+//    [WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@""];
+    
+    NSString *link = [NSString stringWithFormat:@"https://%@/",@"m-qa.xiaoke.cn"];
+    [MMShareManager registerWechat:@"wx77dab3119a53889a" universalLink:link];
 
     /* 注册调试工具 */
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -110,7 +116,9 @@
  */
 - (void)loadShanYanSDK {
     //初始化
-    [[OneKeyLogin sharedOneKeyLogin] config:kCLShanYanAppId];
+//    [[OneKeyLogin sharedOneKeyLogin] config:kCLShanYanAppId];
+    
+    [ZWOneKey staticInstance];
 }
 
 

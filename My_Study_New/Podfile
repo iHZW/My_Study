@@ -113,7 +113,7 @@ target 'My_Study' do
   pod 'HookLib', :path => './LocalPodsLib/BasicLib/HookLib/'
 
   # 微信SDK
-  pod 'WechatOpenSDK'
+  pod 'WechatOpenSDK', '1.9.7'
   
   #腾讯QMUI框架
   pod 'QMUIKit'

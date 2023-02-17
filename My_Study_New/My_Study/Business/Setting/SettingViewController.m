@@ -34,6 +34,11 @@
 #import "ZWUserManager.h"
 
 
+#import "ZWOneKeyTextVC.h"
+#import "MMShareManager.h"
+#import "MMShareView.h"
+
+
 #define kSectionViewHeight              20
 #define ZWNSLog(...)  printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
 
@@ -42,6 +47,8 @@
 
 /** other城市选择器  */
 @property (nonatomic, strong) EHAddressCompHelper *addressHelper;
+
+@property(nonatomic, strong) NSMutableArray *shareArray;
 
 @end
 
@@ -168,6 +175,7 @@
  *  个人信息
  */
 - (void)accountInfoSetting {
+
     ZWUserManager *user     = [ZWUserManager sharedInstance];
     user.name = @"user";
     ZWUserManager *manager  = [[ZWUserManager alloc] init];
@@ -177,7 +185,74 @@
     ZWUserManager *manager2 = [ZWUserManager copy];
     manager2.nichName = @"manager2";
     NSLog(@"\nuser = %p\nmanager = %p\nmanager1 = %p\nmanager2 = %p", user, manager, manager1, manager2);
+    
+    [self __testShareView];
 }
+
+
+- (NSMutableArray *)shareArray{
+    if (!_shareArray) {
+        _shareArray = [NSMutableArray array];
+        [_shareArray addObject:MMPlatformNameSms];
+        [_shareArray addObject:MMPlatformNameEmail];
+        [_shareArray addObject:MMPlatformNameSina];
+        [_shareArray addObject:MMPlatformNameWechat];
+        [_shareArray addObject:MMPlatformNameQQ];
+        [_shareArray addObject:MMPlatformNameAlipay];
+    }
+    return _shareArray;
+}
+
+- (void)__testShareView {
+    MMShareView *shareView = [[MMShareView alloc] initWithItems:self.shareArray itemSize:CGSizeMake(80,100) DisplayLine:NO];
+    shareView = [self addShareContent:shareView];
+    shareView.itemSpace = 10;
+    @weakify(self)
+    shareView.action = ^(MMShareItem * _Nonnull item) {
+        @strongify(self)
+//        [self ];
+    };
+    [shareView showFromControlle:self];
+}
+
+//添加分享的内容
+- (MMShareView *)addShareContent:(MMShareView *)shareView{
+    [shareView addText:@"分享测试"];
+    [shareView addURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    [shareView addImage:[UIImage imageNamed:@"share_alipay"]];
+    
+    return shareView;
+}
+
+
+- (void)shareSDK {
+    ShareParam *shareParam = [ShareParam new];
+    shareParam.desc = @"测试说明";
+
+    ShareObject *model = [[ShareObject alloc] init];
+    model.name = @"Wechat";
+    model.shareParam = shareParam;
+    [MMShareManager shareObject:model complete:^(BOOL y, NSError * _Nullable error) {
+//        [Toast show:error.localizedDescription];
+    }];
+    
+//    [ShareClient openMiniApp:<#(nonnull ShareObject *)#> complete:<#^(BOOL, NSError * _Nullable)completeBlock#>]
+//
+//    [ShareClient wxLogin:^(NSString * ret, NSError * error) {
+//        @strongify(self)
+//        if (!error){
+//            //[self showProgress];
+//            [self.loginViewModel wxLogin:ret];
+//        } else {
+//            [self startOneKeyAuth];
+//        }
+//    }];
+    
+}
+
+
+
+
 
 /**
  *  账户与安全

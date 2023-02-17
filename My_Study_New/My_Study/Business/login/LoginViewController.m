@@ -14,13 +14,25 @@
 #import "OneKeyLogin.h"
 #import "UIView+Util.h"
 
+#import <DingxiangCaptchaSDKStatic/DXCaptchaView.h>
+#import <DingxiangCaptchaSDKStatic/DXCaptchaDelegate.h>
+#import <DXRiskStatic/DXRiskManager.h>
+#import "GCDCommon.h"
 
 #define kItemHeight 60
 
 #define kAccountString @"100"
 #define kPasswordString @"100"
 
-@interface LoginViewController () <UITextFieldDelegate,OneKeyLoginBgViewDelegate,OneKeyLoginDelegate>
+
+typedef void (^CompleteBlock)(id result);
+
+
+@interface LoginViewController ()<
+UITextFieldDelegate,
+OneKeyLoginBgViewDelegate,
+OneKeyLoginDelegate,
+DXCaptchaDelegate>
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
@@ -41,6 +53,8 @@
 @property (nonatomic, strong) OneKeyLoginBgView* oneKeyLoginBgView;
 /** 授权页面的截图， 为了跳转到下一个页面，不看到下面关闭授权效果  */
 @property (nonatomic, strong) UIImageView *fakeAuthImageView;
+
+@property (nonatomic, copy) CompleteBlock completeBlock;
 
 @end
 
@@ -144,8 +158,13 @@
     } else if (passwordStr.length == 0) {
         showMsg = @"请输入密码!";
     } else if ([accountStr isEqualToString:kAccountString] && [passwordStr isEqualToString:kPasswordString]) {
-        /** 账号&密码正确  */
-        [self loginCheckSuccess];
+        @weakify(self)
+        [self handleDX:^(id result) {
+            @strongify(self)
+            /** 账号&密码正确  */
+            [self loginCheckSuccess];
+        }];
+
     } else {
         showMsg = @"账号或密码输入有误!!!";
     }
@@ -154,6 +173,54 @@
         [Toast show:showMsg];
     }
 }
+
+- (void)handleDX:(CompleteBlock)complete {
+    self.completeBlock = complete;
+    NSMutableDictionary *config = [NSMutableDictionary dictionary];
+     // 以下是私有化配置参数
+    [config setObject:@"dxdxdxtest2017keyc3e83b6940835" forKey:@"appId"];
+//    [config setObject:DEFAULT_APISERVER forKey:@"apiServer"];
+//    [config setObject:DEFAULT_UAJS forKey:@"ua_js"];
+//    [config setObject:DEFAULT_CAPTCHA_JS forKey:@"captchaJS"];
+//    [config setObject:DEFAULT_ConID_JS forKey:@"constID_js"];
+//    [config setObject:DEFAULT_ConIDServer forKey:@"constIDServer"];
+//    [config setObject:@YES forKey:@"isSaaS"];
+//    [config setObject:@YES forKey:@"inSDK"];
+//    [config setObject:DEFAULT_SERVER_LESS_BG forKey:@"serverlessBgSrc"];
+    
+
+    CGRect frame = CGRectMake(self.view.center.x - 150, self.view.center.y - 100, 300, 200);
+    DXCaptchaView *captchaView = [[DXCaptchaView alloc] initWithConfig:config delegate:self frame:frame];
+    captchaView.tag = 1234;
+    [[UIApplication sharedApplication].keyWindow addSubview:captchaView];
+}
+
+
+
+#pragma mark - DXCaptchaDelegate
+- (void)captchaView:(DXCaptchaView *)view
+    didReceiveEvent:(DXCaptchaEventType)eventType
+                arg:(NSDictionary *)dict {
+    switch (eventType) {
+        case DXCaptchaEventSuccess: {
+            NSString *token = dict[@"token"];
+           
+            performBlockOnMainQueue(NO, ^{
+                [[[UIApplication sharedApplication].keyWindow viewWithTag:1234] removeFromSuperview];
+            });
+            
+            BlockSafeRun(self.completeBlock, token);
+            
+            break;
+        }
+        case DXCaptchaEventFail:
+            break;
+        default:
+            break;
+    }
+}
+
+
 
 /**
  *   登录校验成功
