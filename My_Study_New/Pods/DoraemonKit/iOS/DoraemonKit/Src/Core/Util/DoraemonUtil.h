@@ -1,6 +1,6 @@
 //
 //  DoraemonUtil.h
-//  DoraemonKit
+//  DoraemonKitDemo
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
@@ -54,8 +54,6 @@
 + (void)openAppSetting;
 
 + (UIWindow *)getKeyWindow;
-
-+ (NSArray *)getWebViews;
 
 + (void)openPlugin:(UIViewController *)vc __attribute__((deprecated("此方法已弃用,请使用[DoraemonHomeWindow openPlugin:vc];")));
 

@@ -69,6 +69,17 @@
     }
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    // 用户在前台
+    if (application.applicationState == UIApplicationStateInactive) {
+        NSDictionary *dic = notification.userInfo;
+//        [[EHPushManager sharedInstance] handleRemoteNotification:payloadDic isApns:YES];
+//        [self remoteNotificationWith:[dic objectForKey:@"payload"]];
+    } else {
+        
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     AppDelegate *curAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     int64_t compentStartTime    = GetMilTimeStamp();

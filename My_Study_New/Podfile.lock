@@ -22,6 +22,19 @@ PODS:
     - AMapFoundation-NO-IDFA (>= 1.7.0)
   - AMapSearch-NO-IDFA (9.4.0):
     - AMapFoundation-NO-IDFA (>= 1.7.0)
+  - BRPickerView (2.8.0):
+    - BRPickerView/AddressPickerView (= 2.8.0)
+    - BRPickerView/Base (= 2.8.0)
+    - BRPickerView/DatePickerView (= 2.8.0)
+    - BRPickerView/StringPickerView (= 2.8.0)
+  - BRPickerView/AddressPickerView (2.8.0):
+    - BRPickerView/Base
+  - BRPickerView/Base (2.8.0)
+  - BRPickerView/DatePickerView (2.8.0):
+    - BRPickerView/Base
+  - BRPickerView/StringPickerView (2.8.0):
+    - BRPickerView/Base
+  - Bugly (2.5.93)
   - CL_ShanYanSDK (2.3.5.8)
   - CocoaAsyncSocket (7.6.5)
   - CocoaLumberjack (3.7.4):
@@ -30,11 +43,18 @@ PODS:
   - CYLTabBarController (1.29.2):
     - CYLTabBarController/Core (= 1.29.2)
   - CYLTabBarController/Core (1.29.2)
-  - DoraemonKit/Core (3.1.3):
+  - DoraemonKit/Core (3.0.7):
     - FMDB
     - GCDWebServer
     - GCDWebServer/WebDAV
     - GCDWebServer/WebUploader
+  - DoraemonKit/WithGPS (3.0.7):
+    - DoraemonKit/Core
+  - DoraemonKit/WithLoad (3.0.7):
+    - DoraemonKit/Core
+  - DoraemonKit/WithLogger (3.0.7):
+    - CocoaLumberjack
+    - DoraemonKit/Core
   - FDFullscreenPopGesture (1.1)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -454,6 +474,9 @@ PODS:
   - WechatOpenSDK (1.9.7)
   - YTKNetwork (3.0.6):
     - AFNetworking/NSURLSession (~> 4.0)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -466,10 +489,15 @@ DEPENDENCIES:
   - AMap3DMap-NO-IDFA
   - AMapLocation-NO-IDFA
   - AMapSearch-NO-IDFA
+  - BRPickerView (= 2.8.0)
+  - Bugly (~> 2.5.9)
   - CL_ShanYanSDK (= 2.3.5.8)
   - CocoaAsyncSocket
   - CYLTabBarController (= 1.29.2)
-  - DoraemonKit/Core (= 3.1.3)
+  - DoraemonKit/Core (~> 3.0.4)
+  - DoraemonKit/WithGPS (~> 3.0.4)
+  - DoraemonKit/WithLoad (~> 3.0.4)
+  - DoraemonKit/WithLogger (~> 3.0.4)
   - FDFullscreenPopGesture (= 1.1)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
@@ -501,6 +529,7 @@ DEPENDENCIES:
   - TZScrollViewPopGesture (= 1.0.6)
   - WechatOpenSDK (= 1.9.7)
   - YTKNetwork (= 3.0.6)
+  - YYCategories
   - YYKit (= 1.0.9)
 
 SPEC REPOS:
@@ -511,6 +540,8 @@ SPEC REPOS:
     - AMapFoundation-NO-IDFA
     - AMapLocation-NO-IDFA
     - AMapSearch-NO-IDFA
+    - BRPickerView
+    - Bugly
     - CL_ShanYanSDK
     - CocoaAsyncSocket
     - CocoaLumberjack
@@ -546,6 +577,7 @@ SPEC REPOS:
     - TZScrollViewPopGesture
     - WechatOpenSDK
     - YTKNetwork
+    - YYCategories
     - YYKit
     - YYModel
     - ZXSDK
@@ -562,17 +594,19 @@ CHECKOUT OPTIONS:
     :git: https://github.com/lyujunwei/MGJRouter
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AMap3DMap-NO-IDFA: ad6e60e43f5c7a1a214516e8a0fa8a45790dfafa
   AMapFoundation-NO-IDFA: e191e554859b375f463e52eb6c994e440ebf7126
   AMapLocation-NO-IDFA: 6839d1543b3138ae594ddd36ab72741dc87df66f
   AMapSearch-NO-IDFA: 935289770e93a740599707f9b4cb3946ed87860d
+  BRPickerView: a0ff460bf092bc069db5a54153395b1f7e8f5300
+  Bugly: b8715e6ec4004b7f7fbffab0643ba80545aee3da
   CL_ShanYanSDK: 25b9220aa2b0df960a006d06e3a4ba725fa6c2f1
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   CYLTabBarController: db44b5901a28693a8a4279e4721b3aafdd36c178
-  DoraemonKit: 7448814a80d9ca56bc8db9105c464b7ec2e62623
+  DoraemonKit: 32fb97f3aa82efa133111d193080ca5462cef135
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
@@ -605,10 +639,11 @@ SPEC CHECKSUMS:
   TZScrollViewPopGesture: d36355038259e89372a1f4a2db7e9ca675de2278
   WechatOpenSDK: 2f0ae448c7525cb5c27db5f7aa0f568de0988fa4
   YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZXSDK: abe4ef2002d42d51cdfab14256b8492bbeed2190
 
-PODFILE CHECKSUM: dd68519b6b5ccb42b9946ad961d5703487340168
+PODFILE CHECKSUM: 858a410ab9bd787d9559005717c71e1164717803
 
 COCOAPODS: 1.11.3

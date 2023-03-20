@@ -1,6 +1,6 @@
 //
 //  DoraemonCacheManager.h
-//  DoraemonKit
+//  DoraemonKit-DoraemonKit
 //
 //  Created by yixiang on 2017/12/12.
 //
@@ -77,12 +77,6 @@
 - (void)saveH5historicalRecordWithText:(NSString *)text;
 - (void)clearAllH5historicalRecord;
 - (void)clearH5historicalRecordWithText:(NSString *)text;
-
-/// JS历史脚本
-- (NSArray<NSDictionary *> *)jsHistoricalRecord;
-- (NSString *)jsHistoricalRecordForKey:(NSString *)key;
-- (void)saveJsHistoricalRecordWithText:(NSString *)text forKey:(NSString *)key;
-- (void)clearJsHistoricalRecordWithKey:(NSString *)key;
 
 /// 保存启动类
 - (void)saveStartClass : (NSString *)startClass;

@@ -1,6 +1,6 @@
 //
 //  DoraemonQRCodeViewController.m
-//  DoraemonKit
+//  AFNetworking
 //
 //  Created by love on 2019/5/22.
 //

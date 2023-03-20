@@ -1,6 +1,6 @@
 //
 //  DoraemonColorPickView.h
-//  DoraemonKit
+//  Aspects
 //
 //  Created by yixiang on 2018/3/6.
 //

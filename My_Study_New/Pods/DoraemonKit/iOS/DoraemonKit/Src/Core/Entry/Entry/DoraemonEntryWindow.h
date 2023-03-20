@@ -1,6 +1,6 @@
 //
 //  DoraemonEntryWindow.h
-//  DoraemonKit
+//  DoraemonKitDemo
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
@@ -17,6 +17,4 @@
 // 定制位置
 - (instancetype)initWithStartPoint:(CGPoint)startingPosition;
 - (void)show;
-
-- (void)configEntryBtnBlingWithText:(NSString *)text backColor:(UIColor *)backColor;
 @end

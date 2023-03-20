@@ -11,16 +11,11 @@
 #import "DoraemonNSUserDefaultsEditViewController.h"
 
 @interface DoraemonNSUserDefaultsViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
-
-@property (nonatomic, strong) NSMutableArray<DoraemonNSUserDefaultsModel *> *modelList;
-@property (nonatomic, strong) NSMutableArray<DoraemonNSUserDefaultsModel *> *searchList;
-@property (nonatomic, strong, readonly) NSMutableArray<DoraemonNSUserDefaultsModel *> *dataArray;
-
-@property (nonatomic, assign) BOOL isSearch;
-
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray<DoraemonNSUserDefaultsModel *> *modelList;
 @property (nonatomic, weak) UITextField *searchTextField;
-
+@property (nonatomic, strong) NSMutableArray<DoraemonNSUserDefaultsModel *> *searchList;
+@property (nonatomic, assign) BOOL isSearch;
 @property (nonatomic, strong) UIBarButtonItem *clearAllItem;
 @property (nonatomic, strong) UIBarButtonItem *cancelItem;
 @end
@@ -34,14 +29,9 @@
     
     [self buildSearchUI];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, IPHONE_NAVIGATIONBAR_HEIGHT, self.view.doraemon_width, self.view.doraemon_height - IPHONE_NAVIGATIONBAR_HEIGHT) style:UITableViewStylePlain];
-    if (@available(iOS 13.0, *)) {
-        self.tableView.backgroundColor = [UIColor systemBackgroundColor];
-    } else {
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, IPHONE_NAVIGATIONBAR_HEIGHT, self.view.doraemon_width, self.view.doraemon_height-IPHONE_NAVIGATIONBAR_HEIGHT) style:UITableViewStylePlain];
         self.tableView.backgroundColor = [UIColor whiteColor];
-    }
-    // 该方式退出键盘（系统键盘）时会在底部卡顿一下
-    //self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -69,7 +59,7 @@
     searchTextField.rightView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 10.0, 36.0)];
     
     searchTextField.leftViewMode = UITextFieldViewModeAlways;
-    searchTextField.rightViewMode = UITextFieldViewModeUnlessEditing;
+    searchTextField.rightViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,6 +88,41 @@
     }
     
     [self.tableView reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.isSearch ? self.searchList.count : self.modelList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifer = @"DoraemonNSUserDefaultsViewControllerCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifer];
+    }
+    DoraemonNSUserDefaultsModel *model = self.isSearch ? self.searchList[indexPath.row] : self.modelList[indexPath.row];
+    cell.textLabel.text = model.key;
+    cell.detailTextLabel.text = [model.value description];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        DoraemonNSUserDefaultsModel *model = self.isSearch ? _searchList[indexPath.row] : _modelList[indexPath.row];
+        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:model.key];
+        [self reload];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DoraemonNSUserDefaultsModel *model = self.modelList[indexPath.row];
+    DoraemonNSUserDefaultsEditViewController *vc = [[DoraemonNSUserDefaultsEditViewController alloc] initWithModel:model];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 - (void)clearUserDefaults {
@@ -173,52 +198,6 @@
 }
 
 #pragma mark
-#pragma mark - UITableViewDataSource & UITableViewDelegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifer = @"DoraemonNSUserDefaultsViewControllerCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifer];
-    }
-    DoraemonNSUserDefaultsModel *model = self.dataArray[indexPath.row];
-    cell.textLabel.text = model.key;
-    cell.detailTextLabel.text = [model.value description];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        DoraemonNSUserDefaultsModel *model = self.dataArray[indexPath.row];
-        [[NSUserDefaults standardUserDefaults] setValue:nil forKey:model.key];
-        [self reload];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DoraemonNSUserDefaultsModel *model = self.dataArray[indexPath.row];
-    DoraemonNSUserDefaultsEditViewController *vc = [[DoraemonNSUserDefaultsEditViewController alloc] initWithModel:model];
-    [self.navigationController pushViewController:vc animated:true];
-}
-
-#pragma mark
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    
-    [self.searchTextField resignFirstResponder];
-}
-
-#pragma mark
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -239,11 +218,6 @@
 
 #pragma mark
 #pragma mark - Property
-
-- (NSMutableArray<DoraemonNSUserDefaultsModel *> *)dataArray {
-    
-    return self.isSearch ? self.searchList : self.modelList;
-}
 
 - (NSMutableArray<DoraemonNSUserDefaultsModel *> *)searchList {
     if (!_searchList) {

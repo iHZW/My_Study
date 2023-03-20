@@ -132,15 +132,6 @@
     
     //UserDefaults
     
-    //JS脚本
-    "JS脚本" = "JavaScript";
-    "请选择WebView" = "Select WebView";
-    "无可用的WebView" = "No Available WebView";
-    "脚本列表" = "Script List";
-    "脚本执行" = "Execute Script";
-    "JS代码" = "JS Code";
-    "脚本不能为空" = "Code can not be empty";
-    
     //CocoaLumberjack
     "Lumberjack"                                       = "Lumberjack";
     "CocoaLumberjack日志记录"                 =  "CocoaLumberjack";
@@ -313,7 +304,6 @@
     "可交互时间"                              = "interactive time";
     
     //设置
-    "更多"                                           = "More";
     "设置"                                           = "Settings";
     "工具管理"                                        = "Kit Manager";
     "编辑"                                           = "Edit";
@@ -337,6 +327,4 @@
     "复制"                                           = "Copy";
     "删除"                                           = "Delete";
 
-    // 一机多控
-    "一机多控"                                  = "MultiControl";
 }

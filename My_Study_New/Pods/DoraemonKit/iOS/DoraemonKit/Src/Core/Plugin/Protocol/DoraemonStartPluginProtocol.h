@@ -1,6 +1,6 @@
 //
 //  DoraemonStartPluginProtocol.h
-//  DoraemonKit
+//  CocoaLumberjack
 //
 //  Created by yixiang on 2017/12/17.
 //

@@ -45,9 +45,7 @@
 /** Y value of the object's center **/
 @property (nonatomic, assign) CGFloat   doraemon_centerY;
 
-- (UIViewController *)doraemon_viewController;
-
-- (NSArray *)doraemon_findViewsForClass:(Class)clazz;
+- (UIViewController*)viewController;
 
 @end
 

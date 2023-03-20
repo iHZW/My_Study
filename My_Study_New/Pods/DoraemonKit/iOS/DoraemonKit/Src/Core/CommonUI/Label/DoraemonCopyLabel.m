@@ -1,6 +1,6 @@
 //
 //  DoraemonCopyLabel.m
-//  DoraemonKit
+//  DoraemonKit-DoraemonKit
 //
 //  Created by didi on 2020/2/26.
 //
@@ -42,6 +42,7 @@
 - (void)longPressAction:(UIGestureRecognizer *)recognizer {
     [self becomeFirstResponder];
     UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"copy" action:@selector(customCopy:)];
+    
     [[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:copyItem, nil]];
     [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(0, 0, 100, 20) inView:self];
     [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];

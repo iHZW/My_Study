@@ -13,11 +13,14 @@ def debugTool
   # debug工具
 
   # 查看UI结构
-  pod 'LookinServer', '1.0.4',  :configurations => ['Debug','QA','QA_Dev']
+  pod 'LookinServer', '1.0.4', :configurations => ['Debug','QA','QA_Dev']
 
   # DoKit
-  pod 'DoraemonKit/Core', '3.1.3',  :configurations => ['Debug','QA','QA_Dev']
-#  pod 'DoraemonKit/Core', '3.1.3', :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit/Core', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit/WithLogger', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit/WithGPS', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit/WithLoad', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
+#  pod 'DoraemonKit/WithMLeaksFinder', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
 
 end
 
@@ -75,6 +78,8 @@ target 'My_Study' do
 #  pod 'WFUIKit'
   
   pod 'YYKit', '1.0.9'
+  
+  pod 'YYCategories'
 #  加载SVG图片资源使用
   pod 'SVGKit', '2.1.1'
   
@@ -147,7 +152,13 @@ target 'My_Study' do
   pod 'GTSDK', '2.7.1.0'
   # TabBar
   pod 'CYLTabBarController', '1.29.2'
+  
+  # crash拦截
+  pod 'JJException', '0.2.12'
+  # Bugly
+  pod 'Bugly', '~> 2.5.9'
 
+  pod 'BRPickerView', '2.8.0'
 end
 
 
@@ -160,6 +171,19 @@ post_install do |installer|
   
   installer.pods_project.build_configurations.each do |config|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+  
+  #处理 layoutCache[currentClass] = ivars报错
+#  find_and_replace("Pods/FBRetainCycleDetector/FBRetainCycleDetector/Layout/Classes/FBClassStrongLayout.mm",
+#    "layoutCache[currentClass] = ivars;", "layoutCache[(id<NSCopying>)currentClass] = ivars;")
+
+  # 解决pod库带bundle资源时 需要手动选择team的问题
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings["DEVELOPMENT_TEAM"] = "82MDUB8B2X"  #teamid
+      end
+    end
   end
 end
 

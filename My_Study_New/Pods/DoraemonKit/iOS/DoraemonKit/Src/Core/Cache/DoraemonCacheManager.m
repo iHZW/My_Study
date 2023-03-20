@@ -1,6 +1,6 @@
 //
 //  DoraemonCacheManager.m
-//  DoraemonKit
+//  DoraemonKit-DoraemonKit
 //
 //  Created by yixiang on 2017/12/12.
 //
@@ -23,7 +23,6 @@ static NSString * const kDoraemonNSLogKey = @"doraemon_nslog_key";
 static NSString * const kDoraemonMethodUseTimeKey = @"doraemon_method_use_time_key";
 static NSString * const kDoraemonLargeImageDetectionKey = @"doraemon_large_image_detection_key";
 static NSString * const kDoraemonH5historicalRecord = @"doraemon_historical_record";
-static NSString * const kDoraemonJsHistoricalRecord = @"doraemon_js_historical_record";
 static NSString * const kDoraemonStartTimeKey = @"doraemon_start_time_key";
 static NSString * const kDoraemonStartClassKey = @"doraemon_start_class_key";
 static NSString * const kDoraemonANRTrackKey = @"doraemon_anr_track_key";
@@ -266,68 +265,6 @@ static NSString * const kDoraemonHealthStartKey = @"doraemon_health_start_key";
     [_defaults synchronize];
 }
 
-- (NSArray<NSDictionary *> *)jsHistoricalRecord {
-    return [_defaults arrayForKey:kDoraemonJsHistoricalRecord];
-}
-
-- (NSString *)jsHistoricalRecordForKey:(NSString *)key {
-    NSArray *history = [self jsHistoricalRecord] ?: @[];
-    for (NSDictionary *dict in history) {
-        //是否同名配置
-        if ([[dict objectForKey:@"key"] isEqualToString:key]) {
-            return [dict objectForKey:@"value"];
-        }
-    }
-    return nil;
-}
-
-- (void)saveJsHistoricalRecordWithText:(NSString *)text forKey:(NSString *)key {
-    NSString *saveKey = [NSString stringWithFormat:@"%.0f", NSDate.date.timeIntervalSince1970];
-    if (key.length > 0) {
-        saveKey = key;
-    }
-    NSMutableArray *list = [NSMutableArray array];
-    BOOL matched = NO;
-    NSArray *history = [self jsHistoricalRecord] ?: @[];
-    for (NSDictionary *dict in history) {
-        //是否同名配置
-        if ([[dict objectForKey:@"key"] isEqualToString:saveKey]) {
-            [list addObject:@{
-                @"key": saveKey,
-                @"value": text
-            }];
-            matched = YES;
-            continue;
-        }
-        [list addObject:dict];
-    }
-    if (!matched) {
-        [list insertObject:@{
-            @"key": saveKey,
-            @"value": text
-        } atIndex:0];
-    }
-    [_defaults setObject:list forKey:kDoraemonJsHistoricalRecord];
-    [_defaults synchronize];
-}
-
-- (void)clearJsHistoricalRecordWithKey:(NSString *)key {
-    if (!key) {
-        return;
-    }
-    NSMutableArray *list = [NSMutableArray array];
-    NSArray *history = [self jsHistoricalRecord] ?: @[];
-    for (NSDictionary *dict in history) {
-        //是否同名配置
-        if ([[dict objectForKey:@"key"] isEqualToString:key]) {
-            continue;
-        }
-        [list addObject:dict];
-    }
-    [_defaults setObject:list forKey:kDoraemonJsHistoricalRecord];
-    [_defaults synchronize];
-}
-
 - (void)saveStartClass : (NSString *)startClass {
     [_defaults setObject:startClass forKey:kDoraemonStartClassKey];
     [_defaults synchronize];
@@ -478,29 +415,7 @@ static NSString * const kDoraemonHealthStartKey = @"doraemon_health_start_key";
         }
         [mutableDataArray addObjectsFromArray:[self kitShowManagerData]];
     }else{
-        NSMutableDictionary *mutableDic = [[NSMutableDictionary alloc] init];
-        for (NSDictionary *dic in dataArray) {
-            NSString *moduleName = dic[@"moduleName"];
-            if (moduleName && ([moduleName isEqualToString:DoraemonLocalizedString(@"常用工具")] ||
-                               [moduleName isEqualToString:DoraemonLocalizedString(@"性能检测")] ||
-                               [moduleName isEqualToString:DoraemonLocalizedString(@"视觉工具")] ||
-                               [moduleName isEqualToString:DoraemonLocalizedString(@"平台工具")] ||
-                               [moduleName isEqualToString:@"Weex"])) {
-                [mutableDataArray addObject:dic];
-                continue;
-            }
-            
-            NSArray *pluginArray = dic[@"pluginArray"];
-            NSMutableArray *mutablepluginArray = [[NSMutableArray alloc] init];
-            for (NSDictionary *subDic in pluginArray){
-                [mutablepluginArray addObject:subDic.mutableCopy];
-            }
-            [mutableDic setValue:dic[@"moduleName"] forKey:@"moduleName"];
-            [mutableDic setValue:mutablepluginArray forKey:@"pluginArray"];
-        }
-        if (mutableDic.allKeys.count) {
-            [mutableDataArray insertObject:mutableDic atIndex:0];
-        }
+        mutableDataArray = dataArray;
     }
     
     return mutableDataArray;

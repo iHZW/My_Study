@@ -1,6 +1,6 @@
 //
 //  DoraemonSettingViewController.h
-//  DoraemonKit
+//  AFNetworking
 //
 //  Created by didi on 2020/4/24.
 //

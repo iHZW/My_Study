@@ -1,13 +1,12 @@
 //
 //  DoraemonUtil.m
-//  DoraemonKit
+//  DoraemonKitDemo
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
 //
 
 #import "DoraemonUtil.h"
-#import <WebKit/WebKit.h>
 #import "UIViewController+Doraemon.h"
 #import "DoraemonHomeWindow.h"
 #import "DoraemonAppInfoUtil.h"
@@ -272,8 +271,6 @@
     if([DoraemonAppInfoUtil isIpad]){
         if ( [controller respondsToSelector:@selector(popoverPresentationController)] ) {
             controller.popoverPresentationController.sourceView = vc.view;
-            controller.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
-            controller.popoverPresentationController.sourceRect = CGRectMake(vc.view.frame.size.width/2.0, vc.view.frame.size.height/2.0, 1.0, 1.0);
         }
         [vc presentViewController:controller animated:YES completion:nil];
     }else{
@@ -309,17 +306,6 @@
         }
     }
     return keyWindow;
-}
-
-+ (NSArray *)getWebViews {
-    NSMutableArray *webViews = [NSMutableArray array];
-    // 查找当前window中的所有webView
-    [webViews addObjectsFromArray:[[self getKeyWindow] doraemon_findViewsForClass:WKWebView.class]];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    [webViews addObjectsFromArray:[[self getKeyWindow] doraemon_findViewsForClass:UIWebView.class]];
-#pragma clang diagnostic pop
-    return webViews;
 }
 
 @end

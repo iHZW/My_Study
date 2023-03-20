@@ -15,6 +15,10 @@
 #import "ZWUserAccountManager.h"
 #import "IQKeyboardManager.h"
 
+#import <JJException/JJException.h>
+#import <Bugly/Bugly.h>
+
+#define BuglyAppId      @"adf13"
 
 @implementation ZWMainAppDelegateService
 
@@ -35,9 +39,23 @@
     /** 初始化IQKeyboardManager  */
     [self _initIQKeyboardManager];
     
+    /// bugly 注册
+    [self _initiBugly];
+    
     [[[UIApplication sharedApplication].delegate window] makeKeyAndVisible];
 
     return YES;
+}
+
+
+#pragma mark - 初始化bugly
+- (void)_initiBugly {
+    [JJException configExceptionCategory:JJExceptionGuardAll];
+    [JJException startGuardException];
+    [JJException registerExceptionHandle:(id<JJExceptionHandle>)self];
+    
+    /// bugly 注册
+    [Bugly startWithAppId:BuglyAppId];
 }
 
 /** 配置导航信息及通用tabview属性  */
@@ -117,4 +135,20 @@
 }
 
 
+@end
+
+
+
+#pragma mark - <JJExceptionHandle>
+@interface ZWMainAppDelegateService (JJExceptionHandle) <JJExceptionHandle>
+@end
+@implementation ZWMainAppDelegateService (JJExceptionHandle)
+- (void)handleCrashException:(nonnull NSString *)exceptionMessage extraInfo:(nullable NSDictionary *)info {
+    if ([exceptionMessage containsString:@"[GTSThread main]"] && [exceptionMessage containsString:@"[TimerObject fireTimer]"]) {
+        NSLog(@"log_error crash ignore = %@-%s-%d", exceptionMessage, __func__, __LINE__);
+    } else {
+        /** 上报日志到bugly  */
+        [Bugly reportException:[NSException exceptionWithName:@"AvoidCrash" reason:exceptionMessage userInfo:info]];
+    }
+}
 @end

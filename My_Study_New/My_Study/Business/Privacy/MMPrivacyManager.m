@@ -60,7 +60,10 @@
     alertView.title                 = title;
     alertView.message               = message;
     alertView.messageFont           = [UIFont fontWithName:[UIFont eh_midiumFontName] size:15];
+    
+    __weak typeof(alertView) weakAlert = alertView;
     alertView.customBottomViewBlock = ^UIView *_Nonnull {
+        __strong typeof(weakAlert) strongAlert = weakAlert;
         return [self makeFooterView:^(NSInteger index) {
             if (index == 0) {
                 [Toast show:@"退出应用"];
@@ -69,7 +72,7 @@
                 });
             } else if (index == 1) {
                 /** 发送请求  */
-                @weakify(self)
+                
 //                BaseRequest *request = [BaseRequest defaultRequest];
 //                [WM.http post:API_PRIVACY_AGREE requestModel:request complete:^(ResultObject *_Nonnull result) {
 //                    @strongify(self) if (result.isSuccess) {
@@ -77,6 +80,8 @@
 //                    }
 //                }];
             }
+            
+            [strongAlert hidden];
             BlockSafeRun(clickResult, index);
         }];
     };

@@ -256,34 +256,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - ca8eb2247858502f"
+                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - e2622d01500e6f13"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[LoadingUtil showLoadingInView:parentView:yOffset:actionEnabled:]"
                   moduleName = "My_Study"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
+                  urlString = "file:///Users/zhiweihan/hzw/git/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "162">
+                  offsetFromSymbolStart = "156">
                </Location>
                <Location
-                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - a234f9ae57ff3b9f"
+                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - 8ad8668b7fa904a3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__66+[LoadingUtil showLoadingInView:parentView:yOffset:actionEnabled:]_block_invoke"
                   moduleName = "My_Study"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
+                  urlString = "file:///Users/zhiweihan/hzw/git/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -333,22 +333,6 @@
             startingLineNumber = "53"
             endingLineNumber = "53"
             landmarkName = "+itemWithImage:title:titleColor:handler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9B8EA0E4-5C3E-4D75-A7C3-AFE2D512537B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/ShortVideo/PASShortVideoAgreeView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-setSelected:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -428,7 +412,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "217"
             endingLineNumber = "217"
-            landmarkName = "-presentViewController:animated:completion:"
+            landmarkName = "-captchaView:didReceiveEvent:arg:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -445,6 +429,22 @@
             startingLineNumber = "59"
             endingLineNumber = "59"
             landmarkName = "-performLogin"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D682744B-1764-486D-B0F2-EC0F10210994"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/Push/MMPushManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-GeTuiSdkDidReceiveNotification:notificationCenter:response:fetchCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

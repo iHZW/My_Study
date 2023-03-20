@@ -23,6 +23,7 @@
 
 /** 导入other城市选择器  */
 #import "EHAddressCompHelper.h"
+#import "BRPickerView/BRPickerView.h"
 
 // 城市选择界面
 #if __has_include(<JFCitySelector/JFCitySelector.h>)
@@ -37,6 +38,7 @@
 #import "ZWOneKeyTextVC.h"
 #import "MMShareManager.h"
 #import "MMShareView.h"
+#import "NSString+Tool.h"
 
 
 #define kSectionViewHeight              20
@@ -49,6 +51,8 @@
 @property (nonatomic, strong) EHAddressCompHelper *addressHelper;
 
 @property(nonatomic, strong) NSMutableArray *shareArray;
+
+@property (nonatomic, strong) UILabel *bottomLabel;
 
 @end
 
@@ -72,6 +76,7 @@
     self.tableView.tableFooterView = [UIView new];
     //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
+    self.tableView.tableFooterView = self.bottomLabel;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom).offset(-SafeAreaBottomAreaHeight);
@@ -104,6 +109,25 @@
         }
     };
 }
+
+- (void)onShowTotalVersion {
+    NSString *version = NSString.eh_appBuildVersion;
+//    NSString *month =  [version substringWithRange:NSMakeRange(0, 2)];
+//    NSString *day = [version substringWithRange:NSMakeRange(2, 2)];
+//    NSString *hour = [version substringWithRange:NSMakeRange(4, 2)];
+//    NSString *minute = [version substringWithRange:NSMakeRange(6, 2)];
+//    NSString *second = [version substringWithRange:NSMakeRange(8, 2)];
+//    NSString *formatVersion = [NSString stringWithFormat:@"%@-%@ %@:%@:%@", month, day, hour, minute, second];
+//    self.bottomLabel.text = [NSString stringWithFormat:@"版本v%@ 日期 %@",NSString.eh_mainVersion, formatVersion];
+    
+    NSString *dateFormat = @"MM-dd HH:mm:ss";
+    NSDate *resultDate = [NSDate br_dateFromString:version dateFormat:@"MMddHHmmss"];
+    NSString *formatTime = [NSDate br_stringFromDate:resultDate dateFormat:dateFormat];
+    NSString *resultVersion = [NSString stringWithFormat:@"版本v%@ 日期 %@",NSString.eh_mainVersion, formatTime];
+    NSLog(@"formatTime = %@", formatTime);
+    self.bottomLabel.text = TransToString(resultVersion);
+}
+
 
 #pragma mark -  Lazy loading
 /** 懒加载地址选择器  */
@@ -168,6 +192,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self onShowTotalVersion];
+
     [self.tableView reloadData];
 }
 
@@ -425,9 +451,14 @@
     formatStr           = ZWFormatterUrl(format, @"777", 0.006);
     NSLog(@"formatStr = %@", formatStr);
     
-    LoginViewController *oneKeyLoginVc = [[LoginViewController alloc] init];
-    oneKeyLoginVc.oneKeyLogin = YES;
-    [self presentViewController:oneKeyLoginVc animated:YES completion:nil];
+    
+    
+    
+    
+    
+//    LoginViewController *oneKeyLoginVc = [[LoginViewController alloc] init];
+//    oneKeyLoginVc.oneKeyLogin = YES;
+//    [self presentViewController:oneKeyLoginVc animated:YES completion:nil];
 //    [self.navigationController pushViewController:oneKeyLoginVc animated:YES];
     
 }
@@ -568,6 +599,15 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
 #pragma mark - EHAddressCompHelperDelegate
 - (void)areaViewEndChange:(NSString *)text areaCode:(NSString *)areaCode {
     NSLog(@"text:%@ areaCode:%@", text, areaCode);
+}
+
+
+#pragma mark -  Lazy loading
+- (UILabel *)bottomLabel {
+    if (!_bottomLabel) {
+        _bottomLabel = [UILabel labelWithFrame:CGRectMake(0, 0, kMainScreenWidth, 60) text:@"" textColor:UIColorFromRGB(0X111111)];
+    }
+    return _bottomLabel;
 }
 
 @end

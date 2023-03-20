@@ -1,0 +1,43 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "ad_Hoc 版本"
+  lane :develop do
+    # add actions here: https://docs.fastlane.tools/actions
+    # build_app(export_xcargs: "-allowProvisioningUpdates", scheme: target, configuration: configuration, export_method:"ad-hoc", clean: true)
+
+    build_app(
+      export_xcargs: "-allowProvisioningUpdates", 
+      export_method:"ad-hoc",
+      export_options: {
+        iCloudContainerEnvironment: "Production"
+      },
+      clean: true, 
+      configuration: "Release"
+    )
+    pgyer(api_key: "6911617f328caa7bf0402f0a3da0ab22", update_description: "update by fastlane hzw pyger")
+
+  end
+
+  # 截图和上传
+  lane :screenshots do
+    capture_screenshots
+    upload_to_app_store
+  end
+
+end

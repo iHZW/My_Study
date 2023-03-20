@@ -48,8 +48,6 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
     DoraemonManagerPluginType_DoraemonDatabasePlugin,
     // NSUserDefaults工具
     DoraemonManagerPluginType_DoraemonNSUserDefaultsPlugin,
-    // JS脚本
-    DoraemonManagerPluginType_DoraemonJavaScriptPlugin,
     
     #pragma mark - 性能检测
     // 帧率监控
@@ -115,16 +113,11 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
 
 @property (nonatomic, copy) NSString *pId; //产品id 平台端的工具必须填写
 
-@property (nonatomic, copy) NSString *mockDomain; //产品mockDomain 非必填 默认mock.dokit.cn
-
 @property (nonatomic, assign) BOOL autoDock; //dokit entry icon support autoDock，deffault yes
 
 - (void)install;
-// 带有平台端功能的s初始化方式
+//带有平台端功能的s初始化方式
 - (void)installWithPid:(NSString *)pId;
-
-// 自定义平台mockDomain初始化方式
-- (void)installWithMockDomain:(NSString *)mockDomain;
 
 // 定制起始位置 | 适用正好挡住关键位置
 - (void)installWithStartingPosition:(CGPoint) position;
@@ -175,7 +168,5 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
 /// DoKit 支持的旋转方向
 @property (assign, nonatomic) UIInterfaceOrientationMask supportedInterfaceOrientations;
 
-
-- (void)configEntryBtnBlingWithText:(nullable NSString *)text backColor:(nullable UIColor *)backColor;
 @end
 NS_ASSUME_NONNULL_END

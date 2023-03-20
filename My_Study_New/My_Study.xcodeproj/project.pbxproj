@@ -98,6 +98,7 @@
 		4E5F2D122876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D112876C36900FEC6C2 /* WKWebViewConfiguration+Conslog.m */; };
 		4E5F2D152876C9D000FEC6C2 /* ZWNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D142876C9D000FEC6C2 /* ZWNative.m */; };
 		4E5F2D1B2876CD0400FEC6C2 /* NSString+VersionCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */; };
+		4E616E0129C1A25A00FAEFD5 /* NSString+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E616E0029C1A25A00FAEFD5 /* NSString+Tool.m */; };
 		4E64B6E72923D9A300A718AD /* Two555ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E64B6E62923D9A300A718AD /* Two555ViewController.m */; };
 		4E668194292734E600C635BF /* JFCSBaseInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E668178292734E600C635BF /* JFCSBaseInfoModel.m */; };
 		4E668195292734E600C635BF /* JFCSCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E668179292734E600C635BF /* JFCSCityModel.m */; };
@@ -518,14 +519,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		4E19B3F2299FA7F200122CC1 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				4EF9F916299FB125003D19A3 /* My_StudyNotificationService.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -715,6 +716,8 @@
 		4E5F2D142876C9D000FEC6C2 /* ZWNative.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWNative.m; sourceTree = "<group>"; };
 		4E5F2D192876CD0400FEC6C2 /* NSString+VersionCompare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+VersionCompare.h"; sourceTree = "<group>"; };
 		4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+VersionCompare.m"; sourceTree = "<group>"; };
+		4E616DFF29C1A25A00FAEFD5 /* NSString+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Tool.h"; sourceTree = "<group>"; };
+		4E616E0029C1A25A00FAEFD5 /* NSString+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tool.m"; sourceTree = "<group>"; };
 		4E64B6E52923D9A300A718AD /* Two555ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Two555ViewController.h; sourceTree = "<group>"; };
 		4E64B6E62923D9A300A718AD /* Two555ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Two555ViewController.m; sourceTree = "<group>"; };
 		4E668177292734E600C635BF /* JFCSConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCSConfiguration.h; sourceTree = "<group>"; };
@@ -4156,6 +4159,8 @@
 				7C6309EC22A6774500C73AAB /* NSString+Adaptor.m */,
 				4E5F2D192876CD0400FEC6C2 /* NSString+VersionCompare.h */,
 				4E5F2D1A2876CD0400FEC6C2 /* NSString+VersionCompare.m */,
+				4E616DFF29C1A25A00FAEFD5 /* NSString+Tool.h */,
+				4E616E0029C1A25A00FAEFD5 /* NSString+Tool.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -4621,6 +4626,7 @@
 				DA224EF94BCAA487DA3D52DF /* [CP] Embed Pods Frameworks */,
 				CFC29A3F31482B2BD2C32EAF /* [CP] Copy Pods Resources */,
 				4E19B3F2299FA7F200122CC1 /* Embed Foundation Extensions */,
+				4E616DFD29C19E4800FAEFD5 /* AutoBuildVersion */,
 			);
 			buildRules = (
 			);
@@ -4743,6 +4749,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4E616DFD29C19E4800FAEFD5 /* AutoBuildVersion */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = AutoBuildVersion;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n# 生成build版本号\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=`date +\"%m%d%H%M%S\"`\nbuildNumber=\"$buildNumber\"\n\n# 保存新的build版本号\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
 		58537B8A779F29826F520682 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5226,6 +5250,7 @@
 				4E0680E028758E4400F6728A /* LocationTrimViewController.m in Sources */,
 				4EC6B3912861B12A00F57AAC /* CacheDataLoader+ZWNIO.m in Sources */,
 				4E0680C02873E4F300F6728A /* Config.m in Sources */,
+				4E616E0129C1A25A00FAEFD5 /* NSString+Tool.m in Sources */,
 				4ED59584286EFBE0002D15F1 /* zhThemeOperator.m in Sources */,
 				4EFECF60287D16E100B137BB /* ZWPreTabView.m in Sources */,
 				4EE758E828DE940400CECA64 /* HomeViewModel.m in Sources */,
@@ -5617,7 +5642,7 @@
 				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5647,7 +5672,7 @@
 				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5677,7 +5702,7 @@
 				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5707,7 +5732,7 @@
 				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 HZW. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,6 +1,6 @@
 //
 //  DoraemonSubThreadUICheckListCell.h
-//  DoraemonKit
+//  AFNetworking
 //
 //  Created by yixiang on 2018/9/13.
 //

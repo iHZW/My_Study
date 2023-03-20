@@ -66,6 +66,7 @@
                 //点击同意
                 //回到首页
                 [self remakePage];
+                [MMPrivacyManager.sharedInstance markAppPrivacyShowed];
             }
         }];
     } else {
