@@ -495,9 +495,9 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - CYLTabBarController (= 1.29.2)
   - DoraemonKit/Core (~> 3.0.4)
-  - DoraemonKit/WithGPS (~> 3.0.4)
-  - DoraemonKit/WithLoad (~> 3.0.4)
-  - DoraemonKit/WithLogger (~> 3.0.4)
+  - DoraemonKit/WithGPS
+  - DoraemonKit/WithLoad
+  - DoraemonKit/WithLogger
   - FDFullscreenPopGesture (= 1.1)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB (>= 2.7.1)
@@ -644,6 +644,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZXSDK: abe4ef2002d42d51cdfab14256b8492bbeed2190
 
-PODFILE CHECKSUM: 858a410ab9bd787d9559005717c71e1164717803
+PODFILE CHECKSUM: a287d6ecdfd4faae59fbad3806a9ea30089527ae
 
 COCOAPODS: 1.12.0

@@ -17,11 +17,15 @@ def debugTool
 
   # DoKit
   pod 'DoraemonKit/Core', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
-  pod 'DoraemonKit/WithLogger', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
-  pod 'DoraemonKit/WithGPS', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
-  pod 'DoraemonKit/WithLoad', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
+#  pod 'DoraemonKit/WithLogger', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
+#  pod 'DoraemonKit/WithGPS', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
+#  pod 'DoraemonKit/WithLoad', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
 #  pod 'DoraemonKit/WithMLeaksFinder', '~> 3.0.4', :configurations => ['Debug','QA','QA_Dev']
 
+  pod 'DoraemonKit/WithLogger', :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit/WithGPS', :configurations => ['Debug','QA','QA_Dev']
+  pod 'DoraemonKit/WithLoad',:configurations => ['Debug','QA','QA_Dev']
+#  pod 'DoraemonKit/WithMLeaksFinder', :configurations => ['Debug','QA','QA_Dev']
 end
 
 
@@ -173,7 +177,7 @@ post_install do |installer|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
   end
   
-  #处理 layoutCache[currentClass] = ivars报错
+#  处理 layoutCache[currentClass] = ivars报错
 #  find_and_replace("Pods/FBRetainCycleDetector/FBRetainCycleDetector/Layout/Classes/FBClassStrongLayout.mm",
 #    "layoutCache[currentClass] = ivars;", "layoutCache[(id<NSCopying>)currentClass] = ivars;")
 
