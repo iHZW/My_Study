@@ -14,20 +14,19 @@
 @property (nonatomic, assign) BOOL reloadTableView;
 
 @optional
-//每个cell点击的回调
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSInteger)row;
+// 每个cell点击的回调
+- (void)tableView:(UITableView *_Nullable)tableView didSelectRowAtIndexPath:(NSInteger)row;
 
 @required
-//init方法
-- (id)initWithData:(NSDictionary *)data;
-//cell的总数
+// init方法
+- (id _Nullable)initWithData:(NSDictionary *_Nullable)data;
+// cell的总数
 - (NSInteger)numberOfRows;
-//每个cell的高度
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndex:(NSInteger)row;
-//返回需要展示的cell
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndex:(NSInteger)row;
+// 每个cell的高度
+- (CGFloat)tableView:(UITableView *_Nullable)tableView heightForRowAtIndex:(NSInteger)row;
+// 返回需要展示的cell
+- (UITableViewCell *_Nullable)tableView:(UITableView *_Nullable)tableView cellForRowAtIndex:(NSInteger)row;
 
 @end
-
 
 #endif /* ZWTableViewAdapter_h */

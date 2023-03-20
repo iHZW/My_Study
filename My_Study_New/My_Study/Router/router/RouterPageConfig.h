@@ -53,8 +53,13 @@ UIKIT_EXTERN NSString *const ZWRouterRunLoopPermanentViewController;
 
 /** PASShortVideoPlayerViewController  */
 UIKIT_EXTERN NSString *const ZWRouterPageShortVideoPlayerViewController;
-
 /* -------------------------------page----------------------------  */
+
+/* -------------------------------login----------------------------  */
+/** LoginViewController  */
+UIKIT_EXTERN NSString *const ZWRouterPageLoginViewController;
+
+/* -------------------------------login----------------------------  */
 
 
 /** 路由界面配置  */

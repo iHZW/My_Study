@@ -45,6 +45,13 @@ NSString *const ZWRouterPageShortVideoPlayerViewController  = @"test/runloop/pag
 /* -------------------------------page----------------------------  */
 
 
+/* -------------------------------login----------------------------  */
+/** LoginViewController  */
+NSString *const ZWRouterPageLoginViewController  = @"user/login/page";
+
+/* -------------------------------login----------------------------  */
+
+
 @implementation RouterPageConfig
 
 + (NSDictionary *)mj_objectClassInArray{
@@ -170,6 +177,13 @@ NSString *const ZWRouterPageShortVideoPlayerViewController  = @"test/runloop/pag
                 @"url" : ZWRouterPageShortVideoPlayerViewController,
                 @"clsName": @"PASShortVideoPlayerViewController",
                 @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** 登录界面  */
+            @{
+                @"url" : ZWRouterPageLoginViewController,
+                @"clsName": @"LoginViewController",
+                @"type" : @(RouterTypeNavigatePresent),
                 @"attachValue" : @{}
             },
         ]

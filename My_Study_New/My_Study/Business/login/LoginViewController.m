@@ -34,6 +34,8 @@ OneKeyLoginBgViewDelegate,
 OneKeyLoginDelegate,
 DXCaptchaDelegate>
 
+@property (nonatomic, strong) UIButton *closeBtn;
+
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @property (nonatomic, strong) UIView *loginContentView;
@@ -56,20 +58,29 @@ DXCaptchaDelegate>
 
 @property (nonatomic, copy) CompleteBlock completeBlock;
 
+@property (nonatomic, assign) BOOL isPresentPage;
+
 @end
 
 @implementation LoginViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    RouterType type = self.routerParamObject.type;
+    self.isPresentPage = type == RouterTypeNavigatePresent;
 
     self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
     [self loadSubViews];
+    
+    self.closeBtn.hidden = !self.isPresentPage;
 
     [self.accountTextFiled becomeFirstResponder];
 }
 
 - (void)loadSubViews {
+    [self.view addSubview:self.closeBtn];
     [self.view addSubview:self.titleLabel];
     [self.view addSubview:self.loginContentView];
 
@@ -80,6 +91,12 @@ DXCaptchaDelegate>
     [self.loginContentView addSubview:self.passwordLineView];
 
     [self.view addSubview:self.loginBtn];
+    
+    [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(15);
+        make.top.equalTo(self.view.mas_top).offset(kPORTRAIT_SAFE_AREA_TOP_SPACE);
+        make.size.mas_equalTo(CGSizeMake(80, 44));
+    }];
 
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -205,11 +222,16 @@ DXCaptchaDelegate>
         case DXCaptchaEventSuccess: {
             NSString *token = dict[@"token"];
            
-            performBlockOnMainQueue(NO, ^{
-                [[[UIApplication sharedApplication].keyWindow viewWithTag:1234] removeFromSuperview];
-            });
-            
+            UIView *tempView = [[UIApplication sharedApplication].keyWindow viewWithTag:1234];
+            if (tempView) {
+                [tempView removeFromSuperview];
+            }
             BlockSafeRun(self.completeBlock, token);
+
+//            performBlockOnMainQueue(NO, ^{
+//                [[[UIApplication sharedApplication].keyWindow viewWithTag:1234] removeFromSuperview];
+//            });
+            
             
             break;
         }
@@ -233,6 +255,10 @@ DXCaptchaDelegate>
 
     /** 登录信息存储本地  */
     [ZWSharedUserAccountManager saveLoginStatusData];
+    
+    if (self.isPresentPage) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
 
     BlockSafeRun(self.loginCompleted);
 }
@@ -515,6 +541,19 @@ DXCaptchaDelegate>
     return _loginBtn;
 }
 
+- (UIButton *)closeBtn {
+    if (!_closeBtn) {
+        @pas_weakify_self
+        _closeBtn = [UIButton buttonWithFrame:CGRectZero title:@"" font:PASFont(22) titleColor:UIColorFromRGB(0xFFFFFF) block:^{
+            @pas_strongify_self
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [_closeBtn setImage:[UIImage imageNamed:@"top_icon_close"] forState:UIControlStateNormal];
+        _closeBtn.hidden = YES;
+    }
+    return _closeBtn;
+}
+
 - (UIView *)accountLineView {
     if (!_accountLineView) {
         _accountLineView                          = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectZero];
@@ -541,5 +580,15 @@ DXCaptchaDelegate>
     return _oneKeyLoginBgView;
 }
 
+
+
+#pragma mark - Properties
++ (NSDictionary *)ss_constantParams {
+    return @{
+//             @"pageName": [self pageName],
+             @"animated": @(YES),
+             @"hideNavigationBar": @(YES)
+    };
+}
 
 @end

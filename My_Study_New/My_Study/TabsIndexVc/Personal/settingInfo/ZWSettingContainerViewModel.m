@@ -26,6 +26,8 @@
 
 @property (nonatomic, assign) BOOL isLogin;
 
+@property (nonatomic, strong) UIButton *loginBtn;
+
 @end
 
 @implementation ZWSettingContainerViewModel
@@ -35,8 +37,18 @@
 {
     if (self = [super init]) {
         self.view.backgroundColor = kPersonalDefaultBGColor;
-        self.isLogin = YES;
+        self.isLogin = [ZWUserAccountManager sharedZWUserAccountManager].isLogin;
         [self loadSubViews];
+        [self updatLoginStatus];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(_loginSuccess)
+                                                     name:NOTIFICATION_LOGIN_SUCCESS
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(_logoutSuccess)
+                                                     name:NOTIFICATION_LOGOUT_SUCCESS
+                                                   object:nil];
     }
     return self;
 }
@@ -47,6 +59,7 @@
     [self.view addSubview:self.imageView];
     [self.view addSubview:self.settingBtn];
     [self.view addSubview:self.logoutBtn];
+    [self.view addSubview:self.loginBtn];
     
     CGFloat settingWidth = (CGRectGetWidth(self.view.frame) - kContentSideHorizSpace * 3);
     [self.settingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -68,10 +81,32 @@
         make.edges.mas_equalTo(kContainerEdgeInsets);
     }];
     
+    [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(15);
+        make.right.offset(-15);
+        make.top.equalTo(self.settingBtn.mas_bottom).offset(20);
+        make.height.equalTo(self.settingBtn.mas_height);
+    }];
+    
     /** 设置按钮 图片和文字间距5  */
     [self.settingBtn setButtonImageTitleStyle:ButtonImageTitleStyleLeft padding:5];
     [self.logoutBtn setButtonImageTitleStyle:ButtonImageTitleStyleLeft padding:5];
 
+}
+
+- (void)_loginSuccess {
+    self.isLogin = YES;
+    [self dealWithLayout];
+}
+
+- (void)_logoutSuccess {
+    self.isLogin = NO;
+    [self dealWithLayout];
+}
+
+
+- (void)updatLoginStatus {
+    self.loginBtn.hidden = self.isLogin ? YES : NO;
 }
 
 /**
@@ -85,11 +120,11 @@
         switch (index) {
             case 1:
             {
-                self.isLogin = NO;
                 /** 确定  */
                 [Toast show:@"退出登录!!!"];
-                [self dealWithLayout];
                 [[ZWUserAccountManager sharedZWUserAccountManager] cleanLoginStatusData];
+                self.isLogin = [[ZWUserAccountManager sharedZWUserAccountManager] isLogin];
+                [self dealWithLayout];
             }
                 break;
                 
@@ -108,6 +143,10 @@
         [self.settingBtn mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(settingWidth * 0.4);
         }];
+        
+        [self.logoutBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(settingWidth * 0.6);
+        }];
     } else {
         self.logoutBtn.hidden = YES;
 
@@ -119,6 +158,8 @@
             make.width.mas_equalTo(0);
         }];
     }
+    
+    [self updatLoginStatus];
 
 }
 
@@ -171,6 +212,17 @@
         }];
     }
     return _logoutBtn;
+}
+
+- (UIButton *)loginBtn {
+    if (!_loginBtn) {
+        _loginBtn = [UIButton buttonWithFrame:CGRectZero title:@"登录" font:PASFont(22) titleColor:UIColorFromRGB(0x11111) block:^{
+            [ZWM.router executeURLNoCallBack:ZWRouterPageLoginViewController];
+        }];
+        _loginBtn.hidden = YES;
+        [_loginBtn setCornerRadius:8.0 borderWidth:1.0 borderColor:UIColorFromRGB(0x4F7AFD)];
+    }
+    return _loginBtn;
 }
 
 - (UIImageView *)imageView

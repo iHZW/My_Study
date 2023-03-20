@@ -62,9 +62,11 @@
     alertView.messageFont           = [UIFont fontWithName:[UIFont eh_midiumFontName] size:15];
     
     __weak typeof(alertView) weakAlert = alertView;
+    @weakify(self)
     alertView.customBottomViewBlock = ^UIView *_Nonnull {
         __strong typeof(weakAlert) strongAlert = weakAlert;
         return [self makeFooterView:^(NSInteger index) {
+            @strongify(self)
             if (index == 0) {
                 [Toast show:@"退出应用"];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -72,13 +74,13 @@
                 });
             } else if (index == 1) {
                 /** 发送请求  */
-                
 //                BaseRequest *request = [BaseRequest defaultRequest];
 //                [WM.http post:API_PRIVACY_AGREE requestModel:request complete:^(ResultObject *_Nonnull result) {
 //                    @strongify(self) if (result.isSuccess) {
 //                        [self.alertView hidden];
 //                    }
 //                }];
+//                [self.alertView hidden];
             }
             
             [strongAlert hidden];
