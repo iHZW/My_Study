@@ -20,7 +20,7 @@
 
 @interface HomeViewController () {
     NSTimer *_timer;
-    YYTimer *_yyTimer;
+    NSTimer *_yyTimer;
 }
 @property (nonatomic, strong) NSMutableArray *dataList;
 

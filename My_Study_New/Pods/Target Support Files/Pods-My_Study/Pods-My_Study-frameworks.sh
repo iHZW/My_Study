@@ -213,7 +213,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TZScrollViewPopGesture/TZScrollViewPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
@@ -255,7 +254,6 @@ if [[ "$CONFIGURATION" == "QA" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TZScrollViewPopGesture/TZScrollViewPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
@@ -297,7 +295,6 @@ if [[ "$CONFIGURATION" == "QA_Dev" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TZScrollViewPopGesture/TZScrollViewPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi
@@ -336,7 +333,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TZScrollViewPopGesture/TZScrollViewPopGesture.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
 fi

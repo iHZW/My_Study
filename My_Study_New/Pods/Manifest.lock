@@ -474,9 +474,6 @@ PODS:
   - WechatOpenSDK (1.9.7)
   - YTKNetwork (3.0.6):
     - AFNetworking/NSURLSession (~> 4.0)
-  - YYCategories (1.0.4):
-    - YYCategories/no-arc (= 1.0.4)
-  - YYCategories/no-arc (1.0.4)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -529,7 +526,6 @@ DEPENDENCIES:
   - TZScrollViewPopGesture (= 1.0.6)
   - WechatOpenSDK (= 1.9.7)
   - YTKNetwork (= 3.0.6)
-  - YYCategories
   - YYKit (= 1.0.9)
 
 SPEC REPOS:
@@ -577,7 +573,6 @@ SPEC REPOS:
     - TZScrollViewPopGesture
     - WechatOpenSDK
     - YTKNetwork
-    - YYCategories
     - YYKit
     - YYModel
     - ZXSDK
@@ -594,7 +589,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/lyujunwei/MGJRouter
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AMap3DMap-NO-IDFA: ad6e60e43f5c7a1a214516e8a0fa8a45790dfafa
   AMapFoundation-NO-IDFA: e191e554859b375f463e52eb6c994e440ebf7126
@@ -639,11 +634,10 @@ SPEC CHECKSUMS:
   TZScrollViewPopGesture: d36355038259e89372a1f4a2db7e9ca675de2278
   WechatOpenSDK: 2f0ae448c7525cb5c27db5f7aa0f568de0988fa4
   YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
-  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZXSDK: abe4ef2002d42d51cdfab14256b8492bbeed2190
 
-PODFILE CHECKSUM: a287d6ecdfd4faae59fbad3806a9ea30089527ae
+PODFILE CHECKSUM: 075bd54c01e65c51fe17188b84fbdd8870cc1228
 
 COCOAPODS: 1.12.0

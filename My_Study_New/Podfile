@@ -83,7 +83,7 @@ target 'My_Study' do
   
   pod 'YYKit', '1.0.9'
   
-  pod 'YYCategories'
+#  pod 'YYCategories'
 #  加载SVG图片资源使用
   pod 'SVGKit', '2.1.1'
   
