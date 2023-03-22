@@ -34,6 +34,16 @@ DerivedData
 !default.xcworkspace
 
 #CocoaPods
+Pods/*
+Pods/
 Pods
-!Podfile
-!Podfile.lock
+.DS_Store
+Podfile.lock
+/.DS_Store
+Podfile.lock
+/Podfile.lock
+
+
+iOSInjectionProject/
+
+.idea/
