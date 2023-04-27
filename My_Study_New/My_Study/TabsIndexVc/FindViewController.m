@@ -266,13 +266,18 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
             aItem.button.highlightedBackgroundColor = UIColorFromRGBA(0xFFFFFF, 0.2);
         };
         _popupByWindow.items = @[
-
-            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *_Nonnull aItem) {
+            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" handler:^(QMUIPopupMenuButtonItem * _Nonnull aItem) {
                 [aItem.menuView hideWithAnimated:YES];
                 @pas_strongify_self if (self.webView.canGoForward) {
                     [self.webView goForward];
                 }
             }],
+//            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *_Nonnull aItem) {
+//                [aItem.menuView hideWithAnimated:YES];
+//                @pas_strongify_self if (self.webView.canGoForward) {
+//                    [self.webView goForward];
+//                }
+//            }],
             //            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *aItem) {
             //                [aItem.menuView hideWithAnimated:YES];
             //                @pas_strongify_self

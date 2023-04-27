@@ -316,7 +316,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
             endingLineNumber = "88"
-            landmarkName = "-setTitleColor:"
+            landmarkName = "-handleButtonEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -332,7 +332,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "+itemWithImage:title:titleColor:handler:"
+            landmarkName = "-sizeThatFits:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -397,22 +397,6 @@
             startingLineNumber = "93"
             endingLineNumber = "93"
             landmarkName = "-viewDidAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E6ACC87B-D630-44FD-A25F-B290BE6DB0EA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/login/LoginViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "-captchaView:didReceiveEvent:arg:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

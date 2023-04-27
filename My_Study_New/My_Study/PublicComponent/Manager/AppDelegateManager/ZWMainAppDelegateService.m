@@ -17,6 +17,7 @@
 
 #import <JJException/JJException.h>
 #import <Bugly/Bugly.h>
+#import <YTKNetwork/YTKNetworkConfig.h>
 
 #define BuglyAppId      @"adf13"
 
@@ -133,6 +134,17 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [[ZWHttpNetworkManager sharedHttpManager] openNetMonitoring];
 }
+
+
+#pragma mark - 网络初始化配置
+- (void)_initNetWork {
+    YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
+    config.baseUrl = @"";
+    
+}
+
+
+
 
 
 @end

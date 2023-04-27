@@ -6,35 +6,33 @@
 //  Copyright © 2015年 Howard. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ZWSDK.h"
+#import <UIKit/UIKit.h>
 
-typedef enum  {
-    topToBottom = 0,//从上到小
-    leftToRight = 1,//从左到右
-    upleftTolowRight = 2,//左上到右下
-    uprightTolowLeft = 3,//右上到左下
-}GradientType;
+typedef enum {
+    topToBottom = 0,      // 从上到小
+    leftToRight = 1,      // 从左到右
+    upleftTolowRight = 2, // 左上到右下
+    uprightTolowLeft = 3, // 右上到左下
+} GradientType;
 
-
-#define kRedGradientColorArray  @[UIColorFromRGB(0xf34141),UIColorFromRGB(0xe2233e)]
-#define kDarkRedGradientColorArray  @[UIColorFromRGB(0xC23334),UIColorFromRGB(0xB41C31)]
-#define kGreenGradientColorArray  @[UIColorFromRGB(0x2f9bf9),UIColorFromRGB(0x2978ff)]
-#define kOrangeGradientColorArray  @[UIColorFromRGB(0xff9c00),UIColorFromRGB(0xff8000)]
-
+#define kRedGradientColorArray @[UIColorFromRGB(0xf34141), UIColorFromRGB(0xe2233e)]
+#define kDarkRedGradientColorArray @[UIColorFromRGB(0xC23334), UIColorFromRGB(0xB41C31)]
+#define kGreenGradientColorArray @[UIColorFromRGB(0x2f9bf9), UIColorFromRGB(0x2978ff)]
+#define kOrangeGradientColorArray @[UIColorFromRGB(0xff9c00), UIColorFromRGB(0xff8000)]
 
 @interface UIImage (Addition)
 
-- (UIImage*)fillImageWithColor:(UIColor*)color;
-+ (UIImage*)imageWithColor:(UIColor *)color;
-+ (UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size;
-+ (UIImage*)imageWithColor:(UIColor *)color size:(CGSize)size alpha:(CGFloat)alpha;
+- (UIImage *)fillImageWithColor:(UIColor *)color;
++ (UIImage *)imageWithColor:(UIColor *)color;
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size alpha:(CGFloat)alpha;
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size andRoundSize:(CGFloat)roundSize;
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 
-+ (UIImage*)imageWithPointNum:(NSInteger)num radius:(CGFloat)radius space:(CGFloat)space color:(UIColor*)color;
++ (UIImage *)imageWithPointNum:(NSInteger)num radius:(CGFloat)radius space:(CGFloat)space color:(UIColor *)color;
 
-//截屏view
+// 截屏view
 + (UIImage *)screenShotsImageInView:(UIView *)view size:(CGSize)size;
 
 /**
@@ -42,7 +40,7 @@ typedef enum  {
  */
 + (UIImage *)screenShotsImageInView:(UIView *)view size:(CGSize)size scale:(CGFloat)scale;
 
-//压缩图片
+// 压缩图片
 + (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size;
 
 /**
@@ -65,7 +63,7 @@ typedef enum  {
                      qrCodeImage:(UIImage *)qrCodeImage;
 
 + (UIImage *)creatQRCodeImageWithString:(NSString *)string
-                            logoImage:(UIImage *)logoImage;
+                              logoImage:(UIImage *)logoImage;
 
 /**
  生成一个渐变色image
@@ -75,13 +73,13 @@ typedef enum  {
  @param size 尺寸
  @return image
  */
-+ (UIImage*)creatImageFromColors:(NSArray*)colors
-                    ByGradientType:(GradientType)gradientType
-                              size:(CGSize)size;
++ (UIImage *)creatImageFromColors:(NSArray *)colors
+                   ByGradientType:(GradientType)gradientType
+                             size:(CGSize)size;
 
 /**
  红色渐变色
- 
+
  @param size 尺寸
  @return image
  */
@@ -89,4 +87,21 @@ typedef enum  {
 + (UIImage *)creatDarkRedGradientImageWithSize:(CGSize)size;
 + (UIImage *)creatGreenGradientImageWithSize:(CGSize)size;
 + (UIImage *)creatOrangeGradientImageWithSize:(CGSize)size;
+
+/// 给图片设置圆角
+/// - Parameters:
+///   - radius: radius
+///   - size: size
+- (UIImage *)eh_setCornerWithRadius:(CGFloat)radius andSize:(CGSize)size;
+
+/// 创建一个圆角图片
+/// - Parameters:
+///   - color: color
+///   - size: size
+///   - radius: radius
++ (UIImage *)eh_imageFromColor:(UIColor *)color forSize:(CGSize)size withCornerRadius:(CGFloat)radius;
+
+/// 解决图片上传旋转的问题
+- (UIImage *)eh_normalizedImage;
+
 @end
