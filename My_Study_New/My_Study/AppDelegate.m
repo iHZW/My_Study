@@ -28,6 +28,8 @@
 #ifdef DOKIT
 
 #import "DoraemonManager.h"
+#import <DoraemonKit/DoraemonManager.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #endif
 
@@ -153,6 +155,21 @@
     [[DoraemonManager shareInstance] addPluginWithTitle:@"LookinServer" icon:@"doraemon_default" desc:@"LookinServer" pluginName:@"LookinPlugin" atModule:@"业务工具"];
     [[DoraemonManager shareInstance] addPluginWithTitle:@"开发" icon:@"doraemon_default" desc:@"AppLog" pluginName:@"AppLogPlugin" atModule:@"业务工具"];
     [[DoraemonManager shareInstance] install];
+    
+    /** 添加打印日志  */
+//    1、TTY = Xcode 控制台
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+//    2、ASL = Apple System Logs 苹果系统日志
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+//    3、本地文件日志
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 每24小时创建一个新文件
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7; // 最多允许创建7个文件
+    [DDLog addLogger:fileLogger];
+    
+    /** 默认log 开关  */
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"doraemon_env_key"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 #endif
 }
 
