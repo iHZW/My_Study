@@ -137,6 +137,7 @@
 		4E7427B6285B85F700DEC9CC /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B4285B85F700DEC9CC /* DateUtil.m */; };
 		4E7427BA285B864900DEC9CC /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427B8285B864900DEC9CC /* Toast.m */; };
 		4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7427BB285B869400DEC9CC /* UIColor+Ext.m */; };
+		4E758E3B29FACD8D003F3884 /* ZWClearWebViewCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E758E3A29FACD8D003F3884 /* ZWClearWebViewCache.m */; };
 		4E79BCBD2992624F00C522BF /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E79BCB52992624F00C522BF /* TencentOpenAPI.framework */; };
 		4E79BCBE2992625100C522BF /* ShareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BCB72992624F00C522BF /* ShareObject.m */; };
 		4E79BCBF2992625100C522BF /* ShareObject+Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BCB82992624F00C522BF /* ShareObject+Platform.m */; };
@@ -796,6 +797,10 @@
 		4E7427BB285B869400DEC9CC /* UIColor+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ext.m"; sourceTree = "<group>"; };
 		4E7427BC285B869400DEC9CC /* UIColor+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ext.h"; sourceTree = "<group>"; };
 		4E7427C5285B909800DEC9CC /* SingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonTemplate.h; sourceTree = "<group>"; };
+		4E758E3929FACD8D003F3884 /* ZWClearWebViewCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWClearWebViewCache.h; sourceTree = "<group>"; };
+		4E758E3A29FACD8D003F3884 /* ZWClearWebViewCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWClearWebViewCache.m; sourceTree = "<group>"; };
+		4E78C0C52A0C76CC00CA0DB1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4E78C0C62A0C76CD00CA0DB1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4E79BCB52992624F00C522BF /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		4E79BCB72992624F00C522BF /* ShareObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareObject.m; sourceTree = "<group>"; };
 		4E79BCB82992624F00C522BF /* ShareObject+Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ShareObject+Platform.m"; sourceTree = "<group>"; };
@@ -2280,6 +2285,15 @@
 			path = SingletonTemplate;
 			sourceTree = "<group>";
 		};
+		4E758E3829FACD73003F3884 /* ClearWebViewCache */ = {
+			isa = PBXGroup;
+			children = (
+				4E758E3929FACD8D003F3884 /* ZWClearWebViewCache.h */,
+				4E758E3A29FACD8D003F3884 /* ZWClearWebViewCache.m */,
+			);
+			path = ClearWebViewCache;
+			sourceTree = "<group>";
+		};
 		4E79BCB32992624F00C522BF /* ShareSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -2742,6 +2756,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E758E3829FACD73003F3884 /* ClearWebViewCache */,
 				4E8C524D29FA210500C47E2B /* MMScrollLabelView */,
 				4E734CC4299FCE12005EF1C9 /* Privacy */,
 				4E19B3F3299FA89300122CC1 /* Push */,
@@ -4681,6 +4696,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 7C459A1B2295557300667813;
 			productRefGroup = 7C459A252295557300667813 /* Products */;
@@ -5106,6 +5122,7 @@
 				4E403F932865B024006C0656 /* AlertView.m in Sources */,
 				7C652C02230171C1007BBDD2 /* UIColor+Tools.m in Sources */,
 				4E6681C62927574400C635BF /* SPLocation.m in Sources */,
+				4E758E3B29FACD8D003F3884 /* ZWClearWebViewCache.m in Sources */,
 				4EAAD8112866C39A003D43FF /* TabIndexManager.m in Sources */,
 				4EAAD8182868B208003D43FF /* ZWCommonWebPage.m in Sources */,
 				4E4F9CDE286C5E7F003281B5 /* ZWAnimationView.m in Sources */,
@@ -5329,6 +5346,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7C459A2E2295557300667813 /* Base */,
+				4E78C0C52A0C76CC00CA0DB1 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -5337,6 +5355,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7C459A332295557400667813 /* Base */,
+				4E78C0C62A0C76CD00CA0DB1 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -5348,6 +5367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -5499,6 +5519,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -5771,6 +5792,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -5831,6 +5853,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
