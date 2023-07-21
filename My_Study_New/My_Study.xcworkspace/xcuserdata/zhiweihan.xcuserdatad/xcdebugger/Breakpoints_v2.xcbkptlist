@@ -256,14 +256,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - e2622d01500e6f13"
+                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - ca8eb2247858502f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[LoadingUtil showLoadingInView:parentView:yOffset:actionEnabled:]"
                   moduleName = "My_Study"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/hzw/git/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
@@ -271,14 +271,14 @@
                   offsetFromSymbolStart = "162">
                </Location>
                <Location
-                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - 8ad8668b7fa904a3"
+                  uuid = "AA010496-B980-488F-ADA6-EF649B417F68 - a234f9ae57ff3b9f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__66+[LoadingUtil showLoadingInView:parentView:yOffset:actionEnabled:]_block_invoke"
                   moduleName = "My_Study"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhiweihan/hzw/git/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Util/LoadingUtil/LoadingUtil.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
@@ -323,22 +323,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FC480133-D64C-41B2-AC86-598AAF129EAA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/QMUIKit/QMUIKit/QMUIComponents/QMUIPopupMenuView/QMUIPopupMenuButtonItem.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-sizeThatFits:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9AC85FE5-7154-4047-A3A8-A0C89B605BE2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -365,22 +349,6 @@
             startingLineNumber = "68"
             endingLineNumber = "68"
             landmarkName = "-sendRequestDouBan:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3D25D996-A418-4EBD-AA11-953EC412B7B1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "My_Study/Business/DrawerRelated/dataLoader/LeftDrawerDataLoader.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-sendRequestAddressList:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -426,10 +394,227 @@
             filePath = "My_Study/Business/Push/MMPushManager.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-GeTuiSdkDidReceiveNotification:notificationCenter:response:fetchCompletionHandler:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06F995F8-E0FB-405A-9EE8-00D24FCB8618"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/Push/MMPushManager.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-GeTuiSdkNotificationCenter:openSettingsForNotification:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D261E31B-BE99-4AA4-A4C7-F70A3D2E7E38"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/AVPlayer/ZWAVPlayerViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-ul_remoteControlReceivedWithEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "642C6215-58A8-48E5-B2C1-2295E05D87E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/TabsIndexVc/CRMViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-pan:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EECB3A7-FEC5-45A8-826A-57899344C29E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/UI/ColorPick/Function/DoraemonColorPickInfoWindow.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-pan:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6064F4EF-D4C3-4F28-894F-4D9BDA48DB26"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/UI/ColorPick/Function/DoraemonColorPickWindow.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "-pan:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35EB4705-A33C-4CE9-8D93-C69B17E92531"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/Performance/UIProfile/Function/DoraemonUIProfileWindow.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-pan:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51417D2C-900A-47F4-B6AE-FD2280506D81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Plugin/UI/ViewAlign/Function/DoraemonViewAlignView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-pan:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88FF423D-7644-4309-B5C6-401F8A84B3D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/CommonUI/Visual/DoraemonVisualInfoWindow.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-pan:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6B2D7C8-8EAD-49EB-B39C-3DA6ACF41F74"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/Business/Tools/ZWColorPickInfoWindow.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242">
+            <Locations>
+               <Location
+                  uuid = "C6B2D7C8-8EAD-49EB-B39C-3DA6ACF41F74 - 9a709acf4dce895c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZWColorPickInfoWindow autoDocking:]"
+                  moduleName = "My_Study"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Business/Tools/ZWColorPickInfoWindow.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "546">
+               </Location>
+               <Location
+                  uuid = "C6B2D7C8-8EAD-49EB-B39C-3DA6ACF41F74 - 9a709acf4dce895c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZWColorPickInfoWindow autoDocking:]"
+                  moduleName = "My_Study"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Business/Tools/ZWColorPickInfoWindow.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "839">
+               </Location>
+               <Location
+                  uuid = "C6B2D7C8-8EAD-49EB-B39C-3DA6ACF41F74 - 9a709acf4dce895c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZWColorPickInfoWindow autoDocking:]"
+                  moduleName = "My_Study"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhiweihan/HZW/Git/My_Study/My_Study/My_Study_New/My_Study/Business/Tools/ZWColorPickInfoWindow.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "1081">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "422A12B9-1F39-409D-BE12-FA840256FE6A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/TabsIndexVc/Personal/settingInfo/ZWSettingContainerViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "338"
+            endingLineNumber = "338">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95DEEB13-9F92-4CBB-B42F-9A08021C5597"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My_Study/TabsIndexVc/Personal/settingInfo/ZWSettingContainerViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "292"
+            endingLineNumber = "292">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

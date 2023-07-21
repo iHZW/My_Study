@@ -170,6 +170,10 @@
 		4E94EA4628CADA1B007EDEFC /* UITextField+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4528CADA1B007EDEFC /* UITextField+Additions.m */; };
 		4E94EA4928CB8C19007EDEFC /* LineTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */; };
 		4E9D55DC295ED5ED00B004FB /* GiveLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D55DB295ED5ED00B004FB /* GiveLikeView.m */; };
+		4EA52F282A6AAD3800B2CD87 /* UIViewController+RotationConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA52F272A6AAD3800B2CD87 /* UIViewController+RotationConfiguration.m */; };
+		4EA52F2C2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA52F2B2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.m */; };
+		4EA52F302A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA52F2F2A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.m */; };
+		4EA52F332A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA52F322A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m */; };
 		4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA59D4628AE4F58002D9759 /* TestWebViewController.m */; };
 		4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7263D27D75CA60060BDBA /* customerView.swift */; };
 		4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA737E227D72E3200422BAE /* CRMViewController.m */; };
@@ -865,6 +869,14 @@
 		4E94EA4828CB8C19007EDEFC /* LineTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		4E9D55DA295ED5ED00B004FB /* GiveLikeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiveLikeView.h; sourceTree = "<group>"; };
 		4E9D55DB295ED5ED00B004FB /* GiveLikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiveLikeView.m; sourceTree = "<group>"; };
+		4EA52F262A6AAD3800B2CD87 /* UIViewController+RotationConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RotationConfiguration.h"; sourceTree = "<group>"; };
+		4EA52F272A6AAD3800B2CD87 /* UIViewController+RotationConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RotationConfiguration.m"; sourceTree = "<group>"; };
+		4EA52F2A2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+RotationConfiguration.h"; sourceTree = "<group>"; };
+		4EA52F2B2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+RotationConfiguration.m"; sourceTree = "<group>"; };
+		4EA52F2E2A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+RotationConfiguration.h"; sourceTree = "<group>"; };
+		4EA52F2F2A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+RotationConfiguration.m"; sourceTree = "<group>"; };
+		4EA52F312A6AB0FB00B2CD87 /* ZWSJVideoOnePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWSJVideoOnePage.h; sourceTree = "<group>"; };
+		4EA52F322A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWSJVideoOnePage.m; sourceTree = "<group>"; };
 		4EA59D4528AE4F58002D9759 /* TestWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewController.h; sourceTree = "<group>"; };
 		4EA59D4628AE4F58002D9759 /* TestWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewController.m; sourceTree = "<group>"; };
 		4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oc_swift-Swift.h"; sourceTree = "<group>"; };
@@ -2056,6 +2068,8 @@
 				4E4FD808286D4147008EC7E1 /* SettingViewController.m */,
 				4E149690299D2EA000D305EF /* ZWUserManager.h */,
 				4E149691299D2EA000D305EF /* ZWUserManager.m */,
+				4EA52F312A6AB0FB00B2CD87 /* ZWSJVideoOnePage.h */,
+				4EA52F322A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -2470,6 +2484,24 @@
 				4E9D55DB295ED5ED00B004FB /* GiveLikeView.m */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		4EA52F292A6AAD6A00B2CD87 /* UITabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				4EA52F2A2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.h */,
+				4EA52F2B2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.m */,
+			);
+			path = UITabBarController;
+			sourceTree = "<group>";
+		};
+		4EA52F2D2A6AADA300B2CD87 /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				4EA52F2E2A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.h */,
+				4EA52F2F2A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.m */,
+			);
+			path = UINavigationController;
 			sourceTree = "<group>";
 		};
 		4EA59D4428AE4F46002D9759 /* Test */ = {
@@ -3166,6 +3198,8 @@
 				4EEC47DC285AD9F90047F8B6 /* UIViewController+ZW.m */,
 				4EA986EE287C38760095ECF9 /* UIViewController+Additions.h */,
 				4EA986EF287C38760095ECF9 /* UIViewController+Additions.m */,
+				4EA52F262A6AAD3800B2CD87 /* UIViewController+RotationConfiguration.h */,
+				4EA52F272A6AAD3800B2CD87 /* UIViewController+RotationConfiguration.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -4151,6 +4185,8 @@
 		7C6309E922A676FE00C73AAB /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4EA52F2D2A6AADA300B2CD87 /* UINavigationController */,
+				4EA52F292A6AAD6A00B2CD87 /* UITabBarController */,
 				4E3584EF29769FEF00E45A8B /* UIDevice */,
 				4E3584E829769C8A00E45A8B /* UIFont */,
 				4EA986FB287C3A4F0095ECF9 /* UIImageView */,
@@ -5046,6 +5082,7 @@
 				4EB8ABD62924D8CC00820F48 /* HtmlComponent.m in Sources */,
 				4EC6B38A2861B12A00F57AAC /* JSONUtil.m in Sources */,
 				4EA737E627D7351400422BAE /* AppLaunchTime.m in Sources */,
+				4EA52F2C2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.m in Sources */,
 				4EC6B3812861B12A00F57AAC /* MDDebugViewController.m in Sources */,
 				4E3584E72976979F00E45A8B /* OneKeyLogin.m in Sources */,
 				7C4F93E12302B39300F2238E /* CustomListFreshHeader.m in Sources */,
@@ -5244,6 +5281,7 @@
 				4EFECF80287D488A00B137BB /* ZWNavCountButton.m in Sources */,
 				4EFECF70287D1C9800B137BB /* ZWImageCell.m in Sources */,
 				4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */,
+				4EA52F282A6AAD3800B2CD87 /* UIViewController+RotationConfiguration.m in Sources */,
 				4E79BCCD299386A300C522BF /* MMShareView.m in Sources */,
 				4E8C525229FA210500C47E2B /* UIView+MMFrame.m in Sources */,
 				4E89AFD8295C3D5500E7A40C /* PASShortVideoPlayerView.m in Sources */,
@@ -5291,6 +5329,7 @@
 				4EFECF60287D16E100B137BB /* ZWPreTabView.m in Sources */,
 				4EE758E828DE940400CECA64 /* HomeViewModel.m in Sources */,
 				4ED5958A286FEBC2002D15F1 /* ZWBaseTableViewController.m in Sources */,
+				4EA52F302A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.m in Sources */,
 				7C652C03230171C1007BBDD2 /* UITableViewCell+DequeCell.m in Sources */,
 				4E899A60285AF43700B54C89 /* ZWBaseTableView.m in Sources */,
 				4EDC0B7428636245001C53CE /* ZWCommonUtil.m in Sources */,
@@ -5315,6 +5354,7 @@
 				4E66819A292734E600C635BF /* JFCSTableViewController.m in Sources */,
 				4EC6B37D2861B12A00F57AAC /* MDLogManager.m in Sources */,
 				4EC6B38E2861B12A00F57AAC /* RestIOManager.m in Sources */,
+				4EA52F332A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m in Sources */,
 				4E0680BB2872CECA00F6728A /* BWNetworkingService.swift in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
 				4EA986FA287C39B60095ECF9 /* ProgressCustomLoadingView.m in Sources */,

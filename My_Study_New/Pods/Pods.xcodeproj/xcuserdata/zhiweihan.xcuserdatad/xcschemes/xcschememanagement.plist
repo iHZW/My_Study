@@ -305,68 +305,75 @@
 			<key>orderHint</key>
 			<integer>43</integer>
 		</dict>
-		<key>SSZipArchive.xcscheme</key>
+		<key>SJVideoPlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>44</integer>
 		</dict>
-		<key>SVGKit.xcscheme</key>
+		<key>SSZipArchive.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>45</integer>
 		</dict>
-		<key>TABAnimated.xcscheme</key>
+		<key>SVGKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>46</integer>
 		</dict>
-		<key>TZScrollViewPopGesture.xcscheme</key>
+		<key>TABAnimated.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>47</integer>
 		</dict>
-		<key>WechatOpenSDK.xcscheme</key>
+		<key>TZScrollViewPopGesture.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>48</integer>
 		</dict>
-		<key>YTKNetwork.xcscheme</key>
+		<key>WechatOpenSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>49</integer>
 		</dict>
-		<key>YYKit.xcscheme</key>
+		<key>YTKNetwork.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>50</integer>
 		</dict>
-		<key>YYModel.xcscheme</key>
+		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>51</integer>
 		</dict>
-		<key>ZXSDK.xcscheme</key>
+		<key>YYModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>52</integer>
+		</dict>
+		<key>ZXSDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>53</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

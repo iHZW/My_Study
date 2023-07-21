@@ -48,6 +48,7 @@
 #import "MMPushUtil.h"
 
 #import "ZWPrivacyPolicyManager.h"
+#import <SJBaseVideoPlayer/SJRotationManager.h>
 
 /** 闪验appId  */
 #define kCLShanYanAppId @"MMTFuKONCXID"
@@ -278,7 +279,7 @@ void printMethodNamesOfClass(Class cls) {
 }
 
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-    return UIInterfaceOrientationMaskAllButUpsideDown;
+    return [SJRotationManager supportedInterfaceOrientationsForWindow:window];
 }
 
 

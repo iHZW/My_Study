@@ -44,6 +44,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageChangeEnvViewController;
 UIKIT_EXTERN NSString *const ZWRouterPageSelectedViewController;
 /** 地址微调页  */
 UIKIT_EXTERN NSString *const ZWRouterPageLocationTrimViewController;
+/** SJ视频调试界面  */
+UIKIT_EXTERN NSString *const ZWRouterPageSJVideoController;
 /** 文件选择界面  */
 UIKIT_EXTERN NSString *const ZWRouterPageFileSelectViewController;
 /** 陀螺仪测试界面 ~ 球  */

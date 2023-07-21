@@ -31,6 +31,7 @@ ${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SJBaseVideoPlayer/SJBaseVideoPlayer.framework
 ${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework
+${BUILT_PRODUCTS_DIR}/SJVideoPlayer/SJVideoPlayer.framework
 ${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework
 ${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework
 ${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework

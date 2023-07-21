@@ -239,7 +239,7 @@
 /** 默认不支持旋转  */
 - (BOOL)shouldAutorotate
 {
-    return YES;
+    return NO;
 }
 
 /** 默认竖屏  */

@@ -6,24 +6,24 @@
 //  Copyright © 2022 HZW. All rights reserved.
 //``
 
-#import "SettingViewController.h"
-#import "ZWBaseTableView.h"
-#import "ZWHttpNetworkData.h"
-#import "AlertHead.h"
-#import "zhThemeOperator.h"
-#import "PASIndicatorTableViewCell.h"
 #import "ActionModel.h"
+#import "AlertHead.h"
 #import "CommonSelectedConfig.h"
 #import "FileSelectManager.h"
-#import "PhotoActionSheetUtil.h"
-#import "ZWColorPickInfoWindow.h"
-#import "PathConstants.h"
-#import "SSZipArchive.h"
 #import "LoginViewController.h"
+#import "PASIndicatorTableViewCell.h"
+#import "PathConstants.h"
+#import "PhotoActionSheetUtil.h"
+#import "SSZipArchive.h"
+#import "SettingViewController.h"
+#import "ZWBaseTableView.h"
+#import "ZWColorPickInfoWindow.h"
+#import "ZWHttpNetworkData.h"
+#import "zhThemeOperator.h"
 
 /** 导入other城市选择器  */
-#import "EHAddressCompHelper.h"
 #import "BRPickerView/BRPickerView.h"
+#import "EHAddressCompHelper.h"
 
 // 城市选择界面
 #if __has_include(<JFCitySelector/JFCitySelector.h>)
@@ -34,23 +34,20 @@
 
 #import "ZWUserManager.h"
 
-
-#import "ZWOneKeyTextVC.h"
 #import "MMShareManager.h"
 #import "MMShareView.h"
 #import "NSString+Tool.h"
+#import "ZWOneKeyTextVC.h"
 
-
-#define kSectionViewHeight              20
-#define ZWNSLog(...)  printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
-
+#define kSectionViewHeight 20
+#define ZWNSLog(...) printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
 
 @interface SettingViewController () <UITableViewDelegate, UITableViewDataSource, JFCSTableViewControllerDelegate, EHAddressCompHelperDelegate>
 
 /** other城市选择器  */
 @property (nonatomic, strong) EHAddressCompHelper *addressHelper;
 
-@property(nonatomic, strong) NSMutableArray *shareArray;
+@property (nonatomic, strong) NSMutableArray *shareArray;
 
 @property (nonatomic, strong) UILabel *bottomLabel;
 
@@ -112,22 +109,21 @@
 
 - (void)onShowTotalVersion {
     NSString *version = NSString.eh_appBuildVersion;
-//    NSString *month =  [version substringWithRange:NSMakeRange(0, 2)];
-//    NSString *day = [version substringWithRange:NSMakeRange(2, 2)];
-//    NSString *hour = [version substringWithRange:NSMakeRange(4, 2)];
-//    NSString *minute = [version substringWithRange:NSMakeRange(6, 2)];
-//    NSString *second = [version substringWithRange:NSMakeRange(8, 2)];
-//    NSString *formatVersion = [NSString stringWithFormat:@"%@-%@ %@:%@:%@", month, day, hour, minute, second];
-//    self.bottomLabel.text = [NSString stringWithFormat:@"版本v%@ 日期 %@",NSString.eh_mainVersion, formatVersion];
-    
-    NSString *dateFormat = @"MM-dd HH:mm:ss";
-    NSDate *resultDate = [NSDate br_dateFromString:version dateFormat:@"MMddHHmmss"];
-    NSString *formatTime = [NSDate br_stringFromDate:resultDate dateFormat:dateFormat];
-    NSString *resultVersion = [NSString stringWithFormat:@"版本v%@ 日期 %@",NSString.eh_mainVersion, formatTime];
+    //    NSString *month =  [version substringWithRange:NSMakeRange(0, 2)];
+    //    NSString *day = [version substringWithRange:NSMakeRange(2, 2)];
+    //    NSString *hour = [version substringWithRange:NSMakeRange(4, 2)];
+    //    NSString *minute = [version substringWithRange:NSMakeRange(6, 2)];
+    //    NSString *second = [version substringWithRange:NSMakeRange(8, 2)];
+    //    NSString *formatVersion = [NSString stringWithFormat:@"%@-%@ %@:%@:%@", month, day, hour, minute, second];
+    //    self.bottomLabel.text = [NSString stringWithFormat:@"版本v%@ 日期 %@",NSString.eh_mainVersion, formatVersion];
+
+    NSString *dateFormat    = @"MM-dd HH:mm:ss";
+    NSDate *resultDate      = [NSDate br_dateFromString:version dateFormat:@"MMddHHmmss"];
+    NSString *formatTime    = [NSDate br_stringFromDate:resultDate dateFormat:dateFormat];
+    NSString *resultVersion = [NSString stringWithFormat:@"版本v%@ 日期 %@", NSString.eh_mainVersion, formatTime];
     NSLog(@"formatTime = %@", formatTime);
     self.bottomLabel.text = TransToString(resultVersion);
 }
-
 
 #pragma mark -  Lazy loading
 /** 懒加载地址选择器  */
@@ -150,7 +146,9 @@
                          [ActionModel initWithTitle:@"拍照/相册/文件" actionName:@"photoFileSelect"],
                          [ActionModel initWithTitle:@"城市选择器" actionName:@"citySelect"],
                          [ActionModel initWithTitle:@"另一种城市选择器" actionName:@"otherCitySelect"],
-                         [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"]];
+                         [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"],
+                         [ActionModel initWithTitle:@"视频" actionName:@"jumpSJVideoPage"],
+    ];
 
     NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@"testShowWindow"],
                          [ActionModel initWithTitle:@"陀螺仪测试界面 ~ 球" actionName:@"testBallViewContorller"]];
@@ -202,22 +200,20 @@
  *  个人信息
  */
 - (void)accountInfoSetting {
-
     ZWUserManager *user     = [ZWUserManager sharedInstance];
-    user.name = @"user";
+    user.name               = @"user";
     ZWUserManager *manager  = [[ZWUserManager alloc] init];
-    manager.age = 32;
+    manager.age             = 32;
     ZWUserManager *manager1 = [ZWUserManager new];
-    manager1.gender = 1;
+    manager1.gender         = 1;
     ZWUserManager *manager2 = [ZWUserManager copy];
-    manager2.nichName = @"manager2";
+    manager2.nichName       = @"manager2";
     NSLog(@"\nuser = %p\nmanager = %p\nmanager1 = %p\nmanager2 = %p", user, manager, manager1, manager2);
-    
+
     [self __testShareView];
 }
 
-
-- (NSMutableArray *)shareArray{
+- (NSMutableArray *)shareArray {
     if (!_shareArray) {
         _shareArray = [NSMutableArray array];
         [_shareArray addObject:MMPlatformNameSms];
@@ -231,55 +227,49 @@
 }
 
 - (void)__testShareView {
-    MMShareView *shareView = [[MMShareView alloc] initWithItems:self.shareArray itemSize:CGSizeMake(80,100) DisplayLine:NO];
-    shareView = [self addShareContent:shareView];
-    shareView.itemSpace = 10;
+    MMShareView *shareView = [[MMShareView alloc] initWithItems:self.shareArray itemSize:CGSizeMake(80, 100) DisplayLine:NO];
+    shareView              = [self addShareContent:shareView];
+    shareView.itemSpace    = 10;
     @weakify(self)
-    shareView.action = ^(MMShareItem * _Nonnull item) {
+        shareView.action = ^(MMShareItem *_Nonnull item) {
         @strongify(self)
-//        [self ];
+        //        [self ];
     };
     [shareView showFromControlle:self];
 }
 
-//添加分享的内容
-- (MMShareView *)addShareContent:(MMShareView *)shareView{
+// 添加分享的内容
+- (MMShareView *)addShareContent:(MMShareView *)shareView {
     [shareView addText:@"分享测试"];
     [shareView addURL:[NSURL URLWithString:@"http://www.baidu.com"]];
     [shareView addImage:[UIImage imageNamed:@"share_alipay"]];
-    
+
     return shareView;
 }
 
-
 - (void)shareSDK {
     ShareParam *shareParam = [ShareParam new];
-    shareParam.desc = @"测试说明";
+    shareParam.desc        = @"测试说明";
 
     ShareObject *model = [[ShareObject alloc] init];
-    model.name = @"Wechat";
-    model.shareParam = shareParam;
-    [MMShareManager shareObject:model complete:^(BOOL y, NSError * _Nullable error) {
-//        [Toast show:error.localizedDescription];
+    model.name         = @"Wechat";
+    model.shareParam   = shareParam;
+    [MMShareManager shareObject:model complete:^(BOOL y, NSError *_Nullable error){
+        //        [Toast show:error.localizedDescription];
     }];
-    
-//    [ShareClient openMiniApp:<#(nonnull ShareObject *)#> complete:<#^(BOOL, NSError * _Nullable)completeBlock#>]
-//
-//    [ShareClient wxLogin:^(NSString * ret, NSError * error) {
-//        @strongify(self)
-//        if (!error){
-//            //[self showProgress];
-//            [self.loginViewModel wxLogin:ret];
-//        } else {
-//            [self startOneKeyAuth];
-//        }
-//    }];
-    
+
+    //    [ShareClient openMiniApp:<#(nonnull ShareObject *)#> complete:<#^(BOOL, NSError * _Nullable)completeBlock#>]
+    //
+    //    [ShareClient wxLogin:^(NSString * ret, NSError * error) {
+    //        @strongify(self)
+    //        if (!error){
+    //            //[self showProgress];
+    //            [self.loginViewModel wxLogin:ret];
+    //        } else {
+    //            [self startOneKeyAuth];
+    //        }
+    //    }];
 }
-
-
-
-
 
 /**
  *  账户与安全
@@ -377,6 +367,14 @@
 }
 
 /**
+ * 视频
+ */
+- (void)jumpSJVideoPage {
+    [ZWM.router executeURLNoCallBack:ZWRouterPageSJVideoController];
+}
+
+
+/**
  *  清除缓存
  */
 - (void)cleanCacheData {
@@ -427,18 +425,18 @@
     NSString *filePath         = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
 
     @weakify(self)
-    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString *_Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+        [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString *_Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
 
-    } completionHandler:^(NSString *_Nonnull path, BOOL succeeded, NSError *_Nullable error) {
-        @strongify(self)
-            NSLog(@"succeeded = %@", @(succeeded));
-        if (succeeded) {
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSError *error;
-            BOOL isSuccessOne = [fileManager removeItemAtPath:downPath error:&error];
-            NSLog(@"isSuccessOne = %d", isSuccessOne);
-        }
-    }];
+        } completionHandler:^(NSString *_Nonnull path, BOOL succeeded, NSError *_Nullable error) {
+            @strongify(self)
+                NSLog(@"succeeded = %@", @(succeeded));
+            if (succeeded) {
+                NSFileManager *fileManager = [NSFileManager defaultManager];
+                NSError *error;
+                BOOL isSuccessOne = [fileManager removeItemAtPath:downPath error:&error];
+                NSLog(@"isSuccessOne = %d", isSuccessOne);
+            }
+        }];
 }
 
 /**
@@ -450,16 +448,11 @@
     NSString *formatStr = ZWDebugLogStr(format, @"666", 888.2);
     formatStr           = ZWFormatterUrl(format, @"777", 0.006);
     NSLog(@"formatStr = %@", formatStr);
-    
-    
-    
-    
-    
-    
-//    LoginViewController *oneKeyLoginVc = [[LoginViewController alloc] init];
-//    oneKeyLoginVc.oneKeyLogin = YES;
-//    [self presentViewController:oneKeyLoginVc animated:YES completion:nil];
-//    [self.navigationController pushViewController:oneKeyLoginVc animated:YES];
+
+    //    LoginViewController *oneKeyLoginVc = [[LoginViewController alloc] init];
+    //    oneKeyLoginVc.oneKeyLogin = YES;
+    //    [self presentViewController:oneKeyLoginVc animated:YES completion:nil];
+    //    [self.navigationController pushViewController:oneKeyLoginVc animated:YES];
 }
 
 static inline void ZWDebugLog(NSString *format, ...) {
@@ -533,8 +526,8 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
     [[ZWColorPickInfoWindow shareInstance] showView];
     CALayer *layer        = [[CALayer alloc] init];
     layer.shouldRasterize = YES; // 可以光栅化
-    layer.cornerRadius  = 10;
-    layer.masksToBounds = YES;
+    layer.cornerRadius    = 10;
+    layer.masksToBounds   = YES;
     //    layer.mask
 }
 
@@ -544,7 +537,6 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
 - (void)testBallViewContorller {
     [ZWM.router executeURLNoCallBack:ZWRouterPageBallViewController];
 }
-
 
 /**
  * 测试推送
@@ -586,7 +578,6 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
     return dateTime;
 }
 
-
 #pragma mark-- JFCSTableViewControllerDelegate
 
 - (void)viewController:(JFCSTableViewController *)viewController didSelectCity:(JFCSBaseInfoModel *)model {
@@ -599,7 +590,6 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
 - (void)areaViewEndChange:(NSString *)text areaCode:(NSString *)areaCode {
     NSLog(@"text:%@ areaCode:%@", text, areaCode);
 }
-
 
 #pragma mark -  Lazy loading
 - (UILabel *)bottomLabel {

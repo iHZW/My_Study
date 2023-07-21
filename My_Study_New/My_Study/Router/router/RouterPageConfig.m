@@ -32,6 +32,8 @@ NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
 NSString *const ZWRouterPageSelectedViewController   = @"common/selected/page";
 /** 地址微调页  */
 NSString *const ZWRouterPageLocationTrimViewController = @"tools/location/trim/page";
+/** SJ视频调试界面  */
+NSString *const ZWRouterPageSJVideoController = @"test/video/sj/one/page";
 /** 文件选择界面  */
 NSString *const ZWRouterPageFileSelectViewController = @"tools/file/selectpage";
 /** 陀螺仪测试界面 ~ 球  */
@@ -148,6 +150,13 @@ NSString *const ZWRouterPageLoginViewController  = @"user/login/page";
             @{
                 @"url" : ZWRouterPageLocationTrimViewController,
                 @"clsName": @"LocationTrimViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** SJ视频调试界面  */
+            @{
+                @"url" : ZWRouterPageSJVideoController,
+                @"clsName": @"ZWSJVideoOnePage",
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },

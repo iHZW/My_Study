@@ -70,7 +70,7 @@ target 'My_Study' do
 #  钥匙串 和永久保存使用
   pod 'SAMKeychain', '1.5.3'
 #   播放器
-  pod 'SJBaseVideoPlayer', '3.5.2'
+  pod 'SJVideoPlayer', '3.4.3'
   
   pod 'CocoaAsyncSocket'
   
