@@ -877,6 +877,7 @@
 		4EA52F2F2A6AADB000B2CD87 /* UINavigationController+RotationConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+RotationConfiguration.m"; sourceTree = "<group>"; };
 		4EA52F312A6AB0FB00B2CD87 /* ZWSJVideoOnePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWSJVideoOnePage.h; sourceTree = "<group>"; };
 		4EA52F322A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWSJVideoOnePage.m; sourceTree = "<group>"; };
+		4EA52F342A6AC88800B2CD87 /* SJSourceURLs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJSourceURLs.h; sourceTree = "<group>"; };
 		4EA59D4528AE4F58002D9759 /* TestWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWebViewController.h; sourceTree = "<group>"; };
 		4EA59D4628AE4F58002D9759 /* TestWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWebViewController.m; sourceTree = "<group>"; };
 		4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oc_swift-Swift.h"; sourceTree = "<group>"; };
@@ -2070,6 +2071,7 @@
 				4E149691299D2EA000D305EF /* ZWUserManager.m */,
 				4EA52F312A6AB0FB00B2CD87 /* ZWSJVideoOnePage.h */,
 				4EA52F322A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m */,
+				4EA52F342A6AC88800B2CD87 /* SJSourceURLs.h */,
 			);
 			path = Setting;
 			sourceTree = "<group>";

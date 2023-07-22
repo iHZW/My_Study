@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWSJVideoOnePage : ZWBaseViewController
 
+@property (nonatomic, assign) NSTimeInterval currentTime;
+
 @end
 
 NS_ASSUME_NONNULL_END
