@@ -51,6 +51,7 @@
 		4E149692299D2EA000D305EF /* ZWUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E149691299D2EA000D305EF /* ZWUserManager.m */; };
 		4E19B3F8299FA89300122CC1 /* MMPushUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E19B3F5299FA89300122CC1 /* MMPushUtil.m */; };
 		4E19B3F9299FA89300122CC1 /* MMPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E19B3F6299FA89300122CC1 /* MMPushManager.m */; };
+		4E1F47732A749ED500D5325B /* ZWLaunchManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F47722A749ED500D5325B /* ZWLaunchManage.m */; };
 		4E23FE5D2876F9DA009B02D0 /* UIImage+None.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */; };
 		4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5F28781618009B02D0 /* TrimHeaderView.m */; };
 		4E2FC10E292757E70014C00E /* EHAddressCompHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */; };
@@ -627,6 +628,8 @@
 		4E19B3F6299FA89300122CC1 /* MMPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPushManager.m; sourceTree = "<group>"; };
 		4E19B3F7299FA89300122CC1 /* MMPushUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPushUtil.h; sourceTree = "<group>"; };
 		4E19B3FA299FAF7C00122CC1 /* Pods_My_StudyNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_My_StudyNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E1F47712A749ED500D5325B /* ZWLaunchManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWLaunchManage.h; sourceTree = "<group>"; };
+		4E1F47722A749ED500D5325B /* ZWLaunchManage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWLaunchManage.m; sourceTree = "<group>"; };
 		4E207AE0299BDAB20086F640 /* My_Study.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = My_Study.entitlements; sourceTree = "<group>"; };
 		4E23FE5B2876F9DA009B02D0 /* UIImage+None.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+None.h"; sourceTree = "<group>"; };
 		4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+None.m"; sourceTree = "<group>"; };
@@ -3703,6 +3706,8 @@
 				4E0680D728748C8400F6728A /* Object */,
 				7C459A272295557300667813 /* AppDelegate.h */,
 				4ECE44242859BFAA00326287 /* AppDelegate.m */,
+				4E1F47712A749ED500D5325B /* ZWLaunchManage.h */,
+				4E1F47722A749ED500D5325B /* ZWLaunchManage.m */,
 				4E0287CA28699383003E723E /* LaunchViewController.h */,
 				4E0287CB28699383003E723E /* LaunchViewController.m */,
 				4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */,
@@ -5031,6 +5036,7 @@
 				4EC6B37E2861B12A00F57AAC /* LogModel.m in Sources */,
 				4ED59587286F4B9B002D15F1 /* zhThemeKeyConfig.m in Sources */,
 				4E5F2D0F2876C24A00FEC6C2 /* JSWeakObject.m in Sources */,
+				4E1F47732A749ED500D5325B /* ZWLaunchManage.m in Sources */,
 				4EB8ABD22924D7F800820F48 /* HtmlParser.m in Sources */,
 				4E68973C28CC6F9A0003CF78 /* TestCardTableViewCell.m in Sources */,
 				7C6A215826E371F200E0CF20 /* WFBaseDemo.m in Sources */,

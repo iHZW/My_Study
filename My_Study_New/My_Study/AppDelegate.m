@@ -50,6 +50,8 @@
 #import "ZWPrivacyPolicyManager.h"
 #import <SJBaseVideoPlayer/SJRotationManager.h>
 
+#import "ZWLaunchManage.h"
+
 /** 闪验appId  */
 #define kCLShanYanAppId @"MMTFuKONCXID"
 // #define kCLShanYanAppId                 @"TFuKONCX"
@@ -279,7 +281,10 @@ void printMethodNamesOfClass(Class cls) {
 }
 
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-    return [SJRotationManager supportedInterfaceOrientationsForWindow:window];
+    if ([ZWLaunchManage sharedInstance].isSJ) {
+        return [SJRotationManager supportedInterfaceOrientationsForWindow:window];
+    }
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 

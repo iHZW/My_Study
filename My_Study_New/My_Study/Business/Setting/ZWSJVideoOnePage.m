@@ -10,8 +10,8 @@
 #import "ZWSJVideoOnePage.h"
 #import <SJUIKit/SJAttributesFactory.h>
 #import <SJVideoPlayer/SJVideoPlayer.h>
-
 #import <objc/message.h>
+#import "ZWLaunchManage.h"
 
 @interface SJVideoPlayer (SJPictureInPictureAdditions)
 @property (nonatomic, strong, nullable) UIViewController *pip_sourceViewController;
@@ -170,6 +170,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [ZWLaunchManage sharedInstance].isSJ = YES;
     [_player vc_viewDidAppear];
 
 //    NSString *url = @"https://dh2.v.netease.com/2017/cg/fxtpty.mp4";
@@ -187,6 +189,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    [ZWLaunchManage sharedInstance].isSJ = NO;
     if ( @available(iOS 14.0, *) ) {
         if ( _player.playbackController.pictureInPictureStatus != SJPictureInPictureStatusRunning ) [_player vc_viewDidDisappear];
     }
