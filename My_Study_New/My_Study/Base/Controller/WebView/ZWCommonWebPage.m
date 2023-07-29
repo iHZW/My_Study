@@ -11,6 +11,7 @@
 #import "ZWNative.h"
 #import "GCDCommon.h"
 #import "UIImage+Addition.h"
+#import "WKWebViewConfiguration+Conslog.h"
 
 
 typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
@@ -24,7 +25,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 
 
 
-@interface ZWCommonWebPage () <WKNavigationDelegate>
+@interface ZWCommonWebPage () <WKNavigationDelegate, WKUIDelegate>
 
 @property (nonatomic, strong) ZWWebView *webView;
 
@@ -128,9 +129,14 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 - (ZWWebView *)webView
 {
     if (!_webView) {
-        _webView = [[ZWWebView alloc] initWithFrame:CGRectZero];
+        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+        configuration.showConsole = YES;
+        _webView = [[ZWWebView alloc] initWithFrame:CGRectZero configuration:configuration];
         _webView.backgroundColor = UIColorFromRGB(0xFFFFFF);
         _webView.navigationDelegate  = self;
+        _webView.UIDelegate = self;
+        _webView.allowsBackForwardNavigationGestures = YES;
+
     }
     return _webView;
 }

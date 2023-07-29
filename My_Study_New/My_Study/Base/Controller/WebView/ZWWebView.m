@@ -27,6 +27,9 @@
 
 - (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration{
     if(self = [super initWithFrame:frame configuration:configuration]){
+        configuration.allowsInlineMediaPlayback = NO;
+        configuration.allowsPictureInPictureMediaPlayback = YES;
+        
         if (configuration.showConsole) {
             WKUserContentController *userCC = configuration.userContentController;
             
