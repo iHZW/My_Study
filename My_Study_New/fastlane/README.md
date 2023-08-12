@@ -15,13 +15,37 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios develop
+### ios pgy_Debug
 
 ```sh
-[bundle exec] fastlane ios develop
+[bundle exec] fastlane ios pgy_Debug
 ```
 
-ad_Hoc 版本
+多环境、多平台自动化打包
+
+### ios pgy_ReleaseQA
+
+```sh
+[bundle exec] fastlane ios pgy_ReleaseQA
+```
+
+
+
+### ios pgy_Release
+
+```sh
+[bundle exec] fastlane ios pgy_Release
+```
+
+
+
+### ios pgy_package
+
+```sh
+[bundle exec] fastlane ios pgy_package
+```
+
+
 
 ### ios screenshots
 

@@ -221,13 +221,15 @@ DXCaptchaDelegate>
     switch (eventType) {
         case DXCaptchaEventSuccess: {
             NSString *token = dict[@"token"];
+            
+            performBlockOnMainQueue(NO, ^{
+                UIView *tempView = [[UIApplication sharedApplication].keyWindow viewWithTag:1234];
+                if (tempView) {
+                    [tempView removeFromSuperview];
+                }
+                BlockSafeRun(self.completeBlock, token);
+            });
            
-            UIView *tempView = [[UIApplication sharedApplication].keyWindow viewWithTag:1234];
-            if (tempView) {
-                [tempView removeFromSuperview];
-            }
-            BlockSafeRun(self.completeBlock, token);
-
 //            performBlockOnMainQueue(NO, ^{
 //                [[[UIApplication sharedApplication].keyWindow viewWithTag:1234] removeFromSuperview];
 //            });

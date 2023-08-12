@@ -10,7 +10,9 @@
 
 #import "WFPermanentThread.h"
 #import "WFThread.h"
-#import "YYKit/YYKit.h"
+//#import "YYKit/YYKit.h"
+#import <YYCategories/YYCategories.h>
+#import <SDWebImage/SDWeakProxy.h>
 
 
 @interface WFPermanentThread ()
@@ -31,7 +33,7 @@
 {
     if (self = [super init]) {
         self.isStop = NO;
-        self.wf_thread = [[WFThread alloc] initWithTarget:[YYWeakProxy proxyWithTarget:self] selector:@selector(keepSlive) object:nil];
+        self.wf_thread = [[WFThread alloc] initWithTarget:[SDWeakProxy proxyWithTarget:self] selector:@selector(keepSlive) object:nil];
         
 //        @pas_weakify_self
 //        self.wf_thread = [[WFThread alloc] initWithBlock:^{

@@ -81,11 +81,12 @@ target 'My_Study' do
 #  pod 'WFEOCFamilyLib'
 #  pod 'WFUIKit'
   
-  pod 'YYKit', '1.0.9'
+#  pod 'YYKit', '1.0.9'
+  pod 'YYCategories', '1.0.4'
   
 #  pod 'YYCategories'
 #  加载SVG图片资源使用
-  pod 'SVGKit', '2.1.1'
+  pod 'SVGKit', '3.0.0'
   
   pod 'KVOController', '1.2.0'
   
@@ -155,7 +156,7 @@ target 'My_Study' do
   #键盘
   pod 'IQKeyboardManager', '6.5.10'
   # 个推
-  pod 'GTSDK', '2.7.1.0'
+  pod 'GTSDK'
   # TabBar
   pod 'CYLTabBarController', '1.29.2'
   
@@ -187,7 +188,8 @@ post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
       target.build_configurations.each do |config|
-        config.build_settings["DEVELOPMENT_TEAM"] = "82MDUB8B2X"  #teamid
+        config.build_settings["DEVELOPMENT_TEAM"] = "VJL6T3N8T6"  #teamid
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       end
     end
   end

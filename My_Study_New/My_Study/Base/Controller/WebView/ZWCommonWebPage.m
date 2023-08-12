@@ -12,6 +12,7 @@
 #import "GCDCommon.h"
 #import "UIImage+Addition.h"
 #import "WKWebViewConfiguration+Conslog.h"
+#import "JSWeakObject.h"
 
 
 typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
@@ -24,7 +25,6 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 };
 
 
-
 @interface ZWCommonWebPage () <WKNavigationDelegate, WKUIDelegate>
 
 @property (nonatomic, strong) ZWWebView *webView;
@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 
 @property (nonatomic, strong) NSURL *nsurl;
 
+@property (nonatomic, assign) BOOL videoFullScreen;
 
 @end
 
@@ -58,8 +59,23 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     
     [self loadData];
     
-    
+    [self regiseterNotification];
 }
+
+- (void)regiseterNotification {
+    /// 监听全屏
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoBeginFullScreen)
+                                                 name:UIWindowDidResignKeyNotification
+                                               object:nil];
+    /// 监听结束全屏
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoStopFullScreen)
+                                                         name:UIWindowDidBecomeHiddenNotification
+                                                       object:nil];
+}
+
+
 
 - (void)loadSubViews
 {
@@ -400,7 +416,46 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 }
 
 
+#pragma mark - 处理视屏全屏
+- (void)videoBeginFullScreen {
+    self.videoFullScreen = YES;
+    [self switchLaunchScreen:YES];
 
+}
+
+- (void)videoStopFullScreen {
+    self.videoFullScreen       = NO;
+    [self switchLaunchScreen:NO];
+}
+
+
+- (void)switchLaunchScreen:(BOOL)isLaunchScreen {
+    
+    if (@available(iOS 16.0, *)) {
+        // setNeedsUpdateOfSupportedInterfaceOrientations 方法是 UIViewController 的方法
+        [self setNeedsUpdateOfSupportedInterfaceOrientations];
+        NSArray *array = [[[UIApplication sharedApplication] connectedScenes] allObjects];
+        UIWindowScene *scene = [array firstObject];
+        // 屏幕方向
+        UIInterfaceOrientationMask orientation = isLaunchScreen ? UIInterfaceOrientationMaskLandscape: UIInterfaceOrientationMaskPortrait;
+        UIWindowSceneGeometryPreferencesIOS *geometryPreferencesIOS = [[UIWindowSceneGeometryPreferencesIOS alloc] initWithInterfaceOrientations:orientation];
+        // 开始切换
+        [scene requestGeometryUpdateWithPreferences:geometryPreferencesIOS errorHandler:^(NSError * _Nonnull error) {
+            NSLog(@"错误:%@", error);
+        }];
+    } else {
+        if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+            SEL selector = NSSelectorFromString(@"setOrientation:");
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+            [invocation setSelector:selector];
+            [invocation setTarget:[UIDevice currentDevice]];
+            int val = UIDeviceOrientationPortrait;
+            [invocation setArgument:&val atIndex:2];
+            [invocation invoke];
+        }
+        [UIViewController attemptRotationToDeviceOrientation];
+    }
+}
 
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "NSString+Tool.h"
-#import "YYKit/YYKit.h"
+#import <YYCategories/YYCategories.h>
+#import <SDWebImage/SDWeakProxy.h>
 
 #define CONFIG_APP_BASE_URL @"https://www.zw.com/app"     // app  baseUrl
 #define CONFIG_WEB_BASE_URL @"https://www.zw.com/web"     // webview  baseUrl

@@ -448,6 +448,10 @@
     NSString *formatStr = ZWDebugLogStr(format, @"666", 888.2);
     formatStr           = ZWFormatterUrl(format, @"777", 0.006);
     NSLog(@"formatStr = %@", formatStr);
+    
+    NSString *url = @"https://pages/subPkgsTax/taxClubDetail/index/?id=1005431829342217&news_section=undefined&pushTimeBbzl=1691673134079&openChannelBbzl=wechat&templateNameBbzl=%E5%85%B3%E4%BA%8E%E5%8D%B0%E8%8A%B1%E7%A8%8E%E4%B8%AD%E7%9A%84%E4%B9%B0%E5%8D%96%E5%90%88%E5%90%8C%EF%BC%8C%E9%87%87%E8%B4%AD%E7%9A%84%E5%95%86%E5%93%81%E7%AD%BE%E7%9A%84%E6%98%AF%E6%A1%86%E6%9E%B6%E5%90%88%E5%90%8C%EF%BC%8C%E7%84%B6%E5%90%8E%E9%87%87%E8%B4%AD%E5%AD%98%E5%9C%A8%E5%B9%B3%E9%94%80%E8%BF%94%E5%88%A9%EF%BC%8C%E6%98%AF%E5%90%A6%E5%9C%A8%E8%AE%A1%E7%A8%8E%E6%97%B6%E5%8F%AF%E6%89%A3%E5%87%8F%E7%9B%B8%E5%BA%94%E8%BF%94%E5%88%A9%E9%87%91%E9%A2%9D%EF%BC%9F&templateContentBbzl=%E6%A0%B9%E6%8D%AE%E3%80%8A%E5%8D%B0%E8%8A%B1%E7%A8%8E%E6%B3%95%E3%80%8B%E7%AC%AC%E4%BA%94%E6%9D%A1%26ldquo...%E5%BA%94%E7%A8%8E%E5%90%88%E5%90%8C%E7%9A%84%E8%AE%A1%E7%A8%8E%E4%BE%9D%E6%8D%AE%EF%BC%8C%E4%B8%BA%E5%90%88%E5%90%8C%E6%89%80%E5%88%97%E7%9A%84%E9%87%91%E9%A2%9D%EF%BC%8C%E4%B8%8D%E5%8C%85%E6%8B%AC%E5%88%97%E6%98%8E%E7%9A%84%E5%A2%9E%E5%80%BC%E7%A8%8E%E7%A8%8E%E6%AC%BE&rdquo...";
+    NSURL *tempUrl = [NSURL URLWithString:url];
+    NSLog(@"tempUrl = %@", tempUrl);
 
     //    LoginViewController *oneKeyLoginVc = [[LoginViewController alloc] init];
     //    oneKeyLoginVc.oneKeyLogin = YES;

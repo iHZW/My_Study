@@ -82,6 +82,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"111111" forKey:@"zw_appLaunch"];    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
     /** 注册AppID  */
     //    [WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@""];

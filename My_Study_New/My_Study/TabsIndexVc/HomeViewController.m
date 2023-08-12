@@ -15,7 +15,8 @@
 #import "RunLoopViewController.h"
 #import "UIViewController+CWLateralSlide.h"
 #import "WFThread.h"
-#import "YYKit.h"
+#import <YYCategories/YYCategories.h>
+#import <SDWebImage/SDWeakProxy.h>
 #import "ZWHomeModel.h"
 
 @interface HomeViewController () {
@@ -166,7 +167,7 @@
 
 - (void)startTimer {
     [_timer invalidate];
-    _timer = [NSTimer timerWithTimeInterval:1 target:[YYWeakProxy proxyWithTarget:self] selector:@selector(run) userInfo:nil repeats:NO];
+    _timer = [NSTimer timerWithTimeInterval:1 target:[SDWeakProxy proxyWithTarget:self] selector:@selector(run) userInfo:nil repeats:NO];
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
 
     //    [_yyTimer invalidate];

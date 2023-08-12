@@ -27,7 +27,17 @@
 
 - (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration{
     if(self = [super initWithFrame:frame configuration:configuration]){
-        configuration.allowsInlineMediaPlayback = NO;
+
+        // 默认是NO，这个值决定了用内嵌HTML5播放视频还是用本地的全屏控制
+        configuration.allowsInlineMediaPlayback = YES;
+        // 自动播放, 不需要用户采取任何手势开启播放
+        // WKAudiovisualMediaTypeNone 音视频的播放不需要用户手势触发, 即为自动播放
+        if (@available(iOS 10.0, *)) {
+            configuration.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
+        } else {
+            
+        }
+        configuration.allowsAirPlayForMediaPlayback = YES;
         configuration.allowsPictureInPictureMediaPlayback = YES;
         
         if (configuration.showConsole) {

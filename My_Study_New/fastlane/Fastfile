@@ -13,25 +13,52 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+#声明
+IPA_TIME = Time.now.strftime("%Y年%m月%d日%H:%M")#打包日期，全局变量
+
 default_platform(:ios)
 
 platform :ios do
-  desc "ad_Hoc 版本"
-  lane :develop do
-    # add actions here: https://docs.fastlane.tools/actions
-    # build_app(export_xcargs: "-allowProvisioningUpdates", scheme: target, configuration: configuration, export_method:"ad-hoc", clean: true)
+  desc "多环境、多平台自动化打包"#通用注释,打包不用修改
+  #update_content是版本更新内容，每次打包可以修改此处
+  update_content = "修复bug，稳定"
 
-    build_app(
-      export_xcargs: "-allowProvisioningUpdates", 
-      export_method:"ad-hoc",
-      export_options: {
-        iCloudContainerEnvironment: "Production"
-      },
-      clean: true, 
-      configuration: "Release"
-    )
-    pgyer(api_key: "6911617f328caa7bf0402f0a3da0ab22", update_description: "update by fastlane hzw pyger")
+  #打包上传到蒲公英 - Debug，打包命令：cd到工程下再命令：fastlane pgy_Debug
 
+  lane :pgy_Debug do
+    #局部变量
+    ENCIRONMENT_DES = "dev环境"#环境配置
+    pgy_package(configuration: "Debug")#指定构建App的配置  Release、Debug、自定义
+  end
+
+  #打包上传到蒲公英 - Debug_ProductServer
+  lane :pgy_ReleaseQA do
+    #局部变量
+      ENCIRONMENT_DES = "预上线环境"#环境配置
+      pgy_package(configuration: "QA")#指定构建App的配置  Release、Debug、自定义
+  end
+
+  #打包上传到蒲公英 - Release
+  lane :pgy_Release do
+    #局部变量
+    ENCIRONMENT_DES = "线上正式环境"#环境配置
+    pgy_package(configuration: "Release")#指定构建App的配置  Release、Debug、自定义
+  end
+  
+  #蒲公英公用类  
+  lane :pgy_package do |option|
+    build_app(export_method: "ad-hoc",#打包证书选择
+              #  scheme: "miniVideo",#选择打包项目的taregets
+               export_xcargs: "-allowProvisioningUpdates",#自动更新证书，防止因为证书打包失败
+               clean: true, 
+              #  export_options: {
+              #   iCloudContainerEnvironment: "Production",
+              # },
+               configuration: option[:configuration]#指定构建App的配置  Release、Debug、自定义
+               )             
+               
+    pgyer(api_key: "23af6077415a25c135f43d8b4f0e94a2", update_description: "【" + "#{ENCIRONMENT_DES}" + "，" + "#{IPA_TIME}" + "打包上传】"+update_content)
+    # 可选的值有：app-store、ad-hoc、development、enterprise。
   end
 
   # 截图和上传

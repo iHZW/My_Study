@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol JSWeakObjectDeleaget <NSObject>
 
+@optional
 - (void)WkUserContentView:(WKUserContentController *)contentView didReceiveScriptMessage:(WKScriptMessage *)message;
 
 @end

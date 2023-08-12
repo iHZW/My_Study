@@ -10,6 +10,7 @@
 #import "FindViewController.h"
 #import "LoadingUtil.h"
 #import "ZWWebView.h"
+#import "ZWCommonWebPage.h"
 #import <QMUIKit/QMUIKit.h>
 
 typedef NS_ENUM(NSUInteger, UIBorderSideType) {
@@ -25,6 +26,8 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
 @property (nonatomic, strong) NSString *name;
 
 @property (nonatomic, strong) ZWWebView *webView;
+
+@property (nonatomic, strong) ZWCommonWebPage *webPage;
 /** 名称  */
 @property (nonatomic, copy) NSArray *nameArray;
 /** 链接  */
@@ -49,10 +52,19 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
 
     self.title = @"VIP影视";
     [self loadNav];
-    [self.view addSubview:self.webView];
-    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+//    [self.view addSubview:self.webView];
+//    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.right.bottom.equalTo(self.view);
+//    }];
+    
+    [self addChildViewController:self.webPage];
+    [self.view addSubview:self.webPage.view];
+    [self.webPage.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.equalTo(self.view);
     }];
+    
+    
     VideoModel *model = [self.dataArray firstObject];
     NSString *url     = TransToString(model.videoUrl);
     [self loadUrlString:url];
@@ -153,7 +165,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     NSURL *url = [NSURL URLWithString:urlString];
     if (url) {
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
+        [self.webPage.webView loadRequest:request];
     }
 }
 
@@ -182,6 +194,14 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
         _webView.navigationDelegate = self;
     }
     return _webView;
+}
+
+- (ZWCommonWebPage *)webPage {
+    if (!_webPage) {
+        _webPage = [[ZWCommonWebPage alloc] init];
+        _webPage.view.frame = self.view.bounds;
+    }
+    return _webPage;
 }
 
 - (NSArray *)nameArray {
@@ -268,27 +288,27 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
         _popupByWindow.items = @[
             [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" handler:^(QMUIPopupMenuButtonItem * _Nonnull aItem) {
                 [aItem.menuView hideWithAnimated:YES];
-                @pas_strongify_self if (self.webView.canGoForward) {
-                    [self.webView goForward];
+                @pas_strongify_self if (self.webPage.webView.canGoForward) {
+                    [self.webPage.webView goForward];
                 }
             }],
 //            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *_Nonnull aItem) {
 //                [aItem.menuView hideWithAnimated:YES];
-//                @pas_strongify_self if (self.webView.canGoForward) {
-//                    [self.webView goForward];
+//                @pas_strongify_self if (self.webPage.webView.canGoForward) {
+//                    [self.webPage.webView goForward];
 //                }
 //            }],
             //            [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_audio_icon"] title:@"前进网页" titleColor:UIColor.blackColor handler:^(QMUIPopupMenuButtonItem *aItem) {
             //                [aItem.menuView hideWithAnimated:YES];
             //                @pas_strongify_self
-            //                if (self.webView.canGoForward) {
-            //                    [self.webView goForward];
+            //                if (self.webPage.webView.canGoForward) {
+            //                    [self.webPage.webView goForward];
             //                }
             //            }],
             [QMUIPopupMenuButtonItem itemWithImage:[UIImage imageNamed:@"file_excel_icon"] title:@"后退网页" handler:^(QMUIPopupMenuButtonItem *aItem) {
                 [aItem.menuView hideWithAnimated:YES];
-                @pas_strongify_self if (self.webView.canGoBack) {
-                    [self.webView goBack];
+                @pas_strongify_self if (self.webPage.webView.canGoBack) {
+                    [self.webPage.webView goBack];
                 }
             }]
         ];
