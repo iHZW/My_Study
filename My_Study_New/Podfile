@@ -113,7 +113,7 @@ target 'My_Study' do
   # pod 'MBProgressHUD', '1.2.0'
 
   # logan  美团日志
-  pod 'Logan', '1.2.7'
+  pod 'Logan', '1.2.8'
   
   # 骨架屏
   pod 'TABAnimated', '2.6.3'

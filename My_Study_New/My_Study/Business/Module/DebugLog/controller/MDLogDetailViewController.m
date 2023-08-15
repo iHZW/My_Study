@@ -96,25 +96,30 @@
 - (void)reloadData{
     LogModel *logModel = [LogDAO queryLogDetails:self.identity];
 
-    self.title = [NSString stringWithFormat:@"%@ - %lu",logModel.flag,(unsigned long)self.identity];
+    NSString *tempName = TransToString(logModel.flag);
+    if ([tempName hasPrefix:@"http"]) {
+        tempName = [NSString stringWithFormat:@"%@ - %@", [TransToString(logModel.flag) lastPathComponent] ?: @"", @(self.identity)];
+    }
+//    self.title = [NSString stringWithFormat:@"%@ - %lu", logModel.flag, (unsigned long)];
+    self.title = tempName;
     NSString *htmlString = [NSString stringWithFormat:@"<html> \n"
-                            "<head> \n"
-//                            "<meta content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\" name=\"viewport\">\n"
-                            "<style type=\"text/css\"> \n"
-                            "body {-webkit-text-size-adjust:100%}\n"
-                            "textarea {width:100%%; height:100%%;border-width: 0px;font-size: 50px;}\n"
-                            "</style> \n"
-                            "</head> \n"
-                            "<body>"
-                            "<textarea readonly>Context:%@<br/>时间:%@ <br/><br/>%@</textarea>"
-                            "</body>"
-                            "</html>",
-                            logModel.context,
-                            [DateUtil prettyDateStringForDate:logModel.createTime],
-                            logModel.msg];
-    
+                                                       "<head> \n"
+                                                       // "<meta content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\" name=\"viewport\">\n"
+                                                       "<style type=\"text/css\"> \n"
+                                                       "body {-webkit-text-size-adjust:100%%}\n"
+                                                       "textarea {width:100%%; height:100%%;border-width: 0px;font-size: 35px;}\n"
+                                                       "</style> \n"
+                                                       "</head> \n"
+                                                       "<body>"
+                                                       "<textarea readonly>Context:%@\n时间:%@ \n%@</textarea>"
+                                                       "</body>"
+                                                       "</html>",
+                                                      logModel.context,
+                                                      [DateUtil prettyDateStringForDate:logModel.createTime],
+                                                      logModel.msg];
+
     [self.zwWebView.webView loadHTMLString:htmlString baseURL:nil];
-//    [self.webView loadHTMLString:htmlString baseURL:nil];
+    //    [self.webView loadHTMLString:htmlString baseURL:nil];
 }
 
 - (IBAction)btnUpAction:(id)sender{
