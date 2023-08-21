@@ -36,10 +36,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSURL*)eh_image_url;
 
 /// Convert to url
+- (NSURL*)eh_url_encode;
+
+/// Convert to url
 - (NSURL*)eh_url_look;
 
 /// 获取eh_image_url_look  不带域名拼接域名,  代 http/https的直接返回对应的 NSURL
 - (NSURL*)eh_image_url_look;
+
+#pragma mark - 仅对中文编码(包括空格)
+- (NSURL *)eh_url_chinese_encode;
 
 #pragma mark - File
 
@@ -104,7 +110,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - data: 需要写入的数据
 ///   - version: 新数据对应的版本号
 ///   - userDefaultKey: 查找版本号，依赖的key
-- (BOOL)eh_saveCacheData:(id)data version:(NSString*)version userDefaultKey:(NSString*)userDefaultKey;
+- (BOOL)eh_saveCacheData:(id)data
+                 version:(NSString*)version
+          userDefaultKey:(NSString*)userDefaultKey;
 
 @end
 

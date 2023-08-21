@@ -325,6 +325,7 @@
 		4ECE44252859BFAA00326287 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE44242859BFAA00326287 /* AppDelegate.m */; };
 		4ED26ADE287EBA6900F0EDFE /* ZWColorPickInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED26ADD287EBA6900F0EDFE /* ZWColorPickInfoWindow.m */; };
 		4ED26AE1287EC4D100F0EDFE /* ZWColorPickInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED26AE0287EC4D100F0EDFE /* ZWColorPickInfoView.m */; };
+		4ED511A22A8F399200C07112 /* SZJsonLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED511A12A8F399200C07112 /* SZJsonLog.m */; };
 		4ED540C8287C6D910070FB8E /* PhotoActionSheetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED540C7287C6D910070FB8E /* PhotoActionSheetUtil.m */; };
 		4ED540CB287C7E620070FB8E /* FileIconNameUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED540CA287C7E620070FB8E /* FileIconNameUtil.m */; };
 		4ED59574286EF31D002D15F1 /* ThemeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ED59572286EF31D002D15F1 /* ThemeInfo.plist */; };
@@ -1141,6 +1142,8 @@
 		4ED26ADD287EBA6900F0EDFE /* ZWColorPickInfoWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWColorPickInfoWindow.m; sourceTree = "<group>"; };
 		4ED26ADF287EC4D100F0EDFE /* ZWColorPickInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWColorPickInfoView.h; sourceTree = "<group>"; };
 		4ED26AE0287EC4D100F0EDFE /* ZWColorPickInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWColorPickInfoView.m; sourceTree = "<group>"; };
+		4ED511A02A8F399200C07112 /* SZJsonLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZJsonLog.h; sourceTree = "<group>"; };
+		4ED511A12A8F399200C07112 /* SZJsonLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZJsonLog.m; sourceTree = "<group>"; };
 		4ED540C6287C6D910070FB8E /* PhotoActionSheetUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoActionSheetUtil.h; sourceTree = "<group>"; };
 		4ED540C7287C6D910070FB8E /* PhotoActionSheetUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoActionSheetUtil.m; sourceTree = "<group>"; };
 		4ED540C9287C7E620070FB8E /* FileIconNameUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileIconNameUtil.h; sourceTree = "<group>"; };
@@ -2793,6 +2796,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4ED5119F2A8F399200C07112 /* SZJsonLog */,
 				4E758E3829FACD73003F3884 /* ClearWebViewCache */,
 				4E8C524D29FA210500C47E2B /* MMScrollLabelView */,
 				4E734CC4299FCE12005EF1C9 /* Privacy */,
@@ -3227,6 +3231,15 @@
 				4ED26AE0287EC4D100F0EDFE /* ZWColorPickInfoView.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		4ED5119F2A8F399200C07112 /* SZJsonLog */ = {
+			isa = PBXGroup;
+			children = (
+				4ED511A02A8F399200C07112 /* SZJsonLog.h */,
+				4ED511A12A8F399200C07112 /* SZJsonLog.m */,
+			);
+			path = SZJsonLog;
 			sourceTree = "<group>";
 		};
 		4ED59571286EF31D002D15F1 /* ThemeFiles */ = {
@@ -5094,6 +5107,7 @@
 				4EDC0B6E286308D6001C53CE /* NSDictionary+Safe.m in Sources */,
 				4EC6B38C2861B12A00F57AAC /* LookinPlugin.m in Sources */,
 				4EFECF73287D1D6B00B137BB /* ZWBaseCollectionCell.m in Sources */,
+				4ED511A22A8F399200C07112 /* SZJsonLog.m in Sources */,
 				7C4F93DC2302B39300F2238E /* PASTwoListView.m in Sources */,
 				4EFECF6A287D1C6D00B137BB /* ZWPreCell.m in Sources */,
 				4E6681C92927574400C635BF /* SPPageMenu.m in Sources */,

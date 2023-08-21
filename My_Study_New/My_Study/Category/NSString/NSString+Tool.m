@@ -54,7 +54,7 @@
 #pragma mark - Url
 /// Convert to url
 - (NSURL*)eh_url {
-    return [NSURL URLWithString:self];
+    return [self eh_url_chinese_encode];
 }
 
 
@@ -79,14 +79,67 @@
     NSString *urlName = self;
     if ([urlName hasPrefix:@"http"] ||
         [urlName hasPrefix:@"https"]) {
-        url = urlName.eh_url;
+        url = urlName.eh_url_encode;
     } else {
         if (![urlName hasPrefix:@"/"]) {
             urlName = [NSString stringWithFormat:@"/%@", urlName];
         }
-        url = [urlName eh_front_append:CONFIG_IMAGE_BASE_URL].eh_url;
+        url = [urlName eh_front_append:CONFIG_IMAGE_BASE_URL].eh_url_encode;
     }
     return url;
+}
+
+- (NSURL*)eh_url_encode {
+    /** 先解码  */
+    NSString *urlName = nil;
+    {
+        NSString * lastPathComponet = self.lastPathComponent.stringByURLDecode;
+        NSString * headPaths = [self substringWithRange:NSMakeRange(0, self.length - self.lastPathComponent.length)];
+        urlName = [NSString stringWithFormat:@"%@%@", headPaths, lastPathComponet];
+    }
+    
+    NSString* lastPathComponet = urlName.lastPathComponent.stringByURLEncode;
+    NSString * headPaths = [urlName substringWithRange:NSMakeRange(0, urlName.length - urlName.lastPathComponent.length)];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", headPaths, lastPathComponet]];
+}
+
+#pragma mark - 是否包含中文
+- (BOOL)isContainChinese {
+    for (int i = 0; i < self.length; i++) {
+        unichar ch = [self characterAtIndex:i];
+        if (0x4E00 <= ch && ch <= 0x9FA5) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+#pragma mark - url 对 中文编码
+- (NSURL *)eh_url_chinese_encode {
+    NSString *tempUrl = self;
+    if ([tempUrl containsString:@" "]) {
+        /** 去空格,替换为 "%20"  */
+        tempUrl = [tempUrl stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    }
+    // 不包含中文，直接返回
+    if (![tempUrl isContainChinese]) {
+        return [NSURL URLWithString:tempUrl];
+    }
+    // 取出字符串中的中文，以及中文符号。
+    NSString *ChineseStr = @"";
+    for (int i = 0; i < tempUrl.length; i++) {
+        NSString *str = [tempUrl substringWithRange:NSMakeRange(i, 1)];
+        for (int j = 0; j < str.length; j++) {
+            unichar ch = [str characterAtIndex:j];
+            if (0x4E00 <= ch && ch <= 0x9FA5) {
+                ChineseStr = [ChineseStr stringByAppendingString:str];
+                break;
+            }
+        }
+    }
+    NSCharacterSet *set = [[NSCharacterSet characterSetWithCharactersInString:ChineseStr] invertedSet];
+    NSString *resultStr = [tempUrl stringByAddingPercentEncodingWithAllowedCharacters:set];
+    return [NSURL URLWithString:resultStr];
 }
 
 - (NSURL*)eh_image_url_look {
@@ -341,7 +394,9 @@
 ///   - data: 需要写入的数据
 ///   - version: 新数据对应的版本号
 ///   - userDefaultKey: 查找版本号，依赖的key
-- (BOOL)eh_saveCacheData:(id)data version:(NSString*)version userDefaultKey:(NSString*)userDefaultKey {
+- (BOOL)eh_saveCacheData:(id)data
+                 version:(NSString*)version
+          userDefaultKey:(NSString*)userDefaultKey {
     BOOL update = false;
     if ([data isKindOfClass:NSArray.class] || [data isKindOfClass:NSDictionary.class]) {
         // 取出缓存的版本号
