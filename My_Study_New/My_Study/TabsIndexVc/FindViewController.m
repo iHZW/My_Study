@@ -130,8 +130,8 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
         [self.popupAtBarButtonItem hideWithAnimated:YES];
     } else {
         // 相对于右上角的按钮布局
-        self.popupAtBarButtonItem.sourceBarItem = self.navigationItem.rightBarButtonItem;
-        [self.popupAtBarButtonItem showWithAnimated:YES];
+        self.popupAtBarButtonItem.sourceBarItem = [self.navigationItem.rightBarButtonItems lastObject];
+        [self.popupAtBarButtonItem showWithAnimated:NO];
     }
 }
 
@@ -179,7 +179,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
 /** 加载url  */
 - (void)loadUrlString:(NSString *)urlString {
     /** 显示loading  */
-    [LoadingUtil show];
+//    [LoadingUtil show];
     NSURL *url = [NSURL URLWithString:urlString];
     if (url) {
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -190,7 +190,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     NSLog(@"加载完成");
     /** 隐藏loading  */
-    [LoadingUtil hide];
+//    [LoadingUtil hide];
 }
 
 #pragma mark - 数据源
@@ -226,6 +226,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     if (!_nameArray) {
         NSArray *nameArray = @[@"VIP影视",
                                @"VIP电影院",
+                               @"剧迷",
                                @"80s电影",
                                @"片库",
                                @"全景影院",
@@ -244,6 +245,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     if (!_urlArray) {
         NSArray *urlArray = @[@"https://dhuangmi.com/",
                               @"https://www.xierizhi.cn/vod/tv/Q4Fpb07mRzHnNX.html",
+                              @"https://gimy.video/",
                               @"https://www.bj-qdcg.com/",
                               @"https://www.qwshu.com/ms/1--hits---------.html",
                               @"https://www.quanjingyy.com/",
@@ -275,16 +277,16 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
         _popupAtBarButtonItem.tintColor                     = [UIColor cyanColor];
 
         NSMutableArray *itemArray = [NSMutableArray array];
-        @pas_weakify_self for (int i = 0; i < self.nameArray.count; i++) {
-            QMUIPopupMenuButtonItem *item = [QMUIPopupMenuButtonItem
-                itemWithImage:nil
-                        title:PASArrayAtIndex(self.nameArray, i)
-                      handler:^(QMUIPopupMenuButtonItem *_Nonnull aItem) {
-                          /** 隐藏pop视图  */
-                          [aItem.menuView hideWithAnimated:YES];
-                          @pas_strongify_self
-                              [self loadUrlString:PASArrayAtIndex(self.urlArray, i)];
-                      }];
+        @pas_weakify_self
+        for (int i = 0; i < self.nameArray.count; i++) {
+            QMUIPopupMenuButtonItem *item = [QMUIPopupMenuButtonItem itemWithImage:nil
+                                                                             title:PASArrayAtIndex(self.nameArray, i)
+                                                                           handler:^(QMUIPopupMenuButtonItem *_Nonnull aItem) {
+                @pas_strongify_self
+                /** 隐藏pop视图  */
+                [aItem.menuView hideWithAnimated:YES];
+                [self loadUrlString:PASArrayAtIndex(self.urlArray, i)];
+            }];
             [itemArray addObject:item];
         }
         _popupAtBarButtonItem.items = TransToArray(itemArray);
@@ -295,7 +297,6 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
 - (QMUIPopupMenuView *)popupByWindow {
     if (!_popupByWindow) {
         @pas_weakify_self
-            _popupByWindow                           = [[QMUIPopupMenuView alloc] init];
         _popupByWindow                               = [[QMUIPopupMenuView alloc] init];
         _popupByWindow.automaticallyHidesWhenUserTap = YES; // 点击空白地方消失浮层
         _popupByWindow.tintColor                     = [UIColor colorFromHexString:@"#FFFFFF"];

@@ -59,7 +59,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     
     [self loadData];
     
-    [self regiseterNotification];
+//    [self regiseterNotification];
 }
 
 - (void)regiseterNotification {
