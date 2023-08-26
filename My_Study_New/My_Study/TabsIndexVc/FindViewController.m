@@ -12,6 +12,7 @@
 #import "ZWWebView.h"
 #import "ZWCommonWebPage.h"
 #import <QMUIKit/QMUIKit.h>
+#import "ZWLaunchManage.h"
 
 typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     UIBorderSideTypeAll    = 0,
@@ -91,6 +92,23 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     self.backForwardItem = backForwardItem;
     self.backForwardBtn  = backForwardBtn;
     [self.navigationItem setRightBarButtonItems:@[backForwardItem, btnItem]];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [ZWLaunchManage sharedInstance].isVIP = YES;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [ZWLaunchManage sharedInstance].isVIP = NO;
 }
 
 - (void)rightAction {
@@ -324,6 +342,25 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     }
     return _popupByWindow;
 }
+
+/** 默认不支持旋转  */
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+/** 默认竖屏  */
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+/** 默认竖屏  */
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait|UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;
+}
+
 
 @end
 

@@ -286,6 +286,8 @@ void printMethodNamesOfClass(Class cls) {
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     if ([ZWLaunchManage sharedInstance].isSJ) {
         return [SJRotationManager supportedInterfaceOrientationsForWindow:window];
+    } else if ([ZWLaunchManage sharedInstance].isVIP) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
     }
     return UIInterfaceOrientationMaskAllButUpsideDown;
 }

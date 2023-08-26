@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWLaunchManage : NSObject
-
+/** SJ 视频播放组件  */
 @property (nonatomic, assign) BOOL isSJ;
+/** H5 VIP观影  */
+@property (nonatomic, assign) BOOL isVIP;
 
 + (instancetype)sharedInstance;
 
