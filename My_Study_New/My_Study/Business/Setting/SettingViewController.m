@@ -39,6 +39,11 @@
 #import "NSString+Tool.h"
 #import "ZWOneKeyTextVC.h"
 
+#pragma mark - 二维码头文件
+#import "QQScanZXingViewController.h"
+#import "StyleDIY.h"
+#import "Global.h"
+
 #define kSectionViewHeight 20
 #define ZWNSLog(...) printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
 
@@ -137,7 +142,9 @@
 
 - (NSArray *)getDataArray {
     NSArray *sec1Arr = @[[ActionModel initWithTitle:@"个人信息" actionName:@"accountInfoSetting"],
-                         [ActionModel initWithTitle:@"账户与安全" actionName:@"accountsAndSecurity"]];
+                         [ActionModel initWithTitle:@"账户与安全" actionName:@"accountsAndSecurity"],
+                         [ActionModel initWithTitle:@"二维码扫描" actionName:@"scanningQRCode"],
+                         [ActionModel initWithTitle:@"我的二维码" actionName:@"myQRCode"]];
 
     NSArray *sec2Arr = @[[ActionModel initWithTitle:@"Alert提示框" actionName:@"alertViewAction"],
                          [ActionModel initWithTitle:@"单选页面" actionName:@"selectedPageAction"],
@@ -276,6 +283,26 @@
  */
 - (void)accountsAndSecurity {
 }
+
+
+#pragma mark - 二维码扫描
+- (void)scanningQRCode {
+    QQScanZXingViewController *vc = [QQScanZXingViewController new];
+    vc.style = [StyleDIY qqStyle];
+    vc.cameraInvokeMsg = @"相机启动中";
+    vc.continuous = [Global sharedManager].continuous;
+    vc.orientation = [StyleDIY videoOrientation];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - 我的二维码
+- (void)myQRCode {
+    
+    
+}
+
+
+
 
 /**
  *  Alert提示框

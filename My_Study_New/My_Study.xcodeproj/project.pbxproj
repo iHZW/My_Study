@@ -54,6 +54,19 @@
 		4E1F47732A749ED500D5325B /* ZWLaunchManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F47722A749ED500D5325B /* ZWLaunchManage.m */; };
 		4E23FE5D2876F9DA009B02D0 /* UIImage+None.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */; };
 		4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FE5F28781618009B02D0 /* TrimHeaderView.m */; };
+		4E2B263A2A9E330F00583883 /* LBXScanZXingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26392A9E330F00583883 /* LBXScanZXingViewController.m */; };
+		4E2B263D2A9E339300583883 /* LBXScanBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B263C2A9E339300583883 /* LBXScanBaseViewController.m */; };
+		4E2B26402A9E359E00583883 /* ScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B263F2A9E359E00583883 /* ScanResultViewController.m */; };
+		4E2B26432A9E3EEB00583883 /* QQScanZXingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26422A9E3EEB00583883 /* QQScanZXingViewController.m */; };
+		4E2B26462A9E3F6D00583883 /* CreateBarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26452A9E3F6D00583883 /* CreateBarCodeViewController.m */; };
+		4E2B26502A9E40DD00583883 /* LBXPermissionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B264A2A9E40DD00583883 /* LBXPermissionSetting.m */; };
+		4E2B26512A9E40DD00583883 /* LBXPermissionPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B264B2A9E40DD00583883 /* LBXPermissionPhotos.m */; };
+		4E2B26522A9E40DD00583883 /* LBXPermissionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B264C2A9E40DD00583883 /* LBXPermissionCamera.m */; };
+		4E2B26532A9E40DD00583883 /* LBXPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B264D2A9E40DD00583883 /* LBXPermission.m */; };
+		4E2B26572A9E42C200583883 /* StyleDIY.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26562A9E42C200583883 /* StyleDIY.m */; };
+		4E2B265C2A9E45D400583883 /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B265B2A9E45D400583883 /* UIImageView+CornerRadius.m */; };
+		4E2B265F2A9E468200583883 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B265E2A9E468200583883 /* Global.m */; };
+		4E2B26632A9E47E800583883 /* QRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26622A9E47E800583883 /* QRSettingViewController.m */; };
 		4E2FC10E292757E70014C00E /* EHAddressCompHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */; };
 		4E3584E029766F9B00E45A8B /* OneKeyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584DF29766F9B00E45A8B /* OneKeyLoginViewController.m */; };
 		4E3584E72976979F00E45A8B /* OneKeyLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584E62976979F00E45A8B /* OneKeyLogin.m */; };
@@ -636,6 +649,32 @@
 		4E23FE5C2876F9DA009B02D0 /* UIImage+None.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+None.m"; sourceTree = "<group>"; };
 		4E23FE5E28781618009B02D0 /* TrimHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrimHeaderView.h; sourceTree = "<group>"; };
 		4E23FE5F28781618009B02D0 /* TrimHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrimHeaderView.m; sourceTree = "<group>"; };
+		4E2B26382A9E330F00583883 /* LBXScanZXingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXScanZXingViewController.h; sourceTree = "<group>"; };
+		4E2B26392A9E330F00583883 /* LBXScanZXingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXScanZXingViewController.m; sourceTree = "<group>"; };
+		4E2B263B2A9E339300583883 /* LBXScanBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXScanBaseViewController.h; sourceTree = "<group>"; };
+		4E2B263C2A9E339300583883 /* LBXScanBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXScanBaseViewController.m; sourceTree = "<group>"; };
+		4E2B263E2A9E359E00583883 /* ScanResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanResultViewController.h; sourceTree = "<group>"; };
+		4E2B263F2A9E359E00583883 /* ScanResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanResultViewController.m; sourceTree = "<group>"; };
+		4E2B26412A9E3EEB00583883 /* QQScanZXingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQScanZXingViewController.h; sourceTree = "<group>"; };
+		4E2B26422A9E3EEB00583883 /* QQScanZXingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQScanZXingViewController.m; sourceTree = "<group>"; };
+		4E2B26442A9E3F6D00583883 /* CreateBarCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateBarCodeViewController.h; sourceTree = "<group>"; };
+		4E2B26452A9E3F6D00583883 /* CreateBarCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateBarCodeViewController.m; sourceTree = "<group>"; };
+		4E2B26482A9E40DD00583883 /* LBXPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermission.h; sourceTree = "<group>"; };
+		4E2B26492A9E40DD00583883 /* LBXPermissionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionCamera.h; sourceTree = "<group>"; };
+		4E2B264A2A9E40DD00583883 /* LBXPermissionSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionSetting.m; sourceTree = "<group>"; };
+		4E2B264B2A9E40DD00583883 /* LBXPermissionPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionPhotos.m; sourceTree = "<group>"; };
+		4E2B264C2A9E40DD00583883 /* LBXPermissionCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionCamera.m; sourceTree = "<group>"; };
+		4E2B264D2A9E40DD00583883 /* LBXPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermission.m; sourceTree = "<group>"; };
+		4E2B264E2A9E40DD00583883 /* LBXPermissionPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionPhotos.h; sourceTree = "<group>"; };
+		4E2B264F2A9E40DD00583883 /* LBXPermissionSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionSetting.h; sourceTree = "<group>"; };
+		4E2B26552A9E42C200583883 /* StyleDIY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleDIY.h; sourceTree = "<group>"; };
+		4E2B26562A9E42C200583883 /* StyleDIY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleDIY.m; sourceTree = "<group>"; };
+		4E2B265A2A9E45D400583883 /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
+		4E2B265B2A9E45D400583883 /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
+		4E2B265D2A9E468200583883 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		4E2B265E2A9E468200583883 /* Global.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		4E2B26612A9E47E800583883 /* QRSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRSettingViewController.h; sourceTree = "<group>"; };
+		4E2B26622A9E47E800583883 /* QRSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRSettingViewController.m; sourceTree = "<group>"; };
 		4E2FC10C292757E70014C00E /* EHAddressCompHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHAddressCompHelper.h; sourceTree = "<group>"; };
 		4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHAddressCompHelper.m; sourceTree = "<group>"; };
 		4E3584DE29766F9B00E45A8B /* OneKeyLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneKeyLoginViewController.h; sourceTree = "<group>"; };
@@ -1899,6 +1938,68 @@
 			path = "UIImage+None";
 			sourceTree = "<group>";
 		};
+		4E2B26372A9E325E00583883 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				4E2B26602A9E47CB00583883 /* Setting */,
+				4E2B26592A9E44D900583883 /* Result */,
+				4E2B26582A9E44B300583883 /* Type */,
+				4E2B26442A9E3F6D00583883 /* CreateBarCodeViewController.h */,
+				4E2B26452A9E3F6D00583883 /* CreateBarCodeViewController.m */,
+				4E2B263B2A9E339300583883 /* LBXScanBaseViewController.h */,
+				4E2B263C2A9E339300583883 /* LBXScanBaseViewController.m */,
+				4E2B26382A9E330F00583883 /* LBXScanZXingViewController.h */,
+				4E2B26392A9E330F00583883 /* LBXScanZXingViewController.m */,
+				4E2B26412A9E3EEB00583883 /* QQScanZXingViewController.h */,
+				4E2B26422A9E3EEB00583883 /* QQScanZXingViewController.m */,
+				4E2B265D2A9E468200583883 /* Global.h */,
+				4E2B265E2A9E468200583883 /* Global.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		4E2B26472A9E40DD00583883 /* LBXPermissions */ = {
+			isa = PBXGroup;
+			children = (
+				4E2B26482A9E40DD00583883 /* LBXPermission.h */,
+				4E2B264D2A9E40DD00583883 /* LBXPermission.m */,
+				4E2B26492A9E40DD00583883 /* LBXPermissionCamera.h */,
+				4E2B264C2A9E40DD00583883 /* LBXPermissionCamera.m */,
+				4E2B264E2A9E40DD00583883 /* LBXPermissionPhotos.h */,
+				4E2B264B2A9E40DD00583883 /* LBXPermissionPhotos.m */,
+				4E2B264F2A9E40DD00583883 /* LBXPermissionSetting.h */,
+				4E2B264A2A9E40DD00583883 /* LBXPermissionSetting.m */,
+			);
+			path = LBXPermissions;
+			sourceTree = "<group>";
+		};
+		4E2B26582A9E44B300583883 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				4E2B26552A9E42C200583883 /* StyleDIY.h */,
+				4E2B26562A9E42C200583883 /* StyleDIY.m */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		4E2B26592A9E44D900583883 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				4E2B263E2A9E359E00583883 /* ScanResultViewController.h */,
+				4E2B263F2A9E359E00583883 /* ScanResultViewController.m */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		4E2B26602A9E47CB00583883 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4E2B26612A9E47E800583883 /* QRSettingViewController.h */,
+				4E2B26622A9E47E800583883 /* QRSettingViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		4E3584E829769C8A00E45A8B /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -2604,6 +2705,8 @@
 			children = (
 				4EA986FC287C3A5E0095ECF9 /* UIImageView+Animations.h */,
 				4EA986FD287C3A5E0095ECF9 /* UIImageView+Animations.m */,
+				4E2B265A2A9E45D400583883 /* UIImageView+CornerRadius.h */,
+				4E2B265B2A9E45D400583883 /* UIImageView+CornerRadius.m */,
 			);
 			path = UIImageView;
 			sourceTree = "<group>";
@@ -2796,6 +2899,8 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E2B26472A9E40DD00583883 /* LBXPermissions */,
+				4E2B26372A9E325E00583883 /* QRCode */,
 				4ED5119F2A8F399200C07112 /* SZJsonLog */,
 				4E758E3829FACD73003F3884 /* ClearWebViewCache */,
 				4E8C524D29FA210500C47E2B /* MMScrollLabelView */,
@@ -4975,6 +5080,7 @@
 				4EA9870F287C5A1F0095ECF9 /* ZWCropButtonView.m in Sources */,
 				4EFECF8C287DC36700B137BB /* AESCrypt.m in Sources */,
 				4EC6B3902861B12A00F57AAC /* ZWDataParsing.m in Sources */,
+				4E2B265F2A9E468200583883 /* Global.m in Sources */,
 				4E3584E029766F9B00E45A8B /* OneKeyLoginViewController.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
 				4E0287C928698ED1003E723E /* NSObject+Params.m in Sources */,
@@ -5021,6 +5127,8 @@
 				4E899A94285B82EB00B54C89 /* NSURLRequest+HttpBodyAddition.m in Sources */,
 				4E899A7E285B7FA500B54C89 /* NSFileManager+Ext.m in Sources */,
 				4EAB7FDA289AA6ED00502B97 /* NSString+Extension.m in Sources */,
+				4E2B26532A9E40DD00583883 /* LBXPermission.m in Sources */,
+				4E2B263A2A9E330F00583883 /* LBXScanZXingViewController.m in Sources */,
 				4E0680FE28759DD900F6728A /* LocationTrimDataLoader.m in Sources */,
 				4E5F2CF72876BA4500FEC6C2 /* PermissionLocation.m in Sources */,
 				4ED26ADE287EBA6900F0EDFE /* ZWColorPickInfoWindow.m in Sources */,
@@ -5035,6 +5143,7 @@
 				4E68973C28CC6F9A0003CF78 /* TestCardTableViewCell.m in Sources */,
 				7C6A215826E371F200E0CF20 /* WFBaseDemo.m in Sources */,
 				4EC6B37F2861B12A00F57AAC /* LogDAO.m in Sources */,
+				4E2B26402A9E359E00583883 /* ScanResultViewController.m in Sources */,
 				4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */,
 				4EEC47DD285AD9F90047F8B6 /* UIViewController+ZW.m in Sources */,
 				7C4EF0022303948E0040DA7A /* NSObject+UUID.m in Sources */,
@@ -5052,6 +5161,7 @@
 				7C4EF0012303948E0040DA7A /* NSObject+Customizer.m in Sources */,
 				4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */,
 				4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */,
+				4E2B26632A9E47E800583883 /* QRSettingViewController.m in Sources */,
 				7C4EF070230405030040DA7A /* UIButton+Custom.m in Sources */,
 				4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */,
 				7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
@@ -5084,6 +5194,7 @@
 				4EB8ABD62924D8CC00820F48 /* HtmlComponent.m in Sources */,
 				4EC6B38A2861B12A00F57AAC /* JSONUtil.m in Sources */,
 				4EA737E627D7351400422BAE /* AppLaunchTime.m in Sources */,
+				4E2B265C2A9E45D400583883 /* UIImageView+CornerRadius.m in Sources */,
 				4EA52F2C2A6AAD7700B2CD87 /* UITabBarController+RotationConfiguration.m in Sources */,
 				4EC6B3812861B12A00F57AAC /* MDDebugViewController.m in Sources */,
 				4E3584E72976979F00E45A8B /* OneKeyLogin.m in Sources */,
@@ -5221,6 +5332,7 @@
 				4E0680D52874394C00F6728A /* SelectedViewController.m in Sources */,
 				4EA986DA287BFDAF0095ECF9 /* FileItemView.m in Sources */,
 				4EC6B3762861B12A00F57AAC /* DHGifImageOperation.m in Sources */,
+				4E2B26522A9E40DD00583883 /* LBXPermissionCamera.m in Sources */,
 				4EFECF67287D1C1B00B137BB /* ZWBaseTableViewCell.m in Sources */,
 				4EEC47D2285AD4190047F8B6 /* ZWNavigationController.m in Sources */,
 				7C4EF0002303948E0040DA7A /* NSObject+KeyedArchiver.m in Sources */,
@@ -5296,12 +5408,15 @@
 				4E89AFD3295C3D5500E7A40C /* PASShortVideoAgreeResponse.m in Sources */,
 				4E0680F8287598E500F6728A /* MapTypeHelper.m in Sources */,
 				7C4EF042230400640040DA7A /* UINavigationItem+iOS7Style.m in Sources */,
+				4E2B26512A9E40DD00583883 /* LBXPermissionPhotos.m in Sources */,
 				4ECE439828598E6200326287 /* StoreUtil.m in Sources */,
+				4E2B26462A9E3F6D00583883 /* CreateBarCodeViewController.m in Sources */,
 				4EFECFDF287DC3FE00B137BB /* RSAEncryption.m in Sources */,
 				4EA98705287C565E0095ECF9 /* ZWAlbumCropViewController.m in Sources */,
 				4E89AFD4295C3D5500E7A40C /* PASShortVideoPlayerViewController.m in Sources */,
 				4E3584F52976B06A00E45A8B /* OneKeyLoginBgView.m in Sources */,
 				4EC6B38F2861B12A00F57AAC /* ZWHttpEventInfo.m in Sources */,
+				4E2B26432A9E3EEB00583883 /* QQScanZXingViewController.m in Sources */,
 				4E79BCC7299383FB00C522BF /* MMShareItem.m in Sources */,
 				4EFECFF8287DC47400B137BB /* NSString+MD5.m in Sources */,
 				7CA7682822FE95C1009E473E /* ZWBaseViewController.m in Sources */,
@@ -5309,9 +5424,11 @@
 				7C4EF074230405420040DA7A /* CommonStyleFunc.m in Sources */,
 				4EC6B3882861B12A00F57AAC /* ConsoleAppender.m in Sources */,
 				4EAAD80B2866B82B003D43FF /* UITabBar+Ext.m in Sources */,
+				4E2B26502A9E40DD00583883 /* LBXPermissionSetting.m in Sources */,
 				4EDC0B6F286308D6001C53CE /* NSArray+Safe.m in Sources */,
 				4ECE436328586E9D00326287 /* UIViewController+Child.m in Sources */,
 				7C8AAE3C22E984E900589862 /* UIAlertView+Blocks.m in Sources */,
+				4E2B263D2A9E339300583883 /* LBXScanBaseViewController.m in Sources */,
 				4EA98708287C56C70095ECF9 /* ZWAlbumManager.m in Sources */,
 				4E5F2D0C2876BD3D00FEC6C2 /* PermissionIntercept.m in Sources */,
 				7C4F93E22302B39300F2238E /* ZWTableViewHeaderView.m in Sources */,
@@ -5325,6 +5442,7 @@
 				4E899A79285B7F2A00B54C89 /* DataBaseManager.m in Sources */,
 				7C8AAE8D22E987BE00589862 /* UIImage+Addition.m in Sources */,
 				4E0680E028758E4400F6728A /* LocationTrimViewController.m in Sources */,
+				4E2B26572A9E42C200583883 /* StyleDIY.m in Sources */,
 				4EC6B3912861B12A00F57AAC /* CacheDataLoader+ZWNIO.m in Sources */,
 				4E0680C02873E4F300F6728A /* Config.m in Sources */,
 				4E616E0129C1A25A00FAEFD5 /* NSString+Tool.m in Sources */,
