@@ -297,8 +297,7 @@
 
 #pragma mark - 我的二维码
 - (void)myQRCode {
-    
-    
+    [self.navigationController pushViewController:[NSClassFromString(@"FindViewController") new] animated:YES];
 }
 
 

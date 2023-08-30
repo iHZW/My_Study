@@ -172,6 +172,8 @@ target 'My_Study' do
   pod 'LBXScan/LBXZXing', '2.5.1'
   pod 'LBXScan/UI', '2.5.1'
   pod 'LBXZBarSDK', '1.3.5'
+  # 解决WKWebview 侧滑逐级返回的问题
+  pod 'TDWebViewSwipeBack', '0.1.1'
   
 end
 

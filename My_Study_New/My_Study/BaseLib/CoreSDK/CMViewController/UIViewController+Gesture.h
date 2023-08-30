@@ -18,4 +18,8 @@
  */
 @property (nonatomic, assign) BOOL navAnimatingStatus;
 
++ (void)popGestureClose:(UIViewController *)VC;
+
++ (void)popGestureOpen:(UIViewController *)VC;
+
 @end

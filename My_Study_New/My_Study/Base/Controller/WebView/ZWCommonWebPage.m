@@ -13,6 +13,8 @@
 #import "UIImage+Addition.h"
 #import "WKWebViewConfiguration+Conslog.h"
 #import "JSWeakObject.h"
+#import <TDWebViewSwipeBack/UIViewController+GCWebViewSwipeBack.h>
+#import "UIViewController+Gesture.h"
 
 
 typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
@@ -25,7 +27,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 };
 
 
-@interface ZWCommonWebPage () <WKNavigationDelegate, WKUIDelegate>
+@interface ZWCommonWebPage () <WKNavigationDelegate, WKUIDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) ZWWebView *webView;
 
@@ -34,6 +36,10 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 @property (nonatomic, strong) NSURL *nsurl;
 
 @property (nonatomic, assign) BOOL videoFullScreen;
+
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *leftSwipGes;
+
+@property (nonatomic, strong) UIControl *leftControl;
 
 @end
 
@@ -54,13 +60,73 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self loadSubViews];
-    
+
     [self loadData];
+
+    //    [self regiseterNotification];
+
+//        [self addWkwebView:self.webView swipeBackAble:YES];
     
-//    [self regiseterNotification];
+//    self.leftSwipGes = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipGesAction:)];
+//    self.leftSwipGes.edges = UIRectEdgeLeft;
+//    self.leftSwipGes.delegate = self;
+//    [self.webView addGestureRecognizer:self.leftSwipGes];
+    
+    NSLog(@"self.webView.gestureRecognizers = %@",self.webView.gestureRecognizers);
 }
+
+
+- (void)leftSwipGesAction:(UISwipeGestureRecognizer *)ges {
+    if (UIGestureRecognizerStateEnded == ges.state) {
+        if (self.webView.backForwardList.backList.count > 0) {
+            WKBackForwardListItem *item = self.webView.backForwardList.backList.lastObject;
+            if (![self.webView.URL.absoluteString isEqualToString:self.url]) {
+                [self.webView goToBackForwardListItem:item];
+            } else {
+                [self.navigationController popViewControllerAnimated:YES];
+                [self.webView goToBackForwardListItem:item];
+            }
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
+
+- (void)leftSwipeGesAction2:(UISwipeGestureRecognizer *)swipeGes {
+    if (UIGestureRecognizerStateEnded == swipeGes.state) {
+        if (self.webView.backForwardList.backList.count > 0) {
+            WKBackForwardListItem *item = self.webView.backForwardList.backList.lastObject;
+            if (![self.webView.URL.absoluteString isEqualToString:self.url]) {
+                [self.webView goToBackForwardListItem:item];
+            } else {
+                [self.navigationController popViewControllerAnimated:YES];
+                [self.webView goToBackForwardListItem:item];
+            }
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
+
+- (void)willMoveToParentViewController:(UIViewController*)parent
+{
+    [super willMoveToParentViewController:parent];
+    
+    if (!parent) {
+        
+    }
+}
+- (void)didMoveToParentViewController:(UIViewController*)parent
+{
+    [super didMoveToParentViewController:parent];
+    
+    if(!parent){
+        NSLog(@"离开了页面");
+    }
+}
+
 
 - (void)regiseterNotification {
     /// 监听全屏
@@ -83,6 +149,13 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.equalTo(self.view);
+    }];
+    
+    [self.view addSubview:self.leftControl];
+
+    [self.leftControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.equalTo(self.view);
+        make.width.mas_equalTo(15);
     }];
 }
 
@@ -152,7 +225,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
         _webView.navigationDelegate  = self;
         _webView.UIDelegate = self;
         _webView.allowsBackForwardNavigationGestures = YES;
-
+        _webView.userInteractionEnabled = YES;
     }
     return _webView;
 }
@@ -163,6 +236,19 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
         _native = [[ZWNative alloc] init];
     }
     return _native;
+}
+
+- (UIControl *)leftControl {
+    if (!_leftControl) {
+        _leftControl = [[UIControl alloc] initWithFrame:CGRectZero];
+        _leftControl.userInteractionEnabled = YES;
+        _leftControl.backgroundColor = UIColor.cyanColor;
+        
+        /** 侧边栏添加左划手势,支持WKWebView侧滑逐级返回  */
+        UISwipeGestureRecognizer *swipeGes = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipeGesAction2:)];
+        [_leftControl addGestureRecognizer:swipeGes];
+    }
+    return _leftControl;
 }
 
 #pragma mark - 获取路由中的参数
@@ -193,6 +279,14 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     
     /** 判断title为空  */
     [self checkWebViewhiteScreen];
+    
+    [UIViewController popGestureClose:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [UIViewController popGestureOpen:self];
 }
 
 /**
