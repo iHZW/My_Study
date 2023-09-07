@@ -102,9 +102,9 @@ target 'My_Study' do
   debugTool
  
   # 高德地图
-  pod 'AMapLocation-NO-IDFA'
-  pod 'AMap3DMap-NO-IDFA'
-  pod 'AMapSearch-NO-IDFA'
+  pod 'AMapLocation-NO-IDFA', '2.10.0'
+  pod 'AMap3DMap-NO-IDFA', '9.7.0'
+  pod 'AMapSearch-NO-IDFA', '9.7.0'
   pod 'SSZipArchive', '2.4.3'
  
   # VLC 是一款强大的全平台播放器

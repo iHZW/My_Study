@@ -147,7 +147,7 @@ GGLazyGetMethod(NSMutableDictionary, dicLable);
         _queryView.backgroundColor = [UIColor whiteColor];
         _queryView.layer.borderColor = _cirssLineColor.CGColor;
         _queryView.layer.borderWidth = _lineWidth / 2;
-        [self addSubview:_queryView];
+//        [self addSubview:_queryView];
         
         [_cirssLayer addRenderer:_xLine];
         [_cirssLayer addRenderer:_yLine];

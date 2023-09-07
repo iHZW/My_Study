@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) KLineChart *kChart;
 
+@property (nonatomic, strong) UILabel *desLabel;
+
 @end
 
 @implementation AskKlineTableViewCell
@@ -42,6 +44,7 @@
 - (void)_setUI {
     [self.contentView addSubview:self.bgView];
     [self.bgView addSubview:self.kChart];
+    [self.bgView addSubview:self.desLabel];
     
     [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(10);
@@ -54,11 +57,17 @@
         make.left.equalTo(self.bgView.mas_left).offset(15);
         make.top.equalTo(self.bgView.mas_top).offset(15);
         make.right.equalTo(self.bgView.mas_right).offset(-15);
-        make.bottom.equalTo(self.bgView.bottom).offset(-40);
+        make.height.mas_equalTo(kLineViewHeight);
+    }];
+    
+    [self.desLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.kChart.mas_bottom).offset(kKLineBetweenSpace);
+        make.left.right.equalTo(self.kChart);
+        make.bottom.equalTo(self.bgView);
     }];
     
     performBlockDelay(dispatch_get_main_queue(), 0.0, ^{
-        [self.bgView mm_createByCAGradientLayer:UIColorFromRGB(0xFF2D51) endColor:UIColorFromRGB(0xFFFFFF) layerFrame:self.bgView.bounds direction:0];
+        [self.bgView mm_createByCAGradientLayer:UIColorFromRGB(0xcca4e3) midColor:UIColorFromRGB(0xFFFFFF) endColor:UIColorFromRGB(0xFFFFFF) layerFrame:self.bgView.bounds direction:0];
     });
     
 }
@@ -69,6 +78,9 @@
 - (void)configModel:(AskLineChartModel *)model {
     [self.kChart setKLineArray:model.kLineArray type:model.kType];
     [self.kChart updateChart];
+    self.desLabel.text = model.desName;
+    
+    [self.kChart setNeedsDisplay];
 }
 
 
@@ -83,11 +95,20 @@
 
 - (KLineChart *)kChart {
     if (!_kChart) {
-        _kChart = [[KLineChart alloc] initWithFrame:CGRectZero];
-        
+        _kChart = [[KLineChart alloc] initWithFrame:CGRectMake(25, 25, [UIScreen mainScreen].bounds.size.width - 50, kLineViewHeight)];
+        _kChart.backgroundColor = UIColor.whiteColor;
+//        _kChart.isShowVolIndexView = NO;
     }
     return _kChart;
 }
 
+
+- (UILabel *)desLabel {
+    if (!_desLabel) {
+        _desLabel = [UILabel labelWithFrame:CGRectZero text:@"" textColor:UIColorFromRGB(0x333333) font:PASFont(15)];
+        _desLabel.numberOfLines = 0;
+    }
+    return _desLabel;
+}
 
 @end

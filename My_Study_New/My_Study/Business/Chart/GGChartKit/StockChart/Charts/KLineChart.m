@@ -113,7 +113,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        
+        self.isShowVolIndexView = YES;
         _disPlay = YES;
         _kLineIndexIndex = 0;
         _volumIndexIndex = 0;
@@ -569,7 +569,11 @@ static void * kLineTitle = "keyTitle";
 
 - (CGRect)kLineFrame
 {
-    return CGRectMake(0, INDEX_STRING_INTERVAL, self.frame.size.width, self.frame.size.height * _kLineProportion - INDEX_STRING_INTERVAL);
+    CGRect rect = CGRectMake(0, INDEX_STRING_INTERVAL, self.frame.size.width, self.frame.size.height);
+    if (self.isShowVolIndexView) {
+        rect = CGRectMake(0, INDEX_STRING_INTERVAL, self.frame.size.width, self.frame.size.height * _kLineProportion - INDEX_STRING_INTERVAL);
+    }
+    return rect;
 }
 
 - (CGRect)volumFrame
@@ -577,7 +581,11 @@ static void * kLineTitle = "keyTitle";
     CGFloat highKLine = self.kLineFrame.size.height;
     CGFloat volumTop = INDEX_STRING_INTERVAL * 2 + highKLine + KLINE_VOLUM_INTERVAL;
     
-    return CGRectMake(0, volumTop, self.kLineScaler.contentSize.width, self.frame.size.height - volumTop);
+    CGRect rect = CGRectZero;
+    if (self.isShowVolIndexView) {
+        rect = CGRectMake(0, volumTop, self.kLineScaler.contentSize.width, self.frame.size.height - volumTop);
+    }
+    return rect;
 }
 
 #pragma mark - 基础设置层

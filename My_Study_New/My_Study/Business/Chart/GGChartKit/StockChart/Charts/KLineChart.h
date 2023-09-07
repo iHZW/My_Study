@@ -46,6 +46,8 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, copy) void (^RefreshBlock)(void);     ///< 刷新回调
 
+@property (nonatomic, assign) BOOL isShowVolIndexView; ///< 是否显示底部指标区域
+
 /** 结束刷新状态 */
 - (void)endLoadingState;
 

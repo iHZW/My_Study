@@ -9,6 +9,7 @@
 #import "AskKlineTableViewCell.h"
 #import "NSNumber+Tool.h"
 #import "TestKLineViewController.h"
+#import "NSString+Adaptor.h"
 
 static NSString *const askCellIdentifier = @"askCellIdentifier";
 
@@ -38,8 +39,15 @@ static NSString *const askCellIdentifier = @"askCellIdentifier";
 }
 
 - (void)_setData {
+    [self.dataArray removeAllObjects];
     
-    
+    for (int i = 0; i < 3; i++) {
+        [self.dataArray addObject:[AskLineChartModel getDayDataModel]];
+        [self.dataArray addObject:[AskLineChartModel getWeekDataModel]];
+        [self.dataArray addObject:[AskLineChartModel getMonthDataModel]];
+    }
+
+    [self.askTableView reloadData];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -61,12 +69,16 @@ static NSString *const askCellIdentifier = @"askCellIdentifier";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    CGFloat height = kLineViewHeight + kKLineTopSpace + kKLineBetweenSpace + kKBgViewBottomSpace;
+    AskLineChartModel *model = PASArrayAtIndex(self.dataArray, indexPath.row);
+    CGFloat contentHeight = [NSString getHeightWithText:model.desName font:PASFont(15) width:kMainScreenWidth - 50] + 20;
+    return height + contentHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AskKlineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:askCellIdentifier];
-
+    AskLineChartModel *model = PASArrayAtIndex(self.dataArray, indexPath.row);
+    [cell configModel:model];
     return cell;
 }
 

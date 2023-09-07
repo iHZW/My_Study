@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AskLineChartModel.h"
 
+#define kLineViewHeight      (300)
+#define kKLineTopSpace       (25)
+#define kKLineBetweenSpace   (15)
+#define kKBgViewBottomSpace  (10)
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AskKlineTableViewCell : UITableViewCell
