@@ -18,6 +18,7 @@
 #import <YYCategories/YYCategories.h>
 #import <SDWebImage/SDWeakProxy.h>
 #import "ZWHomeModel.h"
+#import "TestKLineViewController.h"
 
 @interface HomeViewController () {
     NSTimer *_timer;
@@ -206,6 +207,9 @@
     BaseCellModel *model = [BaseCellModel modelWithTitle:@"跳转到Block测试页面" clazz:[BlockViewController class]];
     model.isFlutterPage  = NO;
     [self.dataList addObject:model];
+    
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"jump KLinePage" clazz:NSClassFromString(@"TestKLineViewController")]];
+
 }
 
 - (void)setupUI {
@@ -255,8 +259,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self testGCD];
-    return;
+//    [self testGCD];
+//    return;
     /* 点击效果 */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
@@ -284,6 +288,10 @@
         //        [MyFlutterRouter.sharedRouter openPage:model.flutterPageName params:@{} animated:YES completion:^(BOOL isFinish){}];
         [self jump_flutterPage];
     } else if (model.clazz != nil) {
+        if ([model.clazz isKindOfClass:NSClassFromString(@"TestKLineViewController")]) {
+            [self.navigationController pushViewController:[NSClassFromString(@"TestKLineViewController") new] animated:YES];
+            return;
+        }
         ZWBaseViewController *vc    = [model.clazz new];
         vc.hidesBottomBarWhenPushed = YES;
         vc.title                    = model.title;

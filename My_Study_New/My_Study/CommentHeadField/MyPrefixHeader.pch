@@ -31,6 +31,11 @@
 /** imageName:   传入nil 时 打印一堆log   这个可以解决 */
 #import "UIImage+None.h"
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "GGGraphics.h"
+
 #endif //判断结束
 
 
