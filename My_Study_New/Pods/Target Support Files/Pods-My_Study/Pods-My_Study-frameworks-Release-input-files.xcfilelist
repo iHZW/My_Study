@@ -33,6 +33,7 @@ ${BUILT_PRODUCTS_DIR}/SJUIKit/SJUIKit.framework
 ${BUILT_PRODUCTS_DIR}/SJVideoPlayer/SJVideoPlayer.framework
 ${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework
 ${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework
+${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework
 ${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework
 ${BUILT_PRODUCTS_DIR}/TDWebViewSwipeBack/TDWebViewSwipeBack.framework
 ${BUILT_PRODUCTS_DIR}/TZScrollViewPopGesture/TZScrollViewPopGesture.framework

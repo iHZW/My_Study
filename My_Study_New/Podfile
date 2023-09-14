@@ -175,6 +175,8 @@ target 'My_Study' do
   # 解决WKWebview 侧滑逐级返回的问题
   pod 'TDWebViewSwipeBack', '0.1.1'
   
+  pod 'SocketRocket', '0.6.0'
+  
 end
 
 

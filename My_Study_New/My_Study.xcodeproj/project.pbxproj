@@ -96,6 +96,14 @@
 		4E4F9CE1286C5EBB003281B5 /* ZWAnimationCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */; };
 		4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
 		4E4FD80D286D4745008EC7E1 /* ThemeWhite.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */; };
+		4E59322A2AAC4139005E2C49 /* TestSocketVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5932292AAC4139005E2C49 /* TestSocketVc.m */; };
+		4E5932332AB34CB9005E2C49 /* DHRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5932302AB34CB8005E2C49 /* DHRegularExpression.m */; };
+		4E5932342AB34CB9005E2C49 /* DHLaunchAdPageHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5932312AB34CB8005E2C49 /* DHLaunchAdPageHUD.m */; };
+		4E59323B2AB3529B005E2C49 /* adImage3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E5932362AB3529B005E2C49 /* adImage3.gif */; };
+		4E59323C2AB3529B005E2C49 /* adImage4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E5932372AB3529B005E2C49 /* adImage4.gif */; };
+		4E59323D2AB3529B005E2C49 /* adImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E5932382AB3529B005E2C49 /* adImage2.jpg */; };
+		4E59323E2AB3529B005E2C49 /* adImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E5932392AB3529B005E2C49 /* adImage1.jpg */; };
+		4E59323F2AB3529B005E2C49 /* view_bg_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E59323A2AB3529B005E2C49 /* view_bg_image.png */; };
 		4E5DD47E2977DFCF00042005 /* icon_checkbox_default.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DD47D2977DFCF00042005 /* icon_checkbox_default.svg */; };
 		4E5DD4802977DFEA00042005 /* icon_checkbox_active.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4E5DD47F2977DFEA00042005 /* icon_checkbox_active.svg */; };
 		4E5F2CEE2876B76A00FEC6C2 /* JXLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5F2CED2876B76A00FEC6C2 /* JXLocation.m */; };
@@ -893,6 +901,17 @@
 		4E4FD808286D4147008EC7E1 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		4E4FD80B286D4705008EC7E1 /* ThemeDarkBlack.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ThemeDarkBlack.strings; sourceTree = "<group>"; };
 		4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ThemeWhite.strings; sourceTree = "<group>"; };
+		4E5932282AAC4139005E2C49 /* TestSocketVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSocketVc.h; sourceTree = "<group>"; };
+		4E5932292AAC4139005E2C49 /* TestSocketVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSocketVc.m; sourceTree = "<group>"; };
+		4E59322D2AB34CB8005E2C49 /* DHRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRegularExpression.h; sourceTree = "<group>"; };
+		4E59322E2AB34CB8005E2C49 /* DHLaunchAdPageHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHLaunchAdPageHUD.h; sourceTree = "<group>"; };
+		4E5932302AB34CB8005E2C49 /* DHRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRegularExpression.m; sourceTree = "<group>"; };
+		4E5932312AB34CB8005E2C49 /* DHLaunchAdPageHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHLaunchAdPageHUD.m; sourceTree = "<group>"; };
+		4E5932362AB3529B005E2C49 /* adImage3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = adImage3.gif; sourceTree = "<group>"; };
+		4E5932372AB3529B005E2C49 /* adImage4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = adImage4.gif; sourceTree = "<group>"; };
+		4E5932382AB3529B005E2C49 /* adImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = adImage2.jpg; sourceTree = "<group>"; };
+		4E5932392AB3529B005E2C49 /* adImage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = adImage1.jpg; sourceTree = "<group>"; };
+		4E59323A2AB3529B005E2C49 /* view_bg_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_bg_image.png; sourceTree = "<group>"; };
 		4E5DD47D2977DFCF00042005 /* icon_checkbox_default.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_checkbox_default.svg; sourceTree = "<group>"; };
 		4E5DD47F2977DFEA00042005 /* icon_checkbox_active.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon_checkbox_active.svg; sourceTree = "<group>"; };
 		4E5F2CEC2876B76A00FEC6C2 /* JXLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXLocation.h; sourceTree = "<group>"; };
@@ -2683,6 +2702,30 @@
 			path = ThemeDefine;
 			sourceTree = "<group>";
 		};
+		4E59322B2AB34CB8005E2C49 /* DHLaunchAdPAgeHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4E5932352AB3529B005E2C49 /* Images */,
+				4E59322E2AB34CB8005E2C49 /* DHLaunchAdPageHUD.h */,
+				4E5932312AB34CB8005E2C49 /* DHLaunchAdPageHUD.m */,
+				4E59322D2AB34CB8005E2C49 /* DHRegularExpression.h */,
+				4E5932302AB34CB8005E2C49 /* DHRegularExpression.m */,
+			);
+			path = DHLaunchAdPAgeHUD;
+			sourceTree = "<group>";
+		};
+		4E5932352AB3529B005E2C49 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4E5932392AB3529B005E2C49 /* adImage1.jpg */,
+				4E5932382AB3529B005E2C49 /* adImage2.jpg */,
+				4E5932362AB3529B005E2C49 /* adImage3.gif */,
+				4E5932372AB3529B005E2C49 /* adImage4.gif */,
+				4E59323A2AB3529B005E2C49 /* view_bg_image.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		4E5F2CEB2876B73100FEC6C2 /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -2936,6 +2979,8 @@
 				4E6DFE9D2AA9AABD00E561EA /* MDLineViewController.m */,
 				4E6D00932AA9AFCD00E561EA /* TestKLineViewController.h */,
 				4E6D00942AA9AFCD00E561EA /* TestKLineViewController.m */,
+				4E5932282AAC4139005E2C49 /* TestSocketVc.h */,
+				4E5932292AAC4139005E2C49 /* TestSocketVc.m */,
 				4E6D009D2AA9BD0B00E561EA /* AskLineChartModel.h */,
 				4E6D009E2AA9BD0B00E561EA /* AskLineChartModel.m */,
 				4E6D00962AA9B75F00E561EA /* AskKlineTableViewCell.h */,
@@ -5065,6 +5110,7 @@
 				4E1F47722A749ED500D5325B /* ZWLaunchManage.m */,
 				4E0287CA28699383003E723E /* LaunchViewController.h */,
 				4E0287CB28699383003E723E /* LaunchViewController.m */,
+				4E59322B2AB34CB8005E2C49 /* DHLaunchAdPAgeHUD */,
 				4EA737E727D73FB000422BAE /* oc_swift_bridging_header.h */,
 				4EA7263D27D75CA60060BDBA /* customerView.swift */,
 				4E02B3E92871B178006E0DE3 /* bgView.swift */,
@@ -6140,6 +6186,7 @@
 				4E6D00622AA9AABF00E561EA /* IndexLuaCode.bundle in Resources */,
 				4E6D00092AA9AABE00E561EA /* 600887_five_day.json in Resources */,
 				4EC6B3522861B12A00F57AAC /* launch_guide_1_min.png in Resources */,
+				4E59323B2AB3529B005E2C49 /* adImage3.gif in Resources */,
 				4EC6B3512861B12A00F57AAC /* launch_guide_3.png in Resources */,
 				4EC6B3582861B12A00F57AAC /* 4.jpg in Resources */,
 				4EC6B3562861B12A00F57AAC /* launch_guide_3_X.png in Resources */,
@@ -6148,6 +6195,7 @@
 				4EC6B35C2861B12A00F57AAC /* 2.jpg in Resources */,
 				4EC6B3702861B12A00F57AAC /* Untitled-1.gif in Resources */,
 				4E6D000B2AA9AABE00E561EA /* stock_data.json in Resources */,
+				4E59323F2AB3529B005E2C49 /* view_bg_image.png in Resources */,
 				4EC6B36C2861B12A00F57AAC /* Untitled-7.gif in Resources */,
 				4EA9871C287C61F60095ECF9 /* README.mdown in Resources */,
 				4EC6B3742861B12A00F57AAC /* Untitled-3.gif in Resources */,
@@ -6160,6 +6208,7 @@
 				4EC6B36A2861B12A00F57AAC /* Untitled-8.gif in Resources */,
 				4EC6B35A2861B12A00F57AAC /* launch_guide_2_min.png in Resources */,
 				4E4E1CFE28A4142600EC5EBB /* safe.zip in Resources */,
+				4E59323C2AB3529B005E2C49 /* adImage4.gif in Resources */,
 				4E6D000E2AA9AABF00E561EA /* week_k_data_60087.json in Resources */,
 				4EC6B3722861B12A00F57AAC /* guideImage6.gif in Resources */,
 				4EC6B35B2861B12A00F57AAC /* LaunchImg_one.png in Resources */,
@@ -6175,11 +6224,13 @@
 				4E0680C428740EA600F6728A /* EnvConfig.plist in Resources */,
 				4EC6B3552861B12A00F57AAC /* launch_guide_1_X.png in Resources */,
 				4EC6B3622861B12A00F57AAC /* 1.mp4 in Resources */,
+				4E59323E2AB3529B005E2C49 /* adImage1.jpg in Resources */,
 				4EC6B3612861B12A00F57AAC /* XYVideo.mp4 in Resources */,
 				4EC6B36B2861B12A00F57AAC /* Untitled-9.gif in Resources */,
 				4E5DD47E2977DFCF00042005 /* icon_checkbox_default.svg in Resources */,
 				4EC6B3632861B12A00F57AAC /* guideMovie1.mov in Resources */,
 				4EC6B36D2861B12A00F57AAC /* Untitled-6.gif in Resources */,
+				4E59323D2AB3529B005E2C49 /* adImage2.jpg in Resources */,
 				4E668197292734E600C635BF /* JFCitySelector.bundle in Resources */,
 				4E403F9A2865B15F006C0656 /* CacheClientChatDetailConfig.json in Resources */,
 				4E028802286AB0CB003E723E /* README.md in Resources */,
@@ -6328,6 +6379,7 @@
 				4E90577928DDDCE100265E7B /* ZWHomeModel.m in Sources */,
 				4E734CC3299FC62B005EF1C9 /* ZWPushAppDelegateService.m in Sources */,
 				4E90577628DDD7F900265E7B /* HomeDataLoader.m in Sources */,
+				4E59322A2AAC4139005E2C49 /* TestSocketVc.m in Sources */,
 				4EA9870C287C590F0095ECF9 /* ZWButton.m in Sources */,
 				4E6D00602AA9AABF00E561EA /* BaseStockChart.m in Sources */,
 				4E899A7A285B7F2A00B54C89 /* NSObject+DataBase.m in Sources */,
@@ -6374,6 +6426,7 @@
 				7C4EF0292303A3390040DA7A /* UIViewController+Gesture.m in Sources */,
 				4E6D00002AA9AABE00E561EA /* ProgressViewController.m in Sources */,
 				4E3584F22976A00200E45A8B /* UIDevice+Tool.m in Sources */,
+				4E5932332AB34CB9005E2C49 /* DHRegularExpression.m in Sources */,
 				4E6D002C2AA9AABF00E561EA /* RadarData.m in Sources */,
 				4EDC0B62286308D6001C53CE /* NSMutableArray+Safe.m in Sources */,
 				4E6D00652AA9AABF00E561EA /* TDLayer.m in Sources */,
@@ -6742,6 +6795,7 @@
 				7C6309F322A67C6800C73AAB /* UIScreen+Suitable.m in Sources */,
 				4E6D008A2AA9AABF00E561EA /* lapi.c in Sources */,
 				4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */,
+				4E5932342AB34CB9005E2C49 /* DHLaunchAdPageHUD.m in Sources */,
 				4E6DFFFE2AA9AABE00E561EA /* KLineViewController.m in Sources */,
 				4EFECFF9287DC47400B137BB /* NSString+Base64.m in Sources */,
 				4EDC0B67286308D6001C53CE /* NSData+Safe.m in Sources */,

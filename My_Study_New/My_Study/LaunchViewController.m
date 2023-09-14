@@ -13,6 +13,7 @@
 #import "ZWUserAccountManager.h"
 #import "MMPrivacyManager.h"
 #import <CYLTabBarController/CYLTabBarController.h>
+#import "DHLaunchAdPageHUD.h"
 
 
 @interface LaunchViewController ()
@@ -84,6 +85,7 @@
     self.navigationBarHidden = NO;
     LoginViewController *vc = [[LoginViewController alloc] init];
     vc.hideNavigationBar = YES;
+
     @pas_weakify_self
     vc.loginCompleted = ^{
         @pas_strongify_self
@@ -92,14 +94,49 @@
     self.viewControllers = @[vc];
 }
 
+- (void)_loadAdPageHUD:(dispatch_block_t)completeBlock {
+    NSString *adImageJPGUrl = @"http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg";
+    NSString *adimageGIFUrl = @"http://img.ui.cn/data/file/3/4/6/210643.gif";
+    NSString *adImageJPGPath = [[NSBundle mainBundle] pathForResource:@"adImage2" ofType:@"jpg"];
+    NSString *adImageGifPath = [[NSBundle mainBundle] pathForResource:@"adImage3" ofType:@"gif"];
+    
+    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0, DDScreenW, DDScreenH) aDduration:6.0 aDImageUrl:adImageJPGUrl hideSkipButton:NO launchAdClickBlock:^(NSInteger index) {
+        switch (index) {
+            case 0:
+            {
+                
+            }
+                break;
+            case 1:
+            {
+                NSLog(@"[AppDelegate]:点了广告图片");
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        if (completeBlock) {
+            completeBlock();
+        }
+    }];
+}
+
 - (void)loadComponent
 {
-    self.navigationBarHidden = YES;
-    ZWTabBarController *mainVC = [[ZWTabBarController alloc] init];
-    NSArray *viewControllers = @[mainVC];
-    [self setViewControllers:viewControllers];
-    
-    [mainVC build];
+    @pas_weakify_self
+    [self _loadAdPageHUD:^{
+        @pas_strongify_self
+        self.navigationBarHidden = YES;
+        ZWTabBarController *mainVC = [[ZWTabBarController alloc] init];
+        NSArray *viewControllers = @[mainVC];
+        [self setViewControllers:viewControllers];
+        
+        [mainVC build];
+    }];
+
 //    NSDictionary *launchOptions = WM.pushManager.launchOptions;
 //    [WM.pushManager handleLaunchOptions];
     
