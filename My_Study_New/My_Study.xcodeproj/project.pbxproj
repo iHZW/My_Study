@@ -328,6 +328,10 @@
 		4E79BCCA299385E800C522BF /* MMShareItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BCC9299385E800C522BF /* MMShareItemCell.m */; };
 		4E79BCCD299386A300C522BF /* MMShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BCCC299386A300C522BF /* MMShareView.m */; };
 		4E79BCD029939D6300C522BF /* MMShareActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E79BCCF29939D6300C522BF /* MMShareActionManager.m */; };
+		4E7C62222ADC0FFC000A2673 /* UIImage+GrayImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C621A2ADC0FFC000A2673 /* UIImage+GrayImage.m */; };
+		4E7C62232ADC0FFC000A2673 /* UIColor+GrayColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C621B2ADC0FFC000A2673 /* UIColor+GrayColor.m */; };
+		4E7C62242ADC0FFC000A2673 /* UIImageView+GrayImageview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C621D2ADC0FFC000A2673 /* UIImageView+GrayImageview.m */; };
+		4E7C62252ADC0FFC000A2673 /* WKWebView+Gray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7C621F2ADC0FFC000A2673 /* WKWebView+Gray.m */; };
 		4E899A60285AF43700B54C89 /* ZWBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A5F285AF43700B54C89 /* ZWBaseTableView.m */; };
 		4E899A78285B7F2A00B54C89 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A71285B7F2900B54C89 /* DataBase.m */; };
 		4E899A79285B7F2A00B54C89 /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E899A73285B7F2900B54C89 /* DataBaseManager.m */; };
@@ -1375,6 +1379,14 @@
 		4E79BCCC299386A300C522BF /* MMShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMShareView.m; sourceTree = "<group>"; };
 		4E79BCCE29939D6300C522BF /* MMShareActionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMShareActionManager.h; sourceTree = "<group>"; };
 		4E79BCCF29939D6300C522BF /* MMShareActionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMShareActionManager.m; sourceTree = "<group>"; };
+		4E7C62172ADC0FFC000A2673 /* UIImageView+GrayImageview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GrayImageview.h"; sourceTree = "<group>"; };
+		4E7C62192ADC0FFC000A2673 /* WKWebView+Gray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+Gray.h"; sourceTree = "<group>"; };
+		4E7C621A2ADC0FFC000A2673 /* UIImage+GrayImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GrayImage.m"; sourceTree = "<group>"; };
+		4E7C621B2ADC0FFC000A2673 /* UIColor+GrayColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GrayColor.m"; sourceTree = "<group>"; };
+		4E7C621D2ADC0FFC000A2673 /* UIImageView+GrayImageview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GrayImageview.m"; sourceTree = "<group>"; };
+		4E7C621E2ADC0FFC000A2673 /* UIImage+GrayImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GrayImage.h"; sourceTree = "<group>"; };
+		4E7C621F2ADC0FFC000A2673 /* WKWebView+Gray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+Gray.m"; sourceTree = "<group>"; };
+		4E7C62202ADC0FFC000A2673 /* UIColor+GrayColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GrayColor.h"; sourceTree = "<group>"; };
 		4E899A5E285AF43700B54C89 /* ZWBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWBaseTableView.h; sourceTree = "<group>"; };
 		4E899A5F285AF43700B54C89 /* ZWBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWBaseTableView.m; sourceTree = "<group>"; };
 		4E899A71285B7F2900B54C89 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
@@ -3746,6 +3758,21 @@
 			path = MMShare;
 			sourceTree = "<group>";
 		};
+		4E7C62162ADC0FFC000A2673 /* Gray_Category */ = {
+			isa = PBXGroup;
+			children = (
+				4E7C62202ADC0FFC000A2673 /* UIColor+GrayColor.h */,
+				4E7C621B2ADC0FFC000A2673 /* UIColor+GrayColor.m */,
+				4E7C621E2ADC0FFC000A2673 /* UIImage+GrayImage.h */,
+				4E7C621A2ADC0FFC000A2673 /* UIImage+GrayImage.m */,
+				4E7C62172ADC0FFC000A2673 /* UIImageView+GrayImageview.h */,
+				4E7C621D2ADC0FFC000A2673 /* UIImageView+GrayImageview.m */,
+				4E7C62192ADC0FFC000A2673 /* WKWebView+Gray.h */,
+				4E7C621F2ADC0FFC000A2673 /* WKWebView+Gray.m */,
+			);
+			path = Gray_Category;
+			sourceTree = "<group>";
+		};
 		4E899A5D285AF43700B54C89 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -5593,6 +5620,7 @@
 		7C6309E922A676FE00C73AAB /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4E7C62162ADC0FFC000A2673 /* Gray_Category */,
 				4E6D00992AA9B90400E561EA /* NSNumber */,
 				4EA52F2D2A6AADA300B2CD87 /* UINavigationController */,
 				4EA52F292A6AAD6A00B2CD87 /* UITabBarController */,
@@ -6368,6 +6396,7 @@
 				4E6D00232AA9AABF00E561EA /* PieDataSet.m in Sources */,
 				7CB1A2F426E47E3D00D450CE /* PThread_rwLock.m in Sources */,
 				7C4EEFFF2303948E0040DA7A /* CMObject.m in Sources */,
+				4E7C62252ADC0FFC000A2673 /* WKWebView+Gray.m in Sources */,
 				4E5F2D092876BC6400FEC6C2 /* Permission.m in Sources */,
 				7C4EF06C230405030040DA7A /* UIButton+Navigation.m in Sources */,
 				4E0287D0286993C9003E723E /* LoginViewController.m in Sources */,
@@ -6407,6 +6436,7 @@
 				4E6D007F2AA9AABF00E561EA /* ldump.c in Sources */,
 				4EFECFFA287DC47400B137BB /* NSData+Base64.m in Sources */,
 				4EC6B2912860807300F57AAC /* Reachability.m in Sources */,
+				4E7C62232ADC0FFC000A2673 /* UIColor+GrayColor.m in Sources */,
 				4EC6B3A32861C91300F57AAC /* ZWSiteAddressManager.m in Sources */,
 				4E403F942865B024006C0656 /* AlertAction.m in Sources */,
 				4EB2B015286EC9610029A498 /* NSObject+ZWDeallocExecutor.m in Sources */,
@@ -6443,6 +6473,7 @@
 				4E6D006C2AA9AABF00E561EA /* RSILayer.m in Sources */,
 				4E19B3F9299FA89300122CC1 /* MMPushManager.m in Sources */,
 				4E6D00722AA9AABF00E561EA /* lopcodes.c in Sources */,
+				4E7C62242ADC0FFC000A2673 /* UIImageView+GrayImageview.m in Sources */,
 				4E89AFD9295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
 				7C4EF05A2304034B0040DA7A /* CMBaseButton.m in Sources */,
@@ -6528,6 +6559,7 @@
 				4E6D002E2AA9AABF00E561EA /* RadarIndicatorData.m in Sources */,
 				4E6D00642AA9AABF00E561EA /* MALayer.m in Sources */,
 				4ED59580286EF3DF002D15F1 /* zhThemePicker.m in Sources */,
+				4E7C62222ADC0FFC000A2673 /* UIImage+GrayImage.m in Sources */,
 				4EC6B3992861B12A00F57AAC /* DataFormatterFunc.m in Sources */,
 				4E6D003F2AA9AABF00E561EA /* GGPolygon.m in Sources */,
 				4E0680F32875957B00F6728A /* TrimAddressCell.m in Sources */,
