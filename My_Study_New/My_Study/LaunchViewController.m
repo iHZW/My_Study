@@ -18,15 +18,47 @@
 
 @interface LaunchViewController ()
 
+
+
 @end
 
 @implementation LaunchViewController
+
+-(void)name:(void (^)(NSString *name))complete{
+    BlockSafeRun(complete, @"111");
+    
+    NSInteger (^blockName)(NSInteger index) = ^NSInteger(NSInteger index) {
+        index += 3;
+        NSLog(@"index = %@", @(index));
+        return index;
+    };
+    
+    
+    NSInteger a = blockName(2);
+    NSLog(@"a = %@", @(a));
+    
+    NSInteger b = [self eh_sum](2);
+    NSLog(@"b = %@", @(b));
+
+    
+}
+
+- (NSInteger (^)(NSInteger a))eh_sum {
+    NSInteger (^block)(NSInteger a) = ^NSInteger(NSInteger a) {
+        return a*2;
+    };
+    return block;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = UIColor.whiteColor;
     
+    [self name:^(NSString *name) {
+        NSLog(@"name:%@", name);
+    }];
 }
 
 /** 加载引导页  */
@@ -148,6 +180,8 @@
 //        WM.wakeUpAppRoute = nil;
 //    }
 }
+
+
 
 
 

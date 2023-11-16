@@ -177,6 +177,10 @@ target 'My_Study' do
   
   pod 'SocketRocket', '0.6.0'
   
+#  pod 'WKWebViewJavascriptBridge', '1.2.2'
+  
+  pod 'WKWebViewJavascriptBridge-ObjC'
+  
 end
 
 

@@ -37,6 +37,7 @@ ${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework
 ${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework
 ${BUILT_PRODUCTS_DIR}/TDWebViewSwipeBack/TDWebViewSwipeBack.framework
 ${BUILT_PRODUCTS_DIR}/TZScrollViewPopGesture/TZScrollViewPopGesture.framework
+${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge-ObjC/WKWebViewJavascriptBridge_ObjC.framework
 ${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework
 ${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework
 ${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework
