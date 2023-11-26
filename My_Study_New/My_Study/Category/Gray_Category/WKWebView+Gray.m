@@ -8,6 +8,7 @@
 @implementation WKWebView (Gray)
 
 + (void)load {
+    return;
     Class cls = object_getClass(self);
 
     Method originalMethod = class_getInstanceMethod([self class], @selector(initWithFrame:configuration:));

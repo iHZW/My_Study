@@ -96,6 +96,8 @@
 	<string>以便于你可以在应用中上传相册中的内容，或分享相机中的照片、将照片保存</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>以便于你可以在应用中上传相册中的内容，或分享相机中的照片、将照片保存</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>语音识别</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

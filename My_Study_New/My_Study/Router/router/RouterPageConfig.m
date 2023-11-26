@@ -44,6 +44,9 @@ NSString *const ZWRouterRunLoopPermanentViewController  = @"test/runloop/page";
 /** PASShortVideoPlayerViewController  */
 NSString *const ZWRouterPageShortVideoPlayerViewController  = @"test/runloop/page";
 
+/** 文本转语音  */
+NSString *const ZWRouterPageTextToSpeechViewController  = @"tools/textToSpeech/page";
+
 /* -------------------------------page----------------------------  */
 
 
@@ -193,6 +196,13 @@ NSString *const ZWRouterPageLoginViewController  = @"user/login/page";
                 @"url" : ZWRouterPageLoginViewController,
                 @"clsName": @"LoginViewController",
                 @"type" : @(RouterTypeNavigatePresent),
+                @"attachValue" : @{}
+            },
+            /** 文本转语音  */
+            @{
+                @"url" : ZWRouterPageTextToSpeechViewController,
+                @"clsName": @"TextToSpeech",
+                @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
         ]

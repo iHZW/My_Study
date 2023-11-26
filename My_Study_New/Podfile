@@ -181,6 +181,8 @@ target 'My_Study' do
   
   pod 'WKWebViewJavascriptBridge-ObjC'
   
+#  pod 'OpenEars'
+  
 end
 
 

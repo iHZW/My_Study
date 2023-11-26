@@ -73,6 +73,9 @@
 		4E3584EE29769E9400E45A8B /* UIFont+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584ED29769E9400E45A8B /* UIFont+Tool.m */; };
 		4E3584F22976A00200E45A8B /* UIDevice+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584F12976A00200E45A8B /* UIDevice+Tool.m */; };
 		4E3584F52976B06A00E45A8B /* OneKeyLoginBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584F42976B06A00E45A8B /* OneKeyLoginBgView.m */; };
+		4E3E837C2B1235FC005EE9F8 /* TextToSpeech.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E837B2B1235FC005EE9F8 /* TextToSpeech.m */; };
+		4E3E837F2B123697005EE9F8 /* TextToSpeechTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E837E2B123697005EE9F8 /* TextToSpeechTools.m */; };
+		4E3E83822B124AC0005EE9F8 /* SpeechToTextTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E83812B124AC0005EE9F8 /* SpeechToTextTools.m */; };
 		4E403F802865A994006C0656 /* HTMLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F7E2865A994006C0656 /* HTMLLabel.m */; };
 		4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F832865AD5A006C0656 /* UIActionSheet+Blocks.m */; };
 		4E403F912865B024006C0656 /* SingleAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E403F862865B024006C0656 /* SingleAlertUtil.m */; };
@@ -858,6 +861,12 @@
 		4E3584F12976A00200E45A8B /* UIDevice+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Tool.m"; sourceTree = "<group>"; };
 		4E3584F32976B06A00E45A8B /* OneKeyLoginBgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneKeyLoginBgView.h; sourceTree = "<group>"; };
 		4E3584F42976B06A00E45A8B /* OneKeyLoginBgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneKeyLoginBgView.m; sourceTree = "<group>"; };
+		4E3E837A2B1235FC005EE9F8 /* TextToSpeech.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToSpeech.h; sourceTree = "<group>"; };
+		4E3E837B2B1235FC005EE9F8 /* TextToSpeech.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextToSpeech.m; sourceTree = "<group>"; };
+		4E3E837D2B123697005EE9F8 /* TextToSpeechTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToSpeechTools.h; sourceTree = "<group>"; };
+		4E3E837E2B123697005EE9F8 /* TextToSpeechTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextToSpeechTools.m; sourceTree = "<group>"; };
+		4E3E83802B124AC0005EE9F8 /* SpeechToTextTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechToTextTools.h; sourceTree = "<group>"; };
+		4E3E83812B124AC0005EE9F8 /* SpeechToTextTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechToTextTools.m; sourceTree = "<group>"; };
 		4E403F7E2865A994006C0656 /* HTMLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLLabel.m; sourceTree = "<group>"; };
 		4E403F7F2865A994006C0656 /* HTMLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLLabel.h; sourceTree = "<group>"; };
 		4E403F822865AD5A006C0656 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
@@ -2540,6 +2549,19 @@
 			path = UIDevice;
 			sourceTree = "<group>";
 		};
+		4E3E83792B1235E3005EE9F8 /* TextToSpeech */ = {
+			isa = PBXGroup;
+			children = (
+				4E3E837A2B1235FC005EE9F8 /* TextToSpeech.h */,
+				4E3E837B2B1235FC005EE9F8 /* TextToSpeech.m */,
+				4E3E837D2B123697005EE9F8 /* TextToSpeechTools.h */,
+				4E3E837E2B123697005EE9F8 /* TextToSpeechTools.m */,
+				4E3E83802B124AC0005EE9F8 /* SpeechToTextTools.h */,
+				4E3E83812B124AC0005EE9F8 /* SpeechToTextTools.m */,
+			);
+			path = TextToSpeech;
+			sourceTree = "<group>";
+		};
 		4E403F7D2865A994006C0656 /* HTMLLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -4207,6 +4229,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				4E3E83792B1235E3005EE9F8 /* TextToSpeech */,
 				4E668176292734E600C635BF /* CitySelector */,
 				4E758E3829FACD73003F3884 /* ClearWebViewCache */,
 				4EC6B3232861B12A00F57AAC /* Common */,
@@ -6645,6 +6668,7 @@
 				4E6D00242AA9AABF00E561EA /* PieData.m in Sources */,
 				4E0287DE2869BF70003E723E /* LogRouterIntercept.m in Sources */,
 				4E64B6E72923D9A300A718AD /* Two555ViewController.m in Sources */,
+				4E3E83822B124AC0005EE9F8 /* SpeechToTextTools.m in Sources */,
 				4EFECF5D287D14F800B137BB /* ZWToolBar.m in Sources */,
 				4E5F2D002876BB9800FEC6C2 /* PermissionPhotoLibrary.m in Sources */,
 				4E6D005C2AA9AABF00E561EA /* DPieScaler.m in Sources */,
@@ -6783,6 +6807,7 @@
 				4E6D004C2AA9AABF00E561EA /* LineCanvas.m in Sources */,
 				4EA7263E27D75CA60060BDBA /* customerView.swift in Sources */,
 				4E149692299D2EA000D305EF /* ZWUserManager.m in Sources */,
+				4E3E837F2B123697005EE9F8 /* TextToSpeechTools.m in Sources */,
 				4EFECF63287D189800B137BB /* ZWAlbumPopView.m in Sources */,
 				4EA9871B287C61F60095ECF9 /* MBProgressHUD.m in Sources */,
 				4E89AFE7295D3E7D00E7A40C /* MMCopyLabel.m in Sources */,
@@ -6948,6 +6973,7 @@
 				4E89AFD6295C3D5500E7A40C /* PASShortVideoResponse.m in Sources */,
 				7C6309ED22A6774500C73AAB /* NSString+Adaptor.m in Sources */,
 				4EA59D4728AE4F58002D9759 /* TestWebViewController.m in Sources */,
+				4E3E837C2B1235FC005EE9F8 /* TextToSpeech.m in Sources */,
 				4E6D00402AA9AABF00E561EA /* GGKShape.m in Sources */,
 				4E6D00492AA9AABF00E561EA /* PieCanvas.m in Sources */,
 				4E6D003B2AA9AABF00E561EA /* GGLine.m in Sources */,

@@ -9,7 +9,7 @@
 @implementation UIImage (GrayImage)
 
 + (void)load {
-    
+    return;
     //交换方法
     Class cls = object_getClass(self);
     Method originMethod = class_getClassMethod(cls, @selector(imageNamed:));

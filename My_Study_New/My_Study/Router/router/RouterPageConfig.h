@@ -55,6 +55,11 @@ UIKIT_EXTERN NSString *const ZWRouterRunLoopPermanentViewController;
 
 /** PASShortVideoPlayerViewController  */
 UIKIT_EXTERN NSString *const ZWRouterPageShortVideoPlayerViewController;
+
+/** 文本转语音  */
+UIKIT_EXTERN NSString *const ZWRouterPageTextToSpeechViewController;
+
+
 /* -------------------------------page----------------------------  */
 
 /* -------------------------------login----------------------------  */

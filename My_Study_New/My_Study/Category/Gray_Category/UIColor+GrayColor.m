@@ -9,7 +9,7 @@
 @implementation UIColor (GrayColor)
 
 + (void)load {
-    
+    return;
     Class cls = object_getClass(self);
     
     //将系统提供的colorWithRed:green:blue:alpha:替换掉

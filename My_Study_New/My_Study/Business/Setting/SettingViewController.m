@@ -155,6 +155,7 @@
                          [ActionModel initWithTitle:@"另一种城市选择器" actionName:@"otherCitySelect"],
                          [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"],
                          [ActionModel initWithTitle:@"视频" actionName:@"jumpSJVideoPage"],
+                         [ActionModel initWithTitle:@"文字转语音" actionName:@"textToSpeechPage"],
     ];
 
     NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@"testShowWindow"],
@@ -397,6 +398,13 @@
  */
 - (void)jumpSJVideoPage {
     [ZWM.router executeURLNoCallBack:ZWRouterPageSJVideoController];
+}
+
+/**
+ * 文字转语音
+ */
+- (void)textToSpeechPage {
+    [ZWM.router executeURLNoCallBack:ZWRouterPageTextToSpeechViewController];
 }
 
 
