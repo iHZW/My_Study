@@ -9,7 +9,9 @@
 #import "TextToSpeech.h"
 #import "TextToSpeechTools.h"
 #import <Speech/Speech.h>
+#import <AVFoundation/AVFoundation.h>
 
+API_AVAILABLE(ios(10.0))
 @interface TextToSpeech () <SFSpeechRecognizerDelegate>
 
 @property(nonatomic, strong) UITextView *textView;
@@ -30,6 +32,10 @@
 
 @implementation TextToSpeech
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self stopRecording];
+}
+
 - (void)loadUIData {
     [super loadUIData];
 
@@ -41,17 +47,25 @@
 #pragma mark - 初始化语音识别器
 - (void)_setUpData {
     // 初始化语音识别器
-    self.speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[NSLocale localeWithLocaleIdentifier:@"zh_CN"]];
+    if (@available(iOS 10.0, *)) {
+        self.speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[NSLocale localeWithLocaleIdentifier:@"zh_CN"]];
+    } else {
+        // Fallback on earlier versions
+    }
     self.audioEngine = [[AVAudioEngine alloc] init];
 
     // 请求语音识别权限
-    [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
-        if (status == SFSpeechRecognizerAuthorizationStatusAuthorized) {
-            NSLog(@"Speech recognition authorized");
-        } else {
-            NSLog(@"Speech recognition authorization denied");
-        }
-    }];
+    if (@available(iOS 10.0, *)) {
+        [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+            if (status == SFSpeechRecognizerAuthorizationStatusAuthorized) {
+                NSLog(@"Speech recognition authorized");
+            } else {
+                NSLog(@"Speech recognition authorization denied");
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 #pragma mark - 加载子视图
@@ -95,6 +109,9 @@
     if (!ValidString(self.textView.text)) {
         return;
     }
+    [self setSpeakerOn];
+
+    [self stopRecording];
 
     // 要转换成语音的文本
     NSString *textToConvert = self.textView.text;
@@ -103,9 +120,23 @@
     [self.textToSpeechTools convertTextToSpeech:textToConvert];
 }
 
+#pragma mark - 语音播放完成回调
+- (void)_handleConverComplete {
+    [self startRecording];
+    
+}
+
+
+#pragma mark - 暂停录制
 - (void)startRecording {
+    
+    [self stopRecording];
     // 创建语音识别请求
-    self.recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
+    if (@available(iOS 10.0, *)) {
+        self.recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
+    } else {
+        // Fallback on earlier versions
+    }
 
     // 获取音频输入设备
     AVAudioInputNode *inputNode = self.audioEngine.inputNode;
@@ -122,19 +153,25 @@
 
     // 将语音识别请求与音频输入节点关联
     self.recognitionRequest.shouldReportPartialResults = YES;
-    self.recognitionTask = [self.speechRecognizer recognitionTaskWithRequest:self.recognitionRequest resultHandler:^(SFSpeechRecognitionResult *_Nullable result, NSError *_Nullable error) {
-        if (result) {
-            NSString *transcription = result.bestTranscription.formattedString;
-            self.textView.text = transcription;
-        }
-
-        if (error || result.isFinal) {
-            [self.audioEngine stop];
-            [inputNode removeTapOnBus:0];
-            self.recognitionRequest = nil;
-            self.recognitionTask = nil;
-        }
-    }];
+    if (@available(iOS 10.0, *)) {
+        self.recognitionTask = [self.speechRecognizer recognitionTaskWithRequest:self.recognitionRequest resultHandler:^(SFSpeechRecognitionResult *_Nullable result, NSError *_Nullable error) {
+            if (result) {
+                NSString *transcription = result.bestTranscription.formattedString;
+                if (!result.isFinal) {
+                    self.textView.text = transcription;
+                }
+            }
+            
+            if (error || result.isFinal) {
+                [self.audioEngine stop];
+                [inputNode removeTapOnBus:0];
+                self.recognitionRequest = nil;
+                self.recognitionTask = nil;
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
 
     // 将语音输入节点的音频数据传递给语音识别请求
     AVAudioFormat *recordingFormat = [inputNode outputFormatForBus:0];
@@ -143,11 +180,37 @@
     }];
 }
 
+#pragma mark - 暂停录制
 - (void)stopRecording {
     // 停止语音识别请求
     [self.audioEngine stop];
     [self.recognitionRequest endAudio];
     [self.recognitionTask cancel];
+}
+
+
+- (void)setSpeakerOn {
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    
+    NSError *error = nil;
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    
+    if (!error) {
+        [audioSession overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
+        
+        if (error) {
+            NSLog(@"Failed to override output audio port: %@", error);
+        }
+    } else {
+        NSLog(@"Failed to set audio session category: %@", error);
+    }
+    
+    // Optionally, activate the audio session
+    [audioSession setActive:YES error:&error];
+    
+    if (error) {
+        NSLog(@"Failed to activate audio session: %@", error);
+    }
 }
 
 #pragma mark -  Lazy loading
@@ -175,6 +238,11 @@
 - (TextToSpeechTools *)textToSpeechTools {
     if (!_textToSpeechTools) {
         _textToSpeechTools = [TextToSpeechTools new];
+        __weak __typeof(self)weakSelf = self;
+        _textToSpeechTools.converComplete = ^{
+            __strong __typeof(weakSelf)self = weakSelf;
+            [self _handleConverComplete];
+        };
     }
     return _textToSpeechTools;
 }

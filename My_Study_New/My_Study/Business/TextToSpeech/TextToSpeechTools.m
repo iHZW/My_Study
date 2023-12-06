@@ -8,6 +8,10 @@
 
 #import "TextToSpeechTools.h"
 
+@interface TextToSpeechTools ()<AVSpeechSynthesizerDelegate>
+
+@end
+
 @implementation TextToSpeechTools
 
 - (instancetype)init {
@@ -32,7 +36,21 @@
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
 
     self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+    self.synthesizer.delegate = self;
     [self.synthesizer speakUtterance:utterance];
 }
+
+
+#pragma mark - AVSpeechSynthesizerDelegate
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
+    NSLog(@"didFinishSpeechUtterance");
+    
+    if (self.converComplete) {
+        self.converComplete();
+    }
+    
+}
+
+
 
 @end

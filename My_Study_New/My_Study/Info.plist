@@ -62,27 +62,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>127.0.0.1:4523</key>
-		<dict>
-			<key>NSAllowsArbitraryLoads</key>
-			<true/>
-			<key>NSAllowsArbitraryLoadsInWebContent</key>
-			<true/>
-		</dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-		<key>NSAllowsArbitraryLoadsInWebContent</key>
-		<true/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>applinks:ehs.nbcb.wichat.com.cn</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>以便于您可以使用相机拍摄照片、视频并上传至应用内更换个人头像、记录跟进行为等</string>

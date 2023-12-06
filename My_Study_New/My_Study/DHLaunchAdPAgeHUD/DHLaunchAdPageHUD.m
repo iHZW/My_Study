@@ -17,7 +17,9 @@
 @property (nonatomic, copy  ) NSString          *aDImageUrl;        /**< 广告图片的URL */
 @property (nonatomic, assign) BOOL              aDhideSkipButton;   /**< 是否影藏'倒计时/跳过'按钮 */
 @property (nonatomic, strong) UIImageView       *launchImageView;   /**< APP启动图片 */
-@property (nonatomic, strong) UIImageView       *adImageView;       /**< APP广告图片 */
+//@property (nonatomic, strong) UIImageView       *adImageView;       /**< APP广告图片 */
+//@property (nonatomic, strong) SDWegit       *adImageView;       /**< APP广告图片 */
+@property (nonatomic, strong) SDAnimatedImageView *adImageView; /**< APP广告图片 */
 @property (nonatomic, strong) UIButton          *skipButton;        /**< 跳过按钮 */
 @property (nonatomic, strong) dispatch_source_t timer;              /**< 设置定时器 */
 @end
@@ -32,10 +34,11 @@
         self.aDhideSkipButton = hideSkip;
         self.frame = [[UIScreen mainScreen] bounds];
         [self addSubview:self.setUpLaunchImageView];
-        [self addSubview:self.setUpAdImageView];
+        [self addSubview:self.adImageView];
+        [self _handleLoadAdImage];
         [self addSubview:self.setUpSkipButton];
         [self launchAdPageStart];
-        [self launchAdPageEnd];
+//        [self launchAdPageEnd];
         [self addInWindow];
         
         self.launchAdClickBlock = aDClickBlock;
@@ -70,39 +73,32 @@
 }
 
 #pragma mark - 设置广告图片
-- (UIImageView *)setUpAdImageView {
-    if (self.adImageView == nil) {
-        self.adImageView = [[UIImageView alloc] initWithFrame:self.adFrame];
-        self.adImageView.userInteractionEnabled = YES;
-        self.adImageView.alpha = 1.2;
-        NSString *idString = [self.aDImageUrl substringFromIndex:self.aDImageUrl.length - 3];
-        
-        if ([DHRegularExpression checkURL:self.aDImageUrl]) {
-            if ([idString isEqualToString:@"gif"]) {
-                NSData *urlData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.aDImageUrl]];
-                [self.adImageView addSubview:[[DHGifImageOperation alloc] initWithFrame:self.adFrame gifImageData:urlData]];
-            } else {
-//                NSURL *url = [NSURL URLWithString:self.aDImageUrl];
-//                [self.adImageView sd_setImageWithURL:url completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//                    NSLog(@"---");
-//
-//                }];
-                NSData *aDimageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.aDImageUrl]];
-                [self.adImageView setImage:[[UIImage alloc] initWithData:aDimageData]];
-            }
-        } else {
-            if ([idString isEqualToString:@"gif"]) {
-                NSData *localData = [NSData dataWithContentsOfFile:self.aDImageUrl];
-                [self.adImageView addSubview:[[DHGifImageOperation alloc] initWithFrame:self.adFrame gifImageData:localData]];
-            } else {
-                [self.adImageView setImage:[UIImage imageNamed:self.aDImageUrl]];
-            }
-        }
-        
+- (SDAnimatedImageView *)adImageView {
+    if (!_adImageView) {
+        _adImageView = [[SDAnimatedImageView alloc] initWithFrame:self.adFrame];
+        _adImageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(adImageViewTapAction:)];
-        [self.adImageView addGestureRecognizer:tap];
+        [_adImageView addGestureRecognizer:tap];
     }
-    return self.adImageView;
+    return _adImageView;
+}
+
+#pragma mark - 处理加载广告图
+- (void)_handleLoadAdImage {
+    NSString *idString = [self.aDImageUrl substringFromIndex:self.aDImageUrl.length - 3];
+    if ([self.aDImageUrl hasPrefix:@"http"]) {
+        [self.adImageView sd_setImageWithURL:[NSURL URLWithString:self.aDImageUrl] completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
+            NSLog(@"---");
+        }];
+    } else {
+        /** 加载本地的  */
+        if ([idString isEqualToString:@"gif"]) {
+            NSData *localData = [NSData dataWithContentsOfFile:self.aDImageUrl];
+            [self.adImageView addSubview:[[DHGifImageOperation alloc] initWithFrame:self.adFrame gifImageData:localData]];
+        } else {
+            [self.adImageView setImage:[UIImage imageNamed:self.aDImageUrl]];
+        }
+    }
 }
 
 - (void)adImageViewTapAction:(UITapGestureRecognizer *)tap {
@@ -130,27 +126,36 @@
     return self.skipButton;
 }
 
+#pragma mark - 跳过按钮点击
 - (void)skipButtonClick {
     [self removeLaunchAdPageHUD];
 }
 
+#pragma mark - 移除广告页
 - (void)removeLaunchAdPageHUD {
+    [self destoryTimer];
     if (self.launchAdClickBlock) {
         self.launchAdClickBlock(0);
     }
     [self removeFromSuperview];
     
-    return;
-    [UIView animateWithDuration:0.8 animations:^{
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        self.transform=CGAffineTransformMakeScale(1.5, 1.5);
-        self.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-        if (self.launchAdClickBlock) {
-            self.launchAdClickBlock(0);
-        }
-    }];
+//    [UIView animateWithDuration:0.8 animations:^{
+//        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+//        self.transform=CGAffineTransformMakeScale(1.5, 1.5);
+//        self.alpha = 0.0;
+//    } completion:^(BOOL finished) {
+//        [self removeFromSuperview];
+//        if (self.launchAdClickBlock) {
+//            self.launchAdClickBlock(0);
+//        }
+//    }];
+}
+
+- (void)destoryTimer {
+    if (self.timer) {
+        dispatch_source_cancel(self.timer);
+        self.timer = nil;
+    }
 }
 
 - (void)dispath_timer {
@@ -164,12 +169,13 @@
     
     dispatch_source_set_event_handler(self.timer, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            duration--;
-            if (duration > -1) {
+            if (duration > 0) {
                 [self.skipButton setTitle:[NSString stringWithFormat:@"%ld 跳过", duration] forState:UIControlStateNormal];
             } else {
-                dispatch_source_cancel(self.timer);
+                [self removeLaunchAdPageHUD];
+//                dispatch_source_cancel(self.timer);
             }
+            duration--;
         });
     });
     dispatch_resume(self.timer);

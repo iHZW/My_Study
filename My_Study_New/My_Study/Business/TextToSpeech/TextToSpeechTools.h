@@ -11,9 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^ConverComplete)(void);
+
 @interface TextToSpeechTools : NSObject
 
 @property (nonatomic, strong) AVSpeechSynthesizer *synthesizer;
+
+@property (nonatomic, copy) ConverComplete converComplete;
 
 - (void)convertTextToSpeech:(NSString *)text;
 

@@ -128,11 +128,11 @@
 
 - (void)_loadAdPageHUD:(dispatch_block_t)completeBlock {
     NSString *adImageJPGUrl = @"http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg";
-    NSString *adimageGIFUrl = @"http://img.ui.cn/data/file/3/4/6/210643.gif";
+    NSString *adimageGIFUrl = @"https://upload-images.jianshu.io/upload_images/550672-aa96b5cca33cb802.gif?imageMogr2/auto-orient/strip";
     NSString *adImageJPGPath = [[NSBundle mainBundle] pathForResource:@"adImage2" ofType:@"jpg"];
     NSString *adImageGifPath = [[NSBundle mainBundle] pathForResource:@"adImage3" ofType:@"gif"];
     
-    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0, DDScreenW, DDScreenH) aDduration:6.0 aDImageUrl:adImageJPGUrl hideSkipButton:NO launchAdClickBlock:^(NSInteger index) {
+    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0, DDScreenW, DDScreenH) aDduration:3.0 aDImageUrl:adImageGifPath hideSkipButton:NO launchAdClickBlock:^(NSInteger index) {
         switch (index) {
             case 0:
             {
