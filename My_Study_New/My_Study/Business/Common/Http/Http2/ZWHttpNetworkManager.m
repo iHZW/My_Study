@@ -72,6 +72,7 @@ static inline int64_t ZWGetSystemMilTime(void)
 @end
 
 @implementation ZWHttpNetworkManager
+DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
 
 - (void)testZWNetwork
 {
@@ -115,11 +116,11 @@ static inline int64_t ZWGetSystemMilTime(void)
 {
     NSString *certName = nil;
     
-    if ([ZWHttpNetworkManager sharedHttpManager].httpsCertConfigDic && [[url.absoluteString lowercaseString] hasPrefix:@"https:/"]){
-        certName = [ZWHttpNetworkManager sharedHttpManager].httpsCertConfigDic[url.host];
+    if ([ZWHttpNetworkManager sharedZWHttpNetworkManager].httpsCertConfigDic && [[url.absoluteString lowercaseString] hasPrefix:@"https:/"]){
+        certName = [ZWHttpNetworkManager sharedZWHttpNetworkManager].httpsCertConfigDic[url.host];
         
         //6.0添加新开关，如果有问题，走默认证书  只有https才校验
-        BOOL bRet = [ZWHttpNetworkManager sharedHttpManager].httpsCertCheckAction ? [ZWHttpNetworkManager sharedHttpManager].httpsCertCheckAction() : NO;
+        BOOL bRet = [ZWHttpNetworkManager sharedZWHttpNetworkManager].httpsCertCheckAction ? [ZWHttpNetworkManager sharedZWHttpNetworkManager].httpsCertCheckAction() : NO;
         if (!bRet) {
             return @"";
         }
@@ -132,16 +133,6 @@ static inline int64_t ZWGetSystemMilTime(void)
 {
     //在networkmo中统一管理
     //    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-}
-
-+ (instancetype)sharedHttpManager
-{
-    static ZWHttpNetworkManager *httpNetworkManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        httpNetworkManager = [[ZWHttpNetworkManager alloc] init];
-    });
-    return httpNetworkManager;
 }
 
 /**

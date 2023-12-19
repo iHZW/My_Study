@@ -66,7 +66,7 @@
 - (void)sendRequestDouBan:(ResponseLoaderBlock)block
 {
     /** 取消请求 */
-    [[ZWHttpNetworkManager sharedHttpManager] cancelTaskWithKey:kLeftDrawerRequestEventKey];
+    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] cancelTaskWithKey:kLeftDrawerRequestEventKey];
     
     NSString *url = @"http://283bt.com/search.php";
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];

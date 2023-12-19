@@ -29,7 +29,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
     /** 初始化网络信息  */
-    [[ZWHttpNetworkManager sharedHttpManager] initializeData];
+    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] initializeData];
     /** 加载本地缓存信息  */
     [ZWCommonUtil checkAndWriteLocalCMSDataToCache];
 
@@ -100,6 +100,16 @@
         [[UIApplication sharedApplication].delegate window].rootViewController = launchVc;
         [launchVc loadPrivacy];
     };
+    
+    ZWUserAccountManager *manager = [ZWUserAccountManager sharedZWUserAccountManager];
+    ZWUserAccountManager *managerInit = [[ZWUserAccountManager alloc] init];
+    ZWUserAccountManager *managerCopy = [manager copy];
+    ZWUserAccountManager *managerMutableCopy = [manager mutableCopy];
+    NSLog(@"manager = %@\nmanagerInit = %@\nmanagerCopy = %@\nmanagerMutableCopy = %@",
+          manager,
+          managerInit,
+          managerCopy,
+          managerMutableCopy);
 
     if (ZWCurrentUserInfo &&
         ZWCurrentUserInfo.pid > 0 &&
@@ -132,7 +142,7 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[ZWHttpNetworkManager sharedHttpManager] openNetMonitoring];
+    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] openNetMonitoring];
 }
 
 

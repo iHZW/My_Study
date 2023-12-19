@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZWHttpEventInfo.h"
 #import "RestIOManager.h"
+#import "SingletonTemplate/SingletonTemplate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,6 +30,8 @@ typedef BOOL (^HttpsCertCheckBlock)(void);
 
 
 @interface ZWHttpNetworkManager : NSObject
+DEFINE_SINGLETON_T_FOR_HEADER(ZWHttpNetworkManager)
+
 /**
  *  AFSSLPinningModeCertificate 使用证书验证模式相关设置域名与证书对应关系
  */
@@ -52,11 +55,11 @@ typedef BOOL (^HttpsCertCheckBlock)(void);
 @property (nonatomic, strong) NSString *userAgent;
 
 #pragma mark -- 初始化
-
-/**
- *  获取单例
- */
-+ (instancetype)sharedHttpManager;
+//
+///**
+// *  获取单例
+// */
+//+ (instancetype)sharedHttpManager;
 
 /**
  初始化处理
