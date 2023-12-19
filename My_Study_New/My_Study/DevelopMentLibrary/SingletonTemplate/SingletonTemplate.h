@@ -12,12 +12,12 @@
 
 #define DEFINE_SINGLETON_T_FOR_HEADER(className) \
 \
-+ (className *)sharedInstance;
++ (className *)shared##className;
 
 #if !__has_feature(objc_arc)
 #define DEFINE_SINGLETON_T_FOR_CLASS(className) \
 \
-+ (className *)sharedInstance { \
++ (className *)shared##className { \
 static className *shared##className = nil; \
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \
@@ -51,27 +51,14 @@ return self;\
 #else
 #define DEFINE_SINGLETON_T_FOR_CLASS(className) \
 \
-+ (className *)sharedInstance { \
++ (className *)shared##className { \
 static className *shared##className = nil; \
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \
-shared##className = [[super allocWithZone:NULL] init]; \
+shared##className = [[[self class] alloc] init]; \
 }); \
 return shared##className; \
-}\
-\
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {\
-return [self sharedInstance];\
-}\
-\
-- (instancetype)copy {\
-return self;\
-}\
-\
-- (instancetype)mutableCopy {\
-return self;\
-}\
-
+}
 #endif
 
 #endif /* SINGLETONTEMPLATE_H */
