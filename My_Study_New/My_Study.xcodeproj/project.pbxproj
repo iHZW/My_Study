@@ -700,6 +700,7 @@
 		7CFB1F6F22EEBE5F000AE2C9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */; };
 		7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */; };
 		7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */; };
+		DAD02D532B54BAED002E5AAC /* debug.zip in Resources */ = {isa = PBXBuildFile; fileRef = DAD02D522B54BAED002E5AAC /* debug.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2185,6 +2186,7 @@
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa.xcconfig"; sourceTree = "<group>"; };
 		CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.release.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		DAD02D522B54BAED002E5AAC /* debug.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug.zip; sourceTree = "<group>"; };
 		DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa.xcconfig"; sourceTree = "<group>"; };
 		E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		F0C699674F7130B7D51D90DB /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2677,6 +2679,7 @@
 		4E4E1CFC28A4140A00EC5EBB /* LocalSource */ = {
 			isa = PBXGroup;
 			children = (
+				DAD02D522B54BAED002E5AAC /* debug.zip */,
 				4E4E1CFD28A4142500EC5EBB /* safe.zip */,
 			);
 			path = LocalSource;
@@ -6261,6 +6264,7 @@
 				4E4E1CFE28A4142600EC5EBB /* safe.zip in Resources */,
 				4E59323C2AB3529B005E2C49 /* adImage4.gif in Resources */,
 				4E6D000E2AA9AABF00E561EA /* week_k_data_60087.json in Resources */,
+				DAD02D532B54BAED002E5AAC /* debug.zip in Resources */,
 				4EC6B3722861B12A00F57AAC /* guideImage6.gif in Resources */,
 				4EC6B35B2861B12A00F57AAC /* LaunchImg_one.png in Resources */,
 				4EC6B3532861B12A00F57AAC /* launch_guide_1.png in Resources */,

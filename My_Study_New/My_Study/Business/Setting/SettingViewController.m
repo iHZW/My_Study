@@ -44,6 +44,8 @@
 #import "StyleDIY.h"
 #import "Global.h"
 
+#import "ZWCommonWebPage.h"
+
 #define kSectionViewHeight 20
 #define ZWNSLog(...) printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
 
@@ -408,6 +410,17 @@
 }
 
 
+- (void)_testOpenDebugHml {
+    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
+    NSString * webPath = [NSString stringWithFormat:@"%@/debug.html",hybridserverPath];
+    NSURL *webUrl = [NSURL fileURLWithPath:webPath];
+    
+    ZWCommonWebPage *webPage = [[ZWCommonWebPage alloc] init];
+    [webPage loadUrl:webUrl];
+    
+    [self.navigationController pushViewController:webPage animated:YES];
+}
+
 /**
  *  清除缓存
  */
@@ -416,36 +429,64 @@
     /**
      *  try catch 异常捕获 局限性,只能捕获 数组越界 等异常 其他异常捕获不到
      */
-    @try {
-        NSMutableArray *data = [NSMutableArray array];
-        //        id a = [data objectAtIndex:2];
-        [data addObject:nil];
-    } @catch (NSException *exception) {
-        NSLog(@ "%s\n%@", __FUNCTION__, exception);
-    } @finally {
-    }
-    NSLog(@"isCrash = %@", @(isCrash));
+    //    @try {
+    //        NSMutableArray *data = [NSMutableArray array];
+    //        //        id a = [data objectAtIndex:2];
+    //        [data addObject:nil];
+    //    } @catch (NSException *exception) {
+    //        NSLog(@ "%s\n%@", __FUNCTION__, exception);
+    //    } @finally {
+    //    }
+    //    NSLog(@"isCrash = %@", @(isCrash));
+
+//        [self _testOpenDebugHml];
+//    
+//        return;
 
     NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
-    NSString *filePath         = [NSBundle.mainBundle pathForResource:@"safe" ofType:@"zip"];
-    NSString *preversionPath   = [PathConstants preversionDirectory];
-    NSString *downPath         = [PathConstants downLoadDirectory];
-    NSString *fileName         = @"safe.zip";
-    NSString *toDownLoadPath   = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:@"safe" ofType:@"zip"];
+    NSString *preversionPath = [PathConstants preversionDirectory];
+    NSString *downPath = [PathConstants downLoadDirectory];
+    NSString *fileName = @"safe.zip";
+    NSString *toDownLoadPath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
     NSString *toPreversionPath = [NSString stringWithFormat:@"%@/%@", preversionPath, fileName];
 
-    @weakify(self)
-        [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString *_Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString *_Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
 
-        } completionHandler:^(NSString *_Nonnull path, BOOL succeeded, NSError *_Nullable error) {
-            @strongify(self) if (succeeded) {
-                NSFileManager *fileManager = [NSFileManager defaultManager];
-                NSError *error;
-                BOOL isSuccessOne = [fileManager copyItemAtPath:filePath toPath:toDownLoadPath error:&error];
-                BOOL isSuccessTwo = [fileManager copyItemAtPath:filePath toPath:toPreversionPath error:&error];
-                NSLog(@"isSuccessOne = %d\nisSuccessTwo = %d", isSuccessOne, isSuccessTwo);
-            }
-        }];
+    } completionHandler:^(NSString *_Nonnull path, BOOL succeeded, NSError *_Nullable error) {
+        if (succeeded) {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            BOOL isSuccessOne = [fileManager copyItemAtPath:filePath toPath:toDownLoadPath error:&error];
+            BOOL isSuccessTwo = [fileManager copyItemAtPath:filePath toPath:toPreversionPath error:&error];
+            NSLog(@"isSuccessOne = %d\nisSuccessTwo = %d", isSuccessOne, isSuccessTwo);
+        }
+    }];
+
+    [self _testDebugZip];
+}
+
+#pragma mark - 测试H5zip包
+- (void)_testDebugZip {
+    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:@"debug" ofType:@"zip"];
+    NSString *preversionPath = [PathConstants preversionDirectory];
+    NSString *downPath = [PathConstants downLoadDirectory];
+    NSString *fileName = @"debug.zip";
+    NSString *toDownLoadPath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
+    NSString *toPreversionPath = [NSString stringWithFormat:@"%@/%@", preversionPath, fileName];
+
+    [SSZipArchive unzipFileAtPath:filePath toDestination:hybridserverPath progressHandler:^(NSString *_Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
+
+    } completionHandler:^(NSString *_Nonnull path, BOOL succeeded, NSError *_Nullable error) {
+        if (succeeded) {
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            BOOL isSuccessOne = [fileManager copyItemAtPath:filePath toPath:toDownLoadPath error:&error];
+            BOOL isSuccessTwo = [fileManager copyItemAtPath:filePath toPath:toPreversionPath error:&error];
+            NSLog(@"isSuccessOne = %d\nisSuccessTwo = %d", isSuccessOne, isSuccessTwo);
+        }
+    }];
 }
 
 /**

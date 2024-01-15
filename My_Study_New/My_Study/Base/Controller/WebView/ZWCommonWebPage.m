@@ -214,6 +214,15 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     }
 }
 
+/** 加载url  */
+- (void)loadUrl:(NSURL *)url {
+    self.nsurl = url;
+    if (url){
+        NSURLRequest * request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+    }
+}
+
 
 - (ZWWebView *)webView
 {
