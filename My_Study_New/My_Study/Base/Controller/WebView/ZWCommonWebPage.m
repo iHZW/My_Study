@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     
     WebViewErrorStatus, //白屏
     
+    
     WebViewPendStatus, //待决
 };
 
