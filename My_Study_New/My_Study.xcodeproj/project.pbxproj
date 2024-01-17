@@ -700,6 +700,10 @@
 		7CFB1F6F22EEBE5F000AE2C9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */; };
 		7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */; };
 		7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */; };
+		DA922A332B57B9C700AD9FA8 /* RACBindingTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */; };
+		DA922A362B57BA5300AD9FA8 /* ZWBindingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */; };
+		DA922A392B57BA6B00AD9FA8 /* ZWBindingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A382B57BA6B00AD9FA8 /* ZWBindingViewModel.m */; };
+		DA922A3C2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */; };
 		DAD02D532B54BAED002E5AAC /* debug.zip in Resources */ = {isa = PBXBuildFile; fileRef = DAD02D522B54BAED002E5AAC /* debug.zip */; };
 /* End PBXBuildFile section */
 
@@ -2186,6 +2190,14 @@
 		C3150744E644A9F36B0B5C5F /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		C5E690236FE4101C0917B210 /* Pods-My_Study.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa.xcconfig"; sourceTree = "<group>"; };
 		CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.release.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		DA922A312B57B9C700AD9FA8 /* RACBindingTableVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBindingTableVc.h; sourceTree = "<group>"; };
+		DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACBindingTableVc.m; sourceTree = "<group>"; };
+		DA922A342B57BA5300AD9FA8 /* ZWBindingItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWBindingItem.h; sourceTree = "<group>"; };
+		DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWBindingItem.m; sourceTree = "<group>"; };
+		DA922A372B57BA6B00AD9FA8 /* ZWBindingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWBindingViewModel.h; sourceTree = "<group>"; };
+		DA922A382B57BA6B00AD9FA8 /* ZWBindingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWBindingViewModel.m; sourceTree = "<group>"; };
+		DA922A3A2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBindingMVVMTableVc.h; sourceTree = "<group>"; };
+		DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACBindingMVVMTableVc.m; sourceTree = "<group>"; };
 		DAD02D522B54BAED002E5AAC /* debug.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug.zip; sourceTree = "<group>"; };
 		DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa.xcconfig"; sourceTree = "<group>"; };
 		E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa_dev.xcconfig"; sourceTree = "<group>"; };
@@ -5137,6 +5149,7 @@
 			isa = PBXGroup;
 			children = (
 				4E207AE0299BDAB20086F640 /* My_Study.entitlements */,
+				DA922A302B57B99700AD9FA8 /* RAC_ Binding_UITableView */,
 				4E6DFE842AA9AABD00E561EA /* Chart */,
 				4E4E1CFB28A413F400EC5EBB /* Source */,
 				4E0680BD2873E4E100F6728A /* Configuration */,
@@ -6127,6 +6140,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA922A302B57B99700AD9FA8 /* RAC_ Binding_UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				DA922A312B57B9C700AD9FA8 /* RACBindingTableVc.h */,
+				DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */,
+				DA922A3A2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.h */,
+				DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */,
+				DA922A342B57BA5300AD9FA8 /* ZWBindingItem.h */,
+				DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */,
+				DA922A372B57BA6B00AD9FA8 /* ZWBindingViewModel.h */,
+				DA922A382B57BA6B00AD9FA8 /* ZWBindingViewModel.m */,
+			);
+			name = "RAC_ Binding_UITableView";
+			path = "Business/RAC_ Binding_UITableView";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -6530,6 +6559,7 @@
 				4EB8ABD22924D7F800820F48 /* HtmlParser.m in Sources */,
 				4E68973C28CC6F9A0003CF78 /* TestCardTableViewCell.m in Sources */,
 				7C6A215826E371F200E0CF20 /* WFBaseDemo.m in Sources */,
+				DA922A3C2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m in Sources */,
 				4EC6B37F2861B12A00F57AAC /* LogDAO.m in Sources */,
 				4E2B26402A9E359E00583883 /* ScanResultViewController.m in Sources */,
 				4EEEB868285EBA0100FD49A9 /* NSString+URLEncode.m in Sources */,
@@ -6538,6 +6568,7 @@
 				4E23FE6028781618009B02D0 /* TrimHeaderView.m in Sources */,
 				4EC6B3832861B12A00F57AAC /* MDLogTableViewCell.m in Sources */,
 				7C879B2726EC25BB0051018B /* BaseViewModel.m in Sources */,
+				DA922A362B57BA5300AD9FA8 /* ZWBindingItem.m in Sources */,
 				4E89AFE1295C424400E7A40C /* ZYWeakObject.m in Sources */,
 				7C77B50526DFD85900A9935F /* BlockSubViewController.m in Sources */,
 				4EC6B3972861B12A00F57AAC /* DataFormatterFunc+JSON.m in Sources */,
@@ -6717,6 +6748,7 @@
 				7C6309E822A6751900C73AAB /* ZWTextDrawing.m in Sources */,
 				7C6A216426E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m in Sources */,
 				4E89AFD5295C3D5500E7A40C /* PASShortVideoItemView.m in Sources */,
+				DA922A392B57BA6B00AD9FA8 /* ZWBindingViewModel.m in Sources */,
 				4EDC0B6C286308D6001C53CE /* NSUserDefaults+Safe.m in Sources */,
 				4E6D00342AA9AABF00E561EA /* GGNumberRenderer.m in Sources */,
 				4EA986ED287C36E30095ECF9 /* ZWCameraViewController.m in Sources */,
@@ -6841,6 +6873,7 @@
 				7C4EF0582304034B0040DA7A /* CMControl.m in Sources */,
 				7C4EF00C230394FA0040DA7A /* CMNetLayerNotificationCenter.m in Sources */,
 				4E6D00152AA9AABF00E561EA /* RadarChart.m in Sources */,
+				DA922A332B57B9C700AD9FA8 /* RACBindingTableVc.m in Sources */,
 				4EC6B3802861B12A00F57AAC /* MDLogViewController.m in Sources */,
 				7C879B1626E64E850051018B /* TestMVPModel.m in Sources */,
 				4E6D00112AA9AABF00E561EA /* BarChart.m in Sources */,
