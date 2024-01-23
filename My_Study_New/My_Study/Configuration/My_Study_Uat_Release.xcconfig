@@ -1,5 +1,5 @@
 //
-//  My_Study_Uat_release.xcconfig
+//  My_Study_Uat_Release.xcconfig
 //  My_Study_Uat
 //
 //  Created by hzw on 2024/1/17.
@@ -8,3 +8,11 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+
+
+SLASH = /
+
+APP_NAME = 设备之家-SIT
+
+// universal link url
+ZW_UNIVERSAL_LINK = zw.hzw.com

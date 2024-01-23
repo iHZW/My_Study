@@ -8,3 +8,10 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+
+SLASH = /
+
+APP_NAME = 设备之家-SIT
+
+// universal link url
+ZW_UNIVERSAL_LINK = zw.hzw.com

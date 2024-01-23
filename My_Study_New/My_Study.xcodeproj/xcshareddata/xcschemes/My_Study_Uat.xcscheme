@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA157F222B58034400E6957A"
+               BlueprintIdentifier = "DAEEC22F2B58BE9000258456"
                BuildableName = "My_Study_Uat.app"
                BlueprintName = "My_Study_Uat"
                ReferencedContainer = "container:My_Study.xcodeproj">
@@ -43,21 +43,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7C459A232295557300667813"
-            BuildableName = "My_Study.app"
-            BlueprintName = "My_Study"
-            ReferencedContainer = "container:My_Study.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA157F222B58034400E6957A"
+            BlueprintIdentifier = "DAEEC22F2B58BE9000258456"
             BuildableName = "My_Study_Uat.app"
             BlueprintName = "My_Study_Uat"
             ReferencedContainer = "container:My_Study.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -69,7 +60,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA157F222B58034400E6957A"
+            BlueprintIdentifier = "DAEEC22F2B58BE9000258456"
             BuildableName = "My_Study_Uat.app"
             BlueprintName = "My_Study_Uat"
             ReferencedContainer = "container:My_Study.xcodeproj">
