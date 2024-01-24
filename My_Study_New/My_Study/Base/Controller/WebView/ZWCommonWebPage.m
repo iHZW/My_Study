@@ -224,6 +224,14 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     }
 }
 
+- (void)loadURLRequest:(NSURLRequest *)request {
+    
+    if (request) {
+        [self.webView loadRequest:request];
+    }
+    
+}
+
 
 - (ZWWebView *)webView
 {
@@ -378,6 +386,10 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 //    [self getTitle];
     /** 网页之后0.5s检测白屏  */
     [self checkWebViewhiteScreen];
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"error = %@", error);
 }
 
 #pragma mark - 白屏检测

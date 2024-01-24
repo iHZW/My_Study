@@ -211,7 +211,7 @@
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"jump KLinePage" clazz:NSClassFromString(@"TestKLineViewController")]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Jump RAC-UITableView" clazz:NSClassFromString(@"RACBindingTableVc")]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Jump RAC-Binding-UITableView" clazz:NSClassFromString(@"RACBindingMVVMTableVc")]];
-
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Test KTVCocoaHTTPServer Page" clazz:NSClassFromString(@"TestKTVCocoaHTTPServerPage")]];
 }
 
 - (void)setupUI {

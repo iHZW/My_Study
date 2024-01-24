@@ -91,7 +91,6 @@
 		4E47502F28D8B8E600A5ED12 /* TestBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E47502E28D8B8E600A5ED12 /* TestBlock.m */; };
 		4E47503528DAA02100A5ED12 /* TestLLVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E47503428DAA02100A5ED12 /* TestLLVM.m */; };
 		4E4D95DE27D6FAFD0019061E /* EOCfamilly.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */; };
-		4E4E1CFE28A4142600EC5EBB /* safe.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4E4E1CFD28A4142500EC5EBB /* safe.zip */; };
 		4E4F9CCD286C559C003281B5 /* PersonalCenterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */; };
 		4E4F9CD8286C5D8E003281B5 /* ZWRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CD7286C5D8D003281B5 /* ZWRefreshHeader.m */; };
 		4E4F9CDB286C5E44003281B5 /* ZWBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CDA286C5E44003281B5 /* ZWBaseView.m */; };
@@ -707,6 +706,10 @@
 		DA922A362B57BA5300AD9FA8 /* ZWBindingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */; };
 		DA922A392B57BA6B00AD9FA8 /* ZWBindingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A382B57BA6B00AD9FA8 /* ZWBindingViewModel.m */; };
 		DA922A3C2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */; };
+		DABC5F852B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DABC5F842B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m */; };
+		DABC5F892B5FE74F00B8E0BB /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = DABC5F882B5FE74F00B8E0BB /* demo.html */; };
+		DABC5F952B60972E00B8E0BB /* debug1.zip in Resources */ = {isa = PBXBuildFile; fileRef = DABC5F942B60972E00B8E0BB /* debug1.zip */; };
+		DABC5F972B60BBA300B8E0BB /* images.zip in Resources */ = {isa = PBXBuildFile; fileRef = DABC5F962B60BBA200B8E0BB /* images.zip */; };
 		DAD02D532B54BAED002E5AAC /* debug.zip in Resources */ = {isa = PBXBuildFile; fileRef = DAD02D522B54BAED002E5AAC /* debug.zip */; };
 		DAEEBF682B58BE8C00258456 /* UITableView+EHIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6681A52927350F00C635BF /* UITableView+EHIndexView.m */; };
 		DAEEBF692B58BE8C00258456 /* NSOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B36286308D6001C53CE /* NSOrderedSet+Safe.m */; };
@@ -1374,7 +1377,6 @@
 		DAEEC2022B58BE8C00258456 /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 7C4F93CC2302B39200F2238E /* ReadMe.md */; };
 		DAEEC2032B58BE8C00258456 /* Untitled-8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2E42861B12900F57AAC /* Untitled-8.gif */; };
 		DAEEC2042B58BE8C00258456 /* launch_guide_2_min.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2D22861B12900F57AAC /* launch_guide_2_min.png */; };
-		DAEEC2052B58BE8C00258456 /* safe.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4E4E1CFD28A4142500EC5EBB /* safe.zip */; };
 		DAEEC2062B58BE8C00258456 /* adImage4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E5932372AB3529B005E2C49 /* adImage4.gif */; };
 		DAEEC2072B58BE8C00258456 /* week_k_data_60087.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E6DFEB12AA9AABD00E561EA /* week_k_data_60087.json */; };
 		DAEEC2082B58BE8C00258456 /* debug.zip in Resources */ = {isa = PBXBuildFile; fileRef = DAD02D522B54BAED002E5AAC /* debug.zip */; };
@@ -2071,7 +2073,6 @@
 		DAEEC4CE2B58BE9000258456 /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 7C4F93CC2302B39200F2238E /* ReadMe.md */; };
 		DAEEC4CF2B58BE9000258456 /* Untitled-8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2E42861B12900F57AAC /* Untitled-8.gif */; };
 		DAEEC4D02B58BE9000258456 /* launch_guide_2_min.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2D22861B12900F57AAC /* launch_guide_2_min.png */; };
-		DAEEC4D12B58BE9000258456 /* safe.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4E4E1CFD28A4142500EC5EBB /* safe.zip */; };
 		DAEEC4D22B58BE9000258456 /* adImage4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E5932372AB3529B005E2C49 /* adImage4.gif */; };
 		DAEEC4D32B58BE9000258456 /* week_k_data_60087.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E6DFEB12AA9AABD00E561EA /* week_k_data_60087.json */; };
 		DAEEC4D42B58BE9000258456 /* debug.zip in Resources */ = {isa = PBXBuildFile; fileRef = DAD02D522B54BAED002E5AAC /* debug.zip */; };
@@ -2336,7 +2337,6 @@
 		4E47503628DAA03900A5ED12 /* TestLLVM.ll */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm.llvm; path = TestLLVM.ll; sourceTree = "<group>"; };
 		4E4D95DC27D6FAFD0019061E /* EOCfamilly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCfamilly.h; sourceTree = "<group>"; };
 		4E4D95DD27D6FAFD0019061E /* EOCfamilly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCfamilly.m; sourceTree = "<group>"; };
-		4E4E1CFD28A4142500EC5EBB /* safe.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = safe.zip; sourceTree = "<group>"; };
 		4E4F9CCB286C559C003281B5 /* PersonalCenterConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalCenterConfig.h; sourceTree = "<group>"; };
 		4E4F9CCC286C559C003281B5 /* PersonalCenterConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterConfig.m; sourceTree = "<group>"; };
 		4E4F9CD1286C590C003281B5 /* ZWTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWTableViewAdapter.h; sourceTree = "<group>"; };
@@ -3639,6 +3639,11 @@
 		DA922A3A2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBindingMVVMTableVc.h; sourceTree = "<group>"; };
 		DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACBindingMVVMTableVc.m; sourceTree = "<group>"; };
 		DA922D062B57EF5C00AD9FA8 /* My_Study_Sit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My_Study_Sit-Info.plist"; path = "/Users/boge/hzw/git/My_Study/My_Study_New/My_Study_Sit-Info.plist"; sourceTree = "<absolute>"; };
+		DABC5F832B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestKTVCocoaHTTPServerPage.h; sourceTree = "<group>"; };
+		DABC5F842B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestKTVCocoaHTTPServerPage.m; sourceTree = "<group>"; };
+		DABC5F882B5FE74F00B8E0BB /* demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
+		DABC5F942B60972E00B8E0BB /* debug1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug1.zip; sourceTree = "<group>"; };
+		DABC5F962B60BBA200B8E0BB /* images.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = images.zip; path = My_Study/Business/LaunchGuide/dataSource/images.zip; sourceTree = SOURCE_ROOT; };
 		DAD02D522B54BAED002E5AAC /* debug.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug.zip; sourceTree = "<group>"; };
 		DAEEC22D2B58BE8C00258456 /* My_Study_Sit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study_Sit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEEC4F92B58BE9000258456 /* My_Study_Uat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study_Uat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4204,7 +4209,8 @@
 			isa = PBXGroup;
 			children = (
 				DAD02D522B54BAED002E5AAC /* debug.zip */,
-				4E4E1CFD28A4142500EC5EBB /* safe.zip */,
+				DABC5F962B60BBA200B8E0BB /* images.zip */,
+				DABC5F942B60972E00B8E0BB /* debug1.zip */,
 			);
 			path = LocalSource;
 			sourceTree = "<group>";
@@ -7662,9 +7668,12 @@
 			isa = PBXGroup;
 			children = (
 				DA922A312B57B9C700AD9FA8 /* RACBindingTableVc.h */,
+				DABC5F882B5FE74F00B8E0BB /* demo.html */,
 				DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */,
 				DA922A3A2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.h */,
 				DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */,
+				DABC5F832B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.h */,
+				DABC5F842B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m */,
 				DA922A342B57BA5300AD9FA8 /* ZWBindingItem.h */,
 				DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */,
 				DA922A372B57BA6B00AD9FA8 /* ZWBindingViewModel.h */,
@@ -7811,6 +7820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EBCFB6829864889009105BD /* DXCaptcha.bundle in Resources */,
+				DABC5F892B5FE74F00B8E0BB /* demo.html in Resources */,
 				4E6D000C2AA9AABE00E561EA /* time_chart_data.json in Resources */,
 				4EC6B3692861B12A00F57AAC /* guideImage8.gif in Resources */,
 				7C459A342295557400667813 /* LaunchScreen.storyboard in Resources */,
@@ -7827,6 +7837,7 @@
 				4EC6B3712861B12A00F57AAC /* guideImage7.gif in Resources */,
 				4EC6B35E2861B12A00F57AAC /* 3.jpg in Resources */,
 				4EC6B3602861B12A00F57AAC /* launch_guide_3_min.png in Resources */,
+				DABC5F952B60972E00B8E0BB /* debug1.zip in Resources */,
 				4EC6B36E2861B12A00F57AAC /* Untitled-4.gif in Resources */,
 				4E6D00622AA9AABF00E561EA /* IndexLuaCode.bundle in Resources */,
 				4E6D00092AA9AABE00E561EA /* 600887_five_day.json in Resources */,
@@ -7841,6 +7852,7 @@
 				4EC6B3702861B12A00F57AAC /* Untitled-1.gif in Resources */,
 				4E6D000B2AA9AABE00E561EA /* stock_data.json in Resources */,
 				4E59323F2AB3529B005E2C49 /* view_bg_image.png in Resources */,
+				DABC5F972B60BBA300B8E0BB /* images.zip in Resources */,
 				4EC6B36C2861B12A00F57AAC /* Untitled-7.gif in Resources */,
 				4EA9871C287C61F60095ECF9 /* README.mdown in Resources */,
 				4EC6B3742861B12A00F57AAC /* Untitled-3.gif in Resources */,
@@ -7852,7 +7864,6 @@
 				7C4F93E02302B39300F2238E /* ReadMe.md in Resources */,
 				4EC6B36A2861B12A00F57AAC /* Untitled-8.gif in Resources */,
 				4EC6B35A2861B12A00F57AAC /* launch_guide_2_min.png in Resources */,
-				4E4E1CFE28A4142600EC5EBB /* safe.zip in Resources */,
 				4E59323C2AB3529B005E2C49 /* adImage4.gif in Resources */,
 				4E6D000E2AA9AABF00E561EA /* week_k_data_60087.json in Resources */,
 				DAD02D532B54BAED002E5AAC /* debug.zip in Resources */,
@@ -7931,7 +7942,6 @@
 				DAEEC2022B58BE8C00258456 /* ReadMe.md in Resources */,
 				DAEEC2032B58BE8C00258456 /* Untitled-8.gif in Resources */,
 				DAEEC2042B58BE8C00258456 /* launch_guide_2_min.png in Resources */,
-				DAEEC2052B58BE8C00258456 /* safe.zip in Resources */,
 				DAEEC2062B58BE8C00258456 /* adImage4.gif in Resources */,
 				DAEEC2072B58BE8C00258456 /* week_k_data_60087.json in Resources */,
 				DAEEC2082B58BE8C00258456 /* debug.zip in Resources */,
@@ -8010,7 +8020,6 @@
 				DAEEC4CE2B58BE9000258456 /* ReadMe.md in Resources */,
 				DAEEC4CF2B58BE9000258456 /* Untitled-8.gif in Resources */,
 				DAEEC4D02B58BE9000258456 /* launch_guide_2_min.png in Resources */,
-				DAEEC4D12B58BE9000258456 /* safe.zip in Resources */,
 				DAEEC4D22B58BE9000258456 /* adImage4.gif in Resources */,
 				DAEEC4D32B58BE9000258456 /* week_k_data_60087.json in Resources */,
 				DAEEC4D42B58BE9000258456 /* debug.zip in Resources */,
@@ -8683,6 +8692,7 @@
 				4EFECFDF287DC3FE00B137BB /* RSAEncryption.m in Sources */,
 				4EA98705287C565E0095ECF9 /* ZWAlbumCropViewController.m in Sources */,
 				4E6D006D2AA9AABF00E561EA /* BaseIndexLayer.m in Sources */,
+				DABC5F852B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m in Sources */,
 				4E6D00352AA9AABF00E561EA /* GGGridRenderer.m in Sources */,
 				4E89AFD4295C3D5500E7A40C /* PASShortVideoPlayerViewController.m in Sources */,
 				4E6D00552AA9AABF00E561EA /* NSObject+FireBlock.m in Sources */,
@@ -10289,7 +10299,7 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 82MDUB8B2X;
+				DEVELOPMENT_TEAM = VJL6T3N8T6;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;

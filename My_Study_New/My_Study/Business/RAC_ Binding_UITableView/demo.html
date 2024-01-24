@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone = no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style type="text/css">
+      .item {
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #999999;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body style="height: 100%">
+    <div
+      class="item"
+      style="font-size: 20px; color: #ffffff"
+      onclick="testApiGoBack()"
+    >
+      返回
+    </div>
+    <div
+      class="item"
+      style="font-size: 20px; color: #ffffff"
+      onclick="testApiGetAppVersion()"
+    >
+      获取版本号
+    </div>
+    <div
+      class="item"
+      style="font-size: 20px; color: #ffffff"
+      onclick="testApiCheckAppPermission()"
+    >
+      检查权限
+    </div>
+    <div
+      class="item"
+      style="font-size: 20px; color: #ffffff"
+      onclick="testApiChooseFile()"
+    >
+      金铠甲选择文件
+    </div>
+    <div
+      class="item"
+      style="font-size: 20px; color: #ffffff"
+      onclick="testApiPreviewFile()"
+    >
+      金铠甲文件下载预览
+    </div>
+    <div
+      class="item"
+      style="font-size: 20px; color: #ffffff"
+      onclick="_registerWebEvent()"
+    >
+      先点击我注册自定义监听事件hello，然后长按web容器触发前端hello事件
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      var script = document.createElement("script");
+      script.setAttribute("type", "text/javascript");
+      script.src = "MapiCore.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    };
+
+    // 设置向native发送的回调
+    function connectWeiMengWebViewJavascriptBridge(callback) {
+      if (
+        window.WeiMengWebViewJavascriptBridge &&
+        WeiMengWebViewJavascriptBridge.inited
+      ) {
+        callback(WeiMengWebViewJavascriptBridge);
+      } else {
+        document.addEventListener(
+          "WeiMengWebViewJavascriptBridgeReady",
+          function () {
+            console.log("hasInit");
+            callback(WeiMengWebViewJavascriptBridge);
+          },
+          false
+        );
+      }
+    }
+
+    // 获取native发送的消息
+    connectWeiMengWebViewJavascriptBridge(function (bridge) {
+      bridge.init(function (message, responseCallback) {
+        console.log("JS got a message", message);
+        var data = {
+          "Javascript Responds": "js response!",
+        };
+
+        if (responseCallback) {
+          console.log("JS responding with", data);
+          responseCallback(data);
+        }
+      });
+      //一进入页面就要调用原生方法，需要判断window.WeiMengWebViewJavascriptBridge不为空，或者监听WeiMengWebViewJavascriptBridgeReady事件
+      getAppVersion();
+    });
+
+    //调用原生请求权限api
+    function testApiLogin() {
+      callNative("toLogin", {
+        errorCode: "40001",
+        errorMsg: "token失效",
+        token: "0123456789",
+      });
+    }
+
+    function testApiLogout() {
+      callNative(
+        "toLogout",
+        { errorCode: "40004", errorMsg: "token失效", token: "0123456789" },
+        (data) => {
+          console.log("退出登录成功", data);
+        }
+      );
+    }
+
+    function testApiisLogined() {
+      callNative("isLogined", {}, (data) => {
+        console.log("用户是否登录: ", data.isLogged);
+      });
+    }
+
+    function testApiGetUser() {
+      // callNative('getUserInfo', {}, data => {
+      //   console.log('=====用户信息=======', data)
+      // })
+      eq.getUserInfo?.().then((data) => {
+        console.log("=====用户信息=======", data);
+      });
+    }
+
+    function testApiGetUserFromNetwork() {
+      eq.getUserInfoFromNetwork?.().then((data) => {
+        console.log("=====用户信息 from netWork=======", data);
+      });
+    }
+
+    function testApiSwitchTab() {
+      // callNative('toRoute', { path: '/pages/tabBar/home/index', route: '/pages/tabBar/home/index', data: {} }, data => {
+      //   console.log('=====跳转成功=======', data)
+      // })
+      Taro.switchTab({ url: routeNames.tabBarMine });
+    }
+
+    function testApiGetSystem() {
+      eq?.getScreenInfo?.().then((data) => {
+        console.log("=====获取屏幕信息成功123=======", data);
+      });
+      // callNative('getScreenInfo', {}, data => {
+      //   console.log('=====获取屏幕信息成功=======', data)
+      // })
+    }
+
+    function testApiGetAppVersion() {
+      callNative("getAppVersion", {}, (data) => {
+        console.log("=====获取app版本号=======", data);
+        const { status } = data;
+        if (status === 3) {
+          callNative("chooseVideo", { upload: false }, (data1) => {
+            console.log("上传成功视频url:", data1.list[0].url);
+          });
+        } else {
+          console.log("无权限");
+        }
+      });
+
+      //   function data = await eq?.getAppVersion?.({});
+      //   console.log("=====获取app版本信息成功132=======", data);
+      // callNative('getAppVersion', {}, data => {
+      //   console.log('=====获取app版本信息成功=======', data)
+      // })
+    }
+
+    function testApiImgUpload() {
+      callNative("checkAppPermission", { type: "PHOTO" }, (data) => {
+        const { status } = data;
+        if (status === 3) {
+          callNative(
+            "choosePhoto",
+            { upload: false, acceptBase64: true },
+            (data1) => {
+              console.log("上传成功图片url:", data1.list[0].base64);
+            }
+          );
+        } else {
+          console.log("无权限");
+        }
+      });
+    }
+
+    function testApiVideoUpload() {
+      callNative("checkAppPermission", { type: "PHOTO" }, (data) => {
+        const { status } = data;
+        if (status === 3) {
+          callNative("chooseVideo", { upload: true }, (data1) => {
+            console.log("上传成功视频url:", data1.list[0].url);
+          });
+        } else {
+          console.log("无权限");
+        }
+      });
+    }
+
+    function testApiSaveImg() {
+      callNative("checkAppPermission", { type: "PHOTO" }, (data) => {
+        const { status } = data;
+        if (status === 3) {
+          callNative("saveToPhoto", {}, (data1) => {
+            console.log("图片保存成功");
+          });
+        } else {
+          console.log("无权限");
+        }
+      });
+    }
+
+    function testApiLocation() {
+      callNative("checkAppPermission", { type: "LOCATION" }, (data) => {
+        const { status } = data;
+        console.log("check", status);
+        if (status === 3) {
+          callNative(
+            "getLocation",
+            { reverse: true, source: "amap" },
+            (data1) => {
+              console.log("定位成功:", data1);
+            }
+          );
+        } else {
+          console.log("无权限");
+        }
+      });
+    }
+    function testApiCopy() {
+      callNative("copyTextToClipboard", { text: "拷贝成功了吗？" }, (data1) => {
+        console.log("拷贝成功了", data1);
+      });
+    }
+
+    function testApiPhone() {
+      callNative("toCallPhone", { phoneNumber: "13849068781" }, (data1) => {
+        console.log("打电话", data1);
+      });
+    }
+
+    function testApiWechatInstalled() {
+      callNative("wechatInstalled", {}, (data1) => {
+        console.log("是否安装微信", data1);
+      });
+    }
+
+    function testApiShare() {
+      callNative(
+        "toShare",
+        {
+          platform: "Wechat",
+          content: {
+            type: 2,
+            title: "分享网页",
+            description: "网页描述信息",
+            url: "https://www.baidu.com",
+            imgUrl:
+              "https://mwhoe.oss-cn-hangzhou.aliyuncs.com/equipment/19038cc1-32e5-fa7a-e4f6-73d1f127088b.jpg",
+          },
+        },
+        (data1) => {
+          console.log("去分享", data1);
+        }
+      );
+    }
+
+    function testApiOpenWechatMini() {
+      callNative(
+        "openWechatMini",
+        {
+          userName: "gh_29c832940f8c",
+          path: "/pages/index",
+          titminiProgramTypele: 0,
+        },
+        (data1) => {
+          console.log("打开微信小程序", data1);
+        }
+      );
+    }
+
+    function showNavigationBar() {
+      // callNative('showNavigationBar', { show: '1' }, data1 => {
+      //   console.log('显示导航', data1)
+      // })
+      eq.showTitleBar?.({ show: true }).then((data) => {
+        console.log("显示导航", data);
+      });
+    }
+
+    function hiddenNavigationBar() {
+      // callNative('showNavigationBar', { show: '0' }, data1 => {
+      //   console.log('隐藏导航', data1)
+      // })
+      eq.showTitleBar?.({ show: false }).then((data) => {
+        console.log("显示导航", data);
+      });
+    }
+
+    function testApiExitBack() {
+      callNative("exit", {}, (data1) => {
+        console.log("退出成功", data1);
+      });
+    }
+
+    // const testApiGoBack (){
+    //   callNative("goBack", {}, (data1) => {
+    //     console.log("返回成功", data1);
+    //   });
+    // };
+
+    function testApiGoBack() {
+      callNative("goBack", {}, (data1) => {
+        console.log("返回成功", data1);
+      });
+
+      // console.log("返回成功");
+      // setupWeiMengWebViewJavascriptBridge(function (bridge) {
+      //   testCallNative(bridge, { method: "goBack", data: {} });
+      // });
+    }
+
+    function testCallNative(bridge, request) {
+      bridge.callHandler(
+        "callNative",
+        request,
+        function responseCallback(responseData) {
+          var response = JSON.parse(responseData);
+          console.log("demohtml response new: " + JSON.stringify(response));
+        }
+      );
+    }
+
+    function testApiBack() {
+      Taro.switchTab({ url: routeNames.tabBarHome });
+    }
+
+    function testApiCheckAppPermission(index) {
+      console.log(index);
+      let type = "1";
+
+      switch (index) {
+        case 1:
+          type = "APNS";
+          break;
+        case 2:
+          type = "CAMERA";
+          break;
+        case 3:
+          type = "LOCATION";
+          break;
+        case 4:
+          type = "MICROPHONE";
+          break;
+        case 5:
+          type = "PHOTO";
+          break;
+
+        default:
+          break;
+      }
+
+      callNative("checkAppPermission", { type: type }, (data1) => {
+        console.log("检测权限结果", data1);
+      });
+    }
+
+    function testApiRequestAppPermission(index) {
+      console.log(index);
+      let type = "1";
+      switch (index) {
+        case 1:
+          type = "APNS";
+          break;
+        case 2:
+          type = "CAMERA";
+          break;
+        case 3:
+          type = "LOCATION";
+          break;
+        case 4:
+          type = "MICROPHONE";
+          break;
+        case 5:
+          type = "PHOTO";
+          break;
+
+        default:
+          break;
+      }
+
+      callNative("requestAppPermission", { type: type }, (data1) => {
+        console.log("请求权限结果", data1);
+      });
+    }
+
+    function testApiShowToast() {
+      eq?.showToast({ message: "显示Toast" });
+      // callNative('showToast', { message: '显示Toast' }, data1 => {
+      //   console.log('返回成功', data1)
+      // })
+    }
+
+    function testApiGoH5Home() {
+      Taro.navigateTo({ url: routeNames.tabBarHome });
+    }
+
+    function testApiOpenPrivacySetPage() {
+      callNative("openPrivacySetPage", {}, (data1) => {
+        console.log("返回成功", data1);
+      });
+    }
+    function testApiToService() {
+      callNative(
+        "toWxCustomerService",
+        {
+          url: "https://work.weixin.qq.com/kfid/kfcea654585a810a738?enc_scene=ENC58c9rkvyb9FjS5Y7G15Qz8",
+          corpId: "wwe629605e2550c1a6",
+        },
+        (data1) => {
+          console.log("返回成功", data1);
+        }
+      );
+    }
+
+    function testApiWxShareText() {
+      callNative(
+        "toShare",
+        { platform: "Wechat", content: { type: 4, text: "微信文字类型分享" } },
+        (data1) => {
+          console.log("微信文字类型分享", data1);
+        }
+      );
+    }
+
+    function testApiWxShareImage() {
+      callNative(
+        "toShare",
+        {
+          platform: "Wechat",
+          content: {
+            type: 1,
+            imgUrl:
+              "https://mwhoe.oss-cn-hangzhou.aliyuncs.com/equipment/19038cc1-32e5-fa7a-e4f6-73d1f127088b.jpg",
+          },
+        },
+        (data1) => {
+          console.log("微信图片类型分享", data1);
+        }
+      );
+    }
+    function testApiWxShareWeb() {
+      callNative(
+        "toShare",
+        {
+          platform: "Wechat",
+          content: {
+            type: 2,
+            title: "我是网页标题",
+            imgUrl:
+              "https://mwhoe.oss-cn-hangzhou.aliyuncs.com/equipment/19038cc1-32e5-fa7a-e4f6-73d1f127088b.jpg",
+            description: "我是网页描述",
+            url: "https://www.baidu.com",
+          },
+        },
+        (data1) => {
+          console.log("微信网页类型分享", data1);
+        }
+      );
+    }
+    function testApiWxShareFile() {
+      callNative(
+        "toShare",
+        { platform: "Wechat", content: { type: 5, filePath: "" } },
+        (data1) => {
+          console.log("微信文件类型分享", data1);
+        }
+      );
+    }
+    function testApiWxShareMini() {
+      callNative(
+        "toShare",
+        {
+          platform: "MiniProgram",
+          content: {
+            type: "3",
+            title: "我是小程序分享",
+            description: "我是小程序分享描述信息",
+            miniProgramDic: {
+              userName: "gh_c3e6fe57255c",
+              webpageUrl: "https://www.baidu.com",
+              path: "pages/packageEquipment/equipment/detail/index",
+              hdImageUrl:
+                "https://mwhoe.oss-cn-hangzhou.aliyuncs.com/equipment/19038cc1-32e5-fa7a-e4f6-73d1f127088b.jpg",
+            },
+          },
+        },
+        (data1) => {
+          console.log("微信小程序类型分享", data1);
+        }
+      );
+    }
+
+    // 选择文件
+    function testApiChooseFile() {
+      callNative(
+        "chooseFile",
+        {
+          type: ["zip"],
+          maxSize: 1024 * 1024 * 5,
+        },
+        (data1) => {
+          console.log("选择文件", data1);
+        }
+      );
+    }
+
+    // 金铠甲上传文件
+    function testApiUploadLive800() {
+      let fileList = [
+        {
+          localIdentifier:
+            "/private/var/mobile/Containers/Data/Application/7283FA3A-69D7-4895-91E1-EA86D97F5EBF/tmp/com.maxwealthfl.mwhoe.sit-Inbox/韩志伟_iOS开发工程师.pdf",
+          fileName: "承诺书.pdf",
+          // fileSize: 123456789,
+          // fileType: 'pdf'
+        },
+      ];
+      callNative(
+        "uploadLive800",
+        {
+          token: "xxx",
+          companyID: "xxx",
+          fileList: JSON.stringify(fileList),
+        },
+        (data1) => {
+          console.log("金铠甲上传文件", data1);
+        }
+      );
+    }
+
+    // 文件预览下载
+    function testApiPreviewFile() {
+      callNative(
+        "previewFile",
+        {
+          fileUrl:
+            "https://mwhoe.oss-cn-hangzhou.aliyuncs.com/equipment/1666597205286y2x32v0flk.png",
+          FileName: "",
+        },
+        (data1) => {
+          console.log("文件预览下载", data1);
+        }
+      );
+    }
+
+    // 沙盒文件预览
+    function testApiOpenDocumentFile() {
+      callNative(
+        "openDocument",
+        {
+          filePath:
+            "/private/var/mobile/Containers/Data/Application/50A393A4-32B8-4709-9757-5A684A9CE935/tmp/com.maxwealthfl.mwhoe.sit-Inbox/zip.zip",
+        },
+        (data1) => {
+          console.log("沙盒文件预览", data1);
+        }
+      );
+    }
+
+    /**
+     * 注册OnResume事件 对应android的 onResume 和ios的viewWillAppear事件
+     */
+    function _webViewOnResumeEventListener() {
+      console.log("收到了onResume事件");
+    }
+    function _registerOnResumeEvent() {
+      window.MapiCore?.registerOnResumeEvent(_webViewOnResumeEventListener);
+    }
+
+    /**
+     * 反注册
+     */
+    function _unRegisterOnResumeEvent() {
+      window.MapiCore?.unRegisterOnResumeEvent(_webViewOnResumeEventListener);
+    }
+
+    /**
+     * 注册OnPause事件 界面暂停不可见事件
+     */
+    function _webViewOnPauseEventListener() {
+      console.log("onPause");
+    }
+    function _registerOnPauseEvent() {
+      window.MapiCore?.registerWebViewOnPauseEvent(
+        _webViewOnPauseEventListener
+      );
+    }
+
+    /**
+     * 反注册
+     */
+    function _unRegisterOnPauseEvent() {
+      window.MapiCore?.unRegisterWebViewOnPauseEvent(
+        _webViewOnPauseEventListener
+      );
+    }
+
+    /**
+     * 注册Webview OnDestroy监听
+     */
+    function _webViewOnDestroyEventListener() {
+      console.log("收到了onDestroy事件");
+    }
+    function _registerOnDestroyEvent() {
+      window.MapiCore?.registerWebViewDestroyEvent(
+        _webViewOnDestroyEventListener
+      );
+    }
+
+    /**
+     * 反注册
+     */
+    function _unRegisterOnDestroyEvent() {
+      window.MapiCore?.unRegisterWebViewDestroyEvent(
+        _webViewOnDestroyEventListener
+      );
+    }
+
+    /**
+     * 注册键盘监听事件
+     */
+    function _keyBordEventListener(event) {
+      console.log("收到了键盘事件", event);
+    }
+    function _registerKeybordEvent() {
+      window.MapiCore?.registerOnKeyboardEvent(_keyBordEventListener);
+    }
+    /**
+     * 反注册键盘监听事件
+     */
+    function _unRegisterKeybordEvent() {
+      window.MapiCore?.unRegisterOnKeyboardEvent(_keyBordEventListener);
+    }
+
+    /**
+     * 注册自定义监听事件
+     */
+    function _helloEventListener(result) {
+      console.log("收到了名字为hello的自定义事件", result);
+    }
+    function _registerWebEvent() {
+      // 假设事件名字就叫hello
+      window.MapiCore?.registerWebEvent("hello", _helloEventListener);
+    }
+    /**
+     * 反注册自定义监听事件
+     */
+    function _unRegisterWebEvent() {
+      window.MapiCore?.unRegisterWebEvent("hello", _helloEventListener);
+    }
+
+    /**
+     * 注册前后台切换监听事件
+     */
+    function _appStatusEventListener(result) {
+      console.log("收到了前后台切换事件", result);
+    }
+    function _registerAppStatusEvent() {
+      window.MapiCore?.registerAppStatusEvent(_appStatusEventListener);
+    }
+    /**
+     * 反注册前后台切换监听事件
+     */
+    function _unRegisterAppStatusEvent() {
+      window.MapiCore?.unRegisterAppStatusEvent(_appStatusEventListener);
+    }
+
+    function testApiWxShareText2Circle() {
+      callNative(
+        "toShare",
+        {
+          platform: "WechatMoments",
+          content: { type: 4, text: "#小程序://瓶子星球/oNtp9T7v2tTmDJu" },
+        },
+        (data1) => {
+          console.log("微信文字类型分享", data1);
+        }
+      );
+    }
+
+    function testApiWxShareImage2Circle() {
+      callNative(
+        "toShare",
+        {
+          platform: "WechatMoments",
+          content: {
+            type: 1,
+            imgUrl:
+              "https://mwhoe.oss-cn-hangzhou.aliyuncs.com/equipment/19038cc1-32e5-fa7a-e4f6-73d1f127088b.jpg",
+          },
+        },
+        (data1) => {
+          console.log("微信图片类型分享", data1);
+        }
+      );
+    }
+    function testApiWxShareWeb2Circle() {
+      // 调用本地接口，传入参数，调用成功后，执行回调函数
+      callNative(
+        "toShare",
+        {
+          // 平台名称
+          platform: "WechatMoments",
+          // 内容
+          content: {
+            // 类型
+            type: 2,
+            // 标题
+            title: "我是网页标题",
+            // 图片地址
+            imgUrl:
+              "https://mwhoe.oss-cn-hangzhou.aliyuncs.com/equipment/19038cc1-32e5-fa7a-e4f6-73d1f127088b.jpg",
+            // 描述
+            description: "我是网页描述",
+            // 链接
+            url: "https://wxaurl.cn/zcYSSTh6XRo",
+          },
+        },
+        (data1) => {
+          // 打印返回数据
+          console.log("微信网页类型分享", data1);
+        }
+      );
+    }
+
+    // 调用微信朋友圈文件分享
+    function testApiWxShareFile2Circle() {
+      callNative(
+        "toShare",
+        { platform: "WechatMoments", content: { type: 5, filePath: "" } },
+        (data1) => {
+          console.log("微信文件类型分享", data1);
+        }
+      );
+    }
+
+    function callNative(method, param, callback) {
+      setupWeiMengWebViewJavascriptBridge(function (bridge) {
+        bridge.callHandler(
+          "callNative",
+          { method: method, data: param ?? {} },
+          function responseCallback(responseData) {
+            console.log("JS received response:", responseData);
+            const { code, data, message } = JSON.parse(responseData);
+            if (code === 0) {
+              callback && callback(data);
+            } else {
+              console.log("errorMssage: " + message + "code: " + code);
+            }
+          }
+        );
+      });
+    }
+
+    function setupWeiMengWebViewJavascriptBridge(callback) {
+      if (window.WeiMengWebViewJavascriptBridge) {
+        return callback(WeiMengWebViewJavascriptBridge);
+      }
+      if (window.WVJBCallbacks) {
+        return window.WVJBCallbacks.push(callback);
+      }
+      window.WVJBCallbacks = [callback];
+      const WVJBIframe = document.createElement("iframe");
+
+      WVJBIframe.style.display = "none";
+      WVJBIframe.src = "https://__bridge_loaded__";
+      document.documentElement.appendChild(WVJBIframe);
+
+      setTimeout(function () {
+        document.documentElement.removeChild(WVJBIframe);
+      }, 0);
+    }
+
+    function _helloEventListener(result) {
+      console.log("收到了名字为hello的自定义事件", result.text);
+      testApiShowToast(result.text);
+    }
+    function _registerWebEvent() {
+      // 假设事件名字就叫hello
+      window.MapiCore.registerWebEvent("hello", _helloEventListener);
+    }
+    function _unRegisterWebEvent() {
+      window.MapiCore.unRegisterWebEvent("hello", _helloEventListener);
+    }
+  </script>
+</html>

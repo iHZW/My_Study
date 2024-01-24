@@ -423,11 +423,11 @@
 #pragma mark - clang demo
 void __sanitizer_cov_trace_pc_guard_init(uint32_t *start,
                                          uint32_t *stop) {
-    static uint64_t N;  // Counter for the guards.
-    if (start == stop || *start) return;  // Initialize only once.
-    printf("INIT: %p %p\n", start, stop);
-    for (uint32_t *x = start; x < stop; x++)
-        *x = ++N;  // Guards should start from 1.
+//    static uint64_t N;  // Counter for the guards.
+//    if (start == stop || *start) return;  // Initialize only once.
+//    printf("INIT: %p %p\n", start, stop);
+//    for (uint32_t *x = start; x < stop; x++)
+//        *x = ++N;  // Guards should start from 1.
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -478,14 +478,14 @@ typedef struct{
 void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     //if (!*guard) return;  // Duplicate the guard check.
 
-    void *PC = __builtin_return_address(0);
-
-    SymbolNode * node = malloc(sizeof(SymbolNode));
-    *node = (SymbolNode){PC,NULL};
-
-    //入队
-    // offsetof 用在这里是为了入队添加下一个节点找到 前一个节点next指针的位置
-    OSAtomicEnqueue(&symboList, node, offsetof(SymbolNode, next));
+//    void *PC = __builtin_return_address(0);
+//
+//    SymbolNode * node = malloc(sizeof(SymbolNode));
+//    *node = (SymbolNode){PC,NULL};
+//
+//    //入队
+//    // offsetof 用在这里是为了入队添加下一个节点找到 前一个节点next指针的位置
+//    OSAtomicEnqueue(&symboList, node, offsetof(SymbolNode, next));
 }
 
 @end

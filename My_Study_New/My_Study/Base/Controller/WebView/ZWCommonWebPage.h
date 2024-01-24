@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 加载url  */
 - (void)loadUrl:(NSURL *)url;
 
+- (void)loadURLRequest:(NSURLRequest *)request;
+
 - (void)getCurrRoutePathCompletionHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler;
 
 //WMNative 内存地址

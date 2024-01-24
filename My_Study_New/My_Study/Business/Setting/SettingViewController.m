@@ -442,12 +442,23 @@
 //        [self _testOpenDebugHml];
 //    
 //        return;
+    
+    NSString *copyFileName = @"demo";
+    /** 复制本地demo.html到沙目录  */
+    NSString *demoHtmlPath = [NSBundle.mainBundle pathForResource:copyFileName ofType:@"html"];
+    NSString *toDemoHtmlPath = [NSString stringWithFormat:@"%@/%@.html", [PathConstants gcdWebServerRootDirectory], copyFileName];
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    BOOL isSuccessOne = [fileManager copyItemAtPath:demoHtmlPath toPath:toDemoHtmlPath error:&error];
+    
+    
 
     NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
-    NSString *filePath = [NSBundle.mainBundle pathForResource:@"safe" ofType:@"zip"];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:@"debug1" ofType:@"zip"];
     NSString *preversionPath = [PathConstants preversionDirectory];
     NSString *downPath = [PathConstants downLoadDirectory];
-    NSString *fileName = @"safe.zip";
+    NSString *fileName = @"debug1.zip";
     NSString *toDownLoadPath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
     NSString *toPreversionPath = [NSString stringWithFormat:@"%@/%@", preversionPath, fileName];
 
@@ -468,11 +479,12 @@
 
 #pragma mark - 测试H5zip包
 - (void)_testDebugZip {
+    NSString *copyFileName = @"images";
     NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
-    NSString *filePath = [NSBundle.mainBundle pathForResource:@"debug" ofType:@"zip"];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:copyFileName ofType:@"zip"];
     NSString *preversionPath = [PathConstants preversionDirectory];
     NSString *downPath = [PathConstants downLoadDirectory];
-    NSString *fileName = @"debug.zip";
+    NSString *fileName = [NSString stringWithFormat:@"%@.zip", copyFileName];
     NSString *toDownLoadPath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
     NSString *toPreversionPath = [NSString stringWithFormat:@"%@/%@", preversionPath, fileName];
 
