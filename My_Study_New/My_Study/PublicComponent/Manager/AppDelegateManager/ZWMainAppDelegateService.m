@@ -19,7 +19,19 @@
 #import <Bugly/Bugly.h>
 #import <YTKNetwork/YTKNetworkConfig.h>
 
+#import "UIAlertUtil.h"
+#import <Photos/Photos.h>
+#import "ZWAlertUtil.h"
+
 #define BuglyAppId      @"adf13"
+
+@interface ZWMainAppDelegateService ()<PHPhotoLibraryChangeObserver>
+
+@property (nonatomic, strong) PHAsset *previousAsset;
+
+@property (nonatomic, assign) NSInteger previousCount;
+
+@end
 
 @implementation ZWMainAppDelegateService
 
@@ -141,9 +153,6 @@
 }
 
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] openNetMonitoring];
-}
 
 
 #pragma mark - 网络初始化配置
@@ -152,6 +161,99 @@
     config.baseUrl = @"";
     
 }
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] openNetMonitoring];
+    
+    // 注册相册变化通知
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // 移除相册变化通知
+    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+}
+
+
+#pragma mark - PHPhotoLibraryChangeObserver
+
+- (void)photoLibraryDidChange:(PHChange *)changeInstance {
+    // 在相册变化时调用，你可以在这里检查是否有新的截屏图片
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self checkForScreenshots];
+    });
+}
+
+#pragma mark - 检测截屏图片
+- (void)checkForScreenshots {
+    PHFetchOptions *fetchOptions = [PHFetchOptions new];
+    fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:fetchOptions];
+
+    if (fetchResult.count > 0) {
+        PHAsset *latestAsset = fetchResult.firstObject;
+        /** 是否是截图  */
+        BOOL isScreenshot = latestAsset.mediaSubtypes == PHAssetMediaSubtypePhotoScreenshot;
+        /** 是否和之前的图片相同  */
+        BOOL isSameAsset = ![self isSameAsset:latestAsset asPreviousAsset:self.previousAsset];
+        /** 是否是新增  */
+        BOOL isAdd = fetchResult.count > self.previousCount;
+        
+        // 检查图片是否是新增的（你可以根据实际需要添加更多的判断条件）
+        // 你可以保存一个变量来记录最新的图片，然后在这里检查是否有更新
+        if (isSameAsset && isScreenshot && isAdd) {
+            // 处理新增的图片
+            self.previousAsset = latestAsset;
+            [self loadScreenshotImage:latestAsset];
+        }
+        self.previousCount = fetchResult.count;
+    }
+}
+
+#pragma mark - 图片是否相同
+- (BOOL)isSameAsset:(PHAsset *)asset1 asPreviousAsset:(PHAsset *)asset2 {
+    // 判断两个 PHAsset 是否相同，你可能需要根据实际需求调整这个逻辑
+    return [asset1.localIdentifier isEqualToString:asset2.localIdentifier];
+}
+
+#pragma mark - 获取相册图片
+- (void)loadScreenshotImage:(PHAsset *)asset {
+    PHImageManager *imageManager = [PHImageManager defaultManager];
+    PHImageRequestOptions *requestOptions = [PHImageRequestOptions new];
+    requestOptions.synchronous = YES;
+
+    [imageManager requestImageForAsset:asset
+                            targetSize:PHImageManagerMaximumSize
+                           contentMode:PHImageContentModeDefault
+                               options:requestOptions
+                         resultHandler:^(UIImage *_Nullable result, NSDictionary *_Nullable info) {
+                             // 在这里处理截屏图片 result
+                             if (result) {
+                                 // 显示或保存截屏图片
+                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                     [self _handleShowScreenShotImage:result];
+                                 });
+                             }
+                         }];
+}
+
+#pragma mark - 显示截屏图片
+- (void)_handleShowScreenShotImage:(UIImage *)result {
+    [ZWAlertUtil mmConfirm:@"显示截图" centerViewBlock:^UIView *_Nonnull {
+        UIView *centerView = [UIView viewForColor:UIColor.whiteColor withFrame:CGRectMake(0, 0, 300, 300)];
+        UIImageView *imageView = [UIImageView imageViewForImage:result withFrame:centerView.bounds];
+        [centerView addSubview:imageView];
+        return centerView;
+    } cancelName:@"取消" okName:@"确定" cancelBlock:^{
+
+    } okBlock:^{
+
+    }];
+}
+
+
+
 
 
 

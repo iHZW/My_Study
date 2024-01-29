@@ -700,6 +700,7 @@
 		7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */; };
 		7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */; };
 		92E767F067D8BDAA38A96A6D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
+		DA0D7D7A2B67876000D4B67D /* ZWAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */; };
 		DA1581F52B5804AA00E6957A /* My_Study_Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DA1581F42B5804AA00E6957A /* My_Study_Debug.xcconfig */; };
 		DA1581F72B5804BC00E6957A /* My_Study_Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DA1581F62B5804BA00E6957A /* My_Study_Release.xcconfig */; };
 		DA922A332B57B9C700AD9FA8 /* RACBindingTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */; };
@@ -3623,6 +3624,8 @@
 		CBB4460943C18C1218051571 /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.release.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		D765578577B643E675384A21 /* Pods-My_Study.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa_dev.xcconfig"; sourceTree = "<group>"; };
+		DA0D7D782B67876000D4B67D /* ZWAlertUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlertUtil.h; sourceTree = "<group>"; };
+		DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAlertUtil.m; sourceTree = "<group>"; };
 		DA157C552B58028500E6957A /* My_Study_Sit_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Sit_Debug.xcconfig; sourceTree = "<group>"; };
 		DA1581EC2B58034500E6957A /* My_Study_Uat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My_Study_Uat-Info.plist"; path = "/Users/boge/hzw/git/My_Study/My_Study_New/My_Study_Uat-Info.plist"; sourceTree = "<absolute>"; };
 		DA1581ED2B5803DB00E6957A /* My_Study_Sit_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Sit_Release.xcconfig; sourceTree = "<group>"; };
@@ -4132,6 +4135,8 @@
 				4E403F8C2865B024006C0656 /* AlertAction.m */,
 				4E403F8D2865B024006C0656 /* AlertDefaultCustomCenterView.h */,
 				4E403F892865B024006C0656 /* AlertDefaultCustomCenterView.m */,
+				DA0D7D782B67876000D4B67D /* ZWAlertUtil.h */,
+				DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -8664,6 +8669,7 @@
 				4E6D00082AA9AABE00E561EA /* NTPieViewController.m in Sources */,
 				4EDC096D2862C47A001C53CE /* ZWMainAppDelegateService.m in Sources */,
 				4EFECF80287D488A00B137BB /* ZWNavCountButton.m in Sources */,
+				DA0D7D7A2B67876000D4B67D /* ZWAlertUtil.m in Sources */,
 				4EFECF70287D1C9800B137BB /* ZWImageCell.m in Sources */,
 				4E403F842865AD5A006C0656 /* UIActionSheet+Blocks.m in Sources */,
 				4E6D00292AA9AABF00E561EA /* YAxis.m in Sources */,
