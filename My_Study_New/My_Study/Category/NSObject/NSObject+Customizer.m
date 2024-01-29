@@ -169,23 +169,32 @@ static const char *TabBarItemKey    = "TabBarItemKey";
  @param originalSel 原方法
  @param swizzledSel 替换后方法
  */
-+ (void)swizzledInstanceMethod:(Class)className originalSelector:(SEL)originalSel swizzledSelector:(SEL)swizzledSel
-{
++ (void)swizzledInstanceMethod:(Class)className originalSelector:(SEL)originalSel swizzledSelector:(SEL)swizzledSel {
+    if (!className) return;
+
     Method originalMethod = class_getInstanceMethod(className, originalSel);
     Method swizzledMethod = class_getInstanceMethod(className, swizzledSel);
-    
+
     IMP origIMP = method_getImplementation(originalMethod);
     IMP swizIMP = method_getImplementation(swizzledMethod);
-    
+
     const char *origType = method_getTypeEncoding(originalMethod);
     const char *swizType = method_getTypeEncoding(swizzledMethod);
-    
+
     BOOL didAddMethod = class_addMethod(className, originalSel, swizIMP, swizType);
-    
+
     if (didAddMethod) {
         class_replaceMethod(className, swizzledSel, origIMP, origType);
     } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
+        //        method_exchangeImplementations(originalMethod, swizzledMethod);
+        /* swizzleMethod maybe belong to super */
+        class_replaceMethod(className,
+                            swizzledSel,
+                            class_replaceMethod(className,
+                                                originalSel,
+                                                method_getImplementation(swizzledMethod),
+                                                method_getTypeEncoding(swizzledMethod)),
+                            method_getTypeEncoding(originalMethod));
     }
 }
 
@@ -196,24 +205,33 @@ static const char *TabBarItemKey    = "TabBarItemKey";
  @param originalSel 原方法
  @param swizzledSel 替换后方法
  */
-+ (void)swizzleClassMethods:(Class)className originalSelector:(SEL)originalSel swizzledSelector:(SEL)swizzledSel
-{
++ (void)swizzleClassMethods:(Class)className originalSelector:(SEL)originalSel swizzledSelector:(SEL)swizzledSel {
+    if (!className) return;
+
     Method origMethod = class_getClassMethod(className, originalSel);
     Method swizMethod = class_getClassMethod(className, swizzledSel);
-    
+
     IMP origIMP = method_getImplementation(origMethod);
     IMP swizIMP = method_getImplementation(swizMethod);
-    
+
     const char *origType = method_getTypeEncoding(origMethod);
     const char *swizType = method_getTypeEncoding(swizMethod);
-    
+
     Class metaClass = object_getClass(className);
-    
+
     BOOL didAddMethod = class_addMethod(metaClass, originalSel, swizIMP, swizType);
     if (didAddMethod) {
         class_replaceMethod(metaClass, swizzledSel, origIMP, origType);
     } else {
-        method_exchangeImplementations(origMethod, swizMethod);
+        //        method_exchangeImplementations(origMethod, swizMethod);
+        /* swizzleMethod maybe belong to super */
+        class_replaceMethod(metaClass,
+                            swizzledSel,
+                            class_replaceMethod(metaClass,
+                                                originalSel,
+                                                method_getImplementation(swizMethod),
+                                                method_getTypeEncoding(swizMethod)),
+                            method_getTypeEncoding(origMethod));
     }
 }
 
