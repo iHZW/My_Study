@@ -701,6 +701,8 @@
 		7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */; };
 		92E767F067D8BDAA38A96A6D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
 		DA0D7D7A2B67876000D4B67D /* ZWAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */; };
+		DA0D7D7C2B6C7BAD00D4B67D /* dist.zip in Resources */ = {isa = PBXBuildFile; fileRef = DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */; };
+		DA0D7D7F2B6C7CF300D4B67D /* ZWDokitLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0D7D7E2B6C7CF300D4B67D /* ZWDokitLog.m */; };
 		DA1581F52B5804AA00E6957A /* My_Study_Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DA1581F42B5804AA00E6957A /* My_Study_Debug.xcconfig */; };
 		DA1581F72B5804BC00E6957A /* My_Study_Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DA1581F62B5804BA00E6957A /* My_Study_Release.xcconfig */; };
 		DA922A332B57B9C700AD9FA8 /* RACBindingTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */; };
@@ -3626,6 +3628,9 @@
 		D765578577B643E675384A21 /* Pods-My_Study.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		DA0D7D782B67876000D4B67D /* ZWAlertUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlertUtil.h; sourceTree = "<group>"; };
 		DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAlertUtil.m; sourceTree = "<group>"; };
+		DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dist.zip; sourceTree = "<group>"; };
+		DA0D7D7D2B6C7CF300D4B67D /* ZWDokitLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDokitLog.h; sourceTree = "<group>"; };
+		DA0D7D7E2B6C7CF300D4B67D /* ZWDokitLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWDokitLog.m; sourceTree = "<group>"; };
 		DA157C552B58028500E6957A /* My_Study_Sit_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Sit_Debug.xcconfig; sourceTree = "<group>"; };
 		DA1581EC2B58034500E6957A /* My_Study_Uat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My_Study_Uat-Info.plist"; path = "/Users/boge/hzw/git/My_Study/My_Study_New/My_Study_Uat-Info.plist"; sourceTree = "<absolute>"; };
 		DA1581ED2B5803DB00E6957A /* My_Study_Sit_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Sit_Release.xcconfig; sourceTree = "<group>"; };
@@ -4215,6 +4220,7 @@
 			children = (
 				DAD02D522B54BAED002E5AAC /* debug.zip */,
 				DABC5F962B60BBA200B8E0BB /* images.zip */,
+				DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */,
 				DABC5F942B60972E00B8E0BB /* debug1.zip */,
 			);
 			path = LocalSource;
@@ -6039,6 +6045,8 @@
 				4EC6B3292861B12A00F57AAC /* AppLogPlugin.m */,
 				4EC6B32A2861B12A00F57AAC /* LookinPlugin.h */,
 				4EC6B32C2861B12A00F57AAC /* LookinPlugin.m */,
+				DA0D7D7D2B6C7CF300D4B67D /* ZWDokitLog.h */,
+				DA0D7D7E2B6C7CF300D4B67D /* ZWDokitLog.m */,
 			);
 			path = DoKitPlugin;
 			sourceTree = "<group>";
@@ -7898,6 +7906,7 @@
 				4E028802286AB0CB003E723E /* README.md in Resources */,
 				4EC6B3732861B12A00F57AAC /* Untitled-2.gif in Resources */,
 				4EC6B34F2861B12A00F57AAC /* launch_guide_4_min.png in Resources */,
+				DA0D7D7C2B6C7BAD00D4B67D /* dist.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8297,6 +8306,7 @@
 				4E6D006C2AA9AABF00E561EA /* RSILayer.m in Sources */,
 				4E19B3F9299FA89300122CC1 /* MMPushManager.m in Sources */,
 				4E6D00722AA9AABF00E561EA /* lopcodes.c in Sources */,
+				DA0D7D7F2B6C7CF300D4B67D /* ZWDokitLog.m in Sources */,
 				4E7C62242ADC0FFC000A2673 /* UIImageView+GrayImageview.m in Sources */,
 				4E89AFD9295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,

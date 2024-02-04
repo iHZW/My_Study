@@ -453,12 +453,13 @@
     BOOL isSuccessOne = [fileManager copyItemAtPath:demoHtmlPath toPath:toDemoHtmlPath error:&error];
     
     
-
+//    NSString *zipFileName = @"debug";
+    NSString *zipFileName = @"dist";
     NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
-    NSString *filePath = [NSBundle.mainBundle pathForResource:@"debug1" ofType:@"zip"];
+    NSString *filePath = [NSBundle.mainBundle pathForResource:zipFileName ofType:@"zip"];
     NSString *preversionPath = [PathConstants preversionDirectory];
     NSString *downPath = [PathConstants downLoadDirectory];
-    NSString *fileName = @"debug1.zip";
+    NSString *fileName = [NSString stringWithFormat:@"%@.zip", zipFileName];;
     NSString *toDownLoadPath = [NSString stringWithFormat:@"%@/%@", downPath, fileName];
     NSString *toPreversionPath = [NSString stringWithFormat:@"%@/%@", preversionPath, fileName];
 

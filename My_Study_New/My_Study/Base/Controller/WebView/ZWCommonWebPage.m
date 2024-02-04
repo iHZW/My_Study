@@ -15,6 +15,7 @@
 #import "JSWeakObject.h"
 #import <TDWebViewSwipeBack/UIViewController+GCWebViewSwipeBack.h>
 #import "UIViewController+Gesture.h"
+#import "ZWDokitLog.h"
 
 
 typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
@@ -212,6 +213,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     if (url){
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
+        [ZWDokitLog infoLog:TransToString(url.absoluteString) tag:@"CommonWebPage:"];
     }
 }
 
@@ -221,6 +223,7 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     if (url){
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
+        [ZWDokitLog infoLog:TransToString(url.absoluteString) tag:@"CommonWebPage:"];
     }
 }
 

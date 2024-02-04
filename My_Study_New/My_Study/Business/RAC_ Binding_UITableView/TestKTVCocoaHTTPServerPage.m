@@ -79,31 +79,32 @@
 
 
 - (void)_testLoadDebugHml {
-    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
-    NSString * webPath = [NSString stringWithFormat:@"%@/demo.html",hybridserverPath];
-//    NSString * webPath = [NSString stringWithFormat:@"%@/debug1/debug.html",hybridserverPath];
+//    NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
+//    NSString * webPath = [NSString stringWithFormat:@"%@/demo.html",hybridserverPath];
+////    NSString * webPath = [NSString stringWithFormat:@"%@/debug1/debug.html",hybridserverPath];
+//
+//    NSURL *webUrl = [NSURL fileURLWithPath:webPath];
+//
+//    [self.webPage loadUrl:webUrl];
+//    return;
 
-    NSURL *webUrl = [NSURL fileURLWithPath:webPath];
+//    NSString *str = [NSString stringWithFormat:@"http://localhost:%@/debug.html", self.serverPort];
+//    NSString *str = [NSString stringWithFormat:@"http://localhost:%@", self.serverPort];
+//    NSString *str = [NSString stringWithFormat:@"http://127.0.0.1:%@/", self.serverPort];
+    NSString *str = [NSString stringWithFormat:@"http://127.0.0.1:%@/dist/index.html", self.serverPort];
 
-    [self.webPage loadUrl:webUrl];
-    return;
-    
-    
-//    
-////    NSString *str = [NSString stringWithFormat:@"http://localhost:%@/debug.html", self.serverPort];
-////    NSString *str = [NSString stringWithFormat:@"http://localhost:%@", self.serverPort];
-////    NSString *str = [NSString stringWithFormat:@"http://localhost:%@/debug1/debug1.html", self.serverPort];
+//    NSString *str = [NSString stringWithFormat:@"http://localhost:%@/debug/index.html", self.serverPort];
 //    NSString *str = [NSString stringWithFormat:@"http://localhost:%@/safe/index.html", self.serverPort];
-//
-////    NSString *str = [NSString stringWithFormat:@"http://0.0.0.0:%@/demo.html", self.serverPort];
-////    NSString *str = [NSString stringWithFormat:@"http://localhost:%@/demo.html", self.serverPort];
-//
-//    NSURL *url = [NSURL URLWithString:str];
-//
-////    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
-////    [self.webPage loadURLRequest:request];
-//
-//    [self.webPage loadUrl:url];
+
+//    NSString *str = [NSString stringWithFormat:@"http://0.0.0.0:%@/demo.html", self.serverPort];
+//    NSString *str = [NSString stringWithFormat:@"http://localhost:%@/demo.html", self.serverPort];
+
+    NSURL *url = [NSURL URLWithString:str];
+
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+//    [self.webPage loadURLRequest:request];
+
+    [self.webPage loadUrl:url];
 
 }
 
