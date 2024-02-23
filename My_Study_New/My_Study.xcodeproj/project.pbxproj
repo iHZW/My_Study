@@ -714,6 +714,9 @@
 		DABC5F952B60972E00B8E0BB /* debug1.zip in Resources */ = {isa = PBXBuildFile; fileRef = DABC5F942B60972E00B8E0BB /* debug1.zip */; };
 		DABC5F972B60BBA300B8E0BB /* images.zip in Resources */ = {isa = PBXBuildFile; fileRef = DABC5F962B60BBA200B8E0BB /* images.zip */; };
 		DAD02D532B54BAED002E5AAC /* debug.zip in Resources */ = {isa = PBXBuildFile; fileRef = DAD02D522B54BAED002E5AAC /* debug.zip */; };
+		DAD2E2442B85ED5500FD8769 /* TestCoobjcPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */; };
+		DAD2E2452B85ED5500FD8769 /* TestCoobjcPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */; };
+		DAD2E2462B85ED5500FD8769 /* TestCoobjcPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */; };
 		DAEEBF682B58BE8C00258456 /* UITableView+EHIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6681A52927350F00C635BF /* UITableView+EHIndexView.m */; };
 		DAEEBF692B58BE8C00258456 /* NSOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B36286308D6001C53CE /* NSOrderedSet+Safe.m */; };
 		DAEEBF6A2B58BE8C00258456 /* EHAddressCompHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */; };
@@ -3653,6 +3656,8 @@
 		DABC5F942B60972E00B8E0BB /* debug1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug1.zip; sourceTree = "<group>"; };
 		DABC5F962B60BBA200B8E0BB /* images.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = images.zip; path = My_Study/Business/LaunchGuide/dataSource/images.zip; sourceTree = SOURCE_ROOT; };
 		DAD02D522B54BAED002E5AAC /* debug.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug.zip; sourceTree = "<group>"; };
+		DAD2E2422B85ED5500FD8769 /* TestCoobjcPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCoobjcPage.h; sourceTree = "<group>"; };
+		DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCoobjcPage.m; sourceTree = "<group>"; };
 		DAEEC22D2B58BE8C00258456 /* My_Study_Sit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study_Sit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEEC4F92B58BE9000258456 /* My_Study_Uat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study_Uat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEEC4FD2B59FDE000258456 /* My_Study_Sit.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = My_Study_Sit.entitlements; sourceTree = "<group>"; };
@@ -6683,6 +6688,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				DAD2E2412B85ED3600FD8769 /* TestCoobjc */,
 				4E207AE0299BDAB20086F640 /* My_Study.entitlements */,
 				DAEEC4FD2B59FDE000258456 /* My_Study_Sit.entitlements */,
 				DAEEC4FE2B59FDE000258456 /* My_Study_Uat.entitlements */,
@@ -7696,6 +7702,16 @@
 			path = "Business/RAC_ Binding_UITableView";
 			sourceTree = "<group>";
 		};
+		DAD2E2412B85ED3600FD8769 /* TestCoobjc */ = {
+			isa = PBXGroup;
+			children = (
+				DAD2E2422B85ED5500FD8769 /* TestCoobjcPage.h */,
+				DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */,
+			);
+			name = TestCoobjc;
+			path = Business/TestCoobjc;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -8384,6 +8400,7 @@
 				4EAAD81B2868B223003D43FF /* ZWWebView.m in Sources */,
 				4E79BCCA299385E800C522BF /* MMShareItemCell.m in Sources */,
 				7C4EF00E230394FA0040DA7A /* CMNotificationCenter.m in Sources */,
+				DAD2E2442B85ED5500FD8769 /* TestCoobjcPage.m in Sources */,
 				4EC6B39F2861BF0800F57AAC /* LeftDrawerDataLoader.m in Sources */,
 				4E9D55DC295ED5ED00B004FB /* GiveLikeView.m in Sources */,
 				4E6D00882AA9AABF00E561EA /* ltablib.c in Sources */,
@@ -9100,6 +9117,7 @@
 				DAEEC0792B58BE8C00258456 /* GGArrow.m in Sources */,
 				DAEEC07A2B58BE8C00258456 /* PermissionContact.m in Sources */,
 				DAEEC07B2B58BE8C00258456 /* FindViewController.m in Sources */,
+				DAD2E2452B85ED5500FD8769 /* TestCoobjcPage.m in Sources */,
 				DAEEC07C2B58BE8C00258456 /* ZWAnimationCircleLayer.m in Sources */,
 				DAEEC07D2B58BE8C00258456 /* AppDelegate.m in Sources */,
 				DAEEC07E2B58BE8C00258456 /* ZWAlbumDetailsViewController.m in Sources */,
@@ -9708,6 +9726,7 @@
 				DAEEC3452B58BE9000258456 /* GGArrow.m in Sources */,
 				DAEEC3462B58BE9000258456 /* PermissionContact.m in Sources */,
 				DAEEC3472B58BE9000258456 /* FindViewController.m in Sources */,
+				DAD2E2462B85ED5500FD8769 /* TestCoobjcPage.m in Sources */,
 				DAEEC3482B58BE9000258456 /* ZWAnimationCircleLayer.m in Sources */,
 				DAEEC3492B58BE9000258456 /* AppDelegate.m in Sources */,
 				DAEEC34A2B58BE9000258456 /* ZWAlbumDetailsViewController.m in Sources */,

@@ -45,3 +45,5 @@ ${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge-ObjC/WKWebViewJavascriptBridge_O
 ${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework
 ${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework
 ${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework
+${BUILT_PRODUCTS_DIR}/cocore/cocore.framework
+${BUILT_PRODUCTS_DIR}/coobjc/coobjc.framework

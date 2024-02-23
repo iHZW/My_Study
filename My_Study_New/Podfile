@@ -185,6 +185,10 @@ target 'My_Study' do
 
   pod 'KTVCocoaHTTPServer', '1.0.0'
   
+  # coobjc 是一个基于Objective-C语言的协程库
+  pod 'coobjc', '1.2.0'
+
+  
 end
 
 

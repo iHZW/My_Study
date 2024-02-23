@@ -212,6 +212,8 @@
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Jump RAC-UITableView" clazz:NSClassFromString(@"RACBindingTableVc")]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Jump RAC-Binding-UITableView" clazz:NSClassFromString(@"RACBindingMVVMTableVc")]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Test KTVCocoaHTTPServer Page" clazz:NSClassFromString(@"TestKTVCocoaHTTPServerPage")]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Test coobjc 协程" clazz:NSClassFromString(@"TestCoobjcPage")]];
+
 }
 
 - (void)setupUI {
