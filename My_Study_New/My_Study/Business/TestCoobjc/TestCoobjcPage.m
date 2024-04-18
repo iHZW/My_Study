@@ -58,6 +58,16 @@
             [self updateUIWithData:result];
         });
     });
+    
+    
+    co_launch(^{
+       
+    });
+    
+    
+    
+    
+    
 }
 
 - (void)fetchDataFromServerWithCompletion:(void (^)(id, NSError *))completion {

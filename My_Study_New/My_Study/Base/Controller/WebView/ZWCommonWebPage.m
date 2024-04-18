@@ -16,7 +16,7 @@
 #import <TDWebViewSwipeBack/UIViewController+GCWebViewSwipeBack.h>
 #import "UIViewController+Gesture.h"
 #import "ZWDokitLog.h"
-
+#import "ReactiveObjC/ReactiveObjC.h"
 
 typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     
@@ -77,6 +77,16 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 //    [self.webView addGestureRecognizer:self.leftSwipGes];
     
     NSLog(@"self.webView.gestureRecognizers = %@",self.webView.gestureRecognizers);
+    
+    __weak __typeof(self)weakSelf = self;
+    /** 添加侧滑返回控制  */
+    [RACObserve(self.webView, canGoBack) subscribeNext:^(NSNumber * x) {
+        __strong typeof(weakSelf) self = weakSelf;
+        if (self.navigationController &&
+            [self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            self.navigationController.interactivePopGestureRecognizer.enabled = ![x boolValue];
+        }
+    }];
 }
 
 
@@ -98,14 +108,20 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
 
 - (void)leftSwipeGesAction2:(UISwipeGestureRecognizer *)swipeGes {
     if (UIGestureRecognizerStateEnded == swipeGes.state) {
-        if (self.webView.backForwardList.backList.count > 0) {
-            WKBackForwardListItem *item = self.webView.backForwardList.backList.lastObject;
-            if (![self.webView.URL.absoluteString isEqualToString:self.url]) {
-                [self.webView goToBackForwardListItem:item];
-            } else {
-                [self.navigationController popViewControllerAnimated:YES];
-                [self.webView goToBackForwardListItem:item];
-            }
+//        if (self.webView.backForwardList.backList.count > 0) {
+//            WKBackForwardListItem *item = self.webView.backForwardList.backList.lastObject;
+//            if (![self.webView.URL.absoluteString isEqualToString:self.url]) {
+//                [self.webView goToBackForwardListItem:item];
+//            } else {
+//                [self.navigationController popViewControllerAnimated:YES];
+//                [self.webView goToBackForwardListItem:item];
+//            }
+//        } else {
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+        
+        if ([self.webView canGoBack]) {
+            [self.webView goBack];
         } else {
             [self.navigationController popViewControllerAnimated:YES];
         }
@@ -153,12 +169,12 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
         make.top.left.right.bottom.equalTo(self.view);
     }];
     
-    [self.view addSubview:self.leftControl];
-
-    [self.leftControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.equalTo(self.view);
-        make.width.mas_equalTo(15);
-    }];
+//    [self.view addSubview:self.leftControl];
+//
+//    [self.leftControl mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.bottom.equalTo(self.view);
+//        make.width.mas_equalTo(15);
+//    }];
 }
 
 - (void)willResignActive
@@ -301,13 +317,17 @@ typedef NS_ENUM(NSUInteger,webviewLoadingStatus) {
     /** 判断title为空  */
     [self checkWebViewhiteScreen];
     
-    [UIViewController popGestureClose:self];
+//    [UIViewController popGestureClose:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    [UIViewController popGestureOpen:self];
+//    [UIViewController popGestureOpen:self];
 }
 
 /**

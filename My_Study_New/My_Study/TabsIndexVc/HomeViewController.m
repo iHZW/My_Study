@@ -19,6 +19,9 @@
 #import <SDWebImage/SDWeakProxy.h>
 #import "ZWHomeModel.h"
 #import "TestKLineViewController.h"
+#import "ZWCommonWebPage.h"
+
+#define kJumpWebViewID      @"kDefaultJumpWebViewID"
 
 @interface HomeViewController () {
     NSTimer *_timer;
@@ -213,6 +216,10 @@
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Jump RAC-Binding-UITableView" clazz:NSClassFromString(@"RACBindingMVVMTableVc")]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Test KTVCocoaHTTPServer Page" clazz:NSClassFromString(@"TestKTVCocoaHTTPServerPage")]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Test coobjc 协程" clazz:NSClassFromString(@"TestCoobjcPage")]];
+    
+    BaseCellModel *webModel = [BaseCellModel modelWithTitle:@"跳转WebView" clazz:NSClassFromString(@"ZWCommonWebPage")];
+    webModel.identificationName = kJumpWebViewID;
+    [self.dataList addObject:webModel];
 
 }
 
@@ -288,6 +295,15 @@
     }
     [self sendRequestUrl:url dict:@{}];
 
+    if ([model.identificationName isEqualToString:kJumpWebViewID]) {
+        // 判断是跳转webview的标识
+        
+        ZWCommonWebPage *webPage = [[ZWCommonWebPage alloc] init];
+        [webPage loadUrl:[NSURL URLWithString:@"https://dhuangmi.com/"]];
+        [self.navigationController pushViewController:webPage animated:YES];
+        return;
+    }
+    
     if (model.isFlutterPage) {
         //        [MyFlutterRouter.sharedRouter openPage:model.flutterPageName params:@{} animated:YES completion:^(BOOL isFinish){}];
         [self jump_flutterPage];

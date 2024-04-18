@@ -18,11 +18,14 @@
 #import <DingxiangCaptchaSDKStatic/DXCaptchaDelegate.h>
 #import <DXRiskStatic/DXRiskManager.h>
 #import "GCDCommon.h"
+#import "UIApplication/UIApplication+Ext.h"
+
 
 #define kItemHeight 60
 
 #define kAccountString @"100"
 #define kPasswordString @"100"
+#define kDXCaptchaViewTag       (20240418)
 
 
 typedef void (^CompleteBlock)(id result);
@@ -208,11 +211,18 @@ DXCaptchaDelegate>
 
     CGRect frame = CGRectMake(self.view.center.x - 150, self.view.center.y - 100, 300, 200);
     DXCaptchaView *captchaView = [[DXCaptchaView alloc] initWithConfig:config delegate:self frame:frame];
-    captchaView.tag = 1234;
-    [[UIApplication sharedApplication].keyWindow addSubview:captchaView];
+    captchaView.tag = kDXCaptchaViewTag;
+    [[UIApplication displayWindow] addSubview:captchaView];
 }
 
-
++ (void)_handleRemoveExistPopView:(NSInteger)tag {
+    performBlockOnMainQueue(NO, ^{
+        UIView *subView = [[UIApplication displayWindow] viewWithTag:tag];
+        if (subView) {
+            [subView removeFromSuperview];
+        }
+    });
+}
 
 #pragma mark - DXCaptchaDelegate
 - (void)captchaView:(DXCaptchaView *)view
@@ -221,20 +231,10 @@ DXCaptchaDelegate>
     switch (eventType) {
         case DXCaptchaEventSuccess: {
             NSString *token = dict[@"token"];
-            
             performBlockOnMainQueue(NO, ^{
-                UIView *tempView = [[UIApplication sharedApplication].keyWindow viewWithTag:1234];
-                if (tempView) {
-                    [tempView removeFromSuperview];
-                }
+                [self.class _handleRemoveExistPopView:kDXCaptchaViewTag];
                 BlockSafeRun(self.completeBlock, token);
             });
-           
-//            performBlockOnMainQueue(NO, ^{
-//                [[[UIApplication sharedApplication].keyWindow viewWithTag:1234] removeFromSuperview];
-//            });
-            
-            
             break;
         }
         case DXCaptchaEventFail:

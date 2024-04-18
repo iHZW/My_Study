@@ -67,16 +67,20 @@
     return whiteList;
 }
 
-+ (UIWindow *)displayWindow{
-    __block UIWindow *window = nil;
-    [[UIApplication sharedApplication].windows enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[UIWindow class]] &&
-            (![obj isKindOfClass:NSClassFromString(@"PGHostedWindow")])) {
-            /** WKWebview 中视频全屏 会出现 PGHostedWindow 这window,  这个PGHostedWindow和app显示的window不在同一层, 当将AlertViewControl 显示在 PGHostedWindow 上时   正常的window 上会导致 push和present失败   */
-            window = obj;
++ (UIWindow *)displayWindow {
+    UIWindow *keyWindow = nil;
+    if ([[UIApplication sharedApplication].delegate respondsToSelector:@selector(window)]) {
+        keyWindow = [[UIApplication sharedApplication].delegate window];
+    } else {
+        NSArray *windows = [UIApplication sharedApplication].windows;
+        for (UIWindow *window in windows) {
+            if (!window.hidden) {
+                keyWindow = window;
+                break;
+            }
         }
-    }];
-    return window;
+    }
+    return keyWindow;
 }
 
 + (UIViewController *)topOfRootViewController{

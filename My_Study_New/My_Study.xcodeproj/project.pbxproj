@@ -717,6 +717,7 @@
 		DAD2E2442B85ED5500FD8769 /* TestCoobjcPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */; };
 		DAD2E2452B85ED5500FD8769 /* TestCoobjcPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */; };
 		DAD2E2462B85ED5500FD8769 /* TestCoobjcPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */; };
+		DAD2E24E2B882AEB00FD8769 /* UIViewController+TrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E24D2B882AEA00FD8769 /* UIViewController+TrackPoint.m */; };
 		DAEEBF682B58BE8C00258456 /* UITableView+EHIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6681A52927350F00C635BF /* UITableView+EHIndexView.m */; };
 		DAEEBF692B58BE8C00258456 /* NSOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC0B36286308D6001C53CE /* NSOrderedSet+Safe.m */; };
 		DAEEBF6A2B58BE8C00258456 /* EHAddressCompHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */; };
@@ -3655,9 +3656,18 @@
 		DABC5F882B5FE74F00B8E0BB /* demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
 		DABC5F942B60972E00B8E0BB /* debug1.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug1.zip; sourceTree = "<group>"; };
 		DABC5F962B60BBA200B8E0BB /* images.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = images.zip; path = My_Study/Business/LaunchGuide/dataSource/images.zip; sourceTree = SOURCE_ROOT; };
+		DAC910882B8880430039402D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DAC9108A2B8880430039402D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DAC9108D2B8880450039402D /* MyStudyLiveActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStudyLiveActivityBundle.swift; sourceTree = "<group>"; };
+		DAC9108F2B8880450039402D /* MyStudyLiveActivityLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStudyLiveActivityLiveActivity.swift; sourceTree = "<group>"; };
+		DAC910912B8880450039402D /* MyStudyLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStudyLiveActivity.swift; sourceTree = "<group>"; };
+		DAC910932B8880470039402D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAC910952B8880470039402D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD02D522B54BAED002E5AAC /* debug.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = debug.zip; sourceTree = "<group>"; };
 		DAD2E2422B85ED5500FD8769 /* TestCoobjcPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCoobjcPage.h; sourceTree = "<group>"; };
 		DAD2E2432B85ED5500FD8769 /* TestCoobjcPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCoobjcPage.m; sourceTree = "<group>"; };
+		DAD2E24C2B882AEA00FD8769 /* UIViewController+TrackPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TrackPoint.h"; sourceTree = "<group>"; };
+		DAD2E24D2B882AEA00FD8769 /* UIViewController+TrackPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TrackPoint.m"; sourceTree = "<group>"; };
 		DAEEC22D2B58BE8C00258456 /* My_Study_Sit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study_Sit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEEC4F92B58BE9000258456 /* My_Study_Uat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study_Uat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEEC4FD2B59FDE000258456 /* My_Study_Sit.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = My_Study_Sit.entitlements; sourceTree = "<group>"; };
@@ -6666,6 +6676,7 @@
 				4EBCFB622986486F009105BD /* DXSDK */,
 				7C459A262295557300667813 /* My_Study */,
 				4EF9F90F299FB125003D19A3 /* My_StudyNotificationService */,
+				DAC9108C2B8880450039402D /* MyStudyLiveActivity */,
 				7C459A252295557300667813 /* Products */,
 				26ADD455649E43FEE84D55E4 /* Pods */,
 				A9CF1F70F4E4726AE968C272 /* Frameworks */,
@@ -6688,6 +6699,7 @@
 		7C459A262295557300667813 /* My_Study */ = {
 			isa = PBXGroup;
 			children = (
+				DAD2E24B2B882ABB00FD8769 /* TrackPoint */,
 				DAD2E2412B85ED3600FD8769 /* TestCoobjc */,
 				4E207AE0299BDAB20086F640 /* My_Study.entitlements */,
 				DAEEC4FD2B59FDE000258456 /* My_Study_Sit.entitlements */,
@@ -7679,6 +7691,8 @@
 				7C47B68F22E94F2800A1B1B7 /* AFNetworking.framework */,
 				648B8FF34789301862B11DE8 /* Pods_My_Study.framework */,
 				8491116BF43F55B8098363F7 /* Pods_My_StudyNotificationService.framework */,
+				DAC910882B8880430039402D /* WidgetKit.framework */,
+				DAC9108A2B8880430039402D /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -7702,6 +7716,18 @@
 			path = "Business/RAC_ Binding_UITableView";
 			sourceTree = "<group>";
 		};
+		DAC9108C2B8880450039402D /* MyStudyLiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				DAC9108D2B8880450039402D /* MyStudyLiveActivityBundle.swift */,
+				DAC9108F2B8880450039402D /* MyStudyLiveActivityLiveActivity.swift */,
+				DAC910912B8880450039402D /* MyStudyLiveActivity.swift */,
+				DAC910932B8880470039402D /* Assets.xcassets */,
+				DAC910952B8880470039402D /* Info.plist */,
+			);
+			path = MyStudyLiveActivity;
+			sourceTree = "<group>";
+		};
 		DAD2E2412B85ED3600FD8769 /* TestCoobjc */ = {
 			isa = PBXGroup;
 			children = (
@@ -7710,6 +7736,15 @@
 			);
 			name = TestCoobjc;
 			path = Business/TestCoobjc;
+			sourceTree = "<group>";
+		};
+		DAD2E24B2B882ABB00FD8769 /* TrackPoint */ = {
+			isa = PBXGroup;
+			children = (
+				DAD2E24C2B882AEA00FD8769 /* UIViewController+TrackPoint.h */,
+				DAD2E24D2B882AEA00FD8769 /* UIViewController+TrackPoint.m */,
+			);
+			path = TrackPoint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -7802,6 +7837,7 @@
 		7C459A1C2295557300667813 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = HZW;
 				TargetAttributes = {
@@ -8364,6 +8400,7 @@
 				7C879B2726EC25BB0051018B /* BaseViewModel.m in Sources */,
 				DA922A362B57BA5300AD9FA8 /* ZWBindingItem.m in Sources */,
 				4E89AFE1295C424400E7A40C /* ZYWeakObject.m in Sources */,
+				DAD2E24E2B882AEB00FD8769 /* UIViewController+TrackPoint.m in Sources */,
 				7C77B50526DFD85900A9935F /* BlockSubViewController.m in Sources */,
 				4EC6B3972861B12A00F57AAC /* DataFormatterFunc+JSON.m in Sources */,
 				7C879B2126E65BAE0051018B /* MVVMView.m in Sources */,
@@ -10164,6 +10201,7 @@
 			baseConfigurationReference = B99EE0B2FCAC6767F0F3BD19 /* Pods-My_Study.qa.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwQA;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -10319,6 +10357,7 @@
 			baseConfigurationReference = D765578577B643E675384A21 /* Pods-My_Study.qa_dev.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwQA_Dev;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -10649,6 +10688,7 @@
 			baseConfigurationReference = CBB4460943C18C1218051571 /* Pods-My_Study.debug.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwDebug;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -10743,6 +10783,7 @@
 			baseConfigurationReference = EE22E99FBC3EA4D8D47D96EA /* Pods-My_Study.release.xcconfig */;
 			buildSettings = {
 				ALIPAY_SCHEME = zwRelease;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
