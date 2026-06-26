@@ -10,6 +10,7 @@
 #import "DHRegularExpression.h"
 #import "DHGifImageOperation.h"
 #import <SDWebImage/SDWebImage.h>
+#import "UIApplication/UIApplication+Ext.h"
 
 @interface DHLaunchAdPageHUD ()
 @property (nonatomic, assign) CGRect            adFrame;            /**< 广告图片frame */
@@ -28,6 +29,7 @@
 - (instancetype)initWithFrame:(CGRect)frame aDduration:(NSInteger)duration aDImageUrl:(NSString *)imageUrl hideSkipButton:(BOOL)hideSkip launchAdClickBlock:(DDLaunchAdClickBlock)aDClickBlock {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = UIColor.blueColor;
         self.adFrame = frame;
         self.aDduration = duration;
         self.aDImageUrl = imageUrl;
@@ -211,7 +213,9 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         /**< 等didFinishLaunchingWithOptions方法结束后,将其添加至window上(不然会检测是否有rootViewController) */
         @pas_strongify_self
-        [[[UIApplication sharedApplication].delegate window] addSubview:self];
+        [UIApplication.sharedApplication.keyWindow addSubview:self];
+//        [[UIApplication topViewController].view addSubview:self];
+//        [[[UIApplication sharedApplication].delegate window] addSubview:self];
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            [[[UIApplication sharedApplication].delegate window] addSubview:self];
 //        });

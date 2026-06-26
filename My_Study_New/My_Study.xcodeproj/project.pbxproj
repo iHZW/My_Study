@@ -702,13 +702,25 @@
 		92E767F067D8BDAA38A96A6D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
 		DA0D7D7A2B67876000D4B67D /* ZWAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */; };
 		DA0D7D7C2B6C7BAD00D4B67D /* dist.zip in Resources */ = {isa = PBXBuildFile; fileRef = DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */; };
-		DA0D7D7F2B6C7CF300D4B67D /* ZWDokitLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0D7D7E2B6C7CF300D4B67D /* ZWDokitLog.m */; };
+		DA0F8A8B2CF9B22A008D3E68 /* eqh_home.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA0F8A8A2CF9B22A008D3E68 /* eqh_home.gif */; };
+		DA0F8A902CF9BB1C008D3E68 /* eqh_home_guide_01.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DA0F8A8E2CF9BB1C008D3E68 /* eqh_home_guide_01.mp4 */; };
+		DA0F8A912CF9BB1C008D3E68 /* eqh_home_guide_02.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DA0F8A8F2CF9BB1C008D3E68 /* eqh_home_guide_02.mp4 */; };
 		DA1581F52B5804AA00E6957A /* My_Study_Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DA1581F42B5804AA00E6957A /* My_Study_Debug.xcconfig */; };
 		DA1581F72B5804BC00E6957A /* My_Study_Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DA1581F62B5804BA00E6957A /* My_Study_Release.xcconfig */; };
+		DA3DD68B2CB8CD6D00846C35 /* DrawPolygonVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD6892CB8CD6C00846C35 /* DrawPolygonVc.m */; };
+		DA3DD68C2CB8CD6D00846C35 /* DrawPolygonVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD6892CB8CD6C00846C35 /* DrawPolygonVc.m */; };
+		DA3DD68D2CB8CD6D00846C35 /* DrawPolygonVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD6892CB8CD6C00846C35 /* DrawPolygonVc.m */; };
+		DA3DD6902CB8CD9400846C35 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD68F2CB8CD9400846C35 /* PolygonView.m */; };
+		DA3DD6912CB8CD9400846C35 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD68F2CB8CD9400846C35 /* PolygonView.m */; };
+		DA3DD6922CB8CD9400846C35 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD68F2CB8CD9400846C35 /* PolygonView.m */; };
+		DA7910162D6F2C6200C243B3 /* SwiperView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7910152D6F2C6200C243B3 /* SwiperView.m */; };
 		DA922A332B57B9C700AD9FA8 /* RACBindingTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */; };
 		DA922A362B57BA5300AD9FA8 /* ZWBindingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */; };
 		DA922A392B57BA6B00AD9FA8 /* ZWBindingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A382B57BA6B00AD9FA8 /* ZWBindingViewModel.m */; };
 		DA922A3C2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */; };
+		DAB07CDE2C3E11BD00752E98 /* ZWDokitLog.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB07CDC2C3E11BD00752E98 /* ZWDokitLog.m */; };
+		DAB07CE42C3E11F200752E98 /* KlyyLogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB07CE02C3E11F100752E98 /* KlyyLogUtils.m */; };
+		DAB07CE52C3E11F200752E98 /* KlyyLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB07CE12C3E11F100752E98 /* KlyyLogFormatter.m */; };
 		DABC5F852B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m in Sources */ = {isa = PBXBuildFile; fileRef = DABC5F842B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m */; };
 		DABC5F892B5FE74F00B8E0BB /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = DABC5F882B5FE74F00B8E0BB /* demo.html */; };
 		DABC5F952B60972E00B8E0BB /* debug1.zip in Resources */ = {isa = PBXBuildFile; fileRef = DABC5F942B60972E00B8E0BB /* debug1.zip */; };
@@ -2110,6 +2122,10 @@
 		DAEEC4ED2B58BE9000258456 /* Untitled-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2ED2861B12900F57AAC /* Untitled-2.gif */; };
 		DAEEC4EE2B58BE9000258456 /* launch_guide_4_min.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6B2C72861B12900F57AAC /* launch_guide_4_min.png */; };
 		DAEEC4F32B58BE9000258456 /* My_StudyNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4EF9F90E299FB121003D19A3 /* My_StudyNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DAFF08302D42148D001F344E /* CustomSwipingView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF082C2D42148D001F344E /* CustomSwipingView.m */; };
+		DAFF08312D42148D001F344E /* CustomSwiperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF082F2D42148D001F344E /* CustomSwiperViewController.m */; };
+		DAFF08342D4214B9001F344E /* ZWCustomData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF08332D4214B9001F344E /* ZWCustomData.m */; };
+		DAFF08372D421505001F344E /* ZWCustomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF08362D421505001F344E /* ZWCustomeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3633,8 +3649,9 @@
 		DA0D7D782B67876000D4B67D /* ZWAlertUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlertUtil.h; sourceTree = "<group>"; };
 		DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAlertUtil.m; sourceTree = "<group>"; };
 		DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dist.zip; sourceTree = "<group>"; };
-		DA0D7D7D2B6C7CF300D4B67D /* ZWDokitLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWDokitLog.h; sourceTree = "<group>"; };
-		DA0D7D7E2B6C7CF300D4B67D /* ZWDokitLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWDokitLog.m; sourceTree = "<group>"; };
+		DA0F8A8A2CF9B22A008D3E68 /* eqh_home.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = eqh_home.gif; sourceTree = "<group>"; };
+		DA0F8A8E2CF9BB1C008D3E68 /* eqh_home_guide_01.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = eqh_home_guide_01.mp4; sourceTree = "<group>"; };
+		DA0F8A8F2CF9BB1C008D3E68 /* eqh_home_guide_02.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = eqh_home_guide_02.mp4; sourceTree = "<group>"; };
 		DA157C552B58028500E6957A /* My_Study_Sit_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Sit_Debug.xcconfig; sourceTree = "<group>"; };
 		DA1581EC2B58034500E6957A /* My_Study_Uat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My_Study_Uat-Info.plist"; path = "/Users/boge/hzw/git/My_Study/My_Study_New/My_Study_Uat-Info.plist"; sourceTree = "<absolute>"; };
 		DA1581ED2B5803DB00E6957A /* My_Study_Sit_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Sit_Release.xcconfig; sourceTree = "<group>"; };
@@ -3642,6 +3659,12 @@
 		DA1581F22B58044700E6957A /* My_Study_Uat_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Uat_Release.xcconfig; sourceTree = "<group>"; };
 		DA1581F42B5804AA00E6957A /* My_Study_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Debug.xcconfig; sourceTree = "<group>"; };
 		DA1581F62B5804BA00E6957A /* My_Study_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = My_Study_Release.xcconfig; sourceTree = "<group>"; };
+		DA3DD6892CB8CD6C00846C35 /* DrawPolygonVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPolygonVc.m; sourceTree = "<group>"; };
+		DA3DD68A2CB8CD6C00846C35 /* DrawPolygonVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawPolygonVc.h; sourceTree = "<group>"; };
+		DA3DD68E2CB8CD9400846C35 /* PolygonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolygonView.h; sourceTree = "<group>"; };
+		DA3DD68F2CB8CD9400846C35 /* PolygonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolygonView.m; sourceTree = "<group>"; };
+		DA7910142D6F2C6200C243B3 /* SwiperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiperView.h; sourceTree = "<group>"; };
+		DA7910152D6F2C6200C243B3 /* SwiperView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiperView.m; sourceTree = "<group>"; };
 		DA922A312B57B9C700AD9FA8 /* RACBindingTableVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBindingTableVc.h; sourceTree = "<group>"; };
 		DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACBindingTableVc.m; sourceTree = "<group>"; };
 		DA922A342B57BA5300AD9FA8 /* ZWBindingItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWBindingItem.h; sourceTree = "<group>"; };
@@ -3651,6 +3674,13 @@
 		DA922A3A2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBindingMVVMTableVc.h; sourceTree = "<group>"; };
 		DA922A3B2B57CAED00AD9FA8 /* RACBindingMVVMTableVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACBindingMVVMTableVc.m; sourceTree = "<group>"; };
 		DA922D062B57EF5C00AD9FA8 /* My_Study_Sit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My_Study_Sit-Info.plist"; path = "/Users/boge/hzw/git/My_Study/My_Study_New/My_Study_Sit-Info.plist"; sourceTree = "<absolute>"; };
+		DAB07CDC2C3E11BD00752E98 /* ZWDokitLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWDokitLog.m; sourceTree = "<group>"; };
+		DAB07CDD2C3E11BD00752E98 /* ZWDokitLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWDokitLog.h; sourceTree = "<group>"; };
+		DAB07CDF2C3E11F100752E98 /* KlyyLogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlyyLogs.h; sourceTree = "<group>"; };
+		DAB07CE02C3E11F100752E98 /* KlyyLogUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlyyLogUtils.m; sourceTree = "<group>"; };
+		DAB07CE12C3E11F100752E98 /* KlyyLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlyyLogFormatter.m; sourceTree = "<group>"; };
+		DAB07CE22C3E11F100752E98 /* KlyyLogUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlyyLogUtils.h; sourceTree = "<group>"; };
+		DAB07CE32C3E11F100752E98 /* KlyyLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlyyLogFormatter.h; sourceTree = "<group>"; };
 		DABC5F832B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestKTVCocoaHTTPServerPage.h; sourceTree = "<group>"; };
 		DABC5F842B5FB0C900B8E0BB /* TestKTVCocoaHTTPServerPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestKTVCocoaHTTPServerPage.m; sourceTree = "<group>"; };
 		DABC5F882B5FE74F00B8E0BB /* demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
@@ -3672,6 +3702,14 @@
 		DAEEC4F92B58BE9000258456 /* My_Study_Uat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = My_Study_Uat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEEC4FD2B59FDE000258456 /* My_Study_Sit.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = My_Study_Sit.entitlements; sourceTree = "<group>"; };
 		DAEEC4FE2B59FDE000258456 /* My_Study_Uat.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = My_Study_Uat.entitlements; sourceTree = "<group>"; };
+		DAFF082C2D42148D001F344E /* CustomSwipingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwipingView.m; sourceTree = "<group>"; };
+		DAFF082D2D42148D001F344E /* CustomSwiperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwiperViewController.h; sourceTree = "<group>"; };
+		DAFF082E2D42148D001F344E /* CustomSwipingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSwipingView.h; sourceTree = "<group>"; };
+		DAFF082F2D42148D001F344E /* CustomSwiperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSwiperViewController.m; sourceTree = "<group>"; };
+		DAFF08322D4214B9001F344E /* ZWCustomData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCustomData.h; sourceTree = "<group>"; };
+		DAFF08332D4214B9001F344E /* ZWCustomData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCustomData.m; sourceTree = "<group>"; };
+		DAFF08352D421505001F344E /* ZWCustomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWCustomeView.h; sourceTree = "<group>"; };
+		DAFF08362D421505001F344E /* ZWCustomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCustomeView.m; sourceTree = "<group>"; };
 		DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa.xcconfig"; sourceTree = "<group>"; };
 		E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		EE22E99FBC3EA4D8D47D96EA /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
@@ -5718,6 +5756,7 @@
 		4EC47F6B287FFBF300AF4E53 /* Function */ = {
 			isa = PBXGroup;
 			children = (
+				DAFF082B2D42148D001F344E /* ZWCustomSwiper */,
 				4EC47F6C287FFC2200AF4E53 /* Gyroscope */,
 			);
 			path = Function;
@@ -5788,6 +5827,7 @@
 		4EC6B2C32861B12900F57AAC /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				DA3DD6882CB8CD6C00846C35 /* DrawPolygon */,
 				4E3E83792B1235E3005EE9F8 /* TextToSpeech */,
 				4E668176292734E600C635BF /* CitySelector */,
 				4E758E3829FACD73003F3884 /* ClearWebViewCache */,
@@ -5882,6 +5922,8 @@
 				4EC6B2DA2861B12900F57AAC /* XYVideo.mp4 */,
 				4EC6B2DB2861B12900F57AAC /* 1.mp4 */,
 				4EC6B2DC2861B12900F57AAC /* guideMovie1.mov */,
+				DA0F8A8E2CF9BB1C008D3E68 /* eqh_home_guide_01.mp4 */,
+				DA0F8A8F2CF9BB1C008D3E68 /* eqh_home_guide_02.mp4 */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -5889,6 +5931,7 @@
 		4EC6B2DD2861B12900F57AAC /* git */ = {
 			isa = PBXGroup;
 			children = (
+				DA0F8A8A2CF9B22A008D3E68 /* eqh_home.gif */,
 				4EC6B2DE2861B12900F57AAC /* guideImage1.jpg */,
 				4EC6B2DF2861B12900F57AAC /* guideImage2.jpg */,
 				4EC6B2E02861B12900F57AAC /* guideImage3.jpg */,
@@ -6056,12 +6099,11 @@
 		4EC6B3282861B12A00F57AAC /* DoKitPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				DAB07CDB2C3E11BD00752E98 /* ZWLog */,
 				4EC6B32B2861B12A00F57AAC /* AppLogPlugin.h */,
 				4EC6B3292861B12A00F57AAC /* AppLogPlugin.m */,
 				4EC6B32A2861B12A00F57AAC /* LookinPlugin.h */,
 				4EC6B32C2861B12A00F57AAC /* LookinPlugin.m */,
-				DA0D7D7D2B6C7CF300D4B67D /* ZWDokitLog.h */,
-				DA0D7D7E2B6C7CF300D4B67D /* ZWDokitLog.m */,
 			);
 			path = DoKitPlugin;
 			sourceTree = "<group>";
@@ -7697,6 +7739,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA3DD6882CB8CD6C00846C35 /* DrawPolygon */ = {
+			isa = PBXGroup;
+			children = (
+				DA3DD68A2CB8CD6C00846C35 /* DrawPolygonVc.h */,
+				DA3DD6892CB8CD6C00846C35 /* DrawPolygonVc.m */,
+				DA3DD68E2CB8CD9400846C35 /* PolygonView.h */,
+				DA3DD68F2CB8CD9400846C35 /* PolygonView.m */,
+			);
+			path = DrawPolygon;
+			sourceTree = "<group>";
+		};
+		DA7910102D6F2BB500C243B3 /* ZWTestSWiper */ = {
+			isa = PBXGroup;
+			children = (
+				DA7910142D6F2C6200C243B3 /* SwiperView.h */,
+				DA7910152D6F2C6200C243B3 /* SwiperView.m */,
+			);
+			path = ZWTestSWiper;
+			sourceTree = "<group>";
+		};
 		DA922A302B57B99700AD9FA8 /* RAC_ Binding_UITableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -7714,6 +7776,20 @@
 			);
 			name = "RAC_ Binding_UITableView";
 			path = "Business/RAC_ Binding_UITableView";
+			sourceTree = "<group>";
+		};
+		DAB07CDB2C3E11BD00752E98 /* ZWLog */ = {
+			isa = PBXGroup;
+			children = (
+				DAB07CE32C3E11F100752E98 /* KlyyLogFormatter.h */,
+				DAB07CE12C3E11F100752E98 /* KlyyLogFormatter.m */,
+				DAB07CDF2C3E11F100752E98 /* KlyyLogs.h */,
+				DAB07CE22C3E11F100752E98 /* KlyyLogUtils.h */,
+				DAB07CE02C3E11F100752E98 /* KlyyLogUtils.m */,
+				DAB07CDD2C3E11BD00752E98 /* ZWDokitLog.h */,
+				DAB07CDC2C3E11BD00752E98 /* ZWDokitLog.m */,
+			);
+			path = ZWLog;
 			sourceTree = "<group>";
 		};
 		DAC9108C2B8880450039402D /* MyStudyLiveActivity */ = {
@@ -7745,6 +7821,22 @@
 				DAD2E24D2B882AEA00FD8769 /* UIViewController+TrackPoint.m */,
 			);
 			path = TrackPoint;
+			sourceTree = "<group>";
+		};
+		DAFF082B2D42148D001F344E /* ZWCustomSwiper */ = {
+			isa = PBXGroup;
+			children = (
+				DA7910102D6F2BB500C243B3 /* ZWTestSWiper */,
+				DAFF082D2D42148D001F344E /* CustomSwiperViewController.h */,
+				DAFF082F2D42148D001F344E /* CustomSwiperViewController.m */,
+				DAFF082E2D42148D001F344E /* CustomSwipingView.h */,
+				DAFF082C2D42148D001F344E /* CustomSwipingView.m */,
+				DAFF08322D4214B9001F344E /* ZWCustomData.h */,
+				DAFF08332D4214B9001F344E /* ZWCustomData.m */,
+				DAFF08352D421505001F344E /* ZWCustomeView.h */,
+				DAFF08362D421505001F344E /* ZWCustomeView.m */,
+			);
+			path = ZWCustomSwiper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -7923,6 +8015,7 @@
 				4EC6B3742861B12A00F57AAC /* Untitled-3.gif in Resources */,
 				4EC6B3572861B12A00F57AAC /* LaunchImg_one_z.png in Resources */,
 				4EC6B3652861B12A00F57AAC /* guideImage2.jpg in Resources */,
+				DA0F8A902CF9BB1C008D3E68 /* eqh_home_guide_01.mp4 in Resources */,
 				4EC6B36F2861B12A00F57AAC /* Untitled-5.gif in Resources */,
 				4ED59575286EF31D002D15F1 /* mythemebundle.bundle in Resources */,
 				4EC6B3502861B12A00F57AAC /* launch_guide_2.png in Resources */,
@@ -7945,6 +8038,7 @@
 				4EC6B35F2861B12A00F57AAC /* 1.jpg in Resources */,
 				4E0680C428740EA600F6728A /* EnvConfig.plist in Resources */,
 				4EC6B3552861B12A00F57AAC /* launch_guide_1_X.png in Resources */,
+				DA0F8A912CF9BB1C008D3E68 /* eqh_home_guide_02.mp4 in Resources */,
 				4EC6B3622861B12A00F57AAC /* 1.mp4 in Resources */,
 				4E59323E2AB3529B005E2C49 /* adImage1.jpg in Resources */,
 				4EC6B3612861B12A00F57AAC /* XYVideo.mp4 in Resources */,
@@ -7958,6 +8052,7 @@
 				4E028802286AB0CB003E723E /* README.md in Resources */,
 				4EC6B3732861B12A00F57AAC /* Untitled-2.gif in Resources */,
 				4EC6B34F2861B12A00F57AAC /* launch_guide_4_min.png in Resources */,
+				DA0F8A8B2CF9B22A008D3E68 /* eqh_home.gif in Resources */,
 				DA0D7D7C2B6C7BAD00D4B67D /* dist.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -8190,9 +8285,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -8207,9 +8306,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -8268,6 +8371,7 @@
 				4E6681A92927350F00C635BF /* UITableView+EHIndexView.m in Sources */,
 				4EDC0B5E286308D6001C53CE /* NSOrderedSet+Safe.m in Sources */,
 				4E2FC10E292757E70014C00E /* EHAddressCompHelper.m in Sources */,
+				DAFF08312D42148D001F344E /* CustomSwiperViewController.m in Sources */,
 				4E6DFFFB2AA9AABE00E561EA /* SlideTabView.m in Sources */,
 				4E6D00782AA9AABF00E561EA /* lfunc.c in Sources */,
 				4E6681AA2927350F00C635BF /* EHIndexView.m in Sources */,
@@ -8280,6 +8384,7 @@
 				4E6D00042AA9AABE00E561EA /* MDLineViewController.m in Sources */,
 				4E6D00232AA9AABF00E561EA /* PieDataSet.m in Sources */,
 				7CB1A2F426E47E3D00D450CE /* PThread_rwLock.m in Sources */,
+				DA3DD6902CB8CD9400846C35 /* PolygonView.m in Sources */,
 				7C4EEFFF2303948E0040DA7A /* CMObject.m in Sources */,
 				4E7C62252ADC0FFC000A2673 /* WKWebView+Gray.m in Sources */,
 				4E5F2D092876BC6400FEC6C2 /* Permission.m in Sources */,
@@ -8309,6 +8414,7 @@
 				4E6D00382AA9AABF00E561EA /* GGCircle.m in Sources */,
 				7C8AAE5022E9856400589862 /* UIView+FrameSperator.m in Sources */,
 				4E0287C928698ED1003E723E /* NSObject+Params.m in Sources */,
+				DAB07CE52C3E11F200752E98 /* KlyyLogFormatter.m in Sources */,
 				4E403FA42865C461006C0656 /* UIAlertAction+Ext.m in Sources */,
 				4E6D007D2AA9AABF00E561EA /* lctype.c in Sources */,
 				4ED59593287089F8002D15F1 /* ActionModel.m in Sources */,
@@ -8334,11 +8440,13 @@
 				4EC6B3AD2861D58500F57AAC /* ZWUserInfoBridgeModule.m in Sources */,
 				4E6681CB2927574400C635BF /* MyCell.m in Sources */,
 				4E6D007C2AA9AABF00E561EA /* lundump.c in Sources */,
+				DA3DD68B2CB8CD6D00846C35 /* DrawPolygonVc.m in Sources */,
 				7C4EF06B230405030040DA7A /* UIButton+CornerBorder.m in Sources */,
 				4EA97E67286C9AEC00C06BE4 /* ZWUserContainerViewModel.m in Sources */,
 				4ED540CB287C7E620070FB8E /* FileIconNameUtil.m in Sources */,
 				4E02880F286B056A003E723E /* URLUtil.m in Sources */,
 				7C4EF0292303A3390040DA7A /* UIViewController+Gesture.m in Sources */,
+				DAFF08372D421505001F344E /* ZWCustomeView.m in Sources */,
 				4E6D00002AA9AABE00E561EA /* ProgressViewController.m in Sources */,
 				4E3584F22976A00200E45A8B /* UIDevice+Tool.m in Sources */,
 				4E5932332AB34CB9005E2C49 /* DHRegularExpression.m in Sources */,
@@ -8358,7 +8466,6 @@
 				4E6D006C2AA9AABF00E561EA /* RSILayer.m in Sources */,
 				4E19B3F9299FA89300122CC1 /* MMPushManager.m in Sources */,
 				4E6D00722AA9AABF00E561EA /* lopcodes.c in Sources */,
-				DA0D7D7F2B6C7CF300D4B67D /* ZWDokitLog.m in Sources */,
 				4E7C62242ADC0FFC000A2673 /* UIImageView+GrayImageview.m in Sources */,
 				4E89AFD9295C3D5500E7A40C /* PASShortVideoAgreeAnimationView.m in Sources */,
 				4EDC0B70286308D6001C53CE /* NSMutableData+Safe.m in Sources */,
@@ -8443,6 +8550,7 @@
 				4E6D00882AA9AABF00E561EA /* ltablib.c in Sources */,
 				4E0680D12874202600F6728A /* ZWChangeEnvViewController.m in Sources */,
 				7C49F5E4229BDC5100D8D62C /* IQDemoView.m in Sources */,
+				DAB07CE42C3E11F200752E98 /* KlyyLogUtils.m in Sources */,
 				4E0287D82869BC13003E723E /* BaseRouterIntercept.m in Sources */,
 				4E0287CC28699383003E723E /* LaunchViewController.m in Sources */,
 				4EC6B3772861B12A00F57AAC /* UIImage+XYGif.m in Sources */,
@@ -8511,6 +8619,7 @@
 				4E6DFFFD2AA9AABE00E561EA /* KTimeViewController.m in Sources */,
 				4E94EA4928CB8C19007EDEFC /* LineTableViewHeaderFooterView.m in Sources */,
 				4E4F9CDB286C5E44003281B5 /* ZWBaseView.m in Sources */,
+				DA7910162D6F2C6200C243B3 /* SwiperView.m in Sources */,
 				7C8AAE3B22E984E900589862 /* UIAlertUtil.m in Sources */,
 				7C4EF00D230394FA0040DA7A /* DispatchMessageCenter.m in Sources */,
 				4E668199292734E600C635BF /* JFCSTableViewHeaderView.m in Sources */,
@@ -8518,6 +8627,7 @@
 				4E403F802865A994006C0656 /* HTMLLabel.m in Sources */,
 				4EC6B2C12861A84400F57AAC /* LoadingUtil.m in Sources */,
 				4E6D00472AA9AABF00E561EA /* GGPieLayer.m in Sources */,
+				DAFF08342D4214B9001F344E /* ZWCustomData.m in Sources */,
 				4EEEB860285E08A300FD49A9 /* NSArray+Func.m in Sources */,
 				7C4EF0592304034B0040DA7A /* CMView.m in Sources */,
 				4E6D00522AA9AABF00E561EA /* NSDate+GGDate.m in Sources */,
@@ -8550,6 +8660,7 @@
 				4E6D008C2AA9AABF00E561EA /* ldebug.c in Sources */,
 				4E4F9CD8286C5D8E003281B5 /* ZWRefreshHeader.m in Sources */,
 				7C8AAE5522E9856400589862 /* UIView+Badge.m in Sources */,
+				DAFF08302D42148D001F344E /* CustomSwipingView.m in Sources */,
 				4EC6B2992860982500F57AAC /* LeftDrawerViewController.m in Sources */,
 				4EA986FE287C3A5E0095ECF9 /* UIImageView+Animations.m in Sources */,
 				4E6681C32927574400C635BF /* SPModalView.m in Sources */,
@@ -8859,6 +8970,7 @@
 				4E6D00392AA9AABF00E561EA /* GGArcLine.m in Sources */,
 				4E6D00182AA9AABF00E561EA /* NumberData.m in Sources */,
 				4E7427BD285B869400DEC9CC /* UIColor+Ext.m in Sources */,
+				DAB07CDE2C3E11BD00752E98 /* ZWDokitLog.m in Sources */,
 				4EA986FA287C39B60095ECF9 /* ProgressCustomLoadingView.m in Sources */,
 				4E0287C328698BC9003E723E /* RouterPageConfig.m in Sources */,
 				4EA97E63286C96BC00C06BE4 /* ZWSettingLogoutModule.m in Sources */,
@@ -9189,6 +9301,7 @@
 				DAEEC09B2B58BE8C00258456 /* LocationManager.m in Sources */,
 				DAEEC09C2B58BE8C00258456 /* PASBorderTableViewCell.m in Sources */,
 				DAEEC09D2B58BE8C00258456 /* ZWTextDrawing.m in Sources */,
+				DA3DD6912CB8CD9400846C35 /* PolygonView.m in Sources */,
 				DAEEC09E2B58BE8C00258456 /* WF_os_unfair_loack_demo.m in Sources */,
 				DAEEC09F2B58BE8C00258456 /* PASShortVideoItemView.m in Sources */,
 				DAEEC0A02B58BE8C00258456 /* ZWBindingViewModel.m in Sources */,
@@ -9461,6 +9574,7 @@
 				DAEEC1AB2B58BE8C00258456 /* JFCSTopToolsTableViewCell.m in Sources */,
 				DAEEC1AC2B58BE8C00258456 /* JFCSTableViewController.m in Sources */,
 				DAEEC1AD2B58BE8C00258456 /* GGRectRenderer.m in Sources */,
+				DA3DD68C2CB8CD6D00846C35 /* DrawPolygonVc.m in Sources */,
 				DAEEC1AE2B58BE8C00258456 /* MDLogManager.m in Sources */,
 				DAEEC1AF2B58BE8C00258456 /* RestIOManager.m in Sources */,
 				DAEEC1B02B58BE8C00258456 /* ZWSJVideoOnePage.m in Sources */,
@@ -9798,6 +9912,7 @@
 				DAEEC3672B58BE9000258456 /* LocationManager.m in Sources */,
 				DAEEC3682B58BE9000258456 /* PASBorderTableViewCell.m in Sources */,
 				DAEEC3692B58BE9000258456 /* ZWTextDrawing.m in Sources */,
+				DA3DD6922CB8CD9400846C35 /* PolygonView.m in Sources */,
 				DAEEC36A2B58BE9000258456 /* WF_os_unfair_loack_demo.m in Sources */,
 				DAEEC36B2B58BE9000258456 /* PASShortVideoItemView.m in Sources */,
 				DAEEC36C2B58BE9000258456 /* ZWBindingViewModel.m in Sources */,
@@ -10070,6 +10185,7 @@
 				DAEEC4772B58BE9000258456 /* JFCSTopToolsTableViewCell.m in Sources */,
 				DAEEC4782B58BE9000258456 /* JFCSTableViewController.m in Sources */,
 				DAEEC4792B58BE9000258456 /* GGRectRenderer.m in Sources */,
+				DA3DD68D2CB8CD6D00846C35 /* DrawPolygonVc.m in Sources */,
 				DAEEC47A2B58BE9000258456 /* MDLogManager.m in Sources */,
 				DAEEC47B2B58BE9000258456 /* RestIOManager.m in Sources */,
 				DAEEC47C2B58BE9000258456 /* ZWSJVideoOnePage.m in Sources */,
@@ -10217,7 +10333,7 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = VJL6T3N8T6;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -10265,7 +10381,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zw.My-StudyQAA";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbcbhomeQA;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -10373,7 +10489,7 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = VJL6T3N8T6;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -10453,11 +10569,11 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = My_StudyNotificationService/My_StudyNotificationService.entitlements;
+				CODE_SIGN_ENTITLEMENTS = My_StudyNotificationService/My_StudyNotificationService_Personal.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 82MDUB8B2X;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
@@ -10469,8 +10585,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "My-Study.My-StudyNotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihzw.MyStudyDebug.MyStudyNotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10485,9 +10602,9 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = My_StudyNotificationService/My_StudyNotificationService.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VJL6T3N8T6;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
@@ -10499,8 +10616,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zw.My-StudyQAA.NotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nbcbhomeQA.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -10698,13 +10816,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study.entitlements;
+				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study_Personal.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 82MDUB8B2X;
+				DEVELOPMENT_TEAM = RZ3X7FRU4A;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -10753,7 +10871,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.My-StudyDebug";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihzw.MyStudyDebug;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -10879,7 +10997,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study.entitlements;
+				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study_Personal.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -10934,7 +11052,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.My-StudyDebug";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihzw.MyStudyDebug;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -11244,7 +11362,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study.entitlements;
+				CODE_SIGN_ENTITLEMENTS = My_Study/My_Study_Personal.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -11299,7 +11417,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.My-StudyDebug";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihzw.MyStudyDebug;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -41,10 +41,17 @@
     }
     DHGuidePageHUD *guidePage = [[DHGuidePageHUD alloc] dh_initWithFrame:self.view.frame imageNameArray:imageNameArray buttonIsHidden:NO];
     
-    /* 可以加载视频 */
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"XYVideo" ofType:@"mp4"];
-//    guidePage = [[DHGuidePageHUD alloc] dh_initWithFrame:self.view.frame videoURL:[NSURL fileURLWithPath:filePath]];
     
+    /* 可以加载视频 */
+//    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"eqh_home_guide_01" ofType:@"mp4"];
+//    NSURL *videoURL1 = [NSURL fileURLWithPath:path1];
+//    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"eqh_home_guide_02" ofType:@"mp4"];
+//    NSURL *videoURL2 = [NSURL fileURLWithPath:path2];
+//    
+//    NSArray *urlArr = @[videoURL1, videoURL2];
+//    
+//    guidePage = [[DHGuidePageHUD alloc] dh_homeGuidePageInitWithFrame:self.view.frame videoURLArr:urlArr];
+        
     @pas_weakify_self
     guidePage.guideCompleteBlock = ^(NSInteger index, GuideActionType type) {
         @pas_strongify_self

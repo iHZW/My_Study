@@ -75,8 +75,7 @@
 }
 
 
-- (void)remakePage
-{
+- (void)remakePage {
     ZWUserAccountManager *accountManager = ZWSharedUserAccountManager;
     if (!accountManager.currentUserInfo) {
         /* 判断是否加载引导页 */
@@ -121,7 +120,8 @@
     @pas_weakify_self
     vc.loginCompleted = ^{
         @pas_strongify_self
-        [self remakePage];
+        [self _setMainVc];
+        
     };
     self.viewControllers = @[vc];
 }
@@ -129,10 +129,10 @@
 - (void)_loadAdPageHUD:(dispatch_block_t)completeBlock {
     NSString *adImageJPGUrl = @"http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg";
     NSString *adimageGIFUrl = @"https://upload-images.jianshu.io/upload_images/550672-aa96b5cca33cb802.gif?imageMogr2/auto-orient/strip";
-    NSString *adImageJPGPath = [[NSBundle mainBundle] pathForResource:@"adImage2" ofType:@"jpg"];
+    NSString *adImageJPGPath = @"adImage1";//[[NSBundle mainBundle] pathForResource:@"adImage2" ofType:@"jpg"];
     NSString *adImageGifPath = [[NSBundle mainBundle] pathForResource:@"adImage3" ofType:@"gif"];
-    
-    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0, DDScreenW, DDScreenH) aDduration:3.0 aDImageUrl:adImageGifPath hideSkipButton:NO launchAdClickBlock:^(NSInteger index) {
+//    adImageGifPath = [[NSBundle mainBundle] pathForResource:@"eqh_home" ofType:@"gif"];
+    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0, DDScreenW, DDScreenH) aDduration:10.0 aDImageUrl:adImageGifPath hideSkipButton:NO launchAdClickBlock:^(NSInteger index) {
         switch (index) {
             case 0:
             {
@@ -161,12 +161,7 @@
     @pas_weakify_self
     [self _loadAdPageHUD:^{
         @pas_strongify_self
-        self.navigationBarHidden = YES;
-        ZWTabBarController *mainVC = [[ZWTabBarController alloc] init];
-        NSArray *viewControllers = @[mainVC];
-        [self setViewControllers:viewControllers];
-        
-        [mainVC build];
+        [self _setMainVc];
     }];
 
 //    NSDictionary *launchOptions = WM.pushManager.launchOptions;
@@ -181,7 +176,14 @@
 //    }
 }
 
-
+#pragma mark - 设置主控制器
+- (void)_setMainVc {
+    self.navigationBarHidden = YES;
+    ZWTabBarController *mainVC = [[ZWTabBarController alloc] init];
+    NSArray *viewControllers = @[mainVC];
+    [self setViewControllers:viewControllers];
+    [mainVC build];
+}
 
 
 

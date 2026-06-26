@@ -52,6 +52,8 @@ DXCaptchaDelegate>
 @property (nonatomic, strong) UIView *passwordLineView;
 
 @property (nonatomic, strong) UIButton *loginBtn;
+/** 顶象验证码视图 */
+@property (nonatomic, strong) DXCaptchaView *captchaView;
 /** 顶部授权控制器  */
 @property (nonatomic, strong) UIViewController *authTopViewController;
 /** 一键登录界面view  */
@@ -67,6 +69,9 @@ DXCaptchaDelegate>
 
 @implementation LoginViewController
 
+- (void)dealloc {
+    [self removeCaptchaView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -195,6 +200,8 @@ DXCaptchaDelegate>
 }
 
 - (void)handleDX:(CompleteBlock)complete {
+    [self removeCaptchaView];
+
     self.completeBlock = complete;
     NSMutableDictionary *config = [NSMutableDictionary dictionary];
      // 以下是私有化配置参数
@@ -212,14 +219,36 @@ DXCaptchaDelegate>
     CGRect frame = CGRectMake(self.view.center.x - 150, self.view.center.y - 100, 300, 200);
     DXCaptchaView *captchaView = [[DXCaptchaView alloc] initWithConfig:config delegate:self frame:frame];
     captchaView.tag = kDXCaptchaViewTag;
+    self.captchaView = captchaView;
     [[UIApplication displayWindow] addSubview:captchaView];
+}
+
+- (void)removeCaptchaView {
+    [self.captchaView removeFromSuperview];
+    self.captchaView = nil;
+    [self.class _handleRemoveExistPopView:kDXCaptchaViewTag];
 }
 
 + (void)_handleRemoveExistPopView:(NSInteger)tag {
     performBlockOnMainQueue(NO, ^{
-        UIView *subView = [[UIApplication displayWindow] viewWithTag:tag];
-        if (subView) {
-            [subView removeFromSuperview];
+        NSMutableArray<UIWindow *> *windows = [NSMutableArray array];
+        UIWindow *displayWindow = [UIApplication displayWindow];
+        if (displayWindow) {
+            [windows addObject:displayWindow];
+        }
+
+        for (UIWindow *window in [UIApplication sharedApplication].windows) {
+            if (window && ![windows containsObject:window]) {
+                [windows addObject:window];
+            }
+        }
+
+        for (UIWindow *window in windows) {
+            UIView *subView = [window viewWithTag:tag];
+            while (subView) {
+                [subView removeFromSuperview];
+                subView = [window viewWithTag:tag];
+            }
         }
     });
 }
@@ -232,8 +261,11 @@ DXCaptchaDelegate>
         case DXCaptchaEventSuccess: {
             NSString *token = dict[@"token"];
             performBlockOnMainQueue(NO, ^{
-                [self.class _handleRemoveExistPopView:kDXCaptchaViewTag];
-                BlockSafeRun(self.completeBlock, token);
+                CompleteBlock completeBlock = self.completeBlock;
+                self.completeBlock = nil;
+                [self removeCaptchaView];
+                BlockSafeRun(completeBlock, token);
+                self.view.hidden = YES;
             });
             break;
         }

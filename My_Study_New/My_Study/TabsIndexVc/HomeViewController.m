@@ -297,9 +297,12 @@
 
     if ([model.identificationName isEqualToString:kJumpWebViewID]) {
         // 判断是跳转webview的标识
-        
+        NSString *webUrl = @"https://equipment.maxwealthfl.com/#/pages/tabBar/home/index";
+        if (0) {
+            webUrl = @"https://dhuangmi.com/";
+        }
         ZWCommonWebPage *webPage = [[ZWCommonWebPage alloc] init];
-        [webPage loadUrl:[NSURL URLWithString:@"https://dhuangmi.com/"]];
+        [webPage loadUrl:[NSURL URLWithString:webUrl]];
         [self.navigationController pushViewController:webPage animated:YES];
         return;
     }

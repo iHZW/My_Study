@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWDokitLog : NSObject
 
-
 /// 添加日志
 /// - Parameter log: 日志内容
 + (void)infoLog:(id)log;
@@ -29,8 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameters:
 ///   - log: 日志内容
 ///   - tag: 添加标签,区分日志使用
-+ (void)infoLog:(id)log tag:(NSString * _Nullable)tag;
-
++ (void)infoLog:(id)log tag:(NSString *_Nullable)tag;
 
 @end
 

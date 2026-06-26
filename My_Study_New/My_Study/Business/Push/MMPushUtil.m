@@ -58,14 +58,27 @@
      A UNNotificationServiceExtension object provides the entry point for a Notification Service app extension, which lets you customize the content of a remote notification before it is delivered to the user.
      */
     if (@available(iOS 10.0, *)) {
-        UNMutableNotificationContent *content = [UNMutableNotificationContent new];
-        content.title                         = title;
-        content.body                          = title;
-        content.userInfo                      = userInfo;
-        UNNotificationRequest *req            = [UNNotificationRequest requestWithIdentifier:@"id1" content:content trigger:nil];
-        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:req withCompletionHandler:^(NSError *_Nullable error) {
-            NSLog(@"addNotificationRequest added");
+        //        UNMutableNotificationContent *content = [UNMutableNotificationContent new];
+        //        content.title                         = title;
+        //        content.subtitle                      = [NSString stringWithFormat:@"副标题:%@", title];
+        //        content.body                          = title;
+        //        content.userInfo                      = userInfo;
+        //        UNNotificationRequest *req            = [UNNotificationRequest requestWithIdentifier:@"id1" content:content trigger:nil];
+        //        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:req withCompletionHandler:^(NSError *_Nullable error) {
+        //            NSLog(@"addNotificationRequest added");
+        //        }];
+
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        content.title = @"NotificationCenter";
+        content.subtitle = @"testWord";
+        content.body = @"本地通知测试";
+        UNTimeIntervalNotificationTrigger *triger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
+        NSString *requestIdentifier = @"request";
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requestIdentifier content:content trigger:triger];
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError *_Nullable error){
+
         }];
+
     } else {
         // Fallback on earlier versions
     }

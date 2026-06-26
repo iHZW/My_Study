@@ -9,6 +9,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^XYVideoPlayComplete)(void);
+
 @protocol XYIntroductionDelegate <NSObject>
 
 - (void)xyIntroductionViewEnterTap:(id)sender;
@@ -33,6 +35,8 @@
 @property (nonatomic,assign)float          xyVolume;//声音大小
 @property (nonatomic,strong)NSURL     *    xyVideoUrl;//视频地址
 @property (nonatomic,strong)NSArray *      xyPageArr;//放置浮层view数组
+
+@property (nonatomic, copy) XYVideoPlayComplete playComplete; // 播放完成回调;
 
 @property (nonatomic,weak)  id<XYIntroductionDelegate>xyDelegate;
 

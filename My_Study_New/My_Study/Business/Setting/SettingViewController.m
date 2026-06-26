@@ -43,8 +43,8 @@
 #import "QQScanZXingViewController.h"
 #import "StyleDIY.h"
 #import "Global.h"
-
 #import "ZWCommonWebPage.h"
+#import "MMPushUtil.h"
 
 #define kSectionViewHeight 20
 #define ZWNSLog(...) printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
@@ -158,10 +158,13 @@
                          [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"],
                          [ActionModel initWithTitle:@"视频" actionName:@"jumpSJVideoPage"],
                          [ActionModel initWithTitle:@"文字转语音" actionName:@"textToSpeechPage"],
+                         [ActionModel initWithTitle:@"多边形多拽" actionName:@"drawPolygonView"],
+
     ];
 
     NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@"testShowWindow"],
-                         [ActionModel initWithTitle:@"陀螺仪测试界面 ~ 球" actionName:@"testBallViewContorller"]];
+                         [ActionModel initWithTitle:@"陀螺仪测试界面 ~ 球" actionName:@"testBallViewContorller"],
+                         [ActionModel initWithTitle:@"自定义Swiper组件" actionName:@"testSwiperComponent"]];
 
     NSArray *sec4Arr = @[[ActionModel initWithTitle:@"清除缓存" actionName:@"cleanCacheData"],
                          [ActionModel initWithTitle:@"意见反馈" actionName:@"feedBackDetailInfo"],
@@ -409,6 +412,13 @@
     [ZWM.router executeURLNoCallBack:ZWRouterPageTextToSpeechViewController];
 }
 
+/**
+ * 绘制多边形
+ */
+- (void)drawPolygonView {
+    [ZWM.router executeURLNoCallBack:ZWRouterPageDrawPolygonViewController];
+}
+
 
 - (void)_testOpenDebugHml {
     NSString *hybridserverPath = [PathConstants gcdWebServerRootDirectory];
@@ -631,6 +641,13 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
 }
 
 /**
+ * 自定义Swiper组件
+ */
+- (void)testSwiperComponent {
+    [ZWM.router executeURLNoCallBack:ZWRouterPageCustomSwiperController];
+}
+
+/**
  * 测试推送
  */
 - (void)push_test {
@@ -638,6 +655,10 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
 }
 
 - (void)pushLocalNotification:(NSString *)title {
+    
+    [MMPushUtil pushLocalNotification:title userInfo:@{@"payload" : @{}}];
+
+    return;
     // 创建本地通知时，清理之前所有的本地通知，注意：根据App具体的功能自行修改
     // 清理所有本地通知，程序启动时清理，注意：根据App具体功能需求自行修改，如果App内有其他本地通知，更加需要注意是否要清理所有通知
     [[UIApplication sharedApplication] cancelAllLocalNotifications];

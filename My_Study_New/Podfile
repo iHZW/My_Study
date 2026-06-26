@@ -189,6 +189,11 @@ target 'My_Study' do
   pod 'coobjc', '1.2.0'
 
   
+  pod 'YYModel',               '1.0.4'
+#  pod 'YYText',                '1.0.4'
+#  pod 'DZNEmptyDataSet',       '1.8.1'
+  pod 'SDCycleScrollView',        '~> 1.82'
+#  pod 'FMDB/SQLCipher'
 end
 
 

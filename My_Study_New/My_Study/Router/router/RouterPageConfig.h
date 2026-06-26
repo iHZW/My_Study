@@ -50,6 +50,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageSJVideoController;
 UIKIT_EXTERN NSString *const ZWRouterPageFileSelectViewController;
 /** 陀螺仪测试界面 ~ 球  */
 UIKIT_EXTERN NSString *const ZWRouterPageBallViewController;
+/** 自定义Swiper  */
+UIKIT_EXTERN NSString *const ZWRouterPageCustomSwiperController;
 /** RunLoopPermanentPage  */
 UIKIT_EXTERN NSString *const ZWRouterRunLoopPermanentViewController;
 
@@ -59,6 +61,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageShortVideoPlayerViewController;
 /** 文本转语音  */
 UIKIT_EXTERN NSString *const ZWRouterPageTextToSpeechViewController;
 
+/** 绘制多边形  */
+UIKIT_EXTERN NSString *const ZWRouterPageDrawPolygonViewController;
 
 /* -------------------------------page----------------------------  */
 

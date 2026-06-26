@@ -51,6 +51,7 @@
 #import <SJBaseVideoPlayer/SJRotationManager.h>
 
 #import "ZWLaunchManage.h"
+#import "KlyyLogUtils.h"
 
 /** 闪验appId  */
 #define kCLShanYanAppId @"MMTFuKONCXID"
@@ -173,6 +174,17 @@
     fileLogger.logFileManager.maximumNumberOfLogFiles = 7; // 最多允许创建7个文件
     [DDLog addLogger:fileLogger];
     
+    
+    
+    
+    [KlyyLogUtils addLog:KlyyDistUpgradeLogsPath logType:KlyyLogTypeDistUpgrade];
+    [KlyyLogUtils addLog:KlyyNetworkErrorLogsPath logType:KlyyLogTypeNetworkError];
+    [KlyyLogUtils addLog:KlyyGeTuiPushLogsPath logType:KlyyLogTypeGetTuiPush];
+    [KlyyLogUtils addLog:KlyyPhotoLogsPath logType:KlyyLogTypePhoto];
+    [KlyyLogUtils addLog:KlyyLocationLogsPath logType:KlyyLogTypeLocation];
+    [KlyyLogUtils addLog:KlyyThirdRequestLogsPath logType:KlyyLogTypeDistUpgrade];
+
+
     /** 默认log 开关  */
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"doraemon_env_key"];
     [[NSUserDefaults standardUserDefaults] synchronize];
