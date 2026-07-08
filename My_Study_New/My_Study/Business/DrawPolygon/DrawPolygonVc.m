@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = UIColor.whiteColor;
     [self.view addSubview:self.polygonView];
     
     [self.polygonView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -31,6 +32,7 @@
 - (PolygonView *)polygonView {
     if (!_polygonView) {
         _polygonView = [[PolygonView alloc] initWithFrame:CGRectZero];
+        _polygonView.backgroundColor = UIColor.whiteColor;
     }
     return _polygonView;
 }

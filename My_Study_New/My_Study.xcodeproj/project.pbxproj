@@ -97,6 +97,7 @@
 		4E4F9CDE286C5E7F003281B5 /* ZWAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CDD286C5E7F003281B5 /* ZWAnimationView.m */; };
 		4E4F9CE1286C5EBB003281B5 /* ZWAnimationCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */; };
 		4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
+		DA7107022E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
 		4E4FD80D286D4745008EC7E1 /* ThemeWhite.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */; };
 		4E59322A2AAC4139005E2C49 /* TestSocketVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5932292AAC4139005E2C49 /* TestSocketVc.m */; };
 		4E5932332AB34CB9005E2C49 /* DHRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5932302AB34CB8005E2C49 /* DHRegularExpression.m */; };
@@ -880,6 +881,7 @@
 		DAEEBFFB2B58BE8C00258456 /* QRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26622A9E47E800583883 /* QRSettingViewController.m */; };
 		DAEEBFFC2B58BE8C00258456 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EF06A230405030040DA7A /* UIButton+Custom.m */; };
 		DAEEBFFD2B58BE8C00258456 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
+		DA7107032E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
 		DAEEBFFE2B58BE8C00258456 /* TestMVPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C879B1226E64E790051018B /* TestMVPView.m */; };
 		DAEEBFFF2B58BE8C00258456 /* IQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E0229BDAC300D8D62C /* IQViewModel.m */; };
 		DAEEC0002B58BE8C00258456 /* LineBarQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFEF62AA9AABD00E561EA /* LineBarQuery.m */; };
@@ -1576,6 +1578,7 @@
 		DAEEC2C72B58BE9000258456 /* QRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26622A9E47E800583883 /* QRSettingViewController.m */; };
 		DAEEC2C82B58BE9000258456 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EF06A230405030040DA7A /* UIButton+Custom.m */; };
 		DAEEC2C92B58BE9000258456 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
+		DA7107042E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
 		DAEEC2CA2B58BE9000258456 /* TestMVPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C879B1226E64E790051018B /* TestMVPView.m */; };
 		DAEEC2CB2B58BE9000258456 /* IQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E0229BDAC300D8D62C /* IQViewModel.m */; };
 		DAEEC2CC2B58BE9000258456 /* LineBarQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFEF62AA9AABD00E561EA /* LineBarQuery.m */; };
@@ -2373,6 +2376,8 @@
 		4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAnimationCircleLayer.m; sourceTree = "<group>"; };
 		4E4FD807286D4147008EC7E1 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		4E4FD808286D4147008EC7E1 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		DA7107002E0A000000000001 /* ZWAppIconManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAppIconManager.h; sourceTree = "<group>"; };
+		DA7107012E0A000000000001 /* ZWAppIconManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAppIconManager.m; sourceTree = "<group>"; };
 		4E4FD80B286D4705008EC7E1 /* ThemeDarkBlack.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ThemeDarkBlack.strings; sourceTree = "<group>"; };
 		4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ThemeWhite.strings; sourceTree = "<group>"; };
 		4E5932282AAC4139005E2C49 /* TestSocketVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSocketVc.h; sourceTree = "<group>"; };
@@ -4313,9 +4318,11 @@
 		4E4FD806286D4132008EC7E1 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				4E4FD807286D4147008EC7E1 /* SettingViewController.h */,
-				4E4FD808286D4147008EC7E1 /* SettingViewController.m */,
-				4E149690299D2EA000D305EF /* ZWUserManager.h */,
+					4E4FD807286D4147008EC7E1 /* SettingViewController.h */,
+					4E4FD808286D4147008EC7E1 /* SettingViewController.m */,
+					DA7107002E0A000000000001 /* ZWAppIconManager.h */,
+					DA7107012E0A000000000001 /* ZWAppIconManager.m */,
+					4E149690299D2EA000D305EF /* ZWUserManager.h */,
 				4E149691299D2EA000D305EF /* ZWUserManager.m */,
 				4EA52F312A6AB0FB00B2CD87 /* ZWSJVideoOnePage.h */,
 				4EA52F322A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m */,
@@ -8521,10 +8528,11 @@
 				4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */,
 				4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */,
 				4E6D00142AA9AABF00E561EA /* LineChart.m in Sources */,
-				4E2B26632A9E47E800583883 /* QRSettingViewController.m in Sources */,
-				7C4EF070230405030040DA7A /* UIButton+Custom.m in Sources */,
-				4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */,
-				7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
+					4E2B26632A9E47E800583883 /* QRSettingViewController.m in Sources */,
+					7C4EF070230405030040DA7A /* UIButton+Custom.m in Sources */,
+					4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */,
+					DA7107022E0A000000000001 /* ZWAppIconManager.m in Sources */,
+					7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
 				7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */,
 				4E6D002A2AA9AABF00E561EA /* LineBarQuery.m in Sources */,
 				7C91253526DA67B20030A5F3 /* BlockViewController.m in Sources */,
@@ -9137,10 +9145,11 @@
 				DAEEBFF82B58BE8C00258456 /* NSString+MoneyFormat.m in Sources */,
 				DAEEBFF92B58BE8C00258456 /* TabbarConfig.m in Sources */,
 				DAEEBFFA2B58BE8C00258456 /* LineChart.m in Sources */,
-				DAEEBFFB2B58BE8C00258456 /* QRSettingViewController.m in Sources */,
-				DAEEBFFC2B58BE8C00258456 /* UIButton+Custom.m in Sources */,
-				DAEEBFFD2B58BE8C00258456 /* SettingViewController.m in Sources */,
-				DAEEBFFE2B58BE8C00258456 /* TestMVPView.m in Sources */,
+					DAEEBFFB2B58BE8C00258456 /* QRSettingViewController.m in Sources */,
+					DAEEBFFC2B58BE8C00258456 /* UIButton+Custom.m in Sources */,
+					DAEEBFFD2B58BE8C00258456 /* SettingViewController.m in Sources */,
+					DA7107032E0A000000000001 /* ZWAppIconManager.m in Sources */,
+					DAEEBFFE2B58BE8C00258456 /* TestMVPView.m in Sources */,
 				DAEEBFFF2B58BE8C00258456 /* IQViewModel.m in Sources */,
 				DAEEC0002B58BE8C00258456 /* LineBarQuery.m in Sources */,
 				DAEEC0012B58BE8C00258456 /* BlockViewController.m in Sources */,
@@ -9748,10 +9757,11 @@
 				DAEEC2C42B58BE9000258456 /* NSString+MoneyFormat.m in Sources */,
 				DAEEC2C52B58BE9000258456 /* TabbarConfig.m in Sources */,
 				DAEEC2C62B58BE9000258456 /* LineChart.m in Sources */,
-				DAEEC2C72B58BE9000258456 /* QRSettingViewController.m in Sources */,
-				DAEEC2C82B58BE9000258456 /* UIButton+Custom.m in Sources */,
-				DAEEC2C92B58BE9000258456 /* SettingViewController.m in Sources */,
-				DAEEC2CA2B58BE9000258456 /* TestMVPView.m in Sources */,
+					DAEEC2C72B58BE9000258456 /* QRSettingViewController.m in Sources */,
+					DAEEC2C82B58BE9000258456 /* UIButton+Custom.m in Sources */,
+					DAEEC2C92B58BE9000258456 /* SettingViewController.m in Sources */,
+					DA7107042E0A000000000001 /* ZWAppIconManager.m in Sources */,
+					DAEEC2CA2B58BE9000258456 /* TestMVPView.m in Sources */,
 				DAEEC2CB2B58BE9000258456 /* IQViewModel.m in Sources */,
 				DAEEC2CC2B58BE9000258456 /* LineBarQuery.m in Sources */,
 				DAEEC2CD2B58BE9000258456 /* BlockViewController.m in Sources */,
@@ -10320,9 +10330,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -10333,7 +10344,7 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				DEVELOPMENT_TEAM = 82MDUB8B2X;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -10476,9 +10487,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -10489,7 +10501,7 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				DEVELOPMENT_TEAM = 82MDUB8B2X;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -10809,9 +10821,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -10904,9 +10917,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -10990,9 +11004,10 @@
 				ALIPAY_SCHEME = zwDebug;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -11083,9 +11098,10 @@
 				ALIPAY_SCHEME = zwQA;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -11175,9 +11191,10 @@
 				ALIPAY_SCHEME = zwQA_Dev;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -11269,9 +11286,10 @@
 				ALIPAY_SCHEME = zwRelease;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -11355,9 +11373,10 @@
 				ALIPAY_SCHEME = zwDebug;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -11448,9 +11467,10 @@
 				ALIPAY_SCHEME = zwQA;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -11540,9 +11560,10 @@
 				ALIPAY_SCHEME = zwQA_Dev;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -11634,9 +11655,10 @@
 				ALIPAY_SCHEME = zwRelease;
 				AMAP_KEY = 5f8e1fdcf0ed1c0ef8dc9cc5af42ec36;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIconSpringFestival AppIconDragonBoat AppIconMidAutumn AppIconDoubleEleven";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;

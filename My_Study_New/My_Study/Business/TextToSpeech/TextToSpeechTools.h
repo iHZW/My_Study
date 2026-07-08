@@ -21,6 +21,8 @@ typedef void (^ConverComplete)(void);
 
 - (void)convertTextToSpeech:(NSString *)text;
 
+- (void)stopSpeech;
+
 @end
 
 NS_ASSUME_NONNULL_END

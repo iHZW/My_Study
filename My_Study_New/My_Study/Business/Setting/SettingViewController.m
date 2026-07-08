@@ -19,6 +19,7 @@
 #import "ZWBaseTableView.h"
 #import "ZWColorPickInfoWindow.h"
 #import "ZWHttpNetworkData.h"
+#import "ZWAppIconManager.h"
 #import "zhThemeOperator.h"
 
 /** 导入other城市选择器  */
@@ -151,6 +152,7 @@
     NSArray *sec2Arr = @[[ActionModel initWithTitle:@"Alert提示框" actionName:@"alertViewAction"],
                          [ActionModel initWithTitle:@"单选页面" actionName:@"selectedPageAction"],
                          [ActionModel initWithTitle:@"切换皮肤" actionName:@"changeTheme"],
+                         [ActionModel initWithTitle:@"切换App图标" actionName:@"changeAppIcon"],
                          [ActionModel initWithTitle:@"文件选择" actionName:@"fileSelect"],
                          [ActionModel initWithTitle:@"拍照/相册/文件" actionName:@"photoFileSelect"],
                          [ActionModel initWithTitle:@"城市选择器" actionName:@"citySelect"],
@@ -158,7 +160,7 @@
                          [ActionModel initWithTitle:@"地址微调" actionName:@"changeAddressTrim"],
                          [ActionModel initWithTitle:@"视频" actionName:@"jumpSJVideoPage"],
                          [ActionModel initWithTitle:@"文字转语音" actionName:@"textToSpeechPage"],
-                         [ActionModel initWithTitle:@"多边形多拽" actionName:@"drawPolygonView"],
+                         [ActionModel initWithTitle:@"多边形拖拽" actionName:@"drawPolygonView"],
 
     ];
 
@@ -327,6 +329,74 @@
             [zhThemeOperator changeThemeStyleWithKey:themeKey];
         }
     } superVC:self];
+}
+
+/**
+ *  切换App图标
+ */
+- (void)changeAppIcon {
+    ZWAppIconManager *manager = ZWAppIconManager.sharedManager;
+    if (!manager.supportsAlternateIcons) {
+        [self zw_showAppIconMessage:@"iOS 10.3 以下系统不支持切换App图标"];
+        return;
+    }
+
+    NSString *modeText = manager.isAutoModeEnabled ? @"当前模式：跟随节日自动切换" : @"当前模式：手动选择图标";
+    NSString *iconText = [NSString stringWithFormat:@"当前图标：%@", [manager titleForIconName:manager.currentIconName]];
+    NSString *ruleText = [manager autoRuleDescriptionForDate:NSDate.date];
+    NSString *message = [NSString stringWithFormat:@"%@\n%@\n%@", modeText, iconText, ruleText];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"切换App图标"
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+
+    @pas_weakify_self
+    NSString *autoTitle = manager.isAutoModeEnabled ? @"重新按节日规则检查" : @"开启跟随节日自动切换";
+    [alert addAction:[UIAlertAction actionWithTitle:autoTitle style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *_Nonnull action) {
+        @pas_strongify_self
+        [manager setAutoModeEnabled:YES completion:^(BOOL success, NSString *message, NSError *_Nullable error) {
+            [self zw_showAppIconMessage:message];
+        }];
+    }]];
+
+    if (manager.isAutoModeEnabled) {
+        [alert addAction:[UIAlertAction actionWithTitle:@"关闭自动切换" style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *_Nonnull action) {
+            @pas_strongify_self
+            [manager setAutoModeEnabled:NO completion:^(BOOL success, NSString *message, NSError *_Nullable error) {
+                [self zw_showAppIconMessage:message];
+            }];
+        }]];
+    }
+
+    NSString *currentIconName = manager.currentIconName ?: @"";
+    [[manager iconOptions] enumerateObjectsUsingBlock:^(NSDictionary<NSString *, NSString *> *_Nonnull option, NSUInteger idx, BOOL *_Nonnull stop) {
+        NSString *iconName = option[ZWAppIconOptionNameKey] ?: @"";
+        NSString *title = option[ZWAppIconOptionTitleKey] ?: @"";
+        NSString *showTitle = [currentIconName isEqualToString:iconName] ? [NSString stringWithFormat:@"%@ ✓", title] : title;
+        UIAlertAction *action = [UIAlertAction actionWithTitle:showTitle style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *_Nonnull action) {
+            @pas_strongify_self
+            [manager setManualIconName:iconName.length > 0 ? iconName : nil title:title completion:^(BOOL success, NSString *message, NSError *_Nullable error) {
+                [self zw_showAppIconMessage:message];
+            }];
+        }];
+        [alert addAction:action];
+    }];
+
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    UIPopoverPresentationController *popover = alert.popoverPresentationController;
+    if (popover) {
+        popover.sourceView = self.view;
+        popover.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(self.view.bounds) - 1, 1, 1);
+        popover.permittedArrowDirections = 0;
+    }
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)zw_showAppIconMessage:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /**

@@ -14,7 +14,209 @@
 
 typedef void (^HandleBlock)(id);
 
-@interface CRMViewController ()
+@interface ZWRotatingBallView : UIView
+
+@property (nonatomic, assign) CGFloat rotationX;
+@property (nonatomic, assign) CGFloat rotationY;
+
+- (void)updateRotationX:(CGFloat)rotationX rotationY:(CGFloat)rotationY;
+
+@end
+
+@implementation ZWRotatingBallView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = UIColor.clearColor;
+        self.opaque = NO;
+        self.contentMode = UIViewContentModeRedraw;
+    }
+    return self;
+}
+
+- (void)updateRotationX:(CGFloat)rotationX rotationY:(CGFloat)rotationY {
+    self.rotationX = rotationX;
+    self.rotationY = rotationY;
+    [self setNeedsDisplay];
+}
+
+- (void)drawRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    if (!context) {
+        return;
+    }
+
+    CGFloat radius = MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) * 0.5 - 4;
+    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    CGRect ballRect = CGRectMake(center.x - radius, center.y - radius, radius * 2, radius * 2);
+
+    CGContextSaveGState(context);
+    UIBezierPath *clipPath = [UIBezierPath bezierPathWithOvalInRect:ballRect];
+    [clipPath addClip];
+
+    [self drawBaseSphereInContext:context center:center radius:radius];
+    [self drawSurfaceMarksInContext:context center:center radius:radius];
+    [self drawGridInContext:context center:center radius:radius];
+    [self drawSphereShadingInContext:context center:center radius:radius];
+
+    CGContextRestoreGState(context);
+
+    [[UIColor colorWithWhite:1 alpha:0.55] setStroke];
+    clipPath.lineWidth = 1.5;
+    [clipPath stroke];
+}
+
+- (void)drawBaseSphereInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    NSArray *colors = @[
+        (__bridge id)[UIColor colorWithRed:0.20 green:0.78 blue:1.00 alpha:1].CGColor,
+        (__bridge id)[UIColor colorWithRed:0.05 green:0.24 blue:0.68 alpha:1].CGColor,
+        (__bridge id)[UIColor colorWithRed:0.02 green:0.08 blue:0.25 alpha:1].CGColor
+    ];
+    CGFloat locations[] = {0, 0.62, 1};
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+    CGPoint lightCenter = CGPointMake(center.x - radius * 0.32, center.y - radius * 0.42);
+    CGContextDrawRadialGradient(context, gradient, lightCenter, radius * 0.08, center, radius * 1.15, 0);
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+}
+
+- (void)drawGridInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
+    [[UIColor colorWithWhite:1 alpha:0.32] setStroke];
+
+    for (NSInteger index = -2; index <= 2; index++) {
+        CGFloat latitude = index * M_PI / 8.0;
+        [self drawLatitude:latitude context:context center:center radius:radius];
+    }
+
+    for (NSInteger index = 0; index < 12; index++) {
+        CGFloat longitude = index * M_PI / 6.0;
+        [self drawLongitude:longitude context:context center:center radius:radius];
+    }
+}
+
+- (void)drawLatitude:(CGFloat)latitude context:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineWidth = 0.8;
+
+    BOOL drawing = NO;
+    for (NSInteger index = 0; index <= 144; index++) {
+        CGFloat longitude = -M_PI + 2 * M_PI * index / 144.0;
+        CGFloat z = 0;
+        CGPoint point = [self projectLatitude:latitude longitude:longitude center:center radius:radius z:&z];
+        if (z > -radius * 0.05) {
+            if (!drawing) {
+                [path moveToPoint:point];
+                drawing = YES;
+            } else {
+                [path addLineToPoint:point];
+            }
+        } else {
+            drawing = NO;
+        }
+    }
+    [path stroke];
+}
+
+- (void)drawLongitude:(CGFloat)longitude context:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineWidth = 0.8;
+
+    BOOL drawing = NO;
+    for (NSInteger index = 0; index <= 96; index++) {
+        CGFloat latitude = -M_PI_2 + M_PI * index / 96.0;
+        CGFloat z = 0;
+        CGPoint point = [self projectLatitude:latitude longitude:longitude center:center radius:radius z:&z];
+        if (z > -radius * 0.05) {
+            if (!drawing) {
+                [path moveToPoint:point];
+                drawing = YES;
+            } else {
+                [path addLineToPoint:point];
+            }
+        } else {
+            drawing = NO;
+        }
+    }
+    [path stroke];
+}
+
+- (void)drawSurfaceMarksInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
+    NSArray<NSDictionary *> *marks = @[
+        @{@"lat": @(-0.32), @"lon": @(-0.65), @"size": @(22), @"color": [UIColor colorWithRed:0.06 green:0.83 blue:0.68 alpha:0.95]},
+        @{@"lat": @(0.18), @"lon": @(0.18), @"size": @(18), @"color": [UIColor colorWithRed:1.00 green:0.65 blue:0.15 alpha:0.95]},
+        @{@"lat": @(0.48), @"lon": @(0.88), @"size": @(16), @"color": [UIColor colorWithRed:0.96 green:0.22 blue:0.42 alpha:0.95]},
+        @{@"lat": @(-0.06), @"lon": @(1.55), @"size": @(14), @"color": [UIColor colorWithRed:0.58 green:0.36 blue:1.00 alpha:0.95]}
+    ];
+
+    for (NSDictionary *mark in marks) {
+        CGFloat z = 0;
+        CGPoint point = [self projectLatitude:[mark[@"lat"] doubleValue]
+                                    longitude:[mark[@"lon"] doubleValue]
+                                       center:center
+                                       radius:radius
+                                            z:&z];
+        if (z <= -radius * 0.1) {
+            continue;
+        }
+
+        CGFloat frontRatio = MAX(0.25, (z / radius + 1) * 0.5);
+        CGFloat size = [mark[@"size"] doubleValue] * frontRatio;
+        UIColor *color = mark[@"color"];
+        [color setFill];
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - size, point.y - size * 0.65, size * 2, size * 1.3)];
+        [path fill];
+    }
+}
+
+- (void)drawSphereShadingInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    NSArray *shadowColors = @[
+        (__bridge id)[UIColor colorWithWhite:0 alpha:0].CGColor,
+        (__bridge id)[UIColor colorWithWhite:0 alpha:0.45].CGColor
+    ];
+    CGFloat shadowLocations[] = {0.45, 1};
+    CGGradientRef shadowGradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)shadowColors, shadowLocations);
+    CGContextDrawRadialGradient(context, shadowGradient, CGPointMake(center.x - radius * 0.25, center.y - radius * 0.35), radius * 0.1, center, radius, 0);
+    CGGradientRelease(shadowGradient);
+
+    [[UIColor colorWithWhite:1 alpha:0.42] setFill];
+    UIBezierPath *highlight = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(center.x - radius * 0.48, center.y - radius * 0.56, radius * 0.48, radius * 0.24)];
+    [highlight fill];
+
+    CGColorSpaceRelease(colorSpace);
+}
+
+- (CGPoint)projectLatitude:(CGFloat)latitude
+                 longitude:(CGFloat)longitude
+                    center:(CGPoint)center
+                    radius:(CGFloat)radius
+                         z:(CGFloat *)zValue {
+    CGFloat cosLatitude = cos(latitude);
+    CGFloat x = radius * cosLatitude * sin(longitude);
+    CGFloat y = radius * sin(latitude);
+    CGFloat z = radius * cosLatitude * cos(longitude);
+
+    CGFloat cosY = cos(self.rotationY);
+    CGFloat sinY = sin(self.rotationY);
+    CGFloat rotatedX = x * cosY + z * sinY;
+    CGFloat rotatedZ = -x * sinY + z * cosY;
+
+    CGFloat cosX = cos(self.rotationX);
+    CGFloat sinX = sin(self.rotationX);
+    CGFloat rotatedY = y * cosX - rotatedZ * sinX;
+    CGFloat finalZ = y * sinX + rotatedZ * cosX;
+
+    if (zValue) {
+        *zValue = finalZ;
+    }
+    return CGPointMake(center.x + rotatedX, center.y - rotatedY);
+}
+
+@end
+
+@interface CRMViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 
@@ -26,6 +228,8 @@ typedef void (^HandleBlock)(id);
 
 @property (nonatomic, strong) UIView *ballView;
 
+@property (nonatomic, assign) CGPoint ballRotation;
+
 @property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic, assign) CGFloat scale;
@@ -36,6 +240,8 @@ typedef void (^HandleBlock)(id);
 
 /**底部容器*/
 @property (nonatomic, strong) CATransformLayer *contentLayer;
+/** 底部立方体容器 */
+@property (nonatomic, strong) UIView *cubeView;
 /**上面*/
 @property (nonatomic, strong) CALayer *topLayer;
 /**下面*/
@@ -52,6 +258,8 @@ typedef void (^HandleBlock)(id);
 @property (nonatomic, strong) CATransformLayer *imageContentLayer;
 
 @property (nonatomic, assign) CGPoint endPoint;
+
+@property (nonatomic, assign) CGPoint cubePoint;
 
 @property (nonatomic, strong) UIImageView *iconImage;
 
@@ -81,6 +289,7 @@ typedef void (^HandleBlock)(id);
 
     /** 绘制正方体  */
     [self createReact];
+    [self.view bringSubviewToFront:self.ballView];
 
     //    [self loadTime];
 
@@ -88,41 +297,21 @@ typedef void (^HandleBlock)(id);
 }
 
 - (void)loadBallView {
-    self.ballView = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    ZWRotatingBallView *ballView = [[ZWRotatingBallView alloc] initWithFrame:CGRectMake(100, 110, 130, 130)];
+    [ballView updateRotationX:-0.25 rotationY:0.45];
+    self.ballRotation = CGPointMake(0.45, -0.25);
+    ballView.layer.shadowColor = UIColor.blackColor.CGColor;
+    ballView.layer.shadowOpacity = 0.18;
+    ballView.layer.shadowRadius = 10;
+    ballView.layer.shadowOffset = CGSizeMake(0, 8);
+    self.ballView = ballView;
     [self.view addSubview:self.ballView];
+
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    pan.objectTag = @"ball";
     [self.ballView addGestureRecognizer:pan];
 
-    // 创建CATransformLayer对象
-    CATransformLayer *contentLayer = [CATransformLayer layer];
-    contentLayer.frame             = self.ballView.layer.bounds;
-    self.imageContentLayer         = contentLayer;
-    [self.ballView.layer addSublayer:self.imageContentLayer];
-
-    CGPoint centerPoint = CGPointMake(CGRectGetMidX(self.ballView.bounds), CGRectGetMidY(self.ballView.bounds));
-
-    CGPoint centerxPoint = centerPoint;
-
-    for (int i = 0; i < 100; i++) {
-        // 使用勾股定理 计算圆的半径,
-        CGFloat radius = sqrt(powl(50.0, 2) - powl(i * 0.5, 2));
-
-        /** z轴正半轴  画圆  */
-        [self createCircleCenter:centerPoint radius:radius z:i * 0.5 transform:CATransform3DIdentity];
-
-        /** z轴负半轴  画圆  */
-        [self createCircleCenter:centerPoint radius:radius z:-i * 0.5 transform:CATransform3DIdentity];
-
-        //        /** x轴正半轴  画圆  */
-        //        [self createCircleCenter:CGPointMake(-centerPoint.x,centerPoint.y) radius:radius z:i*0.5 transform:CATransform3DMakeRotation(M_PI_2, 0, 1, 0)];
-        //        /** x轴正半轴  画圆  */
-        //        [self createCircleCenter:CGPointMake(-centerPoint.x,centerPoint.y) radius:radius z:-i*0.5 transform:CATransform3DMakeRotation(M_PI_2, 0, 1, 0)];
-
-        //        /** y轴正半轴  画圆  */
-        //        [self createCircleCenter:CGPointMake(centerPoint.x, centerPoint.y + i*0.5) radius:radius z:0 transform:CATransform3DMakeRotation(M_PI_2, 1, 0, 0)];
-        //        /** y轴正半轴  画圆  */
-        //        [self createCircleCenter:CGPointMake(centerPoint.x, centerPoint.y - i*0.5) radius:radius z:0 transform:CATransform3DMakeRotation(M_PI_2, 1, 0, 0)];
-    }
+    [self.view bringSubviewToFront:self.ballView];
 }
 
 - (void)createReact {
@@ -205,13 +394,21 @@ typedef void (^HandleBlock)(id);
 }
 
 - (void)loadSubViews {
+    self.cubeView = [[UIView alloc] initWithFrame:CGRectMake(150, 430, 180, 180)];
+    [self.view addSubview:self.cubeView];
+
     // 创建CATransformLayer对象
     CATransformLayer *contentLayer = [CATransformLayer layer];
-    contentLayer.frame             = self.view.layer.bounds;
+    contentLayer.frame             = self.cubeView.layer.bounds;
     CGSize size                    = contentLayer.bounds.size;
     contentLayer.transform         = CATransform3DMakeTranslation(size.width / 2, size.height / 2, 0);
     self.contentLayer              = contentLayer;
-    [self.view.layer addSublayer:contentLayer];
+    [self.cubeView.layer addSublayer:contentLayer];
+
+    CATransform3D perspective = CATransform3DIdentity;
+    perspective.m34 = -1.0 / 500.0;
+    self.cubeView.layer.sublayerTransform = perspective;
+
     // 初始化六个图层
     // 顶部与底部的沿着x轴旋转90度
     self.topLayer = [self layerAtX:0 y:-kSize / 2 z:0 color:[UIColor redColor] transform:CATransform3DMakeRotation(M_PI_2, 1, 0, 0)];
@@ -229,7 +426,7 @@ typedef void (^HandleBlock)(id);
 
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     pan.objectTag               = @"2";
-    [self.view addGestureRecognizer:pan];
+    [self.cubeView addGestureRecognizer:pan];
 }
 
 - (void)pan:(UIPanGestureRecognizer *)recognizer {
@@ -237,11 +434,21 @@ typedef void (^HandleBlock)(id);
 
     if ([objectTag isEqualToString:@"2"]) {
         // 获取到的是手指移动后，在相对坐标中的偏移量(以手指接触屏幕的第一个点为坐标原点)
-        CGPoint translation               = [recognizer translationInView:self.view];
-        CATransform3D transform           = CATransform3DIdentity;
-        transform                         = CATransform3DRotate(transform, translation.x * 1 / 100, 0, 1, 0);
-        transform                         = CATransform3DRotate(transform, translation.y * 1 / 100, 1, 0, 0);
-        self.view.layer.sublayerTransform = transform;
+        CGPoint translation = [recognizer translationInView:self.cubeView];
+        translation.x += self.cubePoint.x;
+        translation.y += self.cubePoint.y;
+
+        CATransform3D transform = CATransform3DIdentity;
+        transform.m34 = -1.0 / 500.0;
+        transform = CATransform3DRotate(transform, translation.x * 0.01, 0, 1, 0);
+        transform = CATransform3DRotate(transform, translation.y * 0.01, 1, 0, 0);
+        self.cubeView.layer.sublayerTransform = transform;
+
+        if (recognizer.state == UIGestureRecognizerStateEnded ||
+            recognizer.state == UIGestureRecognizerStateCancelled ||
+            recognizer.state == UIGestureRecognizerStateFailed) {
+            self.cubePoint = translation;
+        }
     } else if ([objectTag isEqualToString:@"3"]) {
         CGPoint translation = [recognizer translationInView:self.view];
         translation.x += self.reactPoint.x;
@@ -252,6 +459,19 @@ typedef void (^HandleBlock)(id);
         self.reactView.layer.sublayerTransform = transform;
         if (recognizer.state == UIGestureRecognizerStateEnded) {
             self.reactPoint = translation;
+        }
+    } else if ([objectTag isEqualToString:@"ball"]) {
+        CGPoint translation = [recognizer translationInView:self.ballView];
+        CGFloat rotateY = self.ballRotation.x + translation.x * 0.01;
+        CGFloat rotateX = self.ballRotation.y + translation.y * 0.01;
+
+        ZWRotatingBallView *ballView = (ZWRotatingBallView *)self.ballView;
+        [ballView updateRotationX:rotateX rotationY:rotateY];
+
+        if (recognizer.state == UIGestureRecognizerStateEnded ||
+            recognizer.state == UIGestureRecognizerStateCancelled ||
+            recognizer.state == UIGestureRecognizerStateFailed) {
+            self.ballRotation = CGPointMake(rotateY, rotateX);
         }
     } else {
         // 获取到的是手指移动后，在相对坐标中的偏移量(以手指接触屏幕的第一个点为坐标原点)
@@ -270,10 +490,21 @@ typedef void (^HandleBlock)(id);
     }
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if (gestureRecognizer.view == self.view) {
+        UIView *touchView = touch.view;
+        if ([touchView isDescendantOfView:self.ballView] ||
+            [touchView isDescendantOfView:self.reactView]) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@"touchesBegan ----");
 
-    [self testQMUI];
+//    [self testQMUI];
 }
 
 /**

@@ -51,6 +51,7 @@
 #import <SJBaseVideoPlayer/SJRotationManager.h>
 
 #import "ZWLaunchManage.h"
+#import "ZWAppIconManager.h"
 #import "KlyyLogUtils.h"
 
 /** 闪验appId  */
@@ -126,6 +127,7 @@
 
     /** 初始化个推SDK  */
     [[MMPushManager sharedInstance] startGTSDKOptions:launchOptions];
+    [[ZWAppIconManager sharedManager] startAutoCheck];
 
     return YES;
 }
@@ -250,6 +252,7 @@ void printMethodNamesOfClass(Class cls) {
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [ZWPrivacyPolicyManager applicationDidBecomeActive:application];
+    [[ZWAppIconManager sharedManager] checkAndApplyAutoIconIfNeeded];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

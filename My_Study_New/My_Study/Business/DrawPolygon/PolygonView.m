@@ -12,9 +12,11 @@
 
 @property (nonatomic, strong) NSMutableArray<NSValue *> *points;  // 存储多边形的定点
 @property (nonatomic, assign) BOOL isDraggingPoint;  // 标记是否正在拖动定点
+@property (nonatomic, assign) BOOL isDraggingPolygon;  // 标记是否正在拖动整个多边形
 @property (nonatomic, assign) NSInteger draggingPointIndex;  // 当前被拖动的定点索引
 @property (nonatomic, strong) UIPanGestureRecognizer *dragPointGesture;  // 定点拖动手势
-@property (nonatomic, strong) UIPanGestureRecognizer *dragPolygonGesture;  // 整体拖动手势
+@property (nonatomic, strong) UILongPressGestureRecognizer *dragPolygonGesture;  // 整体拖动手势
+@property (nonatomic, assign) CGPoint lastPolygonDragPoint;  // 上一次整体拖动触点
 
 @end
 
@@ -23,6 +25,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = UIColor.whiteColor;
+        self.opaque = YES;
         self.points = [NSMutableArray arrayWithObjects:
                        [NSValue valueWithCGPoint:CGPointMake(50, 50)],
                        [NSValue valueWithCGPoint:CGPointMake(150, 50)],
@@ -41,8 +45,10 @@
     self.dragPointGesture.delegate = self;
     [self addGestureRecognizer:self.dragPointGesture];
     
-    // 整体拖动手势
-    self.dragPolygonGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleDragPolygon:)];
+    // 长按多边形内部后，可以整体拖动
+    self.dragPolygonGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleDragPolygon:)];
+    self.dragPolygonGesture.minimumPressDuration = 0.35;
+    self.dragPolygonGesture.allowableMovement = CGFLOAT_MAX;
     self.dragPolygonGesture.delegate = self;
     [self addGestureRecognizer:self.dragPolygonGesture];
 }
@@ -66,7 +72,9 @@
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged && self.isDraggingPoint) {
         self.points[self.draggingPointIndex] = [NSValue valueWithCGPoint:touchPoint];
         [self setNeedsDisplay]; // 重绘视图
-    } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded ||
+               gestureRecognizer.state == UIGestureRecognizerStateCancelled ||
+               gestureRecognizer.state == UIGestureRecognizerStateFailed) {
         self.isDraggingPoint = NO;
         [self setNeedsDisplay]; // 手势结束时确保重绘
     }
@@ -74,27 +82,29 @@
 
 #pragma mark - 整体拖动手势处理
 
-- (void)handleDragPolygon:(UIPanGestureRecognizer *)gestureRecognizer {
-    CGPoint translation = [gestureRecognizer translationInView:self];
-    
-    if (![self isPointInsidePolygon:translation]) {
+- (void)handleDragPolygon:(UILongPressGestureRecognizer *)gestureRecognizer {
+    CGPoint touchPoint = [gestureRecognizer locationInView:self];
+
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        self.isDraggingPolygon = [self isPointInsidePolygon:touchPoint] && ![self isPointNearVertex:touchPoint];
+        self.lastPolygonDragPoint = touchPoint;
         return;
     }
-    if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        // 移动多边形的每个定点
-        for (int i = 0; i < self.points.count; i++) {
-            CGPoint point = [self.points[i] CGPointValue];
-            point.x += translation.x;
-            point.y += translation.y;
-            self.points[i] = [NSValue valueWithCGPoint:point];
-        }
-        
-//        [self setNeedsDisplay];
-        [gestureRecognizer setTranslation:CGPointZero inView:self];
-    }
-    
-    [self setNeedsDisplay];
 
+    if (gestureRecognizer.state == UIGestureRecognizerStateChanged && self.isDraggingPolygon) {
+        CGPoint offset = CGPointMake(touchPoint.x - self.lastPolygonDragPoint.x,
+                                     touchPoint.y - self.lastPolygonDragPoint.y);
+        [self movePolygonWithOffset:offset];
+        self.lastPolygonDragPoint = touchPoint;
+        [self setNeedsDisplay];
+        return;
+    }
+
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded ||
+        gestureRecognizer.state == UIGestureRecognizerStateCancelled ||
+        gestureRecognizer.state == UIGestureRecognizerStateFailed) {
+        self.isDraggingPolygon = NO;
+    }
 }
 
 #pragma mark - 判断触摸点是否在多边形内部
@@ -117,6 +127,30 @@
     return isInside;
 }
 
+- (BOOL)isPointNearVertex:(CGPoint)point {
+    for (NSValue *pointValue in self.points) {
+        CGPoint vertexPoint = [pointValue CGPointValue];
+        CGFloat distance = hypot(point.x - vertexPoint.x, point.y - vertexPoint.y);
+        if (distance < 20) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)movePolygonWithOffset:(CGPoint)offset {
+    if (CGPointEqualToPoint(offset, CGPointZero)) {
+        return;
+    }
+
+    for (NSInteger index = 0; index < self.points.count; index++) {
+        CGPoint point = [self.points[index] CGPointValue];
+        point.x += offset.x;
+        point.y += offset.y;
+        self.points[index] = [NSValue valueWithCGPoint:point];
+    }
+}
+
 
 
 
@@ -132,15 +166,7 @@
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if (gestureRecognizer == self.dragPolygonGesture) {
         CGPoint touchPoint = [gestureRecognizer locationInView:self];
-        for (int i = 0; i < self.points.count; i++) {
-            CGPoint point = [self.points[i] CGPointValue];
-            CGFloat distance = hypot(touchPoint.x - point.x, touchPoint.y - point.y);
-            
-            // 如果触摸点接近定点，整体拖动手势不触发
-            if (distance < 20) {
-                return NO;
-            }
-        }
+        return [self isPointInsidePolygon:touchPoint] && ![self isPointNearVertex:touchPoint];
     }
     return YES;
 }
@@ -148,8 +174,8 @@
 #pragma mark - 绘制多边形
 
 - (void)drawRect:(CGRect)rect {
-    // 清除之前的内容
-    [[UIColor clearColor] setFill];
+    // 用白色重绘背景，避免透明区域透出底层黑色。
+    [[UIColor whiteColor] setFill];
     UIRectFill(rect);
     
     if (self.points.count > 1) {

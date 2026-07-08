@@ -23,6 +23,8 @@
 }
 
 - (void)convertTextToSpeech:(NSString *)text {
+    [self stopSpeech];
+
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
 
     utterance.rate = 0.5;
@@ -35,9 +37,14 @@
     utterance.postUtteranceDelay = 1;
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
 
-    self.synthesizer = [[AVSpeechSynthesizer alloc] init];
     self.synthesizer.delegate = self;
     [self.synthesizer speakUtterance:utterance];
+}
+
+- (void)stopSpeech {
+    if (self.synthesizer.isSpeaking || self.synthesizer.isPaused) {
+        [self.synthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+    }
 }
 
 
@@ -49,6 +56,10 @@
         self.converComplete();
     }
     
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance {
+    NSLog(@"didCancelSpeechUtterance");
 }
 
 

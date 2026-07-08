@@ -27,12 +27,23 @@ API_AVAILABLE(ios(10.0))
 @property(nonatomic, strong) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
 @property(nonatomic, strong) SFSpeechRecognitionTask *recognitionTask;
 @property(nonatomic, strong) AVAudioEngine *audioEngine;
+@property(nonatomic, assign) BOOL isLeavingPage;
+@property(nonatomic, assign) BOOL hasInputTap;
 
 @end
 
 @implementation TextToSpeech
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.isLeavingPage = YES;
+    [_textToSpeechTools stopSpeech];
+    [self stopRecording];
+}
+
+- (void)dealloc {
+    self.isLeavingPage = YES;
+    [_textToSpeechTools stopSpeech];
     [self stopRecording];
 }
 
@@ -109,6 +120,7 @@ API_AVAILABLE(ios(10.0))
     if (!ValidString(self.textView.text)) {
         return;
     }
+    self.isLeavingPage = NO;
     [self setSpeakerOn];
 
     [self stopRecording];
@@ -122,6 +134,9 @@ API_AVAILABLE(ios(10.0))
 
 #pragma mark - 语音播放完成回调
 - (void)_handleConverComplete {
+    if (self.isLeavingPage) {
+        return;
+    }
     [self startRecording];
     
 }
@@ -178,14 +193,21 @@ API_AVAILABLE(ios(10.0))
     [inputNode installTapOnBus:0 bufferSize:1024 format:recordingFormat block:^(AVAudioPCMBuffer *buffer, AVAudioTime *when) {
         [self.recognitionRequest appendAudioPCMBuffer:buffer];
     }];
+    self.hasInputTap = YES;
 }
 
 #pragma mark - 暂停录制
 - (void)stopRecording {
     // 停止语音识别请求
     [self.audioEngine stop];
+    if (self.hasInputTap) {
+        [self.audioEngine.inputNode removeTapOnBus:0];
+        self.hasInputTap = NO;
+    }
     [self.recognitionRequest endAudio];
     [self.recognitionTask cancel];
+    self.recognitionRequest = nil;
+    self.recognitionTask = nil;
 }
 
 
