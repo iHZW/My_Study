@@ -18,7 +18,7 @@
 
 @interface LaunchViewController ()
 
-
+@property (nonatomic, assign) BOOL didSetMainViewController;
 
 @end
 
@@ -132,7 +132,14 @@
     NSString *adImageJPGPath = @"adImage1";//[[NSBundle mainBundle] pathForResource:@"adImage2" ofType:@"jpg"];
     NSString *adImageGifPath = [[NSBundle mainBundle] pathForResource:@"adImage3" ofType:@"gif"];
 //    adImageGifPath = [[NSBundle mainBundle] pathForResource:@"eqh_home" ofType:@"gif"];
+    __block BOOL didFinishLaunchAd = NO;
     DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0, DDScreenW, DDScreenH) aDduration:10.0 aDImageUrl:adImageGifPath hideSkipButton:NO launchAdClickBlock:^(NSInteger index) {
+        if (didFinishLaunchAd) {
+            return;
+        }
+        didFinishLaunchAd = YES;
+
+        NSURL *adURL = nil;
         switch (index) {
             case 0:
             {
@@ -142,7 +149,7 @@
             case 1:
             {
                 NSLog(@"[AppDelegate]:点了广告图片");
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+                adURL = [NSURL URLWithString:@"https://www.baidu.com"];
             }
                 break;
                 
@@ -153,7 +160,18 @@
         if (completeBlock) {
             completeBlock();
         }
+
+        if (adURL) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (@available(iOS 10.0, *)) {
+                    [[UIApplication sharedApplication] openURL:adURL options:@{} completionHandler:nil];
+                } else {
+                    [[UIApplication sharedApplication] openURL:adURL];
+                }
+            });
+        }
     }];
+    (void)launchAd;
 }
 
 - (void)loadComponent
@@ -178,11 +196,23 @@
 
 #pragma mark - 设置主控制器
 - (void)_setMainVc {
-    self.navigationBarHidden = YES;
-    ZWTabBarController *mainVC = [[ZWTabBarController alloc] init];
-    NSArray *viewControllers = @[mainVC];
-    [self setViewControllers:viewControllers];
-    [mainVC build];
+    if (self.didSetMainViewController) {
+        return;
+    }
+    self.didSetMainViewController = YES;
+
+    dispatch_block_t setMainBlock = ^{
+        [self setNavigationBarHidden:YES animated:NO];
+        ZWTabBarController *mainVC = [[ZWTabBarController alloc] init];
+        [self setViewControllers:@[mainVC] animated:NO];
+        [mainVC build];
+    };
+
+    if (NSThread.isMainThread) {
+        setMainBlock();
+    } else {
+        dispatch_async(dispatch_get_main_queue(), setMainBlock);
+    }
 }
 
 

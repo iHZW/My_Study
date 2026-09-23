@@ -9,15 +9,29 @@
 #import "NSString+Safe.h"
 #import "WMSafeProxy.h"
 
+static NSString *(*originalStringWithUTF8String)(id, SEL, const char *);
+static NSString *(*originalStringWithCString)(id, SEL, const char *, NSStringEncoding);
+
 @implementation NSString (Safe)
 
 + (void)load
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        /* 类方法不用在NSMutableString里再swizz一次 */
-        [NSString swizzleClassMethod:@selector(stringWithUTF8String:) withMethod:@selector(hookStringWithUTF8String:)];
-        [NSString swizzleClassMethod:@selector(stringWithCString:encoding:) withMethod:@selector(hookStringWithCString:encoding:)];
+        // 保存原始实现，避免类簇或其它方法交换让 hook 选择子再次指向自身。
+        Class metaClass = object_getClass([NSString class]);
+        Method utf8Method = class_getClassMethod([NSString class], @selector(stringWithUTF8String:));
+        Method utf8Hook = class_getClassMethod([NSString class], @selector(hookStringWithUTF8String:));
+        if (utf8Method && utf8Hook && method_getImplementation(utf8Method) != method_getImplementation(utf8Hook)) {
+            originalStringWithUTF8String = (NSString *(*)(id, SEL, const char *))method_getImplementation(utf8Method);
+            class_replaceMethod(metaClass, @selector(stringWithUTF8String:), method_getImplementation(utf8Hook), method_getTypeEncoding(utf8Method));
+        }
+        Method cStringMethod = class_getClassMethod([NSString class], @selector(stringWithCString:encoding:));
+        Method cStringHook = class_getClassMethod([NSString class], @selector(hookStringWithCString:encoding:));
+        if (cStringMethod && cStringHook && method_getImplementation(cStringMethod) != method_getImplementation(cStringHook)) {
+            originalStringWithCString = (NSString *(*)(id, SEL, const char *, NSStringEncoding))method_getImplementation(cStringMethod);
+            class_replaceMethod(metaClass, @selector(stringWithCString:encoding:), method_getImplementation(cStringHook), method_getTypeEncoding(cStringMethod));
+        }
         
         /* init方法 */
         swizzleInstanceMethod(NSClassFromString(@"NSPlaceholderString"), @selector(initWithString:), @selector(hookInitWithString:));
@@ -43,7 +57,7 @@
 + (NSString*) hookStringWithUTF8String:(const char *)nullTerminatedCString
 {
     if (NULL != nullTerminatedCString) {
-        return [self hookStringWithUTF8String:nullTerminatedCString];
+        return originalStringWithUTF8String(self, @selector(stringWithUTF8String:), nullTerminatedCString);
     }
     SFAssert(NO, @"NSString invalid args hookStringWithUTF8String nil cstring");
     return nil;
@@ -51,7 +65,7 @@
 + (nullable instancetype) hookStringWithCString:(const char *)cString encoding:(NSStringEncoding)enc
 {
     if (NULL != cString){
-        return [self hookStringWithCString:cString encoding:enc];
+        return originalStringWithCString(self, @selector(stringWithCString:encoding:), cString, enc);
     }
     SFAssert(NO, @"NSString invalid args hookStringWithCString nil cstring");
     return nil;

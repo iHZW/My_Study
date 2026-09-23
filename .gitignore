@@ -116,3 +116,6 @@ Index
 
 #CocoaPods
 !Podfile
+
+#serena
+.serena

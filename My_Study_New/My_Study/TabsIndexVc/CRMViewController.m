@@ -2,677 +2,392 @@
 //  CRMViewController.m
 //  My_Study
 //
-//  Created by Zhiwei Han on 2022/3/8.
-//  Copyright © 2022 HZW. All rights reserved.
+//  第四个 Tab 的发现内容页。
 //
 
 #import "CRMViewController.h"
-#import "WXApi.h"
-#import <QMUIKit/QMUIKit.h>
+#import "CRMFeedDetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
-#define kSize 100
+static UIColor *CRMColor(NSUInteger hex) {
+    return [UIColor colorWithRed:((hex >> 16) & 0xff) / 255.0
+                           green:((hex >> 8) & 0xff) / 255.0
+                            blue:(hex & 0xff) / 255.0 alpha:1];
+}
 
-typedef void (^HandleBlock)(id);
-
-@interface ZWRotatingBallView : UIView
-
-@property (nonatomic, assign) CGFloat rotationX;
-@property (nonatomic, assign) CGFloat rotationY;
-
-- (void)updateRotationX:(CGFloat)rotationX rotationY:(CGFloat)rotationY;
-
+@interface CRMFeedItem : NSObject
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *author;
+@property (nonatomic, copy) NSString *likes;
+@property (nonatomic, copy) NSString *tag;
+@property (nonatomic, strong) UIColor *startColor;
+@property (nonatomic, strong) UIColor *endColor;
+@property (nonatomic, assign) CGFloat imageRatio;
+@property (nonatomic, assign) BOOL video;
+- (NSDictionary *)detailInfo;
 @end
 
-@implementation ZWRotatingBallView
+@implementation CRMFeedItem
+
+- (NSDictionary *)detailInfo {
+    return @{
+        @"title": self.title ?: @"",
+        @"author": self.author ?: @"",
+        @"likes": self.likes ?: @"",
+        @"tag": self.tag ?: @"",
+        @"startColor": self.startColor ?: CRMColor(0x79D5FF),
+        @"endColor": self.endColor ?: CRMColor(0xFFC857),
+        @"video": @(self.video)
+    };
+}
+@end
+
+@class CRMFeedLayout;
+@protocol CRMFeedLayoutDelegate <NSObject>
+- (CGFloat)feedLayout:(CRMFeedLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth;
+@end
+
+@interface CRMFeedLayout : UICollectionViewLayout
+@property (nonatomic, weak) id<CRMFeedLayoutDelegate> delegate;
+@property (nonatomic, strong) NSArray<UICollectionViewLayoutAttributes *> *attributes;
+@property (nonatomic, assign) CGSize layoutContentSize;
+@end
+
+@implementation CRMFeedLayout
+
+- (void)prepareLayout {
+    [super prepareLayout];
+    CGFloat width = CGRectGetWidth(self.collectionView.bounds);
+    CGFloat inset = 10, spacing = 10;
+    CGFloat itemWidth = floor((width - 2 * inset - spacing) / 2);
+    CGFloat columnBottoms[2] = {inset, inset};
+    NSMutableArray *attributes = [NSMutableArray array];
+    NSInteger count = [self.collectionView numberOfItemsInSection:0];
+    for (NSInteger index = 0; index < count; index++) {
+        NSInteger column = columnBottoms[0] <= columnBottoms[1] ? 0 : 1;
+        NSIndexPath *path = [NSIndexPath indexPathForItem:index inSection:0];
+        CGFloat height = [self.delegate feedLayout:self heightForItemAtIndexPath:path itemWidth:itemWidth];
+        UICollectionViewLayoutAttributes *attribute = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
+        attribute.frame = CGRectMake(inset + column * (itemWidth + spacing), columnBottoms[column], itemWidth, height);
+        [attributes addObject:attribute];
+        columnBottoms[column] += height + spacing;
+    }
+    self.attributes = attributes;
+    self.layoutContentSize = CGSizeMake(width, MAX(columnBottoms[0], columnBottoms[1]) + inset);
+}
+
+- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSMutableArray *visible = [NSMutableArray array];
+    for (UICollectionViewLayoutAttributes *attribute in self.attributes) {
+        if (CGRectIntersectsRect(rect, attribute.frame)) [visible addObject:attribute];
+    }
+    return visible;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.item < self.attributes.count ? self.attributes[indexPath.item] : nil;
+}
+
+- (CGSize)collectionViewContentSize { return self.layoutContentSize; }
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return CGRectGetWidth(newBounds) != CGRectGetWidth(self.collectionView.bounds);
+}
+@end
+
+@interface CRMFeedCell : UICollectionViewCell
+@property (nonatomic, strong) UIView *cover;
+@property (nonatomic, strong) CAGradientLayer *gradient;
+@property (nonatomic, strong) UILabel *coverSymbol;
+@property (nonatomic, strong) UILabel *tagLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *authorLabel;
+@property (nonatomic, strong) UILabel *likesLabel;
+@property (nonatomic, assign) CGFloat imageRatio;
+- (void)configureWithItem:(CRMFeedItem *)item;
+@end
+
+@implementation CRMFeedCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    if (self) {
-        self.backgroundColor = UIColor.clearColor;
-        self.opaque = NO;
-        self.contentMode = UIViewContentModeRedraw;
-    }
+    if (!self) return nil;
+    self.contentView.backgroundColor = UIColor.whiteColor;
+    self.contentView.layer.cornerRadius = 13;
+    self.contentView.layer.masksToBounds = YES;
+    self.cover = [[UIView alloc] init];
+    self.cover.clipsToBounds = YES;
+    [self.contentView addSubview:self.cover];
+    self.gradient = [CAGradientLayer layer];
+    self.gradient.startPoint = CGPointMake(0, 0);
+    self.gradient.endPoint = CGPointMake(1, 1);
+    [self.cover.layer addSublayer:self.gradient];
+    self.coverSymbol = [[UILabel alloc] init];
+    self.coverSymbol.font = [UIFont systemFontOfSize:45 weight:UIFontWeightLight];
+    self.coverSymbol.textColor = [UIColor colorWithWhite:1 alpha:0.85];
+    self.coverSymbol.textAlignment = NSTextAlignmentCenter;
+    [self.cover addSubview:self.coverSymbol];
+    self.tagLabel = [[UILabel alloc] init];
+    self.tagLabel.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
+    self.tagLabel.textColor = UIColor.whiteColor;
+    self.tagLabel.backgroundColor = [UIColor colorWithWhite:0 alpha:0.20];
+    self.tagLabel.textAlignment = NSTextAlignmentCenter;
+    self.tagLabel.layer.cornerRadius = 9;
+    self.tagLabel.layer.masksToBounds = YES;
+    [self.cover addSubview:self.tagLabel];
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
+    self.titleLabel.textColor = CRMColor(0x303A3A);
+    [self.contentView addSubview:self.titleLabel];
+    self.authorLabel = [[UILabel alloc] init];
+    self.authorLabel.font = [UIFont systemFontOfSize:11];
+    self.authorLabel.textColor = CRMColor(0x999999);
+    [self.contentView addSubview:self.authorLabel];
+    self.likesLabel = [[UILabel alloc] init];
+    self.likesLabel.font = [UIFont systemFontOfSize:11];
+    self.likesLabel.textColor = CRMColor(0x999999);
+    self.likesLabel.textAlignment = NSTextAlignmentRight;
+    [self.contentView addSubview:self.likesLabel];
     return self;
 }
 
-- (void)updateRotationX:(CGFloat)rotationX rotationY:(CGFloat)rotationY {
-    self.rotationX = rotationX;
-    self.rotationY = rotationY;
-    [self setNeedsDisplay];
+- (void)configureWithItem:(CRMFeedItem *)item {
+    self.imageRatio = item.imageRatio;
+    self.gradient.colors = @[(__bridge id)item.startColor.CGColor, (__bridge id)item.endColor.CGColor];
+    self.coverSymbol.text = item.video ? @"▷" : @"✦";
+    self.tagLabel.text = [NSString stringWithFormat:@" %@ ", item.tag];
+    self.titleLabel.text = item.title;
+    self.authorLabel.text = item.author;
+    self.likesLabel.text = [NSString stringWithFormat:@"♡ %@", item.likes];
+    [self setNeedsLayout];
 }
 
-- (void)drawRect:(CGRect)rect {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    if (!context) {
-        return;
-    }
-
-    CGFloat radius = MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) * 0.5 - 4;
-    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    CGRect ballRect = CGRectMake(center.x - radius, center.y - radius, radius * 2, radius * 2);
-
-    CGContextSaveGState(context);
-    UIBezierPath *clipPath = [UIBezierPath bezierPathWithOvalInRect:ballRect];
-    [clipPath addClip];
-
-    [self drawBaseSphereInContext:context center:center radius:radius];
-    [self drawSurfaceMarksInContext:context center:center radius:radius];
-    [self drawGridInContext:context center:center radius:radius];
-    [self drawSphereShadingInContext:context center:center radius:radius];
-
-    CGContextRestoreGState(context);
-
-    [[UIColor colorWithWhite:1 alpha:0.55] setStroke];
-    clipPath.lineWidth = 1.5;
-    [clipPath stroke];
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGFloat width = CGRectGetWidth(self.contentView.bounds);
+    CGFloat coverHeight = floor(width * MAX(0.72, self.imageRatio));
+    self.cover.frame = CGRectMake(0, 0, width, coverHeight);
+    self.gradient.frame = self.cover.bounds;
+    self.coverSymbol.frame = self.cover.bounds;
+    self.tagLabel.frame = CGRectMake(8, 8, MIN(width - 16, 65), 19);
+    self.titleLabel.frame = CGRectMake(8, coverHeight + 7, width - 16, 39);
+    self.authorLabel.frame = CGRectMake(8, CGRectGetHeight(self.contentView.bounds) - 25, width * 0.56, 17);
+    self.likesLabel.frame = CGRectMake(width * 0.55, CGRectGetMinY(self.authorLabel.frame), width * 0.40, 17);
 }
-
-- (void)drawBaseSphereInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    NSArray *colors = @[
-        (__bridge id)[UIColor colorWithRed:0.20 green:0.78 blue:1.00 alpha:1].CGColor,
-        (__bridge id)[UIColor colorWithRed:0.05 green:0.24 blue:0.68 alpha:1].CGColor,
-        (__bridge id)[UIColor colorWithRed:0.02 green:0.08 blue:0.25 alpha:1].CGColor
-    ];
-    CGFloat locations[] = {0, 0.62, 1};
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
-    CGPoint lightCenter = CGPointMake(center.x - radius * 0.32, center.y - radius * 0.42);
-    CGContextDrawRadialGradient(context, gradient, lightCenter, radius * 0.08, center, radius * 1.15, 0);
-    CGGradientRelease(gradient);
-    CGColorSpaceRelease(colorSpace);
-}
-
-- (void)drawGridInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
-    [[UIColor colorWithWhite:1 alpha:0.32] setStroke];
-
-    for (NSInteger index = -2; index <= 2; index++) {
-        CGFloat latitude = index * M_PI / 8.0;
-        [self drawLatitude:latitude context:context center:center radius:radius];
-    }
-
-    for (NSInteger index = 0; index < 12; index++) {
-        CGFloat longitude = index * M_PI / 6.0;
-        [self drawLongitude:longitude context:context center:center radius:radius];
-    }
-}
-
-- (void)drawLatitude:(CGFloat)latitude context:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    path.lineWidth = 0.8;
-
-    BOOL drawing = NO;
-    for (NSInteger index = 0; index <= 144; index++) {
-        CGFloat longitude = -M_PI + 2 * M_PI * index / 144.0;
-        CGFloat z = 0;
-        CGPoint point = [self projectLatitude:latitude longitude:longitude center:center radius:radius z:&z];
-        if (z > -radius * 0.05) {
-            if (!drawing) {
-                [path moveToPoint:point];
-                drawing = YES;
-            } else {
-                [path addLineToPoint:point];
-            }
-        } else {
-            drawing = NO;
-        }
-    }
-    [path stroke];
-}
-
-- (void)drawLongitude:(CGFloat)longitude context:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    path.lineWidth = 0.8;
-
-    BOOL drawing = NO;
-    for (NSInteger index = 0; index <= 96; index++) {
-        CGFloat latitude = -M_PI_2 + M_PI * index / 96.0;
-        CGFloat z = 0;
-        CGPoint point = [self projectLatitude:latitude longitude:longitude center:center radius:radius z:&z];
-        if (z > -radius * 0.05) {
-            if (!drawing) {
-                [path moveToPoint:point];
-                drawing = YES;
-            } else {
-                [path addLineToPoint:point];
-            }
-        } else {
-            drawing = NO;
-        }
-    }
-    [path stroke];
-}
-
-- (void)drawSurfaceMarksInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
-    NSArray<NSDictionary *> *marks = @[
-        @{@"lat": @(-0.32), @"lon": @(-0.65), @"size": @(22), @"color": [UIColor colorWithRed:0.06 green:0.83 blue:0.68 alpha:0.95]},
-        @{@"lat": @(0.18), @"lon": @(0.18), @"size": @(18), @"color": [UIColor colorWithRed:1.00 green:0.65 blue:0.15 alpha:0.95]},
-        @{@"lat": @(0.48), @"lon": @(0.88), @"size": @(16), @"color": [UIColor colorWithRed:0.96 green:0.22 blue:0.42 alpha:0.95]},
-        @{@"lat": @(-0.06), @"lon": @(1.55), @"size": @(14), @"color": [UIColor colorWithRed:0.58 green:0.36 blue:1.00 alpha:0.95]}
-    ];
-
-    for (NSDictionary *mark in marks) {
-        CGFloat z = 0;
-        CGPoint point = [self projectLatitude:[mark[@"lat"] doubleValue]
-                                    longitude:[mark[@"lon"] doubleValue]
-                                       center:center
-                                       radius:radius
-                                            z:&z];
-        if (z <= -radius * 0.1) {
-            continue;
-        }
-
-        CGFloat frontRatio = MAX(0.25, (z / radius + 1) * 0.5);
-        CGFloat size = [mark[@"size"] doubleValue] * frontRatio;
-        UIColor *color = mark[@"color"];
-        [color setFill];
-        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(point.x - size, point.y - size * 0.65, size * 2, size * 1.3)];
-        [path fill];
-    }
-}
-
-- (void)drawSphereShadingInContext:(CGContextRef)context center:(CGPoint)center radius:(CGFloat)radius {
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    NSArray *shadowColors = @[
-        (__bridge id)[UIColor colorWithWhite:0 alpha:0].CGColor,
-        (__bridge id)[UIColor colorWithWhite:0 alpha:0.45].CGColor
-    ];
-    CGFloat shadowLocations[] = {0.45, 1};
-    CGGradientRef shadowGradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)shadowColors, shadowLocations);
-    CGContextDrawRadialGradient(context, shadowGradient, CGPointMake(center.x - radius * 0.25, center.y - radius * 0.35), radius * 0.1, center, radius, 0);
-    CGGradientRelease(shadowGradient);
-
-    [[UIColor colorWithWhite:1 alpha:0.42] setFill];
-    UIBezierPath *highlight = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(center.x - radius * 0.48, center.y - radius * 0.56, radius * 0.48, radius * 0.24)];
-    [highlight fill];
-
-    CGColorSpaceRelease(colorSpace);
-}
-
-- (CGPoint)projectLatitude:(CGFloat)latitude
-                 longitude:(CGFloat)longitude
-                    center:(CGPoint)center
-                    radius:(CGFloat)radius
-                         z:(CGFloat *)zValue {
-    CGFloat cosLatitude = cos(latitude);
-    CGFloat x = radius * cosLatitude * sin(longitude);
-    CGFloat y = radius * sin(latitude);
-    CGFloat z = radius * cosLatitude * cos(longitude);
-
-    CGFloat cosY = cos(self.rotationY);
-    CGFloat sinY = sin(self.rotationY);
-    CGFloat rotatedX = x * cosY + z * sinY;
-    CGFloat rotatedZ = -x * sinY + z * cosY;
-
-    CGFloat cosX = cos(self.rotationX);
-    CGFloat sinX = sin(self.rotationX);
-    CGFloat rotatedY = y * cosX - rotatedZ * sinX;
-    CGFloat finalZ = y * sinX + rotatedZ * cosX;
-
-    if (zValue) {
-        *zValue = finalZ;
-    }
-    return CGPointMake(center.x + rotatedX, center.y - rotatedY);
-}
-
 @end
 
-@interface CRMViewController () <UIGestureRecognizerDelegate>
-
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
-
-@property (nonatomic, copy) NSString *reportInfo;
-
-@property (nonatomic, copy) HandleBlock handler;
-
-@property (nonatomic, assign) BOOL cancelled;
-
-@property (nonatomic, strong) UIView *ballView;
-
-@property (nonatomic, assign) CGPoint ballRotation;
-
-@property (nonatomic, strong) NSTimer *timer;
-
-@property (nonatomic, assign) CGFloat scale;
-
-@property (nonatomic, assign) CGFloat height;
-
-@property (nonatomic, assign) CGFloat heightTag;
-
-/**底部容器*/
-@property (nonatomic, strong) CATransformLayer *contentLayer;
-/** 底部立方体容器 */
-@property (nonatomic, strong) UIView *cubeView;
-/**上面*/
-@property (nonatomic, strong) CALayer *topLayer;
-/**下面*/
-@property (nonatomic, strong) CALayer *bottomLayer;
-/**左面*/
-@property (nonatomic, strong) CALayer *leftLayer;
-/**右面*/
-@property (nonatomic, strong) CALayer *rightLayer;
-/**前面*/
-@property (nonatomic, strong) CALayer *frontLayer;
-/**后面*/
-@property (nonatomic, strong) CALayer *backLayer;
-/**底部容器*/
-@property (nonatomic, strong) CATransformLayer *imageContentLayer;
-
-@property (nonatomic, assign) CGPoint endPoint;
-
-@property (nonatomic, assign) CGPoint cubePoint;
-
-@property (nonatomic, strong) UIImageView *iconImage;
-
-// 绘制正方体
-@property (nonatomic, strong) UIView *reactView;
-@property (nonatomic, strong) CATransformLayer *reactContentLayer;
-@property (nonatomic, assign) CGPoint reactPoint;
-
+@interface CRMViewController () <UICollectionViewDataSource, UICollectionViewDelegate, CRMFeedLayoutDelegate>
+@property (nonatomic, strong) UIView *topBar;
+@property (nonatomic, strong) UIScrollView *mainTabScrollView;
+@property (nonatomic, strong) UIScrollView *subTabScrollView;
+@property (nonatomic, strong) UIView *mainIndicatorView;
+@property (nonatomic, strong) UIView *subIndicatorView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray<UIButton *> *mainTabButtons;
+@property (nonatomic, strong) NSArray<UIButton *> *subTabButtons;
+@property (nonatomic, strong) NSArray<CRMFeedItem *> *feedItems;
+@property (nonatomic, assign) NSInteger selectedMainIndex;
+@property (nonatomic, assign) NSInteger selectedSubIndex;
 @end
 
 @implementation CRMViewController
 
++ (NSDictionary *)ss_constantParams {
+    return @{@"hideNavigationBar": @(YES)};
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.title = @"CRM";
-    //    self.view.backgroundColor = [UIColor cyanColor];
-
-    self.scale     = 0;
-    self.height    = 100;
-    self.semaphore = dispatch_semaphore_create(1);
-
-    /** 加载球类运动  */
-    [self loadBallView];
-
-    [self loadSubViews];
-
-    /** 绘制正方体  */
-    [self createReact];
-    [self.view bringSubviewToFront:self.ballView];
-
-    //    [self loadTime];
-
-    //    [self loadIconImage];
+    self.view.backgroundColor = CRMColor(0xF6F6F6);
+    self.selectedMainIndex = 1;
+    self.selectedSubIndex = 0;
+    [self setupViews];
+    [self buildFeedData];
+    [self updateTabsAnimated:NO];
 }
 
-- (void)loadBallView {
-    ZWRotatingBallView *ballView = [[ZWRotatingBallView alloc] initWithFrame:CGRectMake(100, 110, 130, 130)];
-    [ballView updateRotationX:-0.25 rotationY:0.45];
-    self.ballRotation = CGPointMake(0.45, -0.25);
-    ballView.layer.shadowColor = UIColor.blackColor.CGColor;
-    ballView.layer.shadowOpacity = 0.18;
-    ballView.layer.shadowRadius = 10;
-    ballView.layer.shadowOffset = CGSizeMake(0, 8);
-    self.ballView = ballView;
-    [self.view addSubview:self.ballView];
-
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-    pan.objectTag = @"ball";
-    [self.ballView addGestureRecognizer:pan];
-
-    [self.view bringSubviewToFront:self.ballView];
-}
-
-- (void)createReact {
-    self.reactView = [[UIView alloc] initWithFrame:CGRectMake(100, 300, 100, 100)];
-    [self.view addSubview:self.reactView];
-
-    // 创建CATransformLayer对象
-    self.reactContentLayer       = [CATransformLayer layer];
-    self.reactContentLayer.frame = self.reactView.layer.bounds;
-    [self.reactView.layer addSublayer:self.reactContentLayer];
-
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-    pan.objectTag               = @"3";
-    [self.reactView addGestureRecognizer:pan];
-
-    // 前
-    [self createLayerX:0 y:0 z:kSize / 2 transform:CATransform3DIdentity];
-    // 后
-    [self createLayerX:0 y:0 z:-kSize / 2 transform:CATransform3DIdentity];
-    // 左
-    [self createLayerX:-kSize / 2 y:0 z:0 transform:CATransform3DMakeRotation(M_PI_2, 0, 1, 0)];
-    // 右
-    [self createLayerX:kSize / 2 y:0 z:0 transform:CATransform3DMakeRotation(M_PI_2, 0, 1, 0)];
-    // 上
-    [self createLayerX:0 y:-kSize / 2 z:0 transform:CATransform3DMakeRotation(M_PI_2, 1, 0, 0)];
-    // 下
-    [self createLayerX:0 y:kSize / 2 z:0 transform:CATransform3DMakeRotation(M_PI_2, 1, 0, 0)];
-}
-
-- (void)createLayerX:(CGFloat)x
-                   y:(CGFloat)y
-                   z:(CGFloat)z
-           transform:(CATransform3D)transform {
-    CALayer *layer        = [CALayer layer];
-    layer.backgroundColor = [[self class] randomColor].CGColor;
-    layer.bounds          = CGRectMake(0, 0, 100, 100);
-    layer.position        = CGPointMake(x, y);
-    layer.zPosition       = z;
-    layer.transform       = transform;
-    [self.reactContentLayer addSublayer:layer];
-}
-
-- (void)loadIconImage {
-    self.iconImage                        = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_ball_001"]];
-    self.iconImage.frame                  = CGRectMake(100, 300, 100, 100);
-    self.iconImage.userInteractionEnabled = YES;
-    [self.view addSubview:self.iconImage];
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleIconTap:)];
-    [self.iconImage addGestureRecognizer:tap];
-}
-
-- (void)handleIconTap:(UIGestureRecognizer *)sender {
-    //    [UIView animateWithDuration:1.0 animations:^{
-    //        self.iconImage.layer.transform = CATransform3DMakeRotation(M_PI_2, 1, 0, 0);
-    //    } completion:^(BOOL finished) {
-    //        [UIView animateWithDuration:1.0 animations:^{
-    //            self.iconImage.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
-    //        }];
-    //    }];
-}
-
-- (void)loadTime {
-    @pas_weakify_self
-        self.timer = [[NSTimer alloc] initWithFireDate:[NSDate distantPast]
-                                              interval:1
-                                               repeats:YES
-                                                 block:^(NSTimer *_Nonnull timer) {
-                                                     @pas_strongify_self
-                                                         self.scale -= 1;
-                                                     self.height -= 10;
-                                                     self.heightTag = 50 - self.height;
-                                                     if (self.scale <= -40000) {
-                                                         self.scale  = 0;
-                                                         self.height = 100;
-                                                     }
-                                                     [self update];
-                                                 }];
-    [NSRunLoop.mainRunLoop addTimer:self.timer forMode:NSRunLoopCommonModes];
-}
-
-- (void)loadSubViews {
-    self.cubeView = [[UIView alloc] initWithFrame:CGRectMake(150, 430, 180, 180)];
-    [self.view addSubview:self.cubeView];
-
-    // 创建CATransformLayer对象
-    CATransformLayer *contentLayer = [CATransformLayer layer];
-    contentLayer.frame             = self.cubeView.layer.bounds;
-    CGSize size                    = contentLayer.bounds.size;
-    contentLayer.transform         = CATransform3DMakeTranslation(size.width / 2, size.height / 2, 0);
-    self.contentLayer              = contentLayer;
-    [self.cubeView.layer addSublayer:contentLayer];
-
-    CATransform3D perspective = CATransform3DIdentity;
-    perspective.m34 = -1.0 / 500.0;
-    self.cubeView.layer.sublayerTransform = perspective;
-
-    // 初始化六个图层
-    // 顶部与底部的沿着x轴旋转90度
-    self.topLayer = [self layerAtX:0 y:-kSize / 2 z:0 color:[UIColor redColor] transform:CATransform3DMakeRotation(M_PI_2, 1, 0, 0)];
-
-    self.bottomLayer = [self layerAtX:0 y:kSize / 2 z:0 color:[UIColor greenColor] transform:CATransform3DMakeRotation(M_PI_2, 1, 0, 0)];
-    // 左边与右边的沿着y轴旋转90度
-    self.leftLayer = [self layerAtX:-kSize / 2 y:0 z:0 color:[UIColor blueColor] transform:CATransform3DMakeRotation(M_PI_2, 0, 1, 0)];
-
-    self.rightLayer = [self layerAtX:kSize / 2 y:0 z:0 color:[UIColor blackColor] transform:CATransform3DMakeRotation(M_PI_2, 0, 1, 0)];
-
-    // 前面与后面的不需要变化,所以使用CATransform3DIdentity
-    self.frontLayer = [self layerAtX:0 y:0 z:kSize / 2 color:[UIColor brownColor] transform:CATransform3DIdentity];
-
-    self.backLayer = [self layerAtX:0 y:0 z:-kSize / 2 color:[UIColor brownColor] transform:CATransform3DIdentity];
-
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-    pan.objectTag               = @"2";
-    [self.cubeView addGestureRecognizer:pan];
-}
-
-- (void)pan:(UIPanGestureRecognizer *)recognizer {
-    NSString *objectTag = recognizer.objectTag;
-
-    if ([objectTag isEqualToString:@"2"]) {
-        // 获取到的是手指移动后，在相对坐标中的偏移量(以手指接触屏幕的第一个点为坐标原点)
-        CGPoint translation = [recognizer translationInView:self.cubeView];
-        translation.x += self.cubePoint.x;
-        translation.y += self.cubePoint.y;
-
-        CATransform3D transform = CATransform3DIdentity;
-        transform.m34 = -1.0 / 500.0;
-        transform = CATransform3DRotate(transform, translation.x * 0.01, 0, 1, 0);
-        transform = CATransform3DRotate(transform, translation.y * 0.01, 1, 0, 0);
-        self.cubeView.layer.sublayerTransform = transform;
-
-        if (recognizer.state == UIGestureRecognizerStateEnded ||
-            recognizer.state == UIGestureRecognizerStateCancelled ||
-            recognizer.state == UIGestureRecognizerStateFailed) {
-            self.cubePoint = translation;
-        }
-    } else if ([objectTag isEqualToString:@"3"]) {
-        CGPoint translation = [recognizer translationInView:self.view];
-        translation.x += self.reactPoint.x;
-        translation.y += self.reactPoint.y;
-        CATransform3D transform                = CATransform3DIdentity;
-        transform                              = CATransform3DRotate(transform, translation.x * 0.01, 0, 1, 0);
-        transform                              = CATransform3DRotate(transform, translation.y * -0.01, 1, 0, 0);
-        self.reactView.layer.sublayerTransform = transform;
-        if (recognizer.state == UIGestureRecognizerStateEnded) {
-            self.reactPoint = translation;
-        }
-    } else if ([objectTag isEqualToString:@"ball"]) {
-        CGPoint translation = [recognizer translationInView:self.ballView];
-        CGFloat rotateY = self.ballRotation.x + translation.x * 0.01;
-        CGFloat rotateX = self.ballRotation.y + translation.y * 0.01;
-
-        ZWRotatingBallView *ballView = (ZWRotatingBallView *)self.ballView;
-        [ballView updateRotationX:rotateX rotationY:rotateY];
-
-        if (recognizer.state == UIGestureRecognizerStateEnded ||
-            recognizer.state == UIGestureRecognizerStateCancelled ||
-            recognizer.state == UIGestureRecognizerStateFailed) {
-            self.ballRotation = CGPointMake(rotateY, rotateX);
-        }
-    } else {
-        // 获取到的是手指移动后，在相对坐标中的偏移量(以手指接触屏幕的第一个点为坐标原点)
-
-        CGPoint translation = [recognizer translationInView:self.ballView];
-        translation.x += self.endPoint.x;
-        translation.y += self.endPoint.y;
-        CATransform3D transform               = CATransform3DIdentity;
-        transform                             = CATransform3DRotate(transform, translation.x * 1 / 100, 0, 1, 0);
-        transform                             = CATransform3DRotate(transform, translation.y * -1 / 100, 1, 0, 0);
-        self.ballView.layer.sublayerTransform = transform;
-
-        if (recognizer.state == UIGestureRecognizerStateEnded) {
-            self.endPoint = translation;
-        }
+- (void)setupViews {
+    self.topBar = [[UIView alloc] init];
+    self.topBar.backgroundColor = UIColor.whiteColor;
+    [self.view addSubview:self.topBar];
+    self.mainTabScrollView = [[UIScrollView alloc] init];
+    self.mainTabScrollView.showsHorizontalScrollIndicator = NO;
+    [self.topBar addSubview:self.mainTabScrollView];
+    UIButton *messageButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    messageButton.tag = 100;
+    messageButton.titleLabel.font = [UIFont systemFontOfSize:28 weight:UIFontWeightLight];
+    [messageButton setTitle:@"○" forState:UIControlStateNormal];
+    [messageButton setTitleColor:CRMColor(0x333333) forState:UIControlStateNormal];
+    [self.topBar addSubview:messageButton];
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    searchButton.tag = 101;
+    searchButton.titleLabel.font = [UIFont systemFontOfSize:28 weight:UIFontWeightLight];
+    [searchButton setTitle:@"⌕" forState:UIControlStateNormal];
+    [searchButton setTitleColor:CRMColor(0x333333) forState:UIControlStateNormal];
+    [self.topBar addSubview:searchButton];
+    NSArray *mainTitles = @[@"关注", @"发现", @"世界杯", @"宁波"];
+    NSMutableArray *mainButtons = [NSMutableArray array];
+    for (NSInteger index = 0; index < mainTitles.count; index++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.tag = index;
+        button.titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightSemibold];
+        [button setTitle:mainTitles[index] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(mainTabAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.mainTabScrollView addSubview:button];
+        [mainButtons addObject:button];
     }
-}
+    self.mainTabButtons = mainButtons;
+    self.mainIndicatorView = [[UIView alloc] init];
+    self.mainIndicatorView.backgroundColor = CRMColor(0xFF3850);
+    self.mainIndicatorView.layer.cornerRadius = 2;
+    [self.mainTabScrollView addSubview:self.mainIndicatorView];
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if (gestureRecognizer.view == self.view) {
-        UIView *touchView = touch.view;
-        if ([touchView isDescendantOfView:self.ballView] ||
-            [touchView isDescendantOfView:self.reactView]) {
-            return NO;
-        }
+    self.subTabScrollView = [[UIScrollView alloc] init];
+    self.subTabScrollView.backgroundColor = UIColor.whiteColor;
+    self.subTabScrollView.showsHorizontalScrollIndicator = NO;
+    [self.view addSubview:self.subTabScrollView];
+    NSArray *subTitles = @[@"推荐", @"RED", @"直播", @"短剧", @"美食", @"穿搭", @"壁纸", @"旅行", @"科技"];
+    NSMutableArray *subButtons = [NSMutableArray array];
+    for (NSInteger index = 0; index < subTitles.count; index++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.tag = index;
+        button.titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightMedium];
+        [button setTitle:subTitles[index] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(subTabAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.subTabScrollView addSubview:button];
+        [subButtons addObject:button];
     }
-    return YES;
+    self.subTabButtons = subButtons;
+    self.subIndicatorView = [[UIView alloc] init];
+    self.subIndicatorView.backgroundColor = CRMColor(0xFF3850);
+    self.subIndicatorView.layer.cornerRadius = 1.5;
+    [self.subTabScrollView addSubview:self.subIndicatorView];
+
+    CRMFeedLayout *layout = [[CRMFeedLayout alloc] init];
+    layout.delegate = self;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    self.collectionView.backgroundColor = CRMColor(0xF6F6F6);
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    [self.collectionView registerClass:[CRMFeedCell class] forCellWithReuseIdentifier:@"CRMFeedCell"];
+    [self.view addSubview:self.collectionView];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touchesBegan ----");
-
-//    [self testQMUI];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    CGFloat topInset = self.view.safeAreaInsets.top;
+    self.topBar.frame = CGRectMake(0, topInset, width, 56);
+    [self.topBar viewWithTag:100].frame = CGRectMake(14, 6, 44, 44);
+    [self.topBar viewWithTag:101].frame = CGRectMake(width - 58, 6, 44, 44);
+    self.mainTabScrollView.frame = CGRectMake(66, 0, width - 124, 56);
+    CGFloat x = 4;
+    for (UIButton *button in self.mainTabButtons) {
+        CGFloat buttonWidth = MAX(68, [button.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}].width + 24);
+        button.frame = CGRectMake(x, 0, buttonWidth, 52);
+        x += buttonWidth + 4;
+    }
+    self.mainTabScrollView.contentSize = CGSizeMake(MAX(width - 124, x), 56);
+    self.subTabScrollView.frame = CGRectMake(0, CGRectGetMaxY(self.topBar.frame), width, 44);
+    x = 12;
+    for (UIButton *button in self.subTabButtons) {
+        CGFloat buttonWidth = MAX(56, [button.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}].width + 22);
+        button.frame = CGRectMake(x, 0, buttonWidth, 41);
+        x += buttonWidth + 2;
+    }
+    self.subTabScrollView.contentSize = CGSizeMake(x + 12, 44);
+    self.collectionView.frame = CGRectMake(0, CGRectGetMaxY(self.subTabScrollView.frame), width, CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(self.subTabScrollView.frame));
+    [self updateIndicatorsAnimated:NO];
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 
-/**
- * 分享文件
- */
-- (void)shareFile {
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title           = @"App消息";
-    message.description     = @"这种消息只有App自己才能理解，由App指定打开方式！";
-    [message setThumbImage:[UIImage imageNamed:@"res2.jpg"]];
-
-    WXAppExtendObject *ext = [WXAppExtendObject object];
-    ext.extInfo            = @"<xml>extend info</xml>";
-    ext.url                = @"http://www.qq.com";
-
-    //      Byte* pBuffer = (Byte *)malloc(BUFFER_SIZE);
-    //      memset(pBuffer, 0, BUFFER_SIZE);
-    //      NSData* data = [NSData dataWithBytes:pBuffer length:BUFFER_SIZE];
-    //      free(pBuffer);
-
-    ext.fileData        = [NSData data];
-    message.mediaObject = ext;
-
-    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
-    req.bText               = NO;
-    req.message             = message;
-    req.scene               = WXSceneSession;
-
-    [WXApi sendReq:req
-        completion:^(BOOL success){
-
-        }];
+- (void)mainTabAction:(UIButton *)sender {
+    if (self.selectedMainIndex == sender.tag) return;
+    self.selectedMainIndex = sender.tag;
+    self.selectedSubIndex = 0;
+    [self updateTabsAnimated:YES];
+    [self buildFeedData];
 }
 
-- (void)update {
-    CATransform3D trans3d = {
-        0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0};
-
-    CATransform3D transform = CATransform3DIdentity;
-    transform               = CATransform3DRotate(transform, self.scale, 0, 1, 0);
-    //    transform = CATransform3DRotate(transform, self.scale * 1 / 100, 1, 0, 0);
-    //    transform = CATransform3DRotate(transform, self.scale * 1 / 100, 0, 0, 1);
-
-    //    self.view.layer.sublayerTransform = transform;
-    //    self.ballView.layer.sublayerTransform = transform;
-
-    self.ballView.layer.sublayerTransform = transform;
+- (void)subTabAction:(UIButton *)sender {
+    if (self.selectedSubIndex == sender.tag) return;
+    self.selectedSubIndex = sender.tag;
+    [self updateTabsAnimated:YES];
+    [self buildFeedData];
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
-    UIView *view               = [[UIView alloc] init];
-    view.layer.shouldRasterize = YES;
-    return NO;
+- (void)updateTabsAnimated:(BOOL)animated {
+    [self.mainTabButtons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger index, BOOL *stop) {
+        BOOL selected = index == self.selectedMainIndex;
+        button.titleLabel.font = [UIFont systemFontOfSize:selected ? 20 : 18 weight:selected ? UIFontWeightBold : UIFontWeightMedium];
+        [button setTitleColor:selected ? CRMColor(0x292929) : CRMColor(0x999999) forState:UIControlStateNormal];
+    }];
+    [self.subTabButtons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger index, BOOL *stop) {
+        BOOL selected = index == self.selectedSubIndex;
+        [button setTitleColor:selected ? CRMColor(0x292929) : CRMColor(0x999999) forState:UIControlStateNormal];
+    }];
+    [self updateIndicatorsAnimated:animated];
 }
 
-// Ping主线程
-//- (void)main {
-//    //判断是否需要上报
-//   __weak typeof(self) weakSelf = self;
-//    void (^ verifyReport)(void) = ^() {
-//        __strong typeof(weakSelf) strongSelf = weakSelf;
-//        if (strongSelf.reportInfo.length > 0) {
-//            if (strongSelf.handler) {
-//                double responseTimeValue = floor([[NSDate date] timeIntervalSince1970] * 1000);
-//                double duration = responseTimeValue - strongSelf.startTimeValue;
-//                if (DEBUG) {
-//                    NSLog(@"卡了%f,堆栈为--%@", duration, strongSelf.reportInfo);
-//                }
-//                strongSelf.handler(@{
-//                 @"title": @"",
-//                 @"duration": [NSString stringWithFormat:@"%.2f",duration],
-//                 @"content": strongSelf.reportInfo
-//                });
-//            }
-//            strongSelf.reportInfo = @"";
-//        }
-//    };
-//
-//     while (!self.cancelled) {
-//         if (_isApplicationInActive) {
-//             self.mainThreadBlock = YES;
-//             self.reportInfo = @"";
-//             self.startTimeValue = floor([[NSDate date] timeIntervalSince1970] * 1000);
-//             dispatch_async(dispatch_get_main_queue(), ^{
-//                 self.mainThreadBlock = NO;
-//                 dispatch_semaphore_signal(self.semaphore);
-//             });
-//             [NSThread sleepForTimeInterval:(self.threshold/1000)];
-//             if (self.isMainThreadBlock) {
-//                 self.reportInfo = [InsectBacktraceLogger insect_backtraceOfMainThread];
-//             }
-//             dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
-//             //卡顿超时情况;
-//             verifyReport();
-//         } else {
-//             [NSThread sleepForTimeInterval:(self.threshold/1000)];
-//         }
-//     }
-// }
-
-- (CALayer *)layerAtX:(CGFloat)x
-                    y:(CGFloat)y
-                    z:(CGFloat)z
-                color:(UIColor *)color
-            transform:(CATransform3D)transform {
-    CALayer *layer        = [CALayer layer];
-    layer.backgroundColor = color.CGColor;
-    layer.bounds          = CGRectMake(0, 0, 100, 100);
-    layer.position        = CGPointMake(x, y);
-    layer.zPosition       = z;
-    layer.transform       = transform;
-    [self.contentLayer addSublayer:layer];
-    return layer;
+- (void)updateIndicatorsAnimated:(BOOL)animated {
+    UIButton *main = self.mainTabButtons[self.selectedMainIndex];
+    UIButton *sub = self.subTabButtons[self.selectedSubIndex];
+    void (^changes)(void) = ^{
+        self.mainIndicatorView.frame = CGRectMake(CGRectGetMidX(main.frame) - 15, 52, 30, 4);
+        self.subIndicatorView.frame = CGRectMake(CGRectGetMidX(sub.frame) - 14, 41, 28, 3);
+    };
+    if (animated) [UIView animateWithDuration:0.22 animations:changes];
+    else changes();
+    [self.mainTabScrollView scrollRectToVisible:CGRectInset(main.frame, -20, 0) animated:animated];
+    [self.subTabScrollView scrollRectToVisible:CGRectInset(sub.frame, -20, 0) animated:animated];
 }
 
-- (void)createCircleCenter:(CGPoint)center
-                    radius:(CGFloat)radius
-                         z:(CGFloat)z
-                 transform:(CATransform3D)transform {
-    CAShapeLayer *shape = [CAShapeLayer layer];
-    UIBezierPath *path  = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:(2 * M_PI) clockwise:YES];
-    [path moveToPoint:center];
-    shape.path      = path.CGPath;
-    shape.fillColor = [[self class] randomColor].CGColor;
-    shape.zPosition = z;
-    shape.transform = transform;
-    [self.imageContentLayer addSublayer:shape];
+- (void)buildFeedData {
+    NSArray<NSString *> *titles = @[
+        @"把平凡的日子过成喜欢的样子", @"周末去看一场落日吧", @"这份治愈系清单请收好",
+        @"城市角落里的温柔瞬间", @"今日分享：让生活慢一点", @"镜头里的四季与风景",
+        @"好吃又好看的家常料理", @"收藏这份周末出行灵感", @"简单布置也能拥有好心情",
+        @"今天也要记得认真生活", @"那些值得反复回看的片段", @"一起发现生活的小惊喜"
+    ];
+    NSArray<NSString *> *authors = @[@"暖阳日记", @"阿宁的相册", @"小满", @"晚风", @"周末计划", @"生活记录员"];
+    NSArray<NSNumber *> *colors = @[@0xF6AA9A, @0x8DC9C0, @0xF3CA83, @0xA9B7D8, @0xC5ABD0, @0x83C7D9];
+    NSArray<NSNumber *> *ratios = @[@1.12, @0.82, @1.26, @0.96, @1.05, @0.76];
+    NSArray<NSString *> *categories = @[@"推荐", @"RED", @"直播", @"短剧", @"美食", @"穿搭", @"壁纸", @"旅行", @"科技"];
+    NSMutableArray *items = [NSMutableArray array];
+    for (NSInteger index = 0; index < 18; index++) {
+        NSInteger source = (index + self.selectedMainIndex * 2 + self.selectedSubIndex) % titles.count;
+        CRMFeedItem *item = [[CRMFeedItem alloc] init];
+        item.title = titles[source];
+        item.author = authors[(index + self.selectedSubIndex) % authors.count];
+        item.likes = [NSString stringWithFormat:@"%ld", (long)(128 + index * 37 + self.selectedMainIndex * 21)];
+        item.tag = categories[self.selectedSubIndex];
+        item.startColor = CRMColor(colors[index % colors.count].unsignedIntegerValue);
+        item.endColor = CRMColor(colors[(index + 2) % colors.count].unsignedIntegerValue);
+        item.imageRatio = ratios[index % ratios.count].doubleValue;
+        item.video = self.selectedSubIndex == 2 || index % 4 == 0;
+        [items addObject:item];
+    }
+    self.feedItems = items;
+    [self.collectionView reloadData];
+    [self.collectionView setContentOffset:CGPointZero animated:NO];
 }
 
-// 随机颜色
-+ (UIColor *)randomColor {
-    CGFloat r = arc4random_uniform(256);
-    CGFloat g = arc4random_uniform(256);
-    CGFloat b = arc4random_uniform(256);
-    return [[self class] colorWithR:r g:g b:b a:1];
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { return self.feedItems.count; }
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CRMFeedCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CRMFeedCell" forIndexPath:indexPath];
+    [cell configureWithItem:self.feedItems[indexPath.item]];
+    return cell;
 }
 
-+ (UIColor *)colorWithR:(NSInteger)r g:(NSInteger)g b:(NSInteger)b a:(CGFloat)a {
-    float red   = r / 255.0;
-    float green = g / 255.0;
-    float blue  = b / 255.0;
-    return [UIColor colorWithRed:red green:green blue:blue alpha:a];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    CRMFeedDetailViewController *detail = [[CRMFeedDetailViewController alloc] initWithFeedInfo:[self.feedItems[indexPath.item] detailInfo]];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
-- (void)testQMUI {
-    @pas_weakify_self
-        QMUIAlertAction *action1 = [QMUIAlertAction
-            actionWithTitle:@"取消"
-                      style:QMUIAlertActionStyleCancel
-                    handler:^(__kindof QMUIAlertController *_Nonnull aAlertController, QMUIAlertAction *_Nonnull action) {
-                        @pas_strongify_self
-                            QMUITips *tips = [QMUITips showWithText:@"取消"];
-                        tips.toastPosition = QMUIToastViewPositionTop;
-                        NSLog(@"取消");
-                    }];
-    QMUIAlertAction *action2     = [QMUIAlertAction
-        actionWithTitle:@"删除"
-                  style:QMUIAlertActionStyleDestructive
-                handler:^(__kindof QMUIAlertController *_Nonnull aAlertController,
-                          QMUIAlertAction *_Nonnull action) {
-                    [QMUITips showSucceed:@"删除"];
-                    NSLog(@"删除");
-                }];
-
-    QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"确定删除？" message:@"删除后将无法恢复，请慎重考虑" preferredStyle:QMUIAlertControllerStyleAlert];
-    [alertController addAction:action1];
-    [alertController addAction:action2];
-    [alertController showWithAnimated:YES];
+- (CGFloat)feedLayout:(CRMFeedLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth {
+    CRMFeedItem *item = self.feedItems[indexPath.item];
+    return floor(itemWidth * MAX(0.72, item.imageRatio)) + 76;
 }
 
 @end

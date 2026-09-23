@@ -16,6 +16,8 @@
 #import "PhotoActionSheetUtil.h"
 #import "SSZipArchive.h"
 #import "SettingViewController.h"
+#import "SettingCRMViewController.h"
+#import "CRMGameCenterViewController.h"
 #import "ZWBaseTableView.h"
 #import "ZWColorPickInfoWindow.h"
 #import "ZWHttpNetworkData.h"
@@ -146,8 +148,7 @@
 - (NSArray *)getDataArray {
     NSArray *sec1Arr = @[[ActionModel initWithTitle:@"个人信息" actionName:@"accountInfoSetting"],
                          [ActionModel initWithTitle:@"账户与安全" actionName:@"accountsAndSecurity"],
-                         [ActionModel initWithTitle:@"二维码扫描" actionName:@"scanningQRCode"],
-                         [ActionModel initWithTitle:@"我的二维码" actionName:@"myQRCode"]];
+                         [ActionModel initWithTitle:@"二维码扫描" actionName:@"scanningQRCode"]];
 
     NSArray *sec2Arr = @[[ActionModel initWithTitle:@"Alert提示框" actionName:@"alertViewAction"],
                          [ActionModel initWithTitle:@"单选页面" actionName:@"selectedPageAction"],
@@ -165,8 +166,11 @@
     ];
 
     NSArray *sec3Arr = @[[ActionModel initWithTitle:@"打开首页底部广告" actionName:@"testShowWindow"],
+                         [ActionModel initWithTitle:@"CRM演示界面" actionName:@"jumpCRMViewController"],
+                         [ActionModel initWithTitle:@"VipVideo" actionName:@"vipVideo"],
                          [ActionModel initWithTitle:@"陀螺仪测试界面 ~ 球" actionName:@"testBallViewContorller"],
-                         [ActionModel initWithTitle:@"自定义Swiper组件" actionName:@"testSwiperComponent"]];
+                         [ActionModel initWithTitle:@"自定义Swiper组件" actionName:@"testSwiperComponent"],
+                         [ActionModel initWithTitle:@"小游戏乐园" actionName:@"showGameCenter"]];
 
     NSArray *sec4Arr = @[[ActionModel initWithTitle:@"清除缓存" actionName:@"cleanCacheData"],
                          [ActionModel initWithTitle:@"意见反馈" actionName:@"feedBackDetailInfo"],
@@ -304,7 +308,8 @@
 }
 
 #pragma mark - 我的二维码
-- (void)myQRCode {
+- (void)vipVideo {
+    
     [self.navigationController pushViewController:[NSClassFromString(@"FindViewController") new] animated:YES];
 }
 
@@ -487,6 +492,14 @@
  */
 - (void)drawPolygonView {
     [ZWM.router executeURLNoCallBack:ZWRouterPageDrawPolygonViewController];
+}
+
+/**
+ * CRM演示界面
+ */
+- (void)jumpCRMViewController {
+    SettingCRMViewController *viewController = [[SettingCRMViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 
@@ -715,6 +728,14 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
  */
 - (void)testSwiperComponent {
     [ZWM.router executeURLNoCallBack:ZWRouterPageCustomSwiperController];
+}
+
+/**
+ * 小游戏乐园
+ */
+- (void)showGameCenter {
+    CRMGameCenterViewController *controller = [[CRMGameCenterViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /**

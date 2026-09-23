@@ -97,7 +97,6 @@
 		4E4F9CDE286C5E7F003281B5 /* ZWAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CDD286C5E7F003281B5 /* ZWAnimationView.m */; };
 		4E4F9CE1286C5EBB003281B5 /* ZWAnimationCircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */; };
 		4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
-		DA7107022E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
 		4E4FD80D286D4745008EC7E1 /* ThemeWhite.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */; };
 		4E59322A2AAC4139005E2C49 /* TestSocketVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5932292AAC4139005E2C49 /* TestSocketVc.m */; };
 		4E5932332AB34CB9005E2C49 /* DHRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5932302AB34CB8005E2C49 /* DHRegularExpression.m */; };
@@ -714,6 +713,18 @@
 		DA3DD6902CB8CD9400846C35 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD68F2CB8CD9400846C35 /* PolygonView.m */; };
 		DA3DD6912CB8CD9400846C35 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD68F2CB8CD9400846C35 /* PolygonView.m */; };
 		DA3DD6922CB8CD9400846C35 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3DD68F2CB8CD9400846C35 /* PolygonView.m */; };
+		DA7107022E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
+		DA7107032E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
+		DA7107042E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
+		DA7200002E0B000000000001 /* SettingCRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7200042E0B000000000001 /* SettingCRMViewController.m */; };
+		DA7200012E0B000000000001 /* SettingCRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7200042E0B000000000001 /* SettingCRMViewController.m */; };
+		DA7200022E0B000000000001 /* SettingCRMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7200042E0B000000000001 /* SettingCRMViewController.m */; };
+		DA7200102E0B000000000001 /* CRMFeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7200132E0B000000000001 /* CRMFeedDetailViewController.m */; };
+		DA7200112E0B000000000001 /* CRMFeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7200132E0B000000000001 /* CRMFeedDetailViewController.m */; };
+		DA7200122E0B000000000001 /* CRMFeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7200132E0B000000000001 /* CRMFeedDetailViewController.m */; };
+		DA7300002E0C000000000001 /* CRMGameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300042E0C000000000001 /* CRMGameCenterViewController.m */; };
+		DA7300012E0C000000000001 /* CRMGameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300042E0C000000000001 /* CRMGameCenterViewController.m */; };
+		DA7300022E0C000000000001 /* CRMGameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300042E0C000000000001 /* CRMGameCenterViewController.m */; };
 		DA7910162D6F2C6200C243B3 /* SwiperView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7910152D6F2C6200C243B3 /* SwiperView.m */; };
 		DA922A332B57B9C700AD9FA8 /* RACBindingTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */; };
 		DA922A362B57BA5300AD9FA8 /* ZWBindingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */; };
@@ -881,7 +892,6 @@
 		DAEEBFFB2B58BE8C00258456 /* QRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26622A9E47E800583883 /* QRSettingViewController.m */; };
 		DAEEBFFC2B58BE8C00258456 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EF06A230405030040DA7A /* UIButton+Custom.m */; };
 		DAEEBFFD2B58BE8C00258456 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
-		DA7107032E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
 		DAEEBFFE2B58BE8C00258456 /* TestMVPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C879B1226E64E790051018B /* TestMVPView.m */; };
 		DAEEBFFF2B58BE8C00258456 /* IQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E0229BDAC300D8D62C /* IQViewModel.m */; };
 		DAEEC0002B58BE8C00258456 /* LineBarQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFEF62AA9AABD00E561EA /* LineBarQuery.m */; };
@@ -1578,7 +1588,6 @@
 		DAEEC2C72B58BE9000258456 /* QRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26622A9E47E800583883 /* QRSettingViewController.m */; };
 		DAEEC2C82B58BE9000258456 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EF06A230405030040DA7A /* UIButton+Custom.m */; };
 		DAEEC2C92B58BE9000258456 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FD808286D4147008EC7E1 /* SettingViewController.m */; };
-		DA7107042E0A000000000001 /* ZWAppIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7107012E0A000000000001 /* ZWAppIconManager.m */; };
 		DAEEC2CA2B58BE9000258456 /* TestMVPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C879B1226E64E790051018B /* TestMVPView.m */; };
 		DAEEC2CB2B58BE9000258456 /* IQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C49F5E0229BDAC300D8D62C /* IQViewModel.m */; };
 		DAEEC2CC2B58BE9000258456 /* LineBarQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6DFEF62AA9AABD00E561EA /* LineBarQuery.m */; };
@@ -2376,8 +2385,6 @@
 		4E4F9CE0286C5EBB003281B5 /* ZWAnimationCircleLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAnimationCircleLayer.m; sourceTree = "<group>"; };
 		4E4FD807286D4147008EC7E1 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		4E4FD808286D4147008EC7E1 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		DA7107002E0A000000000001 /* ZWAppIconManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAppIconManager.h; sourceTree = "<group>"; };
-		DA7107012E0A000000000001 /* ZWAppIconManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAppIconManager.m; sourceTree = "<group>"; };
 		4E4FD80B286D4705008EC7E1 /* ThemeDarkBlack.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ThemeDarkBlack.strings; sourceTree = "<group>"; };
 		4E4FD80C286D4745008EC7E1 /* ThemeWhite.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ThemeWhite.strings; sourceTree = "<group>"; };
 		4E5932282AAC4139005E2C49 /* TestSocketVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSocketVc.h; sourceTree = "<group>"; };
@@ -3668,6 +3675,14 @@
 		DA3DD68A2CB8CD6C00846C35 /* DrawPolygonVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawPolygonVc.h; sourceTree = "<group>"; };
 		DA3DD68E2CB8CD9400846C35 /* PolygonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolygonView.h; sourceTree = "<group>"; };
 		DA3DD68F2CB8CD9400846C35 /* PolygonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolygonView.m; sourceTree = "<group>"; };
+		DA7107002E0A000000000001 /* ZWAppIconManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAppIconManager.h; sourceTree = "<group>"; };
+		DA7107012E0A000000000001 /* ZWAppIconManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAppIconManager.m; sourceTree = "<group>"; };
+		DA7200032E0B000000000001 /* SettingCRMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingCRMViewController.h; sourceTree = "<group>"; };
+		DA7200042E0B000000000001 /* SettingCRMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingCRMViewController.m; sourceTree = "<group>"; };
+		DA7200132E0B000000000001 /* CRMFeedDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMFeedDetailViewController.m; sourceTree = "<group>"; };
+		DA7200142E0B000000000001 /* CRMFeedDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMFeedDetailViewController.h; sourceTree = "<group>"; };
+		DA7300032E0C000000000001 /* CRMGameCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMGameCenterViewController.h; sourceTree = "<group>"; };
+		DA7300042E0C000000000001 /* CRMGameCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMGameCenterViewController.m; sourceTree = "<group>"; };
 		DA7910142D6F2C6200C243B3 /* SwiperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiperView.h; sourceTree = "<group>"; };
 		DA7910152D6F2C6200C243B3 /* SwiperView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiperView.m; sourceTree = "<group>"; };
 		DA922A312B57B9C700AD9FA8 /* RACBindingTableVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBindingTableVc.h; sourceTree = "<group>"; };
@@ -4318,11 +4333,13 @@
 		4E4FD806286D4132008EC7E1 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-					4E4FD807286D4147008EC7E1 /* SettingViewController.h */,
-					4E4FD808286D4147008EC7E1 /* SettingViewController.m */,
-					DA7107002E0A000000000001 /* ZWAppIconManager.h */,
-					DA7107012E0A000000000001 /* ZWAppIconManager.m */,
-					4E149690299D2EA000D305EF /* ZWUserManager.h */,
+				4E4FD807286D4147008EC7E1 /* SettingViewController.h */,
+				4E4FD808286D4147008EC7E1 /* SettingViewController.m */,
+				DA7200032E0B000000000001 /* SettingCRMViewController.h */,
+				DA7200042E0B000000000001 /* SettingCRMViewController.m */,
+				DA7107002E0A000000000001 /* ZWAppIconManager.h */,
+				DA7107012E0A000000000001 /* ZWAppIconManager.m */,
+				4E149690299D2EA000D305EF /* ZWUserManager.h */,
 				4E149691299D2EA000D305EF /* ZWUserManager.m */,
 				4EA52F312A6AB0FB00B2CD87 /* ZWSJVideoOnePage.h */,
 				4EA52F322A6AB0FB00B2CD87 /* ZWSJVideoOnePage.m */,
@@ -5807,6 +5824,10 @@
 				7C652C0523017208007BBDD2 /* HomeViewController.m */,
 				4EA737E127D72E3200422BAE /* CRMViewController.h */,
 				4EA737E227D72E3200422BAE /* CRMViewController.m */,
+				DA7300032E0C000000000001 /* CRMGameCenterViewController.h */,
+				DA7300042E0C000000000001 /* CRMGameCenterViewController.m */,
+				DA7200142E0B000000000001 /* CRMFeedDetailViewController.h */,
+				DA7200132E0B000000000001 /* CRMFeedDetailViewController.m */,
 				4E0287B828698887003E723E /* ApplicationViewController.h */,
 				4E0287B928698887003E723E /* ApplicationViewController.m */,
 				4E89AFE5295D3E7D00E7A40C /* MMCopyLabel.h */,
@@ -8292,13 +8313,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -8313,13 +8330,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -8519,6 +8532,9 @@
 				4EC6B3972861B12A00F57AAC /* DataFormatterFunc+JSON.m in Sources */,
 				7C879B2126E65BAE0051018B /* MVVMView.m in Sources */,
 				4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */,
+				DA7300002E0C000000000001 /* CRMGameCenterViewController.m in Sources */,
+				DA7200102E0B000000000001 /* CRMFeedDetailViewController.m in Sources */,
+				DA7200002E0B000000000001 /* SettingCRMViewController.m in Sources */,
 				4E6D008B2AA9AABF00E561EA /* lbaselib.c in Sources */,
 				4ED59581286EF3DF002D15F1 /* zhThemeManager.m in Sources */,
 				7C8AAE5322E9856400589862 /* UIView+Create.m in Sources */,
@@ -8528,11 +8544,11 @@
 				4EEC47C72859F2CB0047F8B6 /* NSString+MoneyFormat.m in Sources */,
 				4EAAD80E2866BC60003D43FF /* TabbarConfig.m in Sources */,
 				4E6D00142AA9AABF00E561EA /* LineChart.m in Sources */,
-					4E2B26632A9E47E800583883 /* QRSettingViewController.m in Sources */,
-					7C4EF070230405030040DA7A /* UIButton+Custom.m in Sources */,
-					4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */,
-					DA7107022E0A000000000001 /* ZWAppIconManager.m in Sources */,
-					7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
+				4E2B26632A9E47E800583883 /* QRSettingViewController.m in Sources */,
+				7C4EF070230405030040DA7A /* UIButton+Custom.m in Sources */,
+				4E4FD809286D4147008EC7E1 /* SettingViewController.m in Sources */,
+				DA7107022E0A000000000001 /* ZWAppIconManager.m in Sources */,
+				7C879B1326E64E790051018B /* TestMVPView.m in Sources */,
 				7C49F5E1229BDAC300D8D62C /* IQViewModel.m in Sources */,
 				4E6D002A2AA9AABF00E561EA /* LineBarQuery.m in Sources */,
 				7C91253526DA67B20030A5F3 /* BlockViewController.m in Sources */,
@@ -9136,6 +9152,9 @@
 				DAEEBFEF2B58BE8C00258456 /* DataFormatterFunc+JSON.m in Sources */,
 				DAEEBFF02B58BE8C00258456 /* MVVMView.m in Sources */,
 				DAEEBFF12B58BE8C00258456 /* CRMViewController.m in Sources */,
+				DA7300012E0C000000000001 /* CRMGameCenterViewController.m in Sources */,
+				DA7200112E0B000000000001 /* CRMFeedDetailViewController.m in Sources */,
+				DA7200012E0B000000000001 /* SettingCRMViewController.m in Sources */,
 				DAEEBFF22B58BE8C00258456 /* lbaselib.c in Sources */,
 				DAEEBFF32B58BE8C00258456 /* zhThemeManager.m in Sources */,
 				DAEEBFF42B58BE8C00258456 /* UIView+Create.m in Sources */,
@@ -9145,11 +9164,11 @@
 				DAEEBFF82B58BE8C00258456 /* NSString+MoneyFormat.m in Sources */,
 				DAEEBFF92B58BE8C00258456 /* TabbarConfig.m in Sources */,
 				DAEEBFFA2B58BE8C00258456 /* LineChart.m in Sources */,
-					DAEEBFFB2B58BE8C00258456 /* QRSettingViewController.m in Sources */,
-					DAEEBFFC2B58BE8C00258456 /* UIButton+Custom.m in Sources */,
-					DAEEBFFD2B58BE8C00258456 /* SettingViewController.m in Sources */,
-					DA7107032E0A000000000001 /* ZWAppIconManager.m in Sources */,
-					DAEEBFFE2B58BE8C00258456 /* TestMVPView.m in Sources */,
+				DAEEBFFB2B58BE8C00258456 /* QRSettingViewController.m in Sources */,
+				DAEEBFFC2B58BE8C00258456 /* UIButton+Custom.m in Sources */,
+				DAEEBFFD2B58BE8C00258456 /* SettingViewController.m in Sources */,
+				DA7107032E0A000000000001 /* ZWAppIconManager.m in Sources */,
+				DAEEBFFE2B58BE8C00258456 /* TestMVPView.m in Sources */,
 				DAEEBFFF2B58BE8C00258456 /* IQViewModel.m in Sources */,
 				DAEEC0002B58BE8C00258456 /* LineBarQuery.m in Sources */,
 				DAEEC0012B58BE8C00258456 /* BlockViewController.m in Sources */,
@@ -9748,6 +9767,9 @@
 				DAEEC2BB2B58BE9000258456 /* DataFormatterFunc+JSON.m in Sources */,
 				DAEEC2BC2B58BE9000258456 /* MVVMView.m in Sources */,
 				DAEEC2BD2B58BE9000258456 /* CRMViewController.m in Sources */,
+				DA7300022E0C000000000001 /* CRMGameCenterViewController.m in Sources */,
+				DA7200122E0B000000000001 /* CRMFeedDetailViewController.m in Sources */,
+				DA7200022E0B000000000001 /* SettingCRMViewController.m in Sources */,
 				DAEEC2BE2B58BE9000258456 /* lbaselib.c in Sources */,
 				DAEEC2BF2B58BE9000258456 /* zhThemeManager.m in Sources */,
 				DAEEC2C02B58BE9000258456 /* UIView+Create.m in Sources */,
@@ -9757,11 +9779,11 @@
 				DAEEC2C42B58BE9000258456 /* NSString+MoneyFormat.m in Sources */,
 				DAEEC2C52B58BE9000258456 /* TabbarConfig.m in Sources */,
 				DAEEC2C62B58BE9000258456 /* LineChart.m in Sources */,
-					DAEEC2C72B58BE9000258456 /* QRSettingViewController.m in Sources */,
-					DAEEC2C82B58BE9000258456 /* UIButton+Custom.m in Sources */,
-					DAEEC2C92B58BE9000258456 /* SettingViewController.m in Sources */,
-					DA7107042E0A000000000001 /* ZWAppIconManager.m in Sources */,
-					DAEEC2CA2B58BE9000258456 /* TestMVPView.m in Sources */,
+				DAEEC2C72B58BE9000258456 /* QRSettingViewController.m in Sources */,
+				DAEEC2C82B58BE9000258456 /* UIButton+Custom.m in Sources */,
+				DAEEC2C92B58BE9000258456 /* SettingViewController.m in Sources */,
+				DA7107042E0A000000000001 /* ZWAppIconManager.m in Sources */,
+				DAEEC2CA2B58BE9000258456 /* TestMVPView.m in Sources */,
 				DAEEC2CB2B58BE9000258456 /* IQViewModel.m in Sources */,
 				DAEEC2CC2B58BE9000258456 /* LineBarQuery.m in Sources */,
 				DAEEC2CD2B58BE9000258456 /* BlockViewController.m in Sources */,

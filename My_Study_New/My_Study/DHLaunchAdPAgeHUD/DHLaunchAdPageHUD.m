@@ -104,9 +104,11 @@
 }
 
 - (void)adImageViewTapAction:(UITapGestureRecognizer *)tap {
+    [self destoryTimer];
     if (self.launchAdClickBlock) {
         self.launchAdClickBlock(1);
     }
+    [self removeFromSuperview];
 }
 
 #pragma mark - 设置跳过按钮
