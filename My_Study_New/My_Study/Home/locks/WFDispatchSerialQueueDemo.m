@@ -9,6 +9,17 @@
 #import "WFDispatchSerialQueueDemo.h"
 #import "ZWSDK.h"
 
+#define WFSemaphoreLock \
+static dispatch_semaphore_t semaphore; \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+    semaphore = dispatch_semaphore_create(1); \
+}); \
+dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+
+#define WFSemaphoreUnLock \
+dispatch_semaphore_signal(semaphore);
+
 @interface WFDispatchSerialQueueDemo ()
 
 @property (nonatomic, strong) dispatch_queue_t serial_queue;
@@ -25,6 +36,7 @@
 {
     self = [super init];
     if (self) {
+        // 创建一个串行队列
         self.serial_queue = dispatch_queue_create("serial_queue", DISPATCH_QUEUE_SERIAL);
         self.semaphore_t = dispatch_semaphore_create(1);
         
@@ -63,6 +75,48 @@
 }
 
 
+- (void)testOne
+{
+    static dispatch_semaphore_t semaphore;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        semaphore = dispatch_semaphore_create(1);
+    });
+    
+    // 信号量减一
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    
+    // ...
+    
+    //信号量加一
+    dispatch_semaphore_signal(semaphore);
+    
+}
+
+
+- (void)testTwo
+{
+    // 信号量减一
+    WFSemaphoreLock;
+    
+    // ...
+    
+    //信号量加一
+    WFSemaphoreUnLock;
+    
+}
+
+
+- (void)testThree
+{
+    // 信号量减一
+    WFSemaphoreLock;
+    
+    // ...
+    
+    //信号量加一
+    WFSemaphoreUnLock;
+}
 
 
 @end

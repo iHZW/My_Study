@@ -15,6 +15,7 @@
 #import "My_Study-Swift.h"
 #import "LeftDrawerViewController.h"
 #import "UIViewController+CWLateralSlide.h"
+#import "RunLoopViewController.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -24,6 +25,10 @@
 #import <libkern/OSAtomic.h>
 
 #import "UIView+Create.h"
+/** 可复制的label  */
+#import "MMCopyLabel.h"
+/** 点赞view  */
+#import "GiveLikeView.h"
 
 
 #pragma mark ------------------------------KVO底层原理------------------------------------
@@ -39,6 +44,8 @@
 @property (nonatomic, strong) EOCfamilly *kvcEocFamilly;
 
 @property (nonatomic, strong) UILabel *nameLabel;
+
+@property (nonatomic, strong) GiveLikeView *giveLike;
 
 @end
 
@@ -156,6 +163,12 @@
     [label addGestureRecognizer:tap];
     
     
+    MMCopyLabel *copyLabel = [[MMCopyLabel alloc] initWithFrame:CGRectMake(50, 360, 200, 50)];
+    copyLabel.text = @"复制文本111";
+    copyLabel.backgroundColor = UIColor.cyanColor;
+    [self.view addSubview:copyLabel];
+    
+    
     BGView *subView = [[BGView alloc] initWithFrame:CGRectMake(100, 500, kMainScreenWidth - 200, 100)];
     subView.tag = 102;
     subView.backgroundColor = [UIColor blueColor];
@@ -178,6 +191,18 @@
         btn.tag = 104;
         btn.titleLabel.numberOfLines = 0;
         btn.backgroundColor = UIColorFromRGB(0x87CEFA);
+//        btn.layer.shadowColor = UIColor.redColor.CGColor;
+//        btn.layer.shadowOpacity = 2.0;
+//        btn.layer.shadowOffset = CGSizeMake(10, 10);
+        
+//        CGMutablePathRef path = CGPathCreateMutable();
+////        CGRect rect = CGRectInset(CGRectMake(0, 0, 100, 60), 30, 30);
+////        CGPathCloseSubpath(path);
+//
+        // 如果设置了 shadowPath  就不会导致离屏渲染
+//        btn.layer.shadowPath = path;
+        
+//        CGPathRelease(path);
     }];
     
     [self.view addSubview:tapBtn];
@@ -187,10 +212,26 @@
         make.size.mas_equalTo(CGSizeMake(200, 60));
         make.top.equalTo(self.view.mas_top).offset(80);
     }];
+    
+    self.giveLike = [[GiveLikeView alloc] initWithFrame:CGRectMake(260, 360, 60, 60)];
+    self.giveLike.likeDuration = 0.5;
+    self.giveLike.zanFillColor = [UIColor redColor];
+    self.giveLike.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:self.giveLike];
+    
+//    [self.giveLike mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view.mas_left).offset(kContentSideHorizSpace*2);
+//        make.size.mas_equalTo(CGSizeMake(60, 60));
+//        make.top.equalTo(self.view.mas_top).offset(0);
+//    }];
 }
 
 - (void)btnAction
 {
+    /** 跳转测试  */
+    RunLoopViewController *vc = [RunLoopViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+    
     
 }
 
@@ -201,11 +242,12 @@
     switch (tagIndex) {
         case 101:
         {
-
+            [self test101];
         }
             break;
         case 102:
         {
+            [ZWM.router executeURLNoCallBack:ZWRouterPageShortVideoPlayerViewController];
         }
             break;
         case 103:
@@ -216,6 +258,30 @@
         default:
             break;
     }
+    
+}
+
+- (void)test101
+{
+//    dispatch_queue_t
+//    dispatch_queue_create(const char *label, dispatch_queue_attr_t attr)
+//    {
+//        return _dispatch_lane_create_with_target(label, attr, DISPATCH_TARGET_QUEUE_DEFAULT, true);
+//    }
+    
+//    dispatch_queue_attr_t userInitiatedAttr = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_CONCURRENT,
+                                                                                      
+                                                                                     
+    dispatch_queue_attr_t userInitiatedAttr = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_CONCURRENT,QOS_CLASS_USER_INITIATED,-1);
+    dispatch_queue_create_with_target("123", userInitiatedAttr, DISPATCH_TARGET_QUEUE_DEFAULT);
+    UITapGestureRecognizer *tag = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test101)];
+    [self.view addGestureRecognizer:tag];
+    
+//    [UIGestureRecognizer aspect_hookSelector:@selector(initWithTarget:action:)
+//                                 withOptions:AspectPositionAfter
+//                                  usingBlock:^(id<AspectInfo> instance, id target, SEL action) {
+//                                  } error:NULL];
+    
     
 }
 
@@ -357,11 +423,11 @@
 #pragma mark - clang demo
 void __sanitizer_cov_trace_pc_guard_init(uint32_t *start,
                                          uint32_t *stop) {
-    static uint64_t N;  // Counter for the guards.
-    if (start == stop || *start) return;  // Initialize only once.
-    printf("INIT: %p %p\n", start, stop);
-    for (uint32_t *x = start; x < stop; x++)
-        *x = ++N;  // Guards should start from 1.
+//    static uint64_t N;  // Counter for the guards.
+//    if (start == stop || *start) return;  // Initialize only once.
+//    printf("INIT: %p %p\n", start, stop);
+//    for (uint32_t *x = start; x < stop; x++)
+//        *x = ++N;  // Guards should start from 1.
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -412,14 +478,14 @@ typedef struct{
 void __sanitizer_cov_trace_pc_guard(uint32_t *guard) {
     //if (!*guard) return;  // Duplicate the guard check.
 
-    void *PC = __builtin_return_address(0);
-
-    SymbolNode * node = malloc(sizeof(SymbolNode));
-    *node = (SymbolNode){PC,NULL};
-
-    //入队
-    // offsetof 用在这里是为了入队添加下一个节点找到 前一个节点next指针的位置
-    OSAtomicEnqueue(&symboList, node, offsetof(SymbolNode, next));
+//    void *PC = __builtin_return_address(0);
+//
+//    SymbolNode * node = malloc(sizeof(SymbolNode));
+//    *node = (SymbolNode){PC,NULL};
+//
+//    //入队
+//    // offsetof 用在这里是为了入队添加下一个节点找到 前一个节点next指针的位置
+//    OSAtomicEnqueue(&symboList, node, offsetof(SymbolNode, next));
 }
 
 @end

@@ -1,6 +1,6 @@
 //
 //  DoraemonMockManager.m
-//  DoraemonKit
+//  AFNetworking
 //
 //  Created by didi on 2019/10/31.
 //
@@ -59,7 +59,6 @@
 
 - (void)queryMockData:(void(^)(int flag))block{
     NSString *pId = [DoraemonManager shareInstance].pId;
-    NSString *mockDomain = [DoraemonManager shareInstance].mockDomain ? [DoraemonManager shareInstance].mockDomain : @"https://mock.dokit.cn/";
     if (pId && pId.length>0) {
         NSDictionary *params = @{
             @"projectId":pId,
@@ -69,8 +68,7 @@
         };
         
         __weak typeof(self) weakSelf = self;
-        NSString *mockInterfaceUrl = [mockDomain stringByAppendingString:@"api/app/interface"];
-        [DoraemonNetworkUtil getWithUrlString:mockInterfaceUrl params:params success:^(NSDictionary * _Nonnull result) {
+        [DoraemonNetworkUtil getWithUrlString:@"https://mock.dokit.cn/api/app/interface" params:params success:^(NSDictionary * _Nonnull result) {
             NSArray *apis = result[@"data"][@"datalist"];
             NSMutableArray<DoraemonMockAPIModel *> *mockArray = [[NSMutableArray alloc] init];
             NSMutableArray<DoraemonMockUpLoadModel *> *uploadArray = [[NSMutableArray alloc] init];
@@ -332,7 +330,7 @@
     NSString *apiId = upload.apiId;
     NSString *result = upload.result;
     NSString *projectId = [DoraemonManager shareInstance].pId;
-    NSString *mockDomain = [DoraemonManager shareInstance].mockDomain ? [DoraemonManager shareInstance].mockDomain : @"https://mock.dokit.cn/";
+    
     if (projectId && projectId.length > 0) {
         if (!result) {
             return;
@@ -343,8 +341,8 @@
             @"id":apiId,
             @"tempData":result
         };
-        NSString *mockInterfaceUrl = [mockDomain stringByAppendingString:@"api/app/interface"];
-        [DoraemonNetworkUtil patchWithUrlString:mockInterfaceUrl params:params success:^(NSDictionary * _Nonnull result) {
+        
+        [DoraemonNetworkUtil patchWithUrlString:@"https://mock.dokit.cn/api/app/interface" params:params success:^(NSDictionary * _Nonnull result) {
             [self showToast:DoraemonLocalizedString(@"上传成功") atView:view];
         } error:^(NSError * _Nonnull error) {
             DoKitLog(@"error == %@",error);

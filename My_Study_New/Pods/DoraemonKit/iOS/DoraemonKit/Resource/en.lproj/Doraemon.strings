@@ -304,7 +304,6 @@
     "可交互时间"                              = "interactive time";
     
     //设置
-    "更多"                                           = "More";
     "设置"                                           = "Settings";
     "工具管理"                                        = "Kit Manager";
     "编辑"                                           = "Edit";
@@ -328,6 +327,4 @@
     "复制"                                           = "Copy";
     "删除"                                           = "Delete";
 
-    // 一机多控
-    "一机多控"                                  = "MultiControl";
 }

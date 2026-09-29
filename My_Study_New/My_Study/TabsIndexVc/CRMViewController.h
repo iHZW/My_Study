@@ -6,11 +6,11 @@
 //  Copyright © 2022 HZW. All rights reserved.
 //
 
-#import "ZWBaseTableViewController.h"
+#import "ZWBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CRMViewController : ZWBaseTableViewController
+@interface CRMViewController : ZWBaseViewController
 
 @end
 

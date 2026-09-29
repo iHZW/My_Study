@@ -85,7 +85,9 @@ alertControllerStyle:(UIAlertControllerStyle)type
     id alert = [[self class] alertObject:title message:message cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles alertControllerStyle:type actionBlock:actionBlock];
     
     if (alert) {
-        [superVC presentViewController:alert animated:YES completion:nil];
+        [alert dismissViewControllerAnimated:YES completion:^{
+            [superVC presentViewController:alert animated:YES completion:nil];
+        }];
     }
     
     return alert;

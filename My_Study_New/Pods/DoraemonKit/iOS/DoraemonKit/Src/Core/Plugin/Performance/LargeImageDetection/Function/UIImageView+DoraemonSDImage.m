@@ -1,6 +1,6 @@
 //
 //  UIImageView+DoraemonSDImage.m
-//  DoraemonKit
+//  AFNetworking
 //
 //  Created by yixiang on 2019/6/19.
 //

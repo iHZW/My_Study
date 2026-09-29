@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) LoginCompletedBlock loginCompleted;
 
+/** 页面是否需要一键登录  */
+@property (nonatomic, assign) BOOL oneKeyLogin;
+
 @end
 
 NS_ASSUME_NONNULL_END

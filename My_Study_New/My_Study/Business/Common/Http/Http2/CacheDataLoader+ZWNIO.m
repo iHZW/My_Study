@@ -39,7 +39,7 @@
 {
     @pas_weakify_self
     NSString *oldToken = [ZWUserInfoBridgeModule tokenId];
-    [[ZWHttpNetworkManager sharedHttpManager] sendRequestWithUrl:url msgDict:params httpMethod:method constructingBlock:constructingBlock completionBlock:^(id data, NSError *error) {
+    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] sendRequestWithUrl:url msgDict:params httpMethod:method constructingBlock:constructingBlock completionBlock:^(id data, NSError *error) {
         @pas_strongify_self
         if (completionBlock) {
             completionBlock(data,error);
@@ -97,7 +97,8 @@
 //                return ;
 //            }
         }
-        block([tempData.status integerValue],tempData);
+        NSInteger status = ValidString(tempData.status) ? [tempData.status integerValue] : (tempData.errcode == 0 ? 1 : 0);
+        block(status,tempData);
     } else if (block) {
         block(KJsonModelFailedErrorNo,data);
     }

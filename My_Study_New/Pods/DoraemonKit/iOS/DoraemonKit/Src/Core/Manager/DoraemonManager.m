@@ -110,11 +110,6 @@ typedef void (^DoraemonPerformanceBlock)(NSDictionary *);
     [self install];
 }
 
-- (void)installWithMockDomain:(NSString *)mockDomain{
-    self.mockDomain = mockDomain;
-    [self install];
-}
-
 - (void)installWithStartingPosition:(CGPoint) position{
     _startingPosition = position;
     [self installWithCustomBlock:^{
@@ -770,10 +765,6 @@ typedef void (^DoraemonPerformanceBlock)(NSDictionary *);
 
 - (NSString *)startClass{
     return [[DoraemonCacheManager sharedInstance] startClass];
-}
-
-- (void)configEntryBtnBlingWithText:(NSString *)text backColor:(UIColor *)backColor {
-    [self.entryWindow configEntryBtnBlingWithText:text backColor:backColor];
 }
 
 @end

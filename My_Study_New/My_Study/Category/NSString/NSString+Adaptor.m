@@ -21,8 +21,7 @@
  @param width 指定显示宽度
  @return 显示size
  */
-+ (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width
-{
++ (CGSize)getSizeWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width {
     return [text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:[NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil] context:nil].size;
 }
 
@@ -34,9 +33,8 @@
  @param width 指定显示宽度
  @return 显示高度
  */
-+ (CGFloat)getHeightWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width
-{
-    return  [self getSizeWithText:text font:font width:width].height;
++ (CGFloat)getHeightWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width {
+    return [self getSizeWithText:text font:font width:width].height;
 }
 
 /**

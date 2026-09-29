@@ -14,4 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface VideoModel : NSObject
+/** 名称  */
+@property (nonatomic, copy) NSString *name;
+/** video url 链接  */
+@property (nonatomic, copy) NSString *videoUrl;
+
++ (VideoModel *)createViewModel:(NSString *)name videoUrl:(NSString *)videoUrl;
+
+@end
+
 NS_ASSUME_NONNULL_END

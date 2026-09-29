@@ -14,6 +14,8 @@
 @property(nonatomic, copy) NSString *flutterPageName;
 // 是否跳转到flutter页面
 @property(nonatomic, assign) BOOL isFlutterPage;
+/** 标识名称  */
+@property (nonatomic, copy) NSString *identificationName;
 
 + (instancetype)modelWithTitle:(NSString *)title clazz:(Class)clazz;
 + (instancetype)modelWithTitle:(NSString *)title flutterPageName:(NSString *)pageName;

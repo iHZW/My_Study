@@ -48,4 +48,15 @@ typedef void (^GuideCompleteBlock)(NSInteger index, GuideActionType type);
  *  @return DHGuidePageHUD对象
  */
 - (instancetype)dh_initWithFrame:(CGRect)frame videoURL:(NSURL *)videoURL;
+
+/**
+ *  app 首页定制化视屏引导
+ *
+ *  @param frame    位置大小
+ *  @param videoURLArr 引导页视频地址
+ *
+ *  @return DHGuidePageHUD对象
+ */
+- (instancetype)dh_homeGuidePageInitWithFrame:(CGRect)frame videoURLArr:(NSArray<NSURL *> *)videoURLArr;
+
 @end

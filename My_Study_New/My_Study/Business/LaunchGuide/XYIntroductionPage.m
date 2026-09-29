@@ -384,10 +384,12 @@
 - (void)movidePlayDidEnd:(NSNotification *)notification{
     if(_xyAutoLoopPlayVideo){
         AVPlayerItem * item = [notification object];
-        [item seekToTime:kCMTimeZero];
+        [item seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
+        }];
         [_xyPlayer play];
     }else{
         [self xyEnter:nil];
+        !self.playComplete?:self.playComplete();
     }
 }
 

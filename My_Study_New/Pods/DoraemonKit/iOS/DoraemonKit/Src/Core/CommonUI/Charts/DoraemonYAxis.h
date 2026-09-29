@@ -1,6 +1,6 @@
 //
-//  DoraemonYAxis.h
-//  DoraemonKit
+//  YAxis.h
+//  oxCharts
 //
 //  Created by 0xd on 2019/9/6.
 //  Copyright © 2019 000. All rights reserved.

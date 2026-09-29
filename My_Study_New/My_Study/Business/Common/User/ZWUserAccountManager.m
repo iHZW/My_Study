@@ -48,6 +48,10 @@ MJExtensionCodingImplementation
     return self;
 }
 
+- (BOOL)isLogin {
+    return self.currentUserInfo != nil;
+}
+
 /**
  *  更新本地登录信息
  */
@@ -59,6 +63,9 @@ MJExtensionCodingImplementation
     if (archiverData) {
         [ZWCommonUtil setObject:archiverData forKey:KAccountSaveInfoKey];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGIN_SUCCESS object:nil];
+
 }
 
 /**
@@ -67,7 +74,10 @@ MJExtensionCodingImplementation
 
 - (void)cleanLoginStatusData
 {
+    self.currentUserInfo = nil;
     [ZWCommonUtil setObject:nil forKey:KAccountSaveInfoKey];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGOUT_SUCCESS object:nil];
 }
 
 

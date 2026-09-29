@@ -51,7 +51,7 @@ struct bucket_t {
 };
 
 struct cache_t {
-    bucket_t *_buckets;
+    struct bucket_t *_buckets;
     mask_t _mask;
     mask_t _occupied;
     

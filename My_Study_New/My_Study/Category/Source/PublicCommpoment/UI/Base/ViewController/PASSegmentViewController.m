@@ -10,6 +10,8 @@
 
 @interface PASSegmentViewController ()
 
+@property (nonatomic, strong, readwrite) CMSegmentViewController *segmentCtrl;
+
 @end
 
 @implementation PASSegmentViewController
@@ -30,7 +32,7 @@
     self.segmentCtrl = [[CMSegmentViewController alloc] init];
     self.segmentCtrl.segmentType = self.segmentType;
     self.segmentCtrl.view.frame = self.view.bounds;
-    self.segmentCtrl.titles = @[@"", @""];
+    self.segmentCtrl.titles = @[@"牛", @"马", @"羊"];
     self.segmentCtrl.segmentControl.font = PASFont(12);
     self.segmentCtrl.segmentControl.selectFont = PASFont(12);
     self.segmentCtrl.segmentControl.textColor = UIColorFromRGB(0x999999);

@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)remakePage;
 
+- (void)loadPrivacy;
+
 @end
 
 NS_ASSUME_NONNULL_END

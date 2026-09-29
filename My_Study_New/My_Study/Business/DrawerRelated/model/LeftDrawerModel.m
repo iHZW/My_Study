@@ -247,9 +247,10 @@
 @end
 @implementation LinkInfo
 
-//+ (NSDictionary *)mj_replacedKeyFromPropertyName{
++ (NSDictionary *)mj_replacedKeyFromPropertyName{
 //    return @{@"kDescription":@"description"};
-//}
+    return @{@"description":@"kDescription"};
+}
 
 +(JSONKeyMapper *)keyMapper
 {

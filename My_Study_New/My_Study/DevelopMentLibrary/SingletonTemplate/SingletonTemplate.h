@@ -51,13 +51,30 @@ return self;\
 #else
 #define DEFINE_SINGLETON_T_FOR_CLASS(className) \
 \
+static className *_shared##className = nil;\
 + (className *)shared##className { \
-static className *shared##className = nil; \
+if (_shared##className) {\
+    return _shared##className;\
+}\
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \
-shared##className = [[[self class] alloc] init]; \
+_shared##className = [[[self class] alloc] init]; \
 }); \
-return shared##className; \
+return _shared##className; \
+}\
++ (instancetype)allocWithZone:(struct _NSZone *)zone {\
+    if (_shared##className) {\
+        return _shared##className;\
+    }\
+    return [super allocWithZone:zone];\
+}\
+\
+- (instancetype)copy {\
+    return self;\
+}\
+\
+- (instancetype)mutableCopy {\
+    return self;\
 }
 #endif
 

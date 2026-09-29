@@ -24,13 +24,6 @@
 /* 根据规则过滤文本 */
 #define TransFilterString(s, f) [DataFormatterFunc filterWithString:s formatType:f]
 
-#define ValidString(s) [DataFormatterFunc bolString:s]
-
-#define ValidArray(s) [DataFormatterFunc isValidArray:s]
-
-#define ValidDictionary(s) [DataFormatterFunc isValidDictionary:s]
-
-
 /**
  *  除法返回float精度问题 A/B
  *
@@ -40,6 +33,14 @@
  *  @return 返回float
  */
 #define TransToFloat(v,d) [DataFormatterFunc decimalNumberForFloat:v decimal:d]
+
+#define ValidString(s) [DataFormatterFunc bolString:s]
+
+#define ValidArray(s) [DataFormatterFunc isValidArray:s]
+
+#define ValidDictionary(s) [DataFormatterFunc isValidDictionary:s]
+
+
 @interface DataFormatterFunc : NSObject
 
 /**

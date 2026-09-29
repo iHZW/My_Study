@@ -249,7 +249,11 @@
             break;
         case FromPageTypeOne:
         {
-            *titleName = [NSString stringWithFormat:@"%@",logModel.flag];
+            NSString *tempName = TransToString(logModel.flag);
+            if ([tempName hasPrefix:@"http"]) {
+                tempName = [TransToString(logModel.flag) lastPathComponent] ?: @"";
+            }
+            *titleName = tempName;
             *subTitleName = [NSString stringWithFormat:@"[%@] %@",logModel.level,[DateUtil prettyDateStringForDate:logModel.createTime]];
         }
             break;

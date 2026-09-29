@@ -1,6 +1,6 @@
 //
 //  DoraemonBaseViewController.m
-//  DoraemonKit
+//  DoraemonKitDemo
 //
 //  Created by yixiang on 2017/12/11.
 //  Copyright © 2017年 yixiang. All rights reserved.
@@ -17,7 +17,6 @@
  
 @property (nonatomic, strong) DoraemonNavBarItemModel *leftModel;
 
-@property (nonatomic, strong) NSArray *leftNavBarItemArray;
 @end
 
 @implementation DoraemonBaseViewController
@@ -86,9 +85,6 @@
             } else {
                 self.leftModel.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_back"];
             }
-            if (self.leftNavBarItemArray) {
-                [self setLeftNavBarItems:self.leftNavBarItemArray];
-            }
         }
     }
 #endif
@@ -117,7 +113,6 @@
 }
 
 - (void)setLeftNavBarItems:(NSArray *)items{
-    _leftNavBarItemArray = items;
     NSArray *barItems = [self navigationItems:items];
     if (barItems) {
         self.navigationItem.leftBarButtonItems = barItems;

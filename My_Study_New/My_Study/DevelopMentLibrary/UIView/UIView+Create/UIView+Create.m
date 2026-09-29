@@ -158,7 +158,7 @@
     tempBtn.backgroundColor = [UIColor clearColor];
     [tempBtn setTitle:title forState:UIControlStateNormal];
     tempBtn.layer.cornerRadius = radius;
-    tempBtn.layer.masksToBounds = YES;
+//    tempBtn.layer.masksToBounds = YES;
     [tempBtn addTarget:obj action:selector forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:tempBtn];
     if (block) {

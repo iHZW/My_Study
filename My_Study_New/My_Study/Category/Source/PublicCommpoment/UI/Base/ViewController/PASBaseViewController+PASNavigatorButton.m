@@ -15,18 +15,15 @@
 /**
  *  设置客服入口
  */
-- (void)setNavigatorRightBtnForService
-{
-
+- (void)setNavigatorRightBtnForService {
     UIButton *serviceBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    serviceBtn.frame = CGRectMake(0, 0, 50, 31);
+    serviceBtn.frame     = CGRectMake(0, 0, 50, 31);
     [serviceBtn addTarget:self action:@selector(action_gotoService) forControlEvents:(UIControlEventTouchUpInside)];
     [serviceBtn setImage:[UIImage imageNamed:@"top_icon_service"] forState:UIControlStateNormal];
     [serviceBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:serviceBtn];
     [self.navigationItem addRightBarButtonItem:rightItem];
 }
-
 - (void)BI_gotoSevice:(NSString *)className
 {
 

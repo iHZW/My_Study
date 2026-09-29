@@ -44,13 +44,33 @@ UIKIT_EXTERN NSString *const ZWRouterPageChangeEnvViewController;
 UIKIT_EXTERN NSString *const ZWRouterPageSelectedViewController;
 /** 地址微调页  */
 UIKIT_EXTERN NSString *const ZWRouterPageLocationTrimViewController;
+/** SJ视频调试界面  */
+UIKIT_EXTERN NSString *const ZWRouterPageSJVideoController;
 /** 文件选择界面  */
 UIKIT_EXTERN NSString *const ZWRouterPageFileSelectViewController;
 /** 陀螺仪测试界面 ~ 球  */
 UIKIT_EXTERN NSString *const ZWRouterPageBallViewController;
+/** 自定义Swiper  */
+UIKIT_EXTERN NSString *const ZWRouterPageCustomSwiperController;
+/** RunLoopPermanentPage  */
+UIKIT_EXTERN NSString *const ZWRouterRunLoopPermanentViewController;
 
+/** PASShortVideoPlayerViewController  */
+UIKIT_EXTERN NSString *const ZWRouterPageShortVideoPlayerViewController;
+
+/** 文本转语音  */
+UIKIT_EXTERN NSString *const ZWRouterPageTextToSpeechViewController;
+
+/** 绘制多边形  */
+UIKIT_EXTERN NSString *const ZWRouterPageDrawPolygonViewController;
 
 /* -------------------------------page----------------------------  */
+
+/* -------------------------------login----------------------------  */
+/** LoginViewController  */
+UIKIT_EXTERN NSString *const ZWRouterPageLoginViewController;
+
+/* -------------------------------login----------------------------  */
 
 
 /** 路由界面配置  */

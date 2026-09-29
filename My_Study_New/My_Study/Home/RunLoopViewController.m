@@ -8,7 +8,8 @@
 
 #import "RunLoopViewController.h"
 #import "WFThread.h"
-#import "YYKit.h"
+#import <YYCategories/YYCategories.h>
+#import <SDWebImage/SDWeakProxy.h>
 #import "RunLoopPermanentViewController.h"
 #import <libkern/OSAtomic.h> // OSSpinLock 自旋锁需要导入头文件
 #import "WFOSSPinLockDemo.h"
@@ -78,7 +79,7 @@
 //    self.ossLock = OS_SPINLOCK_INIT;
     // Do any additional setup after loading the view.
     
-    self.wf_thread = [[WFThread alloc] initWithTarget:[YYWeakProxy proxyWithTarget:self] selector:@selector(keepAlive) object:nil];
+    self.wf_thread = [[WFThread alloc] initWithTarget:[SDWeakProxy proxyWithTarget:self] selector:@selector(keepAlive) object:nil];
     
     self.port = [[NSPort alloc] init];
     

@@ -1,6 +1,6 @@
 //
 //  NSURLSessionConfiguration+Doraemon.h
-//  DoraemonKit
+//  AFNetworking
 //
 //  Created by yixiang on 2018/7/2.
 //

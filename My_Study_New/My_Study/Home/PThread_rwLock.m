@@ -11,6 +11,7 @@
 
 @interface PThread_rwLock ()
 {
+    /** 读写锁  */
     pthread_rwlock_t _rwLock;
 }
 

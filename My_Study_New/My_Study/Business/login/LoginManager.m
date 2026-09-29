@@ -10,26 +10,24 @@
 #import "NSObject+KeyedArchiver.h"
 #import "ZWCommonUtil.h"
 
-#define kSaveLoginInfoKey           @"kSaveLoginInfoKey"
+#define kSaveLoginInfoKey @"kSaveLoginInfoKey"
 
 @implementation LoginManager
 DEFINE_SINGLETON_T_FOR_CLASS(LoginManager)
 
-- (void)loadConfig
-{
+- (void)loadConfig {
     ZWUserAccountManager *loginInfo = [self getLoginInfo];
     if (loginInfo) {
         ZWUserAccountManager *accountManager = ZWSharedUserAccountManager;
-        accountManager.currentUserInfo = loginInfo.currentUserInfo;
+        accountManager.currentUserInfo       = loginInfo.currentUserInfo;
     }
 }
 
 /**
  *  获取登录信息
  */
-- (ZWUserAccountManager * _Nullable)getLoginInfo
-{
-    //获取缓存登录数据
+- (ZWUserAccountManager *_Nullable)getLoginInfo {
+    // 获取缓存登录数据
     NSData *data = (NSData *)[ZWCommonUtil getObjectWithKey:kSaveLoginInfoKey];
     if (data) {
         ZWUserAccountManager *tempInfoModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -42,8 +40,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(LoginManager)
  *  保存登录信息
  *  @param loginInfo    登录信息
  */
-- (void)saveLoginInfo:(ZWUserAccountManager *)loginInfo
-{
+- (void)saveLoginInfo:(ZWUserAccountManager *)loginInfo {
     NSData *archiverData = [NSKeyedArchiver archivedDataWithRootObject:loginInfo];
     if (archiverData) {
         [ZWCommonUtil setObject:archiverData forKey:kSaveLoginInfoKey];

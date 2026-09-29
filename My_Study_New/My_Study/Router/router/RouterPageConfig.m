@@ -32,11 +32,34 @@ NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
 NSString *const ZWRouterPageSelectedViewController   = @"common/selected/page";
 /** 地址微调页  */
 NSString *const ZWRouterPageLocationTrimViewController = @"tools/location/trim/page";
+/** SJ视频调试界面  */
+NSString *const ZWRouterPageSJVideoController = @"test/video/sj/one/page";
 /** 文件选择界面  */
 NSString *const ZWRouterPageFileSelectViewController = @"tools/file/selectpage";
 /** 陀螺仪测试界面 ~ 球  */
 NSString *const ZWRouterPageBallViewController       = @"test/ball/page";
+/** 自定义Swiper  */
+NSString *const ZWRouterPageCustomSwiperController       = @"test/customSwiper/page";
+/** RunLoopPermanentPage  */
+NSString *const ZWRouterRunLoopPermanentViewController  = @"test/runloop/page";
+
+/** PASShortVideoPlayerViewController  */
+NSString *const ZWRouterPageShortVideoPlayerViewController  = @"test/runloop/page";
+
+/** 文本转语音  */
+NSString *const ZWRouterPageTextToSpeechViewController  = @"tools/textToSpeech/page";
+
+/** 绘制多边形  */
+NSString *const ZWRouterPageDrawPolygonViewController = @"test/polygon/page";
+
 /* -------------------------------page----------------------------  */
+
+
+/* -------------------------------login----------------------------  */
+/** LoginViewController  */
+NSString *const ZWRouterPageLoginViewController  = @"user/login/page";
+
+/* -------------------------------login----------------------------  */
 
 
 @implementation RouterPageConfig
@@ -138,6 +161,13 @@ NSString *const ZWRouterPageBallViewController       = @"test/ball/page";
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
+            /** SJ视频调试界面  */
+            @{
+                @"url" : ZWRouterPageSJVideoController,
+                @"clsName": @"ZWSJVideoOnePage",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
             /** 文件选择界面   */
             @{
                 @"url" : ZWRouterPageFileSelectViewController,
@@ -150,6 +180,48 @@ NSString *const ZWRouterPageBallViewController       = @"test/ball/page";
                 @"url" : ZWRouterPageBallViewController,
                 @"clsName": @"BallViewController",
                 @"type" : @(RouterTypeNavigatePresent),
+                @"attachValue" : @{}
+            },
+            /** 自定义Swiper   */
+            @{
+                @"url" : ZWRouterPageCustomSwiperController,
+                @"clsName": @"CustomSwiperViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** RunLoopPermanentPage   */
+            @{
+                @"url" : ZWRouterRunLoopPermanentViewController,
+                @"clsName": @"RunLoopPermanentViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** 视频控制器  */
+            @{
+                @"url" : ZWRouterPageShortVideoPlayerViewController,
+                @"clsName": @"PASShortVideoPlayerViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** 登录界面  */
+            @{
+                @"url" : ZWRouterPageLoginViewController,
+                @"clsName": @"LoginViewController",
+                @"type" : @(RouterTypeNavigatePresent),
+                @"attachValue" : @{}
+            },
+            /** 文本转语音  */
+            @{
+                @"url" : ZWRouterPageTextToSpeechViewController,
+                @"clsName": @"TextToSpeech",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** 文本转语音  */
+            @{
+                @"url" : ZWRouterPageDrawPolygonViewController,
+                @"clsName": @"DrawPolygonVc",
+                @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },
         ]

@@ -209,7 +209,13 @@
     MDLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLogTabViewCellIdentifier];
     
     SectionData *sectionData = PASArrayAtIndex(self.dataSource, indexPath.section);
+
     NSString *titleName = PASArrayAtIndex(sectionData.items, indexPath.row);
+    
+    if (indexPath.row == sectionData.items.count-1) {
+       NSString *userStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"zw_appLaunch"];
+        titleName = [NSString stringWithFormat:@"%@--%@", titleName, userStr];
+    }
     cell.titleName = TransToString(titleName);
     return cell;
 }

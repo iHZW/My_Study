@@ -9,13 +9,11 @@
 #import "CMBusMediaAppDelegate.h"
 #import "NSObject+Customizer.h"
 
-
 @interface CMBusMediaAppDelegate ()
 /**
  记录注册组件的相关信息(元素为生成的对象示例)
  */
 @property (nonatomic, strong) NSMutableArray<id<UIApplicationDelegate>> *connectorMap;
-
 
 @end
 
@@ -23,14 +21,13 @@
 
 DEFINE_SINGLETON_T_FOR_CLASS(CMBusMediaAppDelegate);
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
-    
+
     if (self) {
         _connectorMap = [[NSMutableArray alloc] initWithCapacity:0];
     }
-    
+
     return self;
 }
 
@@ -40,10 +37,9 @@ DEFINE_SINGLETON_T_FOR_CLASS(CMBusMediaAppDelegate);
  @param selector 方法名
  @param params 相关参数
  */
-+ (void)serviceManager:(SEL)selector withParameters:(NSArray *)params
-{
++ (void)serviceManager:(SEL)selector withParameters:(NSArray *)params {
     for (NSObject *service in [CMBusMediaAppDelegate services]) {
-        if ([service respondsToSelector:selector]){
+        if ([service respondsToSelector:selector]) {
             [service performSelector:selector withParameters:params];
         }
     }
@@ -56,8 +52,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(CMBusMediaAppDelegate);
  @param selector 方法名
  @param params 相关参数
  */
-+ (void)performAction:(NSObject *)service selector:(SEL)selector withParameters:(NSArray *)params
-{
++ (void)performAction:(NSObject *)service selector:(SEL)selector withParameters:(NSArray *)params {
     if ([service respondsToSelector:selector]) {
         [service performSelector:selector withParameters:params];
     }
@@ -65,12 +60,11 @@ DEFINE_SINGLETON_T_FOR_CLASS(CMBusMediaAppDelegate);
 
 /**
  注册UIApplicationDelegate服务组件
- 
+
  @param service 实现UIApplicationDelegate协议的服务组件
  */
-+ (void)regisertService:(id<UIApplicationDelegate>)service
-{
-    @synchronized ([CMBusMediaAppDelegate sharedCMBusMediaAppDelegate].connectorMap) {
++ (void)regisertService:(id<UIApplicationDelegate>)service {
+    @synchronized([CMBusMediaAppDelegate sharedCMBusMediaAppDelegate].connectorMap) {
         if (service && ![[CMBusMediaAppDelegate sharedCMBusMediaAppDelegate].connectorMap containsObject:service]) {
             [[CMBusMediaAppDelegate sharedCMBusMediaAppDelegate].connectorMap addObject:service];
         }
@@ -80,8 +74,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(CMBusMediaAppDelegate);
 /**
  获取当前注册组件列表信息
  */
-+ (NSArray<id<UIApplicationDelegate>> *)services
-{
++ (NSArray<id<UIApplicationDelegate>> *)services {
     return [CMBusMediaAppDelegate sharedCMBusMediaAppDelegate].connectorMap;
 }
 
@@ -91,18 +84,16 @@ DEFINE_SINGLETON_T_FOR_CLASS(CMBusMediaAppDelegate);
  @param className 类名
  @return 返回对应实例对象
  */
-+ (id<UIApplicationDelegate>)service:(Class)className
-{
++ (id<UIApplicationDelegate>)service:(Class)className {
     __block id retObj = nil;
-    [[CMBusMediaAppDelegate sharedCMBusMediaAppDelegate].connectorMap enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id<UIApplicationDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [[CMBusMediaAppDelegate sharedCMBusMediaAppDelegate].connectorMap enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id<UIApplicationDelegate> _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         if ([obj isKindOfClass:className]) {
-            retObj  = obj;
-            *stop   = YES;
+            retObj = obj;
+            *stop  = YES;
         }
     }];
-    
+
     return retObj;
 }
-
 
 @end

@@ -67,14 +67,20 @@
     return whiteList;
 }
 
-+ (UIWindow *)displayWindow{
-    __block UIWindow *window = nil;
-    [[UIApplication sharedApplication].windows enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIWindow * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[UIWindow class]]) {
-            window = obj;
++ (UIWindow *)displayWindow {
+    UIWindow *keyWindow = nil;
+    if ([[UIApplication sharedApplication].delegate respondsToSelector:@selector(window)]) {
+        keyWindow = [[UIApplication sharedApplication].delegate window];
+    } else {
+        NSArray *windows = [UIApplication sharedApplication].windows;
+        for (UIWindow *window in windows) {
+            if (!window.hidden) {
+                keyWindow = window;
+                break;
+            }
         }
-    }];
-    return window;
+    }
+    return keyWindow;
 }
 
 + (UIViewController *)topOfRootViewController{

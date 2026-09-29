@@ -7,6 +7,7 @@
 //
 
 #import "ZWBaseViewController.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 @interface ZWBaseViewController ()
 
@@ -27,6 +28,7 @@
     if (self)
     {
         [self initExtendedData];
+//        self.pop
     }
     
     return self;
@@ -237,7 +239,7 @@
 /** 默认不支持旋转  */
 - (BOOL)shouldAutorotate
 {
-    return YES;
+    return NO;
 }
 
 /** 默认竖屏  */

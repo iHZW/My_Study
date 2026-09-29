@@ -1,6 +1,6 @@
 //
 //  DoraemonAlertUtil.h
-//  DoraemonKit
+//  AFNetworking
 //
 //  Created by didi on 2019/8/27.
 //

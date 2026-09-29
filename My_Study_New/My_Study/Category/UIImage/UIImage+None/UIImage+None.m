@@ -8,28 +8,41 @@
 
 #import "UIImage+None.h"
 #import <objc/runtime.h>
+#import "NSObject+Customizer.h"
 
 @implementation UIImage (None)
 
-+ (void)load
-{
-    Method imageNamed = class_getClassMethod(self, @selector(imageNamed:));
-    Method looha_ImageNamed = class_getClassMethod(self, @selector(looha_none_imageNamed:));
-    method_exchangeImplementations(imageNamed, looha_ImageNamed);
-    
++ (void)load {
+    [self swizzleClassMethods:[UIImage class] originalSelector:@selector(imageNamed:) swizzledSelector:@selector(wmm_none_imageNamed:)];
+    if (@available(iOS 13.0, *)) {
+        [self swizzleClassMethods:[UIImage class] originalSelector:@selector(imageNamed:inBundle:withConfiguration:) swizzledSelector:@selector(wmm_none_imageNamed:inBundle:withConfiguration:)];
+    }
+    [self swizzleClassMethods:[UIImage class] originalSelector:@selector(imageNamed:inBundle:compatibleWithTraitCollection:) swizzledSelector:@selector(wmm_none_imageNamed:inBundle:compatibleWithTraitCollection:)];
 }
 
-+ (instancetype)looha_none_imageNamed:(NSString *)name
-{
-    
-    if (ValidString(name)) {//判断是否为空的方法，不提供，自行搞定
-        
-      return  [self looha_none_imageNamed:name];
-        
-    }else{
-        
++ (nullable UIImage *)wmm_none_imageNamed:(NSString *)name {
+    if (ValidString(name)) { // 判断是否为空的方法
+        return [self wmm_none_imageNamed:name];
+    } else {
         return nil;
     }
 }
+
++ (nullable UIImage *)wmm_none_imageNamed:(NSString *)name inBundle:(nullable NSBundle *)bundle withConfiguration:(nullable UIImageConfiguration *)configuration  API_AVAILABLE(ios(13.0)){
+    if (ValidString(name)) { // 判断是否为空的方法
+        return [self wmm_none_imageNamed:name inBundle:bundle withConfiguration:configuration];
+    } else {
+        return nil;
+    }
+}
+
++ (nullable UIImage *)wmm_none_imageNamed:(NSString *)name inBundle:(nullable NSBundle *)bundle compatibleWithTraitCollection:(nullable UITraitCollection *)traitCollection {
+    if (ValidString(name)) { // 判断是否为空的方法
+        return [self wmm_none_imageNamed:name inBundle:bundle compatibleWithTraitCollection:traitCollection];
+    } else {
+        return nil;
+    }
+}
+
 
 @end

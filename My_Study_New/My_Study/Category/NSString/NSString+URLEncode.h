@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface NSString (URLEncode)
 
 /**
@@ -17,7 +16,6 @@
  * @returns 编码后的URL
  */
 - (NSString *)dzhURLEncodedString;
-
 
 - (NSString *)encodeToPercentEscapeString;
 
@@ -57,8 +55,15 @@
  */
 + (NSDictionary *)parseQueryString:(NSString *)query;
 
-@end
+/**
+ * url 填充参数
+ *
+ * @param  fmt 带占位符的url
+ */
++ (NSString *)en_urlFillSpace:(NSString *)fmt, ... NS_REQUIRES_NIL_TERMINATION;
 
+
+@end
 
 @interface NSMutableString (URLEncode)
 

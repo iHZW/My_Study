@@ -9,6 +9,7 @@
 #import "DHGifImageOperation.h"
 #import <ImageIO/ImageIO.h>
 #import <QuartzCore/QuartzCore.h>
+#import <WebKit/WebKit.h>
 
 @interface DHGifImageOperation ()
 {
@@ -109,6 +110,35 @@
     [timer invalidate];
     timer = nil;
     [super removeFromSuperview];
+}
+
+#pragma mark - 加载本地GIF图片无需设置NSTimer(自定义播放Gif图片(Name))
+/**< 使用案例: [self.XXX addSubview:[[DHGifImageOperation alloc] initWithFrame:self.adFrame gifImageName:@"XXX.gif"]]; */
+- (id)initWithFrame:(CGRect)frame gifImageName:(NSString *)gifImageName {
+    self = [super initWithFrame:frame];
+    if (self) {
+        NSString *gifImgName = [gifImageName stringByReplacingOccurrencesOfString:@".gif" withString:@""];
+        NSData *gifData      = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:gifImgName ofType:@"gif"]];
+        
+        WKWebView *webView   = [[WKWebView alloc] initWithFrame:frame];
+        [webView setBackgroundColor:[UIColor clearColor]];
+        [webView setContentScaleFactor:1.0];
+//        [webView setScalesPageToFit:YES];
+        [webView.scrollView setScrollEnabled:NO];
+        [webView loadData:gifData MIMEType:@"image/gif" characterEncodingName:@"" baseURL:[NSURL URLWithString:@""]];
+        
+        UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [clearButton setFrame:webView.frame];
+        [clearButton setBackgroundColor:[UIColor clearColor]];
+        [clearButton addTarget:self action:@selector(activiTap:) forControlEvents:UIControlEventTouchUpInside];
+        [webView addSubview:clearButton];
+        [self addSubview:webView];
+    }
+    return self;
+}
+
+- (void)activiTap:(UITapGestureRecognizer*)recognizer{
+    NSLog(@"[DHGifImageOperation]:activiTap:recognizer");
 }
 
 @end

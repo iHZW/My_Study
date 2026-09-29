@@ -1400,8 +1400,8 @@ NSString *const HTMLTextAlignment = @"textAlignment";
  */
 - (void)dealithWithAction:(NSString *)url text:(NSString *)text
 {
-    if (self.htmlTagClickHandler) {
-        self.htmlTagClickHandler(url, text);
+    if (self.htmlLabelTagClickHandler) {
+        self.htmlLabelTagClickHandler(url, text);
     } else {
         if ([url hasPrefix:@"http://"] ||
             [url hasPrefix:@"https://"]) {

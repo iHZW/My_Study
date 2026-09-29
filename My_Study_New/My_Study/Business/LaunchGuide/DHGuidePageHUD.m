@@ -22,6 +22,21 @@
 @property (nonatomic, strong) UIScrollView *pageScrollView;
 @property (nonatomic, strong) NSTimer *cycleTimer;
 @property (nonatomic, strong) NSArray *imageNameArray;
+@property (nonatomic, strong) UIButton *movieStartButton;
+
+
+#pragma mark - 首页定制化视频引导
+/** 视频下标  */
+@property (nonatomic, assign) NSInteger videoIndex;
+/** 下一步按钮  */
+@property (nonatomic, strong) UIButton *nextButton;
+/** 认证按钮  */
+@property (nonatomic, strong) UIButton *equityButton;
+/** 关闭按钮  */
+@property (nonatomic, strong) UIButton *closeButton;
+
+@property (nonatomic, strong) NSArray<NSURL *> *videoURLArr;
+
 @end
 
 @implementation DHGuidePageHUD
@@ -155,6 +170,7 @@
     GuideActionType actionType = GuideActionTypeComplete;
     if (button) {
         actionType = button.tag;
+        NSLog(@"button.tag = %@", @(button.tag));
     }
     if (self.playerController) {
         [self.playerController stopPlay];
@@ -163,20 +179,6 @@
     self.alpha = 0;
     BlockSafeRun(self.guideCompleteBlock, self.currentIndex, actionType);
     [self removeGuidePageHUD];
-    
-//    [UIView animateWithDuration:DDHidden_TIME animations:^{
-//        if (self.playerController) {
-//            [self.playerController stopPlay];
-//            self.playerController = nil;
-//        }
-//        self.alpha = 0;
-//        BlockSafeRun(self.guideCompleteBlock, self.currentIndex, actionType);
-//        [self removeGuidePageHUD];
-////        [self performSelector:@selector(removeGuidePageHUD) withObject:nil afterDelay:1];
-////        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DDHidden_TIME * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-////            [self performSelector:@selector(removeGuidePageHUD) withObject:nil afterDelay:1];
-////        });
-//    }];
 }
 
 - (void)removeGuidePageHUD {
@@ -214,9 +216,11 @@
         XYIntroductionPage * xyPage = [[XYIntroductionPage alloc]init];
         xyPage.xyVideoUrl = videoURL;
         xyPage.xyVolume = 0.7;
+        xyPage.xyAutoLoopPlayVideo = NO;
 //        xyPage.xyCoverImgArr = @[]; // 可以设置覆盖的图片数组,暂时不设置
 //        xyPage.xyAutoScrolling = YES;
         self.playerController = xyPage;
+        
         [self addSubview:self.playerController.view];
         
         // 设置引导页上的跳过按钮
@@ -243,12 +247,98 @@
         [self.playerController.view addSubview:movieStartButton];
 
         [movieStartButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [UIView animateWithDuration:DDHidden_TIME animations:^{
-            [movieStartButton setAlpha:1.0];
-        }];
+//        [UIView animateWithDuration:DDHidden_TIME animations:^{
+//            [movieStartButton setAlpha:1.0];
+//        }];
     }
     return self;
 }
+
+
+/**
+ *  app 首页定制化视屏引导
+ *
+ *  @param frame    位置大小
+ *  @param videoURLArr 引导页视频地址
+ *
+ *  @return DHGuidePageHUD对象
+ */
+- (instancetype)dh_homeGuidePageInitWithFrame:(CGRect)frame videoURLArr:(NSArray<NSURL *> *)videoURLArr {
+    if ([super initWithFrame:frame]) {
+        self.currentIndex = 0;
+        self.videoIndex = 0;
+        if (ValidArray(videoURLArr)) {
+            self.videoURLArr = videoURLArr;
+        } else {
+            return [DHGuidePageHUD new];
+        }
+        XYIntroductionPage * xyPage = [[XYIntroductionPage alloc]init];
+        xyPage.xyVideoUrl = [videoURLArr firstObject];
+        xyPage.xyVolume = 0.7;
+        xyPage.xyAutoLoopPlayVideo = NO;
+        xyPage.view.backgroundColor = UIColor.clearColor;
+//        xyPage.xyCoverImgArr = @[]; // 可以设置覆盖的图片数组,暂时不设置
+//        xyPage.xyAutoScrolling = YES;
+        self.playerController = xyPage;
+        __weak typeof(self) weakSelf = self;
+        [self.playerController setPlayComplete:^{
+            __strong typeof(weakSelf) self = weakSelf;
+            if (self.videoIndex == 0) {
+                self.nextButton.hidden = NO;
+                self.videoIndex += 1;
+            } else {
+                self.equityButton.hidden = NO;
+                self.closeButton.hidden = NO;
+            }
+        }];
+    
+        [self addSubview:self.playerController.view];
+    
+        [self addSubview:self.nextButton];
+        [self addSubview:self.equityButton];
+        [self addSubview:self.closeButton];
+    }
+    return self;
+}
+
+- (UIButton *)nextButton {
+    if (!_nextButton) {
+        __weak typeof(self) weakSelf = self;
+        _nextButton = [UIButton buttonWithFrame:CGRectMake(kMainScreenWidth*0.1, kMainScreenHeight - 260, kMainScreenWidth*0.8, 200) title:@"" font:nil titleColor:UIColor.redColor block:^{
+            __strong typeof(weakSelf) self = weakSelf;
+            
+            self.playerController.xyVideoUrl = PASArrayAtIndex(self.videoURLArr, self.videoIndex);
+            self.nextButton.hidden = YES;
+        }];
+        _nextButton.backgroundColor = UIColor.clearColor;
+        _nextButton.hidden = YES;
+    }
+    return _nextButton;
+}
+
+- (UIButton *)equityButton {
+    if (!_equityButton) {
+        _equityButton = [UIButton buttonWithFrame:CGRectMake(kMainScreenWidth*0.1, kMainScreenHeight - 280, kMainScreenWidth*0.8, 120) title:@"" font:nil titleColor:UIColor.redColor block:nil];
+        _equityButton.tag = GuideActionTypeComplete;
+        _equityButton.backgroundColor = UIColor.clearColor;
+        _equityButton.hidden = YES;
+        [_equityButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _equityButton;
+}
+
+- (UIButton *)closeButton {
+    if (!_closeButton) {
+        _closeButton = [UIButton buttonWithFrame:CGRectMake(kMainScreenWidth*0.1, kMainScreenHeight - 160, kMainScreenWidth*0.8, 100) title:@"" font:nil titleColor:UIColor.redColor block:nil];
+        _closeButton.tag = GuideActionTypeJump;
+        _closeButton.backgroundColor = UIColor.clearColor;
+        _closeButton.hidden = YES;
+        [_closeButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _closeButton;
+}
+
+
 
 - (void)dealloc
 {
