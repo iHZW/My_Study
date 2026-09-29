@@ -3,7 +3,7 @@ import icoMoonConfig from '@/resources/fonts/selection.json'
 import { scaleSizeW } from '@/utils/pixelRatio'
 import { memo, type ComponentProps } from 'react'
 import { useTextShadow, useTheme } from '@/store/theme/hook'
-import { StyleSheet, type StyleProp, type TextStyle } from 'react-native'
+import { Platform, StyleSheet, type StyleProp, type TextStyle } from 'react-native'
 
 // import IconAntDesign from 'react-native-vector-icons/AntDesign'
 // import IconEntypo from 'react-native-vector-icons/Entypo'
@@ -36,7 +36,8 @@ interface IconProps extends Omit<ComponentProps<IconType>, 'style'> {
 export const Icon = memo(({ size = 15, rawSize, color, style, ...props }: IconProps) => {
   const theme = useTheme()
   const textShadow = useTextShadow()
-  const newStyle = textShadow ? StyleSheet.compose({
+  // iOS 对图标字体应用文字阴影时会栅格化字形，大尺寸图标会出现明显重影。
+  const newStyle = textShadow && Platform.OS != 'ios' ? StyleSheet.compose({
     textShadowColor: theme['c-primary-dark-300-alpha-800'],
     textShadowOffset: { width: 0.2, height: 0.2 },
     textShadowRadius: 2,

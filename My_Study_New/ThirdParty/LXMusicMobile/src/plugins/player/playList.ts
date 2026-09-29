@@ -9,6 +9,13 @@ import playerState from '@/store/player/state'
 const list: LX.Player.Track[] = []
 
 const defaultUserAgent = 'Mozilla/5.0 (Linux; Android 10; Pixel 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Mobile Safari/537.36'
+const streamHeaders = {
+  // Android 原生播放器识别 userAgent 字段；iOS 的 AVURLAsset 只读取 headers。
+  // 两端同时保留，避免部分音源因缺少 UA 直接返回 403 后不断切歌。
+  'User-Agent': defaultUserAgent,
+  Accept: '*/*',
+  'Accept-Encoding': 'identity',
+}
 const httpRxp = /^(https?:\/\/.+|\/.+)/
 
 export const state = {
@@ -55,6 +62,7 @@ const buildTracks = (musicInfo: LX.Player.PlayMusic, url?: LX.Player.Track['url'
       album,
       artwork,
       userAgent: defaultUserAgent,
+      headers: streamHeaders,
       musicId: mInfo.id,
       lyric,
       // original: { ...musicInfo },
@@ -185,11 +193,11 @@ const handlePlayMusic = async(musicInfo: LX.Player.PlayMusic, url: string, time:
 }
 let playPromise = Promise.resolve()
 let actionId = Math.random()
-export const playMusic = (musicInfo: LX.Player.PlayMusic, url: string, time: number) => {
+export const playMusic = (musicInfo: LX.Player.PlayMusic, url: string, time: number, onApplied?: () => void) => {
   const id = actionId = Math.random()
   void playPromise.finally(() => {
     if (id != actionId) return
-    playPromise = handlePlayMusic(musicInfo, url, time)
+    playPromise = handlePlayMusic(musicInfo, url, time).finally(onApplied)
   })
 }
 

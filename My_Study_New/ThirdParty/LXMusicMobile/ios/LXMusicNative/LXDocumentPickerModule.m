@@ -68,8 +68,10 @@ RCT_REMAP_METHOD(pickFile, pickFile:(BOOL)multi resolver:(RCTPromiseResolveBlock
 }
 
 - (void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller {
-  [self finishWithError:[NSError errorWithDomain:@"LXDocumentPicker" code:2
-                                      userInfo:@{NSLocalizedDescriptionKey: @"用户取消了文件选择"}] path:nil];
+  self.reject(@"picker_cancelled", @"用户取消了文件选择", nil);
+  self.resolve = nil;
+  self.reject = nil;
+  self.picker = nil;
 }
 
 @end

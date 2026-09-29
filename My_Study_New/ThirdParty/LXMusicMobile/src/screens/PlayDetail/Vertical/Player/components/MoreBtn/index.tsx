@@ -4,11 +4,15 @@ import PlayModeBtn from './PlayModeBtn'
 import MusicAddBtn from './MusicAddBtn'
 import DesktopLyricBtn from './DesktopLyricBtn'
 import CommentBtn from './CommentBtn'
+import Btn from './Btn'
+import { showFloatingLyric } from '@/navigation/utils'
 
 export default () => {
   return (
     <View style={styles.container}>
-      {Platform.OS === 'android' ? <DesktopLyricBtn /> : null}
+      {Platform.OS === 'android'
+        ? <DesktopLyricBtn />
+        : <Btn icon="lyric-on" onPress={showFloatingLyric} />}
       <MusicAddBtn />
       <PlayModeBtn />
       <CommentBtn />

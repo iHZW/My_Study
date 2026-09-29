@@ -48,9 +48,13 @@ static void GameShowMessage(UIViewController *controller, NSString *title, NSStr
 @property (nonatomic, strong) UIStackView *actions;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSLayoutConstraint *boardWidthConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *statusTrailingConstraint;
 @property (nonatomic, assign) CGFloat maximumBoardWidth;
+@property (nonatomic, assign) CGFloat boardAspect;
+@property (nonatomic, assign) BOOL usesCompactLayout;
 
 - (void)setupTitle:(NSString *)title subtitle:(NSString *)subtitle board:(UIView *)board aspect:(CGFloat)aspect maximumWidth:(CGFloat)maximumWidth;
+- (void)setupCompactLayoutWithBoard:(UIView *)board aspect:(CGFloat)aspect maximumWidth:(CGFloat)maximumWidth;
 - (UIButton *)addAction:(NSString *)title selector:(SEL)selector;
 
 @end
@@ -271,6 +275,45 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 }
 @end
 
+@interface CRMTetrisNextView : UIView
+@property (nonatomic, assign) NSInteger pieceType;
+@end
+
+@implementation CRMTetrisNextView
+
+- (void)drawRect:(CGRect)rect {
+    NSDictionary *attributes = @{
+        NSFontAttributeName: [UIFont systemFontOfSize:9 weight:UIFontWeightSemibold],
+        NSForegroundColorAttributeName: GameColor(0xBFD3CC)
+    };
+    [@"下一块" drawAtPoint:CGPointMake(6, 15) withAttributes:attributes];
+
+    NSInteger minX = 4, maxX = 0, minY = 4, maxY = 0;
+    for (NSInteger index = 0; index < 4; index++) {
+        NSInteger x = CRMShapes[self.pieceType][index][0];
+        NSInteger y = CRMShapes[self.pieceType][index][1];
+        minX = MIN(minX, x); maxX = MAX(maxX, x);
+        minY = MIN(minY, y); maxY = MAX(maxY, y);
+    }
+    CGFloat cellSize = 7;
+    CGFloat shapeWidth = (maxX - minX + 1) * cellSize;
+    CGFloat shapeHeight = (maxY - minY + 1) * cellSize;
+    CGFloat originX = CGRectGetWidth(rect) - 7 - shapeWidth;
+    CGFloat originY = (CGRectGetHeight(rect) - shapeHeight) / 2;
+    [GameColor(CRMShapeColors[self.pieceType]) setFill];
+    for (NSInteger index = 0; index < 4; index++) {
+        NSInteger x = CRMShapes[self.pieceType][index][0] - minX;
+        NSInteger y = CRMShapes[self.pieceType][index][1] - minY;
+        CGRect block = CGRectMake(originX + x * cellSize + 0.5,
+                                  originY + y * cellSize + 0.5,
+                                  cellSize - 1,
+                                  cellSize - 1);
+        [[UIBezierPath bezierPathWithRoundedRect:block cornerRadius:1.5] fill];
+    }
+}
+
+@end
+
 @interface CRMTetrisController : CRMGameController
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *cells;
 @property (nonatomic, strong) CRMTetrisBoard *gameBoard;
@@ -283,6 +326,10 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 @property (nonatomic, assign) NSInteger lines;
 @property (nonatomic, assign) BOOL paused;
 @property (nonatomic, assign) BOOL gameOver;
+@property (nonatomic, assign) NSInteger nextPieceType;
+@property (nonatomic, strong) CRMTetrisNextView *nextPreview;
+@property (nonatomic, strong) NSTimer *inputRepeatTimer;
+@property (nonatomic, assign) NSInteger repeatedDirection;
 @end
 
 @implementation CRMTetrisController
@@ -290,11 +337,27 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.gameBoard = [[CRMTetrisBoard alloc] init];
-    [self setupTitle:@"俄罗斯方块" subtitle:@"移动、旋转方块，填满一行即可消除" board:self.gameBoard aspect:2 maximumWidth:245];
+    [self setupCompactLayoutWithBoard:self.gameBoard aspect:2 maximumWidth:245];
+    self.nextPreview = [[CRMTetrisNextView alloc] init];
+    self.nextPreview.backgroundColor = GameColor(0x314848);
+    self.nextPreview.layer.cornerRadius = 11;
+    self.nextPreview.layer.masksToBounds = YES;
+    self.nextPreview.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.nextPreview];
+    self.statusTrailingConstraint.active = NO;
+    self.statusTrailingConstraint = [self.statusLabel.trailingAnchor constraintEqualToAnchor:self.nextPreview.leadingAnchor constant:-6];
+    self.statusTrailingConstraint.active = YES;
+    [NSLayoutConstraint activateConstraints:@[
+        [self.nextPreview.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-14],
+        [self.nextPreview.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:4],
+        [self.nextPreview.widthAnchor constraintEqualToConstant:76],
+        [self.nextPreview.heightAnchor constraintEqualToConstant:42]
+    ]];
     self.actions.axis = UILayoutConstraintAxisVertical;
-    UIStackView *move = [self actionRow:@[@"◀", @"⟳", @"▶", @"▼"] selectors:@[@"moveLeft", @"rotatePiece", @"moveRight", @"softDrop"]];
-    [self.actions addArrangedSubview:move];
-    [move.widthAnchor constraintEqualToAnchor:self.actions.widthAnchor].active = YES;
+    self.actions.alignment = UIStackViewAlignmentCenter;
+    self.actions.distribution = UIStackViewDistributionFill;
+    self.actions.spacing = 10;
+    [self.actions addArrangedSubview:[self buildDpad]];
     UIStackView *tools = [self actionRow:@[@"一键落下", @"暂停 / 继续", @"新游戏"] selectors:@[@"hardDrop", @"togglePause", @"restart"]];
     [self.actions addArrangedSubview:tools];
     [tools.widthAnchor constraintEqualToAnchor:self.actions.widthAnchor].active = YES;
@@ -316,7 +379,122 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     return row;
 }
 
+- (UIButton *)dpadButton:(NSString *)title selector:(SEL)selector diameter:(CGFloat)diameter background:(UIColor *)background foreground:(UIColor *)foreground fontSize:(CGFloat)fontSize {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:foreground forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightSemibold];
+    button.backgroundColor = background;
+    button.layer.cornerRadius = diameter / 2;
+    [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+    button.translatesAutoresizingMaskIntoConstraints = NO;
+    [button.widthAnchor constraintEqualToConstant:diameter].active = YES;
+    [button.heightAnchor constraintEqualToConstant:diameter].active = YES;
+    return button;
+}
+
+// 圆形方向键：上下左右环绕分布，中间是变换（旋转）按钮。
+- (UIView *)buildDpad {
+    UIView *dpad = [[UIView alloc] init];
+    dpad.translatesAutoresizingMaskIntoConstraints = NO;
+    [dpad.heightAnchor constraintEqualToConstant:168].active = YES;
+    [dpad.widthAnchor constraintEqualToAnchor:dpad.heightAnchor].active = YES;
+
+    UIView *disc = [[UIView alloc] init];
+    disc.backgroundColor = GameColor(0xE4EDE9);
+    disc.layer.cornerRadius = 84;
+    disc.layer.borderWidth = 1;
+    disc.layer.borderColor = GameColor(0xD1E0DA).CGColor;
+    disc.translatesAutoresizingMaskIntoConstraints = NO;
+    [dpad addSubview:disc];
+    [NSLayoutConstraint activateConstraints:@[
+        [disc.topAnchor constraintEqualToAnchor:dpad.topAnchor],
+        [disc.leadingAnchor constraintEqualToAnchor:dpad.leadingAnchor],
+        [disc.trailingAnchor constraintEqualToAnchor:dpad.trailingAnchor],
+        [disc.bottomAnchor constraintEqualToAnchor:dpad.bottomAnchor]
+    ]];
+
+    // 中间：变换
+    UIButton *rotate = [self dpadButton:@"⟳" selector:@selector(rotatePiece) diameter:58 background:GameColor(0x355D55) foreground:UIColor.whiteColor fontSize:24];
+    rotate.layer.shadowColor = [UIColor colorWithWhite:0.2 alpha:1].CGColor;
+    rotate.layer.shadowOpacity = 0.3;
+    rotate.layer.shadowOffset = CGSizeMake(0, 5);
+    rotate.layer.shadowRadius = 9;
+    [dpad addSubview:rotate];
+    [rotate.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor].active = YES;
+    [rotate.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor].active = YES;
+
+    // 上下左右
+    UIButton *up = [self dpadButton:@"▲" selector:@selector(rotatePiece) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
+    UIButton *down = [self dpadButton:@"▼" selector:@selector(softDrop) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
+    UIButton *left = [self dpadButton:@"◀" selector:@selector(moveLeft) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
+    UIButton *right = [self dpadButton:@"▶" selector:@selector(moveRight) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
+    up.tag = 1;
+    down.tag = 2;
+    left.tag = 3;
+    right.tag = 4;
+    for (UIButton *button in @[up, down, left, right]) {
+        button.layer.borderWidth = 1;
+        button.layer.borderColor = GameColor(0xDCE8E3).CGColor;
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleDirectionLongPress:)];
+        longPress.minimumPressDuration = 0.22;
+        longPress.cancelsTouchesInView = YES;
+        [button addGestureRecognizer:longPress];
+        [dpad addSubview:button];
+    }
+    [NSLayoutConstraint activateConstraints:@[
+        [up.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor],
+        [up.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor constant:-56],
+        [down.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor],
+        [down.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor constant:56],
+        [left.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor],
+        [left.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor constant:-56],
+        [right.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor],
+        [right.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor constant:56]
+    ]];
+    return dpad;
+}
+
+- (void)performDirection:(NSInteger)direction {
+    switch (direction) {
+        case 1: [self rotatePiece]; break;
+        case 2: [self softDrop]; break;
+        case 3: [self moveLeft]; break;
+        case 4: [self moveRight]; break;
+        default: break;
+    }
+}
+
+- (void)repeatDirection:(NSTimer *)timer {
+    if (timer != self.inputRepeatTimer) return;
+    [self performDirection:self.repeatedDirection];
+}
+
+- (void)stopDirectionRepeat {
+    [self.inputRepeatTimer invalidate];
+    self.inputRepeatTimer = nil;
+    self.repeatedDirection = 0;
+}
+
+- (void)handleDirectionLongPress:(UILongPressGestureRecognizer *)gesture {
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        [self stopDirectionRepeat];
+        self.repeatedDirection = gesture.view.tag;
+        [self performDirection:self.repeatedDirection];
+        self.inputRepeatTimer = [NSTimer scheduledTimerWithTimeInterval:0.09
+                                                                 target:self
+                                                               selector:@selector(repeatDirection:)
+                                                               userInfo:nil
+                                                                repeats:YES];
+    } else if (gesture.state == UIGestureRecognizerStateEnded ||
+               gesture.state == UIGestureRecognizerStateCancelled ||
+               gesture.state == UIGestureRecognizerStateFailed) {
+        [self stopDirectionRepeat];
+    }
+}
+
 - (void)dealloc {
+    [self stopDirectionRepeat];
     [self.timer invalidate];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -332,11 +510,13 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self stopDirectionRepeat];
     [self.timer invalidate];
     self.timer = nil;
 }
 
 - (void)pauseForBackground {
+    [self stopDirectionRepeat];
     self.paused = YES;
     [self.timer invalidate];
     self.timer = nil;
@@ -349,6 +529,7 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 }
 
 - (void)restart {
+    [self stopDirectionRepeat];
     [self.timer invalidate];
     self.timer = nil;
     self.cells = [NSMutableArray arrayWithCapacity:200];
@@ -357,13 +538,15 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     self.lines = 0;
     self.paused = NO;
     self.gameOver = NO;
+    self.nextPieceType = arc4random_uniform(7);
     [self spawnPiece];
     [self refresh];
     [self startTimer];
 }
 
 - (void)spawnPiece {
-    self.pieceType = arc4random_uniform(7);
+    self.pieceType = self.nextPieceType;
+    self.nextPieceType = arc4random_uniform(7);
     self.pieceX = 3;
     self.pieceY = 0;
     self.rotation = 0;
@@ -457,6 +640,8 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     self.gameBoard.rotation = self.rotation;
     self.gameBoard.active = !self.gameOver;
     [self.gameBoard setNeedsDisplay];
+    self.nextPreview.pieceType = self.nextPieceType;
+    [self.nextPreview setNeedsDisplay];
     self.statusLabel.text = self.gameOver ? @"游戏结束 · 点新游戏再来一局" : (self.paused ? @"已暂停" : [NSString stringWithFormat:@"得分 %ld  ·  消除 %ld 行", (long)self.score, (long)self.lines]);
 }
 @end
@@ -480,6 +665,8 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 - (void)setupTitle:(NSString *)title subtitle:(NSString *)subtitle board:(UIView *)board aspect:(CGFloat)aspect maximumWidth:(CGFloat)maximumWidth {
     self.view.backgroundColor = GameColor(0xF7F7F2);
     self.maximumBoardWidth = maximumWidth;
+    self.boardAspect = aspect;
+    self.usesCompactLayout = NO;
     self.boardView = board;
     self.boardView.translatesAutoresizingMaskIntoConstraints = NO;
     self.boardView.layer.cornerRadius = 20;
@@ -556,9 +743,81 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     [self.actions.widthAnchor constraintEqualToAnchor:content.widthAnchor].active = YES;
 }
 
+// 俄罗斯方块使用一屏紧凑布局：仅保留返回按钮与状态，不显示大标题和说明。
+// 棋盘宽度会在 viewDidLayoutSubviews 中根据安全区剩余高度动态调整。
+- (void)setupCompactLayoutWithBoard:(UIView *)board aspect:(CGFloat)aspect maximumWidth:(CGFloat)maximumWidth {
+    self.view.backgroundColor = GameColor(0xF7F7F2);
+    self.maximumBoardWidth = maximumWidth;
+    self.boardAspect = aspect;
+    self.usesCompactLayout = YES;
+    self.boardView = board;
+    self.boardView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.boardView.layer.cornerRadius = 18;
+    self.boardView.layer.masksToBounds = YES;
+
+    UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+    UIButton *back = GameButton(@"‹", GameColor(0xE9ECE8), GameColor(0x243B39));
+    back.titleLabel.font = [UIFont systemFontOfSize:28 weight:UIFontWeightRegular];
+    back.contentEdgeInsets = UIEdgeInsetsZero;
+    back.translatesAutoresizingMaskIntoConstraints = NO;
+    [back addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:back];
+
+    self.statusLabel = GameLabel(@"", 15, UIFontWeightSemibold, GameColor(0x355B54));
+    self.statusLabel.textAlignment = NSTextAlignmentCenter;
+    self.statusLabel.adjustsFontSizeToFitWidth = YES;
+    self.statusLabel.minimumScaleFactor = 0.8;
+    self.statusLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.statusLabel];
+    [self.view addSubview:self.boardView];
+
+    self.actions = [[UIStackView alloc] init];
+    self.actions.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.actions];
+
+    self.boardWidthConstraint = [self.boardView.widthAnchor constraintEqualToConstant:maximumWidth];
+    self.boardWidthConstraint.priority = UILayoutPriorityDefaultHigh;
+    self.boardWidthConstraint.active = YES;
+    self.statusTrailingConstraint = [self.statusLabel.trailingAnchor constraintEqualToAnchor:safeArea.trailingAnchor constant:-14];
+    [NSLayoutConstraint activateConstraints:@[
+        [back.leadingAnchor constraintEqualToAnchor:safeArea.leadingAnchor constant:14],
+        [back.topAnchor constraintEqualToAnchor:safeArea.topAnchor constant:4],
+        [back.widthAnchor constraintEqualToConstant:42],
+        [back.heightAnchor constraintEqualToConstant:42],
+
+        [self.statusLabel.leadingAnchor constraintEqualToAnchor:back.trailingAnchor constant:8],
+        self.statusTrailingConstraint,
+        [self.statusLabel.centerYAnchor constraintEqualToAnchor:back.centerYAnchor],
+
+        [self.boardView.topAnchor constraintEqualToAnchor:back.bottomAnchor constant:6],
+        [self.boardView.centerXAnchor constraintEqualToAnchor:safeArea.centerXAnchor],
+        [self.boardView.heightAnchor constraintEqualToAnchor:self.boardView.widthAnchor multiplier:aspect],
+        [self.boardView.leadingAnchor constraintGreaterThanOrEqualToAnchor:safeArea.leadingAnchor constant:16],
+        [self.boardView.trailingAnchor constraintLessThanOrEqualToAnchor:safeArea.trailingAnchor constant:-16],
+
+        [self.actions.topAnchor constraintEqualToAnchor:self.boardView.bottomAnchor constant:10],
+        [self.actions.leadingAnchor constraintEqualToAnchor:safeArea.leadingAnchor constant:18],
+        [self.actions.trailingAnchor constraintEqualToAnchor:safeArea.trailingAnchor constant:-18],
+        [self.actions.bottomAnchor constraintLessThanOrEqualToAnchor:safeArea.bottomAnchor constant:-6]
+    ]];
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.boardWidthConstraint.constant = MIN(self.maximumBoardWidth, MAX(220, CGRectGetWidth(self.view.bounds) - 36));
+    CGFloat widthLimit = CGRectGetWidth(self.view.bounds) - 36;
+    if (!self.usesCompactLayout) {
+        self.boardWidthConstraint.constant = MIN(self.maximumBoardWidth, MAX(220, widthLimit));
+        return;
+    }
+
+    UIEdgeInsets safeInsets = self.view.safeAreaInsets;
+    CGFloat safeHeight = CGRectGetHeight(self.view.bounds) - safeInsets.top - safeInsets.bottom;
+    CGFloat actionsHeight = [self.actions systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    // 顶部返回区 46、棋盘与控制区间距 16、底部留白 6。
+    CGFloat boardHeightLimit = safeHeight - 46 - 16 - actionsHeight - 6;
+    CGFloat heightLimitedWidth = floor(boardHeightLimit / MAX(self.boardAspect, 1));
+    CGFloat targetWidth = MIN(self.maximumBoardWidth, MIN(widthLimit, heightLimitedWidth));
+    self.boardWidthConstraint.constant = MAX(150, targetWidth);
 }
 
 - (UIButton *)addAction:(NSString *)title selector:(SEL)selector {
@@ -572,34 +831,118 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 
 #pragma mark - 五子棋
 
+static const NSInteger CRMGomokuColumns = 15;
+static const NSInteger CRMGomokuRows = 21;
+static const NSInteger CRMGomokuCellCount = 315;
+
 @interface CRMGomokuBoard : UIView
 @property (nonatomic, strong) NSArray<NSNumber *> *cells;
 @property (nonatomic, copy) void (^tapCell)(NSInteger row, NSInteger column);
+@property (nonatomic, assign) NSInteger lastMoveIndex;
+@property (nonatomic, strong) CAShapeLayer *lastMoveHaloLayer;
 @end
 
 @implementation CRMGomokuBoard
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        _lastMoveIndex = -1;
+        _lastMoveHaloLayer = [CAShapeLayer layer];
+        _lastMoveHaloLayer.fillColor = UIColor.clearColor.CGColor;
+        _lastMoveHaloLayer.strokeColor = GameColor(0x86D7F5).CGColor;
+        _lastMoveHaloLayer.lineWidth = 3;
+        _lastMoveHaloLayer.shadowColor = GameColor(0xBDEEFF).CGColor;
+        _lastMoveHaloLayer.shadowRadius = 7;
+        _lastMoveHaloLayer.shadowOpacity = 0.95;
+        _lastMoveHaloLayer.shadowOffset = CGSizeZero;
+        [self.layer addSublayer:_lastMoveHaloLayer];
+    }
+    return self;
+}
+
+- (void)setLastMoveIndex:(NSInteger)lastMoveIndex {
+    if (_lastMoveIndex == lastMoveIndex) return;
+    _lastMoveIndex = lastMoveIndex;
+    [self.lastMoveHaloLayer removeAllAnimations];
+    [self setNeedsLayout];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (self.lastMoveIndex < 0 || self.lastMoveIndex >= CRMGomokuCellCount) {
+        self.lastMoveHaloLayer.hidden = YES;
+        return;
+    }
+
+    CGFloat gridWidth = self.bounds.size.width - 36;
+    CGFloat step = gridWidth / (CRMGomokuColumns - 1);
+    CGFloat gridHeight = step * (CRMGomokuRows - 1);
+    CGFloat gridTop = (self.bounds.size.height - gridHeight) / 2;
+    NSInteger row = self.lastMoveIndex / CRMGomokuColumns;
+    NSInteger column = self.lastMoveIndex % CRMGomokuColumns;
+    CGPoint center = CGPointMake(18 + step * column, gridTop + step * row);
+    CGFloat haloDiameter = step * 1.08;
+    CGRect haloRect = CGRectMake(center.x - haloDiameter / 2,
+                                 center.y - haloDiameter / 2,
+                                 haloDiameter,
+                                 haloDiameter);
+    self.lastMoveHaloLayer.frame = self.bounds;
+    self.lastMoveHaloLayer.path = [UIBezierPath bezierPathWithOvalInRect:haloRect].CGPath;
+    self.lastMoveHaloLayer.hidden = NO;
+
+    if (![self.lastMoveHaloLayer animationForKey:@"crm_last_move_pulse"]) {
+        CABasicAnimation *opacity = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        opacity.fromValue = @0.25;
+        opacity.toValue = @1.0;
+        opacity.duration = 0.7;
+        opacity.autoreverses = YES;
+        opacity.repeatCount = HUGE_VALF;
+        opacity.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+        CABasicAnimation *lineWidth = [CABasicAnimation animationWithKeyPath:@"lineWidth"];
+        lineWidth.fromValue = @1.5;
+        lineWidth.toValue = @4.0;
+        lineWidth.duration = opacity.duration;
+        lineWidth.autoreverses = YES;
+        lineWidth.repeatCount = HUGE_VALF;
+        lineWidth.timingFunction = opacity.timingFunction;
+
+        [self.lastMoveHaloLayer addAnimation:opacity forKey:@"crm_last_move_pulse"];
+        [self.lastMoveHaloLayer addAnimation:lineWidth forKey:@"crm_last_move_width"];
+    }
+}
+
 - (void)drawRect:(CGRect)rect {
     [[UIColor colorWithRed:0.91 green:0.79 blue:0.59 alpha:1] setFill];
     UIRectFill(rect);
-    CGFloat inset = 18;
-    CGFloat step = (MIN(rect.size.width, rect.size.height) - 2 * inset) / 14;
+    CGFloat horizontalInset = 18;
+    CGFloat gridWidth = rect.size.width - 2 * horizontalInset;
+    CGFloat step = gridWidth / (CRMGomokuColumns - 1);
+    CGFloat gridHeight = step * (CRMGomokuRows - 1);
+    CGFloat gridTop = (rect.size.height - gridHeight) / 2;
+    CGFloat stoneSize = step * 0.82;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, GameColor(0x9C8664).CGColor);
     CGContextSetLineWidth(context, 0.7);
-    for (NSInteger index = 0; index < 15; index++) {
-        CGFloat coordinate = inset + step * index;
-        CGContextMoveToPoint(context, inset, coordinate);
-        CGContextAddLineToPoint(context, inset + 14 * step, coordinate);
-        CGContextMoveToPoint(context, coordinate, inset);
-        CGContextAddLineToPoint(context, coordinate, inset + 14 * step);
+    for (NSInteger index = 0; index < CRMGomokuRows; index++) {
+        CGFloat y = gridTop + step * index;
+        CGContextMoveToPoint(context, horizontalInset, y);
+        CGContextAddLineToPoint(context, rect.size.width - horizontalInset, y);
+    }
+    for (NSInteger index = 0; index < CRMGomokuColumns; index++) {
+        CGFloat x = horizontalInset + step * index;
+        CGContextMoveToPoint(context, x, gridTop);
+        CGContextAddLineToPoint(context, x, gridTop + gridHeight);
     }
     CGContextStrokePath(context);
-    for (NSInteger row = 0; row < 15; row++) {
-        for (NSInteger column = 0; column < 15; column++) {
-            NSInteger value = self.cells[row * 15 + column].integerValue;
+    for (NSInteger row = 0; row < CRMGomokuRows; row++) {
+        for (NSInteger column = 0; column < CRMGomokuColumns; column++) {
+            NSInteger value = self.cells[row * CRMGomokuColumns + column].integerValue;
             if (!value) continue;
-            CGRect stone = CGRectMake(inset + step * column - step * 0.41, inset + step * row - step * 0.41, step * 0.82, step * 0.82);
+            CGFloat centerX = horizontalInset + step * column;
+            CGFloat centerY = gridTop + step * row;
+            CGRect stone = CGRectMake(centerX - stoneSize / 2, centerY - stoneSize / 2, stoneSize, stoneSize);
             UIColor *stoneColor = value == 1 ? GameColor(0x263A3B) : GameColor(0xFCFAF2);
             [stoneColor setFill];
             [[UIBezierPath bezierPathWithOvalInRect:stone] fill];
@@ -613,10 +956,13 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     CGPoint point = [touches.anyObject locationInView:self];
-    CGFloat step = (MIN(self.bounds.size.width, self.bounds.size.height) - 36) / 14;
+    CGFloat gridWidth = self.bounds.size.width - 36;
+    CGFloat step = gridWidth / (CRMGomokuColumns - 1);
+    CGFloat gridHeight = step * (CRMGomokuRows - 1);
+    CGFloat gridTop = (self.bounds.size.height - gridHeight) / 2;
     NSInteger column = lround((point.x - 18) / step);
-    NSInteger row = lround((point.y - 18) / step);
-    if (row >= 0 && row < 15 && column >= 0 && column < 15 && self.tapCell) self.tapCell(row, column);
+    NSInteger row = lround((point.y - gridTop) / step);
+    if (row >= 0 && row < CRMGomokuRows && column >= 0 && column < CRMGomokuColumns && self.tapCell) self.tapCell(row, column);
 }
 @end
 
@@ -624,8 +970,12 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *cells;
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *history;
 @property (nonatomic, strong) CRMGomokuBoard *gameBoard;
+@property (nonatomic, strong) UIButton *modeButton;
 @property (nonatomic, assign) NSInteger currentPlayer;
 @property (nonatomic, assign) BOOL finished;
+@property (nonatomic, assign) BOOL versusComputer;
+@property (nonatomic, assign) BOOL computerThinking;
+@property (nonatomic, assign) NSUInteger gameGeneration;
 @end
 
 @implementation CRMGomokuController
@@ -633,53 +983,81 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.gameBoard = [[CRMGomokuBoard alloc] init];
-    [self setupTitle:@"五子棋" subtitle:@"双人对弈 · 五子连珠获胜" board:self.gameBoard aspect:1 maximumWidth:390];
+    [self setupTitle:@"五子棋" subtitle:@"支持人机对战和双人对弈 · 五子连珠获胜" board:self.gameBoard aspect:1.40 maximumWidth:390];
     __weak typeof(self) weakSelf = self;
     self.gameBoard.tapCell = ^(NSInteger row, NSInteger column) { [weakSelf placeAtRow:row column:column]; };
+    self.modeButton = [self addAction:@"人机模式" selector:@selector(toggleMode)];
     [self addAction:@"悔一步" selector:@selector(undoMove)];
     [self addAction:@"重新开始" selector:@selector(restart)];
+    self.versusComputer = YES;
     [self restart];
 }
 
 - (void)restart {
-    self.cells = [NSMutableArray arrayWithCapacity:225];
-    for (NSInteger index = 0; index < 225; index++) [self.cells addObject:@0];
+    self.gameGeneration++;
+    self.cells = [NSMutableArray arrayWithCapacity:CRMGomokuCellCount];
+    for (NSInteger index = 0; index < CRMGomokuCellCount; index++) [self.cells addObject:@0];
     self.history = [NSMutableArray array];
     self.currentPlayer = 1;
     self.finished = NO;
+    self.computerThinking = NO;
     [self refresh];
 }
 
 - (void)refresh {
     self.gameBoard.cells = self.cells;
+    self.gameBoard.lastMoveIndex = self.history.lastObject ? self.history.lastObject.integerValue : -1;
     [self.gameBoard setNeedsDisplay];
-    self.statusLabel.text = self.finished ? @"对局结束" : (self.currentPlayer == 1 ? @"● 黑棋先行" : @"○ 轮到白棋");
-}
-
-- (void)placeAtRow:(NSInteger)row column:(NSInteger)column {
-    NSInteger index = row * 15 + column;
-    if (self.finished || self.cells[index].integerValue) return;
-    self.cells[index] = @(self.currentPlayer);
-    [self.history addObject:@(index)];
-    BOOL won = [self countFromRow:row column:column deltaRow:1 deltaColumn:0] >= 5 ||
-               [self countFromRow:row column:column deltaRow:0 deltaColumn:1] >= 5 ||
-               [self countFromRow:row column:column deltaRow:1 deltaColumn:1] >= 5 ||
-               [self countFromRow:row column:column deltaRow:1 deltaColumn:-1] >= 5;
-    if (won || self.history.count == 225) {
-        self.finished = YES;
-        [self refresh];
-        GameShowMessage(self, won ? @"对局结束" : @"平局", won ? (self.currentPlayer == 1 ? @"黑棋获胜！" : @"白棋获胜！") : @"棋盘已满，再来一局吧。");
+    [self.modeButton setTitle:self.versusComputer ? @"人机模式" : @"双人模式" forState:UIControlStateNormal];
+    if (self.finished) {
+        self.statusLabel.text = @"对局结束";
+    } else if (self.versusComputer) {
+        self.statusLabel.text = self.computerThinking ? @"电脑正在思考…" : @"你执黑棋 · 请落子";
     } else {
-        self.currentPlayer = 3 - self.currentPlayer;
-        [self refresh];
+        self.statusLabel.text = self.currentPlayer == 1 ? @"● 轮到黑棋" : @"○ 轮到白棋";
     }
 }
 
-- (NSInteger)countFromRow:(NSInteger)row column:(NSInteger)column deltaRow:(NSInteger)dr deltaColumn:(NSInteger)dc {
+- (void)placeAtRow:(NSInteger)row column:(NSInteger)column {
+    if (self.versusComputer && (self.currentPlayer == 2 || self.computerThinking)) return;
+    if (![self commitMoveAtRow:row column:column player:self.currentPlayer]) return;
+    if (self.versusComputer && !self.finished) [self scheduleComputerMove];
+}
+
+- (BOOL)commitMoveAtRow:(NSInteger)row column:(NSInteger)column player:(NSInteger)player {
+    NSInteger index = row * CRMGomokuColumns + column;
+    if (self.finished || self.cells[index].integerValue) return NO;
+    self.cells[index] = @(player);
+    [self.history addObject:@(index)];
+    BOOL won = [self hasFiveAtRow:row column:column player:player];
+    if (won || self.history.count == CRMGomokuCellCount) {
+        self.finished = YES;
+        self.computerThinking = NO;
+        [self refresh];
+        NSString *message = nil;
+        if (won && self.versusComputer) message = player == 1 ? @"恭喜你获胜！" : @"电脑获胜，再来一局吧！";
+        else if (won) message = player == 1 ? @"黑棋获胜！" : @"白棋获胜！";
+        else message = @"棋盘已满，再来一局吧。";
+        GameShowMessage(self, won ? @"对局结束" : @"平局", message);
+    } else {
+        self.currentPlayer = 3 - player;
+        [self refresh];
+    }
+    return YES;
+}
+
+- (BOOL)hasFiveAtRow:(NSInteger)row column:(NSInteger)column player:(NSInteger)player {
+    return [self countFromRow:row column:column player:player deltaRow:1 deltaColumn:0] >= 5 ||
+           [self countFromRow:row column:column player:player deltaRow:0 deltaColumn:1] >= 5 ||
+           [self countFromRow:row column:column player:player deltaRow:1 deltaColumn:1] >= 5 ||
+           [self countFromRow:row column:column player:player deltaRow:1 deltaColumn:-1] >= 5;
+}
+
+- (NSInteger)countFromRow:(NSInteger)row column:(NSInteger)column player:(NSInteger)player deltaRow:(NSInteger)dr deltaColumn:(NSInteger)dc {
     NSInteger count = 1;
     for (NSInteger direction = -1; direction <= 1; direction += 2) {
         NSInteger r = row + dr * direction, c = column + dc * direction;
-        while (r >= 0 && r < 15 && c >= 0 && c < 15 && self.cells[r * 15 + c].integerValue == self.currentPlayer) {
+        while (r >= 0 && r < CRMGomokuRows && c >= 0 && c < CRMGomokuColumns && self.cells[r * CRMGomokuColumns + c].integerValue == player) {
             count++;
             r += dr * direction;
             c += dc * direction;
@@ -688,14 +1066,91 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     return count;
 }
 
+- (NSInteger)lineScoreAtRow:(NSInteger)row column:(NSInteger)column player:(NSInteger)player deltaRow:(NSInteger)dr deltaColumn:(NSInteger)dc {
+    NSInteger count = 1;
+    NSInteger openEnds = 0;
+    for (NSInteger direction = -1; direction <= 1; direction += 2) {
+        NSInteger r = row + dr * direction, c = column + dc * direction;
+        while (r >= 0 && r < CRMGomokuRows && c >= 0 && c < CRMGomokuColumns && self.cells[r * CRMGomokuColumns + c].integerValue == player) {
+            count++;
+            r += dr * direction;
+            c += dc * direction;
+        }
+        if (r >= 0 && r < CRMGomokuRows && c >= 0 && c < CRMGomokuColumns && self.cells[r * CRMGomokuColumns + c].integerValue == 0) openEnds++;
+    }
+    if (count >= 5) return 1000000;
+    if (count == 4) return openEnds == 2 ? 100000 : (openEnds == 1 ? 20000 : 0);
+    if (count == 3) return openEnds == 2 ? 8000 : (openEnds == 1 ? 1200 : 0);
+    if (count == 2) return openEnds == 2 ? 500 : (openEnds == 1 ? 100 : 0);
+    return openEnds == 2 ? 20 : 5;
+}
+
+- (NSInteger)positionScoreAtRow:(NSInteger)row column:(NSInteger)column player:(NSInteger)player {
+    static const NSInteger directions[4][2] = {{1, 0}, {0, 1}, {1, 1}, {1, -1}};
+    NSInteger score = 0;
+    for (NSInteger index = 0; index < 4; index++) {
+        score += [self lineScoreAtRow:row
+                              column:column
+                              player:player
+                            deltaRow:directions[index][0]
+                         deltaColumn:directions[index][1]];
+    }
+    return score;
+}
+
+- (NSInteger)bestComputerMove {
+    NSInteger bestIndex = -1;
+    NSInteger bestScore = NSIntegerMin;
+    for (NSInteger row = 0; row < CRMGomokuRows; row++) {
+        for (NSInteger column = 0; column < CRMGomokuColumns; column++) {
+            NSInteger index = row * CRMGomokuColumns + column;
+            if (self.cells[index].integerValue) continue;
+            NSInteger attack = [self positionScoreAtRow:row column:column player:2];
+            NSInteger defense = [self positionScoreAtRow:row column:column player:1];
+            // 必胜点优先，其次必须封堵玩家的成五点。
+            NSInteger score = attack >= 1000000 ? 3000000 : (defense >= 1000000 ? 2000000 : attack * 2 + defense * 3);
+            score += CRMGomokuRows - labs(row - (CRMGomokuRows - 1) / 2) - labs(column - (CRMGomokuColumns - 1) / 2);
+            if (score > bestScore || (score == bestScore && arc4random_uniform(2) == 0)) {
+                bestScore = score;
+                bestIndex = index;
+            }
+        }
+    }
+    return bestIndex;
+}
+
+- (void)scheduleComputerMove {
+    self.computerThinking = YES;
+    [self refresh];
+    NSUInteger generation = self.gameGeneration;
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.28 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __strong typeof(weakSelf) self = weakSelf;
+        if (!self || generation != self.gameGeneration || self.finished || !self.versusComputer || self.currentPlayer != 2) return;
+        NSInteger index = [self bestComputerMove];
+        self.computerThinking = NO;
+        if (index >= 0) [self commitMoveAtRow:index / CRMGomokuColumns column:index % CRMGomokuColumns player:2];
+        else [self refresh];
+    });
+}
+
+- (void)toggleMode {
+    self.versusComputer = !self.versusComputer;
+    [self restart];
+}
+
 - (void)undoMove {
-    NSNumber *last = self.history.lastObject;
-    if (!last) return;
-    NSInteger player = self.cells[last.integerValue].integerValue;
-    self.cells[last.integerValue] = @0;
-    [self.history removeLastObject];
-    self.currentPlayer = player;
+    if (!self.history.count) return;
+    self.gameGeneration++;
+    NSInteger removeCount = self.versusComputer && self.history.count >= 2 && !self.computerThinking ? 2 : 1;
+    while (removeCount-- > 0 && self.history.count) {
+        NSInteger index = self.history.lastObject.integerValue;
+        self.cells[index] = @0;
+        [self.history removeLastObject];
+    }
+    self.currentPlayer = self.versusComputer ? 1 : (self.history.count % 2 == 0 ? 1 : 2);
     self.finished = NO;
+    self.computerThinking = NO;
     [self refresh];
 }
 @end

@@ -9,6 +9,7 @@ import playerState from '@/store/player/state'
 import settingState from '@/store/setting/state'
 import { onScreenStateChange } from '@/utils/nativeModules/utils'
 import { AppState } from 'react-native'
+import { handlePlay as syncLyricProgress } from '@/core/lyric'
 
 const delaySavePlayInfo = throttleBackgroundTimer(() => {
   void savePlayInfo({
@@ -19,6 +20,19 @@ const delaySavePlayInfo = throttleBackgroundTimer(() => {
   })
 }, 2000)
 
+/** 将歌曲列表中的 mm:ss / hh:mm:ss 时长转换为秒。 */
+const getMusicInfoDuration = () => {
+  const musicInfo = playerState.playMusicInfo.musicInfo
+  if (!musicInfo) return 0
+  const interval = 'interval' in musicInfo
+    ? musicInfo.interval
+    : musicInfo.metadata.musicInfo.interval
+  if (!interval) return 0
+  const parts: number[] = interval.split(':').map(Number)
+  if (parts.some(part => !Number.isFinite(part) || part < 0)) return 0
+  return parts.reduce((total, part) => total * 60 + part, 0)
+}
+
 export default () => {
   // const updateMusicInfo = useCommit('list', 'updateMusicInfo')
 
@@ -28,8 +42,19 @@ export default () => {
 
   const getCurrentTime = () => {
     let id = playerState.musicInfo.id
-    void getPosition().then(position => {
-      if (!position || id != playerState.musicInfo.id) return
+    void Promise.all([getPosition(), getDuration()]).then(([rawPosition, rawDuration]) => {
+      if (id != playerState.musicInfo.id) return
+      const position = Number(rawPosition)
+      const duration = Number(rawDuration)
+      // iOS 在开始播放的瞬间可能尚未解析出媒体时长，不能只读取一次。
+      // 轮询时发现有效时长后再写入，可同时恢复总时长、进度条和拖动定位。
+      const availableDuration = Number.isFinite(duration) && duration > 0
+        ? duration
+        : getMusicInfoDuration()
+      if (availableDuration > 0 && availableDuration != playerState.progress.maxPlayTime) {
+        setMaxplayTime(availableDuration)
+      }
+      if (!Number.isFinite(position) || position < 0) return
       setNowPlayTime(position)
       if (!playerState.isPlay) return
 
@@ -39,7 +64,11 @@ export default () => {
     })
   }
   const getMaxTime = async() => {
-    setMaxplayTime(await getDuration())
+    const nativeDuration = Number(await getDuration())
+    const duration = Number.isFinite(nativeDuration) && nativeDuration > 0
+      ? nativeDuration
+      : getMusicInfoDuration()
+    setMaxplayTime(duration)
 
     if (playerState.playMusicInfo.musicInfo && 'source' in playerState.playMusicInfo.musicInfo && !playerState.playMusicInfo.musicInfo.interval) {
       // console.log(formatPlayTime2(playProgress.maxPlayTime))
@@ -75,6 +104,8 @@ export default () => {
     // console.log('setProgress', time, maxTime)
     setNowPlayTime(time)
     void setCurrentTime(time)
+    // 音频 seek 后歌词解析器也必须跳转到同一时间，否则歌词会继续沿用旧进度。
+    syncLyricProgress(time * 1000)
 
     if (maxTime != null) setMaxplayTime(maxTime)
 
@@ -83,6 +114,10 @@ export default () => {
 
 
   const handlePlay = () => {
+    // 列表通常已经带有时长，先同步它以保证开始播放后立即可拖动。
+    // iOS AVPlayer 完成媒体解析后，轮询会再用原生精确时长覆盖。
+    const duration = getMusicInfoDuration()
+    if (duration > 0) setMaxplayTime(duration)
     void getMaxTime()
     // prevProgressStatus = 'normal'
     // handleSetTaskBarState(playProgress.progress, prevProgressStatus)
@@ -117,6 +152,10 @@ export default () => {
     // void setCurrentTime(playerState.progress.nowPlayTime)
     // setMaxplayTime(playProgress.maxPlayTime)
     handlePause()
+    // iOS 的 Playing 事件可能因原生事件先后顺序被过滤。歌曲一经选中就先用
+    // 列表时长初始化 UI，避免总时长和拖动目标长期保持为 0。
+    const duration = getMusicInfoDuration()
+    setMaxplayTime(duration)
     if (!playerState.playMusicInfo.isTempPlay) {
       void savePlayInfo({
         time: playerState.progress.nowPlayTime,

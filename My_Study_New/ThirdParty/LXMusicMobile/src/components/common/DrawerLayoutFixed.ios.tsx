@@ -30,7 +30,6 @@ export interface DrawerLayoutFixedType {
   fixWidth: () => void
 }
 
-const EDGE_GESTURE_WIDTH = 24
 const ANIMATION_DURATION = 220
 
 const DrawerLayoutFixed = forwardRef<DrawerLayoutFixedType, Props>(({
@@ -150,8 +149,6 @@ const DrawerLayoutFixed = forwardRef<DrawerLayoutFixedType, Props>(({
   }), [animateDrawer, finishGesture, isRight, translateX])
 
   const drawerSideStyle = isRight ? styles.right : styles.left
-  const edgeSideStyle = isRight ? styles.right : styles.left
-
   return (
     <View onLayout={handleLayout} style={[styles.container, style]}>
       {children}
@@ -185,12 +182,6 @@ const DrawerLayoutFixed = forwardRef<DrawerLayoutFixedType, Props>(({
         {renderNavigationView?.()}
       </Animated.View>
 
-      {!drawerVisible && (
-        <View
-          {...panResponder.panHandlers}
-          style={[styles.edgeGesture, edgeSideStyle]}
-        />
-      )}
     </View>
   )
 })
@@ -213,13 +204,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.24,
     shadowRadius: 5,
-  },
-  edgeGesture: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    width: EDGE_GESTURE_WIDTH,
-    zIndex: 99,
   },
   left: {
     left: 0,

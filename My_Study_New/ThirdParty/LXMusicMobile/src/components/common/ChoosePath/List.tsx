@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, forwardRef, useImperativeHandle } from 'react'
-import { View } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import { externalStorageDirectoryPath, readDir } from '@/utils/fs'
 import { createStyle, toast } from '@/utils/tools'
 // import { useTranslation } from '@/plugins/i18n'
@@ -127,7 +127,11 @@ export default forwardRef<ListType, ListProps>(({
     setIsReading(true)
     return handleReadDir(newPath, dirOnly, filter, isRefresh).then(list => {
       if (isUnmountedRef.current) return []
-      if (!isOpen && newPath != path && newPath.startsWith(path)) parentDirInfo.set(newPath, path)
+      // 首次打开的目录是 iOS 应用沙箱根目录，不应记录一个空的父路径。
+      // 只有从当前目录实际进入子目录时，才建立可返回的父子关系。
+      if (!isOpen && path && newPath != path && newPath.startsWith(`${path}/`)) {
+        parentDirInfo.set(newPath, path)
+      }
       setList(list)
       setPath(newPath)
       return list
@@ -160,8 +164,6 @@ export default forwardRef<ListType, ListProps>(({
     const parentPath = parentDirInfo.get(path)
     if (parentPath) {
       void readDir(parentPath, readOptions.current.dirOnly, readOptions.current.filter)
-    } else {
-      toast('Permission denied')
     }
   }
 
@@ -174,15 +176,20 @@ export default forwardRef<ListType, ListProps>(({
 
   return (
     <Modal ref={modalRef} bgHide={false} statusBarPadding={false}>
-      <View style={{ ...styles.container, backgroundColor: theme['c-content-background'] }}>
+      <SafeAreaView style={{ ...styles.container, backgroundColor: theme['c-content-background'] }}>
         <Header
           onRefreshDir={async(path) => readDir(path, readOptions.current.dirOnly, readOptions.current.filter, true)}
           onOpenDir={async(path) => readDir(path, readOptions.current.dirOnly, readOptions.current.filter, false, true)}
           title={readOptions.current.title}
           path={path} />
-        <Main list={list} toParentDir={toParentDir} onSetPath={onSetPath} loading={isReading} />
+        <Main
+          list={list}
+          canGoParent={parentDirInfo.has(path)}
+          toParentDir={toParentDir}
+          onSetPath={onSetPath}
+          loading={isReading} />
         <Footer onConfirm={handleConfirm} onHide={handleHide} dirOnly={readOptions.current.dirOnly} />
-      </View>
+      </SafeAreaView>
     </Modal>
   )
 })
@@ -193,4 +200,3 @@ const styles = createStyle({
     flex: 1,
   },
 })
-

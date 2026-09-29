@@ -8,9 +8,10 @@ import ListItem, { type PathItem } from './ListItem'
 import LoadingMask, { type LoadingMaskType } from '@/components/common/LoadingMask'
 
 
-export default ({ list, loading, onSetPath, toParentDir }: {
+export default ({ list, loading, canGoParent, onSetPath, toParentDir }: {
   list: PathItem[]
   loading: boolean
+  canGoParent: boolean
   onSetPath: (item: PathItem) => void
   toParentDir: () => void
 }) => {
@@ -51,7 +52,7 @@ export default ({ list, loading, onSetPath, toParentDir }: {
 
   return (
     <View style={styles.main}>
-      {ParentItemComponent}
+      {canGoParent ? ParentItemComponent : null}
       {ListComponent}
       <LoadingMask ref={loadingMaskRef} />
     </View>
@@ -70,4 +71,3 @@ const styles = createStyle({
     flexShrink: 1,
   },
 })
-

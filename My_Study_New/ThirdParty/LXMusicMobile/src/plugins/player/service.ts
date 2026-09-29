@@ -2,13 +2,15 @@
 import TrackPlayer, { State as TPState, Event as TPEvent } from 'react-native-track-player'
 // import { store } from '@/store'
 // import { action as playerAction, STATUS } from '@/store/modules/player'
-import { isTempId, isEmpty } from './utils'
+import { isExpectedEmptyTrackSwitch, isTempId, isEmpty } from './utils'
 // import { play as lrcPlay, pause as lrcPause } from '@/core/lyric'
 import { exitApp } from '@/core/common'
 import { getCurrentTrackId } from './playList'
 import { pause, play, playNext, playPrev } from '@/core/player/player'
 
 let isInitialized = false
+let playbackFailed = false
+let hasHandledEmptyTrack = false
 
 // let retryTrack: LX.Player.Track | null = null
 // let retryGetUrlId: string | null = null
@@ -68,6 +70,8 @@ const registerPlaybackService = async() => {
 
   TrackPlayer.addEventListener(TPEvent.PlaybackError, async(err: any) => {
     console.log('playback-error', err)
+    playbackFailed = true
+    await TrackPlayer.pause()
     global.app_event.error()
     global.app_event.playerError()
   })
@@ -118,11 +122,21 @@ const registerPlaybackService = async() => {
 
     // console.log('global.lx.playerTrackId====>', global.lx.playerTrackId)
     if (isEmpty()) {
+      // iOS 可能为同一个空占位轨连续派发大量 TrackChanged。业务事件只处理
+      // 第一次，否则反复 pause/ended 会持续驱动原生播放器并导致设备发热。
+      if (hasHandledEmptyTrack) return
+      hasHandledEmptyTrack = true
+      // iOS 可能为同一次占位轨切换连续发送多个事件，因此这里不能只消费
+      // 一次标记；必须持续抑制，直到后续真正切入有效音频轨道。
+      const shouldSuppressEnded = playbackFailed || isExpectedEmptyTrackSwitch()
+      playbackFailed = false
       // console.log('====TEMP PAUSE====')
       await TrackPlayer.pause()
       global.app_event.playerPause()
       global.app_event.pause()
-      global.app_event.playerEnded()
+      // iOS 加载真实音频失败时会自动进入静音占位轨。此时播放器错误事件
+      // 已负责刷新 URL，不能再按“自然播放结束”切下一首，否则会形成快速循环。
+      if (!shouldSuppressEnded) global.app_event.playerEnded()
       global.app_event.playerEmptied()
       // if (retryTrack) {
       //   if (retryTrack.musicId == retryGetUrlId) {
@@ -140,6 +154,14 @@ const registerPlaybackService = async() => {
       // } else {
       //   store.dispatch(playerAction.playNext(true))
       // }
+    } else {
+      hasHandledEmptyTrack = false
+      playbackFailed = false
+      // iOS 的 Playing 事件可能早于 TrackChanged，此时上方会因仍是临时轨而
+      // 忽略该事件。有效轨切入后立即启动进度轮询；若后续装载失败，错误
+      // 事件会负责停止轮询，因此不再依赖两个原生事件的到达顺序。
+      global.app_event.play()
+      if (await TrackPlayer.getState() == TPState.Playing) global.app_event.playerPlaying()
     }
   //   // if (!info.nextTrack) return
   //   // if (info.track) {

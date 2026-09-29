@@ -18,17 +18,22 @@ export default async(setting: LX.AppSetting) => {
     target.abort()
   }
   const sendScriptRequest = (requestKey: string, url: string, options: RequestParams['options']) => {
+    const method = options.method?.toUpperCase() ?? 'GET'
+    // 不记录请求头和请求体，避免音源密钥等敏感配置进入调试日志。
+    console.log(`[user-api] ${method} ${url}`)
     let req = fetchData(url, options)
     req.request.then(response => {
-      // console.log(response)
+      console.log(`[user-api] response ${response.statusCode} ${method} ${url}`)
       sendAction('response', {
         error: null,
         requestKey,
         response,
       })
     }).catch(err => {
+      const message = err instanceof Error ? err.message : String(err)
+      console.log(`[user-api] request failed ${method} ${url}: ${message}`)
       sendAction('response', {
-        error: err.message,
+        error: message,
         requestKey,
         response: null,
       })
@@ -72,7 +77,8 @@ export default async(setting: LX.AppSetting) => {
     else target.reject(new Error(errorMessage ?? 'failed'))
   }
   const handleStateChange = ({ status, errorMessage, info }: InitParams) => {
-    // console.log(status, message, info)
+    const activeInfo = info as (typeof info & { name?: string, version?: string })
+    console.log(`[user-api] initialized status=${String(status)} id=${activeInfo?.id ?? 'unknown'} name=${activeInfo?.name ?? 'unknown'} version=${activeInfo?.version ?? 'unknown'} error=${errorMessage ?? ''}`)
     setUserApiStatus(status, errorMessage)
     if (!info || info.id !== settingState.setting['common.apiSource']) return
     if (status) {
@@ -103,10 +109,14 @@ export default async(setting: LX.AppSetting) => {
                       },
                       // eslint-disable-next-line @typescript-eslint/promise-function-async
                     }).then(res => {
-                      // console.log(res)
-                      return { type, url: res.data.url }
+                      const url = res?.data?.url
+                      // 仅在调试包输出完整播放地址，便于在浏览器中独立验证音频流；
+                      // 发布包不记录可能带有临时签名的 URL。
+                      if (__DEV__) console.log(`[user-api] musicUrl resolved source=${source} quality=${type} url=${String(url)}`)
+                      return { type, url }
                     }).catch(err => {
-                      console.log(err.message)
+                      const message = err instanceof Error ? err.message : String(err)
+                      console.log(`[user-api] musicUrl failed source=${source} quality=${type}: ${message}`)
                       throw err
                     }),
                   }

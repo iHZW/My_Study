@@ -29,8 +29,6 @@
 	  <!-- 自定义音源可能使用 HTTP；仅用于个人侧载，网络请求仍应优先选择 HTTPS。 -->
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-		<key>NSAllowsLocalNetworking</key>
-		<true/>
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>用于与同一局域网内的洛雪音乐设备同步歌单。</string>

@@ -3,8 +3,47 @@ import {
   VERSION_MODAL,
   PACT_MODAL,
   SYNC_MODE_MODAL,
+  FLOATING_LYRIC_OVERLAY,
 } from './screenNames'
 import themeState from '@/store/theme/state'
+
+let floatingLyricComponentId: string | null = null
+let isShowingFloatingLyric = false
+
+export const showFloatingLyric = () => {
+  if (floatingLyricComponentId != null) return
+  if (isShowingFloatingLyric) return
+  isShowingFloatingLyric = true
+  void Navigation.showOverlay({
+    component: {
+      name: FLOATING_LYRIC_OVERLAY,
+      options: {
+        layout: {
+          componentBackgroundColor: 'transparent',
+        },
+        overlay: {
+          interceptTouchOutside: false,
+        },
+        statusBar: {
+          drawBehind: true,
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+  }).then(componentId => {
+    floatingLyricComponentId = componentId
+  }).catch(err => {
+    console.warn('显示歌词浮窗失败', err)
+  }).finally(() => {
+    isShowingFloatingLyric = false
+  })
+}
+
+export const hideFloatingLyric = async(componentId?: string) => {
+  const targetId = componentId ?? floatingLyricComponentId
+  floatingLyricComponentId = null
+  if (targetId) await Navigation.dismissOverlay(targetId)
+}
 
 
 export const getStatusBarStyle = (isDark: boolean) => isDark ? 'light' : 'dark'

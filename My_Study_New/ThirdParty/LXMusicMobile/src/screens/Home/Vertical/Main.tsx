@@ -259,6 +259,9 @@ const Main = () => {
     }
     const handleConfigUpdate = (keys: Array<keyof LX.AppSetting>, setting: Partial<LX.AppSetting>) => {
       if (!keys.includes('common.homePageScroll')) return
+      // iOS 主页面的横向分页手势会与侧栏抽屉竞争，造成两个页面同时位移。
+      // iOS 统一通过左上角菜单切换页面，Android 保留原有的可配置滑动行为。
+      if (Platform.OS === 'ios') return
       pagerViewRef.current?.setScrollEnabled(setting['common.homePageScroll']!)
     }
     // window.requestAnimationFrame(() => pagerViewRef.current && pagerViewRef.current.setPage(activeIndexRef.current))
@@ -291,7 +294,7 @@ const Main = () => {
       offscreenPageLimit={1}
       onPageSelected={onPageSelected}
       onPageScrollStateChanged={onPageScrollStateChanged}
-      scrollEnabled={settingState.setting['common.homePageScroll']}
+      scrollEnabled={Platform.OS !== 'ios' && settingState.setting['common.homePageScroll']}
       style={styles.pagerView}
     >
       <View collapsable={false} key="nav_search" style={styles.pageStyle}>

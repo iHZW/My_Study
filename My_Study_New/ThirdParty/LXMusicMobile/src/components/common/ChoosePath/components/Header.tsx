@@ -6,7 +6,6 @@ import { createStyle } from '@/utils/tools'
 import { getExternalStoragePaths, stat } from '@/utils/fs'
 import { useTheme } from '@/store/theme/hook'
 import { scaleSizeH } from '@/utils/pixelRatio'
-import { useStatusbarHeight } from '@/store/common/hook'
 import NewFolderModal, { type NewFolderType } from './NewFolderModal'
 import OpenStorageModal, { type OpenDirModalType } from './OpenStorageModal'
 import type { PathItem } from './ListItem'
@@ -27,7 +26,6 @@ export default memo(({
   const newFolderTypeRef = useRef<NewFolderType>(null)
   const openDirModalTypeRef = useRef<OpenDirModalType>(null)
   const storagePathsRef = useRef<string[]>([])
-  const statusBarHeight = useStatusbarHeight()
 
   const checkExternalStoragePath = useCallback(() => {
     storagePathsRef.current = []
@@ -61,8 +59,7 @@ export default memo(({
     <>
       <View style={{
         ...styles.header,
-        height: scaleSizeH(50) + statusBarHeight,
-        paddingTop: statusBarHeight,
+        height: scaleSizeH(50),
         backgroundColor: theme['c-content-background'],
       }} onStartShouldSetResponder={() => true}>
         <View style={styles.titleContent}>
@@ -139,4 +136,3 @@ const styles = createStyle({
     paddingBottom: 2,
   },
 })
-

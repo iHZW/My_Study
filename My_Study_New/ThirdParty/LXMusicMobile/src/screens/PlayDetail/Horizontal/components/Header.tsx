@@ -14,6 +14,7 @@ import CommentBtn from './CommentBtn'
 import Btn from './Btn'
 import SettingPopup, { type SettingPopupType } from '../../components/SettingPopup'
 import DesktopLyricBtn from './DesktopLyricBtn'
+import { showFloatingLyric } from '@/navigation/utils'
 
 export const HEADER_HEIGHT = scaleSizeH(_HEADER_HEIGHT)
 
@@ -47,7 +48,9 @@ export default memo(() => {
           <Icon name="chevron-left" size={18} />
         </TouchableOpacity>
         <Title />
-        {Platform.OS === 'android' ? <DesktopLyricBtn /> : null}
+        {Platform.OS === 'android'
+          ? <DesktopLyricBtn />
+          : <Btn icon="lyric-on" onPress={showFloatingLyric} />}
         <CommentBtn />
         <Btn icon="slider" onPress={showSetting} />
       </View>

@@ -1,4 +1,4 @@
-import { memo, useState, useRef, useMemo, useEffect } from 'react'
+import { memo, useState, useRef, useMemo, useEffect, useCallback, type ComponentRef } from 'react'
 import { View, AppState } from 'react-native'
 
 import Header from './components/Header'
@@ -31,6 +31,7 @@ const LyricPage = ({ activeIndex }: { activeIndex: number }) => {
 export default memo(({ componentId }: { componentId: string }) => {
   // const theme = useTheme()
   const [pageIndex, setPageIndex] = useState(0)
+  const pagerViewRef = useRef<ComponentRef<typeof PagerView>>(null)
   const showLyricRef = useRef(false)
 
   const onPageSelected = ({ nativeEvent }: PagerViewOnPageSelectedEvent) => {
@@ -42,6 +43,11 @@ export default memo(({ componentId }: { componentId: string }) => {
       screenUnkeepAwake()
     }
   }
+
+  const toggleLyricPage = useCallback(() => {
+    const nextPage = showLyricRef.current ? 0 : 1
+    pagerViewRef.current?.setPage(nextPage)
+  }, [])
 
   useEffect(() => {
     let appstateListener = AppState.addEventListener('change', (state) => {
@@ -72,9 +78,10 @@ export default memo(({ componentId }: { componentId: string }) => {
 
   return (
     <>
-      <Header />
+      <Header isLyricPage={pageIndex == 1} onToggleLyric={toggleLyricPage} />
       <View style={styles.container}>
         <PagerView
+          ref={pagerViewRef}
           onPageSelected={onPageSelected}
           // onPageScrollStateChanged={onPageScrollStateChanged}
           style={styles.pagerView}

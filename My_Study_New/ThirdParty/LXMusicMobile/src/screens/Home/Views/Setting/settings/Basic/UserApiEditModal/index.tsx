@@ -95,6 +95,12 @@ export default forwardRef<UserApiEditModalType, {}>((props, ref) => {
     dialogRef.current?.setVisible(false)
   }
 
+  const handleHide = () => {
+    // 顶部关闭按钮、系统返回键和底部关闭按钮统一销毁弹窗内容，
+    // 避免下拉菜单或文件导入状态残留后拦截后续触摸事件。
+    setVisible(false)
+  }
+
   const openFAQPage = () => {
     void openUrl('https://lyswhut.github.io/lx-music-doc/mobile/custom-source')
   }
@@ -102,7 +108,7 @@ export default forwardRef<UserApiEditModalType, {}>((props, ref) => {
   return (
     visible
       ? (
-          <Dialog ref={dialogRef} bgHide={false}>
+          <Dialog ref={dialogRef} bgHide={false} onHide={handleHide}>
             <View style={styles.content}>
               {/* <UrlInput ref={inputRef} /> */}
               <Text size={16} style={styles.title}>{t('user_api_title')}</Text>
@@ -172,5 +178,4 @@ const styles = createStyle({
     marginRight: 15,
   },
 })
-
 

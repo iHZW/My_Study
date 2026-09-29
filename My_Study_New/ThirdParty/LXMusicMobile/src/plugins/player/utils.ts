@@ -10,11 +10,25 @@ export { useBufferProgress } from './hook'
 
 const emptyIdRxp = /\/\/default$/
 const tempIdRxp = /\/\/default$|\/\/default\/\/restorePlay$/
+let isSwitchingToEmptyTrack = false
+let stopPromise: Promise<void> | null = null
+
 export const isEmpty = (trackId = global.lx.playerTrackId) => {
   // console.log(trackId)
   return !trackId || emptyIdRxp.test(trackId)
 }
 export const isTempId = (trackId = global.lx.playerTrackId) => !trackId || tempIdRxp.test(trackId)
+
+/**
+ * 消费一次由主动停止产生的占位轨切换标记。
+ * 主动停止不能被播放器事件误判为歌曲自然播放结束。
+ */
+export const isExpectedEmptyTrackSwitch = () => isSwitchingToEmptyTrack
+
+/** 真正进入新的音频轨后，主动停止流程才算结束。 */
+export const finishEmptyTrackSwitch = () => {
+  isSwitchingToEmptyTrack = false
+}
 
 // export const replacePlayTrack = async(newTrack, oldTrack) => {
 //   console.log('replaceTrack')
@@ -147,7 +161,7 @@ const playMusic = ((fn: (musicInfo: LX.Player.PlayMusic, url: string, time: numb
     }
   }
 })((musicInfo, url, time) => {
-  handlePlayMusic(musicInfo, url, time)
+  handlePlayMusic(musicInfo, url, time, finishEmptyTrackSwitch)
 })
 
 export const setResource = (musicInfo: LX.Player.PlayMusic, url: string, duration?: number) => {
@@ -158,8 +172,37 @@ export const setPlay = async() => TrackPlayer.play()
 export const getPosition = async() => TrackPlayer.getPosition()
 export const getDuration = async() => TrackPlayer.getDuration()
 export const setStop = async() => {
-  await TrackPlayer.stop()
-  if (!isEmpty()) await TrackPlayer.skipToNext()
+  // 空占位轨本身就表示已停止。iOS 上继续调用原生 stop() 会再次触发
+  // PlaybackTrackChanged，进而形成 stop -> 空轨事件 -> stop 的高频反馈环。
+  if (isEmpty()) return
+  if (stopPromise) return stopPromise
+
+  const shouldSwitchToEmptyTrack = !isEmpty()
+  // 必须在调用 stop 之前设置。iOS 会在 stop 尚未返回时同步发送
+  // PlaybackTrackChanged，若等 stop 完成后再设置就会产生结束事件竞态。
+  if (shouldSwitchToEmptyTrack) isSwitchingToEmptyTrack = true
+  stopPromise = (async() => {
+    await TrackPlayer.stop()
+    if (shouldSwitchToEmptyTrack) {
+      const [currentTrack, queue] = await Promise.all([
+        TrackPlayer.getCurrentTrack(),
+        TrackPlayer.getQueue(),
+      ])
+      // 快速切歌时，异步队列清理可能已经移除了后方占位轨。
+      // 只有下一轨真实存在时才切换，避免原生抛出 no tracks left。
+      if (currentTrack != null && currentTrack >= 0 && currentTrack + 1 < queue.length) {
+        await TrackPlayer.skipToNext()
+      } else {
+        global.lx.playerTrackId = ''
+      }
+    }
+  })().catch(err => {
+    if (shouldSwitchToEmptyTrack) isSwitchingToEmptyTrack = false
+    throw err
+  }).finally(() => {
+    stopPromise = null
+  })
+  return stopPromise
 }
 export const setLoop = async(loop: boolean) => TrackPlayer.setRepeatMode(loop ? RepeatMode.Off : RepeatMode.Track)
 

@@ -27,8 +27,5 @@ const styles = createStyle({
     justifyContent: 'center',
     alignItems: 'center',
 
-    // backgroundColor: '#ccc',
-    shadowOpacity: 1,
-    textShadowRadius: 1,
   },
 })

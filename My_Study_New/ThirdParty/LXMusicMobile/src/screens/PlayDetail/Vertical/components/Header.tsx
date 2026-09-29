@@ -31,7 +31,10 @@ const Title = () => {
   )
 }
 
-export default memo(() => {
+export default memo(({ isLyricPage, onToggleLyric }: {
+  isLyricPage: boolean
+  onToggleLyric: () => void
+}) => {
   const popupRef = useRef<SettingPopupType>(null)
   const statusBarHeight = useStatusbarHeight()
 
@@ -49,6 +52,7 @@ export default memo(() => {
         <Btn icon="chevron-left" onPress={back} />
         <Title />
         <TimeoutExitBtn />
+        <Btn icon={isLyricPage ? 'lyric-on' : 'lyric-off'} onPress={onToggleLyric} />
         <Btn icon="slider" onPress={showSetting} />
       </View>
       <SettingPopup ref={popupRef} direction="vertical" />

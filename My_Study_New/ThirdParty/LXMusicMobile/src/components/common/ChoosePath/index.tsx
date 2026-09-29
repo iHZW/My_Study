@@ -1,5 +1,5 @@
 import { useState, useRef, forwardRef, useImperativeHandle } from 'react'
-// import { StyleSheet, View, Text, StatusBar, ScrollView } from 'react-native'
+import { Platform } from 'react-native'
 
 // import { useGetter, useDispatch } from '@/store'
 import List, { type ListType } from './List'
@@ -50,9 +50,51 @@ export default forwardRef<ChoosePathType, ChoosePathProps>(({
     })
   }
 
+  const handleOpenSystemFile = (options: ReadOptions) => {
+    void selectFile({
+      extTypes: options.filter,
+      toPath: TEMP_FILE_PATH,
+    }).then((file) => {
+      if (!file || isUnmounted.current) return
+      if (options.filter && !options.filter.some(ext => file.data.toLowerCase().endsWith('.' + ext))) {
+        toast(t('storage_file_no_match'), 'long')
+        void unlink(file.data)
+        return
+      }
+      onConfirm(file.data)
+    }).catch((err: { code?: string, message?: string }) => {
+      if (isUnmounted.current || err.code == 'picker_cancelled') return
+      log.warn('open document failed: ' + (err.message ?? 'unknown error'))
+
+      // iOS 没有 Android 的外置存储目录概念，系统文件选择器失败时
+      // 直接提示错误，不能回退到要求输入 SD 卡路径的内置浏览器。
+      if (Platform.OS == 'ios') {
+        toast(`打开系统文件选择器失败：${err.message ?? '未知错误'}`, 'long')
+        return
+      }
+
+      void confirmDialog({
+        message: t('storage_file_no_select_file_failed_tip'),
+        bgClose: false,
+      }).then((confirm) => {
+        if (!confirm) {
+          toast(t('disagree_tip'), 'long')
+          return
+        }
+        updateSetting({ 'common.useSystemFileSelector': false })
+        void handleOpenExternalStorage(options)
+      })
+    })
+  }
+
   useImperativeHandle(ref, () => ({
     show(options) {
-      if (!settingState.setting['common.useSystemFileSelector'] || options.dirOnly) {
+      // iOS 文件导入始终使用系统“文件”App。历史设置即使被切换为
+      // 内置选择器，也不能让 iOS 进入 Android 风格的外置存储页面。
+      const useSystemFileSelector = Platform.OS == 'ios' && !options.dirOnly
+        ? true
+        : settingState.setting['common.useSystemFileSelector'] && !options.dirOnly
+      if (!useSystemFileSelector) {
         // if (options.isPersist) {
         void handleOpenExternalStorage(options)
         // } else {
@@ -62,33 +104,7 @@ export default forwardRef<ChoosePathType, ChoosePathProps>(({
         //   })
         // }
       } else {
-        void selectFile({
-          extTypes: options.filter,
-          toPath: TEMP_FILE_PATH,
-        }).then((file) => {
-          // console.log(file)
-          if (!file || isUnmounted.current) return
-          if (options.filter && !options.filter.some(ext => file.data.toLowerCase().endsWith('.' + ext))) {
-            toast(t('storage_file_no_match'), 'long')
-            void unlink(file.data)
-            return
-          }
-          onConfirm(file.data)
-        }).catch(err => {
-          if (isUnmounted.current) return
-          log.warn('open document failed: ' + err.message)
-          void confirmDialog({
-            message: t('storage_file_no_select_file_failed_tip'),
-            bgClose: false,
-          }).then((confirm) => {
-            if (!confirm) {
-              toast(t('disagree_tip'), 'long')
-              return
-            }
-            updateSetting({ 'common.useSystemFileSelector': false })
-            void handleOpenExternalStorage(options)
-          })
-        })
+        handleOpenSystemFile(options)
       }
     },
   }))
