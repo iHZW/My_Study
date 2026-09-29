@@ -24,8 +24,103 @@
 已支持的平台：
 
 - Android 5 及以上
+- iOS 13.4 及以上（本仓库的 iOS 适配版本）
 
-***注：目前没有计划支持 iOS 和 HarmonyOS NEXT**。*<br>
+## iOS 源码运行指南
+
+本仓库已经包含可运行的 iOS 工程、原生模块和 iPhone UI 适配。为避免依赖
+版本或构建方式不同导致运行结果与当前工程不一致，请按照下面的固定流程操作。
+
+### 已验证的开发环境
+
+- macOS 与 Xcode（当前工程验证版本为 Xcode 26.3）
+- Node.js 22（项目最低要求为 Node.js 18）
+- npm 10
+- CocoaPods 1.16.2
+- iOS 13.4 或更高版本的模拟器、iPhone
+- 真机运行时需要可用于自动签名的 Apple Developer 账号
+
+不要求每台电脑与上述小版本完全相同，但应优先使用仓库中的
+`package-lock.json` 和 `ios/Podfile.lock`，不要自行升级依赖。
+
+### 全新克隆后的初始化步骤
+
+以下命令均在仓库根目录执行：
+
+```bash
+git clone <仓库地址>
+cd LXMusicMobile
+
+# 严格按照 package-lock.json 安装 JS 与 React Native 依赖。
+# npm ci 完成后会自动执行 postinstall，应用本项目所需的 iOS 兼容补丁。
+npm ci
+
+# 严格按照 Podfile.lock 安装 iOS 原生依赖并生成 xcworkspace。
+cd ios
+USE_HERMES=0 NO_FLIPPER=1 pod install --deployment
+cd ..
+
+# 必须打开 workspace，不能打开 xcodeproj。
+open ios/LxMusicMobile.xcworkspace
+```
+
+如果本机 CocoaPods 的索引过旧，可以先执行 `pod repo update`，然后重新执行
+上述 `pod install --deployment`。不要使用 `pod update`，因为它会主动升级原生
+依赖并改变已验证的构建环境。
+
+### Xcode 真机运行
+
+1. 在 Xcode 中选择 `LxMusicMobile` Scheme。
+2. 选择已连接并已开启“开发者模式”的 iPhone。
+3. 打开 Target `LxMusicMobile` 的 `Signing & Capabilities`。
+4. 勾选 `Automatically manage signing`，选择自己的开发团队。
+5. 如果当前 Bundle Identifier 不属于该团队，改成自己账号下唯一的标识。
+6. 点击 Xcode 的 Run 按钮安装并启动。
+
+当前共享 Scheme 的 Run 配置是 **Release**。Xcode 构建时会通过
+`Bundle React Native code and images` 阶段生成并打包 `main.jsbundle`，因此按
+当前方式直接运行时不需要单独启动 Metro，也不需要手工执行“生成 iOS 代码”命令。
+
+首次在真机启动时，如果系统提示开发者不受信任，请在 iPhone 的
+“设置 → 通用 → VPN 与设备管理”中信任对应开发者证书。
+
+### React Native 命令会不会改变当前 iOS 工程
+
+下列命令不会重写仓库中的 iOS 业务代码：
+
+- `npm ci`：重新创建 `node_modules`，并通过 `postinstall` 自动恢复本仓库的
+  TrackPlayer、React Bridge 等 iOS 补丁；这是全新克隆后的推荐命令。
+- `npm run start`：仅启动 Metro 开发服务器，不修改 iOS 工程。
+- `npm run sc`：清理 Metro 缓存后启动服务，不修改 iOS 工程。
+- `npm run ios`：调用 React Native CLI 执行 Xcode 构建，不会“重新生成”或覆盖
+  已有 iOS 源码；但它默认偏向 Debug/模拟器工作流，与当前已经验证的
+  Xcode Release 真机流程不同，因此本项目不建议将它作为日常运行方式。
+- `pod install --deployment`：按照 `Podfile.lock` 恢复 Pods 和 workspace，生成物
+  位于 Git 忽略目录，不会覆盖 `ios/LxMusicMobile` 与 `ios/LXMusicNative` 源码。
+
+下列操作可能使依赖或工程状态与当前已验证版本不一致，不建议执行：
+
+- `npm install` 后接受新的 lockfile 变化
+- `npm update`、`npm audit fix`
+- `pod update`
+- `npx react-native upgrade`
+- 手工修改 `node_modules` 后未同步更新
+  `scripts/patchReactNativeTrackPlayer.js`
+- 删除或绕过 `package-lock.json`、`ios/Podfile.lock`
+
+如果只是修改了 `src` 下的 React Native JS/TS 代码，直接重新从 Xcode Run 即可；
+如果修改了 `ios` 原生源码，同样直接重新编译即可；只有修改 `Podfile` 或原生依赖
+时才需要重新执行 `pod install`。
+
+### 依赖一致性检查
+
+`npm ci` 执行的 `postinstall` 补丁脚本是幂等的，重复运行不会重复修改代码。
+安装完成时终端应显示 TrackPlayer 时间单位、元数据参数、队列边界和 React Bridge
+生命周期等补丁已经应用或已经存在。如果脚本提示“源码结构已变化”，说明依赖没有
+命中仓库锁定版本，此时不要继续升级，应先恢复 `package-lock.json` 后重新执行
+`npm ci`。
+
+***注：上游官方版本目前没有 iOS 与 HarmonyOS NEXT 支持计划；本仓库维护的是独立的 iOS 适配版本。**<br>
 *桌面版项目地址：<https://github.com/lyswhut/lx-music-desktop>*<br>
 *LX Music 项目发展调整与新项目计划：https://github.com/lyswhut/lx-music-desktop/issues/1912*
 
