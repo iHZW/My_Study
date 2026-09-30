@@ -38,7 +38,7 @@
 {
     CGFloat height = [self.viewModel heightView];
     if (row > 0) {
-        height = 20;
+        height = 14;
     }
     return height;
 }

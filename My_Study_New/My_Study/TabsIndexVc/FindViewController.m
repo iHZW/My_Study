@@ -14,6 +14,8 @@
 #import <QMUIKit/QMUIKit.h>
 #import "ZWLaunchManage.h"
 
+static NSString * const ZWFindCustomURLDefaultsKey = @"ZWFindCustomURL";
+
 typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     UIBorderSideTypeAll    = 0,
     UIBorderSideTypeTop    = 1 << 0,
@@ -43,6 +45,10 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
 @property (nonatomic, strong) UIBarButtonItem *backForwardItem;
 
 @property (nonatomic, strong) UIButton *backForwardBtn;
+
+- (void)showCustomURLAlert;
+- (nullable NSString *)normalizedWebURLString:(nullable NSString *)input;
+- (void)showInvalidURLAlert;
 
 @end
 
@@ -133,6 +139,74 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
         self.popupAtBarButtonItem.sourceBarItem = [self.navigationItem.rightBarButtonItems lastObject];
         [self.popupAtBarButtonItem showWithAnimated:NO];
     }
+}
+
+/** 显示自定义网址输入框。 */
+- (void)showCustomURLAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"自定义网址"
+                                                                              message:@"请输入完整网址；未填写协议时默认使用 https://"
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    NSString *savedURL = [[NSUserDefaults standardUserDefaults] stringForKey:ZWFindCustomURLDefaultsKey];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"例如：https://example.com";
+        textField.text = savedURL;
+        textField.keyboardType = UIKeyboardTypeURL;
+        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    }];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:nil]];
+    __weak typeof(self) weakSelf = self;
+    __weak UIAlertController *weakAlertController = alertController;
+    [alertController addAction:[UIAlertAction actionWithTitle:@"打开"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(__unused UIAlertAction *action) {
+        __strong typeof(weakSelf) self = weakSelf;
+        NSString *input = weakAlertController.textFields.firstObject.text;
+        NSString *urlString = [self normalizedWebURLString:input];
+        if (urlString.length == 0) {
+            // UIAlertAction 执行时输入框仍在退出，稍后展示错误提示可避免转场冲突。
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showInvalidURLAlert];
+            });
+            return;
+        }
+
+        [[NSUserDefaults standardUserDefaults] setObject:urlString forKey:ZWFindCustomURLDefaultsKey];
+        [self loadUrlString:urlString];
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+/** 规范并校验用户输入的网址，仅允许 WebView 支持的 HTTP/HTTPS 地址。 */
+- (nullable NSString *)normalizedWebURLString:(nullable NSString *)input {
+    NSString *urlString = [input stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+    if (urlString.length == 0) {
+        return nil;
+    }
+    if ([urlString rangeOfString:@"://"].location == NSNotFound) {
+        urlString = [@"https://" stringByAppendingString:urlString];
+    }
+
+    NSURLComponents *components = [NSURLComponents componentsWithString:urlString];
+    NSString *scheme = components.scheme.lowercaseString;
+    if ((![scheme isEqualToString:@"http"] && ![scheme isEqualToString:@"https"]) || components.host.length == 0) {
+        return nil;
+    }
+    return components.URL.absoluteString;
+}
+
+- (void)showInvalidURLAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"网址无效"
+                                                                              message:@"请输入有效的 HTTP 或 HTTPS 网址。"
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"知道了"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 /** 显示自定义的actionsheet  */
@@ -236,7 +310,8 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
                                @"电影导航网",
                                @"万能搜",
                                @"youtubeMusic",
-                               @"deepseek"];
+                               @"deepseek",
+                               @"AICode"];
         _nameArray         = nameArray;
     }
     return _nameArray;
@@ -256,7 +331,8 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
                               @"http://www.sody123.com/",
                               @"https://www.ahhhhfs.com/",
                               @"https://music.youtube.com",
-                              @"https://chat.deepseek.com"];
+                              @"https://chat.deepseek.com",
+                              @"http://116.62.212.112:3000/playground"];
         _urlArray         = urlArray;
     }
     return _urlArray;
@@ -291,6 +367,17 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
             }];
             [itemArray addObject:item];
         }
+        QMUIPopupMenuButtonItem *customItem = [QMUIPopupMenuButtonItem itemWithImage:nil
+                                                                                title:@"自定义网址…"
+                                                                              handler:^(QMUIPopupMenuButtonItem * _Nonnull aItem) {
+            [aItem.menuView hideWithAnimated:NO];
+            @pas_strongify_self
+            // 等菜单完成隐藏后再弹出输入框，避免两个弹层发生转场冲突。
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showCustomURLAlert];
+            });
+        }];
+        [itemArray addObject:customItem];
         _popupAtBarButtonItem.items = TransToArray(itemArray);
     }
     return _popupAtBarButtonItem;

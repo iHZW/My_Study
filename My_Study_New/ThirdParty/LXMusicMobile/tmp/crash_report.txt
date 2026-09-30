@@ -1,0 +1,335 @@
+共 18 个 crash 日志
+
+========== LxMusicMobile-2026-09-24-150722.ips ==========
+  exception: {'codes': '0x0000000000000001, 0x0000000102f05bac', 'rawCodes': [1, 4344273836], 'type': 'EXC_BREAKPOINT', 'signal': 'SIGTRAP'}
+  termination: {'flags': 0, 'code': 5, 'namespace': 'SIGNAL', 'indicator': 'Trace/BPT trap: 5', 'byProc': 'exc handler', 'byPid': 38929}
+  faultingThread=0 name= queue=
+     0   lldb_image_notifier + 0
+     1 ?  0x1b4bd27a8
+
+========== LxMusicMobile-2026-09-24-151120.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=8 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-151158.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=1 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-151451.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=5 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-151812.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=7 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-151826.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=6 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-152226.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=1 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-152230.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=6 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-152238.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=2 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-152254.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=8 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-153013.ips ==========
+  exception: {'codes': '0x0000000000000001, 0x00000001057a9bac', 'rawCodes': [1, 4386888620], 'type': 'EXC_BREAKPOINT', 'signal': 'SIGTRAP'}
+  termination: {'flags': 0, 'code': 5, 'namespace': 'SIGNAL', 'indicator': 'Trace/BPT trap: 5', 'byProc': 'exc handler', 'byPid': 39063}
+  faultingThread=0 name= queue=
+     0   lldb_image_notifier + 0
+     1 ?  0x1b4bd27a8
+
+========== LxMusicMobile-2026-09-24-153025.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=4 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-24-153549.ips ==========
+  exception: {'codes': '0x0000000000000001, 0x000000018e6fc394', 'rawCodes': [1, 6684656532], 'type': 'EXC_BREAKPOINT', 'signal': 'SIGTRAP'}
+  termination: {'flags': 0, 'code': 5, 'namespace': 'SIGNAL', 'indicator': 'Trace/BPT trap: 5', 'byProc': 'exc handler', 'byPid': 39071}
+  faultingThread=3 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libobjc.A.dylib  objc_exception_throw + 0
+     1 CoreFoundation  _CFThrowFormattedException + 108
+     2 CoreFoundation  -[__NSArrayM objectAtIndexedSubscript:] + 220
+     3 LxMusicMobile  -[RCTModuleMethod invokeWithBridge:module:arguments:] + 236
+     4 LxMusicMobile  facebook::react::invokeInner(RCTBridge*, RCTModuleData*, unsigned int, folly::dynamic const&, int, (anonymous namespace)::SchedulingContext) + 452
+     5 LxMusicMobile  invocation function for block in facebook::react::RCTNativeModule::invoke(unsigned int, folly::dynamic&&, int) + 108
+     6 libdispatch.dylib  _dispatch_call_block_and_release + 32
+     7 libdispatch.dylib  _dispatch_client_callout + 20
+     8 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+     9 libdispatch.dylib  _dispatch_lane_invoke + 384
+    10 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    11 libsystem_pthread.dylib  _pthread_wqthread + 288
+    12 libsystem_pthread.dylib  start_wqthread + 8
+
+========== LxMusicMobile-2026-09-24-155134.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGABRT'}
+  termination: {}
+  faultingThread=7 name= queue=com.facebook.react.TrackPlayerModuleQueue
+     0 libsystem_kernel.dylib  __pthread_kill + 8
+     1 libsystem_pthread.dylib  pthread_kill + 268
+     2 libsystem_c.dylib  abort + 180
+     3 libc++abi.dylib  abort_message + 132
+     4 libc++abi.dylib  demangling_terminate_handler() + 348
+     5 libobjc.A.dylib  _objc_terminate() + 144
+     6 libc++abi.dylib  std::__terminate(void (*)()) + 16
+     7 libc++abi.dylib  std::terminate() + 56
+     8 libdispatch.dylib  _dispatch_client_callout + 40
+     9 libdispatch.dylib  _dispatch_lane_serial_drain + 668
+    10 libdispatch.dylib  _dispatch_lane_invoke + 384
+    11 libdispatch.dylib  _dispatch_workloop_worker_thread + 648
+    12 libsystem_pthread.dylib  _pthread_wqthread + 288
+    13 libsystem_pthread.dylib  start_wqthread + 8
+  asi: {"libsystem_c.dylib": ["abort() called"]}
+
+========== LxMusicMobile-2026-09-25-090009.ips ==========
+  exception: {'codes': '0x0000000000000000, 0x0000000000000000', 'rawCodes': [0, 0], 'type': 'EXC_CRASH', 'signal': 'SIGKILL'}
+  termination: {'code': 2343432205, 'flags': 6, 'namespace': 'FRONTBOARD', 'reasons': ['<RBSTerminateContext| domain:10 code:0x8BADF00D explanation:[application<com.ihzw.LXMusicMobile>:41173] failed to terminate gracefully after 5.0s', 'ProcessVisibility: Background', 'ProcessState: Running', 'WatchdogEvent: process-exit', 'WatchdogVisibility: Background', 'WatchdogCPUStatistics: (', '"Elapsed total CPU time (seconds): 8.210 (user 4.640, system 3.570), 26% CPU",', '"Elapsed application CPU time (seconds): 0.041, 0% CPU"', ') reportType:CrashLog maxTerminationResistance:Interactive>']}
+  faultingThread=0 name= queue=com.apple.main-thread
+     0 libsystem_kernel.dylib  semaphore_wait_trap + 8
+     1 libdispatch.dylib  _dispatch_sema4_wait + 28
+     2 libdispatch.dylib  _dispatch_semaphore_wait_slow + 132
+     3 LxMusicMobile.debug.dylib  +[RCTBundleURLProvider isPackagerRunning:scheme:] + 672
+     4 LxMusicMobile.debug.dylib  +[RCTBundleURLProvider isPackagerRunning:] + 72
+     5 LxMusicMobile.debug.dylib  -[RCTBundleURLProvider guessPackagerHost] + 192
+     6 LxMusicMobile.debug.dylib  -[RCTBundleURLProvider packagerServerHostPort] + 324
+     7 LxMusicMobile.debug.dylib  -[RCTPackagerConnection init] + 160
+     8 LxMusicMobile.debug.dylib  __49+[RCTPackagerConnection sharedPackagerConnection]_block_invoke + 36
+     9 libdispatch.dylib  _dispatch_client_callout + 20
+    10 libdispatch.dylib  _dispatch_once_callout + 32
+    11 LxMusicMobile.debug.dylib  +[RCTPackagerConnection sharedPackagerConnection] + 84
+    12 LxMusicMobile.debug.dylib  -[RCTDevSettings initialize] + 148
+    13 LxMusicMobile.debug.dylib  -[RCTModuleData _initializeModule] + 92
+    14 LxMusicMobile.debug.dylib  -[RCTModuleData setUpInstanceAndBridge:] + 2392
+    15 LxMusicMobile.debug.dylib  -[RCTModuleData instance] + 1200
+    16 LxMusicMobile.debug.dylib  -[RCTCxxBridge moduleForName:lazilyLoadIfNecessary:] + 696
+    17 LxMusicMobile.debug.dylib  -[RCTModuleRegistry moduleForName:lazilyLoadIfNecessary:] + 124
+    18 LxMusicMobile.debug.dylib  -[RCTModuleRegistry moduleForName:] + 48
+    19 LxMusicMobile.debug.dylib  -[RCTPerfMonitor devMenuItem] + 84
+    20 LxMusicMobile.debug.dylib  -[RCTPerfMonitor initialize] + 88
+    21 LxMusicMobile.debug.dylib  -[RCTModuleData _initializeModule] + 92
+    22 LxMusicMobile.debug.dylib  -[RCTModuleData setUpInstanceAndBridge:] + 2392
+    23 LxMusicMobile.debug.dylib  __25-[RCTModuleData instance]_block_invoke + 44
+    24 LxMusicMobile.debug.dylib  RCTUnsafeExecuteOnMainQueueSync + 52
+
+========== LxMusicMobile-2026-09-29-110537.ips ==========
+  exception: {'codes': '0x0000000000000001, 0x0000000104fa1ca0', 'rawCodes': [1, 4378467488], 'type': 'EXC_BREAKPOINT', 'signal': 'SIGTRAP'}
+  termination: {'flags': 0, 'code': 5, 'namespace': 'SIGNAL', 'indicator': 'Trace/BPT trap: 5', 'byProc': 'exc handler', 'byPid': 52035}
+  faultingThread=17 name= queue=com.apple.root.utility-qos
+     0 LxMusicMobile  RNTrackPlayer.handleAudioPlayerQueueIndexChange(previousIndex:nextIndex:) + 876
+     1 LxMusicMobile  partial apply for implicit closure #10 in implicit closure #9 in RNTrackPlayer.init() + 28
+     2 LxMusicMobile  partial apply for thunk for @escaping @callee_guaranteed (@unowned Int?, @unowned Int?) -> () + 40
+     3 LxMusicMobile  closure #1 in AudioPlayer.Invoker.init<A>(listener:closure:) + 88
+     4 LxMusicMobile  specialized closure #1 in AudioPlayer.Event.emit(data:) + 220
+     5 LxMusicMobile  thunk for @escaping @callee_guaranteed () -> () + 28
+     6 libdispatch.dylib  _dispatch_call_block_and_release + 32
+     7 libdispatch.dylib  _dispatch_client_callout + 20
+     8 libdispatch.dylib  _dispatch_root_queue_drain + 684
+     9 libdispatch.dylib  _dispatch_worker_thread2 + 164
+    10 libsystem_pthread.dylib  _pthread_wqthread + 228
+    11 libsystem_pthread.dylib  start_wqthread + 8
+
+========== LxMusicMobile-2026-09-29-121620.ips ==========
+  exception: {'codes': '0x0000000000000001, 0x00000001028b1ca0', 'rawCodes': [1, 4337638560], 'type': 'EXC_BREAKPOINT', 'signal': 'SIGTRAP'}
+  termination: {'flags': 0, 'code': 5, 'namespace': 'SIGNAL', 'indicator': 'Trace/BPT trap: 5', 'byProc': 'exc handler', 'byPid': 52051}
+  faultingThread=10 name= queue=com.apple.root.utility-qos
+     0 LxMusicMobile  RNTrackPlayer.handleAudioPlayerQueueIndexChange(previousIndex:nextIndex:) + 876
+     1 LxMusicMobile  partial apply for implicit closure #10 in implicit closure #9 in RNTrackPlayer.init() + 28
+     2 LxMusicMobile  partial apply for thunk for @escaping @callee_guaranteed (@unowned Int?, @unowned Int?) -> () + 40
+     3 LxMusicMobile  closure #1 in AudioPlayer.Invoker.init<A>(listener:closure:) + 88
+     4 LxMusicMobile  specialized closure #1 in AudioPlayer.Event.emit(data:) + 220
+     5 LxMusicMobile  thunk for @escaping @callee_guaranteed () -> () + 28
+     6 libdispatch.dylib  _dispatch_call_block_and_release + 32
+     7 libdispatch.dylib  _dispatch_client_callout + 20
+     8 libdispatch.dylib  _dispatch_root_queue_drain + 684
+     9 libdispatch.dylib  _dispatch_worker_thread2 + 164
+    10 libsystem_pthread.dylib  _pthread_wqthread + 228
+    11 libsystem_pthread.dylib  start_wqthread + 8
+
+========== LxMusicMobile-2026-09-29-151801.ips ==========
+  exception: {'codes': '0x0000000000000001, 0x0000000105185ca0', 'rawCodes': [1, 4380449952], 'type': 'EXC_BREAKPOINT', 'signal': 'SIGTRAP'}
+  termination: {'flags': 0, 'code': 5, 'namespace': 'SIGNAL', 'indicator': 'Trace/BPT trap: 5', 'byProc': 'exc handler', 'byPid': 52269}
+  faultingThread=18 name= queue=com.apple.root.utility-qos
+     0 LxMusicMobile  RNTrackPlayer.handleAudioPlayerQueueIndexChange(previousIndex:nextIndex:) + 876
+     1 LxMusicMobile  partial apply for implicit closure #10 in implicit closure #9 in RNTrackPlayer.init() + 28
+     2 LxMusicMobile  partial apply for thunk for @escaping @callee_guaranteed (@unowned Int?, @unowned Int?) -> () + 40
+     3 LxMusicMobile  closure #1 in AudioPlayer.Invoker.init<A>(listener:closure:) + 88
+     4 LxMusicMobile  specialized closure #1 in AudioPlayer.Event.emit(data:) + 220
+     5 LxMusicMobile  thunk for @escaping @callee_guaranteed () -> () + 28
+     6 libdispatch.dylib  _dispatch_call_block_and_release + 32
+     7 libdispatch.dylib  _dispatch_client_callout + 20
+     8 libdispatch.dylib  _dispatch_root_queue_drain + 684
+     9 libdispatch.dylib  _dispatch_worker_thread2 + 164
+    10 libsystem_pthread.dylib  _pthread_wqthread + 228
+    11 libsystem_pthread.dylib  start_wqthread + 8
+

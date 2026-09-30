@@ -135,6 +135,7 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
     self.title = @"个人中心";
     
     self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p2);
+    self.view.backgroundColor = kPersonalDefaultBGColor;
     
     self.topView = [[UIView alloc] initWithFrame:CGRectZero];
     self.topView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p2);    
@@ -392,6 +393,9 @@ NSString * const contentOffsetKeyPath = @"contentOffset";
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     return _tableView;
 }

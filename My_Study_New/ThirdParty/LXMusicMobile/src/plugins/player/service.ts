@@ -99,7 +99,9 @@ const registerPlaybackService = async() => {
         global.app_event.play()
         break
       case TPState.Buffering:
-        global.app_event.pause()
+        // Buffering 是播放过程中的临时状态，不等同于用户暂停。切歌时若在
+        // play 之后收到延迟的 Buffering 事件，清除进度轮询会造成音频继续
+        // 播放，但进度条和歌词停住。
         global.app_event.playerWaiting()
         break
       case TPState.Connecting:

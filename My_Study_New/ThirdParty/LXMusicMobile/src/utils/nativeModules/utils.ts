@@ -59,6 +59,11 @@ export const shareText = async(shareTitle: string, title: string, text: string):
   UtilsModule.shareText(shareTitle, title, text)
 }
 
+/** 打开 iOS 原生网页浏览器。 */
+export const openWebBrowser = (): void => {
+  UtilsModule.openWebBrowser()
+}
+
 export const getSystemLocales = async(): Promise<string> => {
   return UtilsModule.getSystemLocales()
 }

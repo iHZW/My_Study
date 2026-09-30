@@ -33,6 +33,27 @@ static UIButton *GameButton(NSString *title, UIColor *background, UIColor *foreg
     return button;
 }
 
+static UIButton *GameCircleButton(NSString *title, CGFloat diameter, CGFloat fontSize) {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.translatesAutoresizingMaskIntoConstraints = NO;
+    button.backgroundColor = UIColor.whiteColor;
+    button.layer.cornerRadius = diameter / 2;
+    button.layer.borderWidth = 1;
+    button.layer.borderColor = GameColor(0xD5E4DF).CGColor;
+    button.layer.shadowColor = [UIColor colorWithWhite:0.18 alpha:1].CGColor;
+    button.layer.shadowOpacity = 0.16;
+    button.layer.shadowOffset = CGSizeMake(0, 4);
+    button.layer.shadowRadius = 7;
+    button.titleLabel.font = [UIFont systemFontOfSize:fontSize weight:UIFontWeightSemibold];
+    button.titleLabel.numberOfLines = 2;
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:GameColor(0x355B54) forState:UIControlStateNormal];
+    [button.widthAnchor constraintEqualToConstant:diameter].active = YES;
+    [button.heightAnchor constraintEqualToConstant:diameter].active = YES;
+    return button;
+}
+
 static void GameShowMessage(UIViewController *controller, NSString *title, NSString *message) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil]];
@@ -52,6 +73,8 @@ static void GameShowMessage(UIViewController *controller, NSString *title, NSStr
 @property (nonatomic, assign) CGFloat maximumBoardWidth;
 @property (nonatomic, assign) CGFloat boardAspect;
 @property (nonatomic, assign) BOOL usesCompactLayout;
+@property (nonatomic, assign) BOOL savedPopGestureEnabled;
+@property (nonatomic, assign) BOOL hasSavedPopGestureState;
 
 - (void)setupTitle:(NSString *)title subtitle:(NSString *)subtitle board:(UIView *)board aspect:(CGFloat)aspect maximumWidth:(CGFloat)maximumWidth;
 - (void)setupCompactLayoutWithBoard:(UIView *)board aspect:(CGFloat)aspect maximumWidth:(CGFloat)maximumWidth;
@@ -662,6 +685,24 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    UIGestureRecognizer *popGesture = self.navigationController.interactivePopGestureRecognizer;
+    if (!self.hasSavedPopGestureState) {
+        self.savedPopGestureEnabled = popGesture.enabled;
+        self.hasSavedPopGestureState = YES;
+    }
+    popGesture.enabled = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (self.hasSavedPopGestureState) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = self.savedPopGestureEnabled;
+        self.hasSavedPopGestureState = NO;
+    }
+}
+
 - (void)setupTitle:(NSString *)title subtitle:(NSString *)subtitle board:(UIView *)board aspect:(CGFloat)aspect maximumWidth:(CGFloat)maximumWidth {
     self.view.backgroundColor = GameColor(0xF7F7F2);
     self.maximumBoardWidth = maximumWidth;
@@ -1160,6 +1201,10 @@ static const NSInteger CRMGomokuCellCount = 315;
 @interface CRMPuzzleController : CRMGameController
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *tiles;
 @property (nonatomic, strong) NSMutableArray<UIButton *> *tileButtons;
+@property (nonatomic, copy) NSArray<NSString *> *puzzleImageNames;
+@property (nonatomic, copy) NSArray<NSString *> *puzzleImageAssetNames;
+@property (nonatomic, copy) NSArray<UIImage *> *tileImageCache;
+@property (nonatomic, assign) NSInteger currentImageIndex;
 @property (nonatomic, assign) NSInteger moves;
 @property (nonatomic, assign) BOOL finished;
 @end
@@ -1168,9 +1213,16 @@ static const NSInteger CRMGomokuCellCount = 315;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.puzzleImageNames = @[@"森林小狐", @"海岸灯塔", @"山谷热气球", @"亚古兽", @"加布兽"];
+    self.puzzleImageAssetNames = @[@"puzzle_fox", @"puzzle_lighthouse", @"puzzle_balloon",
+                                   @"puzzle_agumon", @"puzzle_gabumon"];
+    self.currentImageIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"CRMPuzzleSelectedImage"];
+    if (self.currentImageIndex < 0 || self.currentImageIndex >= self.puzzleImageAssetNames.count) {
+        self.currentImageIndex = 0;
+    }
     UIView *board = [[UIView alloc] init];
     board.backgroundColor = GameColor(0xDCE7E3);
-    [self setupTitle:@"数字拼图" subtitle:@"滑动方块，将数字按顺序排好" board:board aspect:1 maximumWidth:360];
+    [self setupTitle:@"图片拼图" subtitle:@"滑动图片块，拼出完整画面" board:board aspect:1 maximumWidth:360];
     UIStackView *grid = [[UIStackView alloc] init];
     grid.axis = UILayoutConstraintAxisVertical;
     grid.distribution = UIStackViewDistributionFillEqually;
@@ -1194,14 +1246,64 @@ static const NSInteger CRMGomokuCellCount = 315;
             NSInteger index = row * 3 + column;
             UIButton *button = GameButton(@"", GameColor(0xFFFFFF), GameColor(0x315D56));
             button.tag = index;
-            button.titleLabel.font = [UIFont systemFontOfSize:30 weight:UIFontWeightBold];
+            button.clipsToBounds = YES;
+            button.imageView.contentMode = UIViewContentModeScaleAspectFill;
             [button addTarget:self action:@selector(tileTapped:) forControlEvents:UIControlEventTouchUpInside];
             [rowView addArrangedSubview:button];
             [self.tileButtons addObject:button];
         }
     }
+    [self addAction:@"切换图片" selector:@selector(showImagePicker)];
     [self addAction:@"重新打乱" selector:@selector(restart)];
     [self restart];
+}
+
+- (UIImage *)tileImageForValue:(NSInteger)value {
+    if (value < 1 || value > 9) return nil;
+    if (self.tileImageCache.count == 9) return self.tileImageCache[value - 1];
+
+    UIImage *source = [UIImage imageNamed:self.puzzleImageAssetNames[self.currentImageIndex]];
+    if (!source.CGImage) return nil;
+    size_t width = CGImageGetWidth(source.CGImage);
+    size_t height = CGImageGetHeight(source.CGImage);
+    size_t tileWidth = width / 3;
+    size_t tileHeight = height / 3;
+    NSMutableArray<UIImage *> *images = [NSMutableArray arrayWithCapacity:9];
+    for (NSInteger sourceIndex = 0; sourceIndex < 9; sourceIndex++) {
+        CGRect cropRect = CGRectMake((sourceIndex % 3) * tileWidth,
+                                     (sourceIndex / 3) * tileHeight,
+                                     sourceIndex % 3 == 2 ? width - tileWidth * 2 : tileWidth,
+                                     sourceIndex / 3 == 2 ? height - tileHeight * 2 : tileHeight);
+        CGImageRef croppedImage = CGImageCreateWithImageInRect(source.CGImage, cropRect);
+        if (!croppedImage) return nil;
+        [images addObject:[UIImage imageWithCGImage:croppedImage
+                                              scale:source.scale
+                                        orientation:source.imageOrientation]];
+        CGImageRelease(croppedImage);
+    }
+    self.tileImageCache = images;
+    return self.tileImageCache[value - 1];
+}
+
+- (void)showImagePicker {
+    UIAlertController *picker = [UIAlertController alertControllerWithTitle:@"选择拼图"
+                                                                    message:@"选择后会重新打乱当前拼图"
+                                                             preferredStyle:UIAlertControllerStyleActionSheet];
+    __weak typeof(self) weakSelf = self;
+    [self.puzzleImageNames enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *stop) {
+        NSString *title = index == self.currentImageIndex ? [NSString stringWithFormat:@"✓ %@", name] : name;
+        [picker addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            weakSelf.currentImageIndex = index;
+            weakSelf.tileImageCache = nil;
+            [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"CRMPuzzleSelectedImage"];
+            [weakSelf restart];
+        }]];
+    }];
+    [picker addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    picker.popoverPresentationController.sourceView = self.view;
+    picker.popoverPresentationController.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds),
+                                                                  CGRectGetMaxY(self.view.bounds) - 80, 1, 1);
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (void)restart {
@@ -1230,13 +1332,17 @@ static const NSInteger CRMGomokuCellCount = 315;
 }
 
 - (void)refresh {
-    self.statusLabel.text = [NSString stringWithFormat:@"已移动 %ld 步", (long)self.moves];
+    self.statusLabel.text = [NSString stringWithFormat:@"%@ · 已移动 %ld 步",
+                             self.puzzleImageNames[self.currentImageIndex], (long)self.moves];
     for (NSInteger index = 0; index < 9; index++) {
         NSInteger value = self.tiles[index].integerValue;
         UIButton *button = self.tileButtons[index];
         button.enabled = value != 0;
-        [button setTitle:value ? [NSString stringWithFormat:@"%ld", (long)value] : @"" forState:UIControlStateNormal];
-        button.backgroundColor = value == 0 ? UIColor.clearColor : (value % 2 ? GameColor(0xFFFFFF) : GameColor(0xF5F3E9));
+        [button setTitle:@"" forState:UIControlStateNormal];
+        NSInteger displayedValue = value != 0 ? value : (self.finished ? 9 : 0);
+        [button setBackgroundImage:displayedValue ? [self tileImageForValue:displayedValue] : nil
+                         forState:UIControlStateNormal];
+        button.backgroundColor = displayedValue ? UIColor.whiteColor : UIColor.clearColor;
     }
 }
 
@@ -1252,8 +1358,426 @@ static const NSInteger CRMGomokuCellCount = 315;
     for (NSInteger i = 0; i < 8; i++) if (self.tiles[i].integerValue != i + 1) solved = NO;
     if (solved) {
         self.finished = YES;
+        [self refresh];
         GameShowMessage(self, @"拼图完成", [NSString stringWithFormat:@"太棒了！共用了 %ld 步。", (long)self.moves]);
     }
+}
+@end
+
+#pragma mark - 三车道赛车
+
+@interface CRMRacingBoard : UIView
+@property (nonatomic, assign) NSInteger playerLane;
+@property (nonatomic, assign) NSInteger carStyle;
+@property (nonatomic, assign) CGFloat roadOffset;
+@property (nonatomic, copy) NSArray<NSDictionary *> *obstacles;
+@property (nonatomic, assign) BOOL gameOver;
+@end
+
+@implementation CRMRacingBoard
+
+- (void)drawCarInRect:(CGRect)rect color:(UIColor *)color {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    // 阴影、轮胎和车身分层绘制，让小尺寸赛车仍有清晰轮廓。
+    CGContextSetShadowWithColor(context, CGSizeMake(0, 3), 5, [UIColor colorWithWhite:0 alpha:0.28].CGColor);
+    [GameColor(0x263A3B) setFill];
+    CGFloat wheelWidth = rect.size.width * 0.16;
+    UIRectFill(CGRectMake(CGRectGetMinX(rect) - 2, CGRectGetMinY(rect) + rect.size.height * 0.2, wheelWidth, rect.size.height * 0.22));
+    UIRectFill(CGRectMake(CGRectGetMaxX(rect) - wheelWidth + 2, CGRectGetMinY(rect) + rect.size.height * 0.2, wheelWidth, rect.size.height * 0.22));
+    UIRectFill(CGRectMake(CGRectGetMinX(rect) - 2, CGRectGetMaxY(rect) - rect.size.height * 0.34, wheelWidth, rect.size.height * 0.22));
+    UIRectFill(CGRectMake(CGRectGetMaxX(rect) - wheelWidth + 2, CGRectGetMaxY(rect) - rect.size.height * 0.34, wheelWidth, rect.size.height * 0.22));
+    UIBezierPath *body = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, rect.size.width * 0.08, 0)
+                                                     cornerRadius:rect.size.width * 0.24];
+    [color setFill];
+    [body fill];
+    CGContextRestoreGState(context);
+    CGRect cabin = CGRectMake(CGRectGetMinX(rect) + rect.size.width * 0.23,
+                              CGRectGetMinY(rect) + rect.size.height * 0.22,
+                              rect.size.width * 0.54, rect.size.height * 0.34);
+    [GameColor(0xDDF5FA) setFill];
+    [[UIBezierPath bezierPathWithRoundedRect:cabin cornerRadius:7] fill];
+    [UIColor.whiteColor setFill];
+    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(CGRectGetMinX(rect) + 8, CGRectGetMinY(rect) + 8, 7, 7)] fill];
+    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(CGRectGetMaxX(rect) - 15, CGRectGetMinY(rect) + 8, 7, 7)] fill];
+}
+
+- (void)drawObstacle:(NSDictionary *)obstacle laneRect:(CGRect)laneRect {
+    CGFloat y = [obstacle[@"y"] doubleValue] * CGRectGetHeight(self.bounds);
+    NSInteger type = [obstacle[@"type"] integerValue];
+    CGRect rect = CGRectMake(CGRectGetMidX(laneRect) - laneRect.size.width * 0.25,
+                             y, laneRect.size.width * 0.5, CGRectGetHeight(self.bounds) * 0.11);
+    if (type == 0) {
+        [GameColor(0xF08A62) setFill];
+        UIBezierPath *cone = [UIBezierPath bezierPath];
+        [cone moveToPoint:CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect))];
+        [cone addLineToPoint:CGPointMake(CGRectGetMaxX(rect) - 4, CGRectGetMaxY(rect))];
+        [cone addLineToPoint:CGPointMake(CGRectGetMinX(rect) + 4, CGRectGetMaxY(rect))];
+        [cone closePath];
+        [cone fill];
+        [UIColor.whiteColor setStroke]; cone.lineWidth = 5; [cone stroke];
+    } else if (type == 1) {
+        [GameColor(0xEBC762) setFill];
+        [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:6] fill];
+        [GameColor(0x9B6447) setStroke];
+        UIBezierPath *stripe = [UIBezierPath bezierPath]; stripe.lineWidth = 6;
+        [stripe moveToPoint:CGPointMake(CGRectGetMinX(rect) + 5, CGRectGetMinY(rect) + 5)];
+        [stripe addLineToPoint:CGPointMake(CGRectGetMaxX(rect) - 5, CGRectGetMaxY(rect) - 5)];
+        [stripe stroke];
+    } else {
+        [GameColor(0x293A42) setFill];
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectInset(rect, 3, rect.size.height * 0.18)] fill];
+        [GameColor(0x4D6470) setFill];
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectInset(rect, rect.size.width * 0.27, rect.size.height * 0.34)] fill];
+    }
+}
+
+- (void)drawRect:(CGRect)rect {
+    [GameColor(0x8ACB82) setFill]; UIRectFill(rect);
+    CGFloat roadX = rect.size.width * 0.08, roadWidth = rect.size.width * 0.84;
+    CGRect road = CGRectMake(roadX, 0, roadWidth, rect.size.height);
+    [GameColor(0x46575C) setFill]; UIRectFill(road);
+    [GameColor(0xF6E8B1) setFill];
+    UIRectFill(CGRectMake(roadX + 4, 0, 4, rect.size.height));
+    UIRectFill(CGRectMake(CGRectGetMaxX(road) - 8, 0, 4, rect.size.height));
+    CGFloat laneWidth = roadWidth / 3.0;
+    for (NSInteger divider = 1; divider <= 2; divider++) {
+        CGFloat x = roadX + laneWidth * divider;
+        for (CGFloat y = self.roadOffset - 48; y < rect.size.height; y += 58) {
+            [UIColor.whiteColor setFill];
+            [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(x - 2, y, 4, 31) cornerRadius:2] fill];
+        }
+    }
+    for (NSDictionary *obstacle in self.obstacles) {
+        NSInteger lane = [obstacle[@"lane"] integerValue];
+        [self drawObstacle:obstacle laneRect:CGRectMake(roadX + laneWidth * lane, 0, laneWidth, rect.size.height)];
+    }
+    NSArray *colors = @[GameColor(0xF36F5B), GameColor(0x55A9D6), GameColor(0xF1C453), GameColor(0x9B7BC4)];
+    CGRect playerRect = CGRectMake(roadX + laneWidth * self.playerLane + laneWidth * 0.25,
+                                   rect.size.height * 0.77, laneWidth * 0.5, rect.size.height * 0.14);
+    [self drawCarInRect:playerRect color:colors[self.carStyle % colors.count]];
+    if (self.gameOver) {
+        [[UIColor colorWithWhite:0 alpha:0.38] setFill]; UIRectFill(rect);
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:28 weight:UIFontWeightBold],
+                                     NSForegroundColorAttributeName: UIColor.whiteColor};
+        NSString *text = @"碰撞啦！";
+        CGSize size = [text sizeWithAttributes:attributes];
+        [text drawAtPoint:CGPointMake((rect.size.width - size.width) / 2, rect.size.height * 0.44) withAttributes:attributes];
+    }
+}
+@end
+
+@interface CRMRacingController : CRMGameController
+@property (nonatomic, strong) CRMRacingBoard *gameBoard;
+@property (nonatomic, strong) NSMutableArray<NSMutableDictionary *> *obstacles;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) NSInteger playerLane;
+@property (nonatomic, assign) NSInteger carStyle;
+@property (nonatomic, assign) NSInteger score;
+@property (nonatomic, assign) NSInteger level;
+@property (nonatomic, assign) NSInteger ticksUntilSpawn;
+@property (nonatomic, assign) BOOL gameOver;
+@end
+
+@implementation CRMRacingController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.gameBoard = [[CRMRacingBoard alloc] init];
+    [self setupCompactLayoutWithBoard:self.gameBoard aspect:1.48 maximumWidth:345];
+    self.actions.axis = UILayoutConstraintAxisHorizontal;
+    self.actions.alignment = UIStackViewAlignmentCenter;
+    self.actions.distribution = UIStackViewDistributionEqualSpacing;
+    UIButton *left = GameCircleButton(@"◀", 62, 21);
+    UIButton *right = GameCircleButton(@"▶", 62, 21);
+    UIButton *change = GameCircleButton(@"换车", 62, 13);
+    UIButton *restart = GameCircleButton(@"重来", 62, 13);
+    [left addTarget:self action:@selector(moveLeft) forControlEvents:UIControlEventTouchUpInside];
+    [right addTarget:self action:@selector(moveRight) forControlEvents:UIControlEventTouchUpInside];
+    [change addTarget:self action:@selector(changeCar) forControlEvents:UIControlEventTouchUpInside];
+    [restart addTarget:self action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
+    for (UIButton *button in @[left, change, restart, right]) [self.actions addArrangedSubview:button];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [self restart];
+}
+
+- (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; [self startTimer]; }
+- (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; [self pauseGame]; }
+- (void)dealloc { [self.timer invalidate]; [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+- (void)startTimer {
+    if (self.timer || self.gameOver || !self.view.window) return;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 30.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+}
+- (void)pauseGame { [self.timer invalidate]; self.timer = nil; }
+
+- (void)restart {
+    [self pauseGame];
+    self.playerLane = 1; self.score = 0; self.level = 1; self.ticksUntilSpawn = 20; self.gameOver = NO;
+    self.obstacles = [NSMutableArray array];
+    [self refresh]; [self startTimer];
+}
+- (void)moveLeft { if (!self.gameOver && self.playerLane > 0) { self.playerLane--; [self refresh]; } }
+- (void)moveRight { if (!self.gameOver && self.playerLane < 2) { self.playerLane++; [self refresh]; } }
+- (void)changeCar { self.carStyle = (self.carStyle + 1) % 4; [self refresh]; }
+
+- (void)tick {
+    if (self.gameOver) return;
+    self.level = MIN(6, 1 + self.score / 450);
+    CGFloat speed = 0.0095 + (self.level - 1) * 0.0018;
+    for (NSMutableDictionary *obstacle in self.obstacles) obstacle[@"y"] = @([obstacle[@"y"] doubleValue] + speed);
+    for (NSDictionary *obstacle in self.obstacles) {
+        CGFloat y = [obstacle[@"y"] doubleValue];
+        if ([obstacle[@"lane"] integerValue] == self.playerLane && y > 0.69 && y < 0.91) {
+            self.gameOver = YES; [self pauseGame]; [self refresh];
+            GameShowMessage(self, @"赛车结束", [NSString stringWithFormat:@"安全行驶了 %ld 米，再试一次吧！", (long)self.score]);
+            return;
+        }
+    }
+    NSIndexSet *expired = [self.obstacles indexesOfObjectsPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+        return [item[@"y"] doubleValue] > 1.08;
+    }];
+    self.score += expired.count * 25 + 1;
+    [self.obstacles removeObjectsAtIndexes:expired];
+    if (--self.ticksUntilSpawn <= 0) {
+        NSInteger firstLane = arc4random_uniform(3);
+        [self.obstacles addObject:[@{@"lane": @(firstLane), @"y": @(-0.14), @"type": @(arc4random_uniform(3))} mutableCopy]];
+        // 第三级开始偶尔出现并排双障碍，但始终保留一条可通行车道。
+        if (self.level >= 3 && arc4random_uniform(100) < 22 + self.level * 4) {
+            NSInteger secondLane = (firstLane + 1 + arc4random_uniform(2)) % 3;
+            [self.obstacles addObject:[@{@"lane": @(secondLane), @"y": @(-0.14), @"type": @(arc4random_uniform(3))} mutableCopy]];
+        }
+        self.ticksUntilSpawn = MAX(17, 43 - self.level * 4);
+    }
+    self.gameBoard.roadOffset = fmod(self.gameBoard.roadOffset + 7, 58);
+    [self refresh];
+}
+- (void)refresh {
+    self.gameBoard.playerLane = self.playerLane;
+    self.gameBoard.carStyle = self.carStyle;
+    self.gameBoard.obstacles = [self.obstacles copy];
+    self.gameBoard.gameOver = self.gameOver;
+    [self.gameBoard setNeedsDisplay];
+    self.statusLabel.text = self.gameOver ? @"发生碰撞 · 点击重来重新出发" : [NSString stringWithFormat:@"第 %ld 级 · 行驶 %ld 米", (long)self.level, (long)self.score];
+}
+@end
+
+#pragma mark - 足球打砖块
+
+static const NSInteger CRMSoccerBrickRows = 7;
+static const NSInteger CRMSoccerBrickColumns = 7;
+
+@interface CRMSoccerBreakoutBoard : UIView
+@property (nonatomic, copy) NSArray<NSNumber *> *bricks;
+@property (nonatomic, assign) CGPoint ball;
+@property (nonatomic, assign) CGFloat playerX;
+@property (nonatomic, assign) CGFloat playerHalfWidth;
+@property (nonatomic, assign) BOOL gameOver;
+@end
+
+@implementation CRMSoccerBreakoutBoard
+- (void)drawRect:(CGRect)rect {
+    [GameColor(0xDDF3F5) setFill]; UIRectFill(rect);
+    [GameColor(0xBFE1C5) setFill]; UIRectFill(CGRectMake(0, rect.size.height * 0.72, rect.size.width, rect.size.height * 0.28));
+    NSArray *colors = @[GameColor(0xEF7B6C), GameColor(0xF2C45E), GameColor(0x6FC5C2), GameColor(0x82A7D9), GameColor(0xA98BC5)];
+    CGFloat gap = 4, margin = 12;
+    CGFloat brickWidth = (rect.size.width - margin * 2 - gap * (CRMSoccerBrickColumns - 1)) / CRMSoccerBrickColumns;
+    CGFloat brickHeight = rect.size.height * 0.057;
+    for (NSInteger row = 0; row < CRMSoccerBrickRows; row++) {
+        for (NSInteger column = 0; column < CRMSoccerBrickColumns; column++) {
+            NSInteger index = row * CRMSoccerBrickColumns + column;
+            if (!self.bricks[index].boolValue) continue;
+            CGRect brick = CGRectMake(margin + column * (brickWidth + gap), rect.size.height * 0.07 + row * (brickHeight + gap), brickWidth, brickHeight);
+            [colors[row % colors.count] setFill]; [[UIBezierPath bezierPathWithRoundedRect:brick cornerRadius:5] fill];
+            [[UIColor colorWithWhite:1 alpha:0.35] setFill]; UIRectFill(CGRectMake(brick.origin.x + 4, brick.origin.y + 4, brick.size.width - 8, 3));
+        }
+    }
+    CGFloat px = self.playerX * rect.size.width, groundY = rect.size.height * 0.91;
+    // 日系动画足球少年：夸张的刺猬头、头带、球衣和张开的接球姿势。
+    [GameColor(0x263A3B) setFill];
+    UIBezierPath *hair = [UIBezierPath bezierPath];
+    [hair moveToPoint:CGPointMake(px - 15, groundY - 49)];
+    [hair addLineToPoint:CGPointMake(px - 22, groundY - 62)];
+    [hair addLineToPoint:CGPointMake(px - 9, groundY - 57)];
+    [hair addLineToPoint:CGPointMake(px - 4, groundY - 70)];
+    [hair addLineToPoint:CGPointMake(px + 4, groundY - 58)];
+    [hair addLineToPoint:CGPointMake(px + 17, groundY - 66)];
+    [hair addLineToPoint:CGPointMake(px + 14, groundY - 48)];
+    [hair closePath]; [hair fill];
+    [GameColor(0xF2B98F) setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(px - 12, groundY - 58, 24, 25)] fill];
+    [GameColor(0xE85D62) setFill]; UIRectFill(CGRectMake(px - 14, groundY - 52, 28, 4));
+    [GameColor(0x253A55) setFill];
+    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(px - 7, groundY - 47, 3, 5)] fill];
+    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(px + 4, groundY - 47, 3, 5)] fill];
+    [GameColor(0x4D83C2) setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(px - 16, groundY - 35, 32, 27) cornerRadius:7] fill];
+    NSDictionary *numberStyle = @{NSFontAttributeName: [UIFont systemFontOfSize:12 weight:UIFontWeightBlack], NSForegroundColorAttributeName: UIColor.whiteColor};
+    [@"10" drawAtPoint:CGPointMake(px - 7, groundY - 29) withAttributes:numberStyle];
+    [GameColor(0xF2B98F) setStroke];
+    UIBezierPath *limbs = [UIBezierPath bezierPath]; limbs.lineWidth = 6; limbs.lineCapStyle = kCGLineCapRound;
+    CGFloat armReach = MAX(18, self.playerHalfWidth * rect.size.width - 8);
+    [limbs moveToPoint:CGPointMake(px - 13, groundY - 29)]; [limbs addLineToPoint:CGPointMake(px - armReach, groundY - 15)];
+    [limbs moveToPoint:CGPointMake(px + 13, groundY - 29)]; [limbs addLineToPoint:CGPointMake(px + armReach, groundY - 15)];
+    [limbs stroke];
+    [GameColor(0x263A3B) setStroke]; limbs.lineWidth = 7;
+    [limbs removeAllPoints];
+    [limbs moveToPoint:CGPointMake(px - 8, groundY - 9)]; [limbs addLineToPoint:CGPointMake(px - 15, groundY + 5)];
+    [limbs moveToPoint:CGPointMake(px + 8, groundY - 9)]; [limbs addLineToPoint:CGPointMake(px + 15, groundY + 5)]; [limbs stroke];
+    CGPoint ball = CGPointMake(self.ball.x * rect.size.width, self.ball.y * rect.size.height);
+    CGFloat radius = MIN(rect.size.width, rect.size.height) * 0.028;
+    [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(ball.x - radius, ball.y - radius, radius * 2, radius * 2)] fill];
+    [GameColor(0x263A3B) setFill];
+    for (NSInteger i = 0; i < 5; i++) {
+        CGFloat angle = i * M_PI * 2 / 5 - M_PI_2;
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(ball.x + cos(angle) * radius * 0.55 - radius * 0.2,
+                                                           ball.y + sin(angle) * radius * 0.55 - radius * 0.2,
+                                                           radius * 0.4, radius * 0.4)] fill];
+    }
+    if (self.gameOver) { [[UIColor colorWithWhite:0 alpha:0.28] setFill]; UIRectFill(rect); }
+}
+@end
+
+@interface CRMSoccerBreakoutController : CRMGameController
+@property (nonatomic, strong) CRMSoccerBreakoutBoard *gameBoard;
+@property (nonatomic, strong) NSMutableArray<NSNumber *> *bricks;
+@property (nonatomic, strong) NSTimer *gameTimer;
+@property (nonatomic, strong) NSTimer *moveTimer;
+@property (nonatomic, assign) CGPoint ball;
+@property (nonatomic, assign) CGVector velocity;
+@property (nonatomic, assign) CGFloat playerX;
+@property (nonatomic, assign) CGFloat playerHalfWidth;
+@property (nonatomic, assign) NSInteger moveDirection;
+@property (nonatomic, assign) NSInteger destroyed;
+@property (nonatomic, assign) NSInteger brickTarget;
+@property (nonatomic, assign) NSInteger level;
+@property (nonatomic, assign) BOOL gameOver;
+@end
+
+@implementation CRMSoccerBreakoutController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.gameBoard = [[CRMSoccerBreakoutBoard alloc] init];
+    [self setupCompactLayoutWithBoard:self.gameBoard aspect:1.38 maximumWidth:350];
+    self.actions.axis = UILayoutConstraintAxisHorizontal;
+    self.actions.alignment = UIStackViewAlignmentCenter;
+    self.actions.distribution = UIStackViewDistributionEqualSpacing;
+    UIButton *left = [self movementButton:@"◀" direction:-1];
+    UIButton *right = [self movementButton:@"▶" direction:1];
+    [self.actions addArrangedSubview:left]; [self.actions addArrangedSubview:right];
+    UIButton *restart = GameCircleButton(@"重来", 68, 14);
+    [restart addTarget:self action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
+    [self.actions insertArrangedSubview:restart atIndex:1];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [self restart];
+}
+- (UIButton *)movementButton:(NSString *)title direction:(NSInteger)direction {
+    UIButton *button = GameCircleButton(title, 68, 22);
+    button.tag = direction;
+    [button addTarget:self action:@selector(startMoving:) forControlEvents:UIControlEventTouchDown];
+    [button addTarget:self action:@selector(stopMoving:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside | UIControlEventTouchCancel | UIControlEventTouchDragExit];
+    return button;
+}
+- (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; [self startGameTimer]; }
+- (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; [self pauseGame]; }
+- (void)dealloc { [self pauseGame]; [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+- (void)startGameTimer {
+    if (self.gameTimer || self.gameOver || !self.view.window) return;
+    self.gameTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 60.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+}
+- (void)pauseGame { [self.gameTimer invalidate]; self.gameTimer = nil; [self.moveTimer invalidate]; self.moveTimer = nil; }
+- (void)startMoving:(UIButton *)sender {
+    self.moveDirection = sender.tag; [self movePlayer];
+    [self.moveTimer invalidate];
+    self.moveTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 60.0 target:self selector:@selector(movePlayer) userInfo:nil repeats:YES];
+}
+- (void)stopMoving:(UIButton *)sender { [self.moveTimer invalidate]; self.moveTimer = nil; self.moveDirection = 0; }
+- (void)movePlayer {
+    if (self.gameOver) return;
+    self.playerX = MIN(1 - self.playerHalfWidth, MAX(self.playerHalfWidth, self.playerX + self.moveDirection * 0.012));
+    [self refresh];
+}
+- (void)restart {
+    self.level = 1;
+    [self startLevel];
+}
+- (void)startLevel {
+    [self pauseGame];
+    NSInteger activeRows = MIN(CRMSoccerBrickRows, 3 + self.level);
+    self.bricks = [NSMutableArray arrayWithCapacity:CRMSoccerBrickRows * CRMSoccerBrickColumns];
+    self.brickTarget = 0;
+    for (NSInteger row = 0; row < CRMSoccerBrickRows; row++) {
+        for (NSInteger column = 0; column < CRMSoccerBrickColumns; column++) {
+            BOOL active = row < activeRows;
+            [self.bricks addObject:@(active)];
+            if (active) self.brickTarget++;
+        }
+    }
+    CGFloat speedScale = 1 + (self.level - 1) * 0.11;
+    self.playerHalfWidth = MAX(0.09, 0.145 - (self.level - 1) * 0.012);
+    self.playerX = 0.5; self.ball = CGPointMake(0.5, 0.76);
+    self.velocity = CGVectorMake(0.34 * speedScale, -0.48 * speedScale);
+    self.destroyed = 0; self.gameOver = NO; [self refresh]; [self startGameTimer];
+}
+- (CGRect)brickRectAtRow:(NSInteger)row column:(NSInteger)column {
+    CGFloat gap = 4.0 / MAX(CGRectGetWidth(self.gameBoard.bounds), 1), margin = 12.0 / MAX(CGRectGetWidth(self.gameBoard.bounds), 1);
+    CGFloat width = (1 - margin * 2 - gap * (CRMSoccerBrickColumns - 1)) / CRMSoccerBrickColumns;
+    CGFloat height = 0.057;
+    return CGRectMake(margin + column * (width + gap), 0.07 + row * (height + gap), width, height);
+}
+- (void)tick {
+    if (self.gameOver) return;
+    CGFloat dt = 1.0 / 60.0;
+    CGPoint previous = self.ball;
+    self.ball = CGPointMake(self.ball.x + self.velocity.dx * dt, self.ball.y + self.velocity.dy * dt);
+    CGFloat radius = 0.025;
+    if (self.ball.x < radius) { self.ball = CGPointMake(radius, self.ball.y); self.velocity = CGVectorMake(fabs(self.velocity.dx), self.velocity.dy); }
+    if (self.ball.x > 1 - radius) { self.ball = CGPointMake(1 - radius, self.ball.y); self.velocity = CGVectorMake(-fabs(self.velocity.dx), self.velocity.dy); }
+    if (self.ball.y < radius) { self.ball = CGPointMake(self.ball.x, radius); self.velocity = CGVectorMake(self.velocity.dx, fabs(self.velocity.dy)); }
+    if (self.velocity.dy > 0 && self.ball.y + radius >= 0.84 && previous.y < 0.88 && fabs(self.ball.x - self.playerX) < self.playerHalfWidth) {
+        CGFloat offset = (self.ball.x - self.playerX) / self.playerHalfWidth;
+        CGFloat speed = hypot(self.velocity.dx, self.velocity.dy);
+        self.velocity = CGVectorMake(offset * speed * 0.9, -MAX(0.34, speed * (0.9 - fabs(offset) * 0.18)));
+        self.ball = CGPointMake(self.ball.x, 0.84 - radius);
+    }
+    for (NSInteger index = 0; index < self.bricks.count; index++) {
+        if (!self.bricks[index].boolValue) continue;
+        CGRect brick = [self brickRectAtRow:index / CRMSoccerBrickColumns column:index % CRMSoccerBrickColumns];
+        CGRect ballRect = CGRectMake(self.ball.x - radius, self.ball.y - radius, radius * 2, radius * 2);
+        if (!CGRectIntersectsRect(brick, ballRect)) continue;
+        self.bricks[index] = @NO; self.destroyed++;
+        CGFloat horizontalHit = (self.ball.x - CGRectGetMidX(brick)) / (brick.size.width / 2);
+        if (previous.x + radius <= CGRectGetMinX(brick) || previous.x - radius >= CGRectGetMaxX(brick)) {
+            self.velocity = CGVectorMake(-self.velocity.dx + horizontalHit * 0.08, self.velocity.dy);
+        } else {
+            self.velocity = CGVectorMake(self.velocity.dx + horizontalHit * 0.12, -self.velocity.dy);
+        }
+        break;
+    }
+    if (self.destroyed == self.brickTarget) {
+        self.gameOver = YES; [self pauseGame]; [self refresh];
+        if (self.level < 5) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"第 %ld 关完成", (long)self.level]
+                                                                           message:@"下一关盒子更多、球速更快，接球范围也会缩小。"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            __weak typeof(self) weakSelf = self;
+            [alert addAction:[UIAlertAction actionWithTitle:@"进入下一关" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                weakSelf.level++;
+                [weakSelf startLevel];
+            }]];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            GameShowMessage(self, @"全部通关", @"太棒了！五个关卡的盒子全部被你击中了。");
+        }
+        return;
+    }
+    if (self.ball.y - radius > 1) {
+        self.gameOver = YES; [self pauseGame]; [self refresh]; GameShowMessage(self, @"足球落地", [NSString stringWithFormat:@"本局击中了 %ld 个盒子。", (long)self.destroyed]); return;
+    }
+    [self refresh];
+}
+- (void)refresh {
+    self.gameBoard.bricks = [self.bricks copy]; self.gameBoard.ball = self.ball;
+    self.gameBoard.playerX = self.playerX; self.gameBoard.playerHalfWidth = self.playerHalfWidth; self.gameBoard.gameOver = self.gameOver;
+    [self.gameBoard setNeedsDisplay];
+    self.statusLabel.text = self.gameOver ? [NSString stringWithFormat:@"第 %ld 关结束 · 点击重来", (long)self.level] : [NSString stringWithFormat:@"第 %ld 关 · 已击中 %ld / %ld", (long)self.level, (long)self.destroyed, (long)self.brickTarget];
 }
 @end
 
@@ -1339,7 +1863,7 @@ static const NSInteger CRMGomokuCellCount = 315;
     UILabel *heroTitle = GameLabel(@"随时开玩", 24, UIFontWeightBold, UIColor.whiteColor);
     heroTitle.translatesAutoresizingMaskIntoConstraints = NO;
     [hero addSubview:heroTitle];
-    UILabel *heroDetail = GameLabel(@"四款经典小游戏\n从一局开始，放松一下。", 14, UIFontWeightRegular, GameColor(0xD8E6DF));
+    UILabel *heroDetail = GameLabel(@"六款经典小游戏\n从一局开始，放松一下。", 14, UIFontWeightRegular, GameColor(0xD8E6DF));
     heroDetail.translatesAutoresizingMaskIntoConstraints = NO;
     [hero addSubview:heroDetail];
     [NSLayoutConstraint activateConstraints:@[
@@ -1360,9 +1884,11 @@ static const NSInteger CRMGomokuCellCount = 315;
         @[@"五子棋", @"双人对弈 · 连成五子", @"●", @"DDECE3"],
         @[@"数字拼图", @"移动方块 · 排好顺序", @"▦", @"F3E9D9"],
         @[@"数独", @"静心思考 · 填满九宫", @"9", @"E8E5F2"],
-        @[@"俄罗斯方块", @"旋转下落 · 消除整行", @"▣", @"E7EDF2"]
+        @[@"俄罗斯方块", @"旋转下落 · 消除整行", @"▣", @"E7EDF2"],
+        @[@"三车道赛车", @"左右换道 · 躲避障碍", @"🏎", @"F5E4D8"],
+        @[@"足球打砖块", @"长按移动 · 反弹射门", @"⚽", @"DDECF2"]
     ];
-    for (NSInteger row = 0; row < 2; row++) {
+    for (NSInteger row = 0; row < 3; row++) {
         UIStackView *cards = [[UIStackView alloc] init];
         cards.axis = UILayoutConstraintAxisHorizontal;
         cards.distribution = UIStackViewDistributionFillEqually;
@@ -1417,6 +1943,8 @@ static const NSInteger CRMGomokuCellCount = 315;
         case 1: controller = [[CRMPuzzleController alloc] init]; break;
         case 2: controller = [[CRMSudokuController alloc] init]; break;
         case 3: controller = [[CRMTetrisController alloc] init]; break;
+        case 4: controller = [[CRMRacingController alloc] init]; break;
+        case 5: controller = [[CRMSoccerBreakoutController alloc] init]; break;
         default: return;
     }
     [self.navigationController pushViewController:controller animated:YES];
