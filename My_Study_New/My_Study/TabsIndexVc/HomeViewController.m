@@ -23,6 +23,105 @@
 
 #define kJumpWebViewID      @"kDefaultJumpWebViewID"
 
+static UIColor *CRMHomeColor(NSUInteger hex) {
+    return [UIColor colorWithRed:((hex >> 16) & 0xFF) / 255.0
+                           green:((hex >> 8) & 0xFF) / 255.0
+                            blue:(hex & 0xFF) / 255.0
+                           alpha:1.0];
+}
+
+@interface CRMHomeFeatureCell : UITableViewCell
+@property (nonatomic, strong) UIView *cardView;
+@property (nonatomic, strong) UILabel *iconLabel;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *detailLabel;
+- (void)configureWithTitle:(NSString *)title detail:(NSString *)detail icon:(NSString *)icon;
+@end
+
+@implementation CRMHomeFeatureCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor = UIColor.clearColor;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        _cardView = [[UIView alloc] init];
+        _cardView.backgroundColor = UIColor.whiteColor;
+        _cardView.layer.cornerRadius = 16;
+        _cardView.layer.shadowColor = [UIColor colorWithWhite:0 alpha:0.07].CGColor;
+        _cardView.layer.shadowOpacity = 1;
+        _cardView.layer.shadowRadius = 10;
+        _cardView.layer.shadowOffset = CGSizeMake(0, 4);
+        [self.contentView addSubview:_cardView];
+
+        _iconLabel = [[UILabel alloc] init];
+        _iconLabel.textAlignment = NSTextAlignmentCenter;
+        _iconLabel.font = [UIFont systemFontOfSize:22];
+        _iconLabel.backgroundColor = CRMHomeColor(0xE8F3EF);
+        _iconLabel.layer.cornerRadius = 13;
+        _iconLabel.layer.masksToBounds = YES;
+        [_cardView addSubview:_iconLabel];
+
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
+        _nameLabel.textColor = CRMHomeColor(0x294B46);
+        [_cardView addSubview:_nameLabel];
+
+        _detailLabel = [[UILabel alloc] init];
+        _detailLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
+        _detailLabel.textColor = CRMHomeColor(0x82918E);
+        [_cardView addSubview:_detailLabel];
+
+        UILabel *arrow = [[UILabel alloc] init];
+        arrow.text = @"›";
+        arrow.font = [UIFont systemFontOfSize:28 weight:UIFontWeightLight];
+        arrow.textColor = CRMHomeColor(0x91AAA5);
+        [_cardView addSubview:arrow];
+
+        [_cardView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(18);
+            make.right.equalTo(self.contentView).offset(-18);
+            make.top.equalTo(self.contentView).offset(5);
+            make.bottom.equalTo(self.contentView).offset(-5);
+        }];
+        [_iconLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.cardView).offset(14);
+            make.centerY.equalTo(self.cardView);
+            make.width.height.mas_equalTo(46);
+        }];
+        [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.iconLabel.mas_right).offset(13);
+            make.right.equalTo(arrow.mas_left).offset(-8);
+            make.bottom.equalTo(self.cardView.mas_centerY).offset(-2);
+        }];
+        [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.nameLabel);
+            make.top.equalTo(self.cardView.mas_centerY).offset(4);
+        }];
+        [arrow mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.cardView).offset(-16);
+            make.centerY.equalTo(self.cardView);
+        }];
+    }
+    return self;
+}
+
+- (void)configureWithTitle:(NSString *)title detail:(NSString *)detail icon:(NSString *)icon {
+    self.nameLabel.text = title;
+    self.detailLabel.text = detail;
+    self.iconLabel.text = icon;
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    [UIView animateWithDuration:0.15 animations:^{
+        self.cardView.transform = highlighted ? CGAffineTransformMakeScale(0.98, 0.98) : CGAffineTransformIdentity;
+        self.cardView.alpha = highlighted ? 0.84 : 1.0;
+    }];
+}
+
+@end
+
 @interface HomeViewController () {
     NSTimer *_timer;
     NSTimer *_yyTimer;
@@ -36,6 +135,8 @@
 @property (nonatomic, strong) HomeDataLoader *dataLoader;
 
 @property (nonatomic, strong) HomeViewModel *viewModel;
+@property (nonatomic, copy) NSArray<NSString *> *featureDetails;
+@property (nonatomic, copy) NSArray<NSString *> *featureIcons;
 @end
 
 @implementation HomeViewController
@@ -88,19 +189,28 @@
 }
 
 - (void)initNav {
-    UIButton *backBtn             = [[UIButton alloc] initWithFrame:CGRectMake(20, 40, 40, 40)];
-    backBtn.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [backBtn setImage:[UIImage imageNamed:@"icon_nav_edit"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(gotoLeftDrawerPage) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.titleLabel.font               = PASFont(15);
-    UIBarButtonItem *leftItem             = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuButton.frame = CGRectMake(0, 0, 38, 38);
+    menuButton.backgroundColor = CRMHomeColor(0xE8F3EF);
+    menuButton.layer.cornerRadius = 12;
+    menuButton.tintColor = CRMHomeColor(0x315F57);
+    menuButton.accessibilityLabel = @"打开侧边栏";
+    if (@available(iOS 13.0, *)) {
+        UIImage *image = [UIImage systemImageNamed:@"line.3.horizontal"];
+        [menuButton setImage:image forState:UIControlStateNormal];
+    } else {
+        [menuButton setTitle:@"☰" forState:UIControlStateNormal];
+        [menuButton setTitleColor:CRMHomeColor(0x315F57) forState:UIControlStateNormal];
+        menuButton.titleLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightMedium];
+    }
+    [menuButton addTarget:self action:@selector(gotoLeftDrawerPage) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
 
     [self initRightNav];
 }
 
 - (void)initRightNav {
-    HomeRefreshView *refreView = [[HomeRefreshView alloc] initWithFrame:CGRectMake(0, 0, 80, 35)];
+    HomeRefreshView *refreView = [[HomeRefreshView alloc] initWithFrame:CGRectMake(0, 0, 120, 38)];
     //    refreView.viewModel = self.viewModel;
     @pas_weakify_self
         refreView.actinBlock = ^{
@@ -201,30 +311,86 @@
 - (void)setupDatas {
     [self.dataList removeAllObjects];
 
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Native页面" clazz:[RunLoopViewController class]]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native->Flutter-first" flutterPageName:@"first"]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native->Native(Flutter)-Native(flutter)" flutterPageName:@"testList"]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native-Native(Flutter)-Flutter-Native(Flutter)" flutterPageName:@"TestFlutterJumpFlutter"]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native-Flutter(全站导航)" flutterPageName:@"TotalNavigationPage"]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native jump Flutter" flutterPageName:@"TestPage"]];
-    BaseCellModel *model = [BaseCellModel modelWithTitle:@"跳转到Block测试页面" clazz:[BlockViewController class]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native 实验室" clazz:[RunLoopViewController class]]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Flutter 首页示例" flutterPageName:@"first"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"混合导航示例" flutterPageName:@"testList"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跨端链路示例" flutterPageName:@"TestFlutterJumpFlutter"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Flutter 全站导航" flutterPageName:@"TotalNavigationPage"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Flutter 测试页" flutterPageName:@"TestPage"]];
+    BaseCellModel *model = [BaseCellModel modelWithTitle:@"Block 回调实验" clazz:[BlockViewController class]];
     model.isFlutterPage  = NO;
     [self.dataList addObject:model];
     
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"jump KLinePage" clazz:NSClassFromString(@"TestKLineViewController")]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Jump RAC-UITableView" clazz:NSClassFromString(@"RACBindingTableVc")]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Jump RAC-Binding-UITableView" clazz:NSClassFromString(@"RACBindingMVVMTableVc")]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Test KTVCocoaHTTPServer Page" clazz:NSClassFromString(@"TestKTVCocoaHTTPServerPage")]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Test coobjc 协程" clazz:NSClassFromString(@"TestCoobjcPage")]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"K 线图表" clazz:NSClassFromString(@"TestKLineViewController")]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"RAC 列表绑定" clazz:NSClassFromString(@"RACBindingTableVc")]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"RAC MVVM 绑定" clazz:NSClassFromString(@"RACBindingMVVMTableVc")]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"本地 HTTP 服务" clazz:NSClassFromString(@"TestKTVCocoaHTTPServerPage")]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"协程实验" clazz:NSClassFromString(@"TestCoobjcPage")]];
     
-    BaseCellModel *webModel = [BaseCellModel modelWithTitle:@"跳转WebView" clazz:NSClassFromString(@"ZWCommonWebPage")];
+    BaseCellModel *webModel = [BaseCellModel modelWithTitle:@"网页浏览" clazz:NSClassFromString(@"ZWCommonWebPage")];
     webModel.identificationName = kJumpWebViewID;
     [self.dataList addObject:webModel];
+
+    self.featureDetails = @[@"iOS · 线程与 RunLoop", @"跨端 · 基础页面", @"跨端 · Native 与 Flutter", @"跨端 · 多级页面链路", @"跨端 · 统一路由", @"跨端 · 页面容器", @"iOS · 内存与回调", @"图表 · 行情可视化", @"RAC · 响应式列表", @"RAC · MVVM 实践", @"工具 · 设备内服务", @"iOS · 异步编程", @"工具 · WebView"];
+    self.featureIcons = @[@"🧪", @"🫧", @"🔀", @"🧩", @"🧭", @"🚀", @"🔗", @"📈", @"⚡️", @"🧱", @"🌐", @"⏱", @"🔎"];
 
 }
 
 - (void)setupUI {
     [self.view addSubview:self.tableView];
+    self.tableView.backgroundColor = CRMHomeColor(0xF4F7F5);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.contentInset = UIEdgeInsetsMake(6, 0, 18, 0);
+    self.tableView.tableHeaderView = [self buildHomeHeaderView];
+}
+
+- (UIView *)buildHomeHeaderView {
+    CGFloat width = CGRectGetWidth(UIScreen.mainScreen.bounds);
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 226)];
+
+    UIView *hero = [[UIView alloc] initWithFrame:CGRectMake(18, 12, width - 36, 142)];
+    hero.backgroundColor = CRMHomeColor(0x315F57);
+    hero.layer.cornerRadius = 22;
+    hero.layer.masksToBounds = YES;
+    [header addSubview:hero];
+
+    UIView *decoration = [[UIView alloc] initWithFrame:CGRectMake(width - 142, -34, 128, 128)];
+    decoration.backgroundColor = [UIColor colorWithWhite:1 alpha:0.08];
+    decoration.layer.cornerRadius = 64;
+    [hero addSubview:decoration];
+
+    UILabel *eyebrow = [[UILabel alloc] initWithFrame:CGRectMake(22, 20, 220, 18)];
+    eyebrow.text = @"MY STUDY · 探索空间";
+    eyebrow.textColor = [UIColor colorWithWhite:1 alpha:0.66];
+    eyebrow.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
+    [hero addSubview:eyebrow];
+
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(22, 45, width - 100, 34)];
+    title.text = @"今天想探索什么？";
+    title.textColor = UIColor.whiteColor;
+    title.font = [UIFont systemFontOfSize:25 weight:UIFontWeightBold];
+    [hero addSubview:title];
+
+    UILabel *subtitle = [[UILabel alloc] initWithFrame:CGRectMake(22, 86, width - 100, 38)];
+    subtitle.text = @"从原生能力到跨端实践，\n把每次尝试都变成可复用的经验。";
+    subtitle.numberOfLines = 2;
+    subtitle.textColor = [UIColor colorWithWhite:1 alpha:0.82];
+    subtitle.font = [UIFont systemFontOfSize:13];
+    [hero addSubview:subtitle];
+
+    UILabel *sectionTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 176, width - 40, 26)];
+    sectionTitle.text = @"功能实验室";
+    sectionTitle.textColor = CRMHomeColor(0x294B46);
+    sectionTitle.font = [UIFont systemFontOfSize:20 weight:UIFontWeightBold];
+    [header addSubview:sectionTitle];
+
+    UILabel *sectionHint = [[UILabel alloc] initWithFrame:CGRectMake(20, 204, width - 40, 16)];
+    sectionHint.text = @"选择一个方向，继续你的学习与实验";
+    sectionHint.textColor = CRMHomeColor(0x87938F);
+    sectionHint.font = [UIFont systemFontOfSize:12];
+    [header addSubview:sectionHint];
+    return header;
 }
 
 - (void)setupLayout {
@@ -252,20 +418,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 78;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell             = [UITableViewCell cellFromCodeWithTableView:tableView];
-    cell.accessoryType                = UITableViewCellAccessoryDisclosureIndicator;
-    BaseCellModel *model              = self.dataList[indexPath.row];
-    cell.textLabel.text               = model.title;
-    cell.zh_backgroundColorPicker     = ThemePickerColorKey(ZWColorKey_p8);
-    cell.textLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p4);
-
-    UIView *selectedView        = [UIView viewForColor:UIColorFromRGB(0x87CEFA) withFrame:cell.frame];
-    cell.selectedBackgroundView = selectedView;
-
+    static NSString *identifier = @"CRMHomeFeatureCell";
+    CRMHomeFeatureCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) cell = [[CRMHomeFeatureCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    BaseCellModel *model = self.dataList[indexPath.row];
+    NSString *detail = indexPath.row < self.featureDetails.count ? self.featureDetails[indexPath.row] : @"实用功能";
+    NSString *icon = indexPath.row < self.featureIcons.count ? self.featureIcons[indexPath.row] : @"✨";
+    [cell configureWithTitle:model.title detail:detail icon:icon];
     return cell;
 }
 

@@ -95,29 +95,34 @@
     @pas_weakify_self
     [self zh_themeUpdateCallback:^(id  _Nonnull target) {
         @pas_strongify_self
+        UIColor *selectedColor = UIColorFromRGB(0x315F57);
+        UIColor *normalColor = UIColorFromRGB(0x82938E);
+        UIColor *backgroundColor = UIColorFromRGB(0xFAFCFA);
+        self.tabBar.tintColor = selectedColor;
+        self.tabBar.unselectedItemTintColor = normalColor;
         if(@available(iOS 13.0, *)) {
-            UITabBarAppearance* tabbarAppearance = [self.tabBar.standardAppearance copy];
-            // 官方文档写的是 重置背景和阴影为透明
-    //        [tabbarAppearance configureWithTransparentBackground];
-            
-            tabbarAppearance.backgroundImage = [UIImage imageWithColor:ThemePickerColorKey(ZWColorKey_p3).color size:CGSizeMake(1, 49) andRoundSize:0];
-            tabbarAppearance.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];
-
-            UITabBarItemStateAppearance * normal = tabbarAppearance.stackedLayoutAppearance.normal;
-            UITabBarItemStateAppearance * selected = tabbarAppearance.stackedLayoutAppearance.selected;
-            normal.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#D5D5E1"]};
-            selected.titleTextAttributes = @{NSFontAttributeName:PASFont(10),NSForegroundColorAttributeName:[UIColor colorFromHexCode:@"#4F7AFD"]};
+            UITabBarAppearance *tabbarAppearance = [[UITabBarAppearance alloc] init];
+            [tabbarAppearance configureWithOpaqueBackground];
+            tabbarAppearance.backgroundColor = backgroundColor;
+            tabbarAppearance.shadowColor = UIColorFromRGB(0xE4ECE8);
+            NSArray<UITabBarItemAppearance *> *layouts = @[
+                tabbarAppearance.stackedLayoutAppearance,
+                tabbarAppearance.inlineLayoutAppearance,
+                tabbarAppearance.compactInlineLayoutAppearance
+            ];
+            for (UITabBarItemAppearance *layout in layouts) {
+                layout.normal.iconColor = normalColor;
+                layout.normal.titleTextAttributes = [self customNormalTabTitle];
+                layout.selected.iconColor = selectedColor;
+                layout.selected.titleTextAttributes = [self customSelectTabTitle];
+            }
             self.tabBar.standardAppearance = tabbarAppearance;
             
             if (@available(iOS 15.0, *)) {
                 self.tabBar.scrollEdgeAppearance = tabbarAppearance;
             }
-    //        UIView *lineView  = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectMake(0, 0, CGRectGetWidth(self.tabBar.frame), 0.5)];
-    //        [self.tabBar addSubview:lineView];
-    //        [self.tabBar bringSubviewToFront:lineView];
-            
         } else {
-            self.tabBar.backgroundImage = [UIImage imageWithColor:ThemePickerColorKey(ZWColorKey_p3).color size:CGSizeMake(1, 49) andRoundSize:0];
+            self.tabBar.backgroundImage = [UIImage imageWithColor:backgroundColor size:CGSizeMake(1, 49) andRoundSize:0];
             self.tabBar.shadowImage = [UIImage new];
         }
     }];
@@ -233,7 +238,13 @@
         
         if (vc){
             ZWNavigationController * nav = [[ZWNavigationController alloc] initWithRootViewController:vc];
-            if ([obj.iconUrl hasPrefix:@"http"]) {
+            BOOL usesRemoteIcon = [obj.iconUrl hasPrefix:@"http"] || [obj.selectedIconUrl hasPrefix:@"http"];
+            UIImageRenderingMode localRenderingMode = [self isBuiltInRoute:obj.route] && !usesRemoteIcon ? UIImageRenderingModeAlwaysTemplate : UIImageRenderingModeAlwaysOriginal;
+            UIImage *normalSymbol = usesRemoteIcon ? nil : [self symbolImageForRoute:obj.route selected:NO];
+            UIImage *selectedSymbol = usesRemoteIcon ? nil : [self symbolImageForRoute:obj.route selected:YES];
+            if (normalSymbol) {
+                nav.tabBarItem.image = normalSymbol;
+            } else if ([obj.iconUrl hasPrefix:@"http"]) {
                 UIImage * image = [self getCacheImage:obj.iconUrl];
                 if (image) {
                     nav.tabBarItem.image = [self originalImage:image];
@@ -242,10 +253,12 @@
                     [self downloadTabBarItemImage:obj.iconUrl index:idx isSelect:NO];
                 }
             }else{
-                nav.tabBarItem.image =  [[UIImage imageNamed:obj.iconUrl] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                nav.tabBarItem.image = [[UIImage imageNamed:obj.iconUrl] imageWithRenderingMode:localRenderingMode];
             }
             
-            if ([obj.selectedIconUrl hasPrefix:@"http"]) {
+            if (selectedSymbol) {
+                nav.tabBarItem.selectedImage = selectedSymbol;
+            } else if ([obj.selectedIconUrl hasPrefix:@"http"]) {
                 UIImage * image = [self getCacheImage:obj.selectedIconUrl];
                 if (image) {
                     nav.tabBarItem.selectedImage = [self originalImage:image];
@@ -254,7 +267,7 @@
                     [self downloadTabBarItemImage:obj.selectedIconUrl index:idx isSelect:YES];
                 }
             }else{
-                nav.tabBarItem.selectedImage = [[UIImage imageNamed:obj.selectedIconUrl] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                nav.tabBarItem.selectedImage = [[UIImage imageNamed:obj.selectedIconUrl] imageWithRenderingMode:localRenderingMode];
             }
             
             nav.tabBarItem.title = obj.title;
@@ -332,11 +345,44 @@
 }
 
 - (NSDictionary *)customNormalTabTitle{
-    return [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorFromHexCode:@"#4C4B5E"],NSForegroundColorAttributeName,PASFont(10),NSFontAttributeName,nil];
+    return @{NSForegroundColorAttributeName: UIColorFromRGB(0x82938E),
+             NSFontAttributeName: [UIFont systemFontOfSize:11 weight:UIFontWeightMedium]};
 }
 
 - (NSDictionary *)customSelectTabTitle{
-    return [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorFromHexCode:@"#4F7AFD"],NSForegroundColorAttributeName,PASFont(10),NSFontAttributeName,nil];
+    return @{NSForegroundColorAttributeName: UIColorFromRGB(0x315F57),
+             NSFontAttributeName: [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold]};
+}
+
+- (BOOL)isBuiltInRoute:(NSString *)route {
+    return [route isEqualToString:ZWTabIndexHome] ||
+           [route isEqualToString:ZWTabIndexFind] ||
+           [route isEqualToString:ZWTabIndexCRM] ||
+           [route isEqualToString:ZWTabIndexApplication] ||
+           [route isEqualToString:ZWTabIndexPersonal];
+}
+
+- (UIImage *)symbolImageForRoute:(NSString *)route selected:(BOOL)selected {
+    if (@available(iOS 13.0, *)) {
+        NSString *symbolName = nil;
+        if ([route isEqualToString:ZWTabIndexHome]) {
+            symbolName = selected ? @"house.fill" : @"house";
+        } else if ([route isEqualToString:ZWTabIndexFind]) {
+            symbolName = @"magnifyingglass";
+        } else if ([route isEqualToString:ZWTabIndexCRM]) {
+            symbolName = selected ? @"person.2.fill" : @"person.2";
+        } else if ([route isEqualToString:ZWTabIndexApplication]) {
+            symbolName = selected ? @"square.grid.2x2.fill" : @"square.grid.2x2";
+        } else if ([route isEqualToString:ZWTabIndexPersonal]) {
+            symbolName = selected ? @"person.crop.circle.fill" : @"person.crop.circle";
+        }
+        if (symbolName) {
+            UIImageSymbolConfiguration *configuration = [UIImageSymbolConfiguration configurationWithPointSize:21 weight:selected ? UIImageSymbolWeightSemibold : UIImageSymbolWeightRegular];
+            UIImage *image = [[UIImage systemImageNamed:symbolName] imageByApplyingSymbolConfiguration:configuration];
+            return [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        }
+    }
+    return nil;
 }
 
 - (void)downloadTabBarItemImage:(NSString *)url

@@ -13,7 +13,6 @@
 #import "ZWUserAccountManager.h"
 #import "MMPrivacyManager.h"
 #import <CYLTabBarController/CYLTabBarController.h>
-#import "DHLaunchAdPageHUD.h"
 
 
 @interface LaunchViewController ()
@@ -54,7 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = UIColor.whiteColor;
+    self.view.backgroundColor = UIColorFromRGB(0xF4F7F5);
     
     [self name:^(NSString *name) {
         NSLog(@"name:%@", name);
@@ -126,61 +125,9 @@
     self.viewControllers = @[vc];
 }
 
-- (void)_loadAdPageHUD:(dispatch_block_t)completeBlock {
-    NSString *adImageJPGUrl = @"http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg";
-    NSString *adimageGIFUrl = @"https://upload-images.jianshu.io/upload_images/550672-aa96b5cca33cb802.gif?imageMogr2/auto-orient/strip";
-    NSString *adImageJPGPath = @"adImage1";//[[NSBundle mainBundle] pathForResource:@"adImage2" ofType:@"jpg"];
-    NSString *adImageGifPath = [[NSBundle mainBundle] pathForResource:@"adImage3" ofType:@"gif"];
-//    adImageGifPath = [[NSBundle mainBundle] pathForResource:@"eqh_home" ofType:@"gif"];
-    __block BOOL didFinishLaunchAd = NO;
-    DHLaunchAdPageHUD *launchAd = [[DHLaunchAdPageHUD alloc] initWithFrame:CGRectMake(0, 0, DDScreenW, DDScreenH) aDduration:10.0 aDImageUrl:adImageGifPath hideSkipButton:NO launchAdClickBlock:^(NSInteger index) {
-        if (didFinishLaunchAd) {
-            return;
-        }
-        didFinishLaunchAd = YES;
-
-        NSURL *adURL = nil;
-        switch (index) {
-            case 0:
-            {
-                
-            }
-                break;
-            case 1:
-            {
-                NSLog(@"[AppDelegate]:点了广告图片");
-                adURL = [NSURL URLWithString:@"https://www.baidu.com"];
-            }
-                break;
-                
-            default:
-                break;
-        }
-        
-        if (completeBlock) {
-            completeBlock();
-        }
-
-        if (adURL) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (@available(iOS 10.0, *)) {
-                    [[UIApplication sharedApplication] openURL:adURL options:@{} completionHandler:nil];
-                } else {
-                    [[UIApplication sharedApplication] openURL:adURL];
-                }
-            });
-        }
-    }];
-    (void)launchAd;
-}
-
 - (void)loadComponent
 {
-    @pas_weakify_self
-    [self _loadAdPageHUD:^{
-        @pas_strongify_self
-        [self _setMainVc];
-    }];
+    [self _setMainVc];
 
 //    NSDictionary *launchOptions = WM.pushManager.launchOptions;
 //    [WM.pushManager handleLaunchOptions];

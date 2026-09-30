@@ -49,8 +49,101 @@
 #import "ZWCommonWebPage.h"
 #import "MMPushUtil.h"
 
-#define kSectionViewHeight 20
+#define kSectionViewHeight 58
 #define ZWNSLog(...) printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
+@interface CRMSettingCardCell : UITableViewCell
+@property (nonatomic, strong) UIView *cardView;
+@property (nonatomic, strong) UILabel *iconLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *detailLabel;
+- (void)configureWithTitle:(NSString *)title detail:(NSString *)detail icon:(NSString *)icon;
+@end
+
+@implementation CRMSettingCardCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor = UIColor.clearColor;
+        self.contentView.backgroundColor = UIColor.clearColor;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        _cardView = [[UIView alloc] init];
+        _cardView.backgroundColor = UIColor.whiteColor;
+        _cardView.layer.cornerRadius = 16;
+        _cardView.layer.shadowColor = [UIColor colorWithWhite:0 alpha:0.06].CGColor;
+        _cardView.layer.shadowOpacity = 1;
+        _cardView.layer.shadowRadius = 8;
+        _cardView.layer.shadowOffset = CGSizeMake(0, 3);
+        [self.contentView addSubview:_cardView];
+
+        _iconLabel = [[UILabel alloc] init];
+        _iconLabel.textAlignment = NSTextAlignmentCenter;
+        _iconLabel.font = [UIFont systemFontOfSize:21];
+        _iconLabel.backgroundColor = UIColorFromRGB(0xE9F3EF);
+        _iconLabel.layer.cornerRadius = 12;
+        _iconLabel.layer.masksToBounds = YES;
+        [_cardView addSubview:_iconLabel];
+
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
+        _titleLabel.textColor = UIColorFromRGB(0x294B46);
+        [_cardView addSubview:_titleLabel];
+
+        _detailLabel = [[UILabel alloc] init];
+        _detailLabel.font = [UIFont systemFontOfSize:11];
+        _detailLabel.textColor = UIColorFromRGB(0x87938F);
+        [_cardView addSubview:_detailLabel];
+
+        UILabel *arrow = [[UILabel alloc] init];
+        arrow.text = @"›";
+        arrow.font = [UIFont systemFontOfSize:25 weight:UIFontWeightLight];
+        arrow.textColor = UIColorFromRGB(0x91AAA5);
+        [_cardView addSubview:arrow];
+
+        [_cardView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(18);
+            make.right.equalTo(self.contentView).offset(-18);
+            make.top.equalTo(self.contentView).offset(4);
+            make.bottom.equalTo(self.contentView).offset(-4);
+        }];
+        [_iconLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.cardView).offset(14);
+            make.centerY.equalTo(self.cardView);
+            make.width.height.mas_equalTo(44);
+        }];
+        [arrow mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.cardView).offset(-16);
+            make.centerY.equalTo(self.cardView);
+        }];
+        [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.iconLabel.mas_right).offset(13);
+            make.right.equalTo(arrow.mas_left).offset(-8);
+            make.bottom.equalTo(self.cardView.mas_centerY).offset(-2);
+        }];
+        [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.titleLabel);
+            make.top.equalTo(self.cardView.mas_centerY).offset(4);
+        }];
+    }
+    return self;
+}
+
+- (void)configureWithTitle:(NSString *)title detail:(NSString *)detail icon:(NSString *)icon {
+    self.titleLabel.text = title;
+    self.detailLabel.text = detail;
+    self.iconLabel.text = icon;
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    [UIView animateWithDuration:0.15 animations:^{
+        self.cardView.alpha = highlighted ? 0.82 : 1;
+        self.cardView.transform = highlighted ? CGAffineTransformMakeScale(0.98, 0.98) : CGAffineTransformIdentity;
+    }];
+}
+
+@end
 
 @interface SettingViewController () <UITableViewDelegate, UITableViewDataSource, JFCSTableViewControllerDelegate, EHAddressCompHelperDelegate>
 
@@ -70,19 +163,19 @@
 
     self.dataArray       = [NSMutableArray arrayWithArray:[self getDataArray]];
     self.style           = UITableViewStylePlain;
-    self.tableCellClass  = [PASIndicatorTableViewCell class];
-    self.heightForHeader = kSectionViewHeight;
-    self.cellHeight      = 60;
+    self.tableCellClass  = [CRMSettingCardCell class];
+    self.heightForHeader = 58;
+    self.cellHeight      = 76;
     self.title           = @"设置";
 }
 
 - (void)loadUIData {
     [super loadUIData];
 
-    //    self.tableView.tableHeaderView = [self getHeaderView];
-    self.tableView.tableFooterView = [UIView new];
-    //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    self.view.backgroundColor = UIColorFromRGB(0xF4F7F5);
+    self.tableView.backgroundColor = UIColorFromRGB(0xF4F7F5);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableHeaderView = [self getHeaderView];
     self.tableView.tableFooterView = self.bottomLabel;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
@@ -90,20 +183,13 @@
     }];
 
     @pas_weakify_self
-        self.cellConfigBlock = ^(NSIndexPath *_Nonnull indexPath, PASIndicatorTableViewCell *cell) {
+        self.cellConfigBlock = ^(NSIndexPath *_Nonnull indexPath, CRMSettingCardCell *cell) {
         @pas_strongify_self
-            cell.isShowRightArrow = YES;
-
-        /** 设置选中背景色  */
-        cell.selectionStyle         = UITableViewCellSelectionStyleDefault;
-        UIView *selectedView        = [UIView viewForColor:UIColorFromRGB(0x87CEFA) withFrame:cell.frame];
-        cell.selectedBackgroundView = selectedView;
-
-        NSArray *tempArray                = PASArrayAtIndex(self.dataArray, indexPath.section);
-        ActionModel *model                = PASArrayAtIndex(tempArray, indexPath.row);
-        cell.leftLabel.text               = TransToString(model.title);
-        cell.leftLabel.font               = PASFont(18);
-        cell.leftLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p5);
+        NSArray *sectionItems = PASArrayAtIndex(self.dataArray, indexPath.section);
+        ActionModel *model = PASArrayAtIndex(sectionItems, indexPath.row);
+        [cell configureWithTitle:TransToString(model.title)
+                           detail:[self descriptionForAction:model.actionName]
+                             icon:[self iconForAction:model.actionName section:indexPath.section]];
     };
 
     self.cellClickBlock = ^(NSIndexPath *_Nonnull indexPath, id _Nonnull cell) {
@@ -130,7 +216,9 @@
     NSString *dateFormat    = @"MM-dd HH:mm:ss";
     NSDate *resultDate      = [NSDate br_dateFromString:version dateFormat:@"MMddHHmmss"];
     NSString *formatTime    = [NSDate br_stringFromDate:resultDate dateFormat:dateFormat];
-    NSString *resultVersion = [NSString stringWithFormat:@"版本v%@ 日期 %@", NSString.eh_mainVersion, formatTime];
+    NSString *resultVersion = formatTime.length > 0
+        ? [NSString stringWithFormat:@"My Study  ·  v%@  ·  %@", NSString.eh_mainVersion, formatTime]
+        : [NSString stringWithFormat:@"My Study  ·  v%@", NSString.eh_mainVersion];
     NSLog(@"formatTime = %@", formatTime);
     self.bottomLabel.text = TransToString(resultVersion);
 }
@@ -183,21 +271,93 @@
     return @[sec1Arr, sec2Arr, sec3Arr, sec4Arr, sec5Arr];
 }
 
+- (NSString *)descriptionForAction:(NSString *)action {
+    static NSDictionary<NSString *, NSString *> *descriptions;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        descriptions = @{
+            @"accountInfoSetting": @"个人资料与分享体验", @"accountsAndSecurity": @"账户相关设置",
+            @"scanningQRCode": @"使用相机识别二维码", @"alertViewAction": @"提示弹窗样式预览",
+            @"selectedPageAction": @"查看单选列表交互", @"changeTheme": @"选择喜欢的界面主题",
+            @"changeAppIcon": @"更换桌面上的应用图标", @"fileSelect": @"从设备中选择文件",
+            @"photoFileSelect": @"拍照或导入照片与文件", @"citySelect": @"搜索并选择城市",
+            @"otherCitySelect": @"体验另一种城市选择方式", @"changeAddressTrim": @"调整地址信息",
+            @"jumpSJVideoPage": @"体验视频播放页面", @"textToSpeechPage": @"将输入文字转换为语音",
+            @"drawPolygonView": @"自由拖拽多边形", @"testShowWindow": @"展示首页悬浮信息",
+            @"jumpCRMViewController": @"浏览 CRM 示例页面", @"vipVideo": @"打开网页浏览页面",
+            @"testBallViewContorller": @"体验陀螺仪小球", @"testSwiperComponent": @"查看轮播组件",
+            @"showGameCenter": @"赛车、拼图与更多小游戏", @"cleanCacheData": @"释放本地缓存空间",
+            @"feedBackDetailInfo": @"告诉我们你的建议", @"aboutDetailInfo": @"查看应用信息",
+            @"go2PrivicyAgreement": @"了解隐私保护说明", @"go2TradeRiskTip": @"查看风险提示内容",
+            @"push_test": @"体验本地通知"
+        };
+    });
+    return descriptions[action] ?: @"打开功能页面";
+}
+
+- (NSString *)iconForAction:(NSString *)action section:(NSInteger)section {
+    static NSDictionary<NSString *, NSString *> *icons;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        icons = @{
+            @"accountInfoSetting": @"👤", @"accountsAndSecurity": @"🔐", @"scanningQRCode": @"▣",
+            @"changeTheme": @"🎨", @"changeAppIcon": @"✨", @"fileSelect": @"📁",
+            @"photoFileSelect": @"📷", @"citySelect": @"📍", @"otherCitySelect": @"🗺",
+            @"jumpSJVideoPage": @"▶", @"textToSpeechPage": @"♫", @"showGameCenter": @"🎮",
+            @"cleanCacheData": @"🧹", @"feedBackDetailInfo": @"✉", @"aboutDetailInfo": @"ⓘ",
+            @"go2PrivicyAgreement": @"🔒", @"push_test": @"🔔"
+        };
+    });
+    NSArray<NSString *> *fallbacks = @[@"◈", @"⚙", @"✦", @"◇", @"☷"];
+    return icons[action] ?: fallbacks[MIN(section, fallbacks.count - 1)];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return kSectionViewHeight;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *sectionHeader                  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kSectionViewHeight)];
-    sectionHeader.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
+    NSArray<NSString *> *titles = @[@"账户与安全", @"外观与实用工具", @"体验与探索", @"应用服务", @"隐私与通知"];
+    UIView *sectionHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), kSectionViewHeight)];
+    sectionHeader.backgroundColor = UIColorFromRGB(0xF4F7F5);
+    UILabel *title = [[UILabel alloc] init];
+    title.text = titles[MIN(section, titles.count - 1)];
+    title.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
+    title.textColor = UIColorFromRGB(0x294B46);
+    [sectionHeader addSubview:title];
+    [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(sectionHeader).offset(20);
+        make.bottom.equalTo(sectionHeader).offset(-10);
+    }];
     return sectionHeader;
 }
 
 - (UIView *)getHeaderView {
-    UIView *headerView                  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, 80)];
-    headerView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p8);
-    [headerView addSubview:self.tableViewHeader];
-    self.tableViewHeader.leftLabel.text   = @"设置相关信息";
-    self.tableViewHeader.rightLabel2.text = @"🚓";
-    [self.tableViewHeader mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.right.equalTo(headerView);
-    }];
+    CGFloat width = CGRectGetWidth(UIScreen.mainScreen.bounds);
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 160)];
+    UIView *hero = [[UIView alloc] initWithFrame:CGRectMake(18, 14, width - 36, 132)];
+    hero.backgroundColor = UIColorFromRGB(0x315F57);
+    hero.layer.cornerRadius = 22;
+    hero.layer.masksToBounds = YES;
+    [headerView addSubview:hero];
+
+    UILabel *eyebrow = [[UILabel alloc] initWithFrame:CGRectMake(22, 19, width - 80, 18)];
+    eyebrow.text = @"MY STUDY  ·  PREFERENCES";
+    eyebrow.textColor = [UIColor colorWithWhite:1 alpha:0.68];
+    eyebrow.font = [UIFont systemFontOfSize:11 weight:UIFontWeightSemibold];
+    [hero addSubview:eyebrow];
+
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(22, 46, width - 80, 34)];
+    title.text = @"让使用更顺手";
+    title.textColor = UIColor.whiteColor;
+    title.font = [UIFont systemFontOfSize:25 weight:UIFontWeightBold];
+    [hero addSubview:title];
+
+    UILabel *subtitle = [[UILabel alloc] initWithFrame:CGRectMake(22, 91, width - 80, 21)];
+    subtitle.text = @"外观、账户和常用工具，都可以在这里找到。";
+    subtitle.textColor = [UIColor colorWithWhite:1 alpha:0.82];
+    subtitle.font = [UIFont systemFontOfSize:12];
+    [hero addSubview:subtitle];
     return headerView;
 }
 
@@ -798,7 +958,10 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
 #pragma mark -  Lazy loading
 - (UILabel *)bottomLabel {
     if (!_bottomLabel) {
-        _bottomLabel = [UILabel labelWithFrame:CGRectMake(0, 0, kMainScreenWidth, 60) text:@"" textColor:UIColorFromRGB(0X111111)];
+        _bottomLabel = [UILabel labelWithFrame:CGRectMake(0, 0, kMainScreenWidth, 78) text:@"" textColor:UIColorFromRGB(0x9CA9A5)];
+        _bottomLabel.textAlignment = NSTextAlignmentCenter;
+        _bottomLabel.font = [UIFont systemFontOfSize:11];
+        _bottomLabel.backgroundColor = UIColorFromRGB(0xF4F7F5);
     }
     return _bottomLabel;
 }

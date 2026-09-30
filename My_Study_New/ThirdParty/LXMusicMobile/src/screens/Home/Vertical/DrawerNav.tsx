@@ -12,6 +12,7 @@ import type { InitState } from '@/store/common/state'
 import { exitApp, setNavActiveId } from '@/core/common'
 import Text from '@/components/common/Text'
 import { useSettingValue } from '@/store/setting/hook'
+import { openWebBrowser } from '@/utils/nativeModules/utils'
 
 const styles = createStyle({
   container: {
@@ -70,7 +71,7 @@ const Header = () => {
   )
 }
 
-type IdType = InitState['navActiveId'] | 'nav_exit' | 'back_home'
+type IdType = InitState['navActiveId'] | 'nav_exit' | 'back_home' | 'nav_web_browser'
 
 const MenuItem = ({ id, icon, onPress }: {
   id: IdType
@@ -116,6 +117,10 @@ export default memo(() => {
       case 'back_home':
         backHome()
         return
+      case 'nav_web_browser':
+        global.app_event.changeMenuVisible(false)
+        openWebBrowser()
+        return
     }
 
     global.app_event.changeMenuVisible(false)
@@ -129,6 +134,9 @@ export default memo(() => {
       <ScrollView style={styles.menus}>
         <View style={styles.list}>
           {NAV_MENUS.map(menu => <MenuItem key={menu.id} id={menu.id} icon={menu.icon} onPress={handlePress} />)}
+          {Platform.OS === 'ios'
+            ? <MenuItem id="nav_web_browser" icon="search-2" onPress={handlePress} />
+            : null}
         </View>
       </ScrollView>
 

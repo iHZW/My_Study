@@ -72,8 +72,8 @@
                 @"iconUrl":@"Icon_Home_UnSelect",
                 @"selectedIconUrl":@"Icon_Home_Select",
                 @"route":ZWTabIndexHome,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Home_UnSelect"
             },
             @{
@@ -82,8 +82,8 @@
                 @"selectedIconUrl":@"Icon_Find_Select",
                 @"title":@"查找",
                 @"route":ZWTabIndexFind,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Find_UnSelect"
             },
             @{
@@ -92,8 +92,8 @@
                 @"selectedIconUrl":@"Icon_CRM_Select",
                 @"title":@"CRM",
                 @"route":ZWTabIndexCRM,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_CRM_UnSelect"
             },
             @{
@@ -102,8 +102,8 @@
                 @"selectedIconUrl":@"Icon_Application_Select",
                 @"title":@"应用",
                 @"route":ZWTabIndexApplication,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Application_UnSelect"
             },
             @{
@@ -112,8 +112,8 @@
                 @"iconUrl":@"Icon_Personal_UnSelect",
                 @"selectedIconUrl":@"Icon_Personal_Select",
                 @"route":ZWTabIndexPersonal,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Personal_UnSelect"
             }
         ]
@@ -134,8 +134,8 @@
                 @"iconUrl":@"Icon_Home_UnSelect",
                 @"selectedIconUrl":@"Icon_Home_Select",
                 @"route":ZWTabIndexHome,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Home_UnSelect"
             },
             @{
@@ -144,8 +144,8 @@
                 @"selectedIconUrl":@"Icon_Find_Select",
                 @"title":@"查找",
                 @"route":ZWTabIndexFind,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Find_UnSelect"
             },
             @{
@@ -154,8 +154,8 @@
                 @"selectedIconUrl":@"Icon_CRM_Select",
                 @"title":@"CRM",
                 @"route":ZWTabIndexCRM,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_CRM_UnSelect"
             },
             @{
@@ -164,8 +164,8 @@
                 @"selectedIconUrl":@"Icon_Application_Select",
                 @"title":@"应用",
                 @"route":ZWTabIndexApplication,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Application_UnSelect"
             },
             @{
@@ -174,8 +174,8 @@
                 @"iconUrl":@"Icon_Personal_UnSelect",
                 @"selectedIconUrl":@"Icon_Personal_Select",
                 @"route":ZWTabIndexPersonal,
-                @"fontColor":@"#D5D5E1",
-                @"selectedFontColor":@"#4F7AFD",
+                @"fontColor":@"#82938E",
+                @"selectedFontColor":@"#315F57",
                 @"editingIconUrl":@"Icon_Personal_UnSelect"
             }
         ]

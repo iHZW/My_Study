@@ -30,17 +30,35 @@
 
 - (void)loadSubView
 {
-    UIButton * refreshBtn = [UIButton buttonWithFrame:CGRectMake(0, 0, 50, CGRectGetHeight(self.frame)) title:@"刷新" font:PASBFont(18) titleColor:UIColor.whiteColor block:nil];
-    refreshBtn.layer.cornerRadius = 8;
-    refreshBtn.backgroundColor = UIColor.blueColor;
+    UIColor *primaryColor = UIColorFromRGB(0x315F57);
+    UIColor *softColor = UIColorFromRGB(0xE8F3EF);
+    UIButton *refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    refreshBtn.frame = CGRectMake(0, 0, 76, 38);
+    refreshBtn.layer.cornerRadius = 12;
+    refreshBtn.backgroundColor = softColor;
+    refreshBtn.titleLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightSemibold];
+    refreshBtn.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    [refreshBtn setTitle:@"↻ 刷新" forState:UIControlStateNormal];
+    [refreshBtn setTitleColor:primaryColor forState:UIControlStateNormal];
+    refreshBtn.accessibilityLabel = @"刷新首页数据";
     [refreshBtn addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:refreshBtn];
 
     self.refreshBtn = refreshBtn;
     
-    self.iconBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    
-    self.iconBtn.frame = CGRectMake(55, 0, 25, CGRectGetHeight(self.frame));
+    self.iconBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.iconBtn.frame = CGRectMake(84, 0, 36, 38);
+    self.iconBtn.backgroundColor = softColor;
+    self.iconBtn.layer.cornerRadius = 12;
+    self.iconBtn.tintColor = primaryColor;
+    self.iconBtn.accessibilityLabel = @"更新示例名称";
+    if (@available(iOS 13.0, *)) {
+        [self.iconBtn setImage:[UIImage systemImageNamed:@"plus"] forState:UIControlStateNormal];
+    } else {
+        [self.iconBtn setTitle:@"+" forState:UIControlStateNormal];
+        [self.iconBtn setTitleColor:primaryColor forState:UIControlStateNormal];
+        self.iconBtn.titleLabel.font = [UIFont systemFontOfSize:23 weight:UIFontWeightLight];
+    }
     [self.iconBtn addTarget:self action:@selector(iconAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.iconBtn];
 }
@@ -72,7 +90,8 @@
 
 - (void)setName:(NSString *)name
 {
-    [self.refreshBtn setTitle:TransToString(name) forState:UIControlStateNormal];
+    NSString *title = name.length > 0 ? [NSString stringWithFormat:@"↻ %@", name] : @"↻ 刷新";
+    [self.refreshBtn setTitle:title forState:UIControlStateNormal];
 }
 
 

@@ -10,13 +10,13 @@
 #define PersonalHeader_h
 
 /** 默认背景色  */
-#define kPersonalDefaultBGColor         UIColorFromRGB(0xF2F2F2)
+#define kPersonalDefaultBGColor         UIColorFromRGB(0xF4F7F5)
 /** 容器背景白色   */
 #define kContainerDefaultBGColor        UIColorFromRGB(0xFFFFFF)
 /** 容器 的 edgeInsets  */
 #define kContainerEdgeInsets            UIEdgeInsetsMake(0, 10, 0, 10)
 /** 容器的圆角CornerRadius  */
-#define kContainerCornerRadius          8
+#define kContainerCornerRadius          16
 
 
 
