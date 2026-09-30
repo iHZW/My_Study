@@ -1,0 +1,9254 @@
+{
+  "source": "https://digimon.net/reference_zh-CHS/",
+  "fetchedAt": "2026-09-30",
+  "count": 1321,
+  "entries": [
+    {
+      "id": "volvemon",
+      "name": "轮回兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nosferamon",
+      "name": "假面血族兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "artiomon",
+      "name": "女神熊兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "atratusmon",
+      "name": "月蚀斗篷兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "albatusmon",
+      "name": "日冕白袍兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "heliosboamon",
+      "name": "光辉巨蟒兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "habakirimon",
+      "name": "羽羽斩兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bearcatmon",
+      "name": "熊狸兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "taowumon",
+      "name": "梼杌兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "scourgechiropmon",
+      "name": "天灾蝠兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "monarchlizamon",
+      "name": "王者蜥兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "apollomon_whispered",
+      "name": "阿波罗兽：低吟",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "kingwhamon",
+      "name": "帝王鲸兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "armamon_burstmode",
+      "name": "阿尔玛兽：爆裂形态",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "armamon",
+      "name": "阿尔玛兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx5s",
+      "name": "高吼兽X5S",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "vortexdramon",
+      "name": "旋风龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx4s",
+      "name": "高吼兽X4S",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx3sd",
+      "name": "高吼兽X3SD",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx3gm",
+      "name": "高吼兽X3GM",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "azhdarmon",
+      "name": "神龙翼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tengumon",
+      "name": "天狗兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "amaterasumon",
+      "name": "天照兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "enmamon",
+      "name": "阎魔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "seitengokuwmon",
+      "name": "齐天悟空兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "exmaquinamon",
+      "name": "EX玛机那兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dalphomon",
+      "name": "德枫兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shishimamon",
+      "name": "舞狮兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "darumamon",
+      "name": "不倒翁兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rhamphomon",
+      "name": "喙嘴翼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chronomon_destroy",
+      "name": "时空兽：毁灭形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chronomon_holy",
+      "name": "时空兽：神圣形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "butenmon",
+      "name": "武天兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "buraimon",
+      "name": "无赖兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hyokomon",
+      "name": "雏鸡兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chicchimon",
+      "name": "叽叽兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zombieplutomon",
+      "name": "僵尸普路托兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "manekimon",
+      "name": "招财猫兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hakubamon",
+      "name": "白马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wankomon",
+      "name": "祥犬兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gasamon",
+      "name": "斗笠兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "takinmon",
+      "name": "羚牛兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fujamon",
+      "name": "虎蛟兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kakamon",
+      "name": "花果兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "armalizamon",
+      "name": "重甲蜥兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "onibimon",
+      "name": "鬼火兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tomorimon",
+      "name": "灯灯兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mococomon",
+      "name": "毛茸茸兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fukamon",
+      "name": "软软兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "parallelmon",
+      "name": "异次元兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nightchiropmon",
+      "name": "夜蝠兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "styracomon",
+      "name": "刺盾角蜥兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "taotiemon",
+      "name": "饕餮兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "craniummon_enbarrmon",
+      "name": "颅骨兽+暗马兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "enbarrmon",
+      "name": "暗马兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metatromon",
+      "name": "梅塔特隆兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "greatgryzmon",
+      "name": "至尊灰熊兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "titamon_skullbaluchimon",
+      "name": "泰坦兽+骷髅巨犀兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cougarmon",
+      "name": "空牙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "masterblimpmon",
+      "name": "大师飞艇兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hyemon",
+      "name": "鬣狗兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "murasamemon",
+      "name": "丛雨兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wolvermon",
+      "name": "武装獾兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chiropmon",
+      "name": "兜帽蝠兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pristimon",
+      "name": "小熊猫兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dullahamon",
+      "name": "杜拉罕兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gekkomon",
+      "name": "守宫兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kekkomon",
+      "name": "可口兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kekomon",
+      "name": "呱呱兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "magneticdramon",
+      "name": "磁龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "maneuvermon",
+      "name": "机动兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "turbomon",
+      "name": "涡轮兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nyabootmon",
+      "name": "长靴喵兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yihumon",
+      "name": "翼虎兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ariemon",
+      "name": "人鱼魔女兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "skullseadramon",
+      "name": "丧尸海龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sharkmon",
+      "name": "鲨鱼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kaguyamon",
+      "name": "辉夜兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "karakurumon",
+      "name": "机巧人偶兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kokeshimon",
+      "name": "小芥子兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hanimon",
+      "name": "埴轮兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mockingbirdmon",
+      "name": "仿声鸟兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mulemon",
+      "name": "搬运兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "maquinamon",
+      "name": "玛机那兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nazhamon_crimson",
+      "name": "威灵兽：深红形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shagaramon",
+      "name": "沙伽罗兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "medusamon",
+      "name": "美杜莎兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lamiamon",
+      "name": "拉米亚兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "necromon",
+      "name": "幽灵巫师兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jougamon",
+      "name": "姮娥兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pyramidimon",
+      "name": "金字塔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "proganomon",
+      "name": "原颚甲兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "landramon",
+      "name": "沙地龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "invisimon",
+      "name": "隐形突袭兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "oblivimon",
+      "name": "飞碟骇客兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dimetromon",
+      "name": "异齿长棘兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ryugumon",
+      "name": "龙宫兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cerunumon",
+      "name": "角神兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "marinbullmon",
+      "name": "海蛞蝓兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "elizamon",
+      "name": "皇后襟蜥兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nezhamon",
+      "name": "威灵兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dinomon",
+      "name": "太古戴拿兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "skadimon",
+      "name": "冰雪女王兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "polarbearmon",
+      "name": "北极熊兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "erlangmon_blast",
+      "name": "真君兽：疾风形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "queenbeemon",
+      "name": "女王蜂兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "vespamon",
+      "name": "大黄蜂兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "forgebeemon",
+      "name": "工兵蜂兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "heavymetaldramon",
+      "name": "重金属龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "loudmon",
+      "name": "躁响兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "punkmon",
+      "name": "朋克兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "takutoumon_wrath",
+      "name": "毗沙门兽：雷霆形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "erlangmon",
+      "name": "真君兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cendrillmon",
+      "name": "辛黛瑞拉兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chaperomon",
+      "name": "小红帽兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zephagamon",
+      "name": "泽费伽兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "grandgalemon",
+      "name": "强风皇兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fluffymon",
+      "name": "蓬茸兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yolkmon",
+      "name": "蛋黄兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "callismon",
+      "name": "卡利斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tlalocmon",
+      "name": "特拉洛克兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shoeshoemon",
+      "name": "靴靴兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shoemon",
+      "name": "鞋鞋兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "galemon",
+      "name": "强风兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pteromon",
+      "name": "飞翼兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "takutoumon",
+      "name": "毗沙门兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fenriloogamon_takemikazuchi",
+      "name": "芬里尔魔狼兽：建御雷神",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "bigukkomon",
+      "name": "巨乌科兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ukkomon",
+      "name": "乌科兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dijiangmon",
+      "name": "帝江兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "xingtianmon",
+      "name": "刑天兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lianpumon",
+      "name": "脸谱兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dominimon",
+      "name": "主天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "arkhaiangemon",
+      "name": "权天使兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "luxmon",
+      "name": "勒克斯兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "huanglongmon_ruin",
+      "name": "黄龙兽：毁灭形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "moonmon",
+      "name": "月月兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sunmon",
+      "name": "阳阳兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "brigadramon",
+      "name": "旅团龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hi-commandramon",
+      "name": "上级突击龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fenriloogamon",
+      "name": "芬里尔魔狼兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "helloogarmon",
+      "name": "炎狱魔狼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "soloogarmon",
+      "name": "阳炎魔狼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "cargodramon",
+      "name": "运输龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "loogarmon",
+      "name": "魔狼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "bowmon",
+      "name": "汪汪兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "fusamon",
+      "name": "绒绒兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "quantumon",
+      "name": "量子兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "loogamon",
+      "name": "小狼兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "proximamon",
+      "name": "比邻星兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "arcturusmon",
+      "name": "大角星兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "greyknightsmon",
+      "name": "灰骑士兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "zanmetsumon",
+      "name": "斩灭兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bombermon",
+      "name": "爆炸兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ghilliedhumon",
+      "name": "吉利兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fumamon",
+      "name": "风魔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cthyllamon",
+      "name": "克希拉兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "regulusmon",
+      "name": "轩辕十四兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ragnamon",
+      "name": "诸神黄昏兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "destromon",
+      "name": "歼灭兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "snatchmon",
+      "name": "抢夺兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bemmon",
+      "name": "贝姆兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "baalmon_x",
+      "name": "巴力兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "amphimon",
+      "name": "海后安菲兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "diarbbitmon",
+      "name": "迪卢木多兔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "siriusmon",
+      "name": "天狼星兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shinegreymon_ruin",
+      "name": "闪光暴龙兽： 毁灭形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chamblemon",
+      "name": "毒蘑菇兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "publimon",
+      "name": "报道兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "oleamon",
+      "name": "夹竹桃兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "huankunmon",
+      "name": "幻鲲兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "xiangpengmon",
+      "name": "翔鹏兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "xiquemon",
+      "name": "喜鹊兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "imperialdramonfightermode_vi",
+      "name": "帝皇龙兽：战士形态（黑）",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "greymon_blue_x",
+      "name": "暴龙兽（蓝）(X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "oboromon",
+      "name": "胧魂兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gyukimon",
+      "name": "牛鬼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shinmonzaemon",
+      "name": "真熊仔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hoverespimon",
+      "name": "悬浮特工兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "espimon",
+      "name": "特工兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jupitermmon_wrath",
+      "name": "朱庇特兽： 雷霆形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "plutomon",
+      "name": "普路托兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ceresmon",
+      "name": "刻瑞斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bacchusmon",
+      "name": "巴克科斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "junomon_hysteric",
+      "name": "朱诺兽： 癔病形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "junomon",
+      "name": "朱诺兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "thetismon",
+      "name": "忒提丝兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lamortmon",
+      "name": "死神兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "canoweissmon",
+      "name": "卡诺维斯兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sistermon_ciel_Awake",
+      "name": "修女兽天蓝 (觉醒)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sistermon_noir_Awake",
+      "name": "修女兽黑 (觉醒)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sistermon_blanc_Awake",
+      "name": "修女兽白 (觉醒)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gulusgammamon",
+      "name": "格鲁斯伽马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "teslajellymon",
+      "name": "特斯拉洁莉兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "symbareangoramon",
+      "name": "劲霸安哥拉兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blacktailmon_uver",
+      "name": "黑暗迪路兽 Uver.",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "weddinmon",
+      "name": "婚礼蛋糕兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shortmon",
+      "name": "小蛋糕兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackrapidmon",
+      "name": "黑拉比兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackgalgomon",
+      "name": "黑加鲁哥兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "omegamonzwart_d",
+      "name": "奥米加兽兹瓦特 战损",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wezengammamon",
+      "name": "威兹伽马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kausgammamon",
+      "name": "卡乌斯伽马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "betelgammamon",
+      "name": "贝特尔伽马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "abbadomoncore",
+      "name": "亚巴顿兽 核心",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "luminamon_nene",
+      "name": "光环兽 (音音Ver.)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx7_superior",
+      "name": "高吼兽X7：卓越形态",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "jellymon",
+      "name": "洁莉兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "puyoyomon",
+      "name": "噗呦呦兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "puyomon",
+      "name": "噗呦兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "angoramon",
+      "name": "安哥拉兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bosamon",
+      "name": "蓬蓬兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pyonmon",
+      "name": "蹦蹦兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gammamon",
+      "name": "伽马兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gurimon",
+      "name": "墩墩兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "curimon",
+      "name": "溜溜兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "abbadomon",
+      "name": "亚巴顿兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "negamon",
+      "name": "负面兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pilevolcamon",
+      "name": "摔跤火山兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raidenmon",
+      "name": "雷电兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raijinmon",
+      "name": "雷神兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dokunemon",
+      "name": "毒古尼兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "modokibetamon",
+      "name": "拟贝塔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hydramon",
+      "name": "海德拉兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bloomlordmon",
+      "name": "花卉领主兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ajatarmon",
+      "name": "阿杰特兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gardromon_gold",
+      "name": "守卫机器人兽 (金)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "burgamon_lv4",
+      "name": "汉堡兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pidmon",
+      "name": "炎天使兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sandyammamon",
+      "name": "沙地蜻蜓兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yammamon",
+      "name": "蜻蜓兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "morishellmon",
+      "name": "森林贝壳兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bombernanimon",
+      "name": "炸弹什么兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "heraklekabuterimon_x",
+      "name": "力神比多兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "starmon_x",
+      "name": "星星兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "growmon_x",
+      "name": "古拉兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "hagurumon_x",
+      "name": "齿轮兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gaioumon_itto",
+      "name": "凯王兽：严刀之型",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "brachiomon",
+      "name": "腕龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kyukimon",
+      "name": "穷奇兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vermillimon",
+      "name": "朱红兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "assaultmon",
+      "name": "突袭兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tekkamon",
+      "name": "铁面兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vulturemon",
+      "name": "秃鹰兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "goromon",
+      "name": "咕噜兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sunamon",
+      "name": "细沙兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "burpmon",
+      "name": "饱嗝兽",
+      "level": "不明",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackkingnumemon",
+      "name": "黑国王鼻涕兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "goldnumemon",
+      "name": "黄金鼻涕兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "culumon",
+      "name": "古乐兽",
+      "level": "不明",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gladimon",
+      "name": "斗士兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx4k",
+      "name": "高吼兽X4K",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "kodokugumon",
+      "name": "小蜘蛛兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yoxtuyoxtumon",
+      "name": "悠悠球兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "minidekachimon",
+      "name": "小巨头兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "atamadekachimon",
+      "name": "巨头兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "trailmon",
+      "name": "列车兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "greatkingscumon",
+      "name": "大便兽大王",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shroudmon",
+      "name": "修罗道兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "frosvelgrmon",
+      "name": "冰霜瓦尔格兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "frozomon",
+      "name": "除雪兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hiyarimon",
+      "name": "冰凉兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackseraphimon",
+      "name": "黑炽天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rareraremon",
+      "name": "稀有烂泥兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "climbmon",
+      "name": "攀岩兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "divemon",
+      "name": "潜泳兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "clearagumon",
+      "name": "透明亚古兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bancholilimon",
+      "name": "番长花仙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgreymon_va_x",
+      "name": "机械暴龙兽 (疫苗种) (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "panjyamon_x",
+      "name": "白狮兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "metalmamemon_x",
+      "name": "金属豆豆兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "thunderballmon_x",
+      "name": "雷电球兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "monochromon_x",
+      "name": "角龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dobermon_x",
+      "name": "杜宾犬兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gesomon_x",
+      "name": "墨鱼兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gottsumon_x",
+      "name": "矿石兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ganimon_x",
+      "name": "螃蟹兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "guilmon_x",
+      "name": "基尔兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "shoutmon_ex6",
+      "name": "高吼兽EX6",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "torikaraballmon",
+      "name": "炸鸡球兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "burgamon",
+      "name": "汉堡兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "potamon",
+      "name": "薯条兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "achillesmon",
+      "name": "阿喀琉斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shivamon",
+      "name": "湿婆兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kazuchimon",
+      "name": "建御雷兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pistmon",
+      "name": "单车兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tempomon",
+      "name": "律动兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shootmon",
+      "name": "射球兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "boutmon",
+      "name": "搏斗兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mitamamon",
+      "name": "御魂兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lovelyangemon",
+      "name": "丽天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bibimon",
+      "name": "哔哔兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dokimon",
+      "name": "心跳兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "namakemon",
+      "name": "树懒兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "runnermon",
+      "name": "奔跑兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "exermon",
+      "name": "锻炼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bulkmon",
+      "name": "增肌兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "komondomon",
+      "name": "可蒙犬兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pulsemon",
+      "name": "脉冲兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "omegamon_merciful",
+      "name": "奥米加兽：慈悲形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "donedevimon",
+      "name": "但丁恶魔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "waregarurumon_sagittarius",
+      "name": "狼人加鲁鲁兽：射手形态",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "imperialdramon_dragon_black",
+      "name": "帝皇龙甲兽：龙形态 (黑)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "manticoremon",
+      "name": "蝎狮兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mimicmon",
+      "name": "拟态兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "baluchimon",
+      "name": "巨犀兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "darkmaildramon",
+      "name": "黑暗铠龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgreymon_alter",
+      "name": "机械暴龙兽：改装形态",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rebellimon",
+      "name": "叛逆兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "machmon",
+      "name": "音速兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "junkmon",
+      "name": "废品兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "heavyleomon",
+      "name": "重装狮子兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hopmon",
+      "name": "跳跳兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ketomon",
+      "name": "踢踢兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nidhoggmon",
+      "name": "尼德霍格兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "entmon",
+      "name": "树虫兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "parasaurmon",
+      "name": "副栉龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "toropiamon",
+      "name": "热带兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pomumon",
+      "name": "水果兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "eyesmon_scatter",
+      "name": "多目兽：分散形态",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "eyesmon",
+      "name": "多目兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "betamon_x",
+      "name": "贝塔兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gazimon_x",
+      "name": "加支兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "algomon_lv1",
+      "name": "阿耳戈兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ghostmon",
+      "name": "幽灵兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "regalecusmon",
+      "name": "皇带鱼兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "piranimon",
+      "name": "水虎鱼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gusokumon",
+      "name": "具足兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "marinchimairamon",
+      "name": "海奇美拉兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tobiumon",
+      "name": "飞鱼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sangomon",
+      "name": "珊瑚兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gogmamon",
+      "name": "戈格马兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "baboongamon",
+      "name": "狒狒岩兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sunarizamon",
+      "name": "沙蜥蜴兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jewelbeemon",
+      "name": "宝石蜂兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hudiemon",
+      "name": "胡蝶兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "arresterdramon_superior",
+      "name": "捕猎龙兽：卓越形态",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "garurumon_x",
+      "name": "加鲁鲁兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "greymon_x",
+      "name": "暴龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "algomon_lv4",
+      "name": "阿耳戈兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "algomon_lv3",
+      "name": "阿耳戈兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "algomon_lv2",
+      "name": "阿耳戈兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "spadamon",
+      "name": "斯巴达兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "morphomon",
+      "name": "闪蝶兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "eosmon_lv6",
+      "name": "厄俄斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gabumon_kizuna",
+      "name": "加布兽 -友情之纽带-",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "agumon_kizuna",
+      "name": "亚古兽 -勇气之纽带-",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "eosmon_lv5",
+      "name": "厄俄斯兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "eosmon_lv4",
+      "name": "厄俄斯兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tonosamamamemon",
+      "name": "老爷豆豆兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "omegamon_zwart",
+      "name": "奥米加兽 兹瓦特",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "terriermon_assistant",
+      "name": "梗犬兽助手",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cryspaledramon",
+      "name": "冰晶苍龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metallicdramon",
+      "name": "金属龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jazarichmon",
+      "name": "音速机龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jazardmon",
+      "name": "机龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jazamon",
+      "name": "机鸟兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hexeblaumon",
+      "name": "冰空领主兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "paledramon",
+      "name": "苍龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "noblepumpmon",
+      "name": "高贵南瓜兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ogudomon_x",
+      "name": "奥古杜兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "jesmongx",
+      "name": "杰斯兽GX",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "keramon_x",
+      "name": "哈哈兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "omegashoutmon_x",
+      "name": "奥米加高吼兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "meramon_x",
+      "name": "燃烧兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "pegasmon_x",
+      "name": "天马兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "rapidmon_x",
+      "name": "拉比兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "monzaemon_x",
+      "name": "熊仔兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gankoomon_x",
+      "name": "顽固兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "examon_x",
+      "name": "艾可萨兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "cyberdramon_x",
+      "name": "电子龙兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "rizegreymon_x",
+      "name": "跃升暴龙兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "hououmon_x",
+      "name": "凤凰兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "justimon_x",
+      "name": "正义兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "wizarmon_x",
+      "name": "巫师兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "siesamon_x",
+      "name": "风狮兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "cherubimon_x",
+      "name": "智天使兽 (善) (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ofanimon_x",
+      "name": "座天使兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "angewomon_x",
+      "name": "天女兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "diablomon_x",
+      "name": "超恶魔兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dynasmon_x",
+      "name": "君主兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "duftmon_x",
+      "name": "芳香兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "holydramon_x",
+      "name": "圣龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "plesiomon_x",
+      "name": "蛇颈龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "goddramon_x",
+      "name": "神龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "garudamon_x",
+      "name": "伽楼达兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "tailmon_x",
+      "name": "迪路兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "togemon_x",
+      "name": "仙人掌兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "tylomon_x",
+      "name": "海王龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "lopmon_x",
+      "name": "垂耳兔兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "shakomon_x",
+      "name": "砗磲兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "terriermon_x",
+      "name": "梗犬兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "palmon_x",
+      "name": "巴鲁兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "pteranomon_x",
+      "name": "无齿翼龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "mamemon_x",
+      "name": "豆豆兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ebemon_x",
+      "name": "外星兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "sleipmon_x",
+      "name": "斯雷普兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "craniummon_x",
+      "name": "颅骨兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ulforcevdramon_x",
+      "name": "究极V龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "magnamon_x",
+      "name": "金甲龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "megaseadramon_x",
+      "name": "百万海龙兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "triceramon_x",
+      "name": "三角龙兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "okuwamon_x",
+      "name": "大古加兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "mantaraymon_x",
+      "name": "蝠鲼兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "nefertimon_x",
+      "name": "纳芙蒂兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "seadramon_x",
+      "name": "海龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "kuwagamon_x",
+      "name": "古加兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "allomon_x",
+      "name": "异特龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gomamon_x",
+      "name": "哥玛兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "kokuwamon_x",
+      "name": "小锹形虫兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "blackwargreymon_x",
+      "name": "黑暗战斗暴龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ladydevimon_x",
+      "name": "女恶魔兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "metalgreymon_vi_x",
+      "name": "机械暴龙兽 (病毒种) (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "orgemon_x",
+      "name": "恶鬼兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "agumon_b_x",
+      "name": "亚古兽 (黑) (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "rasenmon",
+      "name": "螺旋兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rasenmon_f",
+      "name": "螺旋兽：激昂形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "stiffilmon",
+      "name": "巨针兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "filmon",
+      "name": "针毛兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rosemon_x",
+      "name": "蔷薇兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "princemamemon_x",
+      "name": "王子豆豆兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "skullmammon_x",
+      "name": "骷髅猛犸兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "mammon_x",
+      "name": "猛犸兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "mephismon_x",
+      "name": "梅菲斯兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "vamdemon_x",
+      "name": "吸血魔兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "plotmon_x",
+      "name": "小狗兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "otamamon_x",
+      "name": "蝌蚪兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "yarmon",
+      "name": "也也兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "keemon",
+      "name": "嘿嘿兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "impmon_x",
+      "name": "小妖兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "darktyranomon_x",
+      "name": "黑暗巨龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "numemon_x",
+      "name": "鼻涕兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "lucemon_x",
+      "name": "光明兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "lilithmon_x",
+      "name": "莉莉丝兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "leviamon_x",
+      "name": "利维亚兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "belphemon_x",
+      "name": "贝尔菲兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "barbamon_x",
+      "name": "巴尔巴兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "demon_x",
+      "name": "究极魔兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "darkknightmon_x",
+      "name": "黑暗骑士兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "cherubimondark_x",
+      "name": "智天使兽 (恶) (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ofanimonfdm_x",
+      "name": "座天使兽：堕落形态 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ultimatechaosmon",
+      "name": "究极混沌兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pusurimon",
+      "name": "尖刺兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pusumon",
+      "name": "刺刺兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "surfimon",
+      "name": "冲浪兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bulucomon",
+      "name": "碧龙兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "herissmon",
+      "name": "刺猬兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgarurumon_black",
+      "name": "钢铁加鲁鲁兽 (黑)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "weregarurumon_black",
+      "name": "狼人加鲁鲁兽 (黑)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "garurumon_black",
+      "name": "加鲁鲁兽 (黑)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "justimon_blitzarm",
+      "name": "正义兽：电击武装",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ginkakumon_promote",
+      "name": "银角兽 晋升",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "icedevimon",
+      "name": "冰恶魔兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kuzuhamon_miko",
+      "name": "葛叶兽：巫女形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "megalograwmon_orange",
+      "name": "大古拉兽 (橙)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "greymon_blue",
+      "name": "暴龙兽 (蓝)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmon_king",
+      "name": "高吼兽 (王Ver.)",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "wargreymon_x",
+      "name": "战斗暴龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "metalgarurumon_x",
+      "name": "钢铁加鲁鲁兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "megidramon_x",
+      "name": "灭世龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "weregarurumon_x",
+      "name": "狼人加鲁鲁兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "lilimon_x",
+      "name": "花仙兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "sakuyamon_x",
+      "name": "咲耶兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "beelzebumon_x",
+      "name": "别西卜兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "megalogrowmon_x",
+      "name": "大古拉兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "rhinomon_x",
+      "name": "犀牛兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "renamon_x",
+      "name": "狐狸兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "tokomon_x",
+      "name": "迪哥兽 (X抗体)",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "beelstarmon_x",
+      "name": "贝尔斯塔兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dukemon_x",
+      "name": "公爵兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "cerberumon_x",
+      "name": "刻耳柏洛兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "tyranomon_x",
+      "name": "巨龙兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dracomon_x",
+      "name": "龙仔兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gabumon_x",
+      "name": "加布兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "minervamon_x",
+      "name": "密涅瓦兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "lordknightmon_x",
+      "name": "领主骑士兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "sistermon_ciel",
+      "name": "修女兽天蓝",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metaltyranomon_x",
+      "name": "金属巨龙兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "leomon_x",
+      "name": "狮子兽 (X抗体)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "agumon_x",
+      "name": "亚古兽 (X抗体)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "jesmon_x",
+      "name": "杰斯兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ragnaloardmon",
+      "name": "诸神之主兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rafflesimon",
+      "name": "大王花兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ordinemon",
+      "name": "秩序兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raptorsparrowmon",
+      "name": "猛禽麻雀兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "banchogolemon",
+      "name": "番长魔像兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cerberumon_werewolfmode",
+      "name": "刻耳柏洛兽：狼人形态",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "growmon_orange",
+      "name": "古拉兽 (橙)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "toyagumon_black",
+      "name": "玩具亚古兽 (黑)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shootingstarmon",
+      "name": "流星兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "justimon_criticalarm",
+      "name": "正义兽：临界武装",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yatagaramon_axcel",
+      "name": "八咫乌兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dinohumon",
+      "name": "龙人兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rapidmon_gold",
+      "name": "拉比兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yaegerdorurumon",
+      "name": "猎兵多鲁路兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "gundramon",
+      "name": "枪龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aegiochusmon_holly",
+      "name": "埃癸奥都斯兽：圣",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gabumon_black",
+      "name": "加布兽 (黑)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pipimon",
+      "name": "皮皮兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raguelmon",
+      "name": "拉贵尔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bryweludramon",
+      "name": "布利维路德龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "volcanicdramon",
+      "name": "火山岩龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lavogaritamon",
+      "name": "熔火加里塔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "meicrackmon_v",
+      "name": "缅破兽：凶恶形态",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mastemon",
+      "name": "莫斯提兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "voltobautamon",
+      "name": "幽灵面具兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raijiludomon",
+      "name": "雷神路德兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tialudomon",
+      "name": "提亚路德兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lavorvomon",
+      "name": "熔火波兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bushiagumon",
+      "name": "武士亚古兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ludomon",
+      "name": "路德兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kakkinmon",
+      "name": "恪勤兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cotsucomon",
+      "name": "孜孜兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "andiramon_2",
+      "name": "玉兔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "meicoomon",
+      "name": "缅因猫兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "whamon_2",
+      "name": "巨鲸兽 (成熟期)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gekomon",
+      "name": "怪蛙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vorvomon",
+      "name": "火波兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "atlurballistamon",
+      "name": "阿特拉弩炮兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "omegamon_alter-b",
+      "name": "奥米加兽 Alter-B",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackmachgaogamon",
+      "name": "黑音速加奥加兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackgaogamon",
+      "name": "黑加奥加兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "falcomon-2006",
+      "name": "猎鹰兽 (2006动画版)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kudamon-2006",
+      "name": "管狐兽 (2006动画版)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "neo",
+      "name": "N.E.O",
+      "level": "不明",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yakiimon",
+      "name": "烤薯兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "monimon",
+      "name": "显示兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "monitamon",
+      "name": "显示屏兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "mervamon",
+      "name": "梅尔瓦兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgreymon_cyberlauncher",
+      "name": "机械暴龙兽+电子发射器",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgreymon",
+      "name": "机械暴龙兽 (2010动画版)",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "mailbirdramon",
+      "name": "铠甲鸟龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "musoknightmon",
+      "name": "无双骑士兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "madleomon:armedmode",
+      "name": "疯狂狮子兽：武装形态",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "madleomon",
+      "name": "疯狂狮子兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "bombmon-xwars",
+      "name": "炸弹兽 (2010动画版)",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "beelzebumon-xwars",
+      "name": "别西卜兽 (2010动画版)",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "blastmon",
+      "name": "爆风兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "footmon",
+      "name": "足球兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "pillomon",
+      "name": "枕头兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "pickmon",
+      "name": "拨片兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "baristamon",
+      "name": "弩炮兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "bacomon",
+      "name": "纸箱兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "bagramon",
+      "name": "巴格拉兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "hi-visionmonitamon",
+      "name": "高清显示屏兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "baalmon",
+      "name": "巴力兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "neovamdemon",
+      "name": "新种吸血魔兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "dondokomon",
+      "name": "太鼓兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "donshoutmon",
+      "name": "鼓吼兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "dorulumon",
+      "name": "多鲁路兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "dorbickmon",
+      "name": "多卢比克兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "troopmon",
+      "name": "兵卒兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "deadlyaxemon",
+      "name": "致命巨斧兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "deckerdramon",
+      "name": "甲板龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "deckergreymon",
+      "name": "甲板暴龙兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "tuwarmon",
+      "name": "强者兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "tyutyumon",
+      "name": "啾啾兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "chibickmon",
+      "name": "小拨片兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "chikurimon",
+      "name": "刺针兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "damemon",
+      "name": "不行兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "tactimon",
+      "name": "策士兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "darknessbagramon",
+      "name": "暗黑巴格拉兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "darkknightmon",
+      "name": "黑暗骑士兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "zenimon",
+      "name": "钱币兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "splashmon",
+      "name": "激流兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "sparrowmon",
+      "name": "麻雀兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "starmons",
+      "name": "星星兽S",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "skullknightmonbigaxemode",
+      "name": "骷髅骑士兽：巨斧形态",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "skullknightmoncavaliermode",
+      "name": "骷髅骑士兽：骑马形态",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "skullknightmon",
+      "name": "骷髅骑士兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "jokermon",
+      "name": "鬼牌兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shonitamon",
+      "name": "吼屏兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "dorulucannon",
+      "name": "高吼兽+多鲁路炮",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "starsword",
+      "name": "高吼兽+明星剑",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "jetsparrow",
+      "name": "高吼兽+喷射麻雀",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx7",
+      "name": "高吼兽X7",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx5b",
+      "name": "高吼兽X5B",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx5",
+      "name": "高吼兽X5",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx4b",
+      "name": "高吼兽X4B",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx4",
+      "name": "高吼兽X4",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx3",
+      "name": "高吼兽X3",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmonx2",
+      "name": "高吼兽X2",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmondx",
+      "name": "高吼兽DX",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "shoutmon",
+      "name": "高吼兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "jetmervamon",
+      "name": "喷射梅尔瓦兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "zekegreymon",
+      "name": "吉克暴龙兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "zamielmon",
+      "name": "扎米埃尔兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "soundbirdmon",
+      "name": "声鸟兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "cyberdramon-xwars",
+      "name": "电子龙兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "kozenimon",
+      "name": "小钱币兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "greymon",
+      "name": "暴龙兽 (2010动画版)",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "gravimon",
+      "name": "重力兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "cutemon",
+      "name": "萌萌兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "gumdramon",
+      "name": "胶龙兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "ganemon",
+      "name": "金钱兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "gaossmon",
+      "name": "气龙兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "olegmon",
+      "name": "奥列格兽",
+      "level": "究极体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "omegashoutmon",
+      "name": "奥米加高吼兽",
+      "level": "完全体",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "ekakimon",
+      "name": "绘师兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "iguneetmon",
+      "name": "伊古尼特兽",
+      "level": "成长期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "arresterdramon",
+      "name": "捕猎龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "合体战争",
+      "xAntibody": false
+    },
+    {
+      "id": "louwemon",
+      "name": "黑狮兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ranamon",
+      "name": "拉娜兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raihimon",
+      "name": "帝狮兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rhinokabuterimon",
+      "name": "犀牛比多兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mercuremon",
+      "name": "水银兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "magnagarurumon",
+      "name": "盔甲加鲁鲁兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bolgmon",
+      "name": "雷光兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "velgrmon",
+      "name": "瓦尔格兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "petaldramon",
+      "name": "花龙兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "beowolfmon",
+      "name": "贝奥武夫兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "flamon",
+      "name": "野火兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blitzmon",
+      "name": "电光兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blizzarmon",
+      "name": "暴雪兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fairimon",
+      "name": "仙女兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chackmon",
+      "name": "冰熊兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "duskmon",
+      "name": "幽暗兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "daipenmon",
+      "name": "大企鹅兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sephirothmon",
+      "name": "十数兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "storabimon",
+      "name": "流光兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shutumon",
+      "name": "和风兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jetsilphymon",
+      "name": "喷射西尔芙兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "grottemon",
+      "name": "洞窟兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gigasmon",
+      "name": "巨人兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "garummon",
+      "name": "加鲁姆兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "calamaramon",
+      "name": "乌贼兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kaisergreymon",
+      "name": "恺撒暴龙兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kaiserleomon",
+      "name": "恺撒狮子兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vritramon",
+      "name": "炎龙兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wolfmon",
+      "name": "野狼兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "arbormon",
+      "name": "怪树兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aldamon",
+      "name": "阿尔达兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "agnimon",
+      "name": "火神兽",
+      "level": "混合体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rinkmon",
+      "name": "溜冰兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lynxmon",
+      "name": "猞猁兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rhinomon",
+      "name": "犀牛兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lighdramon",
+      "name": "闪电龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yaksamon",
+      "name": "夜叉兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mothmon",
+      "name": "飞蛾兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "maildramon",
+      "name": "铠龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "moosemon",
+      "name": "驼鹿兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "manbomon",
+      "name": "翻车鱼兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mantaraymon",
+      "name": "蝠鲼兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "magnamon",
+      "name": "金甲龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ponchomon",
+      "name": "雨披兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "holsmon",
+      "name": "荷鲁斯兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "boarmon",
+      "name": "野猪兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pegasmon",
+      "name": "天马兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "frogmon",
+      "name": "树蛙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "prairiemon",
+      "name": "土拨鼠兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fladramon",
+      "name": "烈焰龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "flawizarmon",
+      "name": "烈焰巫师兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bullmon",
+      "name": "公牛兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "flybeemon",
+      "name": "飞蜂兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pteranomon",
+      "name": "无齿翼龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pucchiemon-green",
+      "name": "爱精灵兽 (绿)",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pucchiemon",
+      "name": "爱精灵兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pipismon",
+      "name": "蝙蝠兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bitmon",
+      "name": "兔仔兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "peacockmon",
+      "name": "孔雀兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "baromon",
+      "name": "巴隆兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "honeybeemon",
+      "name": "蜜蜂兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "butterflamon",
+      "name": "蝴蝶兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "harpymon",
+      "name": "哈比兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nohemon",
+      "name": "稻草人兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nefertimon",
+      "name": "纳芙蒂兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "togemogumon",
+      "name": "刺鼹鼠兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tocanmon",
+      "name": "大嘴鸟兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "depthmon",
+      "name": "深海兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tylomon",
+      "name": "海王龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "digmon",
+      "name": "挖掘兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sepikmon",
+      "name": "塞皮克兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sethmon",
+      "name": "赛特兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "swanmon",
+      "name": "天鹅兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "stegomon",
+      "name": "剑龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shurimon",
+      "name": "手里剑兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shadramon",
+      "name": "阴影龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "seahomon",
+      "name": "海马兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sheepmon",
+      "name": "绵羊兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "thunderbirmon",
+      "name": "雷鸟兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "salamandamon",
+      "name": "沙罗曼蛇兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sabmarimon",
+      "name": "潜艇兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sagittarimon",
+      "name": "射手兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "searchmon",
+      "name": "搜索兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kongoumon",
+      "name": "金刚杵兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "goldv-dramon",
+      "name": "黄金V龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "goatmon",
+      "name": "山羊兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kenkimon",
+      "name": "建机兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "quetzalmon",
+      "name": "羽蛇兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kangarumon",
+      "name": "袋鼠兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chamelemon",
+      "name": "变色龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kabukimon",
+      "name": "歌舞伎兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gargomon",
+      "name": "石像鬼兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "orcamon",
+      "name": "虎鲸兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "opossummon",
+      "name": "负鼠兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "elephamon",
+      "name": "大象兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "allomon",
+      "name": "异特龙兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "archelomon",
+      "name": "古海龟兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "owlmon",
+      "name": "猫头鹰兽",
+      "level": "装甲体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lordknightmon",
+      "name": "领主骑士兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lotusmon",
+      "name": "莲花兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rosemonburstmode",
+      "name": "蔷薇兽：爆裂形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rosemon",
+      "name": "蔷薇兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ravmonburstmode",
+      "name": "渡鸦兽：爆裂形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ravmon",
+      "name": "渡鸦兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lucemonlarva",
+      "name": "光明兽：幼虫",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lucemonsatanmode",
+      "name": "光明兽：撒旦形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lilithmon",
+      "name": "莉莉丝兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "leviamon",
+      "name": "利维亚兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lampmon",
+      "name": "灯神兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rusttyranomon",
+      "name": "终极巨龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rasielmon",
+      "name": "拉结尔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jupitermon",
+      "name": "朱庇特兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mercurymon",
+      "name": "墨丘利兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "medievaldukemon",
+      "name": "中世纪公爵兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalpiranimon",
+      "name": "金属水虎鱼兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "metalseadramon",
+      "name": "金属海龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgarurumon",
+      "name": "钢铁加鲁鲁兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metaletemon",
+      "name": "金属猿猴兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "megidramon",
+      "name": "灭世龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "moonmillenniumon",
+      "name": "月之千年兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "murmukusmon",
+      "name": "毛莫兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mugendramon",
+      "name": "无限龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "millenniumon",
+      "name": "千年兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "miragegaogamon:burstmode",
+      "name": "幻影加奥加兽：爆裂形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "miragegaogamon",
+      "name": "幻影加奥加兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "minervamon",
+      "name": "密涅瓦兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "marsmon",
+      "name": "玛尔斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "marinangemon",
+      "name": "海天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "magnakidmon",
+      "name": "玛格纳基德兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "boltmon",
+      "name": "螺栓兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "holydramon",
+      "name": "圣龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hououmon",
+      "name": "凤凰兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "belphemonragemode",
+      "name": "贝尔菲兽：愤怒形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "belphemonsleepmode",
+      "name": "贝尔菲兽：沉睡形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "beelzebumonblastmode",
+      "name": "别西卜兽：疾风形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "beelzebumon",
+      "name": "别西卜兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "beelstarmon",
+      "name": "贝尔斯塔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "belialvamdemon",
+      "name": "贝利亚吸血魔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "heraklekabuterimon",
+      "name": "力神比多兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "plesiomon",
+      "name": "蛇颈龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "breakdramon",
+      "name": "破坏龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "princemamemon",
+      "name": "王子豆豆兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blitzgreymon",
+      "name": "电光暴龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blacksaintgalgomon",
+      "name": "黑圣加鲁哥兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackwargreymon",
+      "name": "黑暗战斗暴龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "platinumnumemon",
+      "name": "白金鼻涕兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pukumon",
+      "name": "河豚兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fujinmon",
+      "name": "风神兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "huanglongmon",
+      "name": "黄龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pharaohmon",
+      "name": "法老兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pinochimon",
+      "name": "木偶兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "victorygreymon",
+      "name": "胜利暴龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "piemon",
+      "name": "小丑皇",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bancholeomon",
+      "name": "番长狮子兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "banchomamemon",
+      "name": "番长豆豆兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "banchostingmon",
+      "name": "番长飞虫兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "barbamon",
+      "name": "巴尔巴兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "parasimon",
+      "name": "寄生兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "babamon",
+      "name": "婆婆兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "baihumon",
+      "name": "白虎兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hiandromon",
+      "name": "高等机械人兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "neptunemon",
+      "name": "尼普顿兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dorugoramon",
+      "name": "多路战龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "duftmonleopardmode",
+      "name": "芳香兽：豹式形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "duftmon",
+      "name": "芳香兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "durandamon",
+      "name": "杜兰达兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dynasmon",
+      "name": "君主兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dukemoncrimsonmode",
+      "name": "公爵兽：深红形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dukemon",
+      "name": "公爵兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "devitamamon",
+      "name": "恶魔蛋兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "deathmon-black",
+      "name": "死亡兽 (黑)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "deathmon",
+      "name": "死亡兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "death-x-mon",
+      "name": "死X兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "demon",
+      "name": "究极魔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "death-x-dorugoramon",
+      "name": "死X多路战龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dinorexmon",
+      "name": "恐龙王兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dinotigermon",
+      "name": "恐虎兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "diablomon",
+      "name": "超恶魔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dianamon",
+      "name": "狄安娜兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "qinglongmon",
+      "name": "青龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "darkdramon",
+      "name": "暗龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tyrantkabuterimon",
+      "name": "暴君比多兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "titamon",
+      "name": "泰坦兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tigervespamon",
+      "name": "虎蜂兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "saintgalgomon",
+      "name": "圣加鲁哥兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "seraphimon",
+      "name": "炽天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "slayerdramon",
+      "name": "斩龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sleipmon",
+      "name": "斯雷普兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "slashangemon",
+      "name": "斩天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "spinomon",
+      "name": "棘龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "susanoomon",
+      "name": "须佐之男兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "skullmammon",
+      "name": "骷髅猛犸兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zhuqiaomon",
+      "name": "朱雀兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "suijinmon",
+      "name": "水神兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zeedmillenniumon",
+      "name": "最终千年兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zdgarurumon",
+      "name": "终弩级加鲁鲁兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jumbogamemon",
+      "name": "巨龟兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "justimon",
+      "name": "正义兽：加速武装",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shakamon",
+      "name": "释迦兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shinegreymonburstmode",
+      "name": "闪光暴龙兽：爆裂形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shinegreymon",
+      "name": "闪光暴龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jijimon",
+      "name": "公公兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "xuanwumon",
+      "name": "玄武兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jesmon",
+      "name": "杰斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zanbamon",
+      "name": "斩伐兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sakuyamon:mikomode",
+      "name": "咲耶兽：巫女形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sakuyamon",
+      "name": "咲耶兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "saberleomon",
+      "name": "剑狮兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "goddramon",
+      "name": "神龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gokumon",
+      "name": "炼狱兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cherubimon-vice",
+      "name": "智天使兽 (恶)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cherubimon",
+      "name": "智天使兽 (善)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "crossmon",
+      "name": "十字兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "craniummon",
+      "name": "颅骨兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gracenovamon",
+      "name": "优雅新星兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "griffomon",
+      "name": "狮鹫兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "grandlocomon",
+      "name": "大火车头兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "granddracumon",
+      "name": "大德拉库兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "grandiskuwagamon",
+      "name": "雄伟古加兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "grankuwagamon",
+      "name": "巨大古加兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "clavisangemon",
+      "name": "键天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kuzuhamon",
+      "name": "葛叶兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "quartzmon",
+      "name": "晶界兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cresgarurumon",
+      "name": "偃月加鲁鲁兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "queenchessmon",
+      "name": "后棋兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kingchessmon",
+      "name": "王棋兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kingetemon",
+      "name": "猿猴大王兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cannondramon",
+      "name": "炮龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gigaseadramon",
+      "name": "千兆海龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "gankoomon",
+      "name": "顽固兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gulfmon",
+      "name": "深渊兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chaosmonvaldurarm",
+      "name": "混沌兽：瓦尔德臂",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chaosmon",
+      "name": "混沌兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chaosdramon-x",
+      "name": "混沌龙兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "chaosdramon",
+      "name": "混沌龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chaosdukemon",
+      "name": "混沌公爵兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gaioumon",
+      "name": "凯王兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "omegamon-alter-s",
+      "name": "奥米加兽 Alter-S",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "omegamon-x",
+      "name": "奥米加兽 (X抗体)",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "omegamon",
+      "name": "奥米加兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ofanimonfalldownmode",
+      "name": "座天使兽：堕落形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ofanimon",
+      "name": "座天使兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ornismon",
+      "name": "奥尼斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ogudomon",
+      "name": "奥古杜兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ouryumon",
+      "name": "王龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ancientwisetmon",
+      "name": "古代贤者兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientmegatheriumon",
+      "name": "古代大懒兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientmermaimon",
+      "name": "古代人鱼兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientvolcamon",
+      "name": "古代火山兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientbeatmon",
+      "name": "古代甲虫兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancienttroiamon",
+      "name": "古代木马兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientsphinkmon",
+      "name": "古代斯芬克斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientgreymon",
+      "name": "古代暴龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientgarurumon",
+      "name": "古代加鲁鲁兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ancientirismon",
+      "name": "古代彩虹兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "eldoradimon",
+      "name": "黄金乡兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "examon",
+      "name": "艾可萨兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vulcanusmon",
+      "name": "武尔坎努斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wargreymon",
+      "name": "战斗暴龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "venomvamdemon",
+      "name": "怨毒吸血魔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "venusmon",
+      "name": "维纳斯兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "valdurmon",
+      "name": "瓦尔德兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "valkyrimon",
+      "name": "瓦尔基里兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vikemon",
+      "name": "维京兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ebemon",
+      "name": "外星兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ageisdramon",
+      "name": "圣盾龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "imperialdramonfightermode",
+      "name": "帝皇龙甲兽：战士形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "imperialdramonpaladinmode",
+      "name": "帝皇龙甲兽：圣骑士形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "imperialdramondragonmode",
+      "name": "帝皇龙甲兽：龙形态",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yggdrasill7d6",
+      "name": "世界树_7D6",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ulforcevdramon",
+      "name": "究极V龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "alphamon:ouryuken",
+      "name": "阿尔法兽：王龙剑",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "alphamon",
+      "name": "阿尔法兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ultimatebrakimon",
+      "name": "究极腕龙兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "algomon",
+      "name": "阿耳戈兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "apollomon",
+      "name": "阿波罗兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "apoclymon",
+      "name": "启示录兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "anubimon",
+      "name": "阿努比兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "armagemon",
+      "name": "灭世魔兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "avengekidmon",
+      "name": "复仇基德兽",
+      "level": "究极体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "warumonzaemon",
+      "name": "恶霸熊仔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "waruseadramon",
+      "name": "恶海龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wisemon",
+      "name": "贤者兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "weregarrumon",
+      "name": "狼人加鲁鲁兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "locomon",
+      "name": "火车头兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "loaderleomon",
+      "name": "装载狮子兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ladydevimon",
+      "name": "女恶魔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "luminamon",
+      "name": "光环兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rucemonfalldownmode",
+      "name": "光明兽：堕落形态",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rookchessmon",
+      "name": "车棋兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lilimon",
+      "name": "花仙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rapidmon",
+      "name": "拉比兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lilamon",
+      "name": "丁香兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rizegreymon",
+      "name": "跃升暴龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yatagaramon",
+      "name": "八咫乌兽 (2006动画版)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "monzaemon",
+      "name": "熊仔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mephismon",
+      "name": "梅菲斯兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalmamemon",
+      "name": "金属豆豆兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalfantomon",
+      "name": "金属幻影兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "metaltyranomon",
+      "name": "金属巨龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgreymon-v",
+      "name": "机械暴龙兽 (疫苗种)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metalgreymon-web",
+      "name": "机械暴龙兽 (病毒种)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "metallifekuwagamon",
+      "name": "美它利佛古加兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "megalogrowmon",
+      "name": "大古拉兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "megadramon",
+      "name": "百万龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "megaseadramon",
+      "name": "百万海龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "meicrackmon",
+      "name": "缅破兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mihiramon",
+      "name": "飞虎兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mistymon",
+      "name": "神秘兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mammon",
+      "name": "猛犸兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "marindevimon",
+      "name": "海恶魔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mametyramon",
+      "name": "豆豆巨龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "mamemon",
+      "name": "豆豆兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mummymon",
+      "name": "木乃伊兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "machgaogamon",
+      "name": "音速加奥加兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "matadrmon",
+      "name": "斗牛士兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mastertyranomon",
+      "name": "大师巨龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "majiramon",
+      "name": "摩仁罗兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "makuramon",
+      "name": "灵猴兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mermaimon",
+      "name": "人鱼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "volcamon",
+      "name": "火山兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "holyangemon",
+      "name": "神圣天使兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "whamon",
+      "name": "巨鲸兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "betsumon",
+      "name": "冒充兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vademon2",
+      "name": "入侵兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "vademon",
+      "name": "入侵兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blossomon",
+      "name": "巨花兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "flaremon",
+      "name": "耀狮兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bluemeramon",
+      "name": "蓝色燃烧兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackmegalogrowmon",
+      "name": "黑大古拉兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "phelesmon",
+      "name": "费勒斯兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fantomon",
+      "name": "幻影兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hippogriffomon",
+      "name": "骏鹰兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "picklemon",
+      "name": "妖精兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bigmamemon",
+      "name": "大豆豆兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bishopchessmon",
+      "name": "相棋兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hisyaryumon",
+      "name": "飞车龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "pumpmon",
+      "name": "南瓜兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pandamon",
+      "name": "熊猫兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "panjyamon",
+      "name": "白狮兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hangyomon",
+      "name": "半鱼兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "parrotmon",
+      "name": "鹦鹉兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "valvemon",
+      "name": "阀门兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bastemon",
+      "name": "芭丝特兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pajiramon",
+      "name": "白羊兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "paildramon",
+      "name": "机甲龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "neodevimon",
+      "name": "新种恶魔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nanomon",
+      "name": "分子兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "knightmon",
+      "name": "骑士兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "doruguremon",
+      "name": "多路暴龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "triceramon",
+      "name": "三角龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tonosamagekomon",
+      "name": "怪蛙皇",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "doumon",
+      "name": "妖道兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "delumon",
+      "name": "华丽兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "duramon",
+      "name": "杜兰兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "deathmeramon",
+      "name": "死亡燃烧兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "digitamamon",
+      "name": "数码蛋兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "death-x-doruguremon",
+      "name": "死X多路暴龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dinobeemon",
+      "name": "恐蜂兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chohakkaimon",
+      "name": "猪八戒兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "caturamon",
+      "name": "犬神兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tyilinmon",
+      "name": "麒麟兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tankdramon",
+      "name": "坦克龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dagomon",
+      "name": "达贡兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "taomon",
+      "name": "道士兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "darksuperstarmon",
+      "name": "黑暗巨星兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sirenmon",
+      "name": "塞壬兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "saviorhuckmon",
+      "name": "救星哈克兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zudomon",
+      "name": "祖顿兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "scorpiomon",
+      "name": "毒蝎兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "skullbaluchimon",
+      "name": "骷髅巨犀兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "skullsatamon",
+      "name": "骷髅撒旦兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "skullgreymon",
+      "name": "丧尸暴龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "superstarmon",
+      "name": "巨星兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sinduramon",
+      "name": "铁鸡兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "silphymon",
+      "name": "西尔芙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jyureimon",
+      "name": "祖利兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shakkoumon",
+      "name": "土偶兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jyagamon",
+      "name": "马铃薯兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shawujinmon",
+      "name": "沙悟净兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sandiramon",
+      "name": "皇蛇兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sanzomon",
+      "name": "三藏兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sagomon",
+      "name": "沙悟兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cyberdramon",
+      "name": "电子龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gokuwmon",
+      "name": "悟空兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cerberumon",
+      "name": "刻耳柏洛兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kumbhiramon",
+      "name": "飞鼠兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "crescemon",
+      "name": "新月兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "grademon",
+      "name": "等级兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "grappuleomon",
+      "name": "格斗狮子兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "groundramon",
+      "name": "地龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "giromon",
+      "name": "机雷兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "captainhookmon",
+      "name": "铁钩船长兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cannonbeemon",
+      "name": "炮蜂兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "catchmamemon",
+      "name": "抓取豆豆兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chimairamon",
+      "name": "奇美拉兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gigadramon",
+      "name": "千兆龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "garudamon",
+      "name": "伽楼达兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "karatenmon",
+      "name": "乌鸦天狗兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gerbemon",
+      "name": "垃圾桶兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "orochimon",
+      "name": "大蛇兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "okuwamon",
+      "name": "大古加兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "angewomon",
+      "name": "天女兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "etemon",
+      "name": "猿猴兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ex-tyranomon",
+      "name": "EX巨龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "earov-dramon",
+      "name": "飞行V龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "volcdoramon",
+      "name": "火山龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wingdramon",
+      "name": "翼龙兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vikaralamon",
+      "name": "毗羯罗兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vamdemon",
+      "name": "吸血魔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vajramon",
+      "name": "蛮牛兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "infermon",
+      "name": "地狱使者兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "indaramon",
+      "name": "战马兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "insekimon",
+      "name": "陨石兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "andromon",
+      "name": "机械人兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "andiramon",
+      "name": "玉兔兽 (神将)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "algomon-ultimate",
+      "name": "阿耳戈兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "archnemon",
+      "name": "阿剌克涅兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "anomalocarimon-x",
+      "name": "奇虾兽 (X抗体)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "anomalocarimon",
+      "name": "奇虾兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "atlurkabuterimon",
+      "name": "超比多兽 (红)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "atlurkabuterimon-blue",
+      "name": "超比多兽 (蓝)",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "astamon",
+      "name": "阿斯塔兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "asuramon",
+      "name": "阿修罗兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aegiochusmon:blue",
+      "name": "埃癸奥都斯兽：蓝",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aegiochusmon:dark",
+      "name": "埃癸奥都斯兽：暗",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aegiochusmon:green",
+      "name": "埃癸奥都斯兽：绿",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aegiochusmon",
+      "name": "埃癸奥都斯兽",
+      "level": "完全体",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "waspmon",
+      "name": "胡蜂兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "reppamon",
+      "name": "裂破兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "redvegimon",
+      "name": "红菜兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lekismon",
+      "name": "雷克斯兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "leomon",
+      "name": "狮子兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raremon",
+      "name": "烂泥兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "rukamon",
+      "name": "海豚兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "revolmon",
+      "name": "左轮兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "raptordramon",
+      "name": "猛禽龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "liamon",
+      "name": "雷亚兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "youkomon",
+      "name": "妖狐兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yunimon",
+      "name": "独角马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yukidarumon",
+      "name": "雪人兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "monochromon",
+      "name": "角龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mojyamon",
+      "name": "毛人兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "meramon",
+      "name": "燃烧兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mechanorimon",
+      "name": "机械载物兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "musyamon",
+      "name": "武士兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "minotaurmon",
+      "name": "牛人兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mikemon",
+      "name": "三毛猫兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "porcupamon",
+      "name": "箭猪兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "peckmon",
+      "name": "啄木鸟兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "vegimon",
+      "name": "野菜兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bladekuwagamon",
+      "name": "刃古加兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "flarelizamon",
+      "name": "火焰蜥蜴兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blimpmon",
+      "name": "飞艇兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blacktailmon",
+      "name": "黑暗迪路兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "blackgrowmon",
+      "name": "黑古拉兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "platinasukamon",
+      "name": "白金大便兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "flymon",
+      "name": "黄蜂兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hookmon",
+      "name": "铁钩兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "boogiemon",
+      "name": "夜魔兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fugamon",
+      "name": "风灾兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "v-dramon",
+      "name": "V龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "fangmon",
+      "name": "獠牙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "firamon",
+      "name": "焰狮兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hyougamon",
+      "name": "冰河兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "petermon",
+      "name": "彼得兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hanumon",
+      "name": "哈奴兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bakemon",
+      "name": "鬼怪兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "baohuckmon",
+      "name": "刃王哈克兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "birdramon",
+      "name": "巴多拉兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "numemon",
+      "name": "鼻涕兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nisedrimogemon",
+      "name": "伪钻头鼹鼠兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nanimon",
+      "name": "什么兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "knightchessmon",
+      "name": "骑士棋兽 (白)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "knightchessmon_black",
+      "name": "骑士棋兽 (黑)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dorugamon",
+      "name": "多路加兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "drimogemon",
+      "name": "钻头鼹鼠兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tobucatmon",
+      "name": "飞猫兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dogmon",
+      "name": "狗狗兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "togemon",
+      "name": "仙人掌兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dokugumon",
+      "name": "毒蜘蛛兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dobermon",
+      "name": "杜宾犬兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tortamon",
+      "name": "陆龟兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "turuiemon",
+      "name": "兔儿爷兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "deltamon",
+      "name": "德尔塔兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "devimon",
+      "name": "恶魔兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "devidramon",
+      "name": "邪龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "death-x-dorugamon",
+      "name": "死X多路加兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "tailmon",
+      "name": "迪路兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tyranomon",
+      "name": "巨龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "diatrymon",
+      "name": "冠恐鸟兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tuchidarumon",
+      "name": "泥人兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tankmon",
+      "name": "坦克兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "darcmon",
+      "name": "贞德兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tuskmon",
+      "name": "长牙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "targetmon",
+      "name": "标靶兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "darklizamon",
+      "name": "黑暗蜥蜴兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "darktyranomon",
+      "name": "黑暗巨龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sorcerimon",
+      "name": "冰巫师兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "soulmon",
+      "name": "鬼魂兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "saberdramon",
+      "name": "刃龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zubaeagermon",
+      "name": "兹巴伊戈兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "snimon",
+      "name": "狙击兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "strikedramon",
+      "name": "强袭龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "stingmon",
+      "name": "飞虫兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "starmon",
+      "name": "星星兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "scumon",
+      "name": "大便兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "junglemojamon",
+      "name": "丛林毛人兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shimaunimon",
+      "name": "独角斑马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sistermonnoir",
+      "name": "修女兽黑",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "geogreymon",
+      "name": "大地暴龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shellmon",
+      "name": "贝壳兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shademon",
+      "name": "阴影兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sealsdramon",
+      "name": "海豹龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "coelamon",
+      "name": "腔棘鱼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "seadramon",
+      "name": "海龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "siesamon",
+      "name": "风狮兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sunflowmon",
+      "name": "向日葵兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "thunderballmon",
+      "name": "雷电球兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sangloupmon",
+      "name": "血狼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zassoumon",
+      "name": "杂草兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cyclomon",
+      "name": "独眼龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gorimon",
+      "name": "金刚兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gokimon",
+      "name": "蟑螂兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "golemon",
+      "name": "魔像兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cockatrimon",
+      "name": "巨鸡兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kougamon",
+      "name": "甲贺兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "coredramon_g",
+      "name": "核龙兽 (绿)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "coredramon_b",
+      "name": "核龙兽 (蓝)",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "centalmon",
+      "name": "人马兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "geremon",
+      "name": "卑劣兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gesomon",
+      "name": "墨鱼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kuwagamon",
+      "name": "古加兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "clockmon",
+      "name": "时钟兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "greymon-first",
+      "name": "暴龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gururumon",
+      "name": "古鲁鲁兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gryzmon",
+      "name": "灰熊兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chrysalimon",
+      "name": "虫蛹兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "growmon",
+      "name": "古拉兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ginryumon",
+      "name": "银龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "ginkakumon",
+      "name": "银角兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kinkakumon",
+      "name": "金角兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kyubimon",
+      "name": "九尾兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kiwimon",
+      "name": "几维鸟兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gawappamon",
+      "name": "河童兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "garurumon",
+      "name": "加鲁鲁兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "galgomon",
+      "name": "加鲁哥兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "karatukinumemon",
+      "name": "贝壳鼻涕兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kabuterimon",
+      "name": "比多兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "guardromon",
+      "name": "守卫机器人兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gaogamon",
+      "name": "加奥加兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "omekamon",
+      "name": "奥米卡兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "octmon",
+      "name": "章鱼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "orgemon",
+      "name": "恶鬼兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "angemon",
+      "name": "天使兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ebidramon",
+      "name": "虾龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "xv-mon",
+      "name": "XV兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "airdramon",
+      "name": "飞龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "woodmon",
+      "name": "枯木兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wendimon",
+      "name": "温迪兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "witchmon",
+      "name": "女巫兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wizarmon",
+      "name": "巫师兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "evilmon",
+      "name": "灾厄兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ikkakumon",
+      "name": "海狮兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "igamon",
+      "name": "伊贺兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ankylomon",
+      "name": "甲龙兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aquilamon",
+      "name": "天鹰兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "akatorimon",
+      "name": "红鸡兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "icemon",
+      "name": "冰石兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "aegiomon",
+      "name": "埃癸奥兽",
+      "level": "成熟期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wormmon",
+      "name": "虫虫兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lopmon",
+      "name": "垂耳兔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "renamon",
+      "name": "狐狸兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "liollmon",
+      "name": "幼狮兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lunamon",
+      "name": "月亮兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "lucemon",
+      "name": "光明兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ryudamon",
+      "name": "龙蛇兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "lalamon",
+      "name": "拉拉兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "labramon",
+      "name": "拉布拉兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yukiagumon",
+      "name": "雪亚古兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "monodramon",
+      "name": "单角龙兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "muchomon",
+      "name": "五彩兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mushmon",
+      "name": "蘑菇兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bokomon",
+      "name": "波高兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "paunchessmon-white",
+      "name": "兵棋兽 (白)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "paunchessmon",
+      "name": "兵棋兽 (黑)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hawkmon",
+      "name": "麻鹰兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "penmon",
+      "name": "企鹅兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "betamon",
+      "name": "贝塔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bearmon",
+      "name": "小熊兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "plotmon",
+      "name": "小狗兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "floramon",
+      "name": "佛洛拉兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "v-mon",
+      "name": "V仔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "funbeemon",
+      "name": "幻蜂兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "falcomon",
+      "name": "猎鹰兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "phascomon",
+      "name": "树袋熊兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "piyomon",
+      "name": "比丘兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "picodevimon",
+      "name": "小恶魔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "palmon",
+      "name": "巴鲁兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "huckmon",
+      "name": "哈克兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "patamon",
+      "name": "巴达兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "hagurumon",
+      "name": "齿轮兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bakumon",
+      "name": "梦貘兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "neamon",
+      "name": "问答兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "niseagumonhakase",
+      "name": "伪亚古兽博士",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dorumon",
+      "name": "多路兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "dracomon",
+      "name": "龙仔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dracumon",
+      "name": "德拉库兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "toyagumon",
+      "name": "玩具亚古兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tentomon",
+      "name": "甲虫兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "terriermon",
+      "name": "梗犬兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tinkermon",
+      "name": "汀克兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tukaimon",
+      "name": "使魔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tyumon",
+      "name": "吱吱兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "solarmon",
+      "name": "日轮兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zubamon",
+      "name": "兹巴兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "snowgoburimon",
+      "name": "雪哥布林兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "swimmon",
+      "name": "泳鱼兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shakomon",
+      "name": "砗磲兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "shamamon",
+      "name": "萨满兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sistermonblanc",
+      "name": "修女兽白",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "psychemon",
+      "name": "迷幻兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "coronamon",
+      "name": "日冕兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "commandramon",
+      "name": "突击龙兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gomamon",
+      "name": "哥玛兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "goburimon",
+      "name": "哥布林兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kotemon",
+      "name": "剑道兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gottsumon",
+      "name": "矿石兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kokuwamon",
+      "name": "小锹形虫兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kokabuterimon",
+      "name": "小比多兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "koemon",
+      "name": "小猴兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "keramon",
+      "name": "哈哈兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kunemon",
+      "name": "古尼兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kudamon",
+      "name": "管狐兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "guilmon",
+      "name": "基尔兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "candmon",
+      "name": "蜡烛兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gizamon",
+      "name": "锯齿兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kamemon",
+      "name": "乌龟兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gabumon",
+      "name": "加布兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ganimon",
+      "name": "螃蟹兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gazimon",
+      "name": "加支兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gaomon",
+      "name": "加奥兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "otamamon-red",
+      "name": "蝌蚪兽 (红)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "otamamon",
+      "name": "蝌蚪兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "elecmon-violet",
+      "name": "艾力兽 (紫)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "elecmon",
+      "name": "艾力兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "ebiburgamon",
+      "name": "鲜虾汉堡兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "impmon",
+      "name": "小妖兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "alraumon",
+      "name": "爱娜温兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "armadimon",
+      "name": "犰狳兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "arkadimon",
+      "name": "阿卡迪兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "agumonhakase",
+      "name": "亚古兽博士",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "agumon-black",
+      "name": "亚古兽 (黑)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "agumon-2006",
+      "name": "亚古兽 (2006动画版)",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "agumon",
+      "name": "亚古兽",
+      "level": "成长期",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "wanyamon",
+      "name": "汪喵兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mochimon",
+      "name": "年糕兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "minomon",
+      "name": "蓑虫兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "missimon",
+      "name": "导弹兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "poromon",
+      "name": "珀罗兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pokomon",
+      "name": "波可兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "babydmon",
+      "name": "幼龙兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "puroromon",
+      "name": "普罗罗兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "frimon",
+      "name": "皱褶兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "petimeramon",
+      "name": "小燃烧兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pukamon",
+      "name": "布加兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pyocomon",
+      "name": "比高兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pinamon",
+      "name": "皮那兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "budmon",
+      "name": "花蕾兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pagumon",
+      "name": "柏古兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nyaromon",
+      "name": "喵喵兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dorimon",
+      "name": "多利兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "tokomon",
+      "name": "迪哥兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tsumemon",
+      "name": "妖爪兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tunomon",
+      "name": "犄角兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chocomon",
+      "name": "巧克力兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chapmon",
+      "name": "查普兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chibimon",
+      "name": "豆丁兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "tanemon",
+      "name": "种子兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "xiaomon",
+      "name": "小小兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sakuttomon",
+      "name": "萨库托兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "koromon",
+      "name": "滚球兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gummymon",
+      "name": "软糖兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kyokyomon",
+      "name": "香香兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "cupimon",
+      "name": "丘比兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kyaromon",
+      "name": "弹力兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "gigimon",
+      "name": "基基兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "capromon",
+      "name": "卡普利兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "upamon",
+      "name": "乌帕兽",
+      "level": "幼年期Ⅱ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "relemon",
+      "name": "狐狐兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "leafmon",
+      "name": "绿叶兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yuramon",
+      "name": "浮球兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "yukimibotamon",
+      "name": "雪球兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "mokumon",
+      "name": "烟尘兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "poyomon",
+      "name": "浮游兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bommon",
+      "name": "炸弹兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "popomon",
+      "name": "波波兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "botamon",
+      "name": "黑球兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "puwamon",
+      "name": "普瓦兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pururumon",
+      "name": "普路路兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pupumon",
+      "name": "普普兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "fufumon",
+      "name": "步步兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "punimon",
+      "name": "布尼兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "puttimon",
+      "name": "小天使兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "petitmon",
+      "name": "小龙兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pitchmon",
+      "name": "比基兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "pafumon",
+      "name": "膨膨兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "bubbmon",
+      "name": "泡泡兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "paomon",
+      "name": "包子兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "nyokimon",
+      "name": "纽奇兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "dodomon",
+      "name": "多多兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": true
+    },
+    {
+      "id": "tsubumon",
+      "name": "粒粒兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "choromon",
+      "name": "巧洛兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "chicomon",
+      "name": "芝高兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zerimon",
+      "name": "果冻兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "zurumon",
+      "name": "狡诈兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "jyarimon",
+      "name": "沙砾兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "sakumon",
+      "name": "萨库兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "cocomon",
+      "name": "可可兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    },
+    {
+      "id": "kuramon",
+      "name": "水母兽",
+      "level": "幼年期Ⅰ",
+      "secondaryLevel": "",
+      "xAntibody": false
+    }
+  ]
+}

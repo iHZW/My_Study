@@ -725,6 +725,9 @@
 		DA7300002E0C000000000001 /* CRMGameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300042E0C000000000001 /* CRMGameCenterViewController.m */; };
 		DA7300012E0C000000000001 /* CRMGameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300042E0C000000000001 /* CRMGameCenterViewController.m */; };
 		DA7300022E0C000000000001 /* CRMGameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300042E0C000000000001 /* CRMGameCenterViewController.m */; };
+		DA7300102E0C000000000001 /* CRMDigimonAtlasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300092E0C000000000001 /* CRMDigimonAtlasViewController.m */; };
+		DA7300112E0C000000000001 /* CRMDigimonAtlasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300092E0C000000000001 /* CRMDigimonAtlasViewController.m */; };
+		DA7300122E0C000000000001 /* CRMDigimonAtlasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7300092E0C000000000001 /* CRMDigimonAtlasViewController.m */; };
 		DA7910162D6F2C6200C243B3 /* SwiperView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7910152D6F2C6200C243B3 /* SwiperView.m */; };
 		DA922A332B57B9C700AD9FA8 /* RACBindingTableVc.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A322B57B9C700AD9FA8 /* RACBindingTableVc.m */; };
 		DA922A362B57BA5300AD9FA8 /* ZWBindingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922A352B57BA5300AD9FA8 /* ZWBindingItem.m */; };
@@ -3683,6 +3686,12 @@
 		DA7200142E0B000000000001 /* CRMFeedDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMFeedDetailViewController.h; sourceTree = "<group>"; };
 		DA7300032E0C000000000001 /* CRMGameCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMGameCenterViewController.h; sourceTree = "<group>"; };
 		DA7300042E0C000000000001 /* CRMGameCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMGameCenterViewController.m; sourceTree = "<group>"; };
+		DA7300052E0C000000000001 /* CRMAnimalMatchRules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMAnimalMatchRules.h; sourceTree = "<group>"; };
+		DA7300062E0C000000000001 /* CRMSnakeRules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMSnakeRules.h; sourceTree = "<group>"; };
+		DA7300072E0C000000000001 /* CRMSoccerMotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMSoccerMotion.h; sourceTree = "<group>"; };
+		DA7300082E0C000000000001 /* CRMDigimonAtlasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMDigimonAtlasViewController.h; sourceTree = "<group>"; };
+		DA7300092E0C000000000001 /* CRMDigimonAtlasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMDigimonAtlasViewController.m; sourceTree = "<group>"; };
+		DA7300132E0C000000000001 /* CRMAtlasParsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMAtlasParsing.h; sourceTree = "<group>"; };
 		DA7910142D6F2C6200C243B3 /* SwiperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiperView.h; sourceTree = "<group>"; };
 		DA7910152D6F2C6200C243B3 /* SwiperView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiperView.m; sourceTree = "<group>"; };
 		DA922A312B57B9C700AD9FA8 /* RACBindingTableVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBindingTableVc.h; sourceTree = "<group>"; };
@@ -5826,6 +5835,12 @@
 				4EA737E227D72E3200422BAE /* CRMViewController.m */,
 				DA7300032E0C000000000001 /* CRMGameCenterViewController.h */,
 				DA7300042E0C000000000001 /* CRMGameCenterViewController.m */,
+				DA7300052E0C000000000001 /* CRMAnimalMatchRules.h */,
+				DA7300062E0C000000000001 /* CRMSnakeRules.h */,
+				DA7300072E0C000000000001 /* CRMSoccerMotion.h */,
+				DA7300132E0C000000000001 /* CRMAtlasParsing.h */,
+				DA7300082E0C000000000001 /* CRMDigimonAtlasViewController.h */,
+				DA7300092E0C000000000001 /* CRMDigimonAtlasViewController.m */,
 				DA7200142E0B000000000001 /* CRMFeedDetailViewController.h */,
 				DA7200132E0B000000000001 /* CRMFeedDetailViewController.m */,
 				4E0287B828698887003E723E /* ApplicationViewController.h */,
@@ -8313,9 +8328,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -8330,9 +8349,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-My_Study/Pods-My_Study-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -8533,6 +8556,7 @@
 				7C879B2126E65BAE0051018B /* MVVMView.m in Sources */,
 				4EA737E327D72E3200422BAE /* CRMViewController.m in Sources */,
 				DA7300002E0C000000000001 /* CRMGameCenterViewController.m in Sources */,
+				DA7300102E0C000000000001 /* CRMDigimonAtlasViewController.m in Sources */,
 				DA7200102E0B000000000001 /* CRMFeedDetailViewController.m in Sources */,
 				DA7200002E0B000000000001 /* SettingCRMViewController.m in Sources */,
 				4E6D008B2AA9AABF00E561EA /* lbaselib.c in Sources */,
@@ -9153,6 +9177,7 @@
 				DAEEBFF02B58BE8C00258456 /* MVVMView.m in Sources */,
 				DAEEBFF12B58BE8C00258456 /* CRMViewController.m in Sources */,
 				DA7300012E0C000000000001 /* CRMGameCenterViewController.m in Sources */,
+				DA7300112E0C000000000001 /* CRMDigimonAtlasViewController.m in Sources */,
 				DA7200112E0B000000000001 /* CRMFeedDetailViewController.m in Sources */,
 				DA7200012E0B000000000001 /* SettingCRMViewController.m in Sources */,
 				DAEEBFF22B58BE8C00258456 /* lbaselib.c in Sources */,
@@ -9768,6 +9793,7 @@
 				DAEEC2BC2B58BE9000258456 /* MVVMView.m in Sources */,
 				DAEEC2BD2B58BE9000258456 /* CRMViewController.m in Sources */,
 				DA7300022E0C000000000001 /* CRMGameCenterViewController.m in Sources */,
+				DA7300122E0C000000000001 /* CRMDigimonAtlasViewController.m in Sources */,
 				DA7200122E0B000000000001 /* CRMFeedDetailViewController.m in Sources */,
 				DA7200022E0B000000000001 /* SettingCRMViewController.m in Sources */,
 				DAEEC2BE2B58BE9000258456 /* lbaselib.c in Sources */,
@@ -10699,7 +10725,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				DEVELOPMENT_TEAM = VJL6T3N8T6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = My_StudyNotificationService/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = My_StudyNotificationService;
@@ -10952,7 +10978,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RZ3X7FRU4A;
+				DEVELOPMENT_TEAM = VJL6T3N8T6;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -10995,7 +11021,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "My-Study";
+				PRODUCT_BUNDLE_IDENTIFIER = "om.zw.My-Study";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

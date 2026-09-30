@@ -6,6 +6,10 @@
 //
 
 #import "CRMGameCenterViewController.h"
+#import "CRMAnimalMatchRules.h"
+#import "CRMSnakeRules.h"
+#import "CRMSoccerMotion.h"
+#import "CRMDigimonAtlasViewController.h"
 
 static UIColor *GameColor(NSUInteger hex) {
     return [UIColor colorWithRed:((hex >> 16) & 0xff) / 255.0
@@ -1572,9 +1576,85 @@ static const NSInteger CRMSoccerBrickColumns = 7;
 @property (nonatomic, assign) CGFloat playerX;
 @property (nonatomic, assign) CGFloat playerHalfWidth;
 @property (nonatomic, assign) BOOL gameOver;
+@property (nonatomic, assign) CGFloat runPhase;
+@property (nonatomic, assign) NSInteger facing;
+@property (nonatomic, assign) BOOL running;
+@property (nonatomic, assign) CGFloat kickRemaining;
+@property (nonatomic, assign) CGFloat kickOffset;
 @end
 
 @implementation CRMSoccerBreakoutBoard
+- (void)drawSidePlayerAtScale:(CGFloat)scale height:(CGFloat)height {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGFloat kick = CRMSoccerKickStrength(self.kickRemaining);
+    CGFloat direction = kick > 0.05 ? (self.kickOffset < 0 ? -1 : 1) : (self.facing < 0 ? -1 : 1);
+    CGContextSaveGState(context);
+    CGContextScaleCTM(context, direction, 1);
+    CGFloat phase = self.runPhase, bob = self.running ? -2.5 * fabs(sin(phase)) : 0;
+    UIColor *ink = GameColor(0x203540), *blue = GameColor(0x3269B0), *skin = GameColor(0xF5C6A2);
+    // 两条腿交替经历支撑、蹬地、屈膝回收，膝盖由两节等长骨骼解算。
+    for (NSInteger limb = 0; limb < 2; limb++) {
+        CRMSoccerLegPose pose = CRMSoccerRunningLeg(phase, (int)limb, self.running, kick,
+                                                    fabs(self.kickOffset) * self.bounds.size.width / scale,
+                                                    (CRMSoccerGroundY - CRMSoccerContactY) * height / scale);
+        CGFloat footX = pose.footX, footY = pose.footY;
+        CGPoint hip = CGPointMake(0, pose.hipY), knee = CGPointMake(pose.kneeX, pose.kneeY);
+        CGContextSaveGState(context); CGContextSetAlpha(context, limb ? 1 : 0.65);
+        UIBezierPath *leg = [UIBezierPath bezierPath]; leg.lineWidth = 7; leg.lineCapStyle = kCGLineCapRound;
+        [leg moveToPoint:hip]; [leg addLineToPoint:knee]; [skin setStroke]; [leg stroke];
+        [leg removeAllPoints]; [leg moveToPoint:knee]; [leg addLineToPoint:CGPointMake(footX, footY - 3)];
+        [UIColor.whiteColor setStroke]; [leg stroke];
+        [blue setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(knee.x - 3.5, knee.y - 2, 7, 4)] fill];
+        [ink setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(footX - 4, footY - 4, 14, 7) cornerRadius:3] fill];
+        CGContextRestoreGState(context);
+    }
+    CGContextTranslateCTM(context, 0, -28 + bob);
+    CGContextRotateCTM(context, self.running ? 0.18 : -0.08 * kick);
+    // 远侧手臂在身体后方，近侧手臂在前方，肩髋轮廓随前倾一起转动。
+    for (NSInteger armIndex = 0; armIndex < 2; armIndex++) {
+        if (armIndex == 1) {
+            [blue setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-9, -5, 18, 12) cornerRadius:4] fill];
+            [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-9, -31, 19, 29) cornerRadius:6] fill];
+            [blue setFill]; UIRectFill(CGRectMake(-7, -30, 15, 3));
+            // 镜像身体时把号码单独反向补偿，避免左跑时出现镜像文字。
+            CGContextSaveGState(context); CGContextScaleCTM(context, direction, 1);
+            [@"10" drawAtPoint:CGPointMake(-6, -18) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:10], NSForegroundColorAttributeName:blue}];
+            CGContextRestoreGState(context);
+            [skin setFill];
+            UIBezierPath *face = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(-7, -55, 22, 26)]; [face fill];
+            UIBezierPath *nose = [UIBezierPath bezierPath]; [nose moveToPoint:CGPointMake(11, -46)];
+            [nose addLineToPoint:CGPointMake(19, -41)]; [nose addLineToPoint:CGPointMake(12, -39)]; [nose closePath]; [nose fill];
+            [ink setFill];
+            UIBezierPath *hair = [UIBezierPath bezierPath];
+            [hair moveToPoint:CGPointMake(-6, -32)]; [hair addLineToPoint:CGPointMake(-14, -44)];
+            [hair addLineToPoint:CGPointMake(-11, -49)]; [hair addLineToPoint:CGPointMake(-20, -54)];
+            [hair addLineToPoint:CGPointMake(-9, -53)]; [hair addLineToPoint:CGPointMake(-11, -61)];
+            [hair addLineToPoint:CGPointMake(-2, -57)]; [hair addLineToPoint:CGPointMake(7, -62)];
+            [hair addLineToPoint:CGPointMake(5, -57)];
+            [hair addQuadCurveToPoint:CGPointMake(16, -46) controlPoint:CGPointMake(20, -57)];
+            [hair addLineToPoint:CGPointMake(7, -49)]; [hair addLineToPoint:CGPointMake(5, -42)];
+            [hair addLineToPoint:CGPointMake(1, -49)]; [hair addLineToPoint:CGPointMake(-3, -40)];
+            [hair closePath]; [hair fill];
+            [skin setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(-4, -43, 6, 8)] fill];
+            [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(8, -46, 5, 7)] fill];
+            [ink setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(11, -44, 2, 4)] fill];
+            UIBezierPath *mouth = [UIBezierPath bezierPath]; mouth.lineWidth = 1;
+            [mouth moveToPoint:CGPointMake(9, -35)]; [mouth addLineToPoint:CGPointMake(14, -36)]; [ink setStroke]; [mouth stroke];
+        }
+        CGFloat swing = self.running ? sin(phase + armIndex * M_PI) * 0.85 : (armIndex ? -0.4 : 0.4);
+        swing -= kick * 0.5;
+        CGPoint shoulder = CGPointMake(0, -25);
+        CGPoint elbow = CGPointMake(shoulder.x + sin(swing) * 15, shoulder.y + cos(swing) * 15);
+        CGPoint hand = CGPointMake(elbow.x + sin(swing - 1.25) * 12, elbow.y + cos(swing - 1.25) * 12);
+        CGContextSaveGState(context); CGContextSetAlpha(context, armIndex ? 1 : 0.65);
+        UIBezierPath *arm = [UIBezierPath bezierPath]; arm.lineWidth = 6; arm.lineCapStyle = kCGLineCapRound;
+        [arm moveToPoint:shoulder]; [arm addLineToPoint:elbow]; [arm addLineToPoint:hand]; [skin setStroke]; [arm stroke];
+        [blue setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(-5, -29, 10, 9)] fill];
+        CGContextRestoreGState(context);
+    }
+    CGContextRestoreGState(context);
+}
+
 - (void)drawRect:(CGRect)rect {
     [GameColor(0xDDF3F5) setFill]; UIRectFill(rect);
     [GameColor(0xBFE1C5) setFill]; UIRectFill(CGRectMake(0, rect.size.height * 0.72, rect.size.width, rect.size.height * 0.28));
@@ -1591,36 +1671,77 @@ static const NSInteger CRMSoccerBrickColumns = 7;
             [[UIColor colorWithWhite:1 alpha:0.35] setFill]; UIRectFill(CGRectMake(brick.origin.x + 4, brick.origin.y + 4, brick.size.width - 8, 3));
         }
     }
-    CGFloat px = self.playerX * rect.size.width, groundY = rect.size.height * 0.91;
-    // 日系动画足球少年：夸张的刺猬头、头带、球衣和张开的接球姿势。
-    [GameColor(0x263A3B) setFill];
+    CGFloat px = self.playerX * rect.size.width, groundY = rect.size.height * CRMSoccerGroundY;
+    CGFloat scale = MIN(1.15, rect.size.width / 320.0);
+    CGFloat kick = CRMSoccerKickStrength(self.kickRemaining);
+    // 大空翼的南葛10号造型：黑发、白蓝球衣、蓝短裤、白长袜。
+    // 肢体随实际位移摆动，触球后踢出的脚迅速伸出，再平滑收回。
+    [[GameColor(0x315F57) colorWithAlphaComponent:0.16] setFill];
+    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(px - 25 * scale, groundY - 2, 50 * scale, 7)] fill];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    CGContextTranslateCTM(context, px, groundY);
+    CGContextScaleCTM(context, scale, scale);
+    if (self.running || kick > 0.01) {
+        [self drawSidePlayerAtScale:scale height:rect.size.height];
+    } else {
+    UIColor *skin = GameColor(0xF5C6A2), *blue = GameColor(0x3269B0), *ink = GameColor(0x263A3B);
+    for (NSInteger side = -1; side <= 1; side += 2) {
+        CGFloat footX = side * 10, footY = 0;
+        CGPoint knee = CGPointMake(side * 7, -13);
+        UIBezierPath *leg = [UIBezierPath bezierPath];
+        leg.lineWidth = 7; leg.lineCapStyle = kCGLineCapRound;
+        [leg moveToPoint:CGPointMake(side * 7, -26)]; [leg addLineToPoint:knee];
+        [skin setStroke]; [leg stroke];
+        [leg removeAllPoints]; [leg moveToPoint:knee]; [leg addLineToPoint:CGPointMake(footX, footY - 3)];
+        [UIColor.whiteColor setStroke]; [leg stroke];
+        [ink setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(footX - 6, footY - 4, 14, 7) cornerRadius:3] fill];
+    }
+    for (NSInteger side = -1; side <= 1; side += 2) {
+        UIBezierPath *arm = [UIBezierPath bezierPath]; arm.lineWidth = 6; arm.lineCapStyle = kCGLineCapRound;
+        [arm moveToPoint:CGPointMake(side * 13, -48)];
+        [arm addLineToPoint:CGPointMake(side * 22, -35)];
+        [arm addLineToPoint:CGPointMake(side * 18, -30)];
+        [skin setStroke]; [arm stroke];
+    }
+    [blue setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-14, -32, 28, 12) cornerRadius:3] fill];
+    [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-15, -55, 30, 27) cornerRadius:6] fill];
+    [blue setFill];
+    UIRectFill(CGRectMake(-17, -52, 5, 10)); UIRectFill(CGRectMake(12, -52, 5, 10));
+    UIBezierPath *collar = [UIBezierPath bezierPath]; collar.lineWidth = 3;
+    [collar moveToPoint:CGPointMake(-7, -55)]; [collar addLineToPoint:CGPointMake(0, -50)]; [collar addLineToPoint:CGPointMake(7, -55)]; [blue setStroke]; [collar stroke];
+    [@"南葛" drawAtPoint:CGPointMake(-10, -48) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:9], NSForegroundColorAttributeName:blue}];
+    [@"10" drawAtPoint:CGPointMake(-6, -38) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:10], NSForegroundColorAttributeName:blue}];
+    [skin setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(-13, -79, 26, 27)] fill];
+    [ink setFill];
     UIBezierPath *hair = [UIBezierPath bezierPath];
-    [hair moveToPoint:CGPointMake(px - 15, groundY - 49)];
-    [hair addLineToPoint:CGPointMake(px - 22, groundY - 62)];
-    [hair addLineToPoint:CGPointMake(px - 9, groundY - 57)];
-    [hair addLineToPoint:CGPointMake(px - 4, groundY - 70)];
-    [hair addLineToPoint:CGPointMake(px + 4, groundY - 58)];
-    [hair addLineToPoint:CGPointMake(px + 17, groundY - 66)];
-    [hair addLineToPoint:CGPointMake(px + 14, groundY - 48)];
+    [hair moveToPoint:CGPointMake(-14, -62)];
+    [hair addLineToPoint:CGPointMake(-18, -77)]; [hair addLineToPoint:CGPointMake(-11, -75)];
+    [hair addLineToPoint:CGPointMake(-10, -85)]; [hair addLineToPoint:CGPointMake(-3, -81)];
+    [hair addLineToPoint:CGPointMake(6, -86)]; [hair addLineToPoint:CGPointMake(5, -81)];
+    [hair addCurveToPoint:CGPointMake(16, -67) controlPoint1:CGPointMake(19, -84) controlPoint2:CGPointMake(18, -74)];
+    [hair addLineToPoint:CGPointMake(11, -60)]; [hair addLineToPoint:CGPointMake(9, -73)];
+    [hair addLineToPoint:CGPointMake(2, -68)]; [hair addLineToPoint:CGPointMake(3, -77)];
+    [hair addLineToPoint:CGPointMake(-5, -69)]; [hair addLineToPoint:CGPointMake(-5, -75)];
+    [hair addLineToPoint:CGPointMake(-11, -68)];
     [hair closePath]; [hair fill];
-    [GameColor(0xF2B98F) setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(px - 12, groundY - 58, 24, 25)] fill];
-    [GameColor(0xE85D62) setFill]; UIRectFill(CGRectMake(px - 14, groundY - 52, 28, 4));
-    [GameColor(0x253A55) setFill];
-    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(px - 7, groundY - 47, 3, 5)] fill];
-    [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(px + 4, groundY - 47, 3, 5)] fill];
-    [GameColor(0x4D83C2) setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(px - 16, groundY - 35, 32, 27) cornerRadius:7] fill];
-    NSDictionary *numberStyle = @{NSFontAttributeName: [UIFont systemFontOfSize:12 weight:UIFontWeightBlack], NSForegroundColorAttributeName: UIColor.whiteColor};
-    [@"10" drawAtPoint:CGPointMake(px - 7, groundY - 29) withAttributes:numberStyle];
-    [GameColor(0xF2B98F) setStroke];
-    UIBezierPath *limbs = [UIBezierPath bezierPath]; limbs.lineWidth = 6; limbs.lineCapStyle = kCGLineCapRound;
-    CGFloat armReach = MAX(18, self.playerHalfWidth * rect.size.width - 8);
-    [limbs moveToPoint:CGPointMake(px - 13, groundY - 29)]; [limbs addLineToPoint:CGPointMake(px - armReach, groundY - 15)];
-    [limbs moveToPoint:CGPointMake(px + 13, groundY - 29)]; [limbs addLineToPoint:CGPointMake(px + armReach, groundY - 15)];
-    [limbs stroke];
-    [GameColor(0x263A3B) setStroke]; limbs.lineWidth = 7;
-    [limbs removeAllPoints];
-    [limbs moveToPoint:CGPointMake(px - 8, groundY - 9)]; [limbs addLineToPoint:CGPointMake(px - 15, groundY + 5)];
-    [limbs moveToPoint:CGPointMake(px + 8, groundY - 9)]; [limbs addLineToPoint:CGPointMake(px + 15, groundY + 5)]; [limbs stroke];
+    [UIColor.whiteColor setFill];
+    for (NSInteger side = -1; side <= 1; side += 2) {
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(side * 6 - 3, -68, 6, 7)] fill];
+    }
+    [ink setFill];
+    for (NSInteger side = -1; side <= 1; side += 2) {
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(side * 6 - 1, -66, 2.5, 4)] fill];
+    }
+    UIBezierPath *smile = [UIBezierPath bezierPath]; smile.lineWidth = 1;
+    [smile moveToPoint:CGPointMake(-3, -57)]; [smile addQuadCurveToPoint:CGPointMake(4, -57) controlPoint:CGPointMake(0, -54)]; [ink setStroke]; [smile stroke];
+    }
+    CGContextRestoreGState(context);
+    if (kick > 0) {
+        [[UIColor.whiteColor colorWithAlphaComponent:kick * 0.75] setStroke];
+        UIBezierPath *arc = [UIBezierPath bezierPathWithArcCenter:CGPointMake(px + self.kickOffset * rect.size.width, rect.size.height * CRMSoccerContactY) radius:12 + (1 - kick) * 16 startAngle:M_PI endAngle:M_PI * 2 clockwise:YES];
+        arc.lineWidth = 2; [arc stroke];
+    }
     CGPoint ball = CGPointMake(self.ball.x * rect.size.width, self.ball.y * rect.size.height);
     CGFloat radius = MIN(rect.size.width, rect.size.height) * 0.028;
     [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(ball.x - radius, ball.y - radius, radius * 2, radius * 2)] fill];
@@ -1639,7 +1760,6 @@ static const NSInteger CRMSoccerBrickColumns = 7;
 @property (nonatomic, strong) CRMSoccerBreakoutBoard *gameBoard;
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *bricks;
 @property (nonatomic, strong) NSTimer *gameTimer;
-@property (nonatomic, strong) NSTimer *moveTimer;
 @property (nonatomic, assign) CGPoint ball;
 @property (nonatomic, assign) CGVector velocity;
 @property (nonatomic, assign) CGFloat playerX;
@@ -1649,6 +1769,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
 @property (nonatomic, assign) NSInteger brickTarget;
 @property (nonatomic, assign) NSInteger level;
 @property (nonatomic, assign) BOOL gameOver;
+@property (nonatomic, assign) BOOL visible;
 @end
 
 @implementation CRMSoccerBreakoutController
@@ -1665,7 +1786,8 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     UIButton *restart = GameCircleButton(@"重来", 68, 14);
     [restart addTarget:self action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
     [self.actions insertArrangedSubview:restart atIndex:1];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startGameTimer) name:UIApplicationDidBecomeActiveNotification object:nil];
     [self restart];
 }
 - (UIButton *)movementButton:(NSString *)title direction:(NSInteger)direction {
@@ -1675,23 +1797,37 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     [button addTarget:self action:@selector(stopMoving:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside | UIControlEventTouchCancel | UIControlEventTouchDragExit];
     return button;
 }
-- (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; [self startGameTimer]; }
-- (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; [self pauseGame]; }
-- (void)dealloc { [self pauseGame]; [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+- (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; self.visible = YES; [self startGameTimer]; }
+- (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; self.visible = NO; [self pauseGame]; }
+- (void)dealloc { [self.gameTimer invalidate]; [[NSNotificationCenter defaultCenter] removeObserver:self]; }
 - (void)startGameTimer {
-    if (self.gameTimer || self.gameOver || !self.view.window) return;
-    self.gameTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 60.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    if (self.gameTimer || self.gameOver || !self.visible || !self.view.window || UIApplication.sharedApplication.applicationState != UIApplicationStateActive) return;
+    __weak typeof(self) weakSelf = self;
+    self.gameTimer = [NSTimer timerWithTimeInterval:1.0 / 60.0 repeats:YES block:^(NSTimer *timer) { [weakSelf tick]; }];
+    [[NSRunLoop mainRunLoop] addTimer:self.gameTimer forMode:NSRunLoopCommonModes];
 }
-- (void)pauseGame { [self.gameTimer invalidate]; self.gameTimer = nil; [self.moveTimer invalidate]; self.moveTimer = nil; }
+- (void)pauseGame {
+    [self.gameTimer invalidate]; self.gameTimer = nil;
+    self.moveDirection = 0; self.gameBoard.running = NO; self.gameBoard.kickRemaining = 0;
+    [self.gameBoard setNeedsDisplay];
+}
 - (void)startMoving:(UIButton *)sender {
+    if (!self.gameTimer || self.gameOver) return;
     self.moveDirection = sender.tag; [self movePlayer];
-    [self.moveTimer invalidate];
-    self.moveTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 60.0 target:self selector:@selector(movePlayer) userInfo:nil repeats:YES];
 }
-- (void)stopMoving:(UIButton *)sender { [self.moveTimer invalidate]; self.moveTimer = nil; self.moveDirection = 0; }
+- (void)stopMoving:(UIButton *)sender {
+    if (sender.tag != self.moveDirection) return;
+    self.moveDirection = 0; self.gameBoard.running = NO; [self.gameBoard setNeedsDisplay];
+}
 - (void)movePlayer {
     if (self.gameOver) return;
+    CGFloat previous = self.playerX;
     self.playerX = MIN(1 - self.playerHalfWidth, MAX(self.playerHalfWidth, self.playerX + self.moveDirection * 0.012));
+    self.gameBoard.running = fabs(self.playerX - previous) > 0.0001;
+    if (self.gameBoard.running) {
+        self.gameBoard.facing = self.moveDirection;
+        self.gameBoard.runPhase = fmod(self.gameBoard.runPhase + fabs(self.playerX - previous) * 32, M_PI * 2);
+    }
     [self refresh];
 }
 - (void)restart {
@@ -1713,34 +1849,41 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     CGFloat speedScale = 1 + (self.level - 1) * 0.11;
     self.playerHalfWidth = MAX(0.09, 0.145 - (self.level - 1) * 0.012);
     self.playerX = 0.5; self.ball = CGPointMake(0.5, 0.76);
+    self.gameBoard.runPhase = 0; self.gameBoard.facing = 1;
     self.velocity = CGVectorMake(0.34 * speedScale, -0.48 * speedScale);
     self.destroyed = 0; self.gameOver = NO; [self refresh]; [self startGameTimer];
 }
 - (CGRect)brickRectAtRow:(NSInteger)row column:(NSInteger)column {
     CGFloat gap = 4.0 / MAX(CGRectGetWidth(self.gameBoard.bounds), 1), margin = 12.0 / MAX(CGRectGetWidth(self.gameBoard.bounds), 1);
+    CGFloat verticalGap = 4.0 / MAX(CGRectGetHeight(self.gameBoard.bounds), 1);
     CGFloat width = (1 - margin * 2 - gap * (CRMSoccerBrickColumns - 1)) / CRMSoccerBrickColumns;
     CGFloat height = 0.057;
-    return CGRectMake(margin + column * (width + gap), 0.07 + row * (height + gap), width, height);
+    return CGRectMake(margin + column * (width + gap), 0.07 + row * (height + verticalGap), width, height);
 }
 - (void)tick {
     if (self.gameOver) return;
     CGFloat dt = 1.0 / 60.0;
+    if (self.moveDirection) [self movePlayer];
+    self.gameBoard.kickRemaining = MAX(0, self.gameBoard.kickRemaining - dt);
     CGPoint previous = self.ball;
     self.ball = CGPointMake(self.ball.x + self.velocity.dx * dt, self.ball.y + self.velocity.dy * dt);
-    CGFloat radius = 0.025;
+    CGFloat radius = 0.028;
+    CGFloat radiusY = radius * self.gameBoard.bounds.size.width / MAX(self.gameBoard.bounds.size.height, 1);
     if (self.ball.x < radius) { self.ball = CGPointMake(radius, self.ball.y); self.velocity = CGVectorMake(fabs(self.velocity.dx), self.velocity.dy); }
     if (self.ball.x > 1 - radius) { self.ball = CGPointMake(1 - radius, self.ball.y); self.velocity = CGVectorMake(-fabs(self.velocity.dx), self.velocity.dy); }
-    if (self.ball.y < radius) { self.ball = CGPointMake(self.ball.x, radius); self.velocity = CGVectorMake(self.velocity.dx, fabs(self.velocity.dy)); }
-    if (self.velocity.dy > 0 && self.ball.y + radius >= 0.84 && previous.y < 0.88 && fabs(self.ball.x - self.playerX) < self.playerHalfWidth) {
+    if (self.ball.y < radiusY) { self.ball = CGPointMake(self.ball.x, radiusY); self.velocity = CGVectorMake(self.velocity.dx, fabs(self.velocity.dy)); }
+    if (CRMSoccerCrossesPlayer(previous.y, self.ball.y, radiusY, self.velocity.dy, self.ball.x, self.playerX, self.playerHalfWidth)) {
         CGFloat offset = (self.ball.x - self.playerX) / self.playerHalfWidth;
         CGFloat speed = hypot(self.velocity.dx, self.velocity.dy);
         self.velocity = CGVectorMake(offset * speed * 0.9, -MAX(0.34, speed * (0.9 - fabs(offset) * 0.18)));
-        self.ball = CGPointMake(self.ball.x, 0.84 - radius);
+        self.ball = CGPointMake(self.ball.x, CRMSoccerContactY - radiusY);
+        self.gameBoard.kickRemaining = CRMSoccerKickDuration;
+        self.gameBoard.kickOffset = self.ball.x - self.playerX;
     }
     for (NSInteger index = 0; index < self.bricks.count; index++) {
         if (!self.bricks[index].boolValue) continue;
         CGRect brick = [self brickRectAtRow:index / CRMSoccerBrickColumns column:index % CRMSoccerBrickColumns];
-        CGRect ballRect = CGRectMake(self.ball.x - radius, self.ball.y - radius, radius * 2, radius * 2);
+        CGRect ballRect = CGRectMake(self.ball.x - radius, self.ball.y - radiusY, radius * 2, radiusY * 2);
         if (!CGRectIntersectsRect(brick, ballRect)) continue;
         self.bricks[index] = @NO; self.destroyed++;
         CGFloat horizontalHit = (self.ball.x - CGRectGetMidX(brick)) / (brick.size.width / 2);
@@ -1768,7 +1911,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
         }
         return;
     }
-    if (self.ball.y - radius > 1) {
+    if (self.ball.y - radiusY > 1) {
         self.gameOver = YES; [self pauseGame]; [self refresh]; GameShowMessage(self, @"足球落地", [NSString stringWithFormat:@"本局击中了 %ld 个盒子。", (long)self.destroyed]); return;
     }
     [self refresh];
@@ -1778,6 +1921,442 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     self.gameBoard.playerX = self.playerX; self.gameBoard.playerHalfWidth = self.playerHalfWidth; self.gameBoard.gameOver = self.gameOver;
     [self.gameBoard setNeedsDisplay];
     self.statusLabel.text = self.gameOver ? [NSString stringWithFormat:@"第 %ld 关结束 · 点击重来", (long)self.level] : [NSString stringWithFormat:@"第 %ld 关 · 已击中 %ld / %ld", (long)self.level, (long)self.destroyed, (long)self.brickTarget];
+}
+@end
+
+#pragma mark - 动物叠叠消
+
+@interface CRMAnimalMatchBoard : UIView {
+@public
+    CRMAnimalGame game;
+}
+@property (nonatomic, strong) NSMutableArray<UIButton *> *cardButtons;
+@property (nonatomic, strong) NSArray<UIView *> *slots;
+@property (nonatomic, strong) UILabel *heading;
+@property (nonatomic, strong) UILabel *detail;
+@property (nonatomic, strong) UILabel *trayLabel;
+@property (nonatomic, strong) UILabel *hint;
+@property (nonatomic, strong) UIProgressView *progress;
+@property (nonatomic, copy) void (^changed)(void);
+@property (nonatomic, assign) BOOL animating;
+@property (nonatomic, assign) NSUInteger generation;
+- (void)startLevel:(NSInteger)level;
+@end
+
+@implementation CRMAnimalMatchBoard
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if ((self = [super initWithFrame:frame])) {
+        self.backgroundColor = GameColor(0xE8EFE6);
+        self.heading = GameLabel(@"动物叠叠消", 22, UIFontWeightBold, GameColor(0x294B46));
+        self.detail = GameLabel(@"", 12, UIFontWeightMedium, GameColor(0x71867B));
+        self.trayLabel = GameLabel(@"", 13, UIFontWeightSemibold, GameColor(0x355B54));
+        self.hint = GameLabel(@"点亮色卡片 · 三张相同即可消除", 11, UIFontWeightMedium, GameColor(0x71867B));
+        self.hint.textAlignment = NSTextAlignmentCenter;
+        self.progress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        self.progress.progressTintColor = GameColor(0x6D998A);
+        self.progress.trackTintColor = GameColor(0xD5E1D5);
+        for (UIView *view in @[self.heading, self.detail, self.trayLabel, self.hint, self.progress]) [self addSubview:view];
+        NSMutableArray *slots = [NSMutableArray array];
+        for (NSInteger i = 0; i < CRMAnimalSlots; i++) {
+            UIView *slot = [[UIView alloc] init];
+            slot.backgroundColor = GameColor(0xD5E1D5);
+            slot.layer.cornerRadius = 10;
+            slot.layer.borderWidth = 1;
+            slot.layer.borderColor = GameColor(0xC4D4C8).CGColor;
+            [self addSubview:slot];
+            [slots addObject:slot];
+        }
+        self.slots = slots;
+        self.cardButtons = [NSMutableArray array];
+    }
+    return self;
+}
+
+- (void)startLevel:(NSInteger)level {
+    self.generation++;
+    self.animating = NO;
+    for (UIButton *button in self.cardButtons) [button removeFromSuperview];
+    [self.cardButtons removeAllObjects];
+    CRMAnimalStart(&game, (int)level, arc4random());
+    NSArray *animals = @[@"🐑", @"🐱", @"🐶", @"🦊", @"🐰", @"🐼", @"🐸", @"🐻"];
+    NSArray *names = @[@"绵羊", @"小猫", @"小狗", @"狐狸", @"兔子", @"熊猫", @"青蛙", @"小熊"];
+    for (int i = 0; i < game.count; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.tag = i;
+        button.layer.cornerRadius = 9;
+        button.layer.borderWidth = 1.5;
+        button.layer.shadowColor = GameColor(0x355B54).CGColor;
+        button.layer.shadowOffset = CGSizeMake(0, 3);
+        button.layer.shadowRadius = 0;
+        button.layer.shadowOpacity = 0.20;
+        button.adjustsImageWhenHighlighted = NO;
+        [button setTitle:animals[game.cards[i].kind] forState:UIControlStateNormal];
+        button.accessibilityLabel = names[game.cards[i].kind];
+        [button addTarget:self action:@selector(selectCard:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
+        [self.cardButtons addObject:button];
+    }
+    [self refresh];
+    [self setNeedsLayout];
+    if (self.changed) self.changed();
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGFloat width = self.bounds.size.width, height = self.bounds.size.height;
+    self.heading.frame = CGRectMake(16, 14, width - 32, 28);
+    self.detail.frame = CGRectMake(16, 45, width - 32, 20);
+    self.progress.frame = CGRectMake(16, 72, width - 32, 3);
+    CGFloat slotSize = MAX(1, (width - 32 - 25) / CRMAnimalSlots);
+    CGFloat slotY = height - slotSize - 32;
+    self.trayLabel.frame = CGRectMake(16, slotY - 28, width - 32, 22);
+    self.hint.frame = CGRectMake(8, height - 25, width - 16, 19);
+    for (NSInteger i = 0; i < self.slots.count; i++) {
+        self.slots[i].frame = CGRectMake(16 + i * (slotSize + 5), slotY, slotSize, slotSize);
+    }
+    [self layoutCards];
+}
+
+- (void)layoutCards {
+    if (!game.count) return;
+    CGFloat maxX = 0, maxY = 0;
+    for (int i = 0; i < game.count; i++) {
+        maxX = MAX(maxX, game.cards[i].x + 1);
+        maxY = MAX(maxY, game.cards[i].y + 1);
+    }
+    CGFloat availableHeight = MAX(1, self.trayLabel.frame.origin.y - 100);
+    CGFloat size = MIN(72, MIN((self.bounds.size.width - 32) / maxX, availableHeight / maxY));
+    CGFloat originX = (self.bounds.size.width - maxX * size) / 2;
+    CGFloat originY = 88 + (availableHeight - maxY * size) / 2;
+    for (int i = 0; i < game.count; i++) {
+        UIButton *button = self.cardButtons[i];
+        if (!game.cards[i].removed) {
+            button.frame = CGRectMake(originX + game.cards[i].x * size, originY + game.cards[i].y * size, size, size);
+            button.titleLabel.font = [UIFont systemFontOfSize:size * 0.57];
+        }
+    }
+    for (int i = 0; i < game.trayCount; i++) {
+        UIButton *button = self.cardButtons[game.tray[i]];
+        button.frame = self.slots[i].frame;
+        button.titleLabel.font = [UIFont systemFontOfSize:button.bounds.size.width * 0.60];
+        [self bringSubviewToFront:button];
+    }
+}
+
+- (void)refresh {
+    self.detail.text = [NSString stringWithFormat:@"%@ · 剩余 %d / %d 张", game.level == 1 ? @"第一关 · 轻松入门" : @"第二关 · 森林挑战", game.remaining, game.count];
+    self.trayLabel.text = [NSString stringWithFormat:@"收集盒  %d / 6%@", game.trayCount, game.trayCount >= 5 ? @"   · 小心，快满啦" : @"   · 三张一组"];
+    self.trayLabel.textColor = game.trayCount >= 5 ? GameColor(0xAC684F) : GameColor(0x355B54);
+    self.progress.progress = (float)(game.count - game.remaining - game.trayCount) / game.count;
+    self.hint.text = game.outcome == CRMAnimalWon ? @"全部消除！小动物们都回家啦" : game.outcome == CRMAnimalLost ? @"收集盒满了，点击重来再挑战一次" : @"点亮色卡片 · 三张相同即可消除";
+    for (int i = 0; i < game.count; i++) {
+        UIButton *button = self.cardButtons[i];
+        BOOL inTray = NO;
+        for (int j = 0; j < game.trayCount; j++) if (game.tray[j] == i) inTray = YES;
+        BOOL open = CRMAnimalIsOpen(&game, i);
+        button.hidden = game.cards[i].removed && !inTray;
+        button.backgroundColor = open || inTray ? GameColor(0xFFFDF6) : GameColor(0xADC0AE);
+        button.layer.borderColor = (open || inTray ? GameColor(0xD8DDCD) : GameColor(0x9FB29F)).CGColor;
+        button.titleLabel.alpha = open || inTray ? 1 : 0.38;
+        // 被盖住的卡仍拦截触摸，避免点击穿透到更深层卡片。
+        button.userInteractionEnabled = !inTray;
+        button.accessibilityTraits = UIAccessibilityTraitButton | (open && !self.animating && game.outcome == CRMAnimalPlaying ? 0 : UIAccessibilityTraitNotEnabled);
+        button.accessibilityHint = inTray ? @"已在收集盒中" : open ? @"轻点收集" : @"需先移走上方卡片";
+    }
+}
+
+- (void)selectCard:(UIButton *)sender {
+    if (self.animating || !CRMAnimalSelect(&game, (int)sender.tag)) return;
+    self.animating = YES;
+    NSUInteger generation = self.generation;
+    [self refresh];
+    UIImpactFeedbackGenerator *feedback = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+    [feedback impactOccurred];
+    NSTimeInterval duration = UIAccessibilityIsReduceMotionEnabled() ? 0 : 0.22;
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:duration animations:^{
+        [weakSelf layoutCards];
+    } completion:^(BOOL finished) {
+        typeof(self) self = weakSelf;
+        if (!self || generation != self.generation) return;
+        NSMutableArray<UIButton *> *previous = [NSMutableArray array];
+        for (int i = 0; i < self->game.trayCount; i++) [previous addObject:self.cardButtons[self->game.tray[i]]];
+        int cleared = CRMAnimalSettle(&self->game);
+        NSMutableArray<UIButton *> *removed = [previous mutableCopy];
+        for (int i = 0; i < self->game.trayCount; i++) [removed removeObject:self.cardButtons[self->game.tray[i]]];
+        [UIView animateWithDuration:cleared ? duration : 0 animations:^{
+            for (UIButton *button in removed) {
+                button.alpha = 0;
+                button.transform = CGAffineTransformMakeScale(0.6, 0.6);
+            }
+        } completion:^(BOOL finishedClearing) {
+            typeof(self) self = weakSelf;
+            if (!self || generation != self.generation) return;
+            for (UIButton *button in removed) { button.transform = CGAffineTransformIdentity; button.alpha = 1; }
+            self.animating = NO;
+            [self refresh];
+            [self setNeedsLayout];
+            if (self.changed) self.changed();
+        }];
+    }];
+}
+@end
+
+@interface CRMAnimalMatchController : CRMGameController
+@property (nonatomic, strong) CRMAnimalMatchBoard *animalBoard;
+@end
+
+@implementation CRMAnimalMatchController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.animalBoard = [[CRMAnimalMatchBoard alloc] init];
+    [self setupCompactLayoutWithBoard:self.animalBoard aspect:1.55 maximumWidth:410];
+    self.actions.axis = UILayoutConstraintAxisHorizontal;
+    self.actions.distribution = UIStackViewDistributionEqualSpacing;
+    for (NSArray *item in @[@[@"规则", NSStringFromSelector(@selector(showRules))], @[@"重来", NSStringFromSelector(@selector(restartLevel))], @[@"关卡", NSStringFromSelector(@selector(chooseLevel))]]) {
+        UIButton *button = GameCircleButton(item[0], 62, 15);
+        [button addTarget:self action:NSSelectorFromString(item[1]) forControlEvents:UIControlEventTouchUpInside];
+        [self.actions addArrangedSubview:button];
+    }
+    __weak typeof(self) weakSelf = self;
+    self.animalBoard.changed = ^{ [weakSelf updateGameStatus]; };
+    [self.animalBoard startLevel:1];
+}
+
+- (void)showRules {
+    GameShowMessage(self, @"动物叠叠消", @"只能选择未被上层遮挡的亮色卡片。\n\n收集盒只有 6 格，三张相同动物自动消除。第六张可以消除时继续，否则失败。\n\n清空所有卡片即可通关。第一关练手，第二关挑战！");
+}
+
+- (void)restartLevel {
+    [self.animalBoard startLevel:self.animalBoard->game.level];
+}
+
+- (void)chooseLevel {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择关卡" message:@"第一关：18 张 · 3 种动物 · 错位双层\n第二关：90 张 · 8 种动物 · 六层不规则主堆＋双侧牌堆" preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) weakSelf = self;
+    [alert addAction:[UIAlertAction actionWithTitle:@"第一关 · 轻松入门" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [weakSelf.animalBoard startLevel:1]; }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"第二关 · 森林挑战" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [weakSelf.animalBoard startLevel:2]; }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)updateGameStatus {
+    CRMAnimalGame *state = &self.animalBoard->game;
+    self.statusLabel.text = [NSString stringWithFormat:@"动物叠叠消 · 第 %d 关", state->level];
+    // 动画完成时用户可能已经返回，避免从离屏控制器弹出结果。
+    if (state->outcome == CRMAnimalPlaying || !self.view.window || self.presentedViewController) return;
+    BOOL won = state->outcome == CRMAnimalWon;
+    BOOL next = won && state->level == 1;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:won ? @"通关啦！" : @"盒子装满啦" message:next ? @"热身完成，下一关有更多动物和更深的堆叠。" : won ? @"两关挑战完成！再来一局会生成新的牌局。" : @"六格内没有凑齐三张，换个收集顺序再试试。" preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) weakSelf = self;
+    [alert addAction:[UIAlertAction actionWithTitle:next ? @"挑战第二关" : @"再来一局" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        if (next) [weakSelf.animalBoard startLevel:2];
+        else [weakSelf restartLevel];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"留在棋盘" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+@end
+
+#pragma mark - 贪吃蛇
+
+@interface CRMSnakeBoard : UIView {
+@public
+    CRMSnakeGame game;
+}
+@property (nonatomic, copy) NSString *message;
+@end
+
+@implementation CRMSnakeBoard
+- (void)drawRect:(CGRect)rect {
+    [GameColor(0x294B46) setFill];
+    UIRectFill(self.bounds);
+    [@"🐍  森林漫游" drawInRect:CGRectMake(16, 12, self.bounds.size.width - 32, 24)
+                  withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold], NSForegroundColorAttributeName: GameColor(0xE5EEDB)}];
+    CGFloat cell = MIN((self.bounds.size.width - 20) / CRMSnakeColumns, (self.bounds.size.height - 52) / CRMSnakeRows);
+    CGFloat left = (self.bounds.size.width - CRMSnakeColumns * cell) / 2;
+    CGFloat top = 42 + (self.bounds.size.height - 52 - CRMSnakeRows * cell) / 2;
+    for (int row = 0; row < CRMSnakeRows; row++) {
+        for (int column = 0; column < CRMSnakeColumns; column++) {
+            [(row + column) % 2 ? GameColor(0x30564E) : GameColor(0x335A52) setFill];
+            CGRect tile = CGRectMake(left + column * cell, top + row * cell, cell, cell);
+            [[UIBezierPath bezierPathWithRoundedRect:CGRectInset(tile, 0.8, 0.8) cornerRadius:cell * 0.15] fill];
+        }
+    }
+    if (game.food >= 0) {
+        CGFloat x = left + (game.food % CRMSnakeColumns + 0.5) * cell;
+        CGFloat y = top + (game.food / CRMSnakeColumns + 0.5) * cell;
+        [GameColor(0xF2A080) setFill];
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(x - cell * 0.33, y - cell * 0.28, cell * 0.66, cell * 0.61)] fill];
+        [GameColor(0xC9DE92) setFill];
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(x, y - cell * 0.43, cell * 0.26, cell * 0.16)] fill];
+    }
+    // 用圆角连接段画出连续身体，保留清晰的棋盘格定位。
+    for (int i = game.length - 1; i >= 0; i--) {
+        CGPoint center = CGPointMake(left + (game.body[i] % CRMSnakeColumns + 0.5) * cell,
+                                     top + (game.body[i] / CRMSnakeColumns + 0.5) * cell);
+        UIColor *color = i == 0 ? GameColor(0xE3EDAC) : i % 2 ? GameColor(0xA6CF9A) : GameColor(0xB9DCA1);
+        [color setFill]; [color setStroke];
+        if (i > 0) {
+            CGPoint next = CGPointMake(left + (game.body[i - 1] % CRMSnakeColumns + 0.5) * cell,
+                                      top + (game.body[i - 1] / CRMSnakeColumns + 0.5) * cell);
+            UIBezierPath *link = [UIBezierPath bezierPath];
+            [link moveToPoint:center]; [link addLineToPoint:next];
+            link.lineWidth = cell * 0.67;
+            link.lineCapStyle = kCGLineCapRound;
+            [link stroke];
+        }
+        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(center.x - cell * 0.4, center.y - cell * 0.4, cell * 0.8, cell * 0.8)] fill];
+        if (i == 0) {
+            const int dx[] = {0, 1, 0, -1}, dy[] = {-1, 0, 1, 0};
+            [GameColor(0x294B46) setFill];
+            for (int side = -1; side <= 1; side += 2) {
+                CGFloat x = center.x + cell * (0.16 * dx[game.direction] + side * 0.19 * dy[game.direction]);
+                CGFloat y = center.y + cell * (0.16 * dy[game.direction] + side * 0.19 * dx[game.direction]);
+                [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(x - cell * 0.065, y - cell * 0.065, cell * 0.13, cell * 0.13)] fill];
+            }
+        }
+    }
+    if (self.message.length) {
+        CGRect panel = CGRectMake(12, (self.bounds.size.height - 94) / 2, self.bounds.size.width - 24, 94);
+        [[GameColor(0xF7F7F2) colorWithAlphaComponent:0.96] setFill];
+        [[UIBezierPath bezierPathWithRoundedRect:panel cornerRadius:16] fill];
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        style.alignment = NSTextAlignmentCenter;
+        style.lineSpacing = 8;
+        [self.message drawInRect:CGRectInset(panel, 6, 17) withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14 weight:UIFontWeightSemibold], NSForegroundColorAttributeName: GameColor(0x355B54), NSParagraphStyleAttributeName: style}];
+    }
+}
+@end
+
+@interface CRMSnakeController : CRMGameController
+@property (nonatomic, strong) CRMSnakeBoard *snakeBoard;
+@property (nonatomic, strong) NSTimer *snakeTimer;
+@property (nonatomic, strong) UIButton *pauseButton;
+@property (nonatomic, assign) BOOL started;
+@property (nonatomic, assign) NSInteger bestScore;
+@end
+
+@implementation CRMSnakeController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.snakeBoard = [[CRMSnakeBoard alloc] init];
+    [self setupCompactLayoutWithBoard:self.snakeBoard aspect:1.48 maximumWidth:380];
+    self.actions.axis = UILayoutConstraintAxisHorizontal;
+    self.actions.alignment = UIStackViewAlignmentCenter;
+    self.actions.distribution = UIStackViewDistributionEqualSpacing;
+    UIButton *restart = GameCircleButton(@"重来", 52, 14);
+    [restart addTarget:self action:@selector(restartSnake) forControlEvents:UIControlEventTouchUpInside];
+    [self.actions addArrangedSubview:restart];
+    UIView *pad = [[UIView alloc] init];
+    pad.backgroundColor = GameColor(0xE5EEEA);
+    pad.layer.cornerRadius = 74;
+    [pad.widthAnchor constraintEqualToConstant:148].active = YES;
+    [pad.heightAnchor constraintEqualToConstant:148].active = YES;
+    [self.actions addArrangedSubview:pad];
+    NSArray *titles = @[@"▲", @"▶", @"▼", @"◀"];
+    NSArray *names = @[@"向上", @"向右", @"向下", @"向左"];
+    const CGFloat positions[4][2] = {{52, 0}, {104, 52}, {52, 104}, {0, 52}};
+    for (NSInteger i = 0; i < 4; i++) {
+        UIButton *button = GameCircleButton(titles[i], 44, 18);
+        button.tag = i;
+        button.accessibilityLabel = names[i];
+        // 按下立即转向；保持方向会自动前进，无需长按重复发送。
+        [button addTarget:self action:@selector(turnSnake:) forControlEvents:UIControlEventTouchDown];
+        [pad addSubview:button];
+        [button.leadingAnchor constraintEqualToAnchor:pad.leadingAnchor constant:positions[i][0]].active = YES;
+        [button.topAnchor constraintEqualToAnchor:pad.topAnchor constant:positions[i][1]].active = YES;
+        UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeSnake:)];
+        const UISwipeGestureRecognizerDirection directions[] = {UISwipeGestureRecognizerDirectionUp, UISwipeGestureRecognizerDirectionRight, UISwipeGestureRecognizerDirectionDown, UISwipeGestureRecognizerDirectionLeft};
+        swipe.direction = directions[i];
+        [self.snakeBoard addGestureRecognizer:swipe];
+    }
+    UILabel *icon = GameLabel(@"🐍", 26, UIFontWeightRegular, GameColor(0x355B54));
+    icon.frame = CGRectMake(52, 52, 44, 44);
+    icon.textAlignment = NSTextAlignmentCenter;
+    [pad addSubview:icon];
+    self.pauseButton = GameCircleButton(@"开始", 52, 14);
+    [self.pauseButton addTarget:self action:@selector(toggleSnake) forControlEvents:UIControlEventTouchUpInside];
+    [self.actions addArrangedSubview:self.pauseButton];
+    self.bestScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"CRMGameSnakeBestScore"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseSnake) name:UIApplicationWillResignActiveNotification object:nil];
+    [self restartSnake];
+}
+
+- (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; [self pauseSnake]; }
+- (void)dealloc { [self.snakeTimer invalidate]; [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+
+- (void)restartSnake {
+    [self.snakeTimer invalidate]; self.snakeTimer = nil;
+    self.started = NO;
+    CRMSnakeStart(&self.snakeBoard->game, arc4random());
+    [self refreshSnake];
+}
+
+- (NSTimeInterval)snakeInterval {
+    return MAX(0.09, 0.28 - ((self.snakeBoard->game.length - 4) / 3) * 0.02);
+}
+
+- (void)startSnakeTimer {
+    if (self.snakeTimer || !self.view.window || UIApplication.sharedApplication.applicationState != UIApplicationStateActive || self.snakeBoard->game.outcome != CRMSnakePlaying) return;
+    self.started = YES;
+    __weak typeof(self) weakSelf = self;
+    self.snakeTimer = [NSTimer timerWithTimeInterval:[self snakeInterval] repeats:YES block:^(NSTimer *timer) { [weakSelf tickSnake]; }];
+    self.snakeTimer.tolerance = 0.008;
+    [[NSRunLoop mainRunLoop] addTimer:self.snakeTimer forMode:NSRunLoopCommonModes];
+    [self refreshSnake];
+}
+
+- (void)pauseSnake {
+    [self.snakeTimer invalidate]; self.snakeTimer = nil;
+    self.snakeBoard->game.turnCount = 0;
+    [self refreshSnake];
+}
+
+- (void)toggleSnake {
+    if (self.snakeBoard->game.outcome != CRMSnakePlaying) { [self restartSnake]; return; }
+    if (self.snakeTimer) [self pauseSnake];
+    else [self startSnakeTimer];
+}
+
+- (void)turnSnake:(UIButton *)sender {
+    if (self.snakeTimer) CRMSnakeTurn(&self.snakeBoard->game, (int)sender.tag);
+}
+
+- (void)swipeSnake:(UISwipeGestureRecognizer *)swipe {
+    if (!self.snakeTimer) return;
+    int direction = swipe.direction == UISwipeGestureRecognizerDirectionUp ? CRMSnakeUp : swipe.direction == UISwipeGestureRecognizerDirectionDown ? CRMSnakeDown : swipe.direction == UISwipeGestureRecognizerDirectionLeft ? CRMSnakeLeft : CRMSnakeRight;
+    CRMSnakeTurn(&self.snakeBoard->game, direction);
+}
+
+- (void)tickSnake {
+    CRMSnakeStep(&self.snakeBoard->game);
+    NSInteger score = self.snakeBoard->game.length - 4;
+    if (score > self.bestScore) {
+        self.bestScore = score;
+        [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"CRMGameSnakeBestScore"];
+    }
+    if (self.snakeBoard->game.outcome != CRMSnakePlaying) {
+        [self pauseSnake];
+    } else if (fabs(self.snakeTimer.timeInterval - [self snakeInterval]) > 0.001) {
+        [self.snakeTimer invalidate]; self.snakeTimer = nil;
+        [self startSnakeTimer];
+    }
+    [self refreshSnake];
+}
+
+- (void)refreshSnake {
+    CRMSnakeGame *state = &self.snakeBoard->game;
+    self.statusLabel.text = [NSString stringWithFormat:@"贪吃蛇 · %d 分 · 最佳 %ld\n速度 %d 级", state->length - 4, (long)self.bestScore, MIN(11, 1 + (state->length - 4) / 3)];
+    NSString *message = nil;
+    if (state->outcome == CRMSnakeLost) message = @"撞到了！再来一局吧\n点击重来，重新出发";
+    else if (state->outcome == CRMSnakeWon) message = @"满盘通关！\n森林小蛇已经长大啦";
+    else if (!self.started) message = @"准备出发 · 点击开始\n方向键或滑动棋盘控制";
+    else if (!self.snakeTimer) message = @"已暂停\n点击继续，回到森林";
+    self.snakeBoard.message = message;
+    [self.pauseButton setTitle:state->outcome != CRMSnakePlaying ? @"新局" : self.snakeTimer ? @"暂停" : self.started ? @"继续" : @"开始" forState:UIControlStateNormal];
+    [self.snakeBoard setNeedsDisplay];
 }
 @end
 
@@ -1863,7 +2442,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     UILabel *heroTitle = GameLabel(@"随时开玩", 24, UIFontWeightBold, UIColor.whiteColor);
     heroTitle.translatesAutoresizingMaskIntoConstraints = NO;
     [hero addSubview:heroTitle];
-    UILabel *heroDetail = GameLabel(@"六款经典小游戏\n从一局开始，放松一下。", 14, UIFontWeightRegular, GameColor(0xD8E6DF));
+    UILabel *heroDetail = GameLabel(@"八款经典小游戏\n从一局开始，放松一下。", 14, UIFontWeightRegular, GameColor(0xD8E6DF));
     heroDetail.translatesAutoresizingMaskIntoConstraints = NO;
     [hero addSubview:heroDetail];
     [NSLayoutConstraint activateConstraints:@[
@@ -1886,9 +2465,11 @@ static const NSInteger CRMSoccerBrickColumns = 7;
         @[@"数独", @"静心思考 · 填满九宫", @"9", @"E8E5F2"],
         @[@"俄罗斯方块", @"旋转下落 · 消除整行", @"▣", @"E7EDF2"],
         @[@"三车道赛车", @"左右换道 · 躲避障碍", @"🏎", @"F5E4D8"],
-        @[@"足球打砖块", @"长按移动 · 反弹射门", @"⚽", @"DDECF2"]
+        @[@"足球打砖块", @"长按移动 · 反弹射门", @"⚽", @"DDECF2"],
+        @[@"动物叠叠消", @"羊了个羊玩法 · 两关挑战", @"🐑", @"E3ECD9"],
+        @[@"贪吃蛇", @"收集果实 · 灵活转弯", @"🐍", @"DBEBDD"]
     ];
-    for (NSInteger row = 0; row < 3; row++) {
+    for (NSInteger row = 0; row < (items.count + 1) / 2; row++) {
         UIStackView *cards = [[UIStackView alloc] init];
         cards.axis = UILayoutConstraintAxisHorizontal;
         cards.distribution = UIStackViewDistributionFillEqually;
@@ -1898,9 +2479,19 @@ static const NSInteger CRMSoccerBrickColumns = 7;
         [cards.heightAnchor constraintEqualToConstant:182].active = YES;
         for (NSInteger column = 0; column < 2; column++) {
             NSInteger index = row * 2 + column;
-            [cards addArrangedSubview:[self cardWithInfo:items[index] index:index]];
+            [cards addArrangedSubview:index < items.count ? [self cardWithInfo:items[index] index:index] : [[UIView alloc] init]];
         }
     }
+    [content addArrangedSubview:GameLabel(@"收藏图鉴", 20, UIFontWeightBold, GameColor(0x243B39))];
+    UIButton *atlas = GameButton(@"数码宝贝图集  ›\n千余位伙伴 · 搜索与等级筛选", GameColor(0x355D55), UIColor.whiteColor);
+    atlas.titleLabel.numberOfLines = 2;
+    atlas.titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightSemibold];
+    atlas.titleLabel.textAlignment = NSTextAlignmentLeft;
+    atlas.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    atlas.contentEdgeInsets = UIEdgeInsetsMake(16, 22, 16, 22);
+    [atlas.heightAnchor constraintGreaterThanOrEqualToConstant:94].active = YES;
+    [atlas addTarget:self action:@selector(openAtlas) forControlEvents:UIControlEventTouchUpInside];
+    [content addArrangedSubview:atlas];
     UILabel *footer = GameLabel(@"每一局，都是自己的节奏。", 13, UIFontWeightRegular, GameColor(0x9AA8A3));
     footer.textAlignment = NSTextAlignmentCenter;
     [content addArrangedSubview:footer];
@@ -1945,9 +2536,15 @@ static const NSInteger CRMSoccerBrickColumns = 7;
         case 3: controller = [[CRMTetrisController alloc] init]; break;
         case 4: controller = [[CRMRacingController alloc] init]; break;
         case 5: controller = [[CRMSoccerBreakoutController alloc] init]; break;
+        case 6: controller = [[CRMAnimalMatchController alloc] init]; break;
+        case 7: controller = [[CRMSnakeController alloc] init]; break;
         default: return;
     }
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)openAtlas {
+    [self.navigationController pushViewController:[[CRMDigimonAtlasViewController alloc] init] animated:YES];
 }
 
 @end
