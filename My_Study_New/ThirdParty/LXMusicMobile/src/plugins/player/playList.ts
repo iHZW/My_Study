@@ -154,6 +154,19 @@ export const initTrackInfo = async(musicInfo: LX.Player.PlayMusic, mInfo: LX.Pla
   delayUpdateMusicInfo(mInfo)
 }
 
+/**
+ * 启动当前曲目，并由业务层确认播放已开始。
+ *
+ * iOS 快速切歌时，原生 Playing 事件可能早于曲目切换事件到达，导致它因
+ * 临时轨判断而被忽略。仅依赖该事件会让音频正常播放，但进度与歌词轮询
+ * 没有启动。TrackPlayer.play() 成功返回后主动同步一次，消除事件先后竞态。
+ */
+const playCurrentTrack = async() => {
+  await TrackPlayer.play()
+  global.app_event.playerPlaying()
+  global.app_event.play()
+}
+
 
 const handlePlayMusic = async(musicInfo: LX.Player.PlayMusic, url: string, time: number) => {
 // console.log(tracks, time)
@@ -176,14 +189,14 @@ const handlePlayMusic = async(musicInfo: LX.Player.PlayMusic, url: string, time:
       // TODO startupAutoPlay
       // if (startupAutoPlay) store.dispatch(playerAction.playMusic())
       } else {
-        await TrackPlayer.play()
+        await playCurrentTrack()
       }
     }
   } else {
     await TrackPlayer.pause()
     if (!isTempTrack(track.id as string)) {
       await TrackPlayer.seekTo(time)
-      await TrackPlayer.play()
+      await playCurrentTrack()
     }
   }
 

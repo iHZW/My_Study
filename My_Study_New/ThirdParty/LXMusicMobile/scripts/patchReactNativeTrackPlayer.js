@@ -30,32 +30,174 @@ const webSocketTargetPath = path.join(
   'RCTWebSocketModule.mm',
 )
 
-const marker = '// SwiftAudioEx 会异步派发队列索引事件。'
-const anchor = `    func handleAudioPlayerQueueIndexChange(previousIndex: Int?, nextIndex: Int?) {
-        var dictionary: [String: Any] = [ "position": player.currentTime ]`
-const replacement = `    func handleAudioPlayerQueueIndexChange(previousIndex: Int?, nextIndex: Int?) {
-        ${marker}清理旧曲目后，先前排队的事件
-        // 可能携带已经失效的索引；必须在读取 player.items 前丢弃该事件。
-        if let nextIndex = nextIndex,
-           (nextIndex != player.currentIndex || !player.items.indices.contains(nextIndex)) {
-            return
-        }
+const podspecTargetPath = path.join(
+  __dirname,
+  '..',
+  'node_modules',
+  'react-native-track-player',
+  'react-native-track-player.podspec',
+)
 
-        var dictionary: [String: Any] = [ "position": player.currentTime ]`
+// SwiftAudioEx 0.14.7 的 QueueManager 没有线程同步，快速切歌时偶发数组越界
+// 崩溃；官方 PR #55 已在 1.1.0 通过 NSRecursiveLock 全量加锁修复。因此升级
+// 依赖到 1.1.0（原先的「队列索引事件防越界」补丁随之移除），并适配新 API：
+// 1. queueIndex 事件更名为 currentItem，负载直接携带曲目与索引，无需再按
+//    索引回读 player.items；receiveMetadata 更名为 receiveCommonMetadata，
+//    负载类型不变。
+// 2. next()/previous() 不再抛出异常，需在调用前手动检查队列边界，以维持
+//    JS 侧 queue_exhausted / no_previous_track 的拒绝契约。
+if (!fs.existsSync(podspecTargetPath)) {
+  throw new Error(`找不到 react-native-track-player podspec：${podspecTargetPath}`)
+}
+
+const podspecAnchor = 's.dependency "SwiftAudioEx", "0.14.7"'
+const podspecReplacement = 's.dependency "SwiftAudioEx", "1.1.0"'
+const podspecSource = fs.readFileSync(podspecTargetPath, 'utf8')
+if (podspecSource.includes(podspecReplacement)) {
+  console.log('react-native-track-player podspec SwiftAudioEx 1.1.0 补丁已存在')
+} else if (podspecSource.includes(podspecAnchor)) {
+  fs.writeFileSync(podspecTargetPath, podspecSource.replace(podspecAnchor, podspecReplacement))
+  console.log('已应用 react-native-track-player podspec SwiftAudioEx 1.1.0 补丁')
+} else {
+  throw new Error('react-native-track-player podspec 结构已变化，无法安全应用补丁')
+}
 
 if (!fs.existsSync(targetPath)) {
   throw new Error(`找不到 react-native-track-player 源文件：${targetPath}`)
 }
 
-const source = fs.readFileSync(targetPath, 'utf8')
-if (source.includes(marker)) {
-  console.log('react-native-track-player iOS 队列边界补丁已存在')
-} else if (source.includes(anchor)) {
-  fs.writeFileSync(targetPath, source.replace(anchor, replacement))
-  console.log('已应用 react-native-track-player iOS 队列边界补丁')
-} else {
-  throw new Error('react-native-track-player 源码结构已变化，无法安全应用补丁')
+const swiftPatches = [
+  {
+    name: 'SwiftAudioEx 1.1.0 事件监听器注册',
+    marker: 'player.event.currentItem.addListener(self, handleAudioPlayerCurrentItemChange)',
+    anchor: `        player.event.receiveMetadata.addListener(self, handleAudioPlayerMetadataReceived)
+        player.event.stateChange.addListener(self, handleAudioPlayerStateChange)
+        player.event.fail.addListener(self, handleAudioPlayerFailed)
+        player.event.queueIndex.addListener(self, handleAudioPlayerQueueIndexChange)`,
+    replacement: `        player.event.receiveCommonMetadata.addListener(self, handleAudioPlayerMetadataReceived)
+        player.event.stateChange.addListener(self, handleAudioPlayerStateChange)
+        player.event.fail.addListener(self, handleAudioPlayerFailed)
+        player.event.currentItem.addListener(self, handleAudioPlayerCurrentItemChange)`,
+  },
+  {
+    name: 'SwiftAudioEx 1.1.0 队列边界检查',
+    marker: 'player.nextItems.isEmpty && player.repeatMode != .queue',
+    anchor: `    @objc(skipToNext:rejecter:)
+    public func skipToNext(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+        print("Skipping to next track")
+        do {
+            try player.next()
+            resolve(NSNull())
+        } catch (_) {
+            reject("queue_exhausted", "There is no tracks left to play", nil)
+        }
+    }
+
+    @objc(skipToPrevious:rejecter:)
+    public func skipToPrevious(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+        print("Skipping to next track")
+        do {
+            try player.previous()
+            resolve(NSNull())
+        } catch (_) {
+            reject("no_previous_track", "There is no previous track", nil)
+        }
+    }`,
+    replacement: `    @objc(skipToNext:rejecter:)
+    public func skipToNext(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+        print("Skipping to next track")
+        // SwiftAudioEx 1.1.0 起 next()/previous() 不再抛出异常，
+        // 必须在调用前手动检查队列边界以维持 JS 侧的拒绝契约。
+        if player.nextItems.isEmpty && player.repeatMode != .queue {
+            reject("queue_exhausted", "There is no tracks left to play", nil)
+            return
+        }
+        player.next()
+        resolve(NSNull())
+    }
+
+    @objc(skipToPrevious:rejecter:)
+    public func skipToPrevious(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+        print("Skipping to next track")
+        if player.previousItems.isEmpty && player.repeatMode != .queue {
+            reject("no_previous_track", "There is no previous track", nil)
+            return
+        }
+        player.previous()
+        resolve(NSNull())
+    }`,
+  },
+  {
+    name: 'SwiftAudioEx 1.1.0 单曲循环事件',
+    marker: 'handleAudioPlayerCurrentItemChange(item: player.currentItem',
+    anchor: `        // fire an event for the same track starting again
+        switch player.repeatMode {
+        case .track:
+            handleAudioPlayerQueueIndexChange(previousIndex: player.currentIndex, nextIndex: player.currentIndex)
+        default: break
+        }`,
+    replacement: `        // fire an event for the same track starting again
+        switch player.repeatMode {
+        case .track:
+            handleAudioPlayerCurrentItemChange(item: player.currentItem, index: player.currentIndex, lastItem: player.currentItem, lastIndex: player.currentIndex, lastPosition: player.currentTime)
+        default: break
+        }`,
+  },
+  {
+    name: 'SwiftAudioEx 1.1.0 曲目切换事件',
+    marker: 'func handleAudioPlayerCurrentItemChange(',
+    anchor: `    func handleAudioPlayerQueueIndexChange(previousIndex: Int?, nextIndex: Int?) {
+        var dictionary: [String: Any] = [ "position": player.currentTime ]
+
+        if let previousIndex = previousIndex { dictionary["track"] = previousIndex }
+        if let nextIndex = nextIndex { dictionary["nextTrack"] = nextIndex }
+
+        // Load isLiveStream option for track
+        var isTrackLiveStream = false
+        if let nextIndex = nextIndex {
+            let track = player.items[nextIndex]
+            isTrackLiveStream = (track as? Track)?.isLiveStream ?? false
+        }
+
+        if player.automaticallyUpdateNowPlayingInfo {
+            player.nowPlayingInfoController.set(keyValue: NowPlayingInfoProperty.isLiveStream(isTrackLiveStream))
+        }
+
+        sendEvent(withName: "playback-track-changed", body: dictionary)
+    }`,
+    replacement: `    // SwiftAudioEx 1.1.0：queueIndex 事件由 currentItem 事件取代，
+    // 事件负载直接携带曲目与索引，无需再按索引回读 player.items。
+    func handleAudioPlayerCurrentItemChange(item: AudioItem?, index: Int?, lastItem: AudioItem?, lastIndex: Int?, lastPosition: Double?) {
+        var dictionary: [String: Any] = [ "position": lastPosition ?? player.currentTime ]
+
+        if let lastIndex = lastIndex { dictionary["track"] = lastIndex }
+        if let index = index { dictionary["nextTrack"] = index }
+
+        // Load isLiveStream option for track
+        let isTrackLiveStream = (item as? Track)?.isLiveStream ?? false
+
+        if player.automaticallyUpdateNowPlayingInfo {
+            player.nowPlayingInfoController.set(keyValue: NowPlayingInfoProperty.isLiveStream(isTrackLiveStream))
+        }
+
+        sendEvent(withName: "playback-track-changed", body: dictionary)
+    }`,
+  },
+]
+
+let swiftSource = fs.readFileSync(targetPath, 'utf8')
+for (const patch of swiftPatches) {
+  if (swiftSource.includes(patch.marker)) {
+    console.log(`react-native-track-player ${patch.name}补丁已存在`)
+    continue
+  }
+  if (!swiftSource.includes(patch.anchor)) {
+    throw new Error(`react-native-track-player 源码结构已变化，无法安全应用${patch.name}补丁`)
+  }
+  swiftSource = swiftSource.replace(patch.anchor, patch.replacement)
+  console.log(`已应用 react-native-track-player ${patch.name}补丁`)
 }
+fs.writeFileSync(targetPath, swiftSource)
 
 // Metro Reload 会销毁旧 React Bridge，但 SwiftAudioEx 的后台队列可能仍有
 // 已排队的播放器事件。旧模块此时直接调用 sendEvent 会因为
