@@ -58,6 +58,118 @@ static UIButton *GameCircleButton(NSString *title, CGFloat diameter, CGFloat fon
     return button;
 }
 
+typedef NS_ENUM(NSInteger, CRMGamePadDirection) {
+    CRMGamePadDirectionUp,
+    CRMGamePadDirectionRight,
+    CRMGamePadDirectionDown,
+    CRMGamePadDirectionLeft,
+};
+
+/// 覆盖方向盘四分之一圆环的按钮，视觉区域和触摸区域保持一致。
+@interface CRMGameFanButton : UIButton
+@property (nonatomic, assign) CRMGamePadDirection padDirection;
+@property (nonatomic, assign) CGFloat angularSpan;
+@property (nonatomic, strong) CAShapeLayer *fanLayer;
++ (instancetype)buttonWithDirection:(CRMGamePadDirection)direction title:(NSString *)title;
+@end
+
+@implementation CRMGameFanButton
+
++ (instancetype)buttonWithDirection:(CRMGamePadDirection)direction title:(NSString *)title {
+    CRMGameFanButton *button = [CRMGameFanButton buttonWithType:UIButtonTypeCustom];
+    button.padDirection = direction;
+    button.angularSpan = M_PI_2;
+    button.translatesAutoresizingMaskIntoConstraints = NO;
+    button.adjustsImageWhenHighlighted = NO;
+    button.titleLabel.font = [UIFont systemFontOfSize:19 weight:UIFontWeightSemibold];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:GameColor(0x355B54) forState:UIControlStateNormal];
+    button.fanLayer = [CAShapeLayer layer];
+    button.fanLayer.fillColor = UIColor.whiteColor.CGColor;
+    button.fanLayer.strokeColor = GameColor(0xD1E0DA).CGColor;
+    button.fanLayer.lineWidth = 1;
+    [button.layer insertSublayer:button.fanLayer atIndex:0];
+    return button;
+}
+
+- (UIBezierPath *)fanPath {
+    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    CGFloat outerRadius = MAX(0, MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) / 2 - 1);
+    CGFloat innerRadius = outerRadius * 0.38;
+    CGFloat middleAngle = -M_PI_2 + self.padDirection * M_PI_2;
+    CGFloat angleGap = M_PI / 180.0 * 1.2;
+    CGFloat startAngle = middleAngle - self.angularSpan / 2 + angleGap;
+    CGFloat endAngle = middleAngle + self.angularSpan / 2 - angleGap;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path addArcWithCenter:center radius:outerRadius startAngle:startAngle endAngle:endAngle clockwise:YES];
+    [path addArcWithCenter:center radius:innerRadius startAngle:endAngle endAngle:startAngle clockwise:NO];
+    [path closePath];
+    return path;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    UIBezierPath *path = [self fanPath];
+    self.fanLayer.frame = self.bounds;
+    self.fanLayer.path = path.CGPath;
+
+    CGFloat radius = MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) * 0.34;
+    CGFloat angle = -M_PI_2 + self.padDirection * M_PI_2;
+    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds) + cos(angle) * radius,
+                                 CGRectGetMidY(self.bounds) + sin(angle) * radius);
+    self.titleLabel.bounds = CGRectMake(0, 0, 32, 32);
+    self.titleLabel.center = center;
+}
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    return [[self fanPath] containsPoint:point];
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    self.fanLayer.fillColor = (highlighted ? GameColor(0xD3E3DD) : UIColor.whiteColor).CGColor;
+}
+
+@end
+
+
+/// 创建四个等分扇形按钮；四个按钮铺满容器，但只响应各自扇形内的触摸。
+static NSArray<CRMGameFanButton *> *GameAddFanButtons(UIView *pad, NSArray<NSString *> *titles) {
+    NSMutableArray<CRMGameFanButton *> *buttons = [NSMutableArray arrayWithCapacity:4];
+    for (NSInteger index = 0; index < 4; index++) {
+        CRMGameFanButton *button = [CRMGameFanButton buttonWithDirection:index title:titles[index]];
+        [pad addSubview:button];
+        [NSLayoutConstraint activateConstraints:@[
+            [button.topAnchor constraintEqualToAnchor:pad.topAnchor],
+            [button.leadingAnchor constraintEqualToAnchor:pad.leadingAnchor],
+            [button.trailingAnchor constraintEqualToAnchor:pad.trailingAnchor],
+            [button.bottomAnchor constraintEqualToAnchor:pad.bottomAnchor]
+        ]];
+        [buttons addObject:button];
+    }
+    return buttons;
+}
+
+/// 仅需要水平移动时，左右按钮各占半个圆环，避免无效的上下方向占用空间。
+static NSArray<CRMGameFanButton *> *GameAddHorizontalFanButtons(UIView *pad) {
+    NSArray<NSNumber *> *directions = @[@(CRMGamePadDirectionLeft), @(CRMGamePadDirectionRight)];
+    NSArray<NSString *> *titles = @[@"◀", @"▶"];
+    NSMutableArray<CRMGameFanButton *> *buttons = [NSMutableArray arrayWithCapacity:2];
+    for (NSInteger index = 0; index < directions.count; index++) {
+        CRMGameFanButton *button = [CRMGameFanButton buttonWithDirection:directions[index].integerValue title:titles[index]];
+        button.angularSpan = M_PI;
+        [pad addSubview:button];
+        [NSLayoutConstraint activateConstraints:@[
+            [button.topAnchor constraintEqualToAnchor:pad.topAnchor],
+            [button.leadingAnchor constraintEqualToAnchor:pad.leadingAnchor],
+            [button.trailingAnchor constraintEqualToAnchor:pad.trailingAnchor],
+            [button.bottomAnchor constraintEqualToAnchor:pad.bottomAnchor]
+        ]];
+        [buttons addObject:button];
+    }
+    return buttons;
+}
+
 static void GameShowMessage(UIViewController *controller, NSString *title, NSString *message) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil]];
@@ -420,26 +532,32 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     return button;
 }
 
-// 圆形方向键：上下左右环绕分布，中间是变换（旋转）按钮。
+// 扇形方向键：四个方向均分圆环，中间保留圆形变换（旋转）按钮。
 - (UIView *)buildDpad {
     UIView *dpad = [[UIView alloc] init];
     dpad.translatesAutoresizingMaskIntoConstraints = NO;
     [dpad.heightAnchor constraintEqualToConstant:168].active = YES;
     [dpad.widthAnchor constraintEqualToAnchor:dpad.heightAnchor].active = YES;
 
-    UIView *disc = [[UIView alloc] init];
-    disc.backgroundColor = GameColor(0xE4EDE9);
-    disc.layer.cornerRadius = 84;
-    disc.layer.borderWidth = 1;
-    disc.layer.borderColor = GameColor(0xD1E0DA).CGColor;
-    disc.translatesAutoresizingMaskIntoConstraints = NO;
-    [dpad addSubview:disc];
-    [NSLayoutConstraint activateConstraints:@[
-        [disc.topAnchor constraintEqualToAnchor:dpad.topAnchor],
-        [disc.leadingAnchor constraintEqualToAnchor:dpad.leadingAnchor],
-        [disc.trailingAnchor constraintEqualToAnchor:dpad.trailingAnchor],
-        [disc.bottomAnchor constraintEqualToAnchor:dpad.bottomAnchor]
-    ]];
+    dpad.layer.shadowColor = [UIColor colorWithWhite:0.18 alpha:1].CGColor;
+    dpad.layer.shadowOpacity = 0.14;
+    dpad.layer.shadowOffset = CGSizeMake(0, 4);
+    dpad.layer.shadowRadius = 8;
+
+    NSArray<CRMGameFanButton *> *buttons = GameAddFanButtons(dpad, @[@"▲", @"▶", @"▼", @"◀"]);
+    NSArray<NSString *> *names = @[@"向上旋转", @"向右移动", @"向下移动", @"向左移动"];
+    const NSInteger tags[] = {1, 4, 2, 3};
+    const SEL selectors[] = {@selector(rotatePiece), @selector(moveRight), @selector(softDrop), @selector(moveLeft)};
+    for (NSInteger index = 0; index < buttons.count; index++) {
+        CRMGameFanButton *button = buttons[index];
+        button.tag = tags[index];
+        button.accessibilityLabel = names[index];
+        [button addTarget:self action:selectors[index] forControlEvents:UIControlEventTouchUpInside];
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleDirectionLongPress:)];
+        longPress.minimumPressDuration = 0.22;
+        longPress.cancelsTouchesInView = YES;
+        [button addGestureRecognizer:longPress];
+    }
 
     // 中间：变换
     UIButton *rotate = [self dpadButton:@"⟳" selector:@selector(rotatePiece) diameter:58 background:GameColor(0x355D55) foreground:UIColor.whiteColor fontSize:24];
@@ -451,34 +569,6 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
     [rotate.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor].active = YES;
     [rotate.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor].active = YES;
 
-    // 上下左右
-    UIButton *up = [self dpadButton:@"▲" selector:@selector(rotatePiece) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
-    UIButton *down = [self dpadButton:@"▼" selector:@selector(softDrop) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
-    UIButton *left = [self dpadButton:@"◀" selector:@selector(moveLeft) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
-    UIButton *right = [self dpadButton:@"▶" selector:@selector(moveRight) diameter:44 background:UIColor.whiteColor foreground:GameColor(0x355B54) fontSize:17];
-    up.tag = 1;
-    down.tag = 2;
-    left.tag = 3;
-    right.tag = 4;
-    for (UIButton *button in @[up, down, left, right]) {
-        button.layer.borderWidth = 1;
-        button.layer.borderColor = GameColor(0xDCE8E3).CGColor;
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleDirectionLongPress:)];
-        longPress.minimumPressDuration = 0.22;
-        longPress.cancelsTouchesInView = YES;
-        [button addGestureRecognizer:longPress];
-        [dpad addSubview:button];
-    }
-    [NSLayoutConstraint activateConstraints:@[
-        [up.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor],
-        [up.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor constant:-56],
-        [down.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor],
-        [down.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor constant:56],
-        [left.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor],
-        [left.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor constant:-56],
-        [right.centerYAnchor constraintEqualToAnchor:dpad.centerYAnchor],
-        [right.centerXAnchor constraintEqualToAnchor:dpad.centerXAnchor constant:56]
-    ]];
     return dpad;
 }
 
@@ -1492,15 +1582,34 @@ static const NSInteger CRMGomokuCellCount = 315;
     self.actions.axis = UILayoutConstraintAxisHorizontal;
     self.actions.alignment = UIStackViewAlignmentCenter;
     self.actions.distribution = UIStackViewDistributionEqualSpacing;
-    UIButton *left = GameCircleButton(@"◀", 62, 21);
-    UIButton *right = GameCircleButton(@"▶", 62, 21);
-    UIButton *change = GameCircleButton(@"换车", 62, 13);
-    UIButton *restart = GameCircleButton(@"重来", 62, 13);
+    UIView *pad = [[UIView alloc] init];
+    pad.translatesAutoresizingMaskIntoConstraints = NO;
+    pad.layer.shadowColor = [UIColor colorWithWhite:0.18 alpha:1].CGColor;
+    pad.layer.shadowOpacity = 0.14;
+    pad.layer.shadowOffset = CGSizeMake(0, 4);
+    pad.layer.shadowRadius = 8;
+    [pad.widthAnchor constraintEqualToConstant:148].active = YES;
+    [pad.heightAnchor constraintEqualToConstant:148].active = YES;
+    NSArray<CRMGameFanButton *> *directions = GameAddHorizontalFanButtons(pad);
+    CRMGameFanButton *left = directions[0];
+    CRMGameFanButton *right = directions[1];
     [left addTarget:self action:@selector(moveLeft) forControlEvents:UIControlEventTouchUpInside];
     [right addTarget:self action:@selector(moveRight) forControlEvents:UIControlEventTouchUpInside];
+    left.accessibilityLabel = @"向左换道";
+    right.accessibilityLabel = @"向右换道";
+    UIButton *change = GameCircleButton(@"换车", 54, 13);
     [change addTarget:self action:@selector(changeCar) forControlEvents:UIControlEventTouchUpInside];
+    [pad addSubview:change];
+    [change.centerXAnchor constraintEqualToAnchor:pad.centerXAnchor].active = YES;
+    [change.centerYAnchor constraintEqualToAnchor:pad.centerYAnchor].active = YES;
+    UIButton *restart = GameCircleButton(@"重来", 58, 13);
     [restart addTarget:self action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
-    for (UIButton *button in @[left, change, restart, right]) [self.actions addArrangedSubview:button];
+    UIView *balanceSpacer = [[UIView alloc] init];
+    balanceSpacer.translatesAutoresizingMaskIntoConstraints = NO;
+    [balanceSpacer.widthAnchor constraintEqualToConstant:58].active = YES;
+    [self.actions addArrangedSubview:balanceSpacer];
+    [self.actions addArrangedSubview:pad];
+    [self.actions addArrangedSubview:restart];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [self restart];
 }
@@ -1579,77 +1688,178 @@ static const NSInteger CRMSoccerBrickColumns = 7;
 @property (nonatomic, assign) CGFloat runPhase;
 @property (nonatomic, assign) NSInteger facing;
 @property (nonatomic, assign) BOOL running;
+@property (nonatomic, assign) CGFloat motionBlend;
 @property (nonatomic, assign) CGFloat kickRemaining;
 @property (nonatomic, assign) CGFloat kickOffset;
+@property (nonatomic, assign) CGFloat animationTime;
+@property (nonatomic, copy) NSArray<UIImage *> *idleSpriteFrames;
+@property (nonatomic, copy) NSArray<UIImage *> *runSpriteFrames;
+@property (nonatomic, copy) NSArray<UIImage *> *kickSpriteFrames;
 @end
 
 @implementation CRMSoccerBreakoutBoard
+
+- (NSArray<UIImage *> *)spriteFramesAtRow:(NSInteger)row count:(NSInteger)count sheet:(UIImage *)sheet {
+    if (!sheet.CGImage) return @[];
+    const CGFloat frameWidth = 192;
+    const CGFloat frameHeight = 208;
+    NSMutableArray<UIImage *> *frames = [NSMutableArray arrayWithCapacity:count];
+    for (NSInteger column = 0; column < count; column++) {
+        CGRect crop = CGRectMake(column * frameWidth, row * frameHeight, frameWidth, frameHeight);
+        CGImageRef frameImage = CGImageCreateWithImageInRect(sheet.CGImage, crop);
+        if (!frameImage) continue;
+        [frames addObject:[UIImage imageWithCGImage:frameImage scale:1 orientation:UIImageOrientationUp]];
+        CGImageRelease(frameImage);
+    }
+    return frames;
+}
+
+- (void)prepareScoutSpriteFramesIfNeeded {
+    if (self.idleSpriteFrames) return;
+    UIImage *sheet = [UIImage imageNamed:@"SoccerScoutSprite"];
+    self.idleSpriteFrames = [self spriteFramesAtRow:0 count:7 sheet:sheet];
+    self.runSpriteFrames = [self spriteFramesAtRow:2 count:8 sheet:sheet];
+    self.kickSpriteFrames = [self spriteFramesAtRow:4 count:5 sheet:sheet];
+}
+
+- (BOOL)drawScoutSpriteWithKick:(CGFloat)kick {
+    [self prepareScoutSpriteFramesIfNeeded];
+    NSArray<UIImage *> *frames = nil;
+    NSInteger frameIndex = 0;
+    if (kick > 0.01 && self.kickSpriteFrames.count) {
+        frames = self.kickSpriteFrames;
+        CGFloat progress = 1 - MIN(1, self.kickRemaining / CRMSoccerKickDuration);
+        frameIndex = MIN((NSInteger)frames.count - 1, (NSInteger)floor(progress * frames.count));
+    } else if (self.motionBlend > 0.08 && self.runSpriteFrames.count) {
+        frames = self.runSpriteFrames;
+        frameIndex = (NSInteger)floor(self.animationTime * 12) % (NSInteger)frames.count;
+    } else if (self.idleSpriteFrames.count) {
+        frames = self.idleSpriteFrames;
+        frameIndex = (NSInteger)floor(self.animationTime * 3.5) % (NSInteger)frames.count;
+    }
+    if (!frames.count) return NO;
+
+    // Scout 原始精灵朝左：左移直接绘制，右移时水平镜像。
+    CGFloat direction = kick > 0.05 ? (self.kickOffset < 0 ? 1 : -1) : (self.facing < 0 ? 1 : -1);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    CGContextScaleCTM(context, direction, 1);
+    [frames[frameIndex] drawInRect:CGRectMake(-42, -91, 84, 91)];
+    CGContextRestoreGState(context);
+    return YES;
+}
+
 - (void)drawSidePlayerAtScale:(CGFloat)scale height:(CGFloat)height {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGFloat kick = CRMSoccerKickStrength(self.kickRemaining);
     CGFloat direction = kick > 0.05 ? (self.kickOffset < 0 ? -1 : 1) : (self.facing < 0 ? -1 : 1);
     CGContextSaveGState(context);
     CGContextScaleCTM(context, direction, 1);
-    CGFloat phase = self.runPhase, bob = self.running ? -2.5 * fabs(sin(phase)) : 0;
+    CGFloat phase = self.runPhase;
+    CGFloat motion = self.motionBlend;
+    CGFloat bob = -2.0 * motion * (0.5 - 0.5 * cos(phase * 2));
     UIColor *ink = GameColor(0x203540), *blue = GameColor(0x3269B0), *skin = GameColor(0xF5C6A2);
     // 两条腿交替经历支撑、蹬地、屈膝回收，膝盖由两节等长骨骼解算。
     for (NSInteger limb = 0; limb < 2; limb++) {
-        CRMSoccerLegPose pose = CRMSoccerRunningLeg(phase, (int)limb, self.running, kick,
+        CRMSoccerLegPose pose = CRMSoccerRunningLeg(phase, (int)limb, motion > 0.01, kick,
                                                     fabs(self.kickOffset) * self.bounds.size.width / scale,
                                                     (CRMSoccerGroundY - CRMSoccerContactY) * height / scale);
+        // 起跑和停步使用同一套骨架插值，避免姿势瞬间跳变。
+        CGFloat idleFootX = limb ? 8 : -8;
+        pose.footX = idleFootX + (pose.footX - idleFootX) * motion;
+        pose.footY *= motion;
+        pose.hipY = -28 + (pose.hipY + 28) * motion;
+        if (limb == 1) {
+            CGFloat targetX = fabs(self.kickOffset) * self.bounds.size.width / scale;
+            CGFloat targetY = -(CRMSoccerGroundY - CRMSoccerContactY) * height / scale;
+            pose.footX += (targetX - pose.footX) * kick;
+            pose.footY += (targetY - pose.footY) * kick;
+        }
+        // 插值脚掌后重新做一次双骨骼解算，保证膝关节不会脱节或反折。
+        CGFloat dx = pose.footX;
+        CGFloat dy = pose.footY - pose.hipY;
+        CGFloat distance = MAX(0.01, hypot(dx, dy));
+        CGFloat bend = sqrt(MAX(0, 18 * 18 - distance * distance / 4));
+        CGFloat solvedKneeX = pose.footX / 2 + dy / distance * bend;
+        CGFloat solvedKneeY = (pose.hipY + pose.footY) / 2 - dx / distance * bend;
+        // 静止时膝盖自然落在对应脚掌上方；运动时再渐进切入侧身跑步的屈膝解算。
+        CGFloat legAction = MAX(motion, kick);
+        CGFloat idleKneeX = idleFootX * 0.62;
+        pose.kneeX = idleKneeX + (solvedKneeX - idleKneeX) * legAction;
+        pose.kneeY = -13 + (solvedKneeY + 13) * legAction;
         CGFloat footX = pose.footX, footY = pose.footY;
         CGPoint hip = CGPointMake(0, pose.hipY), knee = CGPointMake(pose.kneeX, pose.kneeY);
-        CGContextSaveGState(context); CGContextSetAlpha(context, limb ? 1 : 0.65);
-        UIBezierPath *leg = [UIBezierPath bezierPath]; leg.lineWidth = 7; leg.lineCapStyle = kCGLineCapRound;
-        [leg moveToPoint:hip]; [leg addLineToPoint:knee]; [skin setStroke]; [leg stroke];
-        [leg removeAllPoints]; [leg moveToPoint:knee]; [leg addLineToPoint:CGPointMake(footX, footY - 3)];
-        [UIColor.whiteColor setStroke]; [leg stroke];
-        [blue setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(knee.x - 3.5, knee.y - 2, 7, 4)] fill];
-        [ink setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(footX - 4, footY - 4, 14, 7) cornerRadius:3] fill];
+        CGContextSaveGState(context); CGContextSetAlpha(context, limb ? 1 : 0.76);
+        CGPoint thigh = CGPointMake(hip.x + (knee.x - hip.x) * 0.36, hip.y + (knee.y - hip.y) * 0.36);
+        UIBezierPath *leg = [UIBezierPath bezierPath]; leg.lineCapStyle = kCGLineCapRound; leg.lineJoinStyle = kCGLineJoinRound;
+        leg.lineWidth = 9; [leg moveToPoint:hip]; [leg addLineToPoint:thigh]; [blue setStroke]; [leg stroke];
+        leg.lineWidth = 6; [leg removeAllPoints]; [leg moveToPoint:thigh]; [leg addLineToPoint:knee]; [skin setStroke]; [leg stroke];
+        leg.lineWidth = 7; [leg removeAllPoints]; [leg moveToPoint:knee]; [leg addLineToPoint:CGPointMake(footX, footY - 3)]; [UIColor.whiteColor setStroke]; [leg stroke];
+        [blue setStroke]; leg.lineWidth = 2; [leg removeAllPoints]; [leg moveToPoint:CGPointMake(knee.x - 2, knee.y + 2)]; [leg addLineToPoint:CGPointMake(knee.x + 2, knee.y + 2)]; [leg stroke];
+        // 局部坐标始终朝右，整体镜像负责切换朝向，鞋尖无需再次反向。
+        UIBezierPath *shoe = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(footX - 4, footY - 5, 13, 6.5) cornerRadius:3.2];
+        [ink setFill]; [shoe fill];
+        [[UIColor.whiteColor colorWithAlphaComponent:0.7] setStroke]; shoe.lineWidth = 1; [shoe stroke];
         CGContextRestoreGState(context);
     }
     CGContextTranslateCTM(context, 0, -28 + bob);
-    CGContextRotateCTM(context, self.running ? 0.18 : -0.08 * kick);
+    CGContextRotateCTM(context, 0.14 * motion - 0.07 * kick);
     // 远侧手臂在身体后方，近侧手臂在前方，肩髋轮廓随前倾一起转动。
     for (NSInteger armIndex = 0; armIndex < 2; armIndex++) {
         if (armIndex == 1) {
-            [blue setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-9, -5, 18, 12) cornerRadius:4] fill];
-            [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-9, -31, 19, 29) cornerRadius:6] fill];
-            [blue setFill]; UIRectFill(CGRectMake(-7, -30, 15, 3));
+            [blue setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-10, -7, 20, 13) cornerRadius:5] fill];
+            UIBezierPath *jersey = [UIBezierPath bezierPath];
+            [jersey moveToPoint:CGPointMake(-8, -29)];
+            [jersey addQuadCurveToPoint:CGPointMake(10, -28) controlPoint:CGPointMake(1, -34)];
+            [jersey addQuadCurveToPoint:CGPointMake(9, -3) controlPoint:CGPointMake(12, -14)];
+            [jersey addQuadCurveToPoint:CGPointMake(-9, -3) controlPoint:CGPointMake(0, 0)];
+            [jersey closePath]; [UIColor.whiteColor setFill]; [jersey fill];
+            [blue setStroke]; jersey.lineWidth = 1.5; [jersey stroke];
             // 镜像身体时把号码单独反向补偿，避免左跑时出现镜像文字。
             CGContextSaveGState(context); CGContextScaleCTM(context, direction, 1);
             [@"10" drawAtPoint:CGPointMake(-6, -18) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:10], NSForegroundColorAttributeName:blue}];
             CGContextRestoreGState(context);
             [skin setFill];
-            UIBezierPath *face = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(-7, -55, 22, 26)]; [face fill];
-            UIBezierPath *nose = [UIBezierPath bezierPath]; [nose moveToPoint:CGPointMake(11, -46)];
-            [nose addLineToPoint:CGPointMake(19, -41)]; [nose addLineToPoint:CGPointMake(12, -39)]; [nose closePath]; [nose fill];
+            UIBezierPath *face = [UIBezierPath bezierPath];
+            [face moveToPoint:CGPointMake(-5, -55)];
+            [face addCurveToPoint:CGPointMake(12, -52) controlPoint1:CGPointMake(2, -60) controlPoint2:CGPointMake(10, -58)];
+            [face addQuadCurveToPoint:CGPointMake(16, -43) controlPoint:CGPointMake(17, -49)];
+            [face addQuadCurveToPoint:CGPointMake(10, -31) controlPoint:CGPointMake(16, -35)];
+            [face addQuadCurveToPoint:CGPointMake(-7, -35) controlPoint:CGPointMake(0, -28)];
+            [face addQuadCurveToPoint:CGPointMake(-5, -55) controlPoint:CGPointMake(-12, -47)];
+            [face closePath]; [face fill];
+            // 小而圆的鼻尖取代原来的尖三角侧脸。
+            [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(13, -45, 5, 5)] fill];
             [ink setFill];
             UIBezierPath *hair = [UIBezierPath bezierPath];
-            [hair moveToPoint:CGPointMake(-6, -32)]; [hair addLineToPoint:CGPointMake(-14, -44)];
-            [hair addLineToPoint:CGPointMake(-11, -49)]; [hair addLineToPoint:CGPointMake(-20, -54)];
-            [hair addLineToPoint:CGPointMake(-9, -53)]; [hair addLineToPoint:CGPointMake(-11, -61)];
-            [hair addLineToPoint:CGPointMake(-2, -57)]; [hair addLineToPoint:CGPointMake(7, -62)];
-            [hair addLineToPoint:CGPointMake(5, -57)];
-            [hair addQuadCurveToPoint:CGPointMake(16, -46) controlPoint:CGPointMake(20, -57)];
-            [hair addLineToPoint:CGPointMake(7, -49)]; [hair addLineToPoint:CGPointMake(5, -42)];
-            [hair addLineToPoint:CGPointMake(1, -49)]; [hair addLineToPoint:CGPointMake(-3, -40)];
-            [hair closePath]; [hair fill];
-            [skin setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(-4, -43, 6, 8)] fill];
-            [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(8, -46, 5, 7)] fill];
-            [ink setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(11, -44, 2, 4)] fill];
-            UIBezierPath *mouth = [UIBezierPath bezierPath]; mouth.lineWidth = 1;
-            [mouth moveToPoint:CGPointMake(9, -35)]; [mouth addLineToPoint:CGPointMake(14, -36)]; [ink setStroke]; [mouth stroke];
+            [hair moveToPoint:CGPointMake(-8, -35)];
+            [hair addCurveToPoint:CGPointMake(-12, -55) controlPoint1:CGPointMake(-14, -42) controlPoint2:CGPointMake(-16, -51)];
+            [hair addQuadCurveToPoint:CGPointMake(-3, -59) controlPoint:CGPointMake(-9, -63)];
+            [hair addQuadCurveToPoint:CGPointMake(6, -60) controlPoint:CGPointMake(1, -66)];
+            [hair addQuadCurveToPoint:CGPointMake(14, -52) controlPoint:CGPointMake(13, -60)];
+            [hair addLineToPoint:CGPointMake(8, -53)]; [hair addLineToPoint:CGPointMake(4, -47)];
+            [hair addLineToPoint:CGPointMake(0, -53)]; [hair addLineToPoint:CGPointMake(-4, -44)];
+            [hair addLineToPoint:CGPointMake(-8, -48)]; [hair closePath]; [hair fill];
+            [skin setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(-10, -45, 7, 9)] fill];
+            [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(8.5, -46.5, 5.2, 6.2)] fill];
+            [ink setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(11, -44.8, 1.9, 3.2)] fill];
+            [[UIColor colorWithWhite:1 alpha:0.9] setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(11.2, -44.5, 0.7, 0.9)] fill];
+            UIBezierPath *brow = [UIBezierPath bezierPath]; brow.lineWidth = 1.2; brow.lineCapStyle = kCGLineCapRound;
+            [brow moveToPoint:CGPointMake(8, -49)]; [brow addQuadCurveToPoint:CGPointMake(14, -49) controlPoint:CGPointMake(11, -51)]; [ink setStroke]; [brow stroke];
+            UIBezierPath *mouth = [UIBezierPath bezierPath]; mouth.lineWidth = 1.2; mouth.lineCapStyle = kCGLineCapRound;
+            [mouth moveToPoint:CGPointMake(9, -36)]; [mouth addQuadCurveToPoint:CGPointMake(14, -37) controlPoint:CGPointMake(12, -34)]; [ink setStroke]; [mouth stroke];
         }
-        CGFloat swing = self.running ? sin(phase + armIndex * M_PI) * 0.85 : (armIndex ? -0.4 : 0.4);
+        CGFloat idleSwing = armIndex ? -0.28 : 0.28;
+        CGFloat swing = idleSwing + (sin(phase + armIndex * M_PI) * 0.72 - idleSwing) * motion;
         swing -= kick * 0.5;
-        CGPoint shoulder = CGPointMake(0, -25);
+        CGPoint shoulder = CGPointMake(armIndex ? 2 : -2, armIndex ? -24 : -23);
         CGPoint elbow = CGPointMake(shoulder.x + sin(swing) * 15, shoulder.y + cos(swing) * 15);
         CGPoint hand = CGPointMake(elbow.x + sin(swing - 1.25) * 12, elbow.y + cos(swing - 1.25) * 12);
-        CGContextSaveGState(context); CGContextSetAlpha(context, armIndex ? 1 : 0.65);
-        UIBezierPath *arm = [UIBezierPath bezierPath]; arm.lineWidth = 6; arm.lineCapStyle = kCGLineCapRound;
-        [arm moveToPoint:shoulder]; [arm addLineToPoint:elbow]; [arm addLineToPoint:hand]; [skin setStroke]; [arm stroke];
-        [blue setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(-5, -29, 10, 9)] fill];
+        CGContextSaveGState(context); CGContextSetAlpha(context, armIndex ? 1 : 0.72);
+        UIBezierPath *arm = [UIBezierPath bezierPath]; arm.lineWidth = 5.5; arm.lineCapStyle = kCGLineCapRound; arm.lineJoinStyle = kCGLineJoinRound;
+        [arm moveToPoint:shoulder]; [arm addQuadCurveToPoint:hand controlPoint:elbow]; [skin setStroke]; [arm stroke];
+        [blue setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(shoulder.x - 5, shoulder.y - 5, 10, 10)] fill];
+        [skin setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(hand.x - 2.7, hand.y - 2.7, 5.4, 5.4)] fill];
         CGContextRestoreGState(context);
     }
     CGContextRestoreGState(context);
@@ -1682,59 +1892,8 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, px, groundY);
     CGContextScaleCTM(context, scale, scale);
-    if (self.running || kick > 0.01) {
+    if (![self drawScoutSpriteWithKick:kick]) {
         [self drawSidePlayerAtScale:scale height:rect.size.height];
-    } else {
-    UIColor *skin = GameColor(0xF5C6A2), *blue = GameColor(0x3269B0), *ink = GameColor(0x263A3B);
-    for (NSInteger side = -1; side <= 1; side += 2) {
-        CGFloat footX = side * 10, footY = 0;
-        CGPoint knee = CGPointMake(side * 7, -13);
-        UIBezierPath *leg = [UIBezierPath bezierPath];
-        leg.lineWidth = 7; leg.lineCapStyle = kCGLineCapRound;
-        [leg moveToPoint:CGPointMake(side * 7, -26)]; [leg addLineToPoint:knee];
-        [skin setStroke]; [leg stroke];
-        [leg removeAllPoints]; [leg moveToPoint:knee]; [leg addLineToPoint:CGPointMake(footX, footY - 3)];
-        [UIColor.whiteColor setStroke]; [leg stroke];
-        [ink setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(footX - 6, footY - 4, 14, 7) cornerRadius:3] fill];
-    }
-    for (NSInteger side = -1; side <= 1; side += 2) {
-        UIBezierPath *arm = [UIBezierPath bezierPath]; arm.lineWidth = 6; arm.lineCapStyle = kCGLineCapRound;
-        [arm moveToPoint:CGPointMake(side * 13, -48)];
-        [arm addLineToPoint:CGPointMake(side * 22, -35)];
-        [arm addLineToPoint:CGPointMake(side * 18, -30)];
-        [skin setStroke]; [arm stroke];
-    }
-    [blue setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-14, -32, 28, 12) cornerRadius:3] fill];
-    [UIColor.whiteColor setFill]; [[UIBezierPath bezierPathWithRoundedRect:CGRectMake(-15, -55, 30, 27) cornerRadius:6] fill];
-    [blue setFill];
-    UIRectFill(CGRectMake(-17, -52, 5, 10)); UIRectFill(CGRectMake(12, -52, 5, 10));
-    UIBezierPath *collar = [UIBezierPath bezierPath]; collar.lineWidth = 3;
-    [collar moveToPoint:CGPointMake(-7, -55)]; [collar addLineToPoint:CGPointMake(0, -50)]; [collar addLineToPoint:CGPointMake(7, -55)]; [blue setStroke]; [collar stroke];
-    [@"南葛" drawAtPoint:CGPointMake(-10, -48) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:9], NSForegroundColorAttributeName:blue}];
-    [@"10" drawAtPoint:CGPointMake(-6, -38) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:10], NSForegroundColorAttributeName:blue}];
-    [skin setFill]; [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(-13, -79, 26, 27)] fill];
-    [ink setFill];
-    UIBezierPath *hair = [UIBezierPath bezierPath];
-    [hair moveToPoint:CGPointMake(-14, -62)];
-    [hair addLineToPoint:CGPointMake(-18, -77)]; [hair addLineToPoint:CGPointMake(-11, -75)];
-    [hair addLineToPoint:CGPointMake(-10, -85)]; [hair addLineToPoint:CGPointMake(-3, -81)];
-    [hair addLineToPoint:CGPointMake(6, -86)]; [hair addLineToPoint:CGPointMake(5, -81)];
-    [hair addCurveToPoint:CGPointMake(16, -67) controlPoint1:CGPointMake(19, -84) controlPoint2:CGPointMake(18, -74)];
-    [hair addLineToPoint:CGPointMake(11, -60)]; [hair addLineToPoint:CGPointMake(9, -73)];
-    [hair addLineToPoint:CGPointMake(2, -68)]; [hair addLineToPoint:CGPointMake(3, -77)];
-    [hair addLineToPoint:CGPointMake(-5, -69)]; [hair addLineToPoint:CGPointMake(-5, -75)];
-    [hair addLineToPoint:CGPointMake(-11, -68)];
-    [hair closePath]; [hair fill];
-    [UIColor.whiteColor setFill];
-    for (NSInteger side = -1; side <= 1; side += 2) {
-        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(side * 6 - 3, -68, 6, 7)] fill];
-    }
-    [ink setFill];
-    for (NSInteger side = -1; side <= 1; side += 2) {
-        [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(side * 6 - 1, -66, 2.5, 4)] fill];
-    }
-    UIBezierPath *smile = [UIBezierPath bezierPath]; smile.lineWidth = 1;
-    [smile moveToPoint:CGPointMake(-3, -57)]; [smile addQuadCurveToPoint:CGPointMake(4, -57) controlPoint:CGPointMake(0, -54)]; [ink setStroke]; [smile stroke];
     }
     CGContextRestoreGState(context);
     if (kick > 0) {
@@ -1780,18 +1939,38 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     self.actions.axis = UILayoutConstraintAxisHorizontal;
     self.actions.alignment = UIStackViewAlignmentCenter;
     self.actions.distribution = UIStackViewDistributionEqualSpacing;
-    UIButton *left = [self movementButton:@"◀" direction:-1];
-    UIButton *right = [self movementButton:@"▶" direction:1];
-    [self.actions addArrangedSubview:left]; [self.actions addArrangedSubview:right];
-    UIButton *restart = GameCircleButton(@"重来", 68, 14);
+    UIView *pad = [[UIView alloc] init];
+    pad.translatesAutoresizingMaskIntoConstraints = NO;
+    pad.layer.shadowColor = [UIColor colorWithWhite:0.18 alpha:1].CGColor;
+    pad.layer.shadowOpacity = 0.14;
+    pad.layer.shadowOffset = CGSizeMake(0, 4);
+    pad.layer.shadowRadius = 8;
+    [pad.widthAnchor constraintEqualToConstant:148].active = YES;
+    [pad.heightAnchor constraintEqualToConstant:148].active = YES;
+    NSArray<CRMGameFanButton *> *directions = GameAddHorizontalFanButtons(pad);
+    UIButton *left = [self configureMovementButton:directions[0] direction:-1];
+    UIButton *right = [self configureMovementButton:directions[1] direction:1];
+    left.accessibilityLabel = @"向左移动";
+    right.accessibilityLabel = @"向右移动";
+    UIButton *center = GameCircleButton(@"⚽", 54, 25);
+    center.userInteractionEnabled = NO;
+    center.accessibilityElementsHidden = YES;
+    [pad addSubview:center];
+    [center.centerXAnchor constraintEqualToAnchor:pad.centerXAnchor].active = YES;
+    [center.centerYAnchor constraintEqualToAnchor:pad.centerYAnchor].active = YES;
+    UIButton *restart = GameCircleButton(@"重来", 58, 14);
     [restart addTarget:self action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
-    [self.actions insertArrangedSubview:restart atIndex:1];
+    UIView *balanceSpacer = [[UIView alloc] init];
+    balanceSpacer.translatesAutoresizingMaskIntoConstraints = NO;
+    [balanceSpacer.widthAnchor constraintEqualToConstant:58].active = YES;
+    [self.actions addArrangedSubview:balanceSpacer];
+    [self.actions addArrangedSubview:pad];
+    [self.actions addArrangedSubview:restart];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseGame) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startGameTimer) name:UIApplicationDidBecomeActiveNotification object:nil];
     [self restart];
 }
-- (UIButton *)movementButton:(NSString *)title direction:(NSInteger)direction {
-    UIButton *button = GameCircleButton(title, 68, 22);
+- (UIButton *)configureMovementButton:(UIButton *)button direction:(NSInteger)direction {
     button.tag = direction;
     [button addTarget:self action:@selector(startMoving:) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(stopMoving:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside | UIControlEventTouchCancel | UIControlEventTouchDragExit];
@@ -1808,7 +1987,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
 }
 - (void)pauseGame {
     [self.gameTimer invalidate]; self.gameTimer = nil;
-    self.moveDirection = 0; self.gameBoard.running = NO; self.gameBoard.kickRemaining = 0;
+    self.moveDirection = 0; self.gameBoard.running = NO; self.gameBoard.motionBlend = 0; self.gameBoard.kickRemaining = 0;
     [self.gameBoard setNeedsDisplay];
 }
 - (void)startMoving:(UIButton *)sender {
@@ -1849,7 +2028,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     CGFloat speedScale = 1 + (self.level - 1) * 0.11;
     self.playerHalfWidth = MAX(0.09, 0.145 - (self.level - 1) * 0.012);
     self.playerX = 0.5; self.ball = CGPointMake(0.5, 0.76);
-    self.gameBoard.runPhase = 0; self.gameBoard.facing = 1;
+    self.gameBoard.runPhase = 0; self.gameBoard.motionBlend = 0; self.gameBoard.facing = 1;
     self.velocity = CGVectorMake(0.34 * speedScale, -0.48 * speedScale);
     self.destroyed = 0; self.gameOver = NO; [self refresh]; [self startGameTimer];
 }
@@ -1863,7 +2042,11 @@ static const NSInteger CRMSoccerBrickColumns = 7;
 - (void)tick {
     if (self.gameOver) return;
     CGFloat dt = 1.0 / 60.0;
+    self.gameBoard.animationTime = fmod(self.gameBoard.animationTime + dt, 120);
     if (self.moveDirection) [self movePlayer];
+    CGFloat targetMotion = self.gameBoard.running ? 1 : 0;
+    self.gameBoard.motionBlend += (targetMotion - self.gameBoard.motionBlend) * 0.18;
+    if (fabs(self.gameBoard.motionBlend - targetMotion) < 0.002) self.gameBoard.motionBlend = targetMotion;
     self.gameBoard.kickRemaining = MAX(0, self.gameBoard.kickRemaining - dt);
     CGPoint previous = self.ball;
     self.ball = CGPointMake(self.ball.x + self.velocity.dx * dt, self.ball.y + self.velocity.dy * dt);
@@ -2250,32 +2433,33 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     [restart addTarget:self action:@selector(restartSnake) forControlEvents:UIControlEventTouchUpInside];
     [self.actions addArrangedSubview:restart];
     UIView *pad = [[UIView alloc] init];
-    pad.backgroundColor = GameColor(0xE5EEEA);
-    pad.layer.cornerRadius = 74;
+    pad.translatesAutoresizingMaskIntoConstraints = NO;
+    pad.layer.shadowColor = [UIColor colorWithWhite:0.18 alpha:1].CGColor;
+    pad.layer.shadowOpacity = 0.14;
+    pad.layer.shadowOffset = CGSizeMake(0, 4);
+    pad.layer.shadowRadius = 8;
     [pad.widthAnchor constraintEqualToConstant:148].active = YES;
     [pad.heightAnchor constraintEqualToConstant:148].active = YES;
     [self.actions addArrangedSubview:pad];
-    NSArray *titles = @[@"▲", @"▶", @"▼", @"◀"];
-    NSArray *names = @[@"向上", @"向右", @"向下", @"向左"];
-    const CGFloat positions[4][2] = {{52, 0}, {104, 52}, {52, 104}, {0, 52}};
-    for (NSInteger i = 0; i < 4; i++) {
-        UIButton *button = GameCircleButton(titles[i], 44, 18);
+    NSArray<CRMGameFanButton *> *directionButtons = GameAddFanButtons(pad, @[@"▲", @"▶", @"▼", @"◀"]);
+    NSArray<NSString *> *names = @[@"向上", @"向右", @"向下", @"向左"];
+    for (NSInteger i = 0; i < directionButtons.count; i++) {
+        CRMGameFanButton *button = directionButtons[i];
         button.tag = i;
         button.accessibilityLabel = names[i];
         // 按下立即转向；保持方向会自动前进，无需长按重复发送。
         [button addTarget:self action:@selector(turnSnake:) forControlEvents:UIControlEventTouchDown];
-        [pad addSubview:button];
-        [button.leadingAnchor constraintEqualToAnchor:pad.leadingAnchor constant:positions[i][0]].active = YES;
-        [button.topAnchor constraintEqualToAnchor:pad.topAnchor constant:positions[i][1]].active = YES;
         UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeSnake:)];
         const UISwipeGestureRecognizerDirection directions[] = {UISwipeGestureRecognizerDirectionUp, UISwipeGestureRecognizerDirectionRight, UISwipeGestureRecognizerDirectionDown, UISwipeGestureRecognizerDirectionLeft};
         swipe.direction = directions[i];
         [self.snakeBoard addGestureRecognizer:swipe];
     }
-    UILabel *icon = GameLabel(@"🐍", 26, UIFontWeightRegular, GameColor(0x355B54));
-    icon.frame = CGRectMake(52, 52, 44, 44);
-    icon.textAlignment = NSTextAlignmentCenter;
-    [pad addSubview:icon];
+    UIButton *center = GameCircleButton(@"🐍", 52, 25);
+    center.userInteractionEnabled = NO;
+    center.accessibilityElementsHidden = YES;
+    [pad addSubview:center];
+    [center.centerXAnchor constraintEqualToAnchor:pad.centerXAnchor].active = YES;
+    [center.centerYAnchor constraintEqualToAnchor:pad.centerYAnchor].active = YES;
     self.pauseButton = GameCircleButton(@"开始", 52, 14);
     [self.pauseButton addTarget:self action:@selector(toggleSnake) forControlEvents:UIControlEventTouchUpInside];
     [self.actions addArrangedSubview:self.pauseButton];

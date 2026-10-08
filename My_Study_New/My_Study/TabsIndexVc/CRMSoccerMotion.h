@@ -13,7 +13,8 @@ static inline bool CRMSoccerCrossesPlayer(double previousY, double currentY, dou
 }
 static inline double CRMSoccerKickStrength(double remaining) {
     double progress = fmax(0, fmin(1, remaining / CRMSoccerKickDuration));
-    return progress * progress;
+    // 三次平滑曲线让出脚和收脚两端都没有速度突变。
+    return progress * progress * (3 - 2 * progress);
 }
 typedef struct { double hipY, kneeX, kneeY, footX, footY; } CRMSoccerLegPose;
 static inline CRMSoccerLegPose CRMSoccerRunningLeg(double phase, int limb, bool running,
