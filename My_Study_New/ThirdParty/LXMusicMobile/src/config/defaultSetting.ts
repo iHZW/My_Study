@@ -33,7 +33,10 @@ const defaultSetting: LX.AppSetting = {
   'player.isShowNotificationImage': true,
   'player.isS2t': false,
   'player.isShowBluetoothLyric': false,
+  'player.lyricsActivityBackgroundColor': '#17191F',
+  'player.lyricsActivityForegroundColor': '#62D8FF',
   'player.isShowBluetoothFullLyric': false,
+  'player.lyricOffset': 0,
 
   // 'playDetail.isZoomActiveLrc': false,
   // 'playDetail.isShowLyricProgressSetting': false,

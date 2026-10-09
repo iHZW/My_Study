@@ -11,6 +11,7 @@ import { setSpText } from '@/utils/pixelRatio'
 import playerState from '@/store/player/state'
 import { scrollTo } from '@/utils/scroll'
 import PlayLine, { type PlayLineType } from '../components/PlayLine'
+import LyricOffsetControl from '../components/LyricOffsetControl'
 // import { screenkeepAwake } from '@/utils/nativeModules/utils'
 // import { log } from '@/utils/log'
 // import { toast } from '@/utils/tools'
@@ -327,6 +328,7 @@ export default () => {
         onScroll={handleScroll}
       />
       { isShowLyricProgressSetting ? <PlayLine ref={playLineRef} onPlayLine={handlePlayLine} /> : null }
+      <LyricOffsetControl />
     </>
   )
 }

@@ -33,6 +33,9 @@
 		4E02880F286B056A003E723E /* URLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880C286B056A003E723E /* URLUtil.m */; };
 		4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02B3E92871B178006E0DE3 /* bgView.swift */; };
 		4E0680BB2872CECA00F6728A /* BWNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */; };
+		C0A260012E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
+		C0A260022E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
+		C0A260032E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
 		4E0680C02873E4F300F6728A /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680BF2873E4F300F6728A /* Config.m */; };
 		4E0680C428740EA600F6728A /* EnvConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E0680C328740EA600F6728A /* EnvConfig.plist */; };
 		4E0680C728740F3900F6728A /* EnvConfigObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680C628740F3900F6728A /* EnvConfigObject.m */; };
@@ -2254,6 +2257,7 @@
 		4E02B3E92871B178006E0DE3 /* bgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
 		4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWNetworkingService.swift; sourceTree = "<group>"; };
+		C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMAlarmKitBridge.swift; sourceTree = "<group>"; };
 		4E0680BE2873E4F300F6728A /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		4E0680BF2873E4F300F6728A /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		4E0680C328740EA600F6728A /* EnvConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnvConfig.plist; sourceTree = "<group>"; };
@@ -6821,6 +6825,7 @@
 				4EA7263D27D75CA60060BDBA /* customerView.swift */,
 				4E02B3E92871B178006E0DE3 /* bgView.swift */,
 				4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */,
+				C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */,
 				4EA7263C27D7466F0060BDBA /* oc_swift-Swift.h */,
 				7C459A2D2295557300667813 /* Main.storyboard */,
 				7C459A302295557400667813 /* Assets.xcassets */,
@@ -8403,6 +8408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A260012E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */,
 				4E6681A92927350F00C635BF /* UITableView+EHIndexView.m in Sources */,
 				4EDC0B5E286308D6001C53CE /* NSOrderedSet+Safe.m in Sources */,
 				4E2FC10E292757E70014C00E /* EHAddressCompHelper.m in Sources */,
@@ -9030,6 +9036,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A260022E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */,
 				DAEEBF682B58BE8C00258456 /* UITableView+EHIndexView.m in Sources */,
 				DAEEBF692B58BE8C00258456 /* NSOrderedSet+Safe.m in Sources */,
 				DAEEBF6A2B58BE8C00258456 /* EHAddressCompHelper.m in Sources */,
@@ -9646,6 +9653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A260032E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */,
 				DAEEC2342B58BE9000258456 /* UITableView+EHIndexView.m in Sources */,
 				DAEEC2352B58BE9000258456 /* NSOrderedSet+Safe.m in Sources */,
 				DAEEC2362B58BE9000258456 /* EHAddressCompHelper.m in Sources */,

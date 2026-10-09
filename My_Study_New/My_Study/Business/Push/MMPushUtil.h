@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)pushLocalNotification:(NSString *)title userInfo:(NSDictionary *)userInfo;
 
+/// 用户打开事项提醒后，取消同一事件尚未触发的连续提醒。
++ (BOOL)cancelContinuousReminderForUserInfo:(NSDictionary *)userInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

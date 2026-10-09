@@ -196,10 +196,21 @@ declare global {
        */
       'player.isShowBluetoothLyric': boolean
 
+      /** 锁屏歌词卡片背景色（十六进制） */
+      'player.lyricsActivityBackgroundColor': string
+
+      /** 锁屏歌词卡片歌词与波形颜色（十六进制） */
+      'player.lyricsActivityForegroundColor': string
+
       /**
        * 是否启用蓝牙完整歌词
        */
       'player.isShowBluetoothFullLyric': boolean
+
+      /**
+       * 歌词时间微调，单位为毫秒；正数表示歌词提前，负数表示歌词延后
+       */
+      'player.lyricOffset': number
 
       /**
        * 播放详情页-是否缩放当前播放的歌词行

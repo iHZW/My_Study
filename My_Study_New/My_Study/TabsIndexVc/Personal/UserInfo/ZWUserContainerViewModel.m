@@ -1,6 +1,7 @@
 #import "ZWUserContainerViewModel.h"
 #import "PersonalHeader.h"
 #import "CRMGameCenterViewController.h"
+#import "SettingViewController.h"
 #import "UIApplication+Ext.h"
 
 @interface ZWUserContainerViewModel () { ZWBaseView *_view; }
@@ -71,16 +72,17 @@
     [badge mas_makeConstraints:^(MASConstraintMaker *make) { make.left.equalTo(avatar); make.top.equalTo(intro.mas_bottom).offset(13); make.height.mas_equalTo(24); }];
     [badgeText mas_makeConstraints:^(MASConstraintMaker *make) { make.left.equalTo(badge).offset(10); make.right.equalTo(badge).offset(-10); make.centerY.equalTo(badge); }];
 
-    NSArray *items = @[@[@"iOS", @"原生能力"], @[@"Flutter", @"跨端实践"], @[@"游戏", @"趣味体验"]];
+    NSArray *items = @[@[@"iOS", @"原生能力"], @[@"提醒", @"未来事项"], @[@"游戏", @"趣味体验"]];
     UIView *previous = nil;
     for (NSInteger index = 0; index < items.count; index++) {
-        // 游戏方向提供快捷入口，其余两项继续展示学习方向。
-        UIView *item = index == 2 ? [[UIControl alloc] init] : [[UIView alloc] init];
-        if (index == 2) {
-            UIControl *gameButton = (UIControl *)item;
-            [gameButton addTarget:self action:@selector(openGameCenter) forControlEvents:UIControlEventTouchUpInside];
-            gameButton.accessibilityLabel = @"打开小游戏乐园";
-            gameButton.accessibilityTraits = UIAccessibilityTraitButton;
+        // “未来提醒”和“游戏”提供快捷入口。
+        UIView *item = index > 0 ? [[UIControl alloc] init] : [[UIView alloc] init];
+        if (index > 0) {
+            UIControl *shortcut = (UIControl *)item;
+            SEL action = index == 1 ? @selector(openFutureReminder) : @selector(openGameCenter);
+            [shortcut addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+            shortcut.accessibilityLabel = index == 1 ? @"打开未来提醒" : @"打开小游戏乐园";
+            shortcut.accessibilityTraits = UIAccessibilityTraitButton;
         }
         [self.overviewView addSubview:item];
         UILabel *value = [self labelWithText:items[index][0] color:UIColorFromRGB(0x315F57) font:[UIFont systemFontOfSize:17 weight:UIFontWeightBold]];
@@ -94,7 +96,7 @@
         }];
         [value mas_makeConstraints:^(MASConstraintMaker *make) { make.centerX.equalTo(item); make.top.equalTo(item).offset(15); }];
         [caption mas_makeConstraints:^(MASConstraintMaker *make) { make.centerX.equalTo(item); make.top.equalTo(value.mas_bottom).offset(5); }];
-        if (index == 2) {
+        if (index > 0) {
             UILabel *arrow = [self labelWithText:@"›" color:UIColorFromRGB(0x6E9990) font:[UIFont systemFontOfSize:16 weight:UIFontWeightMedium]];
             [item addSubview:arrow];
             [arrow mas_makeConstraints:^(MASConstraintMaker *make) { make.centerY.equalTo(value); make.left.equalTo(value.mas_right).offset(3); }];
@@ -105,6 +107,13 @@
         }
         previous = item;
     }
+}
+
+- (void)openFutureReminder {
+    UIViewController *currentController = [UIApplication displayViewController];
+    UIViewController *reminderController = [SettingViewController futureReminderViewController];
+    reminderController.hidesBottomBarWhenPushed = YES;
+    [currentController.navigationController pushViewController:reminderController animated:YES];
 }
 
 - (void)openGameCenter {

@@ -1,4 +1,5 @@
 import TrackPlayer from 'react-native-track-player'
+import { Platform } from 'react-native'
 import { updateOptions, setVolume, setPlaybackRate, migratePlayerCache } from './utils'
 
 // const listenEvent = () => {
@@ -33,7 +34,9 @@ const initial = async({ volume, playRate, cacheSize, isHandleAudioFocus, isEnabl
     waitForBuffer: true,
     handleAudioFocus: isHandleAudioFocus,
     audioOffload: isEnableAudioOffload,
-    autoUpdateMetadata: false,
+    // iOS 由原生播放器在轨道切换时立即同步锁屏媒体卡，避免 JS 异步刷新
+    // 尚未完成时出现封面、标题和歌手全部为空；Android 保持现有通知栏逻辑。
+    autoUpdateMetadata: Platform.OS === 'ios',
   })
   global.lx.playerStatus.isInitialized = true
   global.lx.playerStatus.isIniting = false

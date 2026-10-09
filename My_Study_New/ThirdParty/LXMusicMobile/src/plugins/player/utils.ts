@@ -1,5 +1,6 @@
 import TrackPlayer, { Capability, Event, RepeatMode, State } from 'react-native-track-player'
 import BackgroundTimer from 'react-native-background-timer'
+import { Platform } from 'react-native'
 import { playMusic as handlePlayMusic } from './playList'
 import { existsFile, moveFile, privateStorageDirectoryPath, temporaryDirectoryPath } from '@/utils/fs'
 import { toast } from '@/utils/tools'
@@ -219,6 +220,21 @@ export interface NowPlayingTitles {
 }
 export const updateNowPlayingTitles = async(titles: NowPlayingTitles) => {
   // console.log('set playing titles', titles)
+  // 当前 iOS 原生模块没有暴露 updateNowPlayingTitles，使用支持局部字段更新的
+  // updateNowPlayingMetadata，避免蓝牙歌词更新时调用不存在的方法并遗留旧标题。
+  if (Platform.OS === 'ios') {
+    const [state, position, duration] = await Promise.all([
+      TrackPlayer.getState(),
+      TrackPlayer.getPosition(),
+      TrackPlayer.getDuration(),
+    ])
+    const isPlaying = state == State.Playing
+    return TrackPlayer.updateNowPlayingMetadata({
+      ...titles,
+      elapsedTime: Number.isFinite(position) ? position : 0,
+      duration: Number.isFinite(duration) && duration > 0 ? duration : undefined,
+    }, isPlaying)
+  }
   return TrackPlayer.updateNowPlayingTitles(titles)
 }
 

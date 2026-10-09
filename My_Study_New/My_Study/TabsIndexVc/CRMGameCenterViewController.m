@@ -107,6 +107,22 @@ typedef NS_ENUM(NSInteger, CRMGamePadDirection) {
     return path;
 }
 
+/// 触摸区域从外沿一直延伸到圆心，把装饰性中间区域也平均分配给各方向。
+- (UIBezierPath *)interactionPath {
+    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    CGFloat outerRadius = MAX(0, MIN(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) / 2);
+    CGFloat middleAngle = -M_PI_2 + self.padDirection * M_PI_2;
+    CGFloat startAngle = middleAngle - self.angularSpan / 2;
+    CGFloat endAngle = middleAngle + self.angularSpan / 2;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:center];
+    [path addLineToPoint:CGPointMake(center.x + cos(startAngle) * outerRadius,
+                                     center.y + sin(startAngle) * outerRadius)];
+    [path addArcWithCenter:center radius:outerRadius startAngle:startAngle endAngle:endAngle clockwise:YES];
+    [path closePath];
+    return path;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     UIBezierPath *path = [self fanPath];
@@ -122,7 +138,7 @@ typedef NS_ENUM(NSInteger, CRMGamePadDirection) {
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    return [[self fanPath] containsPoint:point];
+    return [[self interactionPath] containsPoint:point];
 }
 
 - (void)setHighlighted:(BOOL)highlighted {

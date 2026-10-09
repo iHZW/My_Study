@@ -67,6 +67,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>以便于您可以使用相机拍摄照片、视频并上传至应用内更换个人头像、记录跟进行为等</string>
+	<key>NSAlarmKitUsageDescription</key>
+	<string>用于在您指定的时间响铃，提醒您及时处理已安排的事项</string>
 	<key>NSContactsUsageDescription</key>
 	<string>您的通讯录仅用于本应用内添加联系人使用</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

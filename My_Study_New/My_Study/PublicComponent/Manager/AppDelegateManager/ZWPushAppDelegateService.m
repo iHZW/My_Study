@@ -198,16 +198,21 @@
     NSString *pushId                                      = [userInfo objectForKey:@"id"] ?: @"";
 //    id<CMPTPublicService_PushMessageCenter> mediaInstance = [CMBusMediator serviceForProtocol:@protocol(CMPTPublicService_PushMessageCenter) componentId:kCMPTPublicService];
 //    [mediaInstance.pushIdArray addObject:pushId];
+    // App 位于前台时也必须完成回调，否则本地提醒不会展示声音和横幅。
+    completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
 }
 
 // 从后台进入的时候调用
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(10.0)){
     NSDictionary *userInfo = response.notification.request.content.userInfo;
-    [self checkGotoChatPage:userInfo time:1.0];
+    if (![MMPushUtil cancelContinuousReminderForUserInfo:userInfo]) {
+        [self checkGotoChatPage:userInfo time:1.0];
+    }
 
     //  按非ios10逻辑，这个时候调用不需要填
-    //    NSString *pushId = [userInfo objectForKey:@"id"] ?: @"";
-    //    [[PASPushMessageCenter sharedPASPushMessageCenter].pushIdArray addObject:pushId];
+//    NSString *pushId = [userInfo objectForKey:@"id"] ?: @"";
+//    [[PASPushMessageCenter sharedPASPushMessageCenter].pushIdArray addObject:pushId];
+    completionHandler();
 }
 
 

@@ -9,6 +9,7 @@
 #import "MMPushUtil.h"
 #import <GTSDK/GeTuiSdk.h>
 #import <CYLTabBarController/NSObject+CYLTabBarControllerExtention.h>
+#import <UserNotifications/UserNotifications.h>
 
 
 @implementation MMPushUtil
@@ -82,6 +83,34 @@
     } else {
         // Fallback on earlier versions
     }
+}
+
++ (BOOL)cancelContinuousReminderForUserInfo:(NSDictionary *)userInfo {
+    if (![[userInfo objectForKey:@"type"] isEqualToString:@"scheduled_reminder"]) return NO;
+
+    NSString *eventID = [userInfo objectForKey:@"reminder_event_id"];
+    if (!eventID.length) return YES;
+
+    NSMutableArray<NSString *> *identifiers = [NSMutableArray arrayWithCapacity:4];
+    for (NSInteger index = 0; index < 4; index++) {
+        [identifiers addObject:[NSString stringWithFormat:@"crm.reminder.%@.%ld", eventID, (long)index]];
+    }
+    UNUserNotificationCenter *center = UNUserNotificationCenter.currentNotificationCenter;
+    [center removePendingNotificationRequestsWithIdentifiers:identifiers];
+    [center removeDeliveredNotificationsWithIdentifiers:identifiers];
+    // 再按事件标识扫描一次，兼容后续调整重复次数或历史版本生成的标识。
+    [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> *requests) {
+        NSMutableArray<NSString *> *matchedIdentifiers = [NSMutableArray array];
+        for (UNNotificationRequest *request in requests) {
+            NSString *requestEventID = [request.content.userInfo objectForKey:@"reminder_event_id"];
+            if ([requestEventID isEqualToString:eventID]) [matchedIdentifiers addObject:request.identifier];
+        }
+        if (matchedIdentifiers.count) {
+            [center removePendingNotificationRequestsWithIdentifiers:matchedIdentifiers];
+        }
+    }];
+    NSLog(@"已取消事项 %@ 的后续连续提醒", eventID);
+    return YES;
 }
 
 @end

@@ -148,6 +148,8 @@
                 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler  API_AVAILABLE(ios(10.0)){
     NSString *msg = [NSString stringWithFormat:@"[ My_Study ] [APNs] %@ \n%@", NSStringFromSelector(_cmd), userInfo];
     NSLog(@"GeTuiSdkDidReceiveNotification = %@", msg);
+    // 个推 SDK 可能接管系统通知点击回调，本地连续提醒也需要在此处取消。
+    [MMPushUtil cancelContinuousReminderForUserInfo:userInfo];
     if(completionHandler) {
         // [ 参考代码，开发者注意根据实际需求自行修改 ] 根据APP需要自行修改参数值
         completionHandler(UIBackgroundFetchResultNoData);

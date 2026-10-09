@@ -48,9 +48,494 @@
 #import "Global.h"
 #import "ZWCommonWebPage.h"
 #import "MMPushUtil.h"
+#import "My_Study-Swift.h"
+#import <UserNotifications/UserNotifications.h>
 
 #define kSectionViewHeight 58
 #define ZWNSLog(...) printf("%s\n", [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
+static NSString * const CRMReminderIdentifierPrefix = @"crm.reminder.";
+static NSString * const CRMAlarmKitRecordsKey = @"crm.alarmkit.records";
+static NSString * const CRMReminderEventIDKey = @"reminder_event_id";
+static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
+
+@interface CRMReminderItem : NSObject
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, assign) BOOL usesAlarmKit;
+@property (nonatomic, assign) BOOL repeats;
+@property (nonatomic, copy) NSArray<NSString *> *notificationIdentifiers;
+@end
+
+@implementation CRMReminderItem
+@end
+
+@interface CRMReminderViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@property (nonatomic, strong) UITextField *taskField;
+@property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, strong) UIButton *scheduleButton;
+@property (nonatomic, strong) UISwitch *repeatSwitch;
+@property (nonatomic, strong) UILabel *emptyLabel;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, copy) NSArray<CRMReminderItem *> *reminders;
+@property (nonatomic, strong) CRMReminderItem *editingReminder;
+@end
+
+@implementation CRMReminderViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"未来提醒";
+    self.view.backgroundColor = UIColorFromRGB(0xF4F7F5);
+    [self buildReminderInterface];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:60];
+    [self reloadPendingReminders];
+}
+
+- (void)buildReminderInterface {
+    UILabel *hint = [[UILabel alloc] init];
+    hint.translatesAutoresizingMaskIntoConstraints = NO;
+    if (@available(iOS 26.0, *)) {
+        hint.text = @"iOS 26 将使用系统闹钟提醒，可突破静音和专注模式。";
+    } else {
+        hint.text = @"选择未来的日期和时间，到点后由系统通知提醒你。";
+    }
+    hint.font = [UIFont systemFontOfSize:13];
+    hint.textColor = UIColorFromRGB(0x70827D);
+    hint.numberOfLines = 0;
+    [self.view addSubview:hint];
+
+    self.taskField = [[UITextField alloc] init];
+    self.taskField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.taskField.placeholder = @"要提醒我做什么？";
+    self.taskField.font = [UIFont systemFontOfSize:16];
+    self.taskField.backgroundColor = UIColor.whiteColor;
+    self.taskField.layer.cornerRadius = 14;
+    self.taskField.layer.borderWidth = 1;
+    self.taskField.layer.borderColor = UIColorFromRGB(0xD8E5E0).CGColor;
+    self.taskField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.taskField.returnKeyType = UIReturnKeyDone;
+    self.taskField.delegate = self;
+    UIView *padding = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 14, 1)];
+    self.taskField.leftView = padding;
+    self.taskField.leftViewMode = UITextFieldViewModeAlways;
+    [self.view addSubview:self.taskField];
+
+    self.datePicker = [[UIDatePicker alloc] init];
+    self.datePicker.translatesAutoresizingMaskIntoConstraints = NO;
+    self.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    self.datePicker.locale = [NSLocale localeWithLocaleIdentifier:@"zh_CN"];
+    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:60];
+    self.datePicker.maximumDate = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitYear value:5 toDate:NSDate.date options:0];
+    self.datePicker.date = [NSDate dateWithTimeIntervalSinceNow:3600];
+    if (@available(iOS 13.4, *)) self.datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    [self.view addSubview:self.datePicker];
+
+    UIView *repeatContainer = [[UIView alloc] init];
+    repeatContainer.translatesAutoresizingMaskIntoConstraints = NO;
+    repeatContainer.backgroundColor = UIColor.whiteColor;
+    repeatContainer.layer.cornerRadius = 12;
+    [self.view addSubview:repeatContainer];
+
+    UILabel *repeatLabel = [[UILabel alloc] init];
+    repeatLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    repeatLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightMedium];
+    repeatLabel.textColor = UIColorFromRGB(0x294B46);
+    repeatLabel.text = @"未查看时重复提醒";
+    [repeatContainer addSubview:repeatLabel];
+
+    self.repeatSwitch = [[UISwitch alloc] init];
+    self.repeatSwitch.translatesAutoresizingMaskIntoConstraints = NO;
+    self.repeatSwitch.on = NO;
+    self.repeatSwitch.onTintColor = UIColorFromRGB(0x315F57);
+    [repeatContainer addSubview:self.repeatSwitch];
+
+    if (@available(iOS 26.0, *)) {
+        repeatLabel.text = @"系统闹钟会持续响铃";
+        self.repeatSwitch.hidden = YES;
+    }
+
+    self.scheduleButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.scheduleButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.scheduleButton.backgroundColor = UIColorFromRGB(0x315F57);
+    self.scheduleButton.layer.cornerRadius = 14;
+    self.scheduleButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
+    [self.scheduleButton setTitle:@"安排提醒" forState:UIControlStateNormal];
+    [self.scheduleButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    [self.scheduleButton addTarget:self action:@selector(scheduleReminder) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.scheduleButton];
+
+    UILabel *listTitle = [[UILabel alloc] init];
+    listTitle.translatesAutoresizingMaskIntoConstraints = NO;
+    listTitle.text = @"待提醒";
+    listTitle.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
+    listTitle.textColor = UIColorFromRGB(0x294B46);
+    [self.view addSubview:listTitle];
+
+    UITableViewStyle tableStyle = UITableViewStyleGrouped;
+    if (@available(iOS 13.0, *)) tableStyle = UITableViewStyleInsetGrouped;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:tableStyle];
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableView.backgroundColor = UIColor.clearColor;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.rowHeight = 64;
+    [self.view addSubview:self.tableView];
+
+    self.emptyLabel = [[UILabel alloc] init];
+    self.emptyLabel.text = @"还没有待提醒事项";
+    self.emptyLabel.textAlignment = NSTextAlignmentCenter;
+    self.emptyLabel.textColor = UIColorFromRGB(0x8A9894);
+    self.emptyLabel.font = [UIFont systemFontOfSize:14];
+    self.tableView.backgroundView = self.emptyLabel;
+
+    UILayoutGuide *safe = self.view.safeAreaLayoutGuide;
+    [NSLayoutConstraint activateConstraints:@[
+        [hint.topAnchor constraintEqualToAnchor:safe.topAnchor constant:18],
+        [hint.leadingAnchor constraintEqualToAnchor:safe.leadingAnchor constant:20],
+        [hint.trailingAnchor constraintEqualToAnchor:safe.trailingAnchor constant:-20],
+        [self.taskField.topAnchor constraintEqualToAnchor:hint.bottomAnchor constant:12],
+        [self.taskField.leadingAnchor constraintEqualToAnchor:hint.leadingAnchor],
+        [self.taskField.trailingAnchor constraintEqualToAnchor:hint.trailingAnchor],
+        [self.taskField.heightAnchor constraintEqualToConstant:50],
+        [self.datePicker.topAnchor constraintEqualToAnchor:self.taskField.bottomAnchor constant:5],
+        [self.datePicker.leadingAnchor constraintEqualToAnchor:hint.leadingAnchor],
+        [self.datePicker.trailingAnchor constraintEqualToAnchor:hint.trailingAnchor],
+        [self.datePicker.heightAnchor constraintEqualToConstant:150],
+        [repeatContainer.topAnchor constraintEqualToAnchor:self.datePicker.bottomAnchor constant:4],
+        [repeatContainer.leadingAnchor constraintEqualToAnchor:hint.leadingAnchor],
+        [repeatContainer.trailingAnchor constraintEqualToAnchor:hint.trailingAnchor],
+        [repeatContainer.heightAnchor constraintEqualToConstant:44],
+        [repeatLabel.leadingAnchor constraintEqualToAnchor:repeatContainer.leadingAnchor constant:14],
+        [repeatLabel.centerYAnchor constraintEqualToAnchor:repeatContainer.centerYAnchor],
+        [self.repeatSwitch.trailingAnchor constraintEqualToAnchor:repeatContainer.trailingAnchor constant:-12],
+        [self.repeatSwitch.centerYAnchor constraintEqualToAnchor:repeatContainer.centerYAnchor],
+        [self.scheduleButton.topAnchor constraintEqualToAnchor:repeatContainer.bottomAnchor constant:8],
+        [self.scheduleButton.leadingAnchor constraintEqualToAnchor:hint.leadingAnchor],
+        [self.scheduleButton.trailingAnchor constraintEqualToAnchor:hint.trailingAnchor],
+        [self.scheduleButton.heightAnchor constraintEqualToConstant:48],
+        [listTitle.topAnchor constraintEqualToAnchor:self.scheduleButton.bottomAnchor constant:18],
+        [listTitle.leadingAnchor constraintEqualToAnchor:hint.leadingAnchor],
+        [self.tableView.topAnchor constraintEqualToAnchor:listTitle.bottomAnchor constant:2],
+        [self.tableView.leadingAnchor constraintEqualToAnchor:safe.leadingAnchor],
+        [self.tableView.trailingAnchor constraintEqualToAnchor:safe.trailingAnchor],
+        [self.tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+    ]];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)scheduleReminder {
+    [self.view endEditing:YES];
+    NSString *task = [self.taskField.text stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+    if (!task.length) {
+        [self showMessage:@"请填写提醒事项" message:@"例如：提交周报、吃药或给家人打电话。"];
+        return;
+    }
+    if ([self.datePicker.date timeIntervalSinceNow] < 30) {
+        [self showMessage:@"时间需要在未来" message:@"请选择至少 1 分钟后的日期和时间。"];
+        return;
+    }
+
+    self.scheduleButton.enabled = NO;
+    self.tableView.userInteractionEnabled = NO;
+    if (@available(iOS 26.0, *)) {
+        [self scheduleSystemAlarmWithTask:task date:self.datePicker.date];
+        return;
+    }
+
+    __weak typeof(self) weakSelf = self;
+    UNUserNotificationCenter *center = UNUserNotificationCenter.currentNotificationCenter;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge)
+                          completionHandler:^(BOOL granted, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!granted || error) {
+                weakSelf.scheduleButton.enabled = YES;
+                weakSelf.tableView.userInteractionEnabled = YES;
+                [weakSelf showNotificationSettings:error];
+                return;
+            }
+            [weakSelf addReminderWithTask:task date:weakSelf.datePicker.date repeats:weakSelf.repeatSwitch.isOn];
+        });
+    }];
+}
+
+- (void)scheduleSystemAlarmWithTask:(NSString *)task date:(NSDate *)date API_AVAILABLE(ios(26.0)) {
+    __weak typeof(self) weakSelf = self;
+    [[CRMAlarmKitBridge shared] scheduleAlarmWithTitle:task date:date completion:^(NSString *identifier, NSError *error) {
+        weakSelf.scheduleButton.enabled = YES;
+        weakSelf.tableView.userInteractionEnabled = YES;
+        if (error || !identifier.length) {
+            [weakSelf showAlarmKitError:error];
+            return;
+        }
+        [weakSelf saveAlarmKitRecordWithIdentifier:identifier title:task date:date];
+        if (weakSelf.editingReminder) [weakSelf cancelReminderStorage:weakSelf.editingReminder];
+        BOOL wasEditing = weakSelf.editingReminder != nil;
+        [weakSelf resetReminderEditor];
+        [weakSelf reloadPendingRemindersAfterUpdate];
+        [weakSelf showMessage:(wasEditing ? @"系统闹钟已修改" : @"系统闹钟已安排") message:[weakSelf formattedDate:date]];
+    }];
+}
+
+- (void)addReminderWithTask:(NSString *)task date:(NSDate *)date repeats:(BOOL)repeats {
+    NSString *eventID = NSUUID.UUID.UUIDString;
+    NSArray<NSNumber *> *minuteOffsets = repeats ? @[@0, @3, @6, @10] : @[@0];
+    dispatch_group_t group = dispatch_group_create();
+    NSMutableArray<NSString *> *scheduledIdentifiers = [NSMutableArray array];
+    __block NSError *scheduleError = nil;
+
+    [minuteOffsets enumerateObjectsUsingBlock:^(NSNumber *offset, NSUInteger index, BOOL *stop) {
+        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+        content.title = index == 0 ? @"事项提醒" : @"事项再次提醒";
+        content.body = task;
+        content.sound = UNNotificationSound.defaultSound;
+        content.threadIdentifier = [@"crm.reminders." stringByAppendingString:eventID];
+        content.userInfo = @{@"type": @"scheduled_reminder",
+                             CRMReminderEventIDKey: eventID,
+                             CRMReminderRepeatKey: @(repeats)};
+        if (@available(iOS 15.0, *)) content.interruptionLevel = UNNotificationInterruptionLevelTimeSensitive;
+
+        NSDate *fireDate = [date dateByAddingTimeInterval:offset.integerValue * 60];
+        NSCalendar *calendar = NSCalendar.currentCalendar;
+        NSCalendarUnit units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
+        NSDateComponents *components = [calendar components:units fromDate:fireDate];
+        components.calendar = calendar;
+        components.timeZone = NSTimeZone.localTimeZone;
+        UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:NO];
+        NSString *identifier = [NSString stringWithFormat:@"%@%@.%lu", CRMReminderIdentifierPrefix, eventID, (unsigned long)index];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
+
+        dispatch_group_enter(group);
+        [UNUserNotificationCenter.currentNotificationCenter addNotificationRequest:request withCompletionHandler:^(NSError *error) {
+            @synchronized (scheduledIdentifiers) {
+                if (error && !scheduleError) scheduleError = error;
+                if (!error) [scheduledIdentifiers addObject:identifier];
+            }
+            dispatch_group_leave(group);
+        }];
+    }];
+
+    __weak typeof(self) weakSelf = self;
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        weakSelf.scheduleButton.enabled = YES;
+        weakSelf.tableView.userInteractionEnabled = YES;
+        if (scheduleError) {
+            [UNUserNotificationCenter.currentNotificationCenter removePendingNotificationRequestsWithIdentifiers:scheduledIdentifiers];
+            [weakSelf showMessage:@"安排失败" message:scheduleError.localizedDescription ?: @"请稍后再试。"];
+            return;
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BOOL wasEditing = weakSelf.editingReminder != nil;
+            if (weakSelf.editingReminder) [weakSelf cancelReminderStorage:weakSelf.editingReminder];
+            [weakSelf resetReminderEditor];
+            [weakSelf reloadPendingRemindersAfterUpdate];
+            NSString *message = [weakSelf formattedDate:date];
+            if (repeats) message = [message stringByAppendingString:@"\n未查看时将在 3、6、10 分钟后再次提醒。"];
+            [weakSelf showMessage:(wasEditing ? @"提醒已修改" : @"提醒已安排") message:message];
+        });
+    });
+}
+
+- (void)reloadPendingReminders {
+    __weak typeof(self) weakSelf = self;
+    [UNUserNotificationCenter.currentNotificationCenter getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> *requests) {
+        NSMutableDictionary<NSString *, CRMReminderItem *> *grouped = [NSMutableDictionary dictionary];
+        for (UNNotificationRequest *request in requests) {
+            if (![request.identifier hasPrefix:CRMReminderIdentifierPrefix]) continue;
+            NSString *eventID = request.content.userInfo[CRMReminderEventIDKey] ?: request.identifier;
+            CRMReminderItem *item = grouped[eventID];
+            NSDate *fireDate = [(UNCalendarNotificationTrigger *)request.trigger nextTriggerDate];
+            if (!item) {
+                item = [[CRMReminderItem alloc] init];
+                item.identifier = eventID;
+                item.title = request.content.body;
+                item.date = fireDate;
+                item.repeats = [request.content.userInfo[CRMReminderRepeatKey] boolValue];
+                item.notificationIdentifiers = @[];
+                grouped[eventID] = item;
+            } else if (fireDate && [fireDate compare:item.date] == NSOrderedAscending) {
+                item.date = fireDate;
+            }
+            item.notificationIdentifiers = [item.notificationIdentifiers arrayByAddingObject:request.identifier];
+        }
+        NSMutableArray<CRMReminderItem *> *filtered = [grouped.allValues mutableCopy];
+        [filtered addObjectsFromArray:[weakSelf alarmKitReminderItems]];
+        [filtered sortUsingComparator:^NSComparisonResult(CRMReminderItem *left, CRMReminderItem *right) {
+            return [(left.date ?: NSDate.distantFuture) compare:(right.date ?: NSDate.distantFuture)];
+        }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.reminders = filtered;
+            weakSelf.emptyLabel.hidden = filtered.count > 0;
+            [weakSelf.tableView reloadData];
+        });
+    }];
+}
+
+- (void)reloadPendingRemindersAfterUpdate {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self reloadPendingReminders];
+    });
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return self.reminders.count; }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"CRMReminderCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    CRMReminderItem *item = self.reminders[indexPath.row];
+    cell.textLabel.text = item.title;
+    cell.textLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
+    NSString *channel = item.usesAlarmKit ? @" · 系统闹钟" : (item.repeats ? @" · 连续提醒" : @" · 通知提醒");
+    cell.detailTextLabel.text = [[self formattedDate:item.date] stringByAppendingString:channel];
+    cell.detailTextLabel.textColor = UIColorFromRGB(0x6F827D);
+    if (@available(iOS 13.0, *)) {
+        cell.imageView.image = [UIImage systemImageNamed:@"bell.fill"];
+        cell.imageView.tintColor = UIColorFromRGB(0x315F57);
+    }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CRMReminderItem *item = self.reminders[indexPath.row];
+    self.editingReminder = item;
+    self.taskField.text = item.title;
+    self.datePicker.date = item.date;
+    self.repeatSwitch.on = item.repeats;
+    [self.scheduleButton setTitle:@"保存修改" forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消编辑"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(cancelEditingReminder)];
+    [self.taskField becomeFirstResponder];
+}
+
+- (void)cancelEditingReminder {
+    [self.view endEditing:YES];
+    [self resetReminderEditor];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath { return YES; }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle != UITableViewCellEditingStyleDelete) return;
+    CRMReminderItem *item = self.reminders[indexPath.row];
+    [self cancelReminderStorage:item];
+    if (self.editingReminder == item) [self resetReminderEditor];
+    NSMutableArray *updated = [self.reminders mutableCopy];
+    [updated removeObjectAtIndex:indexPath.row];
+    self.reminders = updated;
+    self.emptyLabel.hidden = updated.count > 0;
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)cancelReminderStorage:(CRMReminderItem *)item {
+    if (item.usesAlarmKit) {
+        if (@available(iOS 26.0, *)) {
+            [[CRMAlarmKitBridge shared] cancelAlarmWithIdentifier:item.identifier completion:^(NSError *error) {
+                if (error) NSLog(@"取消系统闹钟失败：%@", error.localizedDescription);
+            }];
+        }
+        [self removeAlarmKitRecordWithIdentifier:item.identifier];
+        return;
+    }
+    NSArray *identifiers = item.notificationIdentifiers.count ? item.notificationIdentifiers : @[item.identifier];
+    [UNUserNotificationCenter.currentNotificationCenter removePendingNotificationRequestsWithIdentifiers:identifiers];
+}
+
+- (void)resetReminderEditor {
+    self.editingReminder = nil;
+    self.taskField.text = @"";
+    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:60];
+    self.datePicker.date = [NSDate dateWithTimeIntervalSinceNow:3600];
+    self.repeatSwitch.on = NO;
+    [self.scheduleButton setTitle:@"安排提醒" forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
+- (void)saveAlarmKitRecordWithIdentifier:(NSString *)identifier title:(NSString *)title date:(NSDate *)date {
+    NSMutableArray *records = [[[NSUserDefaults standardUserDefaults] arrayForKey:CRMAlarmKitRecordsKey] mutableCopy] ?: [NSMutableArray array];
+    [records addObject:@{@"identifier": identifier, @"title": title, @"date": date}];
+    [[NSUserDefaults standardUserDefaults] setObject:records forKey:CRMAlarmKitRecordsKey];
+}
+
+- (NSArray<CRMReminderItem *> *)alarmKitReminderItems {
+    NSArray *records = [[NSUserDefaults standardUserDefaults] arrayForKey:CRMAlarmKitRecordsKey] ?: @[];
+    NSMutableArray<CRMReminderItem *> *items = [NSMutableArray array];
+    NSMutableArray *validRecords = [NSMutableArray array];
+    for (NSDictionary *record in records) {
+        NSString *identifier = record[@"identifier"];
+        NSString *title = record[@"title"];
+        NSDate *date = record[@"date"];
+        if (!identifier.length || !title.length || ![date isKindOfClass:NSDate.class] || [date timeIntervalSinceNow] < -60) continue;
+        CRMReminderItem *item = [[CRMReminderItem alloc] init];
+        item.identifier = identifier;
+        item.title = title;
+        item.date = date;
+        item.usesAlarmKit = YES;
+        [items addObject:item];
+        [validRecords addObject:record];
+    }
+    if (validRecords.count != records.count) {
+        [[NSUserDefaults standardUserDefaults] setObject:validRecords forKey:CRMAlarmKitRecordsKey];
+    }
+    return items;
+}
+
+- (void)removeAlarmKitRecordWithIdentifier:(NSString *)identifier {
+    NSArray *records = [[NSUserDefaults standardUserDefaults] arrayForKey:CRMAlarmKitRecordsKey] ?: @[];
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *record, NSDictionary *bindings) {
+        return ![record[@"identifier"] isEqualToString:identifier];
+    }];
+    [[NSUserDefaults standardUserDefaults] setObject:[records filteredArrayUsingPredicate:predicate] forKey:CRMAlarmKitRecordsKey];
+}
+
+- (void)showAlarmKitError:(NSError *)error {
+    NSString *message = error.localizedDescription ?: @"请在系统设置中允许本 App 创建闹钟。";
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"无法创建系统闹钟" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"前往设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [UIApplication.sharedApplication openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (NSString *)formattedDate:(NSDate *)date {
+    if (!date) return @"时间未知";
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"zh_CN"];
+    formatter.dateFormat = @"yyyy年M月d日 EEEE HH:mm";
+    return [formatter stringFromDate:date];
+}
+
+- (void)showNotificationSettings:(NSError *)error {
+    NSString *message = error.localizedDescription ?: @"请在系统设置中允许通知，否则无法按时提醒。";
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"需要通知权限" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"前往设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [UIApplication.sharedApplication openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showMessage:(NSString *)title message:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+@end
 
 @interface CRMSettingCardCell : UITableViewCell
 @property (nonatomic, strong) UIView *cardView;
@@ -157,6 +642,10 @@
 @end
 
 @implementation SettingViewController
+
++ (UIViewController *)futureReminderViewController {
+    return [[CRMReminderViewController alloc] init];
+}
 
 - (void)initExtendedData {
     [super initExtendedData];
@@ -266,7 +755,7 @@
 
     NSArray *sec5Arr = @[[ActionModel initWithTitle:@"用户隐私协议" actionName:@"go2PrivicyAgreement"],
                          [ActionModel initWithTitle:@"交易风险提示" actionName:@"go2TradeRiskTip"],
-                         [ActionModel initWithTitle:@"推送测试" actionName:@"push_test"]];
+                         [ActionModel initWithTitle:@"未来提醒" actionName:@"scheduledReminder"]];
 
     return @[sec1Arr, sec2Arr, sec3Arr, sec4Arr, sec5Arr];
 }
@@ -289,7 +778,7 @@
             @"showGameCenter": @"赛车、拼图与更多小游戏", @"cleanCacheData": @"释放本地缓存空间",
             @"feedBackDetailInfo": @"告诉我们你的建议", @"aboutDetailInfo": @"查看应用信息",
             @"go2PrivicyAgreement": @"了解隐私保护说明", @"go2TradeRiskTip": @"查看风险提示内容",
-            @"push_test": @"体验本地通知"
+            @"scheduledReminder": @"在未来指定日期和时间提醒事项"
         };
     });
     return descriptions[action] ?: @"打开功能页面";
@@ -305,7 +794,7 @@
             @"photoFileSelect": @"📷", @"citySelect": @"📍", @"otherCitySelect": @"🗺",
             @"jumpSJVideoPage": @"▶", @"textToSpeechPage": @"♫", @"showGameCenter": @"🎮",
             @"cleanCacheData": @"🧹", @"feedBackDetailInfo": @"✉", @"aboutDetailInfo": @"ⓘ",
-            @"go2PrivicyAgreement": @"🔒", @"push_test": @"🔔"
+            @"go2PrivicyAgreement": @"🔒", @"scheduledReminder": @"⏰"
         };
     });
     NSArray<NSString *> *fallbacks = @[@"◈", @"⚙", @"✦", @"◇", @"☷"];
@@ -895,6 +1384,14 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
  */
 - (void)showGameCenter {
     CRMGameCenterViewController *controller = [[CRMGameCenterViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+/**
+ *  未来事项提醒
+ */
+- (void)scheduledReminder {
+    UIViewController *controller = [SettingViewController futureReminderViewController];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

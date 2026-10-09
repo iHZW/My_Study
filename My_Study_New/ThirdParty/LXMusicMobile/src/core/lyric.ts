@@ -3,6 +3,7 @@ import {
   setLyric as lrcSetLyric,
   pause as lrcPause,
   setPlaybackRate as lrcSetPlaybackRate,
+  setOffset as lrcSetOffset,
   toggleTranslation as lrcToggleTranslation,
   toggleRoma as lrcToggleRoma,
   init as lrcInit,
@@ -81,6 +82,16 @@ export const setPlaybackRate = async(playbackRate: number) => {
       })
     })
   }
+}
+
+/**
+ * 调整歌词时间轴。正数让歌词提前，负数让歌词延后。
+ */
+export const setOffset = async(offset: number) => {
+  lrcSetOffset(offset)
+  if (!playerState.isPlay) return
+  const position = await getPosition()
+  handlePlay(position * 1000)
 }
 
 /**

@@ -120,11 +120,26 @@ export const isTempTrack = (trackId: string) => /\/\/default$/.test(trackId)
 
 export const getCurrentTrackId = async() => {
   const currentTrackIndex = await TrackPlayer.getCurrentTrack()
-  return list[currentTrackIndex]?.id
+  if (currentTrackIndex == null) return
+  return (await TrackPlayer.getTrack(currentTrackIndex))?.id
 }
 export const getCurrentTrack = async() => {
   const currentTrackIndex = await TrackPlayer.getCurrentTrack()
-  return list[currentTrackIndex]
+  if (currentTrackIndex == null) return
+  return await TrackPlayer.getTrack(currentTrackIndex) as LX.Player.Track | null
+}
+
+/**
+ * 获取原生播放轨道对应的业务歌曲 ID。
+ *
+ * 部分 iOS 桥接场景不会稳定回传自定义的 musicId 字段，但轨道 id 的第一段
+ * 始终是歌曲 ID，因此保留轨道 id 作为可靠兜底，避免误判后清空锁屏信息。
+ */
+const getTrackMusicId = (track?: LX.Player.Track | null) => {
+  if (!track) return
+  if (track.musicId != null) return String(track.musicId)
+  if (typeof track.id !== 'string') return
+  return track.id.split('__//', 1)[0]
 }
 
 export const updateMetaData = async(musicInfo: LX.Player.MusicInfo, isPlay: boolean, force = false) => {
@@ -216,7 +231,6 @@ export const playMusic = (musicInfo: LX.Player.PlayMusic, url: string, time: num
 
 // let musicId = null
 // let duration = 0
-let prevArtwork: string | undefined
 const updateMetaInfo = async(mInfo: LX.Player.MusicInfo) => {
   const isShowNotificationImage = settingState.setting['player.isShowNotificationImage']
   // const mInfo = formatMusicInfo(musicInfo)
@@ -231,9 +245,18 @@ const updateMetaInfo = async(mInfo: LX.Player.MusicInfo) => {
   //   duration = global.playInfo.duration || 0
   // }
   // console.log('+++++updateMetaInfo+++++', mInfo.name)
-  state.isPlaying = await TrackPlayer.getState() == State.Playing
-  let artwork = isShowNotificationImage ? mInfo.pic ?? prevArtwork : undefined
-  if (mInfo.pic) prevArtwork = mInfo.pic
+  const [playerStatus, duration, currentTrackIndex] = await Promise.all([
+    TrackPlayer.getState(),
+    TrackPlayer.getDuration(),
+    TrackPlayer.getCurrentTrack(),
+  ])
+  if (currentTrackIndex == null) return
+  const currentTrack = await TrackPlayer.getTrack(currentTrackIndex) as LX.Player.Track | null
+  // 快速切歌时旧歌曲的异步更新可能晚到；只允许当前原生轨道写入锁屏信息。
+  if (getTrackMusicId(currentTrack) !== String(mInfo.id)) return
+  state.isPlaying = playerStatus == State.Playing
+  state.prevDuration = duration
+  const artwork = isShowNotificationImage ? mInfo.pic ?? undefined : undefined
   let title: string
   let artist: string
   if (playerState.lastLyric == null) {
@@ -243,14 +266,20 @@ const updateMetaInfo = async(mInfo: LX.Player.MusicInfo) => {
     title = playerState.lastLyric
     artist = `${mInfo.name}${mInfo.singer ? ` - ${mInfo.singer}` : ''}`
   }
-  await TrackPlayer.updateNowPlayingMetadata({
+  // 直接更新当前原生轨道：系统会把轨道元数据同步到锁屏媒体卡。
+  // 不再先清空 MPNowPlayingInfoCenter，避免原生异步清空覆盖随后写入的数据。
+  const verifiedTrackIndex = await TrackPlayer.getCurrentTrack()
+  if (verifiedTrackIndex == null || verifiedTrackIndex !== currentTrackIndex) return
+  const verifiedTrack = await TrackPlayer.getTrack(verifiedTrackIndex) as LX.Player.Track | null
+  if (getTrackMusicId(verifiedTrack) !== String(mInfo.id)) return
+  await TrackPlayer.updateMetadataForTrack(verifiedTrackIndex, {
     title,
     artist,
     album: mInfo.album ?? undefined,
     artwork,
-    duration: state.prevDuration || 0,
+    duration: duration || 0,
     lyric: getCurrentFullLyric(mInfo.id),
-  }, state.isPlaying)
+  })
 }
 
 

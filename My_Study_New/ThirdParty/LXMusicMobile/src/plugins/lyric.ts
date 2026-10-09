@@ -18,13 +18,14 @@ const lrcTools = {
   lyricText: '',
   translationText: '' as string | null | undefined,
   romaText: '' as string | null | undefined,
+  userOffset: 0,
   init() {
     if (this.isInited) return
     this.isInited = true
     this.lrc = new Lyric({
       onPlay: this.onPlay.bind(this),
       onSetLyric: this.onSetLyric.bind(this),
-      offset: 100, // offset time(ms), default is 150 ms
+      offset: 100 + this.userOffset,
     })
   },
   onPlay(line: number, text: string) {
@@ -77,6 +78,10 @@ export const setLyric = (lyric: string, translation?: string, romalrc?: string) 
 export const setPlaybackRate = (playbackRate: number) => {
   lrcTools.lrc!.setPlaybackRate(playbackRate)
 }
+export const setOffset = (offset: number) => {
+  lrcTools.userOffset = offset
+  if (lrcTools.lrc) lrcTools.lrc.offset = 100 + offset
+}
 export const toggleTranslation = (isShow: boolean) => {
   lrcTools.isShowTranslation = isShow
   if (!lrcTools.lyricText) return
@@ -103,6 +108,18 @@ export const onLrcPlay = (handler: PlayHook): (() => void) => {
   lrcTools.addPlayHook(handler)
   return () => { lrcTools.removePlayHook(handler) }
 }
+
+export const onLrcSet = (handler: SetLyricHook): (() => void) => {
+  lrcTools.addSetLyricHook(handler)
+  return () => { lrcTools.removeSetLyricHook(handler) }
+}
+
+/** 获取锁屏歌词卡片需要的上一句、当前句和下一句。 */
+export const getLyricLineWindow = (line = lrcTools.currentLineData.line) => ({
+  previousLine: line > 0 ? lrcTools.currentLines[line - 1]?.text ?? '' : '',
+  currentLine: line >= 0 ? lrcTools.currentLines[line]?.text ?? lrcTools.currentLineData.text : '',
+  nextLine: line >= 0 ? lrcTools.currentLines[line + 1]?.text ?? '' : '',
+})
 
 // on lyric play hook
 export const useLrcPlay = (autoUpdate = true) => {

@@ -68,6 +68,81 @@ if (!fs.existsSync(targetPath)) {
 
 const swiftPatches = [
   {
+    name: 'iOS 锁屏歌词后台计时器属性',
+    marker: 'private let lyricsProgressQueue = DispatchQueue(',
+    anchor: '    private let player = QueuedAudioPlayer()',
+    replacement: `    private let player = QueuedAudioPlayer()
+    private let lyricsProgressQueue = DispatchQueue(label: "com.lxmusic.lyrics-progress", qos: .userInitiated)
+    private var lyricsProgressTimer: DispatchSourceTimer?`,
+  },
+  {
+    name: 'iOS 锁屏歌词播放状态控制',
+    marker: '            startLyricsProgressTimer()\n        } else {',
+    anchor: `    func handleAudioPlayerStateChange(state: AVPlayerWrapperState) {
+        sendEvent(withName: "playback-state", body: ["state": state.rawValue])
+    }`,
+    replacement: `    func handleAudioPlayerStateChange(state: AVPlayerWrapperState) {
+        if state == .playing {
+            startLyricsProgressTimer()
+        } else {
+            stopLyricsProgressTimer()
+        }
+        sendEvent(withName: "playback-state", body: ["state": state.rawValue])
+    }`,
+  },
+  {
+    name: 'iOS 锁屏进度时长回填',
+    marker: 'private func startLyricsProgressTimer()',
+    anchor: '        player.event.stateChange.addListener(self, handleAudioPlayerStateChange)',
+    replacement: `        player.event.stateChange.addListener(self, handleAudioPlayerStateChange)
+        player.event.updateDuration.addListener(self, handleAudioPlayerDurationUpdate)`,
+    appendAfter: `    func handleAudioPlayerStateChange(state: AVPlayerWrapperState) {
+        sendEvent(withName: "playback-state", body: ["state": state.rawValue])
+    }`,
+    appendedCode: `
+
+    // 媒体时长通常晚于 Playing 状态才解析完成；此时必须再次写入系统
+    // Now Playing，否则锁屏进度会一直保持为 0，直到用户主动拖动。
+    func handleAudioPlayerDurationUpdate(duration: Double) {
+        guard player.automaticallyUpdateNowPlayingInfo, duration.isFinite, duration > 0 else { return }
+        player.nowPlayingInfoController.set(keyValues: [
+            MediaItemProperty.duration(duration),
+            NowPlayingInfoProperty.elapsedPlaybackTime(player.currentTime),
+            NowPlayingInfoProperty.playbackRate(player.playerState == .playing ? Double(player.rate) : 0)
+        ])
+    }
+
+    // SwiftAudioEx 默认把 AVPlayer 周期回调派发到主队列，App 进入后台后该回调
+    // 可能暂停。歌词使用独立原生队列读取 AVPlayer 时间，后台音频播放期间仍可驱动
+    // 实时活动；只有跨越歌词时间点时才真正更新 ActivityKit，避免无效刷新。
+    private func startLyricsProgressTimer() {
+        lyricsProgressQueue.async { [weak self] in
+            guard let self = self, self.lyricsProgressTimer == nil else { return }
+            let timer = DispatchSource.makeTimerSource(queue: self.lyricsProgressQueue)
+            timer.schedule(deadline: .now(), repeating: .milliseconds(250), leeway: .milliseconds(50))
+            timer.setEventHandler { [weak self] in
+                guard let self = self, self.player.playerState == .playing else { return }
+                let position = self.player.currentTime
+                guard position.isFinite, position >= 0 else { return }
+                NotificationCenter.default.post(
+                    name: Notification.Name("LXLyricsPlaybackProgress"),
+                    object: nil,
+                    userInfo: ["position": position]
+                )
+            }
+            self.lyricsProgressTimer = timer
+            timer.resume()
+        }
+    }
+
+    private func stopLyricsProgressTimer() {
+        lyricsProgressQueue.async { [weak self] in
+            self?.lyricsProgressTimer?.cancel()
+            self?.lyricsProgressTimer = nil
+        }
+    }`,
+  },
+  {
     name: 'SwiftAudioEx 1.1.0 事件监听器注册',
     marker: 'player.event.currentItem.addListener(self, handleAudioPlayerCurrentItemChange)',
     anchor: `        player.event.receiveMetadata.addListener(self, handleAudioPlayerMetadataReceived)
@@ -195,6 +270,12 @@ for (const patch of swiftPatches) {
     throw new Error(`react-native-track-player 源码结构已变化，无法安全应用${patch.name}补丁`)
   }
   swiftSource = swiftSource.replace(patch.anchor, patch.replacement)
+  if (patch.appendAfter && patch.appendedCode) {
+    if (!swiftSource.includes(patch.appendAfter)) {
+      throw new Error(`react-native-track-player 源码结构已变化，无法安全插入${patch.name}实现`)
+    }
+    swiftSource = swiftSource.replace(patch.appendAfter, patch.appendAfter + patch.appendedCode)
+  }
   console.log(`已应用 react-native-track-player ${patch.name}补丁`)
 }
 fs.writeFileSync(targetPath, swiftSource)
