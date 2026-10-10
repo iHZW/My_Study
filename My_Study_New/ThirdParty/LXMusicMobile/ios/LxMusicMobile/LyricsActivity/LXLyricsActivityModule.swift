@@ -22,6 +22,8 @@ final class LXLyricsActivityModule: NSObject {
   private var timelineLines: [TimelineLine] = []
   private var latestSnapshot: ActivitySnapshot?
   private var lastNativeLineIndex = -1
+  private let stateLock = NSLock()
+  private var activityOperationTask: Task<Void, Never>?
 
   override init() {
     super.init()
@@ -53,7 +55,7 @@ final class LXLyricsActivityModule: NSObject {
     backgroundColor: String,
     foregroundColor: String,
     position: Double,
-    playbackRate: Double,
+    playbackRate _: Double,
     resolver resolve: @escaping RCTPromiseResolveBlock,
     rejecter reject: @escaping RCTPromiseRejectBlock
   ) {
@@ -74,18 +76,23 @@ final class LXLyricsActivityModule: NSObject {
       foregroundColor: Self.validHexColor(foregroundColor, fallback: "#62D8FF")
     )
 
-    Task { @MainActor in
-      latestSnapshot = ActivitySnapshot(
-        songId: songId,
-        title: title,
-        artist: artist,
-        isPlaying: isPlaying,
-        backgroundColor: state.backgroundColor,
-        foregroundColor: state.foregroundColor
-      )
-      lastNativeLineIndex = max(0, (timelineLines.lastIndex { $0.time <= position * 1_000 }) ?? 0)
+    stateLock.lock()
+    latestSnapshot = ActivitySnapshot(
+      songId: songId,
+      title: title,
+      artist: artist,
+      isPlaying: isPlaying,
+      backgroundColor: state.backgroundColor,
+      foregroundColor: state.foregroundColor
+    )
+    lastNativeLineIndex = max(0, (timelineLines.lastIndex { $0.time <= position * 1_000 }) ?? 0)
+    stateLock.unlock()
+
+    // ActivityKit 的更新不要求主线程。避免强制切换到 MainActor，防止 App
+    // 进入后台后主线程调度暂停，导致歌曲和歌词永久停留在旧状态。
+    enqueueActivityOperation {
       if let activity = Activity<LXLyricsActivityAttributes>.activities.first {
-        await update(activity, state: state)
+        await self.update(activity, state: state)
         resolve("updated")
         return
       }
@@ -123,11 +130,11 @@ final class LXLyricsActivityModule: NSObject {
       return TimelineLine(time: max(0, time - offset), text: text)
     }.sorted { $0.time < $1.time }
 
-    Task { @MainActor in
-      timelineSongId = songId
-      timelineLines = parsedLines
-      lastNativeLineIndex = -1
-    }
+    stateLock.lock()
+    timelineSongId = songId
+    timelineLines = parsedLines
+    lastNativeLineIndex = -1
+    stateLock.unlock()
   }
 
   private static func validHexColor(_ value: String, fallback: String) -> String {
@@ -152,9 +159,11 @@ final class LXLyricsActivityModule: NSObject {
 
   @objc func end() {
     guard #available(iOS 16.1, *) else { return }
-    Task { @MainActor in
-      latestSnapshot = nil
-      lastNativeLineIndex = -1
+    stateLock.lock()
+    latestSnapshot = nil
+    lastNativeLineIndex = -1
+    stateLock.unlock()
+    enqueueActivityOperation {
       for activity in Activity<LXLyricsActivityAttributes>.activities {
         if #available(iOS 16.2, *) {
           await activity.end(nil, dismissalPolicy: .immediate)
@@ -173,34 +182,54 @@ final class LXLyricsActivityModule: NSObject {
   @available(iOS 16.1, *)
   private func handleAvailableNativePlaybackProgress(_ notification: Notification) {
     guard let position = (notification.userInfo?["position"] as? NSNumber)?.doubleValue else { return }
-    Task { @MainActor [weak self] in
-      guard let self,
-            let snapshot = self.latestSnapshot,
-            snapshot.isPlaying,
-            self.timelineSongId == snapshot.songId,
-            !self.timelineLines.isEmpty,
-            let activity = Activity<LXLyricsActivityAttributes>.activities.first else { return }
+    stateLock.lock()
+    guard let snapshot = latestSnapshot,
+          snapshot.isPlaying,
+          timelineSongId == snapshot.songId,
+          !timelineLines.isEmpty else {
+      stateLock.unlock()
+      return
+    }
 
-      let index = max(0, (self.timelineLines.lastIndex { $0.time <= position * 1_000 }) ?? 0)
-      guard index != self.lastNativeLineIndex else { return }
-      self.lastNativeLineIndex = index
-      let state = LXLyricsActivityAttributes.ContentState(
-        songId: snapshot.songId,
-        title: snapshot.title,
-        artist: snapshot.artist,
-        previousLine: index > 0 ? self.timelineLines[index - 1].text : "",
-        currentLine: self.timelineLines[index].text,
-        nextLine: index + 1 < self.timelineLines.count ? self.timelineLines[index + 1].text : "",
-        isPlaying: true,
-        backgroundColor: snapshot.backgroundColor,
-        foregroundColor: snapshot.foregroundColor
-      )
-      await self.update(activity, state: state)
+    let index = max(0, (timelineLines.lastIndex { $0.time <= position * 1_000 }) ?? 0)
+    guard index != lastNativeLineIndex else {
+      stateLock.unlock()
+      return
+    }
+    lastNativeLineIndex = index
+    let state = LXLyricsActivityAttributes.ContentState(
+      songId: snapshot.songId,
+      title: snapshot.title,
+      artist: snapshot.artist,
+      previousLine: index > 0 ? timelineLines[index - 1].text : "",
+      currentLine: timelineLines[index].text,
+      nextLine: index + 1 < timelineLines.count ? timelineLines[index + 1].text : "",
+      isPlaying: true,
+      backgroundColor: snapshot.backgroundColor,
+      foregroundColor: snapshot.foregroundColor
+    )
+    stateLock.unlock()
+
+    guard let activity = Activity<LXLyricsActivityAttributes>.activities.first else { return }
+    enqueueActivityOperation { [weak self] in
+      await self?.update(activity, state: state)
     }
   }
 
+  /// ActivityKit 更新严格串行执行，避免快速切歌时旧任务晚于新任务完成，
+  /// 导致前台或锁屏重新显示上一句歌词。
+  private func enqueueActivityOperation(_ operation: @escaping () async -> Void) {
+    stateLock.lock()
+    let previousTask = activityOperationTask
+    let nextTask = Task {
+      await previousTask?.value
+      await operation()
+    }
+    activityOperationTask = nextTask
+    stateLock.unlock()
+  }
+
   @available(iOS 16.1, *)
-  @MainActor
   private func update(
     _ activity: Activity<LXLyricsActivityAttributes>,
     state: LXLyricsActivityAttributes.ContentState

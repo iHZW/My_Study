@@ -22,11 +22,12 @@ const lyricColors = ['#62D8FF', '#FFFFFF', '#FFD166', '#FF8FA3', '#A8E6A3', '#24
 export default memo(() => {
   const t = useI18n()
   const isShowBluetoothLyric = useSettingValue('player.isShowBluetoothLyric')
+  const isShowLyricsActivity = useSettingValue('player.isShowLyricsActivity')
   const backgroundColor = useSettingValue('player.lyricsActivityBackgroundColor')
   const foregroundColor = useSettingValue('player.lyricsActivityForegroundColor')
   const setActivityColor = (key: 'player.lyricsActivityBackgroundColor' | 'player.lyricsActivityForegroundColor', color: string) => {
     updateSetting({ [key]: color })
-    if (settingState.setting['player.isShowBluetoothLyric']) {
+    if (settingState.setting['player.isShowLyricsActivity']) {
       void syncLockScreenLyricsActivity()
     }
   }
@@ -51,38 +52,7 @@ export default memo(() => {
     }
     updateSetting({ 'player.isShowBluetoothLyric': isShowBluetoothLyric })
     void showRemoteLyric(isShowBluetoothLyric)
-    if (isShowBluetoothLyric) {
-      if (Platform.OS === 'ios') {
-        const status = await getLyricsActivityAuthorizationStatus()
-        if (status === 'moduleUnavailable') {
-          Alert.alert(
-            '需要重新安装 App',
-            '当前安装包不包含锁屏歌词扩展。请停止 Metro 热更新后，在 Xcode 中重新编译并安装 App。',
-          )
-          return
-        }
-        if (status === 'unsupported') {
-          Alert.alert('系统版本不支持', '锁屏实时歌词需要 iOS 16.1 或更高版本。')
-          return
-        }
-        if (status === 'disabled') {
-          Alert.alert(
-            '实时活动未开启',
-            '请在系统设置中允许此 App 使用“实时活动”，然后重新播放歌曲。',
-            [
-              { text: '取消', style: 'cancel' },
-              { text: '打开设置', onPress: () => { void Linking.openSettings() } },
-            ],
-          )
-          return
-        }
-      }
-      const result = await syncLockScreenLyricsActivity()
-      if (result === 'failed') {
-        Alert.alert('锁屏歌词启动失败', '实时活动创建失败，请重新编译安装后再试，并查看 Xcode 控制台中的“锁屏歌词”日志。')
-      }
-    } else {
-      endLyricsActivity()
+    if (!isShowBluetoothLyric) {
       setLastLyric()
       void updateNowPlayingTitles({
         title: playerState.musicInfo.name,
@@ -92,10 +62,50 @@ export default memo(() => {
     }
   }
 
+  const setShowLyricsActivity = async(isShow: boolean) => {
+    if (!isShow) {
+      updateSetting({ 'player.isShowLyricsActivity': false })
+      endLyricsActivity()
+      return
+    }
+
+    const status = await getLyricsActivityAuthorizationStatus()
+    if (status === 'moduleUnavailable') {
+      Alert.alert(
+        '需要重新安装 App',
+        '当前安装包不包含锁屏歌词扩展。请停止 Metro 热更新后，在 Xcode 中重新编译并安装 App。',
+      )
+      return
+    }
+    if (status === 'unsupported') {
+      Alert.alert('系统版本不支持', '锁屏实时歌词需要 iOS 16.1 或更高版本。')
+      return
+    }
+    if (status === 'disabled') {
+      Alert.alert(
+        '实时活动未开启',
+        '请在系统设置中允许此 App 使用“实时活动”，然后重新播放歌曲。',
+        [
+          { text: '取消', style: 'cancel' },
+          { text: '打开设置', onPress: () => { void Linking.openSettings() } },
+        ],
+      )
+      return
+    }
+
+    updateSetting({ 'player.isShowLyricsActivity': true })
+    const result = await syncLockScreenLyricsActivity()
+    if (result === 'failed') {
+      updateSetting({ 'player.isShowLyricsActivity': false })
+      Alert.alert('锁屏歌词启动失败', '实时活动创建失败，请重新编译安装后再试，并查看 Xcode 控制台中的“锁屏歌词”日志。')
+    }
+  }
+
   return (
     <View style={styles.content}>
       <CheckBoxItem check={isShowBluetoothLyric} onChange={setShowBluetoothLyric} label={t('setting_play_show_bluetooth_lyric')} />
-      {Platform.OS === 'ios' && isShowBluetoothLyric && <>
+      {Platform.OS === 'ios' && <CheckBoxItem check={isShowLyricsActivity} onChange={setShowLyricsActivity} label={t('setting_play_show_lyrics_activity')} />}
+      {Platform.OS === 'ios' && isShowLyricsActivity && <>
         <SubTitle title="锁屏卡片背景色">
           <View style={styles.colorList}>
             {backgroundColors.map(color => <TouchableOpacity

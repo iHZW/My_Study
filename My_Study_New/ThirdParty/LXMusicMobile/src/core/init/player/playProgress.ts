@@ -8,7 +8,7 @@ import BackgroundTimer from 'react-native-background-timer'
 import playerState from '@/store/player/state'
 import settingState from '@/store/setting/state'
 import { onScreenStateChange } from '@/utils/nativeModules/utils'
-import { AppState } from 'react-native'
+import { AppState, Platform } from 'react-native'
 import { handlePlay as syncLyricProgress } from '@/core/lyric'
 
 const delaySavePlayInfo = throttleBackgroundTimer(() => {
@@ -40,6 +40,11 @@ export default () => {
 
   let isScreenOn = true
 
+  const shouldSyncLockScreenLyric = () => Platform.OS === 'ios' && (
+    settingState.setting['player.isShowBluetoothLyric'] ||
+    settingState.setting['player.isShowLyricsActivity']
+  )
+
   const getCurrentTime = () => {
     let id = playerState.musicInfo.id
     void Promise.all([getPosition(), getDuration()]).then(([rawPosition, rawDuration]) => {
@@ -57,6 +62,10 @@ export default () => {
       if (!Number.isFinite(position) || position < 0) return
       setNowPlayTime(position)
       if (!playerState.isPlay) return
+
+      // lrc-file-parser 使用 requestAnimationFrame 推进歌词，iOS 进入后台后会暂停。
+      // 息屏期间使用播放器真实进度重新校准，保证系统歌词和实时活动仍能换行。
+      if (!isScreenOn && shouldSyncLockScreenLyric()) syncLyricProgress(position * 1000)
 
       if (settingState.setting['player.isSavePlayTime'] && !playerState.playMusicInfo.isTempPlay && isScreenOn) {
         delaySavePlayInfo()
@@ -91,7 +100,7 @@ export default () => {
     updateTimeout = null
   }
   const startUpdateTimeout = () => {
-    if (!isScreenOn) return
+    if (!isScreenOn && !shouldSyncLockScreenLyric()) return
     clearUpdateTimeout()
     updateTimeout = BackgroundTimer.setInterval(() => {
       getCurrentTime()
@@ -189,13 +198,21 @@ export default () => {
 
   const handleConfigUpdated: typeof global.state_event.configUpdated = (keys, settings) => {
     if (keys.includes('player.playbackRate')) startUpdateTimeout()
+    if (!isScreenOn && keys.some(key => key == 'player.isShowBluetoothLyric' || key == 'player.isShowLyricsActivity')) {
+      if (playerState.isPlay && shouldSyncLockScreenLyric()) startUpdateTimeout()
+      else clearUpdateTimeout()
+    }
   }
 
   const handleScreenStateChanged: Parameters<typeof onScreenStateChange>[0] = (state) => {
     isScreenOn = state == 'ON'
     if (isScreenOn) {
       if (playerState.isPlay) startUpdateTimeout()
-    } else clearUpdateTimeout()
+    } else if (playerState.isPlay && shouldSyncLockScreenLyric()) {
+      startUpdateTimeout()
+    } else {
+      clearUpdateTimeout()
+    }
   }
 
   // 修复在某些设备上屏幕状态改变事件未触发导致的进度条未更新的问题

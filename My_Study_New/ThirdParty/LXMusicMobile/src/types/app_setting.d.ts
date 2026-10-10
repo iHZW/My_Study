@@ -196,6 +196,9 @@ declare global {
        */
       'player.isShowBluetoothLyric': boolean
 
+      /** 是否启用 iOS 锁屏实时活动歌词卡片 */
+      'player.isShowLyricsActivity': boolean
+
       /** 锁屏歌词卡片背景色（十六进制） */
       'player.lyricsActivityBackgroundColor': string
 

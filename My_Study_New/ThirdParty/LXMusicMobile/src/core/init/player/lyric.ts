@@ -12,7 +12,7 @@ import { getPosition } from '@/plugins/player'
 
 export const syncLockScreenLyricsActivity = async(line?: number, isPlaying = playerState.isPlay) => {
   if (Platform.OS !== 'ios') return 'unsupported' as const
-  if (!settingState.setting['player.isShowBluetoothLyric']) {
+  if (!settingState.setting['player.isShowLyricsActivity']) {
     endLyricsActivity()
     return 'inactive' as const
   }
@@ -41,7 +41,10 @@ export const syncLockScreenLyricsActivity = async(line?: number, isPlaying = pla
   })
 }
 
-const updateRemoteLyric = async(lrc?: string) => {
+const getSongDescription = () => `${playerState.musicInfo.name}${playerState.musicInfo.singer ? ` - ${playerState.musicInfo.singer}` : ''}`
+const getLyricSubtitle = (nextLrc?: string) => nextLrc?.trim() ? nextLrc : getSongDescription()
+
+const updateRemoteLyric = async(lrc?: string, nextLrc?: string) => {
   setLastLyric(lrc)
   if (lrc == null) {
     void updateNowPlayingTitles({
@@ -52,7 +55,9 @@ const updateRemoteLyric = async(lrc?: string) => {
   } else {
     void updateNowPlayingTitles({
       title: lrc,
-      artist: `${playerState.musicInfo.name}${playerState.musicInfo.singer ? ` - ${playerState.musicInfo.singer}` : ''}`,
+      // iOS 锁屏媒体卡片用标题和副标题同时展示当前、下一句歌词；
+      // 末句没有下一句时回退歌曲信息，避免副标题留空。
+      artist: Platform.OS === 'ios' ? getLyricSubtitle(nextLrc) : getSongDescription(),
       album: playerState.musicInfo.album ?? '',
     })
   }
@@ -85,14 +90,20 @@ export default async(setting: LX.AppSetting) => {
       })
     })
   }
+  let lastUpdatedLineKey = ''
   const updateLine = (line: number, text: string) => {
-    if (!settingState.setting['player.isShowBluetoothLyric']) return
-    if (!text && !playerState.isPlay) {
-      void updateRemoteLyric()
-    } else {
-      void updateRemoteLyric(text)
+    const lineKey = `${playerState.musicInfo.id ?? ''}:${line}:${text}`
+    if (lineKey == lastUpdatedLineKey) return
+    lastUpdatedLineKey = lineKey
+    if (settingState.setting['player.isShowBluetoothLyric']) {
+      if (!text && !playerState.isPlay) {
+        void updateRemoteLyric()
+      } else {
+        const nextLine = Platform.OS === 'ios' ? getLyricLineWindow(line).nextLine : undefined
+        void updateRemoteLyric(text, nextLine)
+      }
     }
-    void syncLockScreenLyricsActivity(line)
+    if (settingState.setting['player.isShowLyricsActivity']) void syncLockScreenLyricsActivity(line)
   }
   if (Platform.OS === 'android') onLyricLinePlay(({ text }) => { updateLine(-1, text) })
   else onLrcPlay((line, text) => { updateLine(line, text) })
@@ -105,7 +116,7 @@ export default async(setting: LX.AppSetting) => {
         lines.map(({ time, text }) => ({ time, text })),
         100 + settingState.setting['player.lyricOffset'],
       )
-      if (settingState.setting['player.isShowBluetoothLyric']) void syncLockScreenLyricsActivity()
+      if (settingState.setting['player.isShowLyricsActivity']) void syncLockScreenLyricsActivity()
     })
   }
 
