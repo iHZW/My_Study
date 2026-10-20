@@ -103,7 +103,10 @@ export const initSetting = async() => {
     }
   }
 
-  // console.log(setting)
+  // 升级时启用搜索历史；后续启动保留用户手动选择的开关状态。
+  if (setting && (!setting.version || setting.version === '2.0')) {
+    setting['search.isShowHistorySearch'] = true
+  }
   const updatedSetting = updateSetting(setting, true)
   void saveData(storageDataPrefix.setting, updatedSetting.setting)
 
