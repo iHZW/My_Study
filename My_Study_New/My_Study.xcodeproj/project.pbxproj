@@ -7,8 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020250B9A24BB50D6FC443D8 /* BabyTimeContent.json in Resources */ = {isa = PBXBuildFile; fileRef = A810A2417D752F94FCCE4598 /* BabyTimeContent.json */; };
+		03EBA8163387C2358DFF39A1 /* baby_garden.wav in Resources */ = {isa = PBXBuildFile; fileRef = FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */; };
+		04C23625253037986B45E559 /* CRMBabyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */; };
+		07A4AA5B00C04E67A377189A /* baby_humming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */; };
+		092E78D189D6F8328B7587B8 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
+		161B8CDD7209C1098C73DB2B /* CRMBabyAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 555B38C7708360445FE364E6 /* CRMBabyAudio.m */; };
+		165603B374CF3170A346E7E0 /* baby_morning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */; };
+		16CAB764FA8BB81074C2B0A2 /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
+		185FE281F3687B47D0AFF9DD /* baby_star.wav in Resources */ = {isa = PBXBuildFile; fileRef = 362D8CA8A7F422C5C644BB4D /* baby_star.wav */; };
+		1B9C16682C97C6BA98358942 /* baby_harbor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */; };
+		1BD7E66B4422FE00760FF194 /* baby_waiting.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030870127EACE1DB8C33DDDA /* baby_waiting.wav */; };
 		215329C904B1CE318EEFC5B2 /* Pods_My_StudyNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E19B3FA299FAF7C00122CC1 /* Pods_My_StudyNotificationService.framework */; };
+		228F1AB6668FF16F8466E7E9 /* baby_raindrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */; };
+		2D70E35441058598961FAB68 /* baby_waiting.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030870127EACE1DB8C33DDDA /* baby_waiting.wav */; };
+		2E268F9717574E22A6CEF969 /* baby_nightlight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C248BF236C6634A09158A52A /* baby_nightlight.wav */; };
+		2EEA97CFB76E0CCC6417332C /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
+		36488F40D24E7232CE538701 /* baby_cloud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1211D70ED9C20777598DA022 /* baby_cloud.wav */; };
+		3A77F41D680F89E233451FAA /* CRMBabyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */; };
+		3E4D715AF09020B37576442A /* baby_firefly.wav in Resources */ = {isa = PBXBuildFile; fileRef = FB582A82133BEEC32AA74D0F /* baby_firefly.wav */; };
+		3FF459E45F4A6692F9690BE9 /* baby_star.wav in Resources */ = {isa = PBXBuildFile; fileRef = 362D8CA8A7F422C5C644BB4D /* baby_star.wav */; };
 		46499C2DE08804604DDF458D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
+		47604C39529FE5522A8C676B /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
+		49747FBC2C724E7B59714CA9 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
 		4E0287B228695304003E723E /* RouterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B128695304003E723E /* RouterParam.m */; };
 		4E0287B628695512003E723E /* RouterPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B528695512003E723E /* RouterPageItem.m */; };
 		4E0287BA28698887003E723E /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B928698887003E723E /* ApplicationViewController.m */; };
@@ -33,9 +54,6 @@
 		4E02880F286B056A003E723E /* URLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E02880C286B056A003E723E /* URLUtil.m */; };
 		4E02B3EB2871B178006E0DE3 /* bgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02B3E92871B178006E0DE3 /* bgView.swift */; };
 		4E0680BB2872CECA00F6728A /* BWNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */; };
-		C0A260012E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
-		C0A260022E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
-		C0A260032E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
 		4E0680C02873E4F300F6728A /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680BF2873E4F300F6728A /* Config.m */; };
 		4E0680C428740EA600F6728A /* EnvConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E0680C328740EA600F6728A /* EnvConfig.plist */; };
 		4E0680C728740F3900F6728A /* EnvConfigObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0680C628740F3900F6728A /* EnvConfigObject.m */; };
@@ -590,6 +608,15 @@
 		4EFECFFB287DC47400B137BB /* CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECFEE287DC47400B137BB /* CRC32.m */; };
 		4EFECFFC287DC47400B137BB /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECFF1287DC47400B137BB /* NSString+SHA1.m */; };
 		4EFECFFD287DC47400B137BB /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECFF3287DC47400B137BB /* NSData+SHA1.m */; };
+		503DC15B1F2D15A6EBAD779A /* baby_harbor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */; };
+		513B7E461E8998D80020871E /* baby_raindrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */; };
+		59B3FC3F5BAFEC2038514144 /* baby_humming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */; };
+		62FFD0CC2135AEC9B9C1193E /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
+		6662DE5210B6AA6911F1AF4F /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
+		6964489A22DA48BEDA4C63C5 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
+		7087FBDA9518A682244DC3D8 /* baby_nightlight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C248BF236C6634A09158A52A /* baby_nightlight.wav */; };
+		73E958E82326A5C71F4BDBE8 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
+		76839BEC51DEB075A9CAAF95 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
 		7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */; };
 		7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AA26E10FB400CD1422 /* WFThread.m */; };
 		7C18D4AE26E1145400CD1422 /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AD26E1145400CD1422 /* RunLoopViewController.m */; };
@@ -659,6 +686,7 @@
 		7C6A215E26E37F5D00E0CF20 /* WFPThread_mutex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A215D26E37F5D00E0CF20 /* WFPThread_mutex.m */; };
 		7C6A216126E3A9C200E0CF20 /* WFDispatchSerialQueueDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A216026E3A9C200E0CF20 /* WFDispatchSerialQueueDemo.m */; };
 		7C6A216426E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A216326E3C45F00E0CF20 /* WF_os_unfair_loack_demo.m */; };
+		7C72E39CED186AA9C6FC170A /* baby_raindrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */; };
 		7C77B50526DFD85900A9935F /* BlockSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C77B50426DFD85900A9935F /* BlockSubViewController.m */; };
 		7C8032F826C416A2005F4BF7 /* IQViewModel+Eat.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8032F726C416A2005F4BF7 /* IQViewModel+Eat.m */; };
 		7C879B1026E64DF10051018B /* TestPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C879B0F26E64DF10051018B /* TestPresenter.m */; };
@@ -702,7 +730,27 @@
 		7CFB1F6F22EEBE5F000AE2C9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F6E22EEBE5E000AE2C9 /* CoreFoundation.framework */; };
 		7CFB1F7122EEBE73000AE2C9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7022EEBE73000AE2C9 /* WebKit.framework */; };
 		7CFB1F7722EEDF87000AE2C9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */; };
+		7D34C185D0BF154AFBDB3936 /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
+		7D708C7100E714494619BB29 /* baby_garden.wav in Resources */ = {isa = PBXBuildFile; fileRef = FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */; };
+		92C7110A90249545FC1AB320 /* baby_firefly.wav in Resources */ = {isa = PBXBuildFile; fileRef = FB582A82133BEEC32AA74D0F /* baby_firefly.wav */; };
 		92E767F067D8BDAA38A96A6D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
+		95E39DD9372901549C6E0D44 /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
+		995F7BF64A5705CD9518150B /* CRMBabyAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 555B38C7708360445FE364E6 /* CRMBabyAudio.m */; };
+		A0362634AAC33C121664D08D /* baby_garden.wav in Resources */ = {isa = PBXBuildFile; fileRef = FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */; };
+		A84492A4C59AC3CEF952EE42 /* BabyTimeContent.json in Resources */ = {isa = PBXBuildFile; fileRef = A810A2417D752F94FCCE4598 /* BabyTimeContent.json */; };
+		AFAE24DB2EA514045CD82FA5 /* baby_humming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */; };
+		B38400382F7F3477CEFDE79D /* baby_cloud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1211D70ED9C20777598DA022 /* baby_cloud.wav */; };
+		B8907ED9B6F188C508394B0A /* baby_cloud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1211D70ED9C20777598DA022 /* baby_cloud.wav */; };
+		BAB95F98DE5EFCC8E203E86F /* baby_nightlight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C248BF236C6634A09158A52A /* baby_nightlight.wav */; };
+		C063F833C5D055F7EFC752D3 /* CRMBabyAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 555B38C7708360445FE364E6 /* CRMBabyAudio.m */; };
+		C0A260012E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
+		C0A260022E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
+		C0A260032E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */; };
+		C51B9033F840EB560839C07D /* baby_harbor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */; };
+		C6CC35BB41F6E1E1CCE51B86 /* baby_firefly.wav in Resources */ = {isa = PBXBuildFile; fileRef = FB582A82133BEEC32AA74D0F /* baby_firefly.wav */; };
+		CB3319A2A85E965FB353B05F /* baby_waiting.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030870127EACE1DB8C33DDDA /* baby_waiting.wav */; };
+		D1933F1B6288165AE4FF8D0F /* baby_morning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */; };
+		D4FE21A7191047CBD67FD4AC /* CRMBabyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */; };
 		DA0D7D7A2B67876000D4B67D /* ZWAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */; };
 		DA0D7D7C2B6C7BAD00D4B67D /* dist.zip in Resources */ = {isa = PBXBuildFile; fileRef = DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */; };
 		DA0F8A8B2CF9B22A008D3E68 /* eqh_home.gif in Resources */ = {isa = PBXBuildFile; fileRef = DA0F8A8A2CF9B22A008D3E68 /* eqh_home.gif */; };
@@ -2144,6 +2192,15 @@
 		DAFF08312D42148D001F344E /* CustomSwiperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF082F2D42148D001F344E /* CustomSwiperViewController.m */; };
 		DAFF08342D4214B9001F344E /* ZWCustomData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF08332D4214B9001F344E /* ZWCustomData.m */; };
 		DAFF08372D421505001F344E /* ZWCustomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFF08362D421505001F344E /* ZWCustomeView.m */; };
+		DBE04DCC2A4E228187EFACB8 /* baby_star.wav in Resources */ = {isa = PBXBuildFile; fileRef = 362D8CA8A7F422C5C644BB4D /* baby_star.wav */; };
+		DC7F84389017F7E5D3B19FFB /* CRMBabyContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */; };
+		DE0F62B61FA8E69D2EC7D2AF /* BabyTimeContent.json in Resources */ = {isa = PBXBuildFile; fileRef = A810A2417D752F94FCCE4598 /* BabyTimeContent.json */; };
+		DFCC32B53B953ACBC9628F56 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
+		E642B574CA62A47361661F00 /* CRMBabyContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */; };
+		EE2DB70F224B71BEB4BD22C5 /* baby_morning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */; };
+		EFFDF23B68611DBD8BF47E1E /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
+		F37D89584D5ED0B2DB8ED719 /* CRMBabyContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */; };
+		FC739DBB3BEBD2F61F26BEB1 /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2207,6 +2264,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030870127EACE1DB8C33DDDA /* baby_waiting.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_waiting.wav; sourceTree = "<group>"; };
+		0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_humming.wav; sourceTree = "<group>"; };
+		10F28E529E0278DEDD778735 /* CRMBabyStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMBabyStore.h; sourceTree = "<group>"; };
+		1211D70ED9C20777598DA022 /* baby_cloud.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_cloud.wav; sourceTree = "<group>"; };
+		12D1347EFEF51A170271729A /* baby_river.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_river.wav; sourceTree = "<group>"; };
+		210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_raindrop.wav; sourceTree = "<group>"; };
+		28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_harbor.wav; sourceTree = "<group>"; };
+		362D8CA8A7F422C5C644BB4D /* baby_star.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_star.wav; sourceTree = "<group>"; };
+		385B7875BDE5C850BE5B1C53 /* CRMBabyAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMBabyAudio.h; sourceTree = "<group>"; };
 		4E0287B028695304003E723E /* RouterParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterParam.h; sourceTree = "<group>"; };
 		4E0287B128695304003E723E /* RouterParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterParam.m; sourceTree = "<group>"; };
 		4E0287B3286954DD003E723E /* RouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterConstants.h; sourceTree = "<group>"; };
@@ -2257,7 +2323,6 @@
 		4E02B3E92871B178006E0DE3 /* bgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bgView.swift; sourceTree = "<group>"; };
 		4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0680BA2872CECA00F6728A /* BWNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWNetworkingService.swift; sourceTree = "<group>"; };
-		C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMAlarmKitBridge.swift; sourceTree = "<group>"; };
 		4E0680BE2873E4F300F6728A /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		4E0680BF2873E4F300F6728A /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		4E0680C328740EA600F6728A /* EnvConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnvConfig.plist; sourceTree = "<group>"; };
@@ -3420,7 +3485,9 @@
 		4EFECFF4287DC47400B137BB /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		4EFECFF5287DC47400B137BB /* NSData+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SHA1.h"; sourceTree = "<group>"; };
 		4EFECFF6287DC47400B137BB /* Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transcoder.h; sourceTree = "<group>"; };
+		555B38C7708360445FE364E6 /* CRMBabyAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyAudio.m; sourceTree = "<group>"; };
 		648B8FF34789301862B11DE8 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		787F37BCD0AE351AC1278D41 /* baby_breeze.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_breeze.wav; sourceTree = "<group>"; };
 		7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WFObserver.h"; sourceTree = "<group>"; };
 		7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WFObserver.m"; sourceTree = "<group>"; };
 		7C18D4A926E10FB400CD1422 /* WFThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFThread.h; sourceTree = "<group>"; };
@@ -3659,12 +3726,20 @@
 		7CFB1F7322EEC9C4000AE2C9 /* WFUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WFUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFB1F7522EECD4B000AE2C9 /* ZWSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWSDK.h; sourceTree = "<group>"; };
 		7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		80E2C81E31B874698049ED37 /* baby_dandelion.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_dandelion.wav; sourceTree = "<group>"; };
 		8491116BF43F55B8098363F7 /* Pods_My_StudyNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_StudyNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_morning.wav; sourceTree = "<group>"; };
 		A41D77928AAACFC7B7D57690 /* Pods-My_StudyNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyContent.m; sourceTree = "<group>"; };
+		A810A2417D752F94FCCE4598 /* BabyTimeContent.json */ = {isa = PBXFileReference; includeInIndex = 1; path = BabyTimeContent.json; sourceTree = "<group>"; };
 		B99EE0B2FCAC6767F0F3BD19 /* Pods-My_Study.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa.xcconfig"; sourceTree = "<group>"; };
+		C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMAlarmKitBridge.swift; sourceTree = "<group>"; };
+		C248BF236C6634A09158A52A /* baby_nightlight.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_nightlight.wav; sourceTree = "<group>"; };
 		CBB4460943C18C1218051571 /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.release.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_sunset.wav; sourceTree = "<group>"; };
 		D765578577B643E675384A21 /* Pods-My_Study.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa_dev.xcconfig"; sourceTree = "<group>"; };
+		D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyTimeViewController.m; sourceTree = "<group>"; };
 		DA0D7D782B67876000D4B67D /* ZWAlertUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlertUtil.h; sourceTree = "<group>"; };
 		DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWAlertUtil.m; sourceTree = "<group>"; };
 		DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dist.zip; sourceTree = "<group>"; };
@@ -3746,6 +3821,10 @@
 		DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa.xcconfig"; sourceTree = "<group>"; };
 		E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		EE22E99FBC3EA4D8D47D96EA /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
+		F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyStore.m; sourceTree = "<group>"; };
+		F9971266B4EB0BDD2D255FBD /* CRMBabyTimeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMBabyTimeViewController.h; sourceTree = "<group>"; };
+		FB582A82133BEEC32AA74D0F /* baby_firefly.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_firefly.wav; sourceTree = "<group>"; };
+		FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = baby_garden.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3865,6 +3944,28 @@
 				EE22E99FBC3EA4D8D47D96EA /* Pods-My_Study.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4085E5F23E6A5507AEFFB5F3 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				1211D70ED9C20777598DA022 /* baby_cloud.wav */,
+				12D1347EFEF51A170271729A /* baby_river.wav */,
+				362D8CA8A7F422C5C644BB4D /* baby_star.wav */,
+				787F37BCD0AE351AC1278D41 /* baby_breeze.wav */,
+				9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */,
+				030870127EACE1DB8C33DDDA /* baby_waiting.wav */,
+				80E2C81E31B874698049ED37 /* baby_dandelion.wav */,
+				FB582A82133BEEC32AA74D0F /* baby_firefly.wav */,
+				FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */,
+				28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */,
+				0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */,
+				C248BF236C6634A09158A52A /* baby_nightlight.wav */,
+				210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */,
+				CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */,
+			);
+			name = Audio;
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		4E0287AF286952EB003E723E /* router */ = {
@@ -5906,6 +6007,7 @@
 				4E6681AC2927574400C635BF /* SPPickerView */,
 				4ED5119F2A8F399200C07112 /* SZJsonLog */,
 				4ED26ADB287EB9F100F0EDFE /* Tools */,
+				7A7609006122E63D06036B0D /* BabyTime */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -6740,6 +6842,23 @@
 				4EFECFF3287DC47400B137BB /* NSData+SHA1.m */,
 			);
 			path = SHA1;
+			sourceTree = "<group>";
+		};
+		7A7609006122E63D06036B0D /* BabyTime */ = {
+			isa = PBXGroup;
+			children = (
+				385B7875BDE5C850BE5B1C53 /* CRMBabyAudio.h */,
+				555B38C7708360445FE364E6 /* CRMBabyAudio.m */,
+				A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */,
+				10F28E529E0278DEDD778735 /* CRMBabyStore.h */,
+				F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */,
+				F9971266B4EB0BDD2D255FBD /* CRMBabyTimeViewController.h */,
+				D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */,
+				4085E5F23E6A5507AEFFB5F3 /* Audio */,
+				A810A2417D752F94FCCE4598 /* BabyTimeContent.json */,
+			);
+			name = BabyTime;
+			path = BabyTime;
 			sourceTree = "<group>";
 		};
 		7C18D4A426E10EB300CD1422 /* controller */ = {
@@ -8102,6 +8221,21 @@
 				4EC6B34F2861B12A00F57AAC /* launch_guide_4_min.png in Resources */,
 				DA0F8A8B2CF9B22A008D3E68 /* eqh_home.gif in Resources */,
 				DA0D7D7C2B6C7BAD00D4B67D /* dist.zip in Resources */,
+				B38400382F7F3477CEFDE79D /* baby_cloud.wav in Resources */,
+				73E958E82326A5C71F4BDBE8 /* baby_river.wav in Resources */,
+				185FE281F3687B47D0AFF9DD /* baby_star.wav in Resources */,
+				DFCC32B53B953ACBC9628F56 /* baby_breeze.wav in Resources */,
+				EE2DB70F224B71BEB4BD22C5 /* baby_morning.wav in Resources */,
+				2D70E35441058598961FAB68 /* baby_waiting.wav in Resources */,
+				DE0F62B61FA8E69D2EC7D2AF /* BabyTimeContent.json in Resources */,
+				EFFDF23B68611DBD8BF47E1E /* baby_dandelion.wav in Resources */,
+				C6CC35BB41F6E1E1CCE51B86 /* baby_firefly.wav in Resources */,
+				03EBA8163387C2358DFF39A1 /* baby_garden.wav in Resources */,
+				C51B9033F840EB560839C07D /* baby_harbor.wav in Resources */,
+				59B3FC3F5BAFEC2038514144 /* baby_humming.wav in Resources */,
+				7087FBDA9518A682244DC3D8 /* baby_nightlight.wav in Resources */,
+				7C72E39CED186AA9C6FC170A /* baby_raindrop.wav in Resources */,
+				47604C39529FE5522A8C676B /* baby_sunset.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8180,6 +8314,21 @@
 				DAEEC2202B58BE8C00258456 /* README.md in Resources */,
 				DAEEC2212B58BE8C00258456 /* Untitled-2.gif in Resources */,
 				DAEEC2222B58BE8C00258456 /* launch_guide_4_min.png in Resources */,
+				36488F40D24E7232CE538701 /* baby_cloud.wav in Resources */,
+				76839BEC51DEB075A9CAAF95 /* baby_river.wav in Resources */,
+				DBE04DCC2A4E228187EFACB8 /* baby_star.wav in Resources */,
+				6964489A22DA48BEDA4C63C5 /* baby_breeze.wav in Resources */,
+				D1933F1B6288165AE4FF8D0F /* baby_morning.wav in Resources */,
+				1BD7E66B4422FE00760FF194 /* baby_waiting.wav in Resources */,
+				A84492A4C59AC3CEF952EE42 /* BabyTimeContent.json in Resources */,
+				6662DE5210B6AA6911F1AF4F /* baby_dandelion.wav in Resources */,
+				92C7110A90249545FC1AB320 /* baby_firefly.wav in Resources */,
+				7D708C7100E714494619BB29 /* baby_garden.wav in Resources */,
+				503DC15B1F2D15A6EBAD779A /* baby_harbor.wav in Resources */,
+				AFAE24DB2EA514045CD82FA5 /* baby_humming.wav in Resources */,
+				BAB95F98DE5EFCC8E203E86F /* baby_nightlight.wav in Resources */,
+				228F1AB6668FF16F8466E7E9 /* baby_raindrop.wav in Resources */,
+				FC739DBB3BEBD2F61F26BEB1 /* baby_sunset.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8258,6 +8407,21 @@
 				DAEEC4EC2B58BE9000258456 /* README.md in Resources */,
 				DAEEC4ED2B58BE9000258456 /* Untitled-2.gif in Resources */,
 				DAEEC4EE2B58BE9000258456 /* launch_guide_4_min.png in Resources */,
+				B8907ED9B6F188C508394B0A /* baby_cloud.wav in Resources */,
+				49747FBC2C724E7B59714CA9 /* baby_river.wav in Resources */,
+				3FF459E45F4A6692F9690BE9 /* baby_star.wav in Resources */,
+				092E78D189D6F8328B7587B8 /* baby_breeze.wav in Resources */,
+				165603B374CF3170A346E7E0 /* baby_morning.wav in Resources */,
+				CB3319A2A85E965FB353B05F /* baby_waiting.wav in Resources */,
+				020250B9A24BB50D6FC443D8 /* BabyTimeContent.json in Resources */,
+				16CAB764FA8BB81074C2B0A2 /* baby_dandelion.wav in Resources */,
+				3E4D715AF09020B37576442A /* baby_firefly.wav in Resources */,
+				A0362634AAC33C121664D08D /* baby_garden.wav in Resources */,
+				1B9C16682C97C6BA98358942 /* baby_harbor.wav in Resources */,
+				07A4AA5B00C04E67A377189A /* baby_humming.wav in Resources */,
+				2E268F9717574E22A6CEF969 /* baby_nightlight.wav in Resources */,
+				513B7E461E8998D80020871E /* baby_raindrop.wav in Resources */,
+				7D34C185D0BF154AFBDB3936 /* baby_sunset.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9029,6 +9193,10 @@
 				7C8AAE6D22E986C800589862 /* UITextView+CancelPerformAction.m in Sources */,
 				4E8C525329FA210500C47E2B /* MMScrollLabelView.m in Sources */,
 				4EA986F0287C38760095ECF9 /* UIViewController+Additions.m in Sources */,
+				995F7BF64A5705CD9518150B /* CRMBabyAudio.m in Sources */,
+				F37D89584D5ED0B2DB8ED719 /* CRMBabyContent.m in Sources */,
+				D4FE21A7191047CBD67FD4AC /* CRMBabyStore.m in Sources */,
+				62FFD0CC2135AEC9B9C1193E /* CRMBabyTimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9646,6 +9814,10 @@
 				DAEEC1BE2B58BE8C00258456 /* UITextView+CancelPerformAction.m in Sources */,
 				DAEEC1BF2B58BE8C00258456 /* MMScrollLabelView.m in Sources */,
 				DAEEC1C02B58BE8C00258456 /* UIViewController+Additions.m in Sources */,
+				C063F833C5D055F7EFC752D3 /* CRMBabyAudio.m in Sources */,
+				E642B574CA62A47361661F00 /* CRMBabyContent.m in Sources */,
+				04C23625253037986B45E559 /* CRMBabyStore.m in Sources */,
+				2EEA97CFB76E0CCC6417332C /* CRMBabyTimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10263,6 +10435,10 @@
 				DAEEC48A2B58BE9000258456 /* UITextView+CancelPerformAction.m in Sources */,
 				DAEEC48B2B58BE9000258456 /* MMScrollLabelView.m in Sources */,
 				DAEEC48C2B58BE9000258456 /* UIViewController+Additions.m in Sources */,
+				161B8CDD7209C1098C73DB2B /* CRMBabyAudio.m in Sources */,
+				DC7F84389017F7E5D3B19FFB /* CRMBabyContent.m in Sources */,
+				3A77F41D680F89E233451FAA /* CRMBabyStore.m in Sources */,
+				95E39DD9372901549C6E0D44 /* CRMBabyTimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

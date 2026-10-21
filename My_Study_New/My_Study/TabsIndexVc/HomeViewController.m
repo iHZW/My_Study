@@ -20,6 +20,7 @@
 #import "ZWHomeModel.h"
 #import "TestKLineViewController.h"
 #import "ZWCommonWebPage.h"
+#import "CRMBabyTimeViewController.h"
 
 #define kJumpWebViewID      @"kDefaultJumpWebViewID"
 
@@ -310,6 +311,7 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
 
 - (void)setupDatas {
     [self.dataList removeAllObjects];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"胎教与宝宝时光" clazz:[CRMBabyTimeViewController class]]];
 
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native 实验室" clazz:[RunLoopViewController class]]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Flutter 首页示例" flutterPageName:@"first"]];
@@ -331,8 +333,8 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
     webModel.identificationName = kJumpWebViewID;
     [self.dataList addObject:webModel];
 
-    self.featureDetails = @[@"iOS · 线程与 RunLoop", @"跨端 · 基础页面", @"跨端 · Native 与 Flutter", @"跨端 · 多级页面链路", @"跨端 · 统一路由", @"跨端 · 页面容器", @"iOS · 内存与回调", @"图表 · 行情可视化", @"RAC · 响应式列表", @"RAC · MVVM 实践", @"工具 · 设备内服务", @"iOS · 异步编程", @"工具 · WebView"];
-    self.featureIcons = @[@"🧪", @"🫧", @"🔀", @"🧩", @"🧭", @"🚀", @"🔗", @"📈", @"⚡️", @"🧱", @"🌐", @"⏱", @"🔎"];
+    self.featureDetails = @[@"孕期胎教 · 出生后共读 · 成长手记", @"iOS · 线程与 RunLoop", @"跨端 · 基础页面", @"跨端 · Native 与 Flutter", @"跨端 · 多级页面链路", @"跨端 · 统一路由", @"跨端 · 页面容器", @"iOS · 内存与回调", @"图表 · 行情可视化", @"RAC · 响应式列表", @"RAC · MVVM 实践", @"工具 · 设备内服务", @"iOS · 异步编程", @"工具 · WebView"];
+    self.featureIcons = @[@"🌱", @"🧪", @"🫧", @"🔀", @"🧩", @"🧭", @"🚀", @"🔗", @"📈", @"⚡️", @"🧱", @"🌐", @"⏱", @"🔎"];
 
 }
 
@@ -439,8 +441,14 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     BaseCellModel *model = self.dataList[indexPath.row];
+    if (model.clazz == CRMBabyTimeViewController.class) {
+        CRMBabyTimeViewController *page = [CRMBabyTimeViewController new];
+        page.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:page animated:YES];
+        return;
+    }
     NSString *url        = kClientChatDetailURL;
-    switch (indexPath.row) {
+    switch (indexPath.row - 1) {
         case 0:
             url = kClientChatDetailURL;
             break;
