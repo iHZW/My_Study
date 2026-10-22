@@ -20,16 +20,16 @@
 #import <YTKNetwork/YTKNetworkConfig.h>
 
 #import "UIAlertUtil.h"
-#import <Photos/Photos.h>
 #import "ZWAlertUtil.h"
+#import "MMPrivacyManager.h"
 
 #define BuglyAppId      @"adf13"
 
-@interface ZWMainAppDelegateService ()<PHPhotoLibraryChangeObserver>
+@interface ZWMainAppDelegateService ()
 
-@property (nonatomic, strong) PHAsset *previousAsset;
-
-@property (nonatomic, assign) NSInteger previousCount;
+@property (nonatomic) BOOL observingScreenshots;
+@property (nonatomic) BOOL privacyServicesStarted;
+@property (nonatomic) NSUInteger screenshotGeneration;
 
 @end
 
@@ -40,24 +40,29 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions {
-    /** 初始化网络信息  */
-    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] initializeData];
-    /** 加载本地缓存信息  */
-    [ZWCommonUtil checkAndWriteLocalCMSDataToCache];
-
     [self configAppearance];
 
+    [self startServicesAfterPrivacyConsent];
     [self loadLaunchVC];
 
     /** 初始化IQKeyboardManager  */
     [self _initIQKeyboardManager];
     
-    /// bugly 注册
-    [self _initiBugly];
     
     [[[UIApplication sharedApplication].delegate window] makeKeyAndVisible];
 
     return YES;
+}
+
+- (void)startServicesAfterPrivacyConsent {
+    if (![MMPrivacyManager.sharedInstance hasShowedAppPrivacy] || self.privacyServicesStarted) return;
+    self.privacyServicesStarted = YES;
+    /** 初始化网络信息  */
+    [[ZWHttpNetworkManager sharedZWHttpNetworkManager] initializeData];
+    /** 加载本地缓存信息  */
+    [ZWCommonUtil checkAndWriteLocalCMSDataToCache];
+
+    [self _initiBugly];
 }
 
 
@@ -107,39 +112,10 @@
 
 /** 加载启动页  */
 - (void)loadLaunchVC {
-    dispatch_block_t block = ^{
-        LaunchViewController *launchVc                                         = [[LaunchViewController alloc] init];
-        [[UIApplication sharedApplication].delegate window].rootViewController = launchVc;
-        [launchVc loadPrivacy];
-    };
-    
-    ZWUserAccountManager *manager = [ZWUserAccountManager sharedZWUserAccountManager];
-    ZWUserAccountManager *managerInit = [[ZWUserAccountManager alloc] init];
-    ZWUserAccountManager *managerCopy = [manager copy];
-    ZWUserAccountManager *managerMutableCopy = [manager mutableCopy];
-    NSLog(@"manager = %@\nmanagerInit = %@\nmanagerCopy = %@\nmanagerMutableCopy = %@",
-          manager,
-          managerInit,
-          managerCopy,
-          managerMutableCopy);
-
-    if (ZWCurrentUserInfo &&
-        ZWCurrentUserInfo.pid > 0 &&
-        ZWCurrentUserInfo.userWid > 0) {
-        block();
-        /** 请求tabBar 配置信息  */
-        //        [CustomTabPopManager.shared requestTabConfigList:^(BOOL success, TabbarConfig * config) {
-        //            if (success && config!= nil){
-        //                //Success. set tabController from server
-        //                [TabbarConfig saveTabListConfig:config];
-        //            } else {
-        //                //Use Default TabConfig
-        //            }
-        //            block();
-        //        }];
-    } else {
-        block();
-    }
+    // 同意前只创建协议容器，不提前读取账号或执行首页业务。
+    LaunchViewController *launchVC = [[LaunchViewController alloc] init];
+    UIApplication.sharedApplication.delegate.window.rootViewController = launchVC;
+    [launchVC loadPrivacy];
 }
 
 
@@ -162,87 +138,71 @@
     
 }
 
+- (BOOL)canHandleScreenshot {
+    return [MMPrivacyManager.sharedInstance hasShowedAppPrivacy] &&
+        UIApplication.sharedApplication.applicationState == UIApplicationStateActive;
+}
+
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    if (![MMPrivacyManager.sharedInstance hasShowedAppPrivacy]) return;
     [[ZWHttpNetworkManager sharedZWHttpNetworkManager] openNetMonitoring];
-    
-    // 注册相册变化通知
-    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+    [self startObservingScreenshots];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // 移除相册变化通知
-    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+    [self stopObservingScreenshots];
 }
 
-
-#pragma mark - PHPhotoLibraryChangeObserver
-
-- (void)photoLibraryDidChange:(PHChange *)changeInstance {
-    // 在相册变化时调用，你可以在这里检查是否有新的截屏图片
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self checkForScreenshots];
-    });
+#pragma mark - 系统截屏通知
+- (void)startObservingScreenshots {
+    if (![self canHandleScreenshot] || self.observingScreenshots) return;
+    self.screenshotGeneration++;
+    self.observingScreenshots = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidTakeScreenshot:) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
 }
 
-#pragma mark - 检测截屏图片
-- (void)checkForScreenshots {
-    PHFetchOptions *fetchOptions = [PHFetchOptions new];
-    fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+- (void)stopObservingScreenshots {
+    self.screenshotGeneration++;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
+    self.observingScreenshots = NO;
+}
 
-    PHFetchResult *fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:fetchOptions];
+- (UIImage *)captureCurrentAppImage {
+    // 系统截屏通知不携带原图；只渲染本应用画面，不访问用户相册。
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    if (!window || window.hidden || CGRectIsEmpty(window.bounds)) return nil;
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithBounds:window.bounds];
+    return [renderer imageWithActions:^(UIGraphicsImageRendererContext *context) {
+        [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:NO];
+    }];
+}
 
-    if (fetchResult.count > 0) {
-        PHAsset *latestAsset = fetchResult.firstObject;
-        /** 是否是截图  */
-        BOOL isScreenshot = latestAsset.mediaSubtypes == PHAssetMediaSubtypePhotoScreenshot;
-        /** 是否和之前的图片相同  */
-        BOOL isSameAsset = ![self isSameAsset:latestAsset asPreviousAsset:self.previousAsset];
-        /** 是否是新增  */
-        BOOL isAdd = fetchResult.count > self.previousCount;
-        
-        // 检查图片是否是新增的（你可以根据实际需要添加更多的判断条件）
-        // 你可以保存一个变量来记录最新的图片，然后在这里检查是否有更新
-        if (isSameAsset && isScreenshot && isAdd) {
-            // 处理新增的图片
-            self.previousAsset = latestAsset;
-            [self loadScreenshotImage:latestAsset];
-        }
-        self.previousCount = fetchResult.count;
+- (void)userDidTakeScreenshot:(NSNotification *)notification {
+    // 通知在系统完成截屏后到达；先保存画面，再延后一轮展示，避免将弹窗本身截进去。
+    if (!NSThread.isMainThread) {
+        __weak typeof(self) weakSelf = self;
+        dispatch_async(dispatch_get_main_queue(), ^{ [weakSelf userDidTakeScreenshot:notification]; });
+        return;
     }
-}
-
-#pragma mark - 图片是否相同
-- (BOOL)isSameAsset:(PHAsset *)asset1 asPreviousAsset:(PHAsset *)asset2 {
-    // 判断两个 PHAsset 是否相同，你可能需要根据实际需求调整这个逻辑
-    return [asset1.localIdentifier isEqualToString:asset2.localIdentifier];
-}
-
-#pragma mark - 获取相册图片
-- (void)loadScreenshotImage:(PHAsset *)asset {
-    PHImageManager *imageManager = [PHImageManager defaultManager];
-    PHImageRequestOptions *requestOptions = [PHImageRequestOptions new];
-    requestOptions.synchronous = YES;
-
-    [imageManager requestImageForAsset:asset
-                            targetSize:PHImageManagerMaximumSize
-                           contentMode:PHImageContentModeDefault
-                               options:requestOptions
-                         resultHandler:^(UIImage *_Nullable result, NSDictionary *_Nullable info) {
-                             // 在这里处理截屏图片 result
-                             if (result) {
-                                 // 显示或保存截屏图片
-                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                     [self _handleShowScreenShotImage:result];
-                                 });
-                             }
-                         }];
+    if (![self canHandleScreenshot] || !self.observingScreenshots) return;
+    UIImage *image = [self captureCurrentAppImage];
+    if (!image) return;
+    NSUInteger generation = ++self.screenshotGeneration;
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong typeof(weakSelf) self = weakSelf;
+        if (!self || generation != self.screenshotGeneration || !self.observingScreenshots || ![self canHandleScreenshot]) return;
+        [self _handleShowScreenShotImage:image];
+    });
 }
 
 #pragma mark - 显示截屏图片
 - (void)_handleShowScreenShotImage:(UIImage *)result {
+    if (![self canHandleScreenshot] || !self.observingScreenshots) return;
     [ZWAlertUtil mmConfirm:@"显示截图" centerViewBlock:^UIView *_Nonnull {
         UIView *centerView = [UIView viewForColor:UIColor.whiteColor withFrame:CGRectMake(0, 0, 300, 300)];
         UIImageView *imageView = [UIImageView imageViewForImage:result withFrame:centerView.bounds];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         [centerView addSubview:imageView];
         return centerView;
     } cancelName:@"取消" okName:@"确定" cancelBlock:^{
@@ -252,13 +212,9 @@
     }];
 }
 
-
-
-
-
-
-
-
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end
 
 

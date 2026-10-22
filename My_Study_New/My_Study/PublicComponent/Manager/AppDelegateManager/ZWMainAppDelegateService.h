@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWMainAppDelegateService : NSObject <UIApplicationDelegate>
 
+- (void)startServicesAfterPrivacyConsent;
+
 
 @end
 

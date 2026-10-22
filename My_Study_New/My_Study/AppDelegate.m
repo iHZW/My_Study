@@ -91,20 +91,10 @@
     /** 注册AppID  */
     //    [WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@""];
 
-    NSString *link = [NSString stringWithFormat:@"https://%@/", @"m-qa.xiaoke.cn"];
-    [MMShareManager registerWechat:@"wx77dab3119a53889a" universalLink:link];
-
-    /* 注册调试工具 */
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self registeredDebugDoKitTool];
-    });
-
     // 配置app主题
     [zhThemeOperator themeConfiguration];
     /* 初始化配置信息 */
-    [[ModuleContainer sharedModuleContainer] registerConfig];
-    /** 加载闪验SDK  */
-    [self loadShanYanSDK];
+    [[ModuleContainer sharedModuleContainer] registerRouter];
 
     [ZWPrivacyPolicyManager application:application didFinishLaunchingWithOptions:launchOptions];
 
@@ -125,11 +115,26 @@
     /** 统计启动耗时  */
     [AppLaunchTime mark];
 
+
+    return YES;
+}
+
+/// 仅由隐私启动管理器在用户同意后调用。
+- (void)startServicesAfterPrivacyConsentWithLaunchOptions:(NSDictionary *)launchOptions {
+    [[ModuleContainer sharedModuleContainer] registerConfig];
+    NSString *link = [NSString stringWithFormat:@"https://%@/", @"m-qa.xiaoke.cn"];
+    [MMShareManager registerWechat:@"wx77dab3119a53889a" universalLink:link];
+
+    /* 注册调试工具 */
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self registeredDebugDoKitTool];
+    });
+
+    [self loadShanYanSDK];
     /** 初始化个推SDK  */
     [[MMPushManager sharedInstance] startGTSDKOptions:launchOptions];
     [[ZWAppIconManager sharedManager] startAutoCheck];
 
-    return YES;
 }
 
 /**
@@ -252,7 +257,9 @@ void printMethodNamesOfClass(Class cls) {
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [ZWPrivacyPolicyManager applicationDidBecomeActive:application];
-    [[ZWAppIconManager sharedManager] checkAndApplyAutoIconIfNeeded];
+    if (![ZWPrivacyPolicyManager checkShowPrivacyPolicy]) {
+        [[ZWAppIconManager sharedManager] checkAndApplyAutoIconIfNeeded];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -11,6 +11,14 @@
 #import "ZWPrivacyPolicyManager.h"
 #import "AppDelegate.h"
 #import "ZWPushAppDelegateService.h"
+#import "MMPrivacyManager.h"
+
+@interface AppDelegate (PrivacyStartup)
+- (void)startServicesAfterPrivacyConsentWithLaunchOptions:(NSDictionary *)launchOptions;
+@end
+
+static NSDictionary *ZWPrivacyLaunchOptions;
+static BOOL ZWPrivacyServicesStarted;
 
 
 @interface ZWPrivacyPolicyManager ()
@@ -26,9 +34,7 @@
 }
 
 + (BOOL)checkShowPrivacyPolicy {
-    //    BOOL val = ![[PASCommonUtil getStringWithKey:kAgreePrivacyPolicy] boolValue];
-    //    return val;
-    return NO;
+    return ![MMPrivacyManager.sharedInstance hasShowedAppPrivacy];
 }
 
 + (void)initializeAction {
@@ -37,11 +43,26 @@
 }
 
 + (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if (![ZWPrivacyPolicyManager checkShowPrivacyPolicy]) {
-        AppDelegate *curAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [CMBusMediaAppDelegate serviceManager:@selector(application:didFinishLaunchingWithOptions:) withParameters:@[application, launchOptions ?: [NSNull null]]];
-    } else {
-    }
+    ZWPrivacyLaunchOptions = [launchOptions copy];
+    // 展示协议所必需的窗口、主题和启动页必须能够在同意前创建。
+    ZWMainAppDelegateService *main = (id)[CMBusMediaAppDelegate service:ZWMainAppDelegateService.class];
+    [self startServicesAfterPrivacyConsent];
+    [main application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
++ (void)startServicesAfterPrivacyConsent {
+    NSAssert(NSThread.isMainThread, @"启动服务必须在主线程执行");
+    if ([self checkShowPrivacyPolicy] || ZWPrivacyServicesStarted) return;
+    ZWPrivacyServicesStarted = YES;
+    UIApplication *application = UIApplication.sharedApplication;
+    [(AppDelegate *)application.delegate startServicesAfterPrivacyConsentWithLaunchOptions:ZWPrivacyLaunchOptions];
+    ZWMainAppDelegateService *main = (id)[CMBusMediaAppDelegate service:ZWMainAppDelegateService.class];
+    [main startServicesAfterPrivacyConsent];
+    ZWPushAppDelegateService *push = (id)[CMBusMediaAppDelegate service:ZWPushAppDelegateService.class];
+    [push application:application didFinishLaunchingWithOptions:ZWPrivacyLaunchOptions];
+    ZWPrivacyLaunchOptions = nil;
+    // 首次同意不一定再次触发系统前台回调，主动恢复被延后的前台业务。
+    if (application.applicationState == UIApplicationStateActive) [self applicationDidBecomeActive:application];
 }
 
 + (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -95,6 +116,8 @@
     if (![ZWPrivacyPolicyManager checkShowPrivacyPolicy]) {
         NSArray *params = @[application, shortcutItem, completionHandler];
         [CMBusMediaAppDelegate serviceManager:@selector(application:performActionForShortcutItem:completionHandler:) withParameters:params];
+    } else {
+        completionHandler(NO);
     }
 }
 
@@ -147,6 +170,8 @@
         NSArray *params  = @[application, userInfo ?: [NSNull null], completionHandler];
         CMObject *curObj = (CMObject *)[CMBusMediaAppDelegate service:[ZWPushAppDelegateService class]];
         [CMBusMediaAppDelegate performAction:curObj selector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:) withParameters:params];
+    } else {
+        completionHandler(UIBackgroundFetchResultNoData);
     }
 }
 
@@ -156,6 +181,8 @@
 //        NSArray *params  = @[application, userInfo ?: [NSNull null], reply];
 //        CMObject *curObj = (CMObject *)[CMBusMediaAppDelegate service:[PASWatchAppDelegateService class]];
 //        [CMBusMediaAppDelegate performAction:curObj selector:@selector(application:handleWatchKitExtensionRequest:reply:) withParameters:params];
+    } else {
+        reply(@{});
     }
 }
 
@@ -176,7 +203,7 @@
         }
     }
 
-    return YES;
+    return NO;
 }
 
 @end

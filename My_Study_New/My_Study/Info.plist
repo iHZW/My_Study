@@ -99,5 +99,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>用于发现并连接附近的苹果设备，实时分享绘画内容，无需互联网。</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_crm-draw._tcp</string>
+	</array>
 </dict>
 </plist>

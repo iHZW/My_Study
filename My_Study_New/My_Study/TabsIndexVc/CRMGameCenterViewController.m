@@ -10,6 +10,7 @@
 #import "CRMSnakeRules.h"
 #import "CRMSoccerMotion.h"
 #import "CRMDigimonAtlasViewController.h"
+#import "CRMNearbyDrawingViewController.h"
 
 static UIColor *GameColor(NSUInteger hex) {
     return [UIColor colorWithRed:((hex >> 16) & 0xff) / 255.0
@@ -780,6 +781,12 @@ static NSUInteger CRMShapeColors[7] = {0x71B8BD, 0xEBC67C, 0xAF9ACB, 0x88BD9B, 0
 @end
 
 @implementation CRMGameController
+
+// 全屏返回库会读取当前页面的此开关，避免横向游戏操作触发返回。
+// 直接实现读取方法，让独立画板工程也无需依赖该手势库。
+- (BOOL)fd_interactivePopDisabled {
+    return YES;
+}
 
 + (NSDictionary *)ss_constantParams {
     return @{@"hideNavigationBar": @(YES)};
@@ -2682,6 +2689,15 @@ static const NSInteger CRMSoccerBrickColumns = 7;
             [cards addArrangedSubview:index < items.count ? [self cardWithInfo:items[index] index:index] : [[UIView alloc] init]];
         }
     }
+    [content addArrangedSubview:GameLabel(@"一起玩", 20, UIFontWeightBold, GameColor(0x243B39))];
+    UIButton *drawing = GameButton(@"你画我看  ›\n两台设备 · 实时分享画板", GameColor(0xDDECE3), GameColor(0x243B39));
+    drawing.titleLabel.numberOfLines = 2;
+    drawing.titleLabel.textAlignment = NSTextAlignmentLeft;
+    drawing.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    drawing.contentEdgeInsets = UIEdgeInsetsMake(16, 22, 16, 22);
+    [drawing.heightAnchor constraintGreaterThanOrEqualToConstant:86].active = YES;
+    [drawing addTarget:self action:@selector(openNearbyDrawing) forControlEvents:UIControlEventTouchUpInside];
+    [content addArrangedSubview:drawing];
     [content addArrangedSubview:GameLabel(@"收藏图鉴", 20, UIFontWeightBold, GameColor(0x243B39))];
     UIButton *atlas = GameButton(@"数码宝贝图集  ›\n千余位伙伴 · 搜索与等级筛选", GameColor(0x355D55), UIColor.whiteColor);
     atlas.titleLabel.numberOfLines = 2;
@@ -2741,6 +2757,10 @@ static const NSInteger CRMSoccerBrickColumns = 7;
         default: return;
     }
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)openNearbyDrawing {
+    [self.navigationController pushViewController:[CRMNearbyDrawingViewController new] animated:YES];
 }
 
 - (void)openAtlas {

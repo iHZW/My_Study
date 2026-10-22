@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)initializeAction;
 
+/// 用户同意协议后启动业务服务；重复调用不会重复初始化。
++ (void)startServicesAfterPrivacyConsent;
+
 + (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 
 + (BOOL)application:(UIApplication *)application

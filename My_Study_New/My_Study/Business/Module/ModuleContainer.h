@@ -38,6 +38,9 @@ DEFINE_SINGLETON_T_FOR_HEADER(ModuleContainer)
 
 - (void)registerConfig;
 
+/// 仅配置界面路由，供隐私协议展示期间使用。
+- (void)registerRouter;
+
 /**
  *  根据路由查找 RouterParam
  *

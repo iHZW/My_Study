@@ -12,6 +12,7 @@
 #import "ZWTabBarController.h"
 #import "ZWUserAccountManager.h"
 #import "MMPrivacyManager.h"
+#import "ZWPrivacyPolicyManager.h"
 #import <CYLTabBarController/CYLTabBarController.h>
 
 
@@ -96,8 +97,9 @@
             if (index == 1) {
                 //点击同意
                 //回到首页
-                [self remakePage];
                 [MMPrivacyManager.sharedInstance markAppPrivacyShowed];
+                [ZWPrivacyPolicyManager startServicesAfterPrivacyConsent];
+                [self remakePage];
             }
         }];
     } else {

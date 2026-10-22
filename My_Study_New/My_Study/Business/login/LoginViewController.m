@@ -21,7 +21,7 @@
 #import "UIApplication/UIApplication+Ext.h"
 
 
-#define kItemHeight 60
+#define kItemHeight 56
 
 #define kAccountString @"100"
 #define kPasswordString @"100"
@@ -45,11 +45,18 @@ DXCaptchaDelegate>
 
 @property (nonatomic, strong) UITextField *accountTextFiled;
 
-@property (nonatomic, strong) UIView *accountLineView;
+@property (nonatomic, strong) UIView *accountRow;
 
 @property (nonatomic, strong) UITextField *passwordTextField;
 
-@property (nonatomic, strong) UIView *passwordLineView;
+@property (nonatomic, strong) UIView *passwordRow;
+@property (nonatomic, strong) UIScrollView *loginScrollView;
+@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) UILabel *cardTitleLabel;
+@property (nonatomic, strong) UILabel *footerLabel;
+@property (nonatomic, strong) UILabel *brandLabel;
+@property (nonatomic, strong) UIView *brandMark;
+@property (nonatomic, strong) UIButton *passwordVisibilityButton;
 
 @property (nonatomic, strong) UIButton *loginBtn;
 /** 顶象验证码视图 */
@@ -70,6 +77,7 @@ DXCaptchaDelegate>
 @implementation LoginViewController
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self removeCaptchaView];
 }
 
@@ -79,72 +87,205 @@ DXCaptchaDelegate>
     RouterType type = self.routerParamObject.type;
     self.isPresentPage = type == RouterTypeNavigatePresent;
 
-    self.view.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
     [self loadSubViews];
-    
-    self.closeBtn.hidden = !self.isPresentPage;
+    // 跟随应用主题更新；不自动弹出键盘，先完整展示登录页。
+    __weak typeof(self) weakSelf = self;
+    [self.view zh_themeUpdateCallback:^(id target) { [weakSelf applyLoginTheme]; }];
+    [self applyLoginTheme];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginKeyboardChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginKeyboardChanged:) name:UIKeyboardWillHideNotification object:nil];
+}
 
-    [self.accountTextFiled becomeFirstResponder];
+- (UILabel *)loginLabel:(NSString *)text size:(CGFloat)size weight:(UIFontWeight)weight {
+    UILabel *label = [[UILabel alloc] init];
+    label.text = text;
+    label.font = [UIFont systemFontOfSize:size weight:weight];
+    label.numberOfLines = 0;
+    return label;
+}
+
+- (UITextField *)loginField:(NSString *)placeholder secure:(BOOL)secure {
+    UITextField *field = [[UITextField alloc] init];
+    field.placeholder = placeholder;
+    field.font = [UIFont systemFontOfSize:16];
+    field.secureTextEntry = secure;
+    field.delegate = self;
+    field.autocorrectionType = UITextAutocorrectionTypeNo;
+    field.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    field.clearButtonMode = secure ? UITextFieldViewModeNever : UITextFieldViewModeWhileEditing;
+    field.returnKeyType = secure ? UIReturnKeyGo : UIReturnKeyNext;
+    field.textContentType = secure ? UITextContentTypePassword : UITextContentTypeUsername;
+    if (secure) field.keyboardType = UIKeyboardTypeNumberPad;
+    [field addTarget:self action:@selector(valueChange:) forControlEvents:UIControlEventEditingChanged];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolbar.items = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil], [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissLoginKeyboard)]];
+    field.inputAccessoryView = toolbar;
+    return field;
+}
+
+- (UIView *)loginRow:(UITextField *)field title:(NSString *)title {
+    UIView *row = [[UIView alloc] init];
+    row.layer.cornerRadius = 14;
+    row.layer.borderWidth = 1;
+    UILabel *label = [self loginLabel:title size:14 weight:UIFontWeightMedium];
+    label.tag = 1001;
+    label.translatesAutoresizingMaskIntoConstraints = NO;
+    field.translatesAutoresizingMaskIntoConstraints = NO;
+    [row addSubview:label];
+    [row addSubview:field];
+    [NSLayoutConstraint activateConstraints:@[
+        [row.heightAnchor constraintEqualToConstant:kItemHeight],
+        [label.leadingAnchor constraintEqualToAnchor:row.leadingAnchor constant:16],
+        [label.centerYAnchor constraintEqualToAnchor:row.centerYAnchor],
+        [label.widthAnchor constraintEqualToConstant:40],
+        [field.leadingAnchor constraintEqualToAnchor:label.trailingAnchor constant:12],
+        [field.topAnchor constraintEqualToAnchor:row.topAnchor],
+        [field.bottomAnchor constraintEqualToAnchor:row.bottomAnchor],
+        [field.trailingAnchor constraintEqualToAnchor:row.trailingAnchor constant:field.secureTextEntry ? -60 : -12]
+    ]];
+    return row;
 }
 
 - (void)loadSubViews {
+    self.closeBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.closeBtn setTitle:self.isPresentPage ? @"关闭" : @"返回" forState:UIControlStateNormal];
+    self.closeBtn.titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightMedium];
+    self.closeBtn.accessibilityLabel = @"退出登录页面";
+    [self.closeBtn addTarget:self action:@selector(closeLoginPage) forControlEvents:UIControlEventTouchUpInside];
+    self.closeBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.closeBtn];
-    [self.view addSubview:self.titleLabel];
-    [self.view addSubview:self.loginContentView];
 
-    [self.loginContentView addSubview:self.accountTextFiled];
-    [self.loginContentView addSubview:self.passwordTextField];
+    self.loginScrollView = [[UIScrollView alloc] init];
+    self.loginScrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.loginScrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+    self.loginScrollView.alwaysBounceVertical = YES;
+    self.loginScrollView.showsVerticalScrollIndicator = NO;
+    self.loginScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    [self.view addSubview:self.loginScrollView];
+    UIStackView *content = [[UIStackView alloc] init];
+    content.axis = UILayoutConstraintAxisVertical;
+    content.spacing = 0;
+    content.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.loginScrollView addSubview:content];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.closeBtn.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:20],
+        [self.closeBtn.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:4],
+        [self.closeBtn.widthAnchor constraintEqualToConstant:48],
+        [self.closeBtn.heightAnchor constraintEqualToConstant:44],
+        [self.loginScrollView.topAnchor constraintEqualToAnchor:self.closeBtn.bottomAnchor],
+        [self.loginScrollView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+        [self.loginScrollView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
+        [self.loginScrollView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor],
+        [content.topAnchor constraintEqualToAnchor:self.loginScrollView.contentLayoutGuide.topAnchor constant:28],
+        [content.bottomAnchor constraintEqualToAnchor:self.loginScrollView.contentLayoutGuide.bottomAnchor constant:-28],
+        [content.centerXAnchor constraintEqualToAnchor:self.loginScrollView.frameLayoutGuide.centerXAnchor],
+        [content.widthAnchor constraintLessThanOrEqualToAnchor:self.loginScrollView.frameLayoutGuide.widthAnchor constant:-40],
+        [content.widthAnchor constraintLessThanOrEqualToConstant:440]
+    ]];
+    NSLayoutConstraint *preferredWidth = [content.widthAnchor constraintEqualToAnchor:self.loginScrollView.frameLayoutGuide.widthAnchor constant:-40];
+    preferredWidth.priority = UILayoutPriorityDefaultHigh;
+    preferredWidth.active = YES;
 
-    [self.loginContentView addSubview:self.accountLineView];
-    [self.loginContentView addSubview:self.passwordLineView];
+    self.brandMark = [[UIView alloc] init];
+    self.brandMark.layer.cornerRadius = 19;
+    UILabel *mark = [self loginLabel:@"✦" size:30 weight:UIFontWeightMedium];
+    mark.textColor = UIColor.whiteColor;
+    mark.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.brandMark addSubview:mark];
+    [NSLayoutConstraint activateConstraints:@[[self.brandMark.widthAnchor constraintEqualToConstant:64], [self.brandMark.heightAnchor constraintEqualToConstant:64], [mark.centerXAnchor constraintEqualToAnchor:self.brandMark.centerXAnchor], [mark.centerYAnchor constraintEqualToAnchor:self.brandMark.centerYAnchor]]];
+    self.brandLabel = [self loginLabel:@"探索 · 记录 · 成长" size:12 weight:UIFontWeightMedium];
+    UIStackView *brand = [[UIStackView alloc] initWithArrangedSubviews:@[self.brandMark, self.brandLabel]];
+    brand.axis = UILayoutConstraintAxisHorizontal;
+    brand.spacing = 14;
+    brand.alignment = UIStackViewAlignmentCenter;
+    [content addArrangedSubview:brand];
+    [content setCustomSpacing:26 afterView:brand];
+    self.titleLabel = [self loginLabel:@"欢迎回来" size:32 weight:UIFontWeightSemibold];
+    [content addArrangedSubview:self.titleLabel];
+    [content setCustomSpacing:10 afterView:self.titleLabel];
+    self.subtitleLabel = [self loginLabel:@"登录账号，继续探索生活里的小美好。" size:14 weight:UIFontWeightRegular];
+    [content addArrangedSubview:self.subtitleLabel];
+    [content setCustomSpacing:32 afterView:self.subtitleLabel];
 
-    [self.view addSubview:self.loginBtn];
-    
-    [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.offset(15);
-        make.top.equalTo(self.view.mas_top).offset(kPORTRAIT_SAFE_AREA_TOP_SPACE);
-        make.size.mas_equalTo(CGSizeMake(80, 44));
-    }];
+    self.loginContentView = [[UIView alloc] init];
+    self.loginContentView.layer.cornerRadius = 24;
+    self.loginContentView.layer.borderWidth = 1;
+    [content addArrangedSubview:self.loginContentView];
+    UIStackView *form = [[UIStackView alloc] init];
+    form.translatesAutoresizingMaskIntoConstraints = NO;
+    form.axis = UILayoutConstraintAxisVertical;
+    form.spacing = 14;
+    [self.loginContentView addSubview:form];
+    [NSLayoutConstraint activateConstraints:@[[form.leadingAnchor constraintEqualToAnchor:self.loginContentView.leadingAnchor constant:20], [form.trailingAnchor constraintEqualToAnchor:self.loginContentView.trailingAnchor constant:-20], [form.topAnchor constraintEqualToAnchor:self.loginContentView.topAnchor constant:24], [form.bottomAnchor constraintEqualToAnchor:self.loginContentView.bottomAnchor constant:-24]]];
+    self.cardTitleLabel = [self loginLabel:@"账号登录" size:18 weight:UIFontWeightSemibold];
+    [form addArrangedSubview:self.cardTitleLabel];
+    [form setCustomSpacing:22 afterView:self.cardTitleLabel];
+    self.accountTextFiled = [self loginField:@"请输入账号" secure:NO];
+    self.passwordTextField = [self loginField:@"请输入密码" secure:YES];
+    self.accountRow = [self loginRow:self.accountTextFiled title:@"账号"];
+    self.passwordRow = [self loginRow:self.passwordTextField title:@"密码"];
+    [form addArrangedSubview:self.accountRow];
+    [form addArrangedSubview:self.passwordRow];
+    self.passwordVisibilityButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.passwordVisibilityButton setTitle:@"显示" forState:UIControlStateNormal];
+    self.passwordVisibilityButton.accessibilityLabel = @"显示密码";
+    self.passwordVisibilityButton.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightMedium];
+    [self.passwordVisibilityButton addTarget:self action:@selector(togglePasswordVisibility) forControlEvents:UIControlEventTouchUpInside];
+    self.passwordVisibilityButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.passwordRow addSubview:self.passwordVisibilityButton];
+    [NSLayoutConstraint activateConstraints:@[[self.passwordVisibilityButton.trailingAnchor constraintEqualToAnchor:self.passwordRow.trailingAnchor constant:-4], [self.passwordVisibilityButton.centerYAnchor constraintEqualToAnchor:self.passwordRow.centerYAnchor], [self.passwordVisibilityButton.widthAnchor constraintEqualToConstant:52], [self.passwordVisibilityButton.heightAnchor constraintEqualToConstant:44]]];
+    self.loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.loginBtn setTitle:@"登 录" forState:UIControlStateNormal];
+    self.loginBtn.titleLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightSemibold];
+    [self.loginBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    self.loginBtn.layer.cornerRadius = 14;
+    [self.loginBtn.heightAnchor constraintEqualToConstant:54].active = YES;
+    [self.loginBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    [form setCustomSpacing:24 afterView:self.passwordRow];
+    [form addArrangedSubview:self.loginBtn];
+    [content setCustomSpacing:24 afterView:self.loginContentView];
+    self.footerLabel = [self loginLabel:@"让每一次探索，都留下成长的印记。" size:12 weight:UIFontWeightRegular];
+    self.footerLabel.textAlignment = NSTextAlignmentCenter;
+    [content addArrangedSubview:self.footerLabel];
+    [self valueChange:nil];
+}
 
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.top.equalTo(self.view.mas_top).offset(kSysStatusBarHeight + 20);
-    }];
-
-    [self.loginContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).offset(60);
-        make.right.equalTo(self.view.mas_right).offset(-60);
-        make.top.equalTo(self.view.mas_top).offset(200);
-    }];
-    //    MASAttachKeys(self.loginContentView);
-
-    [self.accountTextFiled mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.loginContentView);
-        make.height.mas_equalTo(kItemHeight);
-    }];
-
-    [self.passwordTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.height.equalTo(self.accountTextFiled);
-        make.top.equalTo(self.accountTextFiled.mas_bottom).offset(20);
-        make.bottom.equalTo(self.loginContentView);
-    }];
-
-    [self.accountLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.accountTextFiled);
-        make.bottom.equalTo(self.accountTextFiled.mas_bottom).offset(-1);
-        make.height.mas_equalTo(1);
-    }];
-
-    [self.passwordLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.passwordTextField);
-        make.height.mas_equalTo(1);
-    }];
-
-    [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.accountTextFiled);
-        make.height.mas_equalTo(kItemHeight);
-        make.top.equalTo(self.loginContentView.mas_bottom).offset(80);
-    }];
+- (void)applyLoginTheme {
+    // 使用应用自身的主题色判断明暗，兼容应用内手动切换主题。
+    UIColor *base = ThemePickerColorKey(ZWColorKey_p1).color;
+    CGFloat red = 1, green = 1, blue = 1, alpha = 1;
+    [base getRed:&red green:&green blue:&blue alpha:&alpha];
+    BOOL dark = red * 0.299 + green * 0.587 + blue * 0.114 < 0.5;
+    UIColor *(^color)(NSUInteger) = ^UIColor *(NSUInteger hex) { return [UIColor colorWithRed:((hex >> 16) & 255) / 255.0 green:((hex >> 8) & 255) / 255.0 blue:(hex & 255) / 255.0 alpha:1]; };
+    UIColor *accent = color(dark ? 0x85B9A8 : 0x315F57);
+    UIColor *ink = color(dark ? 0xE2EDE7 : 0x294B46);
+    UIColor *muted = color(dark ? 0xA0B3A9 : 0x82918E);
+    self.view.backgroundColor = color(dark ? 0x17221E : 0xF4F7F5);
+    self.loginContentView.backgroundColor = color(dark ? 0x21312A : 0xFFFFFF);
+    self.loginContentView.layer.borderColor = color(dark ? 0x34483E : 0xE4ECE7).CGColor;
+    self.brandMark.backgroundColor = color(0x315F57);
+    self.brandLabel.textColor = accent;
+    self.titleLabel.textColor = ink;
+    self.cardTitleLabel.textColor = ink;
+    self.subtitleLabel.textColor = muted;
+    self.footerLabel.textColor = muted;
+    self.closeBtn.tintColor = accent;
+    self.passwordVisibilityButton.tintColor = accent;
+    self.loginBtn.backgroundColor = color(dark ? 0x416F61 : 0x315F57);
+    NSArray *fields = @[self.accountTextFiled, self.passwordTextField];
+    NSArray *rows = @[self.accountRow, self.passwordRow];
+    for (NSUInteger index = 0; index < fields.count; index++) {
+        UITextField *field = fields[index];
+        UIView *row = rows[index];
+        field.textColor = ink;
+        field.tintColor = accent;
+        field.keyboardAppearance = dark ? UIKeyboardAppearanceDark : UIKeyboardAppearanceLight;
+        field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:field.placeholder attributes:@{NSForegroundColorAttributeName:muted}];
+        row.backgroundColor = color(dark ? 0x19281F : 0xF5F8F6);
+        row.layer.borderColor = (field.isFirstResponder ? accent : color(dark ? 0x34483E : 0xE4ECE7)).CGColor;
+        ((UILabel *)[row viewWithTag:1001]).textColor = ink;
+        field.inputAccessoryView.tintColor = accent;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -175,6 +316,7 @@ DXCaptchaDelegate>
  *  登录按钮点击
  */
 - (void)loginAction {
+    [self.view endEditing:YES];
     NSString *showMsg     = @"";
     NSString *accountStr  = self.accountTextFiled.text;
     NSString *passwordStr = self.passwordTextField.text;
@@ -298,44 +440,60 @@ DXCaptchaDelegate>
 }
 
 - (void)valueChange:(UITextField *)textField {
-    if (textField == self.accountTextFiled) {
-    } else if (textField == self.passwordTextField) {
-    }
+    self.loginBtn.alpha = self.accountTextFiled.text.length && self.passwordTextField.text.length ? 1.0 : 0.65;
 }
 
-#pragma mark - textFieldDelegate
+#pragma mark - 输入交互
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    /** 校验输入  */
-    if (textField == self.passwordTextField) {
-        BOOL isNumber = [DataFormatterFunc isPureNumber:string];
-        return isNumber;
-    } else {
-        return YES;
-    }
+    if (textField == self.passwordTextField) return [DataFormatterFunc isPureNumber:string];
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.accountTextFiled) [self.passwordTextField becomeFirstResponder];
+    else [self loginAction];
+    return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if (textField == self.accountTextFiled) {
-        self.accountLineView.backgroundColor = UIColorFromRGB(0x4F7AFD);
-    } else if (textField == self.passwordTextField) {
-        self.passwordLineView.backgroundColor = UIColorFromRGB(0x4F7AFD);
+    [self applyLoginTheme];
+    CGRect rect = [textField convertRect:textField.bounds toView:self.loginScrollView];
+    [self.loginScrollView scrollRectToVisible:CGRectInset(rect, 0, -24) animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField { [self applyLoginTheme]; }
+
+- (void)togglePasswordVisibility {
+    self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry;
+    [self.passwordVisibilityButton setTitle:self.passwordTextField.secureTextEntry ? @"显示" : @"隐藏" forState:UIControlStateNormal];
+    self.passwordVisibilityButton.accessibilityLabel = self.passwordTextField.secureTextEntry ? @"显示密码" : @"隐藏密码";
+}
+
+- (void)dismissLoginKeyboard { [self.view endEditing:YES]; }
+
+- (void)closeLoginPage {
+    [self.view endEditing:YES];
+    if (self.isPresentPage || self.navigationController.presentingViewController) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } else if (self.presentingViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    if (textField == self.accountTextFiled) {
-        self.accountLineView.backgroundColor          = UIColorFromRGB(0xCCCCCC);
-        self.accountLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
-    } else if (textField == self.passwordTextField) {
-        self.passwordLineView.backgroundColor          = UIColorFromRGB(0xCCCCCC);
-        self.passwordLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
-    }
-}
-
-- (UILabel *)getLeftLabel:(NSString *)title {
-    UILabel *label           = [UILabel labelWithFrame:CGRectMake(0, 0, 80, kItemHeight) text:[NSString stringWithFormat:@"%@: ", title] textColor:UIColorFromRGB(0x111111) font:PASFont(18) textAlignment:NSTextAlignmentLeft];
-    label.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p4);
-    return label;
+- (void)loginKeyboardChanged:(NSNotification *)notification {
+    CGRect frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect keyboard = [self.view convertRect:frame fromView:nil];
+    CGFloat overlap = [notification.name isEqualToString:UIKeyboardWillHideNotification] ? 0 : MAX(0, CGRectGetMaxY(self.loginScrollView.frame) - CGRectGetMinY(keyboard));
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, overlap, 0);
+    [UIView animateWithDuration:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
+        self.loginScrollView.contentInset = insets;
+        self.loginScrollView.scrollIndicatorInsets = insets;
+    } completion:^(BOOL finished) {
+        UITextField *active = self.accountTextFiled.isFirstResponder ? self.accountTextFiled : (self.passwordTextField.isFirstResponder ? self.passwordTextField : nil);
+        if (active) [self.loginScrollView scrollRectToVisible:CGRectInset([active convertRect:active.bounds toView:self.loginScrollView], 0, -24) animated:YES];
+    }];
 }
 
 
@@ -503,106 +661,6 @@ DXCaptchaDelegate>
 
 
 #pragma mark - lazyLoad
-
-- (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [UILabel labelWithFrame:CGRectZero text:@"登录" textColor:UIColorFromRGB(0x111111) font:PASFont(20)];
-    }
-    return _titleLabel;
-}
-
-- (UIView *)loginContentView {
-    if (!_loginContentView) {
-        _loginContentView                          = [UIView viewForColor:UIColorFromRGB(0xFFFFFF) withFrame:CGRectZero];
-        _loginContentView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p1);
-    }
-    return _loginContentView;
-}
-
-- (UITextField *)accountTextFiled {
-    if (!_accountTextFiled) {
-        _accountTextFiled                 = [[UITextField alloc] initWithFrame:CGRectZero];
-        _accountTextFiled.delegate        = self;
-        _accountTextFiled.leftView        = [self getLeftLabel:@"账号"];
-        _accountTextFiled.leftViewMode    = UITextFieldViewModeAlways;
-        _accountTextFiled.placeholder     = @"请输入账号";
-        _accountTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _accountTextFiled.font            = PASFont(18);
-        @pas_weakify_self
-            [_accountTextFiled zh_themeUpdateCallback:^(id _Nonnull target) {
-                @pas_strongify_self
-                    self.accountTextFiled.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.accountTextFiled.placeholder attributes:@{NSForegroundColorAttributeName: ThemePickerColorKey(ZWColorKey_p7).color}];
-                self.accountTextFiled.zh_backgroundColorPicker  = ThemePickerColorKey(ZWColorKey_p1);
-                self.accountTextFiled.textColor                 = ThemePickerColorKey(ZWColorKey_p4).color;
-            }];
-        [_accountTextFiled addTarget:self action:@selector(valueChange:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _accountTextFiled;
-}
-
-- (UITextField *)passwordTextField {
-    if (!_passwordTextField) {
-        _passwordTextField                 = [[UITextField alloc] initWithFrame:CGRectZero];
-        _passwordTextField.delegate        = self;
-        _passwordTextField.leftView        = [self getLeftLabel:@"密码"];
-        _passwordTextField.leftViewMode    = UITextFieldViewModeAlways;
-        _passwordTextField.keyboardType    = UIKeyboardTypeNumberPad;
-        _passwordTextField.placeholder     = @"请输入密码";
-        _passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _passwordTextField.font            = PASFont(18);
-        @pas_weakify_self
-            [_accountTextFiled zh_themeUpdateCallback:^(id _Nonnull target) {
-                @pas_strongify_self
-                    self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.passwordTextField.placeholder attributes:@{NSForegroundColorAttributeName: ThemePickerColorKey(ZWColorKey_p7).color}];
-                self.passwordTextField.zh_backgroundColorPicker  = ThemePickerColorKey(ZWColorKey_p1);
-                self.passwordTextField.textColor                 = ThemePickerColorKey(ZWColorKey_p4).color;
-            }];
-        [_passwordTextField addTarget:self action:@selector(valueChange:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _passwordTextField;
-}
-
-- (UIButton *)loginBtn {
-    if (!_loginBtn) {
-        @pas_weakify_self
-            _loginBtn             = [UIButton buttonWithFrame:CGRectZero title:@"登录" font:PASFont(22) titleColor:UIColorFromRGB(0xFFFFFF) block:^{
-                @pas_strongify_self
-                    [self loginAction];
-            }];
-        _loginBtn.backgroundColor = UIColorFromRGB(0x4F7AFD);
-        [_loginBtn setCornerRadius:8];
-    }
-    return _loginBtn;
-}
-
-- (UIButton *)closeBtn {
-    if (!_closeBtn) {
-        @pas_weakify_self
-        _closeBtn = [UIButton buttonWithFrame:CGRectZero title:@"" font:PASFont(22) titleColor:UIColorFromRGB(0xFFFFFF) block:^{
-            @pas_strongify_self
-            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [_closeBtn setImage:[UIImage imageNamed:@"top_icon_close"] forState:UIControlStateNormal];
-        _closeBtn.hidden = YES;
-    }
-    return _closeBtn;
-}
-
-- (UIView *)accountLineView {
-    if (!_accountLineView) {
-        _accountLineView                          = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectZero];
-        _accountLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
-    }
-    return _accountLineView;
-}
-
-- (UIView *)passwordLineView {
-    if (!_passwordLineView) {
-        _passwordLineView                          = [UIView viewForColor:UIColorFromRGB(0xCCCCCC) withFrame:CGRectZero];
-        _passwordLineView.zh_backgroundColorPicker = ThemePickerColorKey(ZWColorKey_p10);
-    }
-    return _passwordLineView;
-}
 
 #pragma mark -  Lazy loading
 - (OneKeyLoginBgView *)oneKeyLoginBgView{
