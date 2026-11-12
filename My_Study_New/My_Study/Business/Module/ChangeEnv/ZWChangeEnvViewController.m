@@ -10,7 +10,8 @@
 #import "PASIndicatorTableViewCell.h"
 #import "Environment.h"
 #import "AlertView.h"
-#import "PathConstants.h"
+#import "Config.h"
+#import "ZWEndpointConfiguration.h"
 
 #define kEnvName  @"name"
 #define kEnvType  @"type"
@@ -59,7 +60,9 @@
         }];
         
         NSDictionary *dict = PASArrayAtIndex(self.dataArray, indexPath.row);
-        cell.leftLabel.text = [DataFormatterFunc strValueForKey:kEnvName ofDict:dict];
+        NSString *name = [DataFormatterFunc strValueForKey:kEnvName ofDict:dict];
+        NSString *address = NSBundle.mainBundle.infoDictionary[@"NetworkConfiguration"][@"BaseURLs"][name];
+        cell.leftLabel.text = [NSString stringWithFormat:@"%@%@", name, address.length ? @"" : @"（未配置 API 地址）"];
         cell.leftLabel.font = PASFont(18);
         cell.leftLabel.zh_textColorPicker = ThemePickerColorKey(ZWColorKey_p5);
         
@@ -91,63 +94,19 @@
 /**
  *  确定按钮点击
  */
-- (void)sureAction:(id)sender
-{
-    EnvironmentType type = self.selectedType;
-    
-//    NSString *toSubEnvLabel = self.subEnvTextField.text;
-//
-//    BOOL isSubEnvOn = self.subEnvCheckButton.isSelected;
-//
-//    BOOL isImOfflineOn = self.imofflineButton.isSelected;
-    
-//    SubEnvInfo *subEnv = [SubEnvInfo init:toSubEnvLabel on:isSubEnvOn];
-//    [Environment.sharedInstance saveSubEnv:subEnv];
-    
-    /** 保存当前环境  */
-    [Environment.sharedEnvironment updateEnvironment:type];
-    
-    BOOL isImOfflineOn = YES;
-    [Environment.sharedEnvironment saveIMForceOffline:isImOfflineOn];
-    
-//    if (Session.userSession.token.length > 0){
-//        //已登录
-//        [UserManager.sharedInstance logout];
-//    } else {
-        [self clearAfterChangeEnvDone];
-//    }
-}
-
-
-- (void)clearAfterChangeEnvDone
-{
-    [self deleteCache];
-    
-    AlertView *alertView = [[AlertView alloc] init];
-    alertView.title = @"提示";
-    alertView.message = @"切换环境需要手动重启App，如遇黑屏或白屏请忽略！";
-    alertView.disableBgTap = YES;
-    alertView.actions = @[
-       [AlertAction defaultConfirmAction:@"我知道了" clickCallback:^{
-           exit(0);
-       }]
-    ];
+- (void)sureAction:(id)sender {
+    NSError *error = nil;
+    if (![Environment.sharedEnvironment updateEnvironment:self.selectedType error:&error]) {
+        [Toast show:error.localizedDescription];
+        return;
+    }
+    AlertView *alertView = [AlertView new];
+    alertView.title = @"环境已保存";
+    alertView.message = @"下次启动应用时生效。当前会话继续使用原环境，请自行关闭并重新打开应用。";
+    alertView.actions = @[[AlertAction defaultConfirmAction:@"知道了" clickCallback:^{}]];
     [alertView show];
 }
 
-/** 清除缓存  */
-- (void)deleteCache
-{
-    NSString *dataPath = [PathConstants appDataDirectory];
-    NSError *error = nil;
-    [NSFileManager.defaultManager removeItemAtPath:dataPath error:&error];
-    NSLog(@"12");
-}
-
-
-/**
- *  切换环境点击
- */
 - (void)changeEnvAction:(NSIndexPath *)indexPath
 {
     NSDictionary *dict = PASArrayAtIndex(self.dataArray, indexPath.row);
@@ -167,7 +126,8 @@
              },
              @{kEnvName: @"pl",
                kEnvType: @(EnvironmentTypePL)
-             }];
+             },
+             @{kEnvName: @"online", kEnvType: @(EnvironmentTypeOnline)}];
 }
 
 @end

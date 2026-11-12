@@ -8,8 +8,9 @@
 
 #import "ZWSiteAddressManager.h"
 #import "Config.h"
+#import "ZWEndpointConfiguration.h"
 
-NSString const *PASAppSiteBaseHttpURLKey = @"BaseHttpURL";
+NSString *const PASAppSiteBaseHttpURLKey = @"BaseHttpURL";
 
 @implementation ZWSiteAddressManager
 
@@ -21,13 +22,20 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWSiteAddressManager)
  *
  *  @return NSString 根url
  */
-+ (NSString *)getBaseHttpURL
-{
-//    return @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
-    return @"https://9e8ea635-5794-4871-b02e-6b8ac50b4d8a.mock.pstmn.io";
-    /* 设置根url */
-    return [Config sharedConfig].httpServerHost;
-//    return @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
++ (NSString *)getBaseHttpURL {
+    return [Config sharedConfig].httpServerHost ?: @"";
+}
+
++ (NSURL *)URLForPath:(NSString *)path error:(NSError **)error {
+    return [self URLForPath:path baseURL:[self getBaseHttpURL] error:error];
+}
+
++ (NSURL *)URLForPath:(NSString *)path baseURL:(NSString *)baseURL error:(NSError **)error {
+    BOOL allowHTTP = NO;
+#if defined(DEBUG) || defined(DOKIT)
+    allowHTTP = [Config sharedConfig].environmentType != EnvironmentTypeOnline;
+#endif
+    return [ZWEndpointConfiguration resolvePath:path baseURL:baseURL allowHTTP:allowHTTP error:error];
 }
 
 /**

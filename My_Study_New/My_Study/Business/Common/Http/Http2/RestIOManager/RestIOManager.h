@@ -66,6 +66,7 @@ static NSString * _Nonnull httpMethods[] = {
  @return 返回当前NSURLSessionDataTask
  */
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+                                      taskKey:(nullable NSString *)taskKey
                         sessionManagerSetting:(nullable BOOL (^)(RestIOManager *manager))sessionManagerSettingBlock
                                uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                              downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock

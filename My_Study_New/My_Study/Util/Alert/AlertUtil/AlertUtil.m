@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  AlertUtil.m
 //  CRM
@@ -26,6 +27,6 @@
         }];
         [alertController addAction:okAction];
         [alertController addAction:cancelAction];
-        [[UIApplication displayViewController] presentViewController:alertController animated:YES completion:nil];
+        [Router presentViewController:alertController from:[UIApplication displayViewController] animated:YES completion:nil];
 }
 @end

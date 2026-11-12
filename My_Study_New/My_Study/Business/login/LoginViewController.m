@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  LoginViewController.m
 //  My_Study
@@ -572,7 +573,7 @@ DXCaptchaDelegate>
 //        vc.thirdId = self.thirdId;
 //        vc.type = self.thirdId.length > 0 ? 1 : 0;
         vc.hideNavigationBar = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        [Router pushViewController:vc navigationController:self.navigationController animated:YES];
     }];
 }
 

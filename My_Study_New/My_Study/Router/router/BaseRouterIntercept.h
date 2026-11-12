@@ -7,12 +7,13 @@
 //
 /** 拦截器  */
 #import <Foundation/Foundation.h>
+#import "RouterParam.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseRouterIntercept : NSObject
 
-- (RouterParam *)doIntercept:(RouterParam *)routerParam;
+- (nullable RouterParam *)doIntercept:(RouterParam *)routerParam;
 
 //越小越优先 (默认1000)
 - (NSInteger)interceptPriority;

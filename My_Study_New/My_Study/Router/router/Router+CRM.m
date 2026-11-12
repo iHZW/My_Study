@@ -7,8 +7,55 @@
 //
 
 #import "Router+CRM.h"
+#import "NSObject+Params.h"
 
 @implementation Router (CRM)
+
++ (RouterParam *)requestForController:(UIViewController *)controller source:(id)source type:(RouterType)type animated:(BOOL)animated {
+    NSString *className = NSStringFromClass(controller.class);
+    RouterPageItem *registered = [ZWM.router pageForClassName:className];
+    NSString *path = registered.url ?: [@"native/" stringByAppendingString:className ?: @"unknown"];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:registered.attachValue ?: @{}];
+    [parameters addEntriesFromDictionary:controller.routerParams ?: @{}];
+    RouterParam *request = [RouterParam makeWith:path destURL:className params:parameters type:type context:source];
+    request.successBlock = controller.routerParamObject.successBlock;
+    request.failBlock = controller.routerParamObject.failBlock;
+    request.preparedDestination = controller;
+    request.usesPreparedDestination = YES;
+    request.navigationAnimated = @(animated);
+    return request;
+}
+
++ (void)pushViewController:(UIViewController *)controller navigationController:(UINavigationController *)navigationController animated:(BOOL)animated {
+    RouterParam *request = [self requestForController:controller source:navigationController type:RouterTypeNavigate animated:animated];
+    if (!navigationController || !controller) {
+        [ZWM.router recordEvent:@"跳转失败" request:request details:@{@"message": @"导航控制器或目标页面为空"}];
+        return;
+    }
+    [ZWM.router executeRouterParam:request];
+}
+
++ (void)presentViewController:(UIViewController *)controller from:(UIViewController *)source animated:(BOOL)animated completion:(void (^)(void))completion {
+    RouterParam *request = [self requestForController:controller source:source type:RouterTypeNavigatePresent animated:animated];
+    request.presentationCompletion = completion;
+    if (!source || !controller) {
+        [ZWM.router recordEvent:@"跳转失败" request:request details:@{@"message": @"展示上下文或目标页面为空"}];
+        return;
+    }
+    [ZWM.router executeRouterParam:request];
+}
+
++ (void)selectTabAtIndex:(NSUInteger)index controller:(UITabBarController *)controller source:(NSString *)source {
+    if (index >= controller.viewControllers.count) return;
+    UIViewController *target = controller.viewControllers[index];
+    if ([target isKindOfClass:UINavigationController.class]) target = [(UINavigationController *)target viewControllers].firstObject;
+    RouterParam *request = [self requestForController:target source:controller type:RouterTypeNavigateTab animated:NO];
+    request.preparedDestination = nil;
+    request.tabSelectionIndex = @(index);
+    request.params = @{@"fromIndex": @(controller.selectedIndex), @"toIndex": @(index), @"source": source};
+    [ZWM.router executeRouterParam:request];
+}
+
 + (void)push:(NSString *)clsName
       params:(NSDictionary *)params
      context:(id)context{
@@ -39,58 +86,12 @@
     [ZWM.router execute:routerParam success:successBlock fail:failBlock];
 }
 
-+ (NSString *)urlEncode:(NSDictionary *)param{
-    NSString *jsonString = [JSONUtil jsonString:param options:0];
-    NSCharacterSet *characterSet = [[NSCharacterSet characterSetWithCharactersInString:@"`#%^{}\"[]|\\<>:?@/,;? "] invertedSet];
-    jsonString = [jsonString stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
-    return jsonString;
++ (NSString *)encodeRouterUrl:(NSString *)url params:(NSDictionary *)params {
+    return [Router encodeRoute:url parameters:params];
 }
 
-+ (NSString *)encodeRouterUrl:(NSString *)url params:(NSDictionary *)params{
-    if (params != nil){
-        NSMutableDictionary *mutDict = [NSMutableDictionary dictionaryWithDictionary:params];
-        if ([url containsString:@"?param="]){
-            NSDictionary *dict = [self decodeRouterUrl:url];
-            NSString *path = [dict objectForKey:@"path"];
-            id data = [dict objectForKey:@"data"];
-            if ([data isKindOfClass:[NSDictionary class]]){
-                [mutDict addEntriesFromDictionary:data];
-                NSString *route = [NSString stringWithFormat:@"%@?param=%@",path,[self urlEncode:mutDict]];
-                return route;
-            } else {
-                return url;
-            }
-            return nil;
-        } else {
-            NSString *route = [NSString stringWithFormat:@"%@?param=%@",url,[self urlEncode:params]];
-            return route;
-        }
-    } else {
-        return url;
-    }
-    
-}
-
-+ (NSDictionary *)decodeRouterUrl:(NSString *)route{
-    NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
-    route = route;
-    NSArray *components = [route componentsSeparatedByString:@"?"];
-    NSString *path = components.firstObject;
-    if (path.length > 0){
-        mutDict[@"path"] = path;
-        NSString *dataStr = components.lastObject;
-        if (dataStr.length > 0){
-            if ([dataStr hasPrefix:@"param="]){
-                NSString *parmasString = [dataStr substringFromIndex:6];
-                //URL解码
-                parmasString = [parmasString stringByRemovingPercentEncoding];
-                
-                id data = [JSONUtil jsonObject:parmasString];
-                mutDict[@"data"] = data;
-            }
-        }
-    }
-    return mutDict;
++ (NSDictionary *)decodeRouterUrl:(NSString *)route {
+    return [Router decodeRoute:route];
 }
 #warning -- 拼接 universalLink 处理的域名
 + (NSString *)appCustomDomain{
@@ -108,82 +109,51 @@
 //    return url;
 }
 
-+ (void)openApp:(NSString *)universalLink{
-    NSArray *components = [universalLink componentsSeparatedByString:@"?"];
-    if (components.count == 2){
-        NSString *path = components.firstObject;
-        if ([path hasPrefix:[self appCustomDomain]]){
-            NSString *params = components.lastObject;
-            
-            if ([params hasPrefix:@"param="]){
-                NSString *param = [params substringFromIndex:6];
-                NSString *appURL = [param stringByRemovingPercentEncoding];
-                
-                NSString *suffix = [NSString stringWithFormat:@"%@?param=",[self appCustomSchema]];
-                if ([appURL hasPrefix:suffix]){
-                    NSString *appRouteDictString = [appURL substringFromIndex:suffix.length];
-                    
-                    NSDictionary *routeDict = [JSONUtil jsonObject:[appRouteDictString stringByRemovingPercentEncoding]];
-                    if (routeDict){
-                        NSString *route = [Router encodeRouterUrl:[routeDict objectForKey:@"route"] params:[routeDict objectForKey:@"param"]];
-                        [ZWM.router executeURLNoCallBack:route];
-                    }
-                }
-            }
-        } else {
-            NSString *suffix = [NSString stringWithFormat:@"%@?param=",[self appCustomSchema]];
-            if ([universalLink hasPrefix:suffix]){
-                NSString *appRouteDictString = [universalLink substringFromIndex:suffix.length];
-                
-                NSDictionary *routeDict = [JSONUtil jsonObject:[appRouteDictString stringByRemovingPercentEncoding]];
-                if (routeDict){
-                    NSString *route = [Router encodeRouterUrl:[routeDict objectForKey:@"route"] params:[routeDict objectForKey:@"param"]];
-                    [ZWM.router executeURLNoCallBack:route];
-                }
-            }
++ (NSDictionary *)routePayloadForLink:(NSString *)link {
+    NSURLComponents *components = [NSURLComponents componentsWithString:link];
+    NSURLComponents *domain = [NSURLComponents componentsWithString:[self appCustomDomain]];
+    NSURLComponents *schema = [NSURLComponents componentsWithString:[self appCustomSchema]];
+    BOOL isWeb = [components.scheme.lowercaseString isEqualToString:domain.scheme.lowercaseString]
+        && [components.host.lowercaseString isEqualToString:domain.host.lowercaseString]
+        && [components.port isEqual:domain.port];
+    if (!components.port && !domain.port) {
+        isWeb = [components.scheme.lowercaseString isEqualToString:domain.scheme.lowercaseString]
+            && [components.host.lowercaseString isEqualToString:domain.host.lowercaseString];
+    }
+    BOOL isApp = [components.scheme.lowercaseString isEqualToString:schema.scheme.lowercaseString]
+        && [components.host.lowercaseString isEqualToString:schema.host.lowercaseString]
+        && [components.path isEqualToString:schema.path] && !components.port;
+    if ((!isWeb && !isApp) || components.user.length || components.password.length) return nil;
+    NSString *value = nil;
+    for (NSURLQueryItem *item in components.queryItems) {
+        if ([item.name isEqualToString:@"param"]) {
+            if (value) return nil;
+            value = item.value;
         }
+    }
+    if (!value.length) return nil;
+    if (isWeb) {
+        NSURLComponents *nested = [NSURLComponents componentsWithString:value];
+        if (![nested.scheme.lowercaseString isEqualToString:schema.scheme.lowercaseString]) return nil;
+        return [self routePayloadForLink:value];
+    }
+    NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
+    id payload = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if (![payload isKindOfClass:NSDictionary.class] || ![payload[@"route"] isKindOfClass:NSString.class]) return nil;
+    if (payload[@"param"] && ![payload[@"param"] isKindOfClass:NSDictionary.class]) return nil;
+    // 外部入口只允许已注册页面，不允许任意类实例化及行为调用。
+    RouterPageItem *page = [ZWM.router pageForPath:payload[@"route"]];
+    if (!page || page.type == RouterTypeAction) return nil;
+    return payload;
+}
+
++ (void)openApp:(NSString *)link {
+    NSDictionary *payload = [self routePayloadForLink:link];
+    if (payload && [self supportOpenApp]) {
+        [ZWM.router openPath:payload[@"route"] parameters:payload[@"param"] context:nil success:nil failure:nil];
     }
 }
 
-+ (BOOL)supportOpenApp{
-    return 1;
-//    LoginResponse *response = UserManager.sharedInstance.loginResponse;
-//    return response.indexType == 1;
-}
-
-+ (BOOL)canOpenApp:(NSString *)universalLink{
-    NSArray *components = [universalLink componentsSeparatedByString:@"?"];
-    if (components.count == 2){
-        NSString *path = components.firstObject;
-        if ([path hasPrefix:[self appCustomDomain]]){
-            NSString *params = components.lastObject;
-            
-            if ([params hasPrefix:@"param="]){
-                NSString *param = [params substringFromIndex:6];
-                NSString *appURL = [param stringByRemovingPercentEncoding];
-                
-                NSString *suffix = [NSString stringWithFormat:@"%@?param=",[self appCustomSchema]];
-                if ([appURL hasPrefix:suffix]){
-                    NSString *appRouteDictString = [appURL substringFromIndex:suffix.length];
-                    
-                    NSDictionary *routeDict = [JSONUtil jsonObject:[appRouteDictString stringByRemovingPercentEncoding]];
-                    if (routeDict){
-                        return YES;
-                    }
-                }
-            }
-        } else {
-            NSString *suffix = [NSString stringWithFormat:@"%@?param=",[self appCustomSchema]];
-            if ([universalLink hasPrefix:suffix]){
-                NSString *appRouteDictString = [universalLink substringFromIndex:suffix.length];
-                
-                NSDictionary *routeDict = [JSONUtil jsonObject:[appRouteDictString stringByRemovingPercentEncoding]];
-                if (routeDict){
-                    return YES;
-                }
-            }
-        }
-    }
-    return NO;
-}
++ (BOOL)supportOpenApp { return YES; }
++ (BOOL)canOpenApp:(NSString *)link { return [self routePayloadForLink:link] != nil; }
 @end

@@ -8,17 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-#ifdef DEBUG
+#if defined(DEBUG) || defined(DOKIT)
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #define LOG_LEVEL_DEF ddLogLevel
-static const int ddLogLevel = DDLogLevelDebug;
-#else
-static const int ddLogLevel = DDLogLevelInfo;
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZWDokitLog : NSObject
+/// 结构化诊断日志；嵌套敏感字段脱敏，限制单条内容体积。
++ (void)event:(NSString *)event category:(NSString *)category fields:(NSDictionary *)fields;
++ (NSString *)formattedEvent:(NSString *)event category:(NSString *)category fields:(NSDictionary *)fields;
++ (id)sanitizedValue:(nullable id)value;
 
 /// 添加日志
 /// - Parameter log: 日志内容

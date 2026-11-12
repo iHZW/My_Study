@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  LBXScanBaseViewController.m
 //  My_Study
@@ -203,7 +204,7 @@
 
         vc.strCodeType = strResult.strBarCodeType;
 
-        [self.navigationController pushViewController:vc animated:YES];
+        [Router pushViewController:vc navigationController:self.navigationController animated:YES];
 
         // 隐藏标记条码位置的信息
         [self resetCodeFlagView];

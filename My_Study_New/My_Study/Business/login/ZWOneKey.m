@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ZWOneKey.m
 //  My_Study
@@ -273,7 +274,7 @@ static ZWOneKey * _zwOneKey;
         [alert addAction:[UIAlertAction actionWithTitle:@"同意" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
             [CLShanYanSDKManager setCheckBoxValue:YES];
         }]];
-        [authPageVC presentViewController:alert animated:YES completion:nil];
+        [Router presentViewController:alert from:authPageVC animated:YES completion:nil];
     };
     
     CGFloat screenWidth_Portrait;

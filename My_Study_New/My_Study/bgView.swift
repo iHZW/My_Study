@@ -97,7 +97,7 @@ class BGView: UIView {
     func requestTest() {
         
         let url = "https://jsonplaceholder.typicode.com/posts?account=tom&password=147258"
-//        let url = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58/zq/wecomchat/chatrecord/detailList"
+//        let url = "/zq/wecomchat/chatrecord/detailList"
         let parameters:Parameters = ["account": "tom", "password": "147258"]
         Alamofire.request(url, method: .post, parameters:parameters).responseJSON { response in
             debugPrint(response)

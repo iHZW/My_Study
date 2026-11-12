@@ -1,3 +1,4 @@
+#import "NSObject+Params.h"
 //
 //  ZWMemberDetailViewController.m
 //  My_Study
@@ -215,6 +216,7 @@ typedef NS_ENUM(NSInteger, ZWCardPosition) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.routerParams[@"memberId"]) self.memberId = [self.routerParams[@"memberId"] integerValue];
     self.title = @"会员详情";
 
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];

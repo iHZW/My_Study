@@ -1,0 +1,11 @@
+// API 地址统一配置。当前无可用后台，保持为空，填写后重新构建。
+// URL 中的双斜杠使用 $(ZW_URL_SLASH) 避免被 xcconfig 当成注释。
+// 填写格式：https:$(ZW_URL_SLASH)$(ZW_URL_SLASH)你的域名/api/v1
+ZW_URL_SLASH = /
+ZW_API_BASE_URL_DEV =
+ZW_API_BASE_URL_QA =
+ZW_API_BASE_URL_PL =
+ZW_API_BASE_URL_ONLINE =
+
+// 允许本机开发覆盖；该文件不提交 Git。CI 可用同名 Build Settings 注入。
+#include? "NetworkEnvironments.local.xcconfig"

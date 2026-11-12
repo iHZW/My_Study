@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  HomeViewController.m
 //  MainSubControllerDemo
@@ -447,16 +448,10 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     BaseCellModel *model = self.dataList[indexPath.row];
-    if (model.clazz == ZWBeautyCameraViewController.class) {
-        ZWBeautyCameraViewController *page = [ZWBeautyCameraViewController new];
-        page.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:page animated:YES];
-        return;
-    }
-    if (model.clazz == CRMBabyTimeViewController.class) {
-        CRMBabyTimeViewController *page = [CRMBabyTimeViewController new];
-        page.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:page animated:YES];
+    RouterPageItem *registered = [ZWM.router pageForClassName:NSStringFromClass(model.clazz)];
+    if (registered && ![model.identificationName isEqualToString:kJumpWebViewID]) {
+        [ZWM.router openPath:registered.url parameters:@{@"title": model.title ?: @""}
+                     context:self success:nil failure:nil];
         return;
     }
     NSString *url        = kClientChatDetailURL;
@@ -484,9 +479,7 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
         if (0) {
             webUrl = @"https://dhuangmi.com/";
         }
-        ZWCommonWebPage *webPage = [[ZWCommonWebPage alloc] init];
-        [webPage loadUrl:[NSURL URLWithString:webUrl]];
-        [self.navigationController pushViewController:webPage animated:YES];
+        [ZWM.router openPath:ZWRouterPageCommonWebView parameters:@{@"url": webUrl} context:self success:nil failure:nil];
         return;
     }
     
@@ -495,19 +488,18 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
         [self jump_flutterPage];
     } else if (model.clazz != nil) {
         if ([model.clazz isKindOfClass:NSClassFromString(@"TestKLineViewController")]) {
-            [self.navigationController pushViewController:[NSClassFromString(@"TestKLineViewController") new] animated:YES];
+            [Router pushViewController:[NSClassFromString(@"TestKLineViewController") new] navigationController:self.navigationController animated:YES];
             return;
         }
         ZWBaseViewController *vc    = [model.clazz new];
         vc.hidesBottomBarWhenPushed = YES;
         vc.title                    = model.title;
-        [self.navigationController pushViewController:vc animated:YES];
+        [Router pushViewController:vc navigationController:self.navigationController animated:YES];
     }
 }
 
 - (void)jump_flutterPage {
-    NewVC *vc = [[NewVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [ZWM.router openPath:@"flutter/container" parameters:nil context:self success:nil failure:nil];
 }
 
 - (void)testGCD {

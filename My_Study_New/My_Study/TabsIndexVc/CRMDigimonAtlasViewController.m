@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 #import "CRMDigimonAtlasViewController.h"
 #import "CRMAtlasParsing.h"
 
@@ -323,7 +324,7 @@ static UIView *AtlasHeader(UIViewController *controller, NSString *title, SEL ba
     CRMAtlasZoomController *viewer = [[CRMAtlasZoomController alloc] init];
     viewer.image = self.picture.image;
     viewer.digimonName = self.entry[@"name"]; viewer.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:viewer animated:YES completion:nil];
+    [Router presentViewController:viewer from:self animated:YES completion:nil];
 }
 - (void)openSource {
     NSURL *url = AtlasRequest(self.entry[@"id"], NO).URL;
@@ -463,7 +464,7 @@ static UIView *AtlasHeader(UIViewController *controller, NSString *title, SEL ba
         }]];
     }
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { return self.filteredEntries.count; }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -487,6 +488,6 @@ static UIView *AtlasHeader(UIViewController *controller, NSString *title, SEL ba
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.view endEditing:YES];
     CRMAtlasDetailController *detail = [[CRMAtlasDetailController alloc] init]; detail.entry = self.filteredEntries[indexPath.item];
-    [self.navigationController pushViewController:detail animated:YES];
+    [Router pushViewController:detail navigationController:self.navigationController animated:YES];
 }
 @end

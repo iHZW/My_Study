@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ZWSJVideoOnePage.m
 //  My_Study
@@ -140,7 +141,7 @@
             if (self == nil) return;
             UIViewController *topViewController = UIViewController.pip_appTopViewController;
             UINavigationController *nav         = topViewController.navigationController;
-            if (nav != nil) [nav pushViewController:self animated:YES];
+            if (nav != nil) [Router pushViewController:self navigationController:nav animated:YES];
             completionHandler(YES);
         };
     }

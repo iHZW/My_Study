@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  MMPushUtil.m
 //  My_Study
@@ -24,7 +25,7 @@
 //        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 //        [delegate.homePage presentViewController:alertController animated:YES completion:nil];
 //    }
-    [[NSObject cyl_topmostViewController] presentViewController:alertController animated:YES completion:nil];
+    [Router presentViewController:alertController from:[NSObject cyl_topmostViewController] animated:YES completion:nil];
 }
 
 + (BOOL)PushModel {

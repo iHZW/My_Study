@@ -9,6 +9,7 @@
 #import "Environment.h"
 #import "StoreUtil.h"
 #import "NSArray+Func.h"
+#import "ZWEndpointConfiguration.h"
 
 @interface Environment ()
 
@@ -30,47 +31,46 @@ DEFINE_SINGLETON_T_FOR_CLASS(Environment)
     return self;
 }
 
-- (void)loadData
-{
-    EnvConfigObject *config = [self loadEvnConfigObjectByBundleID];
-    if (config.canManualChange){
-        EnvironmentType envType = [[self class] queryEnvType];;
-        if (envType == EnvironmentTypeNotFound){
-            self.currentEnvironmentType = config.envType;
-        } else {
-            self.currentEnvironmentType = envType;
-        }
-        
-    } else {
-        self.currentEnvironmentType = config.envType;
+- (BOOL)canChangeEnvironment {
+#if defined(DEBUG) || defined(DOKIT)
+    return [[[NSBundle.mainBundle infoDictionary][@"NetworkConfiguration"] objectForKey:@"AllowEnvironmentSwitch"] boolValue];
+#else
+    return NO;
+#endif
+}
+
+- (void)loadData {
+    NSDictionary *configuration = [NSBundle.mainBundle infoDictionary][@"NetworkConfiguration"];
+    EnvironmentType selected = [ZWEndpointConfiguration environmentForName:configuration[@"DefaultEnvironment"]];
+    // 配置异常时锁定生产环境，但缺失地址仍会明确失败，不猜测服务器。
+    if (selected == EnvironmentTypeNotFound) selected = EnvironmentTypeOnline;
+    if (self.canChangeEnvironment) {
+        EnvironmentType saved = [self.class queryEnvType];
+        NSString *name = [ZWEndpointConfiguration nameForEnvironment:saved];
+        NSString *url = configuration[@"BaseURLs"][name];
+        if (name.length && [ZWEndpointConfiguration validatedBaseURL:url allowHTTP:saved != EnvironmentTypeOnline error:NULL]) selected = saved;
     }
+    self.currentEnvironmentType = selected;
 }
 
-
-- (void)updateEnvironment:(EnvironmentType)toEnv
-{
-    self.currentEnvironmentType = toEnv;
-    [[self class] saveEnv:toEnv];
+- (BOOL)updateEnvironment:(EnvironmentType)toEnv error:(NSError **)error {
+    NSString *name = [ZWEndpointConfiguration nameForEnvironment:toEnv];
+    if (!self.canChangeEnvironment || !name.length) {
+        if (error) *error = [NSError errorWithDomain:ZWEndpointErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"当前构建不允许切换环境"}];
+        return NO;
+    }
+    NSString *url = [NSBundle.mainBundle infoDictionary][@"NetworkConfiguration"][@"BaseURLs"][name];
+    if (![ZWEndpointConfiguration validatedBaseURL:url allowHTTP:toEnv != EnvironmentTypeOnline error:error]) return NO;
+    [self.class saveEnv:toEnv];
+    return YES;
 }
 
-
-- (EnvConfigObject *)loadEvnConfigObjectByBundleID
-{
-    NSString *bundleID = [[NSBundle mainBundle] bundleIdentifier];
-    EnvConfigObject *config = [self.envConfigs filter:^BOOL(EnvConfigObject  *item) {
-        return [item.bundleID isEqualToString:bundleID];
-    }].firstObject;
-    return config;
+- (EnvConfigObject *)loadEvnConfigObject {
+    for (EnvConfigObject *config in self.envConfigs) {
+        if (config.envType == self.currentEnvironmentType) return config;
+    }
+    return nil;
 }
-
-
-- (EnvConfigObject *)loadEvnConfigObject{
-    EnvConfigObject *config = [self.envConfigs filter:^BOOL(EnvConfigObject  *item) {
-        return item.envType == self.currentEnvironmentType;
-    }].firstObject;
-    return config;
-}
-
 
 #pragma mark - lazyLoad
 - (NSArray *)envConfigs
@@ -82,7 +82,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(Environment)
             _envConfigs = [JSONUtil parseObjectArrays:configs targetClass:EnvConfigObject.class];
         }
     }
-    return _envConfigs;;
+    return _envConfigs;
 }
 
 
@@ -99,10 +99,12 @@ DEFINE_SINGLETON_T_FOR_CLASS(Environment)
 + (EnvironmentType)queryEnvType{
     NSString *value = [StoreUtil stringForKey:[self storeEnvKey] isPermanent:NO];
     if (value.length == 0){
-        //测试包，默认QA 方便测试
-        return EnvironmentTypeQA;
+        return EnvironmentTypeNotFound;
     }
-    return [value integerValue];
+    NSScanner *scanner = [NSScanner scannerWithString:value];
+    NSInteger type = 0;
+    if (![scanner scanInteger:&type] || !scanner.isAtEnd || type < 0 || type > EnvironmentTypeOnline) return EnvironmentTypeNotFound;
+    return (EnvironmentType)type;
 }
 
 - (void)saveSubEnv:(SubEnvInfo *)subEnv{

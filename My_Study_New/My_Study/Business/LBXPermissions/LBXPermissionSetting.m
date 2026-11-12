@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  LBXPermissionSetting.m
 //  Demo
@@ -87,7 +88,7 @@
         }];
         [alertController addAction:okAction];
         
-        [[self currentTopViewController] presentViewController:alertController animated:YES completion:nil];
+        [Router presentViewController:alertController from:[self currentTopViewController] animated:YES completion:nil];
     }
 }
 

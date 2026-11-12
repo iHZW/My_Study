@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  KTimeViewController.m
 //  HSCharts
@@ -121,7 +122,7 @@
 
 - (void)present
 {
-    [self presentViewController:[HorizontalKLineViewController new] animated:YES completion:nil];
+    [Router presentViewController:[HorizontalKLineViewController new] from:self animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

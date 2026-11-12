@@ -12,7 +12,7 @@
 
 - (RouterParam *)doIntercept:(RouterParam *)routerParam
 {
-    return nil;
+    return routerParam;
 }
 
 - (NSInteger)interceptPriority

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ZWCameraManager.m
 //  My_Study
@@ -87,7 +88,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWCameraManager)
     
             ZWNavigationController *na = [[ZWNavigationController alloc]initWithRootViewController:vc];
             na.modalPresentationStyle = UIModalPresentationFullScreen;
-            [[UIApplication displayViewController] presentViewController:na animated:YES completion:nil];
+            [Router presentViewController:na from:[UIApplication displayViewController] animated:YES completion:nil];
         }
     }];
 #endif
@@ -106,7 +107,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWCameraManager)
             weakSelf.picker.videoMaximumDuration = weakSelf.videoMaximumDuration; // 视频的最大录制时长
             weakSelf.picker.videoQuality = UIImagePickerControllerQualityTypeMedium;
             weakSelf.picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo; //相机的模式 拍照/摄像
-            [[UIApplication displayViewController] presentViewController:self.picker animated:YES completion:nil];
+            [Router presentViewController:self.picker from:[UIApplication displayViewController] animated:YES completion:nil];
         }
     }];
 #endif
@@ -119,7 +120,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWCameraManager)
         if (success && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             weakSelf.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             weakSelf.picker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString*)kUTTypeMovie,nil];
-            [[UIApplication displayViewController] presentViewController:self.picker animated:YES completion:nil];
+            [Router presentViewController:self.picker from:[UIApplication displayViewController] animated:YES completion:nil];
         }
     }];
 }

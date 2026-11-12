@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  UIAlertUtil.m
 //  TZYJ_IPhone
@@ -86,7 +87,7 @@ alertControllerStyle:(UIAlertControllerStyle)type
     
     if (alert) {
         [alert dismissViewControllerAnimated:YES completion:^{
-            [superVC presentViewController:alert animated:YES completion:nil];
+            [Router presentViewController:alert from:superVC animated:YES completion:nil];
         }];
     }
     
@@ -199,7 +200,7 @@ alertControllerStyle:(UIAlertControllerStyle)type
 
         if (alert) {
             [self changeAlertControllerProperty:alert msg:message align:textAlign color:msgColor font:font];
-            [superVC presentViewController:alert animated:YES completion:nil];
+            [Router presentViewController:alert from:superVC animated:YES completion:nil];
         }
         
         return alert;

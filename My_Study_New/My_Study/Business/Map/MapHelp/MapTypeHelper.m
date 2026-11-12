@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  MapTypeHelper.m
 //  My_Study
@@ -147,7 +148,7 @@
     
     [alertController addAction:cancelAction];
     
-    [[UIApplication displayViewController] presentViewController:alertController animated:YES completion:nil];
+    [Router presentViewController:alertController from:[UIApplication displayViewController] animated:YES completion:nil];
 }
 
 - (void)navAppleMap {

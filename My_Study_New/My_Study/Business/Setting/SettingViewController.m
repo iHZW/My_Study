@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  SettingViewController.m
 //  My_Study
@@ -508,7 +509,7 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
     [alert addAction:[UIAlertAction actionWithTitle:@"前往设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [UIApplication.sharedApplication openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
     }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (NSString *)formattedDate:(NSDate *)date {
@@ -526,13 +527,13 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
     [alert addAction:[UIAlertAction actionWithTitle:@"前往设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [UIApplication.sharedApplication openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
     }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (void)showMessage:(NSString *)title message:(NSString *)message {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 @end
@@ -953,13 +954,13 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
     vc.cameraInvokeMsg = @"相机启动中";
     vc.continuous = [Global sharedManager].continuous;
     vc.orientation = [StyleDIY videoOrientation];
-    [self.navigationController pushViewController:vc animated:YES];
+    [Router pushViewController:vc navigationController:self.navigationController animated:YES];
 }
 
 #pragma mark - 我的二维码
 - (void)vipVideo {
     
-    [self.navigationController pushViewController:[NSClassFromString(@"FindViewController") new] animated:YES];
+    [Router pushViewController:[NSClassFromString(@"FindViewController") new] navigationController:self.navigationController animated:YES];
 }
 
 
@@ -1042,7 +1043,7 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
         popover.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds), CGRectGetMaxY(self.view.bounds) - 1, 1, 1);
         popover.permittedArrowDirections = 0;
     }
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (void)zw_showAppIconMessage:(NSString *)message {
@@ -1050,7 +1051,7 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 /**
@@ -1095,7 +1096,7 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
     config.indexViewType = EHIndexViewStyleCenterToast;
 
     JFCSTableViewController *vc = [[JFCSTableViewController alloc] initWithConfiguration:config delegate:self];
-    [self.navigationController pushViewController:vc animated:YES];
+    [Router pushViewController:vc navigationController:self.navigationController animated:YES];
 }
 
 // 自定义热门城市
@@ -1148,7 +1149,7 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
  */
 - (void)jumpCRMViewController {
     SettingCRMViewController *viewController = [[SettingCRMViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
+    [Router pushViewController:viewController navigationController:self.navigationController animated:YES];
 }
 
 
@@ -1160,7 +1161,7 @@ static NSString * const CRMReminderRepeatKey = @"reminder_repeat";
     ZWCommonWebPage *webPage = [[ZWCommonWebPage alloc] init];
     [webPage loadUrl:webUrl];
     
-    [self.navigationController pushViewController:webPage animated:YES];
+    [Router pushViewController:webPage navigationController:self.navigationController animated:YES];
 }
 
 /**
@@ -1384,7 +1385,7 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
  */
 - (void)showGameCenter {
     CRMGameCenterViewController *controller = [[CRMGameCenterViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    [Router pushViewController:controller navigationController:self.navigationController animated:YES];
 }
 
 /**
@@ -1392,7 +1393,7 @@ static inline NSString *ZWDebugLogStr(NSString *format, ...) {
  */
 - (void)scheduledReminder {
     UIViewController *controller = [SettingViewController futureReminderViewController];
-    [self.navigationController pushViewController:controller animated:YES];
+    [Router pushViewController:controller navigationController:self.navigationController animated:YES];
 }
 
 /**

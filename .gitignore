@@ -135,3 +135,6 @@ dist/
 # 会员系统本地数据与备份
 /member-system/server/data/
 /member-system/backups/
+
+# 本机 API 地址覆盖
+/My_Study_New/My_Study/Configuration/NetworkEnvironments.local.xcconfig

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  QQScanZXingViewController.m
 //  My_Study
@@ -168,7 +169,7 @@
 
 - (void)myQRCode {
     CreateBarCodeViewController *vc = [CreateBarCodeViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    [Router pushViewController:vc navigationController:self.navigationController animated:YES];
 }
 
 @end

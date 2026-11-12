@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  MDDebugViewController.m
 //  My_Study
@@ -228,7 +229,7 @@
         {
             if (indexPath.row == 0){
                 MDLogViewController *vc = [[MDLogViewController alloc] init];
-                [self.navigationController pushViewController:vc animated:YES];
+                [Router pushViewController:vc navigationController:self.navigationController animated:YES];
             }
             break;
         }
@@ -238,7 +239,7 @@
 //                [self.navigationController pushViewController:vc animated:YES];
             } else if (indexPath.row == 1){
                 TestWebViewController *vc = [[TestWebViewController alloc] init];
-                [self.navigationController pushViewController:vc animated:YES];
+                [Router pushViewController:vc navigationController:self.navigationController animated:YES];
             } else if (indexPath.row == 2){
 //                TestWebIpViewController *vc = [[TestWebIpViewController alloc] init];
 //                [self.navigationController pushViewController:vc animated:YES];

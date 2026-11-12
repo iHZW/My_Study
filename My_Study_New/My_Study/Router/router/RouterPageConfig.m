@@ -46,7 +46,7 @@ NSString *const ZWRouterPageCustomSwiperController       = @"test/customSwiper/p
 NSString *const ZWRouterRunLoopPermanentViewController  = @"test/runloop/page";
 
 /** PASShortVideoPlayerViewController  */
-NSString *const ZWRouterPageShortVideoPlayerViewController  = @"test/runloop/page";
+NSString *const ZWRouterPageShortVideoPlayerViewController  = @"test/shortVideo/page";
 
 /** 文本转语音  */
 NSString *const ZWRouterPageTextToSpeechViewController  = @"tools/textToSpeech/page";
@@ -63,6 +63,8 @@ NSString *const ZWRouterPageLoginViewController  = @"user/login/page";
 
 /* -------------------------------login----------------------------  */
 
+
+NSString *const ZWRouterPageMemberDetail = @"member/manage/detail";
 
 @implementation RouterPageConfig
 
@@ -237,7 +239,32 @@ NSString *const ZWRouterPageLoginViewController  = @"user/login/page";
     };
         
     RouterPageConfig *routerPageConfig = [JSONUtil parseObject:pageDict targetClass:RouterPageConfig.class];
-    return  routerPageConfig;
+    NSMutableArray *pages = [routerPageConfig.pageItems mutableCopy];
+    [pages addObject:[RouterPageItem makeWithUrl:ZWRouterPageMemberDetail clsName:@"ZWMemberDetailViewController"
+                                         type:RouterTypeNavigate attachValue:@{}]];
+    // 首页功能按业务分组注册，注册完成后由 Router 建立常数时间索引。
+    NSDictionary *homePages = @{
+        @"camera/beauty": @"ZWBeautyCameraViewController",
+        @"personal/reminders": @"CRMReminderViewController",
+        @"games/home": @"CRMGameCenterViewController",
+        @"games/nearby-drawing": @"CRMNearbyDrawingViewController",
+        @"atlas/digimon": @"CRMDigimonAtlasViewController",
+        @"baby/home": @"CRMBabyTimeViewController",
+        @"demo/runloop": @"RunLoopViewController",
+        @"demo/block": @"BlockViewController",
+        @"demo/kline": @"TestKLineViewController",
+        @"demo/rac/list": @"RACBindingTableVc",
+        @"demo/rac/mvvm": @"RACBindingMVVMTableVc",
+        @"tools/http-server": @"TestKTVCocoaHTTPServerPage",
+        @"demo/coroutine": @"TestCoobjcPage",
+        @"flutter/container": @"NewVC"
+    };
+    for (NSString *path in [[homePages allKeys] sortedArrayUsingSelector:@selector(compare:)]) {
+        [pages addObject:[RouterPageItem makeWithUrl:path clsName:homePages[path] type:RouterTypeNavigate
+                                       attachValue:@{@"hidesBottomBarWhenPushed": @YES}]];
+    }
+    routerPageConfig.pageItems = pages;
+    return routerPageConfig;
 }
 
 @end

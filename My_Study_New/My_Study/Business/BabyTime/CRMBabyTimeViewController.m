@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 #import "CRMBabyTimeViewController.h"
 #import "CRMBabyStore.h"
 #import "CRMBabyAudio.h"
@@ -27,7 +28,7 @@ static UILabel *BabyLabel(NSString *text, CGFloat size, UIColor *color) {
 static void BabyAlert(UIViewController *vc, NSString *message) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:nil]];
-    [vc presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:vc animated:YES completion:nil];
 }
 static void BabyAnchor(UIAlertController *alert, UIViewController *vc, UIView *source) {
     alert.popoverPresentationController.sourceView = source ?: vc.view;
@@ -175,7 +176,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
         }]];
     }
     [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    BabyAnchor(sheet, self, self.speechButton); [self presentViewController:sheet animated:YES completion:nil];
+    BabyAnchor(sheet, self, self.speechButton); [Router presentViewController:sheet from:self animated:YES completion:nil];
 }
 - (void)toggleSpeech {
     if (self.synthesizer.isPaused) { [self.synthesizer continueSpeaking]; [self updateSpeechControls]; return; }
@@ -317,7 +318,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
 - (void)choosePhoto {
     [self.view endEditing:YES];
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) { BabyAlert(self, @"当前设备无法打开相册。"); return; }
-    UIImagePickerController *picker = [UIImagePickerController new]; picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; picker.delegate = self; [self presentViewController:picker animated:YES completion:nil];
+    UIImagePickerController *picker = [UIImagePickerController new]; picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; picker.delegate = self; [Router presentViewController:picker from:self animated:YES completion:nil];
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
@@ -350,7 +351,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"放弃这篇手记？" message:@"尚未保存的文字和照片将不会加入手记。" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"继续编辑" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"放弃" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) { [self.navigationController popViewControllerAnimated:YES]; }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 @end
 
@@ -431,7 +432,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
     }
 }
 - (void)openReading:(NSDictionary *)item {
-    CRMBabyReaderController *reader = [CRMBabyReaderController new]; reader.reading = item; [self.navigationController pushViewController:reader animated:YES];
+    CRMBabyReaderController *reader = [CRMBabyReaderController new]; reader.reading = item; [Router pushViewController:reader navigationController:self.navigationController animated:YES];
 }
 - (NSInteger)currentPregnancyWeek {
     NSNumber *due = CRMBabyStore.shared.snapshot[@"profile"][@"dueDate"];
@@ -456,7 +457,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
     __weak typeof(self) weakSelf = self;
     [stack addArrangedSubview:BabyButton(@"打开胎教朗读", ^{ [page.navigationController popViewControllerAnimated:YES]; weakSelf.sections.selectedSegmentIndex = 1; weakSelf.readingStage = 0; [weakSelf sectionChanged]; })];
     [stack addArrangedSubview:BabyLabel(@"每周主题是陪伴灵感，并非胎儿发育评估。没有必须坚持的时长或次数。", 13, BabyMuted())];
-    [self.navigationController pushViewController:page animated:YES];
+    [Router pushViewController:page navigationController:self.navigationController animated:YES];
 }
 - (void)chooseWeek {
     UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"浏览孕期陪伴主题" message:@"每周一则，随时可以重读。" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -465,7 +466,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
         [sheet addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [self openWeekGuide:guide]; }]];
     }
     [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    BabyAnchor(sheet, self, self.sections); [self presentViewController:sheet animated:YES completion:nil];
+    BabyAnchor(sheet, self, self.sections); [Router presentViewController:sheet from:self animated:YES completion:nil];
 }
 - (void)prenatal {
     NSDictionary *profile = CRMBabyStore.shared.snapshot[@"profile"];
@@ -555,7 +556,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
     UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"阅读分类" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     NSArray *categories = self.readingStage == 0 ? @[@"全部分类", @"和宝宝说话", @"爸爸来读", @"写给妈妈", @"五分钟朗读", @"轻声唱唱", @"写给宝宝", @"放松片刻"] : @[@"全部分类", @"爸爸来读", @"睡前短篇", @"温柔小诗", @"写给宝宝", @"亲子共读"];
     for (NSString *category in categories) [sheet addAction:[UIAlertAction actionWithTitle:category style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { self.readingCategory = [category isEqual:@"全部分类"] ? nil : category; self.readingLimit = 12; [self reload]; }]];
-    [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]]; BabyAnchor(sheet, self, self.sections); [self presentViewController:sheet animated:YES completion:nil];
+    [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]]; BabyAnchor(sheet, self, self.sections); [Router presentViewController:sheet from:self animated:YES completion:nil];
 }
 - (void)sounds {
     [self heading:@"声音小屋" detail:[NSString stringWithFormat:@"%lu 段原创与传统旋律的合成演奏，也可以导入你喜欢的声音。", (unsigned long)CRMBabyMelodies().count]];
@@ -615,7 +616,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
     for (NSNumber *minutes in @[@5, @10, @15, @30, @0]) {
         [sheet addAction:[UIAlertAction actionWithTitle:minutes.integerValue ? [NSString stringWithFormat:@"%@ 分钟", minutes] : @"关闭定时" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [CRMBabyAudio.shared setSleepMinutes:minutes.integerValue]; }]];
     }
-    [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]]; BabyAnchor(sheet, self, self.timerButton); [self presentViewController:sheet animated:YES completion:nil];
+    [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]]; BabyAnchor(sheet, self, self.timerButton); [Router presentViewController:sheet from:self animated:YES completion:nil];
 }
 - (NSString *)dateText:(NSDictionary *)entry {
     NSDateFormatter *format = [NSDateFormatter new]; format.locale = [NSLocale localeWithLocaleIdentifier:@"zh_CN"]; format.dateFormat = @"yyyy年M月d日 HH:mm";
@@ -662,24 +663,24 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
             NSError *error; if (![CRMBabyStore.shared removeEntry:entry[@"id"] error:&error]) { BabyAlert(weakDetail, error.localizedDescription); return; }
             [CRMBabyAudio.shared stop]; [weakDetail.navigationController popViewControllerAnimated:YES];
         }]];
-        [weakDetail presentViewController:alert animated:YES completion:nil];
+        [Router presentViewController:alert from:weakDetail animated:YES completion:nil];
     })];
-    [self.navigationController pushViewController:detail animated:YES];
+    [Router pushViewController:detail navigationController:self.navigationController animated:YES];
 }
 - (void)playEntry:(NSDictionary *)entry {
     NSURL *url = [CRMBabyStore.shared attachmentURL:entry[@"file"]];
     if (!url) { BabyAlert(self.navigationController.topViewController, @"音频文件已不在本机，其他手记仍然保留。"); return; }
     [CRMBabyAudio.shared playURL:url title:entry[@"text"]];
 }
-- (void)newNote { [self.navigationController pushViewController:[CRMBabyNoteEditor new] animated:YES]; }
-- (void)openProfile { [self.navigationController pushViewController:[CRMBabyProfileController new] animated:YES]; }
+- (void)newNote { [Router pushViewController:[CRMBabyNoteEditor new] navigationController:self.navigationController animated:YES]; }
+- (void)openProfile { [Router pushViewController:[CRMBabyProfileController new] navigationController:self.navigationController animated:YES]; }
 - (void)settings {
     UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"宝宝时光" message:@"内容与记录可离线使用，照片和录音只保存在本机。" preferredStyle:UIAlertControllerStyleActionSheet];
     [sheet addAction:[UIAlertAction actionWithTitle:@"设置小名、预产期 / 出生日期" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [self openProfile]; }]];
     [sheet addAction:[UIAlertAction actionWithTitle:@"导出完整备份" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [self exportBackup]; }]];
     [sheet addAction:[UIAlertAction actionWithTitle:@"陪伴建议与资料来源" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [self sources]; }]];
     [sheet addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    sheet.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem; [self presentViewController:sheet animated:YES completion:nil];
+    sheet.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem; [Router presentViewController:sheet from:self animated:YES completion:nil];
 }
 - (void)sources {
     UIViewController *page = [UIViewController new]; page.title = @"安心陪伴"; page.view.backgroundColor = BabyBackground();
@@ -695,11 +696,11 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
     ];
     for (NSArray *source in sources) [stack addArrangedSubview:BabyButton(source[0], ^{ [UIApplication.sharedApplication openURL:[NSURL URLWithString:source[1]] options:@{} completionHandler:nil]; })];
     [stack addArrangedSubview:BabyLabel(@"内置短文为本项目原创；《小星星》使用传统公版旋律并由项目合成演奏，其他两首为原创旋律。资料来源核对日期：2026-10-20。导入音频请使用自己有权使用的文件。", 12, BabyMuted())];
-    [self.navigationController pushViewController:page animated:YES];
+    [Router pushViewController:page navigationController:self.navigationController animated:YES];
 }
 - (void)importAudio {
     if (self.busy) return;
-    UIDocumentPickerViewController *picker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)kUTTypeAudio] inMode:UIDocumentPickerModeImport]; picker.delegate = self; [self presentViewController:picker animated:YES completion:nil];
+    UIDocumentPickerViewController *picker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[(NSString *)kUTTypeAudio] inMode:UIDocumentPickerModeImport]; picker.delegate = self; [Router presentViewController:picker from:self animated:YES completion:nil];
 }
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
     NSURL *url = urls.firstObject; if (!url || self.busy) return;
@@ -743,7 +744,7 @@ static UIStackView *BabyScroll(UIViewController *vc, UIScrollView **outScroll) {
             if (!self.view.window || self.presentedViewController) return;
             UIActivityViewController *activity = [[UIActivityViewController alloc] initWithActivityItems:@[archive] applicationActivities:nil];
             activity.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
-            [self presentViewController:activity animated:YES completion:nil];
+            [Router presentViewController:activity from:self animated:YES completion:nil];
         });
     });
 }

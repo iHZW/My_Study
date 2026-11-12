@@ -20,6 +20,7 @@
 
 #import "ZWSDK.h"
 #import "LogUtil.h"
+#import "ZWDokitLog.h"
 #import "LoadingUtil.h"
 //#import "CMLogManagement.h"
 #import "GCDCommon.h"
@@ -152,7 +153,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
 - (void)initializeData
 {
     //调大http每个端口默认的并发session
-    [NSURLSessionConfiguration defaultSessionConfiguration].HTTPMaximumConnectionsPerHost = 6;
+    // 连接数由 RestIOManager 在创建真实 Session 配置时设置。
     
     NSSet <NSString *> *contentType = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/html", nil];
     self.httpManager = [[RestIOManager alloc] initWithData:10 acceptableContenttypes:contentType userAgent:self.userAgent];
@@ -238,12 +239,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
               completionWithURLResponseBlock:(ZWCompletionWithResponseBlock)completionBlock
 {
     ZWHttpEventInfo *requestEvent = [[ZWHttpEventInfo alloc] init];
-    NSString *requestUrl = url;
-    /* 判断是否存在 http/https  不存在取 baseURL */
-    if (!([requestUrl hasPrefix:@"http"]||[requestUrl hasPrefix:@"https"])) {
-        requestUrl = [NSString stringWithFormat:@"%@%@", [ZWSiteAddressManager getBaseHttpURL], url]  ;
-    }
-    requestEvent.relativePath = requestUrl;
+    requestEvent.relativePath = url;
     requestEvent.httpMethod = httpMethod;
     if (msgDict)
         requestEvent.parameters = [NSDictionary dictionaryWithDictionary:msgDict];
@@ -320,7 +316,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
         if (requestEvent.parseType == DataParseTypeJSON && requestEvent.acceptableContentType.length == 0) {
             NSString *requestUrl = [NSString stringWithFormat:@"%@%@",requestEvent.hostName ?:@"", requestEvent.relativePath ?:@""];
 //            NSURL *url = [NSURL URLWithString:[requestUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-            NSURL *url = [NSURL URLWithString:[requestUrl URLEncodedString]];
+            NSURL *url = [NSURL URLWithString:requestUrl];
 
             [NSString availableStringEncodings];
             NSString *httpsCer = [ZWHttpNetworkManager certNameWithHost:url];
@@ -362,7 +358,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
         // 自动解析,解析失败会直接返回原对象
         [ZWDataParsing parseResponseData:responseObject requestEventInfo:requestEvent parsedCompletionBlock:^(id parsedData, NSError *error)
          {
-             [self handlerFinishBlock:completionBlock responseData:parsedData error:nil urlResponse:response];
+             [self handlerFinishBlock:completionBlock responseData:parsedData error:error urlResponse:response];
          }];
     }
     
@@ -377,6 +373,16 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
 
 - (NSURLSessionDataTask *)sendHttpRequest:(ZWHttpEventInfo *)requestEvent completionBlock:(ZWCompletionWithResponseBlock)completionBlock
 {
+    NSError *endpointError = nil;
+    NSString *baseURL = requestEvent.hostName.length ? requestEvent.hostName : [ZWSiteAddressManager getBaseHttpURL];
+    NSURL *endpoint = [ZWSiteAddressManager URLForPath:requestEvent.relativePath baseURL:baseURL error:&endpointError];
+    if (!endpoint) {
+        [ZWDokitLog event:@"请求配置失败" category:@"Network" fields:@{@"path": requestEvent.relativePath ?: @"", @"message": endpointError.localizedDescription ?: @""}];
+        [self handlerFinishBlock:completionBlock responseData:nil error:endpointError urlResponse:nil];
+        return nil;
+    }
+    requestEvent.hostName = @"";
+    requestEvent.relativePath = endpoint.absoluteString;
     RestIOManager *httpManager = [self getNeedHttpManage:requestEvent];
     
     // 如果需要缓存，先处理缓存数据,再根据设置判断是否需要继续请求
@@ -393,20 +399,15 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
         }
     }
     
-    // 无网络的情况直接返回error
-    if (![httpManager.manager.reachabilityManager isReachable]
-        && httpManager.manager.reachabilityManager.networkReachabilityStatus != AFNetworkReachabilityStatusUnknown) {
-        NSError *error = [NSError errorWithDomain:@"NSURLErrorNotConnectedToInternet" code:NSURLErrorNotConnectedToInternet userInfo:nil];
-        [self handlerFinishBlock:completionBlock responseData:nil error:error urlResponse:nil];
-        return nil;
-    }
-    
+    // 由真实请求判断网络结果，避免过期的可达性状态阻断可恢复请求。
     // 构建NSMutableURLRequest
     NSError *serializationError = nil;
     NSMutableURLRequest *request = [self generateURLRequest:requestEvent httpManager:httpManager.manager serializationError:&serializationError];
     
     // 如果解析request失败，直接回调错误信息
-    if (serializationError) {
+    if (serializationError || !request) {
+        serializationError = serializationError ?: [NSError errorWithDomain:@"ZWNetwork" code:NSURLErrorBadURL userInfo:@{NSLocalizedDescriptionKey: @"请求创建失败"}];
+        [ZWDokitLog event:@"请求构建失败" category:@"Network" fields:@{@"path": requestEvent.relativePath ?: @"", @"code": @(serializationError.code)}];
         [self handlerFinishBlock:completionBlock responseData:nil error:serializationError urlResponse:nil];
         return nil;
     }
@@ -418,13 +419,12 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
     @pas_weakify_self
     __block NSURLSessionDataTask *dataTask = nil;
     dataTask = [httpManager dataTaskWithRequest:request
+                                          taskKey:requestEvent.requstEventKey
                           sessionManagerSetting:^BOOL(RestIOManager * _Nonnull manager) {
                               @pas_strongify_self
                               // 修改Serializer配置
                               [self setupSerializerConfig:requestEvent manager:manager];
                               
-                              // 发送请求之前操作
-                              [self prepareSendDataRequestTask:requestEvent];
                               
                               NSData *certData = nil;
 //                              
@@ -440,10 +440,13 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
                               NSError *error = nil;
                               BOOL bCheck = self.trafficAction ? self.trafficAction(request.URL.path, &error) : NO;
                               if (bCheck) {
+                                  error = error ?: [NSError errorWithDomain:@"ZWNetwork" code:NSURLErrorCancelled userInfo:@{NSLocalizedDescriptionKey: @"请求已被流量策略拦截"}];
+                                  [ZWDokitLog event:@"请求被拦截" category:@"Network" fields:@{@"url": request.URL.absoluteString ?: @""}];
                                   [self handlerFinishBlock:completionBlock responseData:nil error:error urlResponse:nil];
                                   return NO;
                               }
                               
+                              [self prepareSendDataRequestTask:requestEvent];
                               return YES;
                           }
                                  uploadProgress:requestEvent.uploadProgressBlock
@@ -452,26 +455,13 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
                                   @pas_strongify_self
                                   self.trafficStatistics += dataTask.countOfBytesSent + dataTask.countOfBytesReceived;
                                   [self httpResponseAction:requestEvent responseObject:responseObject error:error urlResponse:response completionBlock:completionBlock];
-                                  NSString *url = TransToString(response.URL.absoluteString);
-                                  NSString *logMsg = [NSString stringWithFormat:@"接口: %@ \n-入参: %@ \n-返回: %@", url, [JSONUtil jsonString:requestEvent.parameters], [JSONUtil jsonString:responseObject]];
-        
-                                  if (error) {
-                                      url = [DataFormatterFunc strValueForKey:@"NSErrorFailingURLStringKey" ofDict:error.userInfo];
-                                      NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:error.userInfo];
-                                      NSError *httpError = [[NSError alloc] initWithDomain:error.domain code:error.code userInfo:userInfo];
-                                      NSString *errorMsg = [NSString stringWithFormat:@"%@", httpError];
-                                      logMsg = [NSString stringWithFormat:@"接口: %@ \n-入参: %@ \n-返回: %@", url, [JSONUtil jsonString:requestEvent.parameters], errorMsg];
 
-                                      if (ValidString(errorMsg)) {
-                                          [Toast show:errorMsg];
-                                      }
-                                  }
-                                  [LogUtil debug:logMsg flag:url context:self];
                               }];
     
     // 设置task的key，用于cache或者cancel
     if ([requestEvent.requstEventKey length] > 0) {
         dataTask.uuidTag = requestEvent.requstEventKey;
+        dataTask.taskDescription = requestEvent.requstEventKey;
     }
     
     return dataTask;
@@ -499,17 +489,26 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
     // 拼接url
     NSString *url = [NSString stringWithFormat:@"%@%@",requestEvent.hostName ?:@"", requestEvent.relativePath ?:@""];
 //    NSString *requestUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *requestUrl = [url urlNewEncodeString];
+    NSString *requestUrl = url;
 
     // 根据设置生成request
+    NSInteger methodCount = sizeof(httpMethods) / sizeof(httpMethods[0]);
+    if (requestEvent.httpMethod < 0 || requestEvent.httpMethod >= methodCount) {
+        if (error) *error = [NSError errorWithDomain:@"ZWNetwork" code:NSURLErrorBadURL userInfo:@{NSLocalizedDescriptionKey: @"HTTP 方法无效"}];
+        return nil;
+    }
     NSString *method = httpMethods[requestEvent.httpMethod];
+    // 每次请求单独复制序列化配置，超时与缓存策略在生成前生效。
+    AFHTTPRequestSerializer *serializer = [httpManager.requestSerializer copy];
+    serializer.timeoutInterval = requestEvent.timeoutInterval > 0 ? requestEvent.timeoutInterval : 30;
+    serializer.cachePolicy = requestEvent.cachePolicy;
     NSMutableURLRequest *request = nil;
     
     // 如果有需要form，则调用post的multipartFormRequestWithMethod方法
     if (requestEvent.afFormDataBlock && (requestEvent.httpMethod == HttpMethodPOSTForm || requestEvent.httpMethod == HttpMethodPOSTFormProgress)) {
-        request = [httpManager.requestSerializer multipartFormRequestWithMethod:method URLString:requestUrl parameters:requestEvent.parameters constructingBodyWithBlock:requestEvent.afFormDataBlock error:error];
+        request = [serializer multipartFormRequestWithMethod:method URLString:requestUrl parameters:requestEvent.parameters constructingBodyWithBlock:requestEvent.afFormDataBlock error:error];
     } else {
-        request = [httpManager.requestSerializer requestWithMethod:method URLString:requestUrl parameters:requestEvent.parameters error:error];
+        request = [serializer requestWithMethod:method URLString:requestUrl parameters:requestEvent.parameters error:error];
     }
     
     return request;
@@ -533,7 +532,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWHttpNetworkManager)
         [ZWDataParsing parseResponseData:cacheData requestEventInfo:requestEvent parsedCompletionBlock:^(id parsedData, NSError *error)
          {
              @pas_strongify_self;
-             [self handlerFinishBlock:completionBlock responseData:parsedData error:nil urlResponse:nil];
+             [self handlerFinishBlock:completionBlock responseData:parsedData error:error urlResponse:nil];
          }];
         return YES;
     }

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  RunLoopViewController.m
 //  My_Study
@@ -344,18 +345,18 @@
 
 - (void)pthread_rwLock
 {
-    [self.navigationController pushViewController:[PThread_rwLock new] animated:YES];
+    [Router pushViewController:[PThread_rwLock new] navigationController:self.navigationController animated:YES];
 }
 
 - (void)dispatch_barrier
 {
-    [self.navigationController pushViewController:[DispatchBarrierPage new] animated:YES];
+    [Router pushViewController:[DispatchBarrierPage new] navigationController:self.navigationController animated:YES];
 }
 
 
 - (void)displayLinkTest
 {
-    [self.navigationController pushViewController:[DisplayLinkViewController new] animated:YES];
+    [Router pushViewController:[DisplayLinkViewController new] navigationController:self.navigationController animated:YES];
 }
 
 /*

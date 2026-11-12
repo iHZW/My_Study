@@ -10,6 +10,12 @@
 
 @implementation RouterParam
 
+- (instancetype)init {
+    self = [super init];
+    if (self) { _params = @{}; _originUrl = @""; _destURL = @""; }
+    return self;
+}
+
 + (instancetype)makeWith:(NSString*)originUrl
                  destURL:(NSString *)destURL
                   params:(NSDictionary *)params
@@ -32,7 +38,7 @@
     instance.destURL = destURL;
     instance.originUrl = originUrl;
     instance.type = type;
-    instance.params = params;
+    instance.params = params ?: @{};
     instance.context = context;
     instance.successBlock = successBlock;
     instance.failBlock = failBlock;

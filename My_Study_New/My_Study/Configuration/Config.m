@@ -8,10 +8,11 @@
 
 #import "Config.h"
 #import "Environment.h"
+#import "ZWEndpointConfiguration.h"
 
 @interface Config ()
 /** 域名  */
-@property (nonatomic, copy, readwrite) NSString *httpServerHost;
+
 /** 微信id  */
 @property (nonatomic, copy, readwrite) NSString *wxAppID;
 /** 阿里支付scheme  */
@@ -35,20 +36,12 @@ DEFINE_SINGLETON_T_FOR_CLASS(Config)
 /** 加载默认配置信息  */
 - (void)loadDefauleConfig
 {
-    NSDictionary *appConfiguration = nil;
-    /** 环境设置  */
-    #if kUseDynamicConfig && QA == 1
-        EnvConfigObject *obj = [Environment.sharedEnvironment loadEvnConfigObject];
-        appConfiguration = obj.AppConfiguration;
-        self.environmentType = obj.envType;
-    #else
-        NSDictionary *infoDic = [NSBundle mainBundle].infoDictionary;
-        appConfiguration = infoDic[@"AppConfiguration"];
-        self.environmentType = EnvironmentTypeOnline;
-    #endif
-    
+    EnvConfigObject *profile = [Environment.sharedEnvironment loadEvnConfigObject];
+    NSMutableDictionary *appConfiguration = [NSMutableDictionary dictionaryWithDictionary:profile.AppConfiguration ?: @{}];
+    [appConfiguration addEntriesFromDictionary:NSBundle.mainBundle.infoDictionary[@"AppConfiguration"] ?: @{}];
+    self.environmentType = Environment.sharedEnvironment.currentEnvironmentType;
+
     if ([appConfiguration isKindOfClass:[NSDictionary class]]){
-        self.httpServerHost = appConfiguration[@"HTTP_SERVER_HOST"];
         self.wxAppID = appConfiguration[@"WX_APPID"];
         self.aMapKey = appConfiguration[@"AMAP_KEY"];
         self.alipayScheme = appConfiguration[@"ALIPAY_SCHEME"];
@@ -69,6 +62,12 @@ DEFINE_SINGLETON_T_FOR_CLASS(Config)
         
         self.socketURL = appConfiguration[@"SOCKET_URL"];
     }
+}
+
+- (NSString *)httpServerHost {
+    NSString *name = [ZWEndpointConfiguration nameForEnvironment:self.environmentType];
+    id value = NSBundle.mainBundle.infoDictionary[@"NetworkConfiguration"][@"BaseURLs"][name];
+    return [value isKindOfClass:NSString.class] ? value : @"";
 }
 
 @end

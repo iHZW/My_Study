@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ZWMemberListViewController.m
 //  My_Study
@@ -7,6 +8,7 @@
 
 #import "ZWMemberListViewController.h"
 #import "ZWMemberDetailViewController.h"
+#import "ModuleContainer.h"
 #import "ZWMemberApi.h"
 #import "ZWMemberStyle.h"
 #import "UIColor+Extensions.h"
@@ -450,7 +452,7 @@ static CGFloat const kCardRadius = 16.0;
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     alert.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItem;
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (void)presentLogin {
@@ -462,7 +464,7 @@ static CGFloat const kCardRadius = 16.0;
         [self updateAccountButton];
         [self reload:1];
     };
-    [self presentViewController:login animated:YES completion:nil];
+    [Router presentViewController:login from:self animated:YES completion:nil];
 }
 
 #pragma mark - 主题
@@ -708,9 +710,8 @@ static CGFloat const kCardRadius = 16.0;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *member = self.members[indexPath.row];
-    ZWMemberDetailViewController *vc = [[ZWMemberDetailViewController alloc] init];
-    vc.memberId = [member[@"id"] integerValue];
-    [self.navigationController pushViewController:vc animated:YES];
+    [ZWM.router openPath:ZWRouterPageMemberDetail parameters:@{@"memberId": member[@"id"] ?: @0}
+                 context:self success:nil failure:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -761,7 +762,7 @@ static CGFloat const kCardRadius = 16.0;
             }
         }];
     }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (void)serverTapped {
@@ -777,7 +778,7 @@ static CGFloat const kCardRadius = 16.0;
         [ZWMemberApi setBaseURL:alert.textFields.firstObject.text];
         [Toast show:@"已保存服务器地址"];
     }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 @end

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 #import "ZWBeautyCameraViewController.h"
 #import "ZWBeautyCameraEngine.h"
 #import <MetalKit/MetalKit.h>
@@ -648,7 +649,7 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     alert.popoverPresentationController.sourceView = self.toolButtons[@"countdown"];
     alert.popoverPresentationController.sourceRect = self.toolButtons[@"countdown"].bounds;
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (void)settingsChanged {
@@ -895,7 +896,7 @@
     if (!self.visible || UIApplication.sharedApplication.applicationState != UIApplicationStateActive || self.presentedViewController) return;
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"美颜相机" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (void)openSettings {
@@ -914,13 +915,13 @@
         configuration.filter = [PHPickerFilter anyFilterMatchingSubfilters:@[PHPickerFilter.imagesFilter,PHPickerFilter.videosFilter]];
         PHPickerViewController *picker = [[PHPickerViewController alloc] initWithConfiguration:configuration];
         picker.delegate = self;
-        [self presentViewController:picker animated:YES completion:nil];
+        [Router presentViewController:picker from:self animated:YES completion:nil];
     } else {
         UIImagePickerController *picker = [UIImagePickerController new];
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         picker.mediaTypes = @[@"public.image",@"public.movie"];
         picker.delegate = self;
-        [self presentViewController:picker animated:YES completion:nil];
+        [Router presentViewController:picker from:self animated:YES completion:nil];
     }
 }
 

@@ -229,8 +229,7 @@
 - (void)btnAction
 {
     /** 跳转测试  */
-    RunLoopViewController *vc = [RunLoopViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    [ZWM.router openPath:@"demo/runloop" parameters:nil context:self success:nil failure:nil];
     
     
 }

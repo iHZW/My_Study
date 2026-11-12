@@ -30,10 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HttpClient : NSObject
 
-@property (nonatomic, copy) HttpSuccessBlock httpSuccessBlock;
-
-@property (nonatomic, copy) HttpFailureBlock httpFailureBlock;
-
 + (HttpClient *)defaultClient;
 
 
@@ -47,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param success 请求成功处理
  *  @param failure 请求失败处理
  */
-- (void)requestWithPath:(NSString *)url
+- (nullable NSURLSessionDataTask *)requestWithPath:(NSString *)url
                  method:(HttpRequestType)method
             paramenters:(NSDictionary *)params
          prepareExecute:(PrepareExecuteBlock _Nullable)prepare

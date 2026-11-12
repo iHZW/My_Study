@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 #import "ZWUserContainerViewModel.h"
 #import "PersonalHeader.h"
 #import "CRMGameCenterViewController.h"
@@ -113,14 +114,14 @@
     UIViewController *currentController = [UIApplication displayViewController];
     UIViewController *reminderController = [SettingViewController futureReminderViewController];
     reminderController.hidesBottomBarWhenPushed = YES;
-    [currentController.navigationController pushViewController:reminderController animated:YES];
+    [Router pushViewController:reminderController navigationController:currentController.navigationController animated:YES];
 }
 
 - (void)openGameCenter {
     UIViewController *currentController = [UIApplication displayViewController];
     CRMGameCenterViewController *gameCenter = [[CRMGameCenterViewController alloc] init];
     gameCenter.hidesBottomBarWhenPushed = YES;
-    [currentController.navigationController pushViewController:gameCenter animated:YES];
+    [Router pushViewController:gameCenter navigationController:currentController.navigationController animated:YES];
 }
 
 - (ZWBaseView *)view {

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  CRMGameCenterViewController.m
 //  My_Study
@@ -190,7 +191,7 @@ static NSArray<CRMGameFanButton *> *GameAddHorizontalFanButtons(UIView *pad) {
 static void GameShowMessage(UIViewController *controller, NSString *title, NSString *message) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil]];
-    [controller presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:controller animated:YES completion:nil];
 }
 
 #pragma mark - 游戏页面公共布局
@@ -1420,7 +1421,7 @@ static const NSInteger CRMGomokuCellCount = 315;
     picker.popoverPresentationController.sourceView = self.view;
     picker.popoverPresentationController.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds),
                                                                   CGRectGetMaxY(self.view.bounds) - 80, 1, 1);
-    [self presentViewController:picker animated:YES completion:nil];
+    [Router presentViewController:picker from:self animated:YES completion:nil];
 }
 
 - (void)restart {
@@ -2111,7 +2112,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
                 weakSelf.level++;
                 [weakSelf startLevel];
             }]];
-            [self presentViewController:alert animated:YES completion:nil];
+            [Router presentViewController:alert from:self animated:YES completion:nil];
         } else {
             GameShowMessage(self, @"全部通关", @"太棒了！五个关卡的盒子全部被你击中了。");
         }
@@ -2344,7 +2345,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
     [alert addAction:[UIAlertAction actionWithTitle:@"第一关 · 轻松入门" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [weakSelf.animalBoard startLevel:1]; }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"第二关 · 森林挑战" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { [weakSelf.animalBoard startLevel:2]; }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 
 - (void)updateGameStatus {
@@ -2361,7 +2362,7 @@ static const NSInteger CRMSoccerBrickColumns = 7;
         else [weakSelf restartLevel];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"留在棋盘" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 @end
 
@@ -2756,15 +2757,15 @@ static const NSInteger CRMSoccerBrickColumns = 7;
         case 7: controller = [[CRMSnakeController alloc] init]; break;
         default: return;
     }
-    [self.navigationController pushViewController:controller animated:YES];
+    [Router pushViewController:controller navigationController:self.navigationController animated:YES];
 }
 
 - (void)openNearbyDrawing {
-    [self.navigationController pushViewController:[CRMNearbyDrawingViewController new] animated:YES];
+    [Router pushViewController:[CRMNearbyDrawingViewController new] navigationController:self.navigationController animated:YES];
 }
 
 - (void)openAtlas {
-    [self.navigationController pushViewController:[[CRMDigimonAtlasViewController alloc] init] animated:YES];
+    [Router pushViewController:[[CRMDigimonAtlasViewController alloc] init] navigationController:self.navigationController animated:YES];
 }
 
 @end

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ShareClient.m
 //  My_Study
@@ -354,7 +355,7 @@
         controller.body                   = shareObject.shareParam.desc; // 此处的body就是短信将要发生的内容
         controller.messageComposeDelegate = self;
 
-        [[self.delegate topOfRootViewController] presentViewController:controller animated:YES completion:nil];
+        [Router presentViewController:controller from:[self.delegate topOfRootViewController] animated:YES completion:nil];
         //[[[[controller viewControllers] lastObject] navigationItem] setTitle:@"title"];//修改短信界面标题
     } else {
         NSError *error = [NSError errorWithDomain:@"ShareClient" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"该设备不支持短信功能"}];

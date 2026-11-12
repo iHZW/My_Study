@@ -12,7 +12,7 @@
 
 #define ZWSiteManager       [ZWSiteAddressManager sharedZWSiteAddressManager]
 
-extern NSString * _Nullable PASAppSiteBaseHttpURLKey;
+FOUNDATION_EXPORT NSString *const PASAppSiteBaseHttpURLKey;
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,6 +26,9 @@ DEFINE_SINGLETON_T_FOR_HEADER(ZWSiteAddressManager)
  *  @return NSString 根url
  */
 + (NSString *)getBaseHttpURL;
+/// 相对路径统一从当前环境解析；配置缺失时返回明确错误，不回退到 Mock。
++ (nullable NSURL *)URLForPath:(NSString *)path baseURL:(NSString *)baseURL error:(NSError * _Nullable * _Nullable)error;
++ (nullable NSURL *)URLForPath:(NSString *)path error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  版本号

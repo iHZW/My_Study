@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  CRMViewController.m
 //  My_Study
@@ -382,7 +383,7 @@ static UIColor *CRMColor(NSUInteger hex) {
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CRMFeedDetailViewController *detail = [[CRMFeedDetailViewController alloc] initWithFeedInfo:[self.feedItems[indexPath.item] detailInfo]];
-    [self.navigationController pushViewController:detail animated:YES];
+    [Router pushViewController:detail navigationController:self.navigationController animated:YES];
 }
 
 - (CGFloat)feedLayout:(CRMFeedLayout *)layout heightForItemAtIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth {

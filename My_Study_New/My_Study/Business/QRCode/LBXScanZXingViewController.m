@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  LBXScanZXingViewController.m
 //  My_Study
@@ -262,7 +263,7 @@
     // 部分机型有问题
     picker.allowsEditing = allowsEditing;
 
-    [self presentViewController:picker animated:YES completion:nil];
+    [Router presentViewController:picker from:self animated:YES completion:nil];
 }
 
 // 当选择一张图片后进入这里

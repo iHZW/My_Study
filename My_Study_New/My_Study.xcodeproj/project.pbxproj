@@ -13,24 +13,30 @@
 		04C23625253037986B45E559 /* CRMBabyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */; };
 		07A4AA5B00C04E67A377189A /* baby_humming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */; };
 		092E78D189D6F8328B7587B8 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
+		142F0B5B22DD49C39B9144C3 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
 		161B8CDD7209C1098C73DB2B /* CRMBabyAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 555B38C7708360445FE364E6 /* CRMBabyAudio.m */; };
 		165603B374CF3170A346E7E0 /* baby_morning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */; };
 		16CAB764FA8BB81074C2B0A2 /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
 		185FE281F3687B47D0AFF9DD /* baby_star.wav in Resources */ = {isa = PBXBuildFile; fileRef = 362D8CA8A7F422C5C644BB4D /* baby_star.wav */; };
 		1B9C16682C97C6BA98358942 /* baby_harbor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */; };
 		1BD7E66B4422FE00760FF194 /* baby_waiting.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030870127EACE1DB8C33DDDA /* baby_waiting.wav */; };
+		1DC1116E6443FE4195D69BAB /* ZWNetworkTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF6810EA825C6965451C9E /* ZWNetworkTransport.m */; };
+		1F3ACAF534ABE39FABF36699 /* RouterCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DEB89D04BE60A23716C3CFC /* RouterCoordinator.m */; };
 		215329C904B1CE318EEFC5B2 /* Pods_My_StudyNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E19B3FA299FAF7C00122CC1 /* Pods_My_StudyNotificationService.framework */; };
 		228F1AB6668FF16F8466E7E9 /* baby_raindrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */; };
+		25C0640DA3F24D7281D89AC3 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
 		2D70E35441058598961FAB68 /* baby_waiting.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030870127EACE1DB8C33DDDA /* baby_waiting.wav */; };
 		2E268F9717574E22A6CEF969 /* baby_nightlight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C248BF236C6634A09158A52A /* baby_nightlight.wav */; };
 		2EEA97CFB76E0CCC6417332C /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
 		31B3470181E3C7B20CD84681 /* ZWBeautyCameraEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */; };
 		321168920DA6D86FFC980489 /* CRMNearbyDrawingDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D04B1C8DB4B6E1A624314B /* CRMNearbyDrawingDocument.m */; };
 		36488F40D24E7232CE538701 /* baby_cloud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1211D70ED9C20777598DA022 /* baby_cloud.wav */; };
+		372C0C7C6C98B6703A1CE08A /* ZWEndpointConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 802496AD08FEC2A4EA473A31 /* ZWEndpointConfiguration.m */; };
 		37FEE6B6A893C207BD5895CC /* ZWBeautyCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */; };
 		3A77F41D680F89E233451FAA /* CRMBabyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */; };
 		3E4D715AF09020B37576442A /* baby_firefly.wav in Resources */ = {isa = PBXBuildFile; fileRef = FB582A82133BEEC32AA74D0F /* baby_firefly.wav */; };
 		3FF459E45F4A6692F9690BE9 /* baby_star.wav in Resources */ = {isa = PBXBuildFile; fileRef = 362D8CA8A7F422C5C644BB4D /* baby_star.wav */; };
+		448D00B18076DFF92B5F19FB /* ZWEndpointConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 802496AD08FEC2A4EA473A31 /* ZWEndpointConfiguration.m */; };
 		46499C2DE08804604DDF458D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
 		47604C39529FE5522A8C676B /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
 		48A1EC77BDF05746519401A5 /* ZWBeautyCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */; };
@@ -94,6 +100,7 @@
 		4E2B265F2A9E468200583883 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B265E2A9E468200583883 /* Global.m */; };
 		4E2B26632A9E47E800583883 /* QRSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B26622A9E47E800583883 /* QRSettingViewController.m */; };
 		4E2FC10E292757E70014C00E /* EHAddressCompHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC10D292757E70014C00E /* EHAddressCompHelper.m */; };
+		4E3486F6EE49481F964F3A03 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
 		4E3584E029766F9B00E45A8B /* OneKeyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584DF29766F9B00E45A8B /* OneKeyLoginViewController.m */; };
 		4E3584E72976979F00E45A8B /* OneKeyLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584E62976979F00E45A8B /* OneKeyLogin.m */; };
 		4E3584EE29769E9400E45A8B /* UIFont+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3584ED29769E9400E45A8B /* UIFont+Tool.m */; };
@@ -614,17 +621,23 @@
 		4EFECFFC287DC47400B137BB /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECFF1287DC47400B137BB /* NSString+SHA1.m */; };
 		4EFECFFD287DC47400B137BB /* NSData+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFECFF3287DC47400B137BB /* NSData+SHA1.m */; };
 		503DC15B1F2D15A6EBAD779A /* baby_harbor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */; };
+		505FBF99F75E4DFE8A6976FF /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
 		513B7E461E8998D80020871E /* baby_raindrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */; };
 		55512C382B9EB6469B93B840 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9637ACA0743DC07C7E0435 /* MultipeerConnectivity.framework */; };
+		5796787F66F44512BC811925 /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
 		59B3FC3F5BAFEC2038514144 /* baby_humming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */; };
+		5C46EAA76F36432DAA094665 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
 		5FBF484B41936FFED0518063 /* CRMNearbyDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F492CB5B861A443EC001D5EA /* CRMNearbyDrawingViewController.m */; };
+		6019B1DB1B9CB56F9E0D266D /* ZWEndpointConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 802496AD08FEC2A4EA473A31 /* ZWEndpointConfiguration.m */; };
 		6197CAD4BDBA50A49C68C1D3 /* ZWBeautyCameraEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */; };
 		62FFD0CC2135AEC9B9C1193E /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
 		6662DE5210B6AA6911F1AF4F /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
 		6964489A22DA48BEDA4C63C5 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
 		6F3EDCB3B8AB8FC9B1FACCA8 /* ZWBeautyCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */; };
+		6F3EDE5FCFA1569FAD8A932C /* RouterCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DEB89D04BE60A23716C3CFC /* RouterCoordinator.m */; };
 		7087FBDA9518A682244DC3D8 /* baby_nightlight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C248BF236C6634A09158A52A /* baby_nightlight.wav */; };
 		73E958E82326A5C71F4BDBE8 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
+		7534979F46A7834FC53BEE35 /* RouterCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DEB89D04BE60A23716C3CFC /* RouterCoordinator.m */; };
 		76839BEC51DEB075A9CAAF95 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
 		7C0DC0C7243A0646003742DA /* NSObject+WFObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DC0C6243A0646003742DA /* NSObject+WFObserver.m */; };
 		7C18D4AB26E10FB400CD1422 /* WFThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C18D4AA26E10FB400CD1422 /* WFThread.m */; };
@@ -742,11 +755,15 @@
 		7D34C185D0BF154AFBDB3936 /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
 		7D708C7100E714494619BB29 /* baby_garden.wav in Resources */ = {isa = PBXBuildFile; fileRef = FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */; };
 		7EAF44B75176F3A3B08A0E59 /* CRMNearbyDrawingDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D04B1C8DB4B6E1A624314B /* CRMNearbyDrawingDocument.m */; };
+		897D256670E81B7A48EB82C0 /* ZWNetworkTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF6810EA825C6965451C9E /* ZWNetworkTransport.m */; };
 		8B2CBAD7D7B2FB878B2A3614 /* CRMNearbyDrawingDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D04B1C8DB4B6E1A624314B /* CRMNearbyDrawingDocument.m */; };
+		90856FFA135545C79B014727 /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
 		92C7110A90249545FC1AB320 /* baby_firefly.wav in Resources */ = {isa = PBXBuildFile; fileRef = FB582A82133BEEC32AA74D0F /* baby_firefly.wav */; };
 		92E767F067D8BDAA38A96A6D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
+		93A6D26EFAD745358037595F /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
 		95334D0B72E20C2A17D6F148 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9637ACA0743DC07C7E0435 /* MultipeerConnectivity.framework */; };
 		95E39DD9372901549C6E0D44 /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
+		970180521A44473B8CCE2A12 /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
 		995F7BF64A5705CD9518150B /* CRMBabyAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 555B38C7708360445FE364E6 /* CRMBabyAudio.m */; };
 		A0362634AAC33C121664D08D /* baby_garden.wav in Resources */ = {isa = PBXBuildFile; fileRef = FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */; };
 		A84492A4C59AC3CEF952EE42 /* BabyTimeContent.json in Resources */ = {isa = PBXBuildFile; fileRef = A810A2417D752F94FCCE4598 /* BabyTimeContent.json */; };
@@ -763,6 +780,8 @@
 		CB3319A2A85E965FB353B05F /* baby_waiting.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030870127EACE1DB8C33DDDA /* baby_waiting.wav */; };
 		D1933F1B6288165AE4FF8D0F /* baby_morning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */; };
 		D4FE21A7191047CBD67FD4AC /* CRMBabyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */; };
+		D78EDEDD18B149ABA00EDAB7 /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
+		D8DA1CFD2BC34C9D8D0F79F3 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
 		D9C08C26807ED2540131D7C7 /* CRMNearbyDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F492CB5B861A443EC001D5EA /* CRMNearbyDrawingViewController.m */; };
 		DA0D7D7A2B67876000D4B67D /* ZWAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0D7D792B67876000D4B67D /* ZWAlertUtil.m */; };
 		DA0D7D7C2B6C7BAD00D4B67D /* dist.zip in Resources */ = {isa = PBXBuildFile; fileRef = DA0D7D7B2B6C7BAD00D4B67D /* dist.zip */; };
@@ -2210,24 +2229,14 @@
 		DE0F62B61FA8E69D2EC7D2AF /* BabyTimeContent.json in Resources */ = {isa = PBXBuildFile; fileRef = A810A2417D752F94FCCE4598 /* BabyTimeContent.json */; };
 		DFCC32B53B953ACBC9628F56 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
 		E642B574CA62A47361661F00 /* CRMBabyContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */; };
+		E66BF653447C17CBABEBCC4E /* ZWNetworkTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF6810EA825C6965451C9E /* ZWNetworkTransport.m */; };
 		EB0D2A58C3520467BFDC771A /* ZWBeautyCameraEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */; };
+		ECCAEEBBA0F842EFAEA86558 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
 		EE2DB70F224B71BEB4BD22C5 /* baby_morning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */; };
 		EFFDF23B68611DBD8BF47E1E /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
 		F37D89584D5ED0B2DB8ED719 /* CRMBabyContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */; };
 		FC3BEA6BD6C43A96CDE82E8C /* CRMNearbyDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F492CB5B861A443EC001D5EA /* CRMNearbyDrawingViewController.m */; };
 		FC739DBB3BEBD2F61F26BEB1 /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
-		25C0640DA3F24D7281D89AC3 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
-		D8DA1CFD2BC34C9D8D0F79F3 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
-		4E3486F6EE49481F964F3A03 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
-		970180521A44473B8CCE2A12 /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
-		93A6D26EFAD745358037595F /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
-		D78EDEDD18B149ABA00EDAB7 /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
-		ECCAEEBBA0F842EFAEA86558 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
-		142F0B5B22DD49C39B9144C3 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
-		5C46EAA76F36432DAA094665 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
-		5796787F66F44512BC811925 /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
-		90856FFA135545C79B014727 /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
-		505FBF99F75E4DFE8A6976FF /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2292,15 +2301,20 @@
 
 /* Begin PBXFileReference section */
 		030870127EACE1DB8C33DDDA /* baby_waiting.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_waiting.wav; sourceTree = "<group>"; };
+		053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberManageModule.m; sourceTree = "<group>"; };
 		0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_humming.wav; sourceTree = "<group>"; };
 		10F28E529E0278DEDD778735 /* CRMBabyStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMBabyStore.h; sourceTree = "<group>"; };
 		1211D70ED9C20777598DA022 /* baby_cloud.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_cloud.wav; sourceTree = "<group>"; };
+		1238CEF36D2347E48116CF9C /* ZWMemberApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberApi.m; sourceTree = "<group>"; };
 		12D1347EFEF51A170271729A /* baby_river.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_river.wav; sourceTree = "<group>"; };
 		14D04B1C8DB4B6E1A624314B /* CRMNearbyDrawingDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMNearbyDrawingDocument.m; sourceTree = "<group>"; };
 		210A1992FA3A44E1471F0CD5 /* baby_raindrop.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_raindrop.wav; sourceTree = "<group>"; };
+		26E5C9BEB68C9B7A009294A0 /* NetworkEnvironments.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NetworkEnvironments.xcconfig; sourceTree = "<group>"; };
 		28BA54C77BBFEAC09A3105CB /* baby_harbor.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_harbor.wav; sourceTree = "<group>"; };
 		362D8CA8A7F422C5C644BB4D /* baby_star.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_star.wav; sourceTree = "<group>"; };
 		385B7875BDE5C850BE5B1C53 /* CRMBabyAudio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMBabyAudio.h; sourceTree = "<group>"; };
+		44CF6810EA825C6965451C9E /* ZWNetworkTransport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZWNetworkTransport.m; sourceTree = "<group>"; };
+		473AC7D6685EB6A2AB496EEB /* ZWEndpointConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZWEndpointConfiguration.h; sourceTree = "<group>"; };
 		4E0287B028695304003E723E /* RouterParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterParam.h; sourceTree = "<group>"; };
 		4E0287B128695304003E723E /* RouterParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouterParam.m; sourceTree = "<group>"; };
 		4E0287B3286954DD003E723E /* RouterConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouterConstants.h; sourceTree = "<group>"; };
@@ -3517,6 +3531,7 @@
 		555B38C7708360445FE364E6 /* CRMBabyAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyAudio.m; sourceTree = "<group>"; };
 		603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZWBeautyCameraEngine.m; sourceTree = "<group>"; };
 		648B8FF34789301862B11DE8 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F86084D78E166AE6D22DB0 /* ZWNetworkTransport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZWNetworkTransport.h; sourceTree = "<group>"; };
 		787F37BCD0AE351AC1278D41 /* baby_breeze.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_breeze.wav; sourceTree = "<group>"; };
 		7A32A3E21C4ECBA9E7884BEB /* CRMNearbyDrawingDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMNearbyDrawingDocument.h; sourceTree = "<group>"; };
 		7C0DC0C5243A0646003742DA /* NSObject+WFObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WFObserver.h"; sourceTree = "<group>"; };
@@ -3757,18 +3772,26 @@
 		7CFB1F7322EEC9C4000AE2C9 /* WFUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WFUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFB1F7522EECD4B000AE2C9 /* ZWSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWSDK.h; sourceTree = "<group>"; };
 		7CFB1F7622EEDF87000AE2C9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7DEB89D04BE60A23716C3CFC /* RouterCoordinator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RouterCoordinator.m; sourceTree = "<group>"; };
+		802496AD08FEC2A4EA473A31 /* ZWEndpointConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZWEndpointConfiguration.m; sourceTree = "<group>"; };
 		80E2C81E31B874698049ED37 /* baby_dandelion.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_dandelion.wav; sourceTree = "<group>"; };
 		8491116BF43F55B8098363F7 /* Pods_My_StudyNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_StudyNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86FAECC5E4DB4AA4A94BE41A /* ZWMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberListViewController.h; sourceTree = "<group>"; };
 		9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_morning.wav; sourceTree = "<group>"; };
+		A2F5FE12E9564DAFACA9925F /* ZWMemberApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberApi.h; sourceTree = "<group>"; };
 		A41D77928AAACFC7B7D57690 /* Pods-My_StudyNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
 		A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyContent.m; sourceTree = "<group>"; };
 		A810A2417D752F94FCCE4598 /* BabyTimeContent.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = BabyTimeContent.json; sourceTree = "<group>"; };
+		B3649F406CEF666CB41D0F22 /* RouterCoordinator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RouterCoordinator.h; sourceTree = "<group>"; };
 		B99EE0B2FCAC6767F0F3BD19 /* Pods-My_Study.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa.xcconfig"; sourceTree = "<group>"; };
 		C0A260002E00000100A1B2C3 /* CRMAlarmKitBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMAlarmKitBridge.swift; sourceTree = "<group>"; };
 		C248BF236C6634A09158A52A /* baby_nightlight.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_nightlight.wav; sourceTree = "<group>"; };
+		C586E3BB69504FFA96E1A1F0 /* ZWMemberManageModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberManageModule.h; sourceTree = "<group>"; };
 		CBB4460943C18C1218051571 /* Pods-My_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.debug.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		CDDCF794A6847F393E958818 /* Pods-My_StudyNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.release.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_sunset.wav; sourceTree = "<group>"; };
+		D3F6908BB4A5430380A238D9 /* ZWMemberDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberDetailViewController.h; sourceTree = "<group>"; };
+		D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberDetailViewController.m; sourceTree = "<group>"; };
 		D765578577B643E675384A21 /* Pods-My_Study.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyTimeViewController.m; sourceTree = "<group>"; };
 		DA0D7D782B67876000D4B67D /* ZWAlertUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWAlertUtil.h; sourceTree = "<group>"; };
@@ -3852,24 +3875,17 @@
 		DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa.xcconfig"; sourceTree = "<group>"; };
 		E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa_dev.xcconfig"; sourceTree = "<group>"; };
 		E4AF9B106CED59DC2E414B1D /* ZWBeautyCameraViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZWBeautyCameraViewController.h; sourceTree = "<group>"; };
+		E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberListViewController.m; sourceTree = "<group>"; };
 		EE22E99FBC3EA4D8D47D96EA /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
 		EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZWBeautyCameraViewController.m; sourceTree = "<group>"; };
 		EF9637ACA0743DC07C7E0435 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		F492CB5B861A443EC001D5EA /* CRMNearbyDrawingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMNearbyDrawingViewController.m; sourceTree = "<group>"; };
 		F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyStore.m; sourceTree = "<group>"; };
 		F9971266B4EB0BDD2D255FBD /* CRMBabyTimeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMBabyTimeViewController.h; sourceTree = "<group>"; };
+		FADAFFDD5DB4470EB51424E2 /* ZWMemberStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberStyle.h; sourceTree = "<group>"; };
 		FB582A82133BEEC32AA74D0F /* baby_firefly.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_firefly.wav; sourceTree = "<group>"; };
 		FBA24220AC8FA6BA682ACD61 /* ZWBeautyCameraEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZWBeautyCameraEngine.h; sourceTree = "<group>"; };
 		FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_garden.wav; sourceTree = "<group>"; };
-		A2F5FE12E9564DAFACA9925F /* ZWMemberApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberApi.h; sourceTree = "<group>"; };
-		1238CEF36D2347E48116CF9C /* ZWMemberApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberApi.m; sourceTree = "<group>"; };
-		86FAECC5E4DB4AA4A94BE41A /* ZWMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberListViewController.h; sourceTree = "<group>"; };
-		E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberListViewController.m; sourceTree = "<group>"; };
-		D3F6908BB4A5430380A238D9 /* ZWMemberDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberDetailViewController.h; sourceTree = "<group>"; };
-		D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberDetailViewController.m; sourceTree = "<group>"; };
-		C586E3BB69504FFA96E1A1F0 /* ZWMemberManageModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberManageModule.h; sourceTree = "<group>"; };
-		FADAFFDD5DB4470EB51424E2 /* ZWMemberStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberStyle.h; sourceTree = "<group>"; };
-		053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberManageModule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3979,6 +3995,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C760424433A4F5EA37782A6 /* MemberManage */ = {
+			isa = PBXGroup;
+			children = (
+				A2F5FE12E9564DAFACA9925F /* ZWMemberApi.h */,
+				1238CEF36D2347E48116CF9C /* ZWMemberApi.m */,
+				86FAECC5E4DB4AA4A94BE41A /* ZWMemberListViewController.h */,
+				E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */,
+				D3F6908BB4A5430380A238D9 /* ZWMemberDetailViewController.h */,
+				D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */,
+				C586E3BB69504FFA96E1A1F0 /* ZWMemberManageModule.h */,
+				FADAFFDD5DB4470EB51424E2 /* ZWMemberStyle.h */,
+				053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */,
+			);
+			path = MemberManage;
+			sourceTree = "<group>";
+		};
+		0F06B8DBA51E943B3A260104 /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				65F86084D78E166AE6D22DB0 /* ZWNetworkTransport.h */,
+				44CF6810EA825C6965451C9E /* ZWNetworkTransport.m */,
+			);
+			name = Transport;
+			path = Transport;
+			sourceTree = "<group>";
+		};
 		26ADD455649E43FEE84D55E4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -4037,6 +4079,8 @@
 				4E0287B528695512003E723E /* RouterPageItem.m */,
 				4E0287C128698BC9003E723E /* RouterPageConfig.h */,
 				4E0287C228698BC9003E723E /* RouterPageConfig.m */,
+				B3649F406CEF666CB41D0F22 /* RouterCoordinator.h */,
+				7DEB89D04BE60A23716C3CFC /* RouterCoordinator.m */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -4123,6 +4167,9 @@
 				4E0680C628740F3900F6728A /* EnvConfigObject.m */,
 				4E0680C828740F8100F6728A /* Environment.h */,
 				4E0680C928740F8100F6728A /* Environment.m */,
+				26E5C9BEB68C9B7A009294A0 /* NetworkEnvironments.xcconfig */,
+				473AC7D6685EB6A2AB496EEB /* ZWEndpointConfiguration.h */,
+				802496AD08FEC2A4EA473A31 /* ZWEndpointConfiguration.m */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -6318,6 +6365,7 @@
 			children = (
 				4EC6B32E2861B12A00F57AAC /* Http1 */,
 				4EC6B3312861B12A00F57AAC /* Http2 */,
+				0F06B8DBA51E943B3A260104 /* Transport */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -8070,22 +8118,6 @@
 			path = ZWCustomSwiper;
 			sourceTree = "<group>";
 		};
-		0C760424433A4F5EA37782A6 /* MemberManage */ = {
-			isa = PBXGroup;
-			children = (
-				A2F5FE12E9564DAFACA9925F /* ZWMemberApi.h */,
-				1238CEF36D2347E48116CF9C /* ZWMemberApi.m */,
-				86FAECC5E4DB4AA4A94BE41A /* ZWMemberListViewController.h */,
-				E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */,
-				D3F6908BB4A5430380A238D9 /* ZWMemberDetailViewController.h */,
-				D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */,
-				C586E3BB69504FFA96E1A1F0 /* ZWMemberManageModule.h */,
-				FADAFFDD5DB4470EB51424E2 /* ZWMemberStyle.h */,
-				053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */,
-			);
-			path = MemberManage;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -9285,6 +9317,9 @@
 				D9C08C26807ED2540131D7C7 /* CRMNearbyDrawingViewController.m in Sources */,
 				EB0D2A58C3520467BFDC771A /* ZWBeautyCameraEngine.m in Sources */,
 				48A1EC77BDF05746519401A5 /* ZWBeautyCameraViewController.m in Sources */,
+				1F3ACAF534ABE39FABF36699 /* RouterCoordinator.m in Sources */,
+				1DC1116E6443FE4195D69BAB /* ZWNetworkTransport.m in Sources */,
+				372C0C7C6C98B6703A1CE08A /* ZWEndpointConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9914,6 +9949,9 @@
 				5FBF484B41936FFED0518063 /* CRMNearbyDrawingViewController.m in Sources */,
 				31B3470181E3C7B20CD84681 /* ZWBeautyCameraEngine.m in Sources */,
 				6F3EDCB3B8AB8FC9B1FACCA8 /* ZWBeautyCameraViewController.m in Sources */,
+				7534979F46A7834FC53BEE35 /* RouterCoordinator.m in Sources */,
+				897D256670E81B7A48EB82C0 /* ZWNetworkTransport.m in Sources */,
+				448D00B18076DFF92B5F19FB /* ZWEndpointConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10543,6 +10581,9 @@
 				FC3BEA6BD6C43A96CDE82E8C /* CRMNearbyDrawingViewController.m in Sources */,
 				6197CAD4BDBA50A49C68C1D3 /* ZWBeautyCameraEngine.m in Sources */,
 				37FEE6B6A893C207BD5895CC /* ZWBeautyCameraViewController.m in Sources */,
+				6F3EDE5FCFA1569FAD8A932C /* RouterCoordinator.m in Sources */,
+				E66BF653447C17CBABEBCC4E /* ZWNetworkTransport.m in Sources */,
+				6019B1DB1B9CB56F9E0D266D /* ZWEndpointConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10590,6 +10631,7 @@
 /* Begin XCBuildConfiguration section */
 		4ECE4368285877B600326287 /* QA */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E5C9BEB68C9B7A009294A0 /* NetworkEnvironments.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -10695,7 +10737,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -10739,7 +10780,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = qa;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -10747,6 +10790,7 @@
 		};
 		4ECE436A285877C000326287 /* QA_Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E5C9BEB68C9B7A009294A0 /* NetworkEnvironments.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -10853,7 +10897,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -10897,7 +10940,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = dev;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11027,6 +11072,7 @@
 		};
 		7C459A4E2295557500667813 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E5C9BEB68C9B7A009294A0 /* NetworkEnvironments.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -11088,6 +11134,7 @@
 		};
 		7C459A4F2295557500667813 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E5C9BEB68C9B7A009294A0 /* NetworkEnvironments.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -11187,7 +11234,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11232,7 +11278,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = dev;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11277,7 +11325,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = My_Study/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11320,7 +11367,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = NO;
 				ZW_HOST = zw.app;
+				ZW_NETWORK_ENVIRONMENT = online;
 				ZW_SCHEME = zwapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11370,7 +11419,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11415,7 +11463,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = qa;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11464,7 +11514,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11508,7 +11557,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = qa;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11558,7 +11609,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11602,7 +11652,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = qa;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11646,7 +11698,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11689,7 +11740,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = NO;
 				ZW_HOST = zw.app;
+				ZW_NETWORK_ENVIRONMENT = qa;
 				ZW_SCHEME = zwapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11739,7 +11792,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy 2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11784,7 +11836,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = pl;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11833,7 +11887,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy 2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11877,7 +11930,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = pl;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -11927,7 +11982,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy 2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -11971,7 +12025,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = YES;
 				ZW_HOST = zwqa.app;
+				ZW_NETWORK_ENVIRONMENT = pl;
 				ZW_SCHEME = zwqaapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};
@@ -12015,7 +12071,6 @@
 				GT_APPKEY = 111111;
 				GT_APPSECRET = 111111;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				HTTP_SERVER_HOST = "http://127.0.0.1:4523/m1/1102411-0-5ea01a58";
 				IM_APPID = 111111;
 				INFOPLIST_FILE = "My_Study copy 2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -12058,7 +12113,9 @@
 					"$(SRCROOT)/**",
 				);
 				WX_APPID = 111111;
+				ZW_ALLOW_ENVIRONMENT_SWITCH = NO;
 				ZW_HOST = zw.app;
+				ZW_NETWORK_ENVIRONMENT = pl;
 				ZW_SCHEME = zwapp;
 				ZW_STATISTICS_URL = "埋点url";
 			};

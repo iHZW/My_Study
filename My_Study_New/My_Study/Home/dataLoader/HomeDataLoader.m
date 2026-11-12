@@ -24,7 +24,7 @@
 
 - (void)sendRequestTest:(ResponseLoaderBlock)block
 {
-    NSString *url = @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58/zq/crm/trade/app/approval/list";
+    NSString *url = @"/zq/crm/trade/app/approval/list";
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     [paramDic setObject:@"IOS" forKey:@"channelType"];
     

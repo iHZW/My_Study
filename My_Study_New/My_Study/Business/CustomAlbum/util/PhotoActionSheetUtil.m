@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  PhotoActionSheetUtil.m
 //  My_Study
@@ -116,7 +117,7 @@
         vc.collection = list;
         ZWNavigationController * na = [[ZWNavigationController alloc] initWithRootViewController:vc];
         na.modalPresentationStyle = UIModalPresentationFullScreen;
-        [[UIApplication displayViewController] presentViewController:na animated:YES completion:nil];
+        [Router presentViewController:na from:[UIApplication displayViewController] animated:YES completion:nil];
     }];
 }
 

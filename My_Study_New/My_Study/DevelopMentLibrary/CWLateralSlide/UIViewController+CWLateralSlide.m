@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  UIViewController+CWLateralSlide.m
 //  ViewControllerTransition
@@ -49,7 +50,7 @@
     if (@available(iOS 13.0, *)) {
         viewController.modalPresentationStyle =  UIModalPresentationFullScreen;
     }
-    [self presentViewController:viewController animated:YES completion:nil];
+    [Router presentViewController:viewController from:self animated:YES completion:nil];
     
 }
 
@@ -108,9 +109,9 @@
             UIViewController *currentVc = [UIApplication displayViewController];
             BOOL animated = YES;
             if ([currentVc isKindOfClass:[UINavigationController class]]){
-                [(UINavigationController *)currentVc pushViewController:vc animated:animated];
+                [Router pushViewController:vc navigationController:(UINavigationController *)currentVc animated:animated];
             } else {
-                [currentVc.navigationController pushViewController:vc animated:animated];
+                [Router pushViewController:vc navigationController:currentVc.navigationController animated:animated];
             }
 //            [nav.navigationController pushViewController:vc animated:YES];
 //            [ZWM.router executeURLNoCallBack:ZWRouterPageFileSelectViewController];

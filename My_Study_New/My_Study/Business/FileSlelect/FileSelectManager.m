@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  FileSelectManager.m
 //  My_Study
@@ -55,7 +56,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(FileSelectManager)
 //    ZWNavigationController * na = [[ZWNavigationController alloc]initWithRootViewController:documentPicker];
     documentPicker.modalPresentationStyle = UIModalPresentationFullScreen;
     documentPicker.hideNavigationBar = YES;
-    [[UIApplication displayViewController] presentViewController:documentPicker animated:YES completion:nil];
+    [Router presentViewController:documentPicker from:[UIApplication displayViewController] animated:YES completion:nil];
 }
 
 /**

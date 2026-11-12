@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  FindViewController.m
 //  My_Study
@@ -178,7 +179,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
         [[NSUserDefaults standardUserDefaults] setObject:urlString forKey:ZWFindCustomURLDefaultsKey];
         [self loadUrlString:urlString];
     }]];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [Router presentViewController:alertController from:self animated:YES completion:nil];
 }
 
 /** 规范并校验用户输入的网址，仅允许 WebView 支持的 HTTP/HTTPS 地址。 */
@@ -206,7 +207,7 @@ typedef NS_ENUM(NSUInteger, UIBorderSideType) {
     [alertController addAction:[UIAlertAction actionWithTitle:@"知道了"
                                                         style:UIAlertActionStyleDefault
                                                       handler:nil]];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [Router presentViewController:alertController from:self animated:YES completion:nil];
 }
 
 /** 显示自定义的actionsheet  */

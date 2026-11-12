@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  MyFlutterRouter.m
 //  My_Study
@@ -47,12 +48,12 @@
         MyFlutterViewController *vc = MyFlutterViewController.new;
         [vc setName:name params:params];
         vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController presentViewController:vc animated:animated completion:^{}];
+        [Router presentViewController:vc from:self.navigationController animated:animated completion:^{}];
     }else{
         MyFlutterViewController *vc = MyFlutterViewController.new;
         vc.hidesBottomBarWhenPushed = YES;
         [vc setName:name params:params];
-        [self.navigationController pushViewController:vc animated:animated];
+        [Router pushViewController:vc navigationController:self.navigationController animated:animated];
     }
 }
 

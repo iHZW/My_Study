@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface ZWTabBarController : UITabBarController
+/// 仅由导航执行器调用，避免程序切换再次进入路由。
+- (void)applySelectedIndexFromRouter:(NSUInteger)index;
 
 - (void)build;
 

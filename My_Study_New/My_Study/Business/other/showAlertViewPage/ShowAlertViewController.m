@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ShowAlertViewController.m
 //  My_Study
@@ -220,7 +221,7 @@
             vc.url              = __String_Not_Nil(url);
             //            vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
             //            [self presentViewController:vc animated:YES completion:nil];
-            [self.navigationController pushViewController:vc animated:YES];
+            [Router pushViewController:vc navigationController:self.navigationController animated:YES];
         };
     }
 

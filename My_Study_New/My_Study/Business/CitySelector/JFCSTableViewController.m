@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  JFCSTableViewController.m
 //  jfcityselector
@@ -354,7 +355,7 @@
     }];
     UINavigationController *nvi = [[UINavigationController alloc] initWithRootViewController:searchVC];
     nvi.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:nvi animated:NO completion:nil];
+    [Router presentViewController:nvi from:self animated:NO completion:nil];
 }
 
 - (void)didSelectPopularCities:(JFCSPopularCitiesModel *)popularCitiesModel {

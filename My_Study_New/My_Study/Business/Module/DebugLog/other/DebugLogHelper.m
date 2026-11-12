@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  URLProtocolHelper.m
 //  WMOA
@@ -102,7 +103,7 @@
     
 //    MDLogViewController *vc = [[MDLogViewController alloc] init];
 //    vc.forceDisableBackGesture = YES;
-    [[[UIApplication displayViewController] navigationController] pushViewController:vc animated:YES];
+    [Router pushViewController:vc navigationController:[[UIApplication displayViewController] navigationController] animated:YES];
     [DebugLogHelper shared].logButton.hidden = YES;
 }
 

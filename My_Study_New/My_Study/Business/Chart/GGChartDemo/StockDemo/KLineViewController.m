@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  KLineViewController.m
 //  GGCharts
@@ -46,7 +47,7 @@
 
 - (void)present
 {
-    [self presentViewController:[HorizontalKLineViewController new] animated:YES completion:nil];
+    [Router presentViewController:[HorizontalKLineViewController new] from:self animated:YES completion:nil];
 }
 
 - (NSString *)stockDataJsonPath

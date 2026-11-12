@@ -21,6 +21,6 @@
 #define AddressAreaList @"/app/address/areaList"
 
 /* 微信聊天记录 */
-#define kLoginURL     @"http://127.0.0.1:4523/m1/1102411-0-5ea01a58/login"
+#define kLoginURL     @"/login"
 
 #endif /* UrlConstants_h */

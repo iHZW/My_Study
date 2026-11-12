@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIViewController *)displayViewController;
 
+/// 从指定场景或页面解析当前可见控制器，供显式导航上下文使用。
++ (nullable UIViewController *)displayViewController:(nullable id)currentViewController ignorePresent:(BOOL)ignorePresent;
+
 /**
  当前正在显示的 window
  

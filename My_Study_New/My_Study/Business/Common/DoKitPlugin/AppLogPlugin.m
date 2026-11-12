@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  AppLogPlugin.m
 //  My_Study
@@ -24,7 +25,7 @@
 - (void)loadAppLog
 {
     MDDebugViewController *vc = [[MDDebugViewController alloc] init];
-    [[[UIApplication displayViewController] navigationController] pushViewController:vc animated:YES];
+    [Router pushViewController:vc navigationController:[[UIApplication displayViewController] navigationController] animated:YES];
 }
 
 - (void)pluginDidLoad:(NSDictionary *)itemData{

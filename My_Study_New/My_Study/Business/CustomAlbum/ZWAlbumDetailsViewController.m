@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ZWAlbumDetailsViewController.m
 //  My_Study
@@ -173,7 +174,7 @@ ZWAlbumPopViewDelegate >
         [vc.imageList addObjectsFromArray:self.selectArr];
     }
     vc.selectArr = self.selectArr;
-    [self.navigationController pushViewController:vc animated:YES];
+    [Router pushViewController:vc navigationController:self.navigationController animated:YES];
 }
 
 - (void)cacheThumImages{
@@ -308,7 +309,7 @@ ZWAlbumPopViewDelegate >
         if ([ZWAlbumManager manager].isCrop) {
             ZWAlbumCropViewController * vc = [[ZWAlbumCropViewController alloc]init];
             vc.data = model;
-            [self.navigationController pushViewController:vc animated:YES];
+            [Router pushViewController:vc navigationController:self.navigationController animated:YES];
         }else{
 //            if ([ZWAlbumManager manager].allowPre) {
 //                PHAssetModel * model = [self.imageList objectAtIndex:indexPath.row];

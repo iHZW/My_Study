@@ -54,6 +54,7 @@
 @interface ZWTabBarController ()<UITabBarControllerDelegate>
 
 @property (nonatomic ,strong) NSArray <CustomTabbarObject *>* items;
+@property (nonatomic, assign) BOOL applyingRouteSelection;
 
 //@property (nonatomic, strong) MessageFirstLevelViewModel *messageFirstLevelViewModel;
 
@@ -71,12 +72,37 @@
 
 @implementation ZWTabBarController
 
+- (void)applySelectedIndexFromRouter:(NSUInteger)index {
+    self.applyingRouteSelection = YES;
+    [super setSelectedIndex:index];
+    self.applyingRouteSelection = NO;
+}
+
+- (void)setSelectedIndex:(NSUInteger)index {
+    if (self.applyingRouteSelection || !self.viewControllers.count) { [super setSelectedIndex:index]; return; }
+    [Router selectTabAtIndex:index controller:self source:@"programmatic"];
+}
+
+- (void)setSelectedViewController:(UIViewController *)viewController {
+    if (self.applyingRouteSelection || !self.viewControllers.count) { [super setSelectedViewController:viewController]; return; }
+    NSUInteger index = [self.viewControllers indexOfObjectIdenticalTo:viewController];
+    if (index != NSNotFound) [Router selectTabAtIndex:index controller:self source:@"programmatic"];
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    NSUInteger index = [self.viewControllers indexOfObjectIdenticalTo:viewController];
+    if (index != NSNotFound) [Router selectTabAtIndex:index controller:self source:@"tap"];
+    return NO;
+}
+
+
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.delegate = self;
     // Do any additional setup after loading the view.
     
     /** 通知刷新tabbar  */
@@ -139,21 +165,16 @@
         return;
     }
     
-    UINavigationController *nav = self.selectedViewController;
-    if ([nav isKindOfClass:[UINavigationController class]]){
-        [nav popToRootViewControllerAnimated:NO];
-    }
-    
     RouterParam *routerParam = notification.object;
-    NSString *route = routerParam.originUrl;
+    NSString *route = [Router decodeRoute:routerParam.originUrl][@"path"];
     __block NSInteger index = -1;
     [self.items enumerateObjectsUsingBlock:^(CustomTabbarObject *  _Nonnull itemConfig, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([route hasPrefix:itemConfig.route]) {
+        if ([route isEqualToString:itemConfig.route]) {
             index = idx;
             *stop = YES;
         }
     }];
-    if (index < 0 || index > self.items.count) {
+    if (index < 0 || index >= (NSInteger)self.viewControllers.count) {
         // 特殊处理  坐席改变的时候刷新找客户页面
         if (self.selectedIndex == 0) {
             if ([routerParam.params objectForKey:@"reload"] && [[routerParam.params objectForKey:@"reload"] integerValue] == 1) {
@@ -168,12 +189,16 @@
                 }
             }
         }else{
-            [self setSelectedIndex:0];
+            [self applySelectedIndexFromRouter:0];
+            routerParam.navigationResult = @"已回退首个 Tab";
         }
         //
         return;
     }
-    [self setSelectedIndex:index];
+    UINavigationController *nav = self.selectedViewController;
+    if ([nav isKindOfClass:UINavigationController.class]) [nav popToRootViewControllerAnimated:NO];
+    [self applySelectedIndexFromRouter:index];
+    routerParam.navigationResult = @"Tab 切换完成";
 }
 
 #pragma mark - 初始化tabbar

@@ -20,7 +20,9 @@ DEFINE_SINGLETON_T_FOR_HEADER(Environment)
 @property (nonatomic,assign, readonly) EnvironmentType currentEnvironmentType;
 
 /** 更新环境  */
-- (void)updateEnvironment:(EnvironmentType)toEnv;
+/// 保存下次启动环境，当前进程不热切换，避免旧任务与新配置混用。
+- (BOOL)updateEnvironment:(EnvironmentType)toEnv error:(NSError * _Nullable * _Nullable)error;
+@property (nonatomic, assign, readonly) BOOL canChangeEnvironment;
 /** 加载环境配置  */
 - (EnvConfigObject *)loadEvnConfigObject;
 

@@ -17,6 +17,14 @@ typedef void(^RouterSuccessBlock)(id);
 typedef void(^RouterFailBlock)(NSError *);
 
 @interface RouterParam : NSObject
+/// 导航执行结果由执行器填写，由 Router 合并为一条诊断日志。
+@property (nonatomic, copy, nullable) NSString *navigationResult;
+/// 已配置页面只在创建请求到导航执行期间持有，注入参数前清空，避免循环引用。
+@property (nonatomic, strong, nullable) id preparedDestination;
+@property (nonatomic, assign) BOOL usesPreparedDestination;
+@property (nonatomic, strong, nullable) NSNumber *navigationAnimated;
+@property (nonatomic, copy, nullable) void (^presentationCompletion)(void);
+@property (nonatomic, strong, nullable) NSNumber *tabSelectionIndex;
 
 /**
  * 原始跳转的URL
@@ -29,7 +37,7 @@ typedef void(^RouterFailBlock)(NSError *);
 /**
  * 参数
  */
-@property (nonatomic, strong) NSDictionary *params;
+@property (nonatomic, copy) NSDictionary *params;
 /**
  * 路由y业务类型
  */
@@ -38,7 +46,7 @@ typedef void(^RouterFailBlock)(NSError *);
 /**
  * 上下文 （当前ViewController）
  */
-@property (nonatomic, strong) id context;
+@property (nonatomic, weak, nullable) id context;
 
 //业务成功之后的回调
 @property (nonatomic, copy, nullable) RouterSuccessBlock successBlock;

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 #import "CRMNearbyDrawingViewController.h"
 #import "CRMNearbyDrawingDocument.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
@@ -233,7 +234,7 @@ static UIButton *CRMBoardButton(NSString *title, id target, SEL action) {
     if (self.presentedViewController) { self.statusLabel.text = message; return; }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"你画我看" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 - (void)recordConnectionEvent:(NSString *)event {
     if (!self.connectionEvents) self.connectionEvents = [NSMutableArray array];
@@ -288,7 +289,7 @@ static UIButton *CRMBoardButton(NSString *title, id target, SEL action) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"加入其他画板？" message:@"连接后将用对方的画布替换当前内容。" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"加入" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) { join(); }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 - (void)refreshPeerList {
     for (UIView *view in self.peerList.arrangedSubviews) { [self.peerList removeArrangedSubview:view]; [view removeFromSuperview]; }
@@ -500,7 +501,7 @@ static UIButton *CRMBoardButton(NSString *title, id target, SEL action) {
     [alert addAction:[UIAlertAction actionWithTitle:@"清空" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self performOperation:@{@"type": @"clear"}];
     }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    [Router presentViewController:alert from:self animated:YES completion:nil];
 }
 - (void)sendMessage:(NSDictionary *)message {
     if (!self.session.connectedPeers.count) return;

@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  LocationAuthority.m
 //  My_Study
@@ -50,7 +51,7 @@
     [alertController addAction:cancelAction];
     [alertController addAction:action];
     
-    [[UIApplication displayViewController] presentViewController:alertController animated:YES completion:nil];
+    [Router presentViewController:alertController from:[UIApplication displayViewController] animated:YES completion:nil];
 }
 
 

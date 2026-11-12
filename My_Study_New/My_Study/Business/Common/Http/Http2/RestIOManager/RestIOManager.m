@@ -7,6 +7,7 @@
 //
 
 #import "RestIOManager.h"
+#import "ZWNetworkTransport.h"
 
 @implementation RestIOManager
 
@@ -32,14 +33,9 @@
  */
 - (NSURLSessionDataTask *)taskWithEventKey:(nullable NSString *)eventKey
 {
-    NSArray *operations = [self.manager.operationQueue operations];
-    
-    if ([operations count] > 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.uuidTag == %@", eventKey];
-        NSArray *array = [operations filteredArrayUsingPredicate:predicate];
-        return [array lastObject];
+    for (NSURLSessionDataTask *task in self.manager.dataTasks) {
+        if ([task.taskDescription isEqualToString:eventKey]) return task;
     }
-    
     return nil;
 }
 
@@ -49,7 +45,9 @@
     self = [super init];
     
     if (self) {
-        self.manager = [AFHTTPSessionManager manager];
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        configuration.HTTPMaximumConnectionsPerHost = 6;
+        self.manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
     }
     
     return self;
@@ -70,7 +68,9 @@
     self = [super init];
     
     if (self) {
-        self.manager = [AFHTTPSessionManager manager];
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        configuration.HTTPMaximumConnectionsPerHost = 6;
+        self.manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
         self.manager.operationQueue.maxConcurrentOperationCount = maxConncurrentCount;
         self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
         
@@ -97,28 +97,30 @@
  @return 返回当前NSURLSessionDataTask
  */
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+                                      taskKey:(nullable NSString *)taskKey
                         sessionManagerSetting:(nullable BOOL (^)(RestIOManager *manager))sessionManagerSettingBlock
                                uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                              downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                             completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler;
 {
-    BOOL bRet = YES;
-    if (sessionManagerSettingBlock) {
-        bRet = sessionManagerSettingBlock(self);
+    @synchronized (self) {
+        BOOL bRet = YES;
+        if (sessionManagerSettingBlock) {
+            bRet = sessionManagerSettingBlock(self);
+        }
+    
+        __block NSURLSessionDataTask *dataTask = nil;
+    
+        if (bRet) {
+            dataTask = [ZWNetworkTransport sendRequest:request manager:self.manager taskKey:taskKey
+                uploadProgress:uploadProgressBlock downloadProgress:downloadProgressBlock
+                completion:^(NSURLSessionDataTask *task, id data, NSError *error) {
+                    if (completionHandler) completionHandler(task.response, data, error);
+                }];
+        }
+    
+        return dataTask;
     }
-    
-    __block NSURLSessionDataTask *dataTask = nil;
-    
-    if (bRet) {
-        dataTask = [self.manager dataTaskWithRequest:request
-                                      uploadProgress:uploadProgressBlock
-                                    downloadProgress:downloadProgressBlock
-                                   completionHandler:completionHandler];
-        
-        [dataTask resume];
-    }
-    
-    return dataTask;
 }
 
 /**
@@ -147,7 +149,7 @@
  */
 - (void)cancelAllTask
 {
-    [self.manager.operationQueue cancelAllOperations];
+    [ZWNetworkTransport cancelTasksForManager:self.manager key:nil];
 }
 
 /**
@@ -157,8 +159,7 @@
  */
 - (void)cancelTaskWithKey:(nullable NSString *)eventKey
 {
-    NSURLSessionDataTask *op = (NSURLSessionDataTask *)[self taskWithEventKey:eventKey];
-    [op cancel];
+    if (eventKey.length) [ZWNetworkTransport cancelTasksForManager:self.manager key:eventKey];
 }
 
 /**
@@ -176,7 +177,7 @@
         
         // allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO
         // 如果是需要验证自建证书或者已过期证书，需要设置为YES
-        securityPolicy.allowInvalidCertificates = YES;
+        securityPolicy.allowInvalidCertificates = NO;
         securityPolicy.validatesDomainName      = YES;
         
         // validatesDomainName 是否需要验证域名，默认为YES；
@@ -203,6 +204,7 @@
  */
 - (void)updateSerializerConfig:(nullable NSSet <NSString *> *)acceptableContentType timeout:(NSTimeInterval)timeout cachePolicy:(NSURLRequestCachePolicy)cachePolicy
 {
+    self.manager.responseSerializer = [self.manager.responseSerializer copy];
     if (acceptableContentType) {
         NSMutableSet *curContentTypes = [NSMutableSet setWithSet:self.manager.responseSerializer.acceptableContentTypes];
         [curContentTypes addObject:acceptableContentType];

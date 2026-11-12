@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  MMShareActionManager.m
 //  My_Study
@@ -105,7 +106,7 @@
             [controller addAttachmentData:imageData mimeType:@"image/png" fileName:@"图片.png"];
         }
         [controller setMailComposeDelegate:self];
-        [[UIApplication displayViewController] presentViewController:controller animated:YES completion:nil];
+        [Router presentViewController:controller from:[UIApplication displayViewController] animated:YES completion:nil];
     }
 }
 
@@ -126,7 +127,7 @@
         controller.body                    = bodySting; // 此处的body就是短信将要发生的内容
         controller.navigationBar.tintColor = [UIColor redColor];
         controller.messageComposeDelegate  = self;
-        [[UIApplication displayViewController] presentViewController:controller animated:YES completion:nil];
+        [Router presentViewController:controller from:[UIApplication displayViewController] animated:YES completion:nil];
     }
 }
 

@@ -9,6 +9,8 @@
 #ifndef RouterNavigateDelegate_h
 #define RouterNavigateDelegate_h
 
+@class RouterParam;
+
 @protocol RouterNavigateDelegate <NSObject>
 /** push  */
 - (void)navigateTo:(RouterParam *)param;

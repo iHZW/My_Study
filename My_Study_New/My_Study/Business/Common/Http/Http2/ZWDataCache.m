@@ -9,6 +9,7 @@
 #import "ZWDataCache.h"
 #import "PINCache.h"
 #import "CommonFileFunc.h"
+#import "Config.h"
 
 @interface ZWDataCache ()
 
@@ -30,29 +31,35 @@ DEFINE_SINGLETON_T_FOR_CLASS(ZWDataCache)
 
 #pragma mark -- 统一的cache
 
+- (NSString *)environmentCacheKey:(NSString *)key {
+    Config *config = [Config sharedConfig];
+    return [NSString stringWithFormat:@"network:%lu:%@:%@", (unsigned long)config.environmentType, config.httpServerHost ?: @"", key];
+}
+
 - (id)objectFromCacheWithKey:(NSString *)key
 {
-    id object = [self.dataCache objectForKey:key];
+    id object = [self.dataCache objectForKey:[self environmentCacheKey:key]];
     return object;
 }
 
 - (void)objectFromCacheWithKey:(NSString *)key cacheBlock:(ZWCacheObjectBlock)cacheBlock
 {
-    [self.dataCache objectForKey:key block:^(PINCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
+    NSString *originalKey = key;
+    [self.dataCache objectForKey:[self environmentCacheKey:key] block:^(PINCache * _Nonnull cache, NSString * _Nonnull key, id  _Nullable object) {
         if (cacheBlock)
-            cacheBlock(key, object);
+            cacheBlock(originalKey, object);
     }];
 }
 
 - (BOOL)saveObject:(id)object toCacheWithKey:(NSString *)key
 {
-    [self.dataCache setObject:object forKey:key];
+    [self.dataCache setObject:object forKey:[self environmentCacheKey:key]];
     return YES;
 }
 
 - (void)removeFromCacheWithKey:(NSString *)key
 {
-    [self.dataCache removeObjectForKey:key];
+    [self.dataCache removeObjectForKey:[self environmentCacheKey:key]];
 }
 
 - (void)clearAllCache

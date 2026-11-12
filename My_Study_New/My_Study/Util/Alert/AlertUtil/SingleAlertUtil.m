@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  SingleAlertUtil.m
 //  CRM
@@ -82,7 +83,7 @@
         }];
         [okAction setTextColor:[UIColor colorFromHexCode:@"#4F7AFD"]];
         [alertController addAction:okAction];
-        [[UIApplication displayViewController] presentViewController:alertController animated:YES completion:nil];
+        [Router presentViewController:alertController from:[UIApplication displayViewController] animated:YES completion:nil];
         [SingleAlertUtil sharedInstance].isShowed = YES;
     }
 }

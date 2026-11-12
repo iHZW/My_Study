@@ -99,5 +99,23 @@
 	<array>
 		<string>_crm-draw._tcp</string>
 	</array>
+	<key>NetworkConfiguration</key>
+	<dict>
+		<key>DefaultEnvironment</key>
+		<string>$(ZW_NETWORK_ENVIRONMENT)</string>
+		<key>AllowEnvironmentSwitch</key>
+		<string>$(ZW_ALLOW_ENVIRONMENT_SWITCH)</string>
+		<key>BaseURLs</key>
+		<dict>
+			<key>dev</key>
+			<string>$(ZW_API_BASE_URL_DEV)</string>
+			<key>qa</key>
+			<string>$(ZW_API_BASE_URL_QA)</string>
+			<key>pl</key>
+			<string>$(ZW_API_BASE_URL_PL)</string>
+			<key>online</key>
+			<string>$(ZW_API_BASE_URL_ONLINE)</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

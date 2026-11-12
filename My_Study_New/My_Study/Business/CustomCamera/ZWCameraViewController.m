@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  ZWCameraViewController.m
 //  My_Study
@@ -277,7 +278,7 @@
         if ([ZWAlbumManager manager].isCrop) {
             ZWAlbumCropViewController * vc = [[ZWAlbumCropViewController alloc]init];
             vc.data = data;
-            [self.navigationController pushViewController:vc animated:NO];
+            [Router pushViewController:vc navigationController:self.navigationController animated:NO];
         }else{
             ZWCameraPreViewController * vc = [[ZWCameraPreViewController alloc]init];
             [vc setCompleteHander:^(NSArray<PHAssetModel *> * _Nonnull array) {
@@ -285,7 +286,7 @@
             }];
 
             vc.data = data;
-            [self.navigationController pushViewController:vc animated:NO];
+            [Router pushViewController:vc navigationController:self.navigationController animated:NO];
         }
      }];
 }

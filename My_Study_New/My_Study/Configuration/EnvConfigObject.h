@@ -16,10 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSUInteger envType;
 
-@property (nonatomic, copy) NSString *bundleID;
-
-@property (nonatomic, assign) BOOL canManualChange;
-
 @property (nonatomic, strong) NSDictionary *AppConfiguration;
 
 @end

@@ -1,3 +1,4 @@
+#import "ZWNetworkTransport.h"
 //
 //  ZWMemberApi.m
 //  My_Study
@@ -158,37 +159,32 @@ static NSString *const kDefaultBaseURL = @"http://127.0.0.1:3000";
         request.HTTPBody = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];
     }
 
-    NSURLSessionDataTask *task = [NSURLSession.sharedSession
-        dataTaskWithRequest:request
-          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (error) {
-                    completion(nil, [self errorWithMessage:[NSString stringWithFormat:@"网络异常：%@", error.localizedDescription]]);
-                    return;
-                }
-                NSInteger httpCode = [(NSHTTPURLResponse *)response statusCode];
-                NSDictionary *json = nil;
-                if (data.length) {
-                    json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                }
-                if (httpCode == 401) {
-                    [self clearToken];
-                }
-                if (![json isKindOfClass:[NSDictionary class]]) {
-                    completion(nil, [self errorWithMessage:[NSString stringWithFormat:@"服务响应异常（HTTP %@）", @(httpCode)]]);
-                    return;
-                }
-                NSString *status = json[@"status"];
-                if ([status isKindOfClass:[NSString class]] && [status isEqualToString:@"1"]) {
-                    id payload = json[@"data"];
-                    completion([payload isKindOfClass:[NSDictionary class]] ? payload : @{}, nil);
-                } else {
-                    NSString *message = json[@"errmsg"];
-                    completion(nil, [self errorWithMessage:message.length ? message : @"请求失败"]);
-                }
-            });
+    [ZWNetworkTransport sendRequest:request manager:[ZWNetworkTransport defaultManager] taskKey:nil
+        uploadProgress:nil downloadProgress:nil completion:^(NSURLSessionDataTask *task, NSData *data, NSError *error) {
+            NSURLResponse *response = task.response;
+            NSInteger httpCode = [(NSHTTPURLResponse *)response statusCode];
+            if (httpCode == 401) [self clearToken];
+            // HTTP 错误也尝试读取业务错误消息，连接失败才归为网络异常。
+            NSData *responseData = data ?: error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+            id json = responseData.length ? [NSJSONSerialization JSONObjectWithData:responseData options:0 error:NULL] : nil;
+            if (error && !response) {
+                completion(nil, [self errorWithMessage:[NSString stringWithFormat:@"网络异常：%@", error.localizedDescription]]);
+                return;
+            }
+            if (![json isKindOfClass:NSDictionary.class]) {
+                completion(nil, [self errorWithMessage:[NSString stringWithFormat:@"服务响应异常（HTTP %@）", @(httpCode)]]);
+                return;
+            }
+            NSString *status = json[@"status"];
+            if (!error && [status isKindOfClass:NSString.class] && [status isEqualToString:@"1"]) {
+                id payload = json[@"data"];
+                completion([payload isKindOfClass:NSDictionary.class] ? payload : @{}, nil);
+            } else {
+                id message = json[@"errmsg"];
+                completion(nil, [self errorWithMessage:[message isKindOfClass:NSString.class] && [message length] ? message : @"请求失败"]);
+            }
         }];
-    [task resume];
+
 }
 
 + (NSError *)errorWithMessage:(NSString *)message

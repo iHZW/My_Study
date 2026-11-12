@@ -1,3 +1,4 @@
+#import "Router+CRM.h"
 //
 //  MDLogViewController.m
 //  My_Study
@@ -120,7 +121,7 @@
 - (void)allContextNavAction:(id)sender{
     MDLogViewController *vc = [[MDLogViewController alloc] init];
     vc.pageType = FromPageTypeTwo;
-    [self.navigationController pushViewController:vc animated:YES];
+    [Router pushViewController:vc navigationController:self.navigationController animated:YES];
 }
 
 - (void)clearLogNavAction:(id)sender{
@@ -302,7 +303,7 @@
         MDLogViewController *vc = [[MDLogViewController alloc] init];
         vc.pageType = FromPageTypeOne;
         vc.context = logModel.context;
-        [self.navigationController pushViewController:vc animated:YES];
+        [Router pushViewController:vc navigationController:self.navigationController animated:YES];
     } else {
         MDLogDetailViewController *vc = [[MDLogDetailViewController alloc] init];
         vc.identity = logModel.identifier;
@@ -330,7 +331,7 @@
             return NSNotFound;
         };
         
-        [self.navigationController pushViewController:vc animated:YES];
+        [Router pushViewController:vc navigationController:self.navigationController animated:YES];
     }
 }
 
