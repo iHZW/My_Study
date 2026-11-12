@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Microsoft YaHei', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #303133;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-container {
+  padding: 16px;
+}
+
+.filter-card {
+  margin-bottom: 16px;
+}
+
+.table-card .el-card__body {
+  padding-top: 8px;
+}
+
+.pagination-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.text-muted {
+  color: #909399;
+  font-size: 12px;
+}
+
+.stat-card {
+  border-radius: 10px;
+}
+
+.stat-card .stat-value {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.stat-card .stat-label {
+  color: #909399;
+  font-size: 13px;
+}
+
+.chart-box {
+  width: 100%;
+  height: 320px;
+}

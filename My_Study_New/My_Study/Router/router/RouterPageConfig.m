@@ -26,6 +26,8 @@ NSString *const ZWTabIndexPersonal          = @"tab/index/personal";
 NSString *const ZWRouterPageDebugLogHome             = @"debug/log/home";
 NSString *const ZWRouterPageCommonWebView            = @"common/webView";
 NSString *const ZWRouterPageSettingViewController    = @"setting/home";
+/** 会员管理-会员列表  */
+NSString *const ZWRouterPageMemberListViewController = @"member/manage/list";
 NSString *const ZWRouterPageShowAlertViewController  = @"tools/show/alertview";
 NSString *const ZWRouterPageChangeEnvViewController  = @"config/change/env";
 /** 通用单选页  */
@@ -130,6 +132,13 @@ NSString *const ZWRouterPageLoginViewController  = @"user/login/page";
             @{
                 @"url" : ZWRouterPageSettingViewController,
                 @"clsName": @"SettingViewController",
+                @"type" : @(RouterTypeNavigate),
+                @"attachValue" : @{}
+            },
+            /** 会员管理-会员列表  */
+            @{
+                @"url" : ZWRouterPageMemberListViewController,
+                @"clsName": @"ZWMemberListViewController",
                 @"type" : @(RouterTypeNavigate),
                 @"attachValue" : @{}
             },

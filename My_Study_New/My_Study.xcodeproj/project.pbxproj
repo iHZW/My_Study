@@ -24,13 +24,16 @@
 		2D70E35441058598961FAB68 /* baby_waiting.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030870127EACE1DB8C33DDDA /* baby_waiting.wav */; };
 		2E268F9717574E22A6CEF969 /* baby_nightlight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C248BF236C6634A09158A52A /* baby_nightlight.wav */; };
 		2EEA97CFB76E0CCC6417332C /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
+		31B3470181E3C7B20CD84681 /* ZWBeautyCameraEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */; };
 		321168920DA6D86FFC980489 /* CRMNearbyDrawingDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D04B1C8DB4B6E1A624314B /* CRMNearbyDrawingDocument.m */; };
 		36488F40D24E7232CE538701 /* baby_cloud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1211D70ED9C20777598DA022 /* baby_cloud.wav */; };
+		37FEE6B6A893C207BD5895CC /* ZWBeautyCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */; };
 		3A77F41D680F89E233451FAA /* CRMBabyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */; };
 		3E4D715AF09020B37576442A /* baby_firefly.wav in Resources */ = {isa = PBXBuildFile; fileRef = FB582A82133BEEC32AA74D0F /* baby_firefly.wav */; };
 		3FF459E45F4A6692F9690BE9 /* baby_star.wav in Resources */ = {isa = PBXBuildFile; fileRef = 362D8CA8A7F422C5C644BB4D /* baby_star.wav */; };
 		46499C2DE08804604DDF458D /* Pods_My_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02B3ED28729A93006E0DE3 /* Pods_My_Study.framework */; };
 		47604C39529FE5522A8C676B /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
+		48A1EC77BDF05746519401A5 /* ZWBeautyCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */; };
 		49747FBC2C724E7B59714CA9 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
 		4E0287B228695304003E723E /* RouterParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B128695304003E723E /* RouterParam.m */; };
 		4E0287B628695512003E723E /* RouterPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0287B528695512003E723E /* RouterPageItem.m */; };
@@ -615,9 +618,11 @@
 		55512C382B9EB6469B93B840 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9637ACA0743DC07C7E0435 /* MultipeerConnectivity.framework */; };
 		59B3FC3F5BAFEC2038514144 /* baby_humming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DD80D40DC8731DC1D9D9F84 /* baby_humming.wav */; };
 		5FBF484B41936FFED0518063 /* CRMNearbyDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F492CB5B861A443EC001D5EA /* CRMNearbyDrawingViewController.m */; };
+		6197CAD4BDBA50A49C68C1D3 /* ZWBeautyCameraEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */; };
 		62FFD0CC2135AEC9B9C1193E /* CRMBabyTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9159B94C4A3B636A1BBE155 /* CRMBabyTimeViewController.m */; };
 		6662DE5210B6AA6911F1AF4F /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
 		6964489A22DA48BEDA4C63C5 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
+		6F3EDCB3B8AB8FC9B1FACCA8 /* ZWBeautyCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */; };
 		7087FBDA9518A682244DC3D8 /* baby_nightlight.wav in Resources */ = {isa = PBXBuildFile; fileRef = C248BF236C6634A09158A52A /* baby_nightlight.wav */; };
 		73E958E82326A5C71F4BDBE8 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
 		76839BEC51DEB075A9CAAF95 /* baby_river.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12D1347EFEF51A170271729A /* baby_river.wav */; };
@@ -2205,11 +2210,24 @@
 		DE0F62B61FA8E69D2EC7D2AF /* BabyTimeContent.json in Resources */ = {isa = PBXBuildFile; fileRef = A810A2417D752F94FCCE4598 /* BabyTimeContent.json */; };
 		DFCC32B53B953ACBC9628F56 /* baby_breeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787F37BCD0AE351AC1278D41 /* baby_breeze.wav */; };
 		E642B574CA62A47361661F00 /* CRMBabyContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */; };
+		EB0D2A58C3520467BFDC771A /* ZWBeautyCameraEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */; };
 		EE2DB70F224B71BEB4BD22C5 /* baby_morning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B1CFA0066D35DF22C4B76 /* baby_morning.wav */; };
 		EFFDF23B68611DBD8BF47E1E /* baby_dandelion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 80E2C81E31B874698049ED37 /* baby_dandelion.wav */; };
 		F37D89584D5ED0B2DB8ED719 /* CRMBabyContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A784DA3207F310FB5E13C5E7 /* CRMBabyContent.m */; };
 		FC3BEA6BD6C43A96CDE82E8C /* CRMNearbyDrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F492CB5B861A443EC001D5EA /* CRMNearbyDrawingViewController.m */; };
 		FC739DBB3BEBD2F61F26BEB1 /* baby_sunset.wav in Resources */ = {isa = PBXBuildFile; fileRef = CF1C74159CFEDD54EFD28331 /* baby_sunset.wav */; };
+		25C0640DA3F24D7281D89AC3 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
+		D8DA1CFD2BC34C9D8D0F79F3 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
+		4E3486F6EE49481F964F3A03 /* ZWMemberApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238CEF36D2347E48116CF9C /* ZWMemberApi.m */; };
+		970180521A44473B8CCE2A12 /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
+		93A6D26EFAD745358037595F /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
+		D78EDEDD18B149ABA00EDAB7 /* ZWMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */; };
+		ECCAEEBBA0F842EFAEA86558 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
+		142F0B5B22DD49C39B9144C3 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
+		5C46EAA76F36432DAA094665 /* ZWMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */; };
+		5796787F66F44512BC811925 /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
+		90856FFA135545C79B014727 /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
+		505FBF99F75E4DFE8A6976FF /* ZWMemberManageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3497,6 +3515,7 @@
 		4EFECFF6287DC47400B137BB /* Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transcoder.h; sourceTree = "<group>"; };
 		51367579A1EAE6E8D78619A7 /* CRMNearbyDrawingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMNearbyDrawingViewController.h; sourceTree = "<group>"; };
 		555B38C7708360445FE364E6 /* CRMBabyAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyAudio.m; sourceTree = "<group>"; };
+		603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZWBeautyCameraEngine.m; sourceTree = "<group>"; };
 		648B8FF34789301862B11DE8 /* Pods_My_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		787F37BCD0AE351AC1278D41 /* baby_breeze.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_breeze.wav; sourceTree = "<group>"; };
 		7A32A3E21C4ECBA9E7884BEB /* CRMNearbyDrawingDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMNearbyDrawingDocument.h; sourceTree = "<group>"; };
@@ -3832,13 +3851,25 @@
 		DAFF08362D421505001F344E /* ZWCustomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWCustomeView.m; sourceTree = "<group>"; };
 		DC33B0FBDE954649D3BD1AE5 /* Pods-My_StudyNotificationService.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa.xcconfig"; sourceTree = "<group>"; };
 		E26B4F03CC25AC55E6AFC88B /* Pods-My_StudyNotificationService.qa_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_StudyNotificationService.qa_dev.xcconfig"; path = "Target Support Files/Pods-My_StudyNotificationService/Pods-My_StudyNotificationService.qa_dev.xcconfig"; sourceTree = "<group>"; };
+		E4AF9B106CED59DC2E414B1D /* ZWBeautyCameraViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZWBeautyCameraViewController.h; sourceTree = "<group>"; };
 		EE22E99FBC3EA4D8D47D96EA /* Pods-My_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My_Study.release.xcconfig"; path = "Target Support Files/Pods-My_Study/Pods-My_Study.release.xcconfig"; sourceTree = "<group>"; };
+		EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZWBeautyCameraViewController.m; sourceTree = "<group>"; };
 		EF9637ACA0743DC07C7E0435 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		F492CB5B861A443EC001D5EA /* CRMNearbyDrawingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMNearbyDrawingViewController.m; sourceTree = "<group>"; };
 		F61A9C73F38FE2BEFC0AA8D8 /* CRMBabyStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CRMBabyStore.m; sourceTree = "<group>"; };
 		F9971266B4EB0BDD2D255FBD /* CRMBabyTimeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRMBabyTimeViewController.h; sourceTree = "<group>"; };
 		FB582A82133BEEC32AA74D0F /* baby_firefly.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_firefly.wav; sourceTree = "<group>"; };
+		FBA24220AC8FA6BA682ACD61 /* ZWBeautyCameraEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZWBeautyCameraEngine.h; sourceTree = "<group>"; };
 		FBD6366F5EFA07BD8C4B92AC /* baby_garden.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = baby_garden.wav; sourceTree = "<group>"; };
+		A2F5FE12E9564DAFACA9925F /* ZWMemberApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberApi.h; sourceTree = "<group>"; };
+		1238CEF36D2347E48116CF9C /* ZWMemberApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberApi.m; sourceTree = "<group>"; };
+		86FAECC5E4DB4AA4A94BE41A /* ZWMemberListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberListViewController.h; sourceTree = "<group>"; };
+		E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberListViewController.m; sourceTree = "<group>"; };
+		D3F6908BB4A5430380A238D9 /* ZWMemberDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberDetailViewController.h; sourceTree = "<group>"; };
+		D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberDetailViewController.m; sourceTree = "<group>"; };
+		C586E3BB69504FFA96E1A1F0 /* ZWMemberManageModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberManageModule.h; sourceTree = "<group>"; };
+		FADAFFDD5DB4470EB51424E2 /* ZWMemberStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWMemberStyle.h; sourceTree = "<group>"; };
+		053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWMemberManageModule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5755,6 +5786,10 @@
 				4EA986EC287C36E30095ECF9 /* ZWCameraViewController.m */,
 				4EA986FF287C3D8F0095ECF9 /* ZWCameraPreViewController.h */,
 				4EA98700287C3D8F0095ECF9 /* ZWCameraPreViewController.m */,
+				FBA24220AC8FA6BA682ACD61 /* ZWBeautyCameraEngine.h */,
+				603B8ED8B305952A165F5E16 /* ZWBeautyCameraEngine.m */,
+				E4AF9B106CED59DC2E414B1D /* ZWBeautyCameraViewController.h */,
+				EF17CAAC5C51868BBC6C391D /* ZWBeautyCameraViewController.m */,
 			);
 			path = CustomCamera;
 			sourceTree = "<group>";
@@ -6028,6 +6063,7 @@
 				4ED5119F2A8F399200C07112 /* SZJsonLog */,
 				4ED26ADB287EB9F100F0EDFE /* Tools */,
 				7A7609006122E63D06036B0D /* BabyTime */,
+				0C760424433A4F5EA37782A6 /* MemberManage */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -8034,6 +8070,22 @@
 			path = ZWCustomSwiper;
 			sourceTree = "<group>";
 		};
+		0C760424433A4F5EA37782A6 /* MemberManage */ = {
+			isa = PBXGroup;
+			children = (
+				A2F5FE12E9564DAFACA9925F /* ZWMemberApi.h */,
+				1238CEF36D2347E48116CF9C /* ZWMemberApi.m */,
+				86FAECC5E4DB4AA4A94BE41A /* ZWMemberListViewController.h */,
+				E88C32C9D4EE4638B154D1A6 /* ZWMemberListViewController.m */,
+				D3F6908BB4A5430380A238D9 /* ZWMemberDetailViewController.h */,
+				D5BF82F055134F32AAB6F4D0 /* ZWMemberDetailViewController.m */,
+				C586E3BB69504FFA96E1A1F0 /* ZWMemberManageModule.h */,
+				FADAFFDD5DB4470EB51424E2 /* ZWMemberStyle.h */,
+				053B9FE13E8F4A34B47BEA7C /* ZWMemberManageModule.m */,
+			);
+			path = MemberManage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -8600,6 +8652,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C0640DA3F24D7281D89AC3 /* ZWMemberApi.m in Sources */,
+				970180521A44473B8CCE2A12 /* ZWMemberListViewController.m in Sources */,
+				ECCAEEBBA0F842EFAEA86558 /* ZWMemberDetailViewController.m in Sources */,
+				5796787F66F44512BC811925 /* ZWMemberManageModule.m in Sources */,
 				C0A260012E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */,
 				4E6681A92927350F00C635BF /* UITableView+EHIndexView.m in Sources */,
 				4EDC0B5E286308D6001C53CE /* NSOrderedSet+Safe.m in Sources */,
@@ -9227,6 +9283,8 @@
 				62FFD0CC2135AEC9B9C1193E /* CRMBabyTimeViewController.m in Sources */,
 				321168920DA6D86FFC980489 /* CRMNearbyDrawingDocument.m in Sources */,
 				D9C08C26807ED2540131D7C7 /* CRMNearbyDrawingViewController.m in Sources */,
+				EB0D2A58C3520467BFDC771A /* ZWBeautyCameraEngine.m in Sources */,
+				48A1EC77BDF05746519401A5 /* ZWBeautyCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9234,6 +9292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DA1CFD2BC34C9D8D0F79F3 /* ZWMemberApi.m in Sources */,
+				93A6D26EFAD745358037595F /* ZWMemberListViewController.m in Sources */,
+				142F0B5B22DD49C39B9144C3 /* ZWMemberDetailViewController.m in Sources */,
+				90856FFA135545C79B014727 /* ZWMemberManageModule.m in Sources */,
 				C0A260022E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */,
 				DAEEBF682B58BE8C00258456 /* UITableView+EHIndexView.m in Sources */,
 				DAEEBF692B58BE8C00258456 /* NSOrderedSet+Safe.m in Sources */,
@@ -9850,6 +9912,8 @@
 				2EEA97CFB76E0CCC6417332C /* CRMBabyTimeViewController.m in Sources */,
 				7EAF44B75176F3A3B08A0E59 /* CRMNearbyDrawingDocument.m in Sources */,
 				5FBF484B41936FFED0518063 /* CRMNearbyDrawingViewController.m in Sources */,
+				31B3470181E3C7B20CD84681 /* ZWBeautyCameraEngine.m in Sources */,
+				6F3EDCB3B8AB8FC9B1FACCA8 /* ZWBeautyCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9857,6 +9921,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E3486F6EE49481F964F3A03 /* ZWMemberApi.m in Sources */,
+				D78EDEDD18B149ABA00EDAB7 /* ZWMemberListViewController.m in Sources */,
+				5C46EAA76F36432DAA094665 /* ZWMemberDetailViewController.m in Sources */,
+				505FBF99F75E4DFE8A6976FF /* ZWMemberManageModule.m in Sources */,
 				C0A260032E00000100A1B2C3 /* CRMAlarmKitBridge.swift in Sources */,
 				DAEEC2342B58BE9000258456 /* UITableView+EHIndexView.m in Sources */,
 				DAEEC2352B58BE9000258456 /* NSOrderedSet+Safe.m in Sources */,
@@ -10473,6 +10541,8 @@
 				95E39DD9372901549C6E0D44 /* CRMBabyTimeViewController.m in Sources */,
 				8B2CBAD7D7B2FB878B2A3614 /* CRMNearbyDrawingDocument.m in Sources */,
 				FC3BEA6BD6C43A96CDE82E8C /* CRMNearbyDrawingViewController.m in Sources */,
+				6197CAD4BDBA50A49C68C1D3 /* ZWBeautyCameraEngine.m in Sources */,
+				37FEE6B6A893C207BD5895CC /* ZWBeautyCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

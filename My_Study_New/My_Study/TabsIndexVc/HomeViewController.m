@@ -21,6 +21,7 @@
 #import "TestKLineViewController.h"
 #import "ZWCommonWebPage.h"
 #import "CRMBabyTimeViewController.h"
+#import "ZWBeautyCameraViewController.h"
 
 #define kJumpWebViewID      @"kDefaultJumpWebViewID"
 
@@ -336,6 +337,11 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
     self.featureDetails = @[@"孕期胎教 · 出生后共读 · 成长手记", @"iOS · 线程与 RunLoop", @"跨端 · 基础页面", @"跨端 · Native 与 Flutter", @"跨端 · 多级页面链路", @"跨端 · 统一路由", @"跨端 · 页面容器", @"iOS · 内存与回调", @"图表 · 行情可视化", @"RAC · 响应式列表", @"RAC · MVVM 实践", @"工具 · 设备内服务", @"iOS · 异步编程", @"工具 · WebView"];
     self.featureIcons = @[@"🌱", @"🧪", @"🫧", @"🔀", @"🧩", @"🧭", @"🚀", @"🔗", @"📈", @"⚡️", @"🧱", @"🌐", @"⏱", @"🔎"];
 
+    // 插入首位并同步描述数组，原有菜单及其索引关系保持不变。
+    [self.dataList insertObject:[BaseCellModel modelWithTitle:@"美颜相机" clazz:ZWBeautyCameraViewController.class] atIndex:0];
+    self.featureDetails = [@[@"实时美颜 · 拍照 · 有声视频"] arrayByAddingObjectsFromArray:self.featureDetails];
+    self.featureIcons = [@[@"📷"] arrayByAddingObjectsFromArray:self.featureIcons];
+
 }
 
 - (void)setupUI {
@@ -441,6 +447,12 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     BaseCellModel *model = self.dataList[indexPath.row];
+    if (model.clazz == ZWBeautyCameraViewController.class) {
+        ZWBeautyCameraViewController *page = [ZWBeautyCameraViewController new];
+        page.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:page animated:YES];
+        return;
+    }
     if (model.clazz == CRMBabyTimeViewController.class) {
         CRMBabyTimeViewController *page = [CRMBabyTimeViewController new];
         page.hidesBottomBarWhenPushed = YES;
@@ -448,7 +460,7 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
         return;
     }
     NSString *url        = kClientChatDetailURL;
-    switch (indexPath.row - 1) {
+    switch (indexPath.row - 2) {
         case 0:
             url = kClientChatDetailURL;
             break;

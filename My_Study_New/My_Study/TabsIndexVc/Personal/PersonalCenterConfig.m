@@ -12,6 +12,8 @@
 static NSString * const kUserInfoModule = @"userInfo";
 /** 设置/登录  */
 static NSString * const kSettingLogoutModule = @"settingLogout";
+/** 会员管理  */
+static NSString * const kMemberManageModule = @"memberManage";
 
 
 @interface PersonalCenterConfig ()
@@ -27,7 +29,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(PersonalCenterConfig)
 {
     if (self = [super init]) {
         self.modulesKeyArray = [NSMutableArray array];
-        self.modulekeys = @[kUserInfoModule, kSettingLogoutModule];
+        self.modulekeys = @[kUserInfoModule, kMemberManageModule, kSettingLogoutModule];
     }
     return self;
 }
@@ -39,6 +41,7 @@ DEFINE_SINGLETON_T_FOR_CLASS(PersonalCenterConfig)
     //key:unique key string, value: unique modules calss name
     return @{
              kUserInfoModule : @"ZWUserHeaderModule",
+             kMemberManageModule : @"ZWMemberManageModule",
              kSettingLogoutModule : @"ZWSettingLogoutModule"
             };
 }

@@ -119,3 +119,19 @@ Index
 
 #serena
 .serena
+
+# Node.js 依赖与构建产物
+node_modules/
+dist/
+*.tsbuildinfo
+
+# 本地配置、日志与工程备份
+*.log
+.env
+.env.local
+.env.*.local
+*.bak-member
+
+# 会员系统本地数据与备份
+/member-system/server/data/
+/member-system/backups/

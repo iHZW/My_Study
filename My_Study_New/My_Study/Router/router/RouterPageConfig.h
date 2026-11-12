@@ -36,6 +36,8 @@ UIKIT_EXTERN NSString *const ZWRouterPageDebugLogHome;
 UIKIT_EXTERN NSString *const ZWRouterPageCommonWebView;
 /** 设置界面  */
 UIKIT_EXTERN NSString *const ZWRouterPageSettingViewController;
+/** 会员管理-会员列表  */
+UIKIT_EXTERN NSString *const ZWRouterPageMemberListViewController;
 /** AlertView 使用页  */
 UIKIT_EXTERN NSString *const ZWRouterPageShowAlertViewController;
 /** 切换环境  */

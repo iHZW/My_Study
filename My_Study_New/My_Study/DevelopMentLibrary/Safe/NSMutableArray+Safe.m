@@ -9,6 +9,31 @@
 #import "NSMutableArray+Safe.h"
 #import "WMSafeProxy.h"
 
+// 每个具体类独立保存原始实现，避免通过共享 Hook 选择器回调产生递归。
+static void WMInstallSafeArrayInsert(Class cls) {
+    if (!cls) return;
+    SEL selector = @selector(insertObject:atIndex:);
+    Method method = class_getInstanceMethod(cls, selector);
+    if (!method) return;
+
+    void (*originalInsert)(id, SEL, id, NSUInteger) =
+        (void (*)(id, SEL, id, NSUInteger))method_getImplementation(method);
+    IMP safeInsert = imp_implementationWithBlock(^(NSMutableArray *array, id object, NSUInteger index) {
+        @synchronized (array) {
+            if (!object) {
+                SFAssert(NO, @"NSMutableArray 插入对象不能为空");
+                return;
+            }
+            if (index > array.count) {
+                SFAssert(NO, @"NSMutableArray 插入下标越界：%@，数量：%@", @(index), @(array.count));
+                return;
+            }
+            originalInsert(array, selector, object, index);
+        }
+    });
+    class_replaceMethod(cls, selector, safeInsert, method_getTypeEncoding(method));
+}
+
 @implementation NSMutableArray (Safe)
 
 + (void)load
@@ -22,7 +47,7 @@
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(objectAtIndexedSubscript:), @selector(hookObjectAtIndexedSubscript:));
         
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(addObject:), @selector(hookAddObject:));
-        swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(insertObject:atIndex:), @selector(hookInsertObject:atIndex:));
+        WMInstallSafeArrayInsert(NSClassFromString(@"__NSArrayM"));
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(removeObjectAtIndex:), @selector(hookRemoveObjectAtIndex:));
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(replaceObjectAtIndex:withObject:), @selector(hookReplaceObjectAtIndex:withObject:));
         swizzleInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(removeObjectsInRange:), @selector(hookRemoveObjectsInRange:));
@@ -33,7 +58,7 @@
         swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(objectAtIndexedSubscript:), @selector(hookObjectAtIndexedSubscript:));
         
         swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(addObject:), @selector(hookAddObject:));
-        swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(insertObject:atIndex:), @selector(hookInsertObject:atIndex:));
+        WMInstallSafeArrayInsert(NSClassFromString(@"__NSCFArray"));
         swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(removeObjectAtIndex:), @selector(hookRemoveObjectAtIndex:));
         swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(replaceObjectAtIndex:withObject:), @selector(hookReplaceObjectAtIndex:withObject:));
         swizzleInstanceMethod(NSClassFromString(@"__NSCFArray"), @selector(removeObjectsInRange:), @selector(hookRemoveObjectsInRange:));
@@ -66,21 +91,6 @@
         return nil;
     }
 }
-- (void) hookInsertObject:(id)anObject atIndex:(NSUInteger)index {
-    @synchronized (self) {
-        if (anObject && index <= self.count) {
-            [self hookInsertObject:anObject atIndex:index];
-        } else {
-            if (!anObject) {
-                SFAssert(NO, @"NSMutableArray invalid args hookInsertObject:[%@] atIndex:[%@]", anObject, @(index));
-            }
-            if (index > self.count) {
-                SFAssert(NO, @"NSMutableArray hookInsertObject[%@] atIndex:[%@] out of bound:[%@]", anObject, @(index), @(self.count));
-            }
-        }
-    }
-}
-
 - (void) hookRemoveObjectAtIndex:(NSUInteger)index {
     @synchronized (self) {
         if (index < self.count) {

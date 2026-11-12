@@ -1,0 +1,27 @@
+{
+  "name": "member-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "本地部署的会员管理系统：NestJS + SQLite 后端、Vue3 管理后台、iOS 端会员入口",
+  "scripts": {
+    "install:all": "pnpm install",
+    "dev": "concurrently -n server,admin -c cyan,magenta \"pnpm --filter server start:dev\" \"pnpm --filter admin dev\"",
+    "dev:server": "pnpm --filter server start:dev",
+    "dev:admin": "pnpm --filter admin dev",
+    "build": "pnpm --filter admin build && pnpm --filter server build",
+    "start": "pnpm --filter server start:prod"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild",
+      "vue-demi"
+    ]
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

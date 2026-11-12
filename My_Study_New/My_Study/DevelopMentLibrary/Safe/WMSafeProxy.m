@@ -64,6 +64,16 @@ void swizzleInstanceMethod(Class cls, SEL origSelector, SEL newSelector)
     Method originalMethod = class_getInstanceMethod(cls, origSelector);
     Method swizzledMethod = class_getInstanceMethod(cls, newSelector);
     
+    // 私有类可能随系统版本变化，方法不存在时不能安装无法回调的 Hook。
+    if (!originalMethod || !swizzledMethod || origSelector == newSelector) {
+        return;
+    }
+
+    // 子类可能继承了父类已安装的 Hook；再次交换会让回调指向 Hook 自身。
+    if (method_getImplementation(originalMethod) == method_getImplementation(swizzledMethod)) {
+        return;
+    }
+
     /* add selector if not exist, implement append with method */
     if (class_addMethod(cls,
                         origSelector,
