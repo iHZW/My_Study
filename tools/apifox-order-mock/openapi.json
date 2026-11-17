@@ -1,0 +1,659 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "登录与订单 Mock",
+    "version": "1.0.0",
+    "description": "本地有状态 Mock 用于真实鉴权和 CRUD；内置 Mock 示例不能代替状态校验。"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:18080/mock-order/v1",
+      "description": "本地有状态 Mock"
+    }
+  ],
+  "tags": [
+    {
+      "name": "登录与订单 Mock"
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "登录",
+        "tags": [
+          "登录与订单 Mock"
+        ],
+        "operationId": "post_auth_login",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "code",
+                    "errmsg",
+                    "data",
+                    "timestamp"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "0"
+                      ]
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "errmsg": {
+                      "type": "string"
+                    },
+                    "data": {},
+                    "timestamp": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "1",
+                  "code": 0,
+                  "errmsg": "",
+                  "data": {
+                    "token": "mock-example-token"
+                  },
+                  "timestamp": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未登录或 token 失效"
+          },
+          "422": {
+            "description": "参数校验失败"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "username": "demo",
+                "password": "demo12345"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "退登",
+        "tags": [
+          "登录与订单 Mock"
+        ],
+        "operationId": "post_auth_logout",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "code",
+                    "errmsg",
+                    "data",
+                    "timestamp"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "0"
+                      ]
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "errmsg": {
+                      "type": "string"
+                    },
+                    "data": {},
+                    "timestamp": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "1",
+                  "code": 0,
+                  "errmsg": "",
+                  "data": {
+                    "loggedOut": true
+                  },
+                  "timestamp": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未登录或 token 失效"
+          },
+          "422": {
+            "description": "参数校验失败"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {}
+            }
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "summary": "新增订单",
+        "tags": [
+          "登录与订单 Mock"
+        ],
+        "operationId": "post_orders",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "code",
+                    "errmsg",
+                    "data",
+                    "timestamp"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "0"
+                      ]
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "errmsg": {
+                      "type": "string"
+                    },
+                    "data": {},
+                    "timestamp": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "1",
+                  "code": 0,
+                  "errmsg": "",
+                  "data": {
+                    "id": 1,
+                    "title": "测试订单",
+                    "amount": 19900,
+                    "quantity": 2,
+                    "status": "draft",
+                    "remark": "",
+                    "createdAt": 0,
+                    "updatedAt": 0
+                  },
+                  "timestamp": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未登录或 token 失效"
+          },
+          "422": {
+            "description": "参数校验失败"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "remark": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "title": "自动化测试订单",
+                "amount": 19900,
+                "quantity": 2,
+                "status": "draft",
+                "remark": "仅用于 Mock 验证"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "订单列表",
+        "tags": [
+          "登录与订单 Mock"
+        ],
+        "operationId": "get_orders",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "code",
+                    "errmsg",
+                    "data",
+                    "timestamp"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "0"
+                      ]
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "errmsg": {
+                      "type": "string"
+                    },
+                    "data": {},
+                    "timestamp": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "1",
+                  "code": 0,
+                  "errmsg": "",
+                  "data": {
+                    "list": [
+                      {
+                        "id": 1,
+                        "title": "测试订单",
+                        "amount": 19900,
+                        "quantity": 2,
+                        "status": "draft",
+                        "remark": "",
+                        "createdAt": 0,
+                        "updatedAt": 0
+                      }
+                    ],
+                    "total": 1,
+                    "page": 1,
+                    "size": 20
+                  },
+                  "timestamp": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未登录或 token 失效"
+          },
+          "422": {
+            "description": "参数校验失败"
+          }
+        }
+      }
+    },
+    "/orders/{orderId}": {
+      "get": {
+        "summary": "订单详情",
+        "tags": [
+          "登录与订单 Mock"
+        ],
+        "operationId": "get_orders_orderId",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "code",
+                    "errmsg",
+                    "data",
+                    "timestamp"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "0"
+                      ]
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "errmsg": {
+                      "type": "string"
+                    },
+                    "data": {},
+                    "timestamp": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "1",
+                  "code": 0,
+                  "errmsg": "",
+                  "data": {
+                    "id": 1,
+                    "title": "测试订单",
+                    "amount": 19900,
+                    "quantity": 2,
+                    "status": "draft",
+                    "remark": "",
+                    "createdAt": 0,
+                    "updatedAt": 0
+                  },
+                  "timestamp": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未登录或 token 失效"
+          },
+          "422": {
+            "description": "参数校验失败"
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ]
+      },
+      "put": {
+        "summary": "编辑订单",
+        "tags": [
+          "登录与订单 Mock"
+        ],
+        "operationId": "put_orders_orderId",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "code",
+                    "errmsg",
+                    "data",
+                    "timestamp"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "0"
+                      ]
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "errmsg": {
+                      "type": "string"
+                    },
+                    "data": {},
+                    "timestamp": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "1",
+                  "code": 0,
+                  "errmsg": "",
+                  "data": {
+                    "id": 1,
+                    "title": "测试订单",
+                    "amount": 19900,
+                    "quantity": 2,
+                    "status": "draft",
+                    "remark": "",
+                    "createdAt": 0,
+                    "updatedAt": 0
+                  },
+                  "timestamp": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未登录或 token 失效"
+          },
+          "422": {
+            "description": "参数校验失败"
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "remark": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "title": "已编辑订单",
+                "amount": 29900,
+                "quantity": 3,
+                "status": "confirmed",
+                "remark": "仅用于 Mock 验证"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "删除订单",
+        "tags": [
+          "登录与订单 Mock"
+        ],
+        "operationId": "delete_orders_orderId",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "code",
+                    "errmsg",
+                    "data",
+                    "timestamp"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "1",
+                        "0"
+                      ]
+                    },
+                    "code": {
+                      "type": "integer"
+                    },
+                    "errmsg": {
+                      "type": "string"
+                    },
+                    "data": {},
+                    "timestamp": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "1",
+                  "code": 0,
+                  "errmsg": "",
+                  "data": {
+                    "id": 1,
+                    "deleted": true
+                  },
+                  "timestamp": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "未登录或 token 失效"
+          },
+          "422": {
+            "description": "参数校验失败"
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

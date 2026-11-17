@@ -1,0 +1,590 @@
+{
+  "info": {
+    "name": "登录与订单 Mock｜完整自动化验收",
+    "description": "独立分组：有状态登录鉴权、订单增删改查。服务地址 http://127.0.0.1:18080/mock-order/v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "登录订单闭环与鉴权校验",
+      "item": [
+        {
+          "name": "01 未登录禁止查询列表",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "02 错误账号禁止登录",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/auth/login",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"demo\",\n  \"password\": \"wrong\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "03 登录并提取 token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/auth/login",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"demo\",\n  \"password\": \"demo12345\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.test(\"登录返回 token\", function () { pm.expect(data.data.token).to.be.a(\"string\").and.not.empty; });",
+                  "pm.environment.set(\"mockToken\", data.data.token);",
+                  "pm.environment.unset(\"orderId\");"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "04 新增订单并提取 ID",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"自动化测试订单\",\n  \"amount\": 19900,\n  \"quantity\": 2,\n  \"status\": \"draft\",\n  \"remark\": \"仅用于 Mock 验证\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.environment.set(\"orderId\", data.data.id);",
+                  "pm.test(\"订单创建成功\", function () { pm.expect(data.data.title).to.eql(\"自动化测试订单\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "05 查询订单详情",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders/{{orderId}}",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.test(\"详情 ID 正确\", function () { pm.expect(String(data.data.id)).to.eql(String(pm.environment.get(\"orderId\"))); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "06 编辑订单",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders/{{orderId}}",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"已编辑订单\",\n  \"amount\": 29900,\n  \"quantity\": 3,\n  \"status\": \"confirmed\",\n  \"remark\": \"仅用于 Mock 验证\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.test(\"订单更新成功\", function () { pm.expect(data.data.title).to.eql(\"已编辑订单\"); pm.expect(data.data.amount).to.eql(29900); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "07 再查详情验证修改已保存",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders/{{orderId}}",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.test(\"编辑结果已持久化\", function () { pm.expect(data.data.title).to.eql(\"已编辑订单\"); pm.expect(data.data.quantity).to.eql(3); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "08 查询订单列表",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders?page=1&size=20",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.test(\"列表包含本次订单\", function () { pm.expect(data.data.list.some(function (x) { return String(x.id) === String(pm.environment.get(\"orderId\")); })).to.eql(true); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "09 缺少 token 禁止新增",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"自动化测试订单\",\n  \"amount\": 19900,\n  \"quantity\": 2,\n  \"status\": \"draft\",\n  \"remark\": \"仅用于 Mock 验证\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "10 伪造 token 禁止编辑",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer invalid-test-token",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders/{{orderId}}",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"已编辑订单\",\n  \"amount\": 29900,\n  \"quantity\": 3,\n  \"status\": \"confirmed\",\n  \"remark\": \"仅用于 Mock 验证\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "11 非法金额拒绝新增",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"自动化测试订单\",\n  \"amount\": -1,\n  \"quantity\": 2,\n  \"status\": \"draft\",\n  \"remark\": \"仅用于 Mock 验证\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 422\", function () { pm.response.to.have.status(422); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "12 删除订单",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders/{{orderId}}",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.test(\"删除成功\", function () { pm.expect(data.data.deleted).to.eql(true); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "13 删除后详情返回404",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders/{{orderId}}",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 404\", function () { pm.response.to.have.status(404); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "14 退登",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/auth/logout",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });",
+                  "pm.test(\"退登成功\", function () { pm.expect(data.data.loggedOut).to.eql(true); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "15 退登后旧 token 禁止查询",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "16 退登后旧 token 禁止删除",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{mockToken}}",
+                "type": "text"
+              }
+            ],
+            "url": "http://127.0.0.1:18080/mock-order/v1/orders/{{orderId}}",
+            "description": "本地有状态 Mock。测试账号 demo / demo12345；业务数据仅供测试。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 401\", function () { pm.response.to.have.status(401); });",
+                  "var data = pm.response.json();",
+                  "pm.test(\"统一响应结构\", function () { pm.expect(data).to.have.keys(\"status\", \"code\", \"errmsg\", \"data\", \"timestamp\"); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "mockToken",
+      "value": ""
+    },
+    {
+      "key": "orderId",
+      "value": ""
+    }
+  ]
+}
