@@ -22,6 +22,7 @@
 #import "TestKLineViewController.h"
 #import "ZWCommonWebPage.h"
 #import "CRMBabyTimeViewController.h"
+#import "CRMGeneratedGalleryViewController.h"
 #import "ZWBeautyCameraViewController.h"
 
 #define kJumpWebViewID      @"kDefaultJumpWebViewID"
@@ -314,6 +315,7 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
 - (void)setupDatas {
     [self.dataList removeAllObjects];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"胎教与宝宝时光" clazz:[CRMBabyTimeViewController class]]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"图片作品集" clazz:[CRMGeneratedGalleryViewController class]]];
 
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native 实验室" clazz:[RunLoopViewController class]]];
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"Flutter 首页示例" flutterPageName:@"first"]];
@@ -335,8 +337,8 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
     webModel.identificationName = kJumpWebViewID;
     [self.dataList addObject:webModel];
 
-    self.featureDetails = @[@"孕期胎教 · 出生后共读 · 成长手记", @"iOS · 线程与 RunLoop", @"跨端 · 基础页面", @"跨端 · Native 与 Flutter", @"跨端 · 多级页面链路", @"跨端 · 统一路由", @"跨端 · 页面容器", @"iOS · 内存与回调", @"图表 · 行情可视化", @"RAC · 响应式列表", @"RAC · MVVM 实践", @"工具 · 设备内服务", @"iOS · 异步编程", @"工具 · WebView"];
-    self.featureIcons = @[@"🌱", @"🧪", @"🫧", @"🔀", @"🧩", @"🧭", @"🚀", @"🔗", @"📈", @"⚡️", @"🧱", @"🌐", @"⏱", @"🔎"];
+    self.featureDetails = @[@"孕期胎教 · 出生后共读 · 成长手记", @"晚安故事 · 生活话题 · 分镜图片", @"iOS · 线程与 RunLoop", @"跨端 · 基础页面", @"跨端 · Native 与 Flutter", @"跨端 · 多级页面链路", @"跨端 · 统一路由", @"跨端 · 页面容器", @"iOS · 内存与回调", @"图表 · 行情可视化", @"RAC · 响应式列表", @"RAC · MVVM 实践", @"工具 · 设备内服务", @"iOS · 异步编程", @"工具 · WebView"];
+    self.featureIcons = @[@"🌱", @"🖼", @"🧪", @"🫧", @"🔀", @"🧩", @"🧭", @"🚀", @"🔗", @"📈", @"⚡️", @"🧱", @"🌐", @"⏱", @"🔎"];
 
     // 插入首位并同步描述数组，原有菜单及其索引关系保持不变。
     [self.dataList insertObject:[BaseCellModel modelWithTitle:@"美颜相机" clazz:ZWBeautyCameraViewController.class] atIndex:0];
@@ -448,6 +450,12 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     BaseCellModel *model = self.dataList[indexPath.row];
+    if (model.clazz == CRMGeneratedGalleryViewController.class) {
+        CRMGeneratedGalleryViewController *gallery = [[CRMGeneratedGalleryViewController alloc] init];
+        gallery.hidesBottomBarWhenPushed = YES;
+        [Router pushViewController:gallery navigationController:self.navigationController animated:YES];
+        return;
+    }
     RouterPageItem *registered = [ZWM.router pageForClassName:NSStringFromClass(model.clazz)];
     if (registered && ![model.identificationName isEqualToString:kJumpWebViewID]) {
         [ZWM.router openPath:registered.url parameters:@{@"title": model.title ?: @""}
@@ -455,7 +463,7 @@ static UIColor *CRMHomeColor(NSUInteger hex) {
         return;
     }
     NSString *url        = kClientChatDetailURL;
-    switch (indexPath.row - 2) {
+    switch (indexPath.row - 3) {
         case 0:
             url = kClientChatDetailURL;
             break;
